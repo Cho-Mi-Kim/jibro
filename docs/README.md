@@ -22,6 +22,8 @@
 
 ## 읽는 순서
 
+프론트엔드 업무 API와 판단한 세부 정책은 [프론트엔드 구현 계약](architecture/frontend-contracts.md)을 확인합니다. 백엔드 미구현 계약과 실제 동작 검증 범위를 구분합니다.
+
 1. 새 팀원은 [개발 시작 안내](getting-started.md)에 따라 환경을 준비하고 프론트·API·DB 연결을 확인합니다.
 2. 작업 전 [팀 컨벤션](conventions/team-conventions.md)과 [코딩 컨벤션](conventions/coding-conventions.md)을 확인합니다.
 3. 기능별로 [기획안](planning/project-proposal.md)과 [화면설계서](design/screen-spec.md)를 함께 보고 구현합니다.

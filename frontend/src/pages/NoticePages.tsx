@@ -227,6 +227,10 @@ export function NoticeDetailPage() {
                             </strong>
                         </p>
                         <EvidenceLink evidence={n.evidence} />
+                        <p>공고일 {n.publishedDate}</p>
+                        {n.attachments.map((attachment, index) => (
+                            <EvidenceLink key={index} evidence={attachment} />
+                        ))}
                         <small>
                             기본 정보 v{n.version} · 준비 안내{' '}
                             {n.guideVersion ? 'v' + n.guideVersion : '검수 전'}

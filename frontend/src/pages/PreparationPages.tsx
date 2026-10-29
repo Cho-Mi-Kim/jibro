@@ -1,6 +1,7 @@
 import { cx } from '../shared/styles/classes';
 import { safeUrl } from '../shared/ui/helpers';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useUnsavedChanges } from '../shared/ui/useUnsavedChanges';
 import { Link, useNavigate, useParams } from 'react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
@@ -166,12 +167,7 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
     const [answers, setAnswers] = useState<Record<string, Answer>>({});
     const [step, setStep] = useState(0);
     const [dirty, setDirty] = useState(false);
-    useEffect(() => {
-        if (!dirty) return;
-        const warn = (e: BeforeUnloadEvent) => e.preventDefault();
-        window.addEventListener('beforeunload', warn);
-        return () => window.removeEventListener('beforeunload', warn);
-    }, [dirty]);
+    useUnsavedChanges(dirty);
     const save = useMutation({
         mutationFn: () =>
             api.answers(p!.id, p!.revision, { ...p!.answers, ...answers }),
@@ -319,6 +315,7 @@ const stateNames: Record<DocumentState, string> = {
 function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
     const [state, setState] = useState(d.state);
     const [note, setNote] = useState(d.note);
+    useUnsavedChanges(state !== d.state || note !== d.note);
     const saved = useSaved();
     const mutation = useMutation({
         mutationFn: () => api.document(p.id, d.id, p.revision, state, note),
