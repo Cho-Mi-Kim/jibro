@@ -2,7 +2,7 @@
 
 - 기록일: 2026-10-30 (Asia/Seoul)
 - 기록 상태: 근거 정리·담당자 검토 전
-- 작업 상태: 진행 중
+- 작업 상태: 기능 통합·검증 완료
 - 유형: 문제 해결 / 개발 / 협업
 - 담당·검토: 사용자가 순차 검토·develop 병합을 요청. Codex가 코드 검토·수정·검증을 수행하며 사람의 별도 코드 승인으로 간주하지 않는다.
 - 관련 PR: [#3](https://github.com/Cho-Mi-Kim/jibro/pull/3) → [#4](https://github.com/Cho-Mi-Kim/jibro/pull/4) → [#5](https://github.com/Cho-Mi-Kim/jibro/pull/5) → [#6](https://github.com/Cho-Mi-Kim/jibro/pull/6) → [#7](https://github.com/Cho-Mi-Kim/jibro/pull/7) → [#8](https://github.com/Cho-Mi-Kim/jibro/pull/8) → [#9](https://github.com/Cho-Mi-Kim/jibro/pull/9) → [#10](https://github.com/Cho-Mi-Kim/jibro/pull/10)
@@ -42,7 +42,7 @@ PR #3부터 #10까지 순서대로 develop에 merge commit으로 병합하며 �
 
 - 수정 전 프론트 회귀 테스트: 신규 1건 실패, 기존 4건 통과. 실패 내용은 두 번째 서류의 미저장 메모 유실이다.
 - 수정 후 프론트 format/lint/typecheck/build 및 테스트 15건, 백엔드 IntelliJ 포맷·빌드·단위 5건·DB 통합 11건, 기록 자동화 7건이 통과했다. 총 38건이다.
-- PR #4의 독립 CI에서 React Fast Refresh 내보내기 경고가 발견되어 후속 PR의 모듈 분리만 앞당겨 반영한다. PR #5~#9의 독립 CI는 통과했다. 최종 develop 실서버 검증 결과는 병합 완료 후 추가한다.
+- PR #4의 독립 CI에서 React Fast Refresh 내보내기 경고가 발견되어 후속 PR의 모듈 분리만 앞당겨 반영한다. PR #5~#9의 독립 CI는 통과했다. 최종 develop 검증 결과는 아래와 같다.
 
 ## 기여·한계
 
@@ -54,7 +54,7 @@ PR #3부터 #10까지 순서대로 develop에 merge commit으로 병합하며 �
 
 ## 후속 작업
 
-- 병합 후 develop 기준 전체 테스트·실제 HTTP·브라우저 재확인 및 원격 CI 결과 기록.
+- 운영 키·실제 공고를 확보하면 외부 연동과 정책 정확성을 별도로 검증한다.
 - 제공자 키 설정 후 Google·카카오 로그인과 실제 LH 응답 별도 확인.
 - AWS 운영 배포, 실제 공고 검수, 새 공고 버전으로 기존 준비 기록을 옮기는 흐름은 기존 후속 범위를 유지.
 
@@ -65,3 +65,17 @@ PR #3부터 #10까지 순서대로 develop에 merge commit으로 병합하며 �
 - `backend/src/main/java/org/jibro/preparation/PreparationService.java`
 - `backend/src/test/java/org/jibro/preparation/PreparationProgressTest.java`
 - `docs/architecture/frontend-contracts.md`, `docs/architecture/backend-contracts.md`
+
+## 병합 후 확인 결과
+
+- PR #3~#10을 모두 develop으로 순차 병합했다. main 변경과 작업 브랜치 삭제는 하지 않았다.
+- 기능 통합 기준: 747a9e86702f68dabb4bac2e30b06a665e7a2f62. 최종 연동 브랜치와 실행 코드·설정·스크립트의 차이가 없고 선행 PR의 검토 기록만 추가되었음을 비교했다.
+- develop에서 `npm --prefix frontend run ci`, `gradlew -p backend build integrationTest --rerun-tasks`, `node --test scripts/project-history.test.mjs`를 다시 실행했다. 프론트 15건·백엔드 단위 5건·PostgreSQL 통합 11건·기록 7건, 총 38건과 전체 빌드가 통과했다.
+- [develop 통합 CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/40970346584): backend/frontend/project-history 모두 성공.
+- 새 JAR로 서버를 재시작한 뒤 `/api/v1/health`의 서버·DB UP을 확인했다. Vite 5173 프록시를 경유한 `scripts/verify-api.mjs`에서 가입, 로그인, 검색, 중복 준비 시작 방지, 조건·서류·일정 저장, 100%·집 5단계, 구버전 409, 일반 회원 관리자 403, 갱신 후 기록 복원, 로그아웃 후 갱신 401을 확인했다.
+- 실제 브라우저에서 기존 로컬 테스트 계정 로그인 → 조건 변경 → 두 서류 동시 입력 → 첫 서류 저장 후 두 번째 초안 유지 → 두 번째 저장 → 새로고침 후 두 메모·상태 복원 → 100%·집 5단계 → 로그아웃·홈 복귀를 확인했다.
+- 검증용 합성 계정·준비 기록은 로컬 샘플 DB에 남는다. 실제 개인정보나 정책 자료를 사용하지 않았다. 브라우저 캡처는 Git 제외 경로 `.tools/develop-documents-verified.png`, `.tools/develop-preparation-verified.png`에 보관했다.
+
+## 재시작 도구에서 추가로 해결한 문제
+
+PowerShell의 `ConvertFrom-Json`이 ISO 시각을 DateTime으로 바꾸어 `Stop-Preview.ps1`의 문자열 비교가 실패했다. 이전 서버를 종료하지 못해 새 JAR 시작 시 8080 포트 충돌을 실제로 확인했다. 프로세스 ID·실행 경로 검사는 유지하고 시작 시각을 UTC Ticks로 정규화해 비교하도록 수정했다. 기록된 기존 프로세스 두 개만 종료된 뒤 새 프로세스로 8080·5173이 열리는 것을 확인했고, 새 서버에서 위 HTTP·브라우저 검증을 수행했다. 이 도구 수정과 결과 문서는 [후속 PR #11](https://github.com/Cho-Mi-Kim/jibro/pull/11)로 관리한다.
