@@ -17,6 +17,8 @@
 
 설치 경로: [Node.js 공식](https://nodejs.org/en/download), [Temurin 공식](https://adoptium.net/temurin/releases/?version=17), [Docker Desktop 공식](https://docs.docker.com/desktop/setup/install/windows-install/).
 
+도구 준비 후 저장소 루트에서 `node scripts/project-history.mjs install`을 한 번 실행해 [작업 기록 hook](history/README.md)을 연결합니다. Git 설정은 clone에 포함되지 않으므로 팀원별로 설치합니다. 기존 hook 설정이 있으면 덮어쓰지 않고 안내합니다.
+
 ## 2. 프로젝트 생성 기준 — 이미 수행한 단계
 
 프론트엔드는 루트에서 다음 명령으로 React·TypeScript 템플릿을 만들었습니다. 현재 폴더에 다시 실행하지 않습니다.
