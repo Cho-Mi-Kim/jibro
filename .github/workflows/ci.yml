@@ -9,6 +9,15 @@ permissions:
   contents: read
 
 jobs:
+  project-history:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+      - run: node --test scripts/project-history.test.mjs
+
   frontend:
     runs-on: ubuntu-latest
     defaults:

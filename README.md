@@ -92,6 +92,7 @@ Java 포맷은 IntelliJ 공유 XML과 Spotless `idea()`로 구성했고 이 PC�
 
 ## 다음 문서
 
+- [자동 작업 기록·문제 해결·의사결정 목록](docs/history/README.md)
 - [프로젝트 문서 전체 안내](docs/README.md)
 - [팀 컨벤션](docs/conventions/team-conventions.md)
 - [코딩 컨벤션](docs/conventions/coding-conventions.md)
@@ -103,5 +104,15 @@ Java 포맷은 IntelliJ 공유 XML과 Spotless `idea()`로 구성했고 이 PC�
 - [백엔드 실행 안내](backend/README.md)
 - [검증 기록·남은 설정](docs/verification.md)
 - [실제 설치 버전 기록](docs/versions.md)
+
+## 작업 기록 자동화
+
+Codex는 루트 `AGENTS.md`에 따라 의미 있는 작업을 마치면 변경 이유·해결 과정·검증 결과를 `docs/history/entries/`에 기록합니다. 일반 커밋에서 기록이 누락된 경우에는 변경 파일 사실만 수집하도록 각 팀원이 clone 후 한 번 다음을 실행합니다.
+
+```powershell
+node scripts/project-history.mjs install
+```
+
+이 저장소의 로컬 Git hook만 설정하며 자동 커밋·push는 하지 않습니다. 판단 근거를 알 수 없는 항목은 ‘보완 필요’로 남깁니다. 설치·기록·부분 stage 보존·발표 활용 방법은 [작업 기록 안내](docs/history/README.md)를 확인합니다.
 
 최초 기준 커밋은 저장소 생성 단계의 예외로 `main`에 반영하고, 같은 커밋에서 `develop`을 시작합니다. 이후 작업은 최신 `develop`에서 `chore/{이슈번호}-common-...` 등 작업 브랜치를 만들어 PR로 진행합니다. 원격 변경·push·배포는 해당 작업에서 승인된 범위에 따라 수행합니다.
