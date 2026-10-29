@@ -82,3 +82,11 @@ Codex는 저장소·원격 상태 확인과 구현 순서 권고를 수행했다
 
 - `docs/history/entries/2026-10-30-implementation-readiness.md`
 - `docs/history/README.md` — 자동 목록 갱신
+
+## 2026-10-30 PR #4 독립 검사 보완
+
+- 사용자 요청: 누적 PR을 의존 순서대로 검토·병합하고 통합 검증한다.
+- 문제·근거: GitHub Actions 실행 40969015945에서 react-refresh/only-export-components 경고 3건 때문에 프론트 검사에 실패했다.
+- 선택·수정: 경고를 끄는 대신 후속 PR #5에 이미 있는 훅·일반 함수 분리만 PR #4에 앞당겨 반영했다. Session/useSession과 guideLabels/safeUrl을 별도 파일로 이동했다. 후속 화면·스타일 변경은 가져오지 않았다.
+- 검증: 수정 전 원격 실패를 확인했다. 수정 커밋의 원격 CI 통과 후에만 병합한다. AI가 검토·수정했으며 사람의 별도 승인은 미확인이다.
+- 발표 메모·후속: 누적 결과만 아니라 선행 브랜치도 독립적으로 빌드되게 보완했다. 최종 통합 결과는 후속 통합 검토 기록에 남긴다.
