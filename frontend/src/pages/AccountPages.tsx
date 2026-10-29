@@ -2,12 +2,17 @@ import { cx } from '../shared/styles/classes';
 import { safeReturn } from '../shared/api/returnPath';
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from '../app/useSession';
 import { api } from '../features/housing/api';
 import { demoMode } from '../shared/api/transport';
 import { Button, Card, Heading, Soon, State } from '../shared/ui/ui';
 export function LoginPage({ signup = false }: { signup?: boolean }) {
+    const providers = useQuery({
+        queryKey: ['auth', 'providers'],
+        queryFn: api.providers,
+        enabled: !demoMode,
+    });
     const [params] = useSearchParams();
     const navigate = useNavigate();
     const client = useQueryClient();
@@ -54,6 +59,12 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
     }
     return (
         <>
+            {params.get('oauthError') && (
+                <p role="alert">
+                    소셜 로그인을 완료하지 못했습니다. 이메일 동의 또는 기존
+                    계정 가입 여부를 확인해 주세요.
+                </p>
+            )}
             <Heading title={signup ? '회원가입' : '로그인'}>
                 내 준비를 저장하고 다음에 이어가세요.
             </Heading>
@@ -140,16 +151,28 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     <p>다른 계정으로 계속하기</p>
                     <Button
                         className={cx('secondary')}
+                        disabled={!providers.data?.includes('google')}
                         onClick={() => social('google')}
                     >
                         Google로 로그인
                     </Button>
                     <Button
                         className={cx('secondary')}
+                        disabled={!providers.data?.includes('kakao')}
                         onClick={() => social('kakao')}
                     >
                         카카오로 로그인
                     </Button>
+                    {providers.data?.length === 0 && (
+                        <p>
+                            현재 소셜 로그인 연결을 준비 중입니다. 이메일로
+                            계속해 주세요.
+                        </p>
+                    )}
+                    <State
+                        error={providers.error}
+                        retry={() => void providers.refetch()}
+                    />
                 </Card>
             )}
             <Link

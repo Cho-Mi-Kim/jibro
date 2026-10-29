@@ -105,11 +105,17 @@ export function calculate(p: Preparation): Preparation {
         (d) => d.state === 'READY' && d.necessity !== 'UNKNOWN',
     ).length;
     const recorded = p.schedules.filter((s) => s.recorded).length;
-    const progress = Math.round(
+    const rounded = Math.round(
         (p.questions.length ? known / p.questions.length : 0) * 30 +
             (docs.length ? ready / docs.length : 0) * 50 +
             (p.schedules.length ? recorded / p.schedules.length : 0) * 20,
     );
+    const progress =
+        known < p.questions.length ||
+        ready < docs.length ||
+        recorded < p.schedules.length
+            ? Math.min(99, rounded)
+            : rounded;
     const warnings = p.questions
         .filter((q) => !p.answers[q.id] || p.answers[q.id] === 'UNKNOWN')
         .map((q) => q.title);
@@ -206,10 +212,11 @@ export async function demoRequest<T>(
         items.sort(
             q.get('sort') === 'newest'
                 ? (a, b) =>
-                      b.publishedDate.localeCompare(a.publishedDate) ||
-                      a.id.localeCompare(b.id)
+                      (b.publishedDate ?? '').localeCompare(
+                          a.publishedDate ?? '',
+                      ) || a.id.localeCompare(b.id)
                 : (a, b) =>
-                      a.endDate.localeCompare(b.endDate) ||
+                      (a.endDate ?? '').localeCompare(b.endDate ?? '') ||
                       a.id.localeCompare(b.id),
         );
         const page = Math.max(0, Number(q.get('page')) || 0),
@@ -262,7 +269,7 @@ export async function demoRequest<T>(
                         {
                             id: 'apply',
                             title: '공식 신청 여부 확인',
-                            date: n.endDate,
+                            date: n.endDate ?? '',
                             recorded: false,
                             evidence,
                         },

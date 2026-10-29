@@ -45,7 +45,7 @@ export function PreparationNav({ p }: { p: Preparation }) {
             <p className={cx('context')}>
                 {p.title} · 기준 v{p.version}
             </p>
-            {p.guideState === 'CHANGE_REVIEW' && (
+            {p.guideState !== 'AVAILABLE' && (
                 <p className={cx('callout')}>
                     수정 공고 검토 중입니다. 기존 기록을 보존하며 변경 저장은
                     잠시 보류합니다.
@@ -251,7 +251,7 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                             answers[question.id] ??
                                             p.answers[question.id]
                                         ) ||
-                                        p.guideState === 'CHANGE_REVIEW'
+                                        p.guideState !== 'AVAILABLE'
                                     }
                                     onClick={() => save.mutate()}
                                 >
@@ -272,7 +272,7 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                         {p.answers[question.id] === 'YES'
                                             ? '입력 기준 확인'
                                             : p.answers[question.id] === 'NO'
-                                              ? '불일치 가능'
+                                              ? '해당 없음으로 답변'
                                               : p.answers[question.id] ===
                                                   'UNKNOWN'
                                                 ? '추가 확인 필요'
@@ -313,13 +313,19 @@ const stateNames: Record<DocumentState, string> = {
     RECHECK: '재확인',
 };
 function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
-    const [state, setState] = useState(d.state);
-    const [note, setNote] = useState(d.note);
+    const [draftState, setState] = useState<DocumentState | null>(null);
+    const [draftNote, setNote] = useState<string | null>(null);
+    const state = draftState ?? d.state;
+    const note = draftNote ?? d.note;
     useUnsavedChanges(state !== d.state || note !== d.note);
     const saved = useSaved();
     const mutation = useMutation({
         mutationFn: () => api.document(p.id, d.id, p.revision, state, note),
-        onSuccess: saved,
+        onSuccess: (next) => {
+            saved(next);
+            setState(null);
+            setNote(null);
+        },
     });
     return (
         <details className={cx('card')}>
@@ -350,6 +356,7 @@ function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
                 준비 상태
                 <select
                     value={state}
+                    disabled={mutation.isPending}
                     onChange={(e) => setState(e.target.value as DocumentState)}
                 >
                     {Object.entries(stateNames).map(([key, label]) => (
@@ -363,6 +370,7 @@ function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
                 메모 (개인정보·증빙 내용 입력 금지)
                 <textarea
                     maxLength={500}
+                    disabled={mutation.isPending}
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                 />
@@ -374,7 +382,7 @@ function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
             <Button
                 disabled={
                     mutation.isPending ||
-                    p.guideState === 'CHANGE_REVIEW' ||
+                    p.guideState !== 'AVAILABLE' ||
                     d.necessity === 'UNKNOWN' ||
                     d.necessity === 'NOT_APPLICABLE'
                 }
@@ -417,11 +425,7 @@ export function DocumentsPage() {
                         개
                     </p>
                     {p.documents.map((d) => (
-                        <DocumentEditor
-                            key={d.id + ':' + p.revision}
-                            p={p}
-                            d={d}
-                        />
+                        <DocumentEditor key={p.id + ':' + d.id} p={p} d={d} />
                     ))}
                     <p className={cx('muted')}>
                         준비 완료는 사용자 기록입니다. 원본 검증이나 기관 접수를
@@ -464,7 +468,7 @@ export function SchedulePage() {
                                     checked={s.recorded}
                                     disabled={
                                         mutation.isPending ||
-                                        p.guideState === 'CHANGE_REVIEW'
+                                        p.guideState !== 'AVAILABLE'
                                     }
                                     onChange={(e) =>
                                         mutation.mutate({

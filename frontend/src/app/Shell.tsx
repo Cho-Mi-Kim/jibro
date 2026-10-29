@@ -4,6 +4,8 @@ import { Link, NavLink, Navigate, useLocation } from 'react-router';
 import { useSession } from './useSession';
 import { demoMode } from '../shared/api/transport';
 import { State } from '../shared/ui/ui';
+import { useQuery } from '@tanstack/react-query';
+import { api } from '../features/housing/api';
 const tabs = [
     ['/', '홈', 'M3 10 12 2 21 10v12h-7v-8h-4v8H3z'],
     ['/notices', '공고', 'M4 2h16v20H4zm3 4v2h10V6zm0 5v2h10v-2z'],
@@ -20,6 +22,12 @@ const tabs = [
     ],
 ];
 export function Shell({ children }: { children: ReactNode }) {
+    const meta = useQuery({
+        queryKey: ['meta'],
+        queryFn: api.meta,
+        enabled: !demoMode,
+        staleTime: Infinity,
+    });
     const location = useLocation();
     const main = useRef<HTMLElement>(null);
     useEffect(() => {
@@ -42,6 +50,12 @@ export function Shell({ children }: { children: ReactNode }) {
                 <div className={cx('demo-banner')} role="status">
                     개발 시연 · 가상 공고 · 메모리 임시 저장 · 새로고침 시
                     초기화
+                </div>
+            )}
+            {!demoMode && meta.data?.sampleData && (
+                <div className={cx('demo-banner')} role="status">
+                    로컬 검증 · 가상 공고 · 실제 서버 저장 · 신청에 사용할 수
+                    없는 자료입니다
                 </div>
             )}
             <div className={cx('workspace')}>

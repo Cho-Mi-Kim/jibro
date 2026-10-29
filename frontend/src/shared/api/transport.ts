@@ -31,7 +31,8 @@ export async function call<T>(
         );
     const headers: Record<string, string> = { Accept: 'application/json' };
     if (body !== undefined) headers['Content-Type'] = 'application/json';
-    if (accessToken) headers.Authorization = 'Bearer ' + accessToken;
+    if (accessToken && !path.startsWith('/auth/'))
+        headers.Authorization = 'Bearer ' + accessToken;
     if (method !== 'GET') headers['X-CSRF-TOKEN'] = await csrf();
     let response: Response;
     try {
@@ -59,11 +60,12 @@ export async function call<T>(
             });
         try {
             await refreshing;
-            return await call<T>(path, method, body, false);
-        } catch {
-            clearToken();
-            throw new ApiError(401);
+        } catch (error) {
+            if (error instanceof ApiError && error.status === 401) clearToken();
+            throw error;
         }
+        // Preserve a retried request's 403/409/network error; it is not a login failure.
+        return call<T>(path, method, body, false);
     }
     if (!response.ok) {
         const error = (await response.json().catch(() => ({}))) as {
@@ -73,5 +75,6 @@ export async function call<T>(
         throw new ApiError(response.status, error.message, error.code);
     }
     if (response.status === 204) return undefined as T;
-    return response.json() as Promise<T>;
+    const text = await response.text();
+    return (text ? JSON.parse(text) : undefined) as T;
 }

@@ -20,10 +20,10 @@ export interface Notice {
     agency: string;
     region: string;
     type: string;
-    status: 'OPEN' | 'UPCOMING' | 'CLOSED';
-    startDate: string;
-    endDate: string;
-    publishedDate: string;
+    status: 'OPEN' | 'UPCOMING' | 'CLOSED' | 'UNKNOWN';
+    startDate: string | null;
+    endDate: string | null;
+    publishedDate: string | null;
     attachments: Evidence[];
     summary: string;
     version: number;

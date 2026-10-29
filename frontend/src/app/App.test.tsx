@@ -50,6 +50,52 @@ beforeEach(() => {
     );
 });
 describe('사용자 준비 흐름', () => {
+    it('한 서류 저장 후 다른 서류의 미저장 입력을 유지한다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        await api.answers(p.id, p.revision, { residence: 'YES', house: 'YES' });
+        mount('/preparations/' + p.id + '/documents');
+        await userEvent.click(
+            await screen.findByText('거주 확인 서류 · 미확인', {
+                exact: false,
+            }),
+        );
+        const summaries = document.querySelectorAll('details > summary');
+        await userEvent.click(summaries[1]);
+        const notes = screen.getAllByRole('textbox');
+        await userEvent.type(notes[0], '첫 번째 저장 메모');
+        await userEvent.type(notes[1], '두 번째 작성 중 메모');
+        await userEvent.selectOptions(
+            screen.getAllByLabelText('준비 상태')[1],
+            'IN_PROGRESS',
+        );
+        await userEvent.click(
+            screen.getAllByRole('button', {
+                name: '이 서류 준비 상태 저장',
+            })[0],
+        );
+        await waitFor(async () =>
+            expect((await api.preparation(p.id)).documents[0].note).toBe(
+                '첫 번째 저장 메모',
+            ),
+        );
+        expect(screen.getAllByRole('textbox')[1]).toHaveValue(
+            '두 번째 작성 중 메모',
+        );
+        expect(screen.getAllByLabelText('준비 상태')[1]).toHaveValue(
+            'IN_PROGRESS',
+        );
+        await userEvent.click(
+            screen.getAllByRole('button', {
+                name: '이 서류 준비 상태 저장',
+            })[1],
+        );
+        await waitFor(async () =>
+            expect((await api.preparation(p.id)).documents[1].note).toBe(
+                '두 번째 작성 중 메모',
+            ),
+        );
+    });
     it('비회원 공고 조회와 미검수 안내 시작 차단', async () => {
         mount('/notices/2');
         expect(
