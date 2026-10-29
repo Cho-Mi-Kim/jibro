@@ -1,3 +1,4 @@
+import { safeUrl } from './helpers';
 import {
     useEffect,
     useRef,
@@ -7,7 +8,7 @@ import {
 } from 'react';
 import { ActionButton } from '@seed-design/react';
 import { Link } from 'react-router';
-import type { Evidence, GuideState } from '../../features/housing/types';
+import type { Evidence } from '../../features/housing/types';
 export function Button(
     props: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
 ) {
@@ -66,12 +67,6 @@ export function State({
         );
     return null;
 }
-export const guideLabels: Record<GuideState, string> = {
-    AVAILABLE: '준비 안내 제공 중',
-    REVIEWING: '준비 안내 검수 중',
-    UNSUPPORTED: '준비 안내 미제공',
-    CHANGE_REVIEW: '준비 안내 변경 검토 중',
-};
 export function Badge({ children }: { children: ReactNode }) {
     return <span className="badge">{children}</span>;
 }
@@ -90,15 +85,6 @@ export function EvidenceLink({ evidence }: { evidence: Evidence }) {
             )}
         </div>
     );
-}
-export function safeUrl(value: string | null) {
-    if (!value) return false;
-    try {
-        const url = new URL(value);
-        return url.protocol === 'https:' && !url.username && !url.password;
-    } catch {
-        return false;
-    }
 }
 export function Soon({ label }: { label: string }) {
     const [open, setOpen] = useState(false);

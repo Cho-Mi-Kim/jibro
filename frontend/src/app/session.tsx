@@ -1,14 +1,8 @@
-import { createContext, useContext, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
+import { Session } from './useSession';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
-import type { User } from '../features/housing/types';
 import { ApiError } from '../shared/api/client';
-const Session = createContext<{
-    user: User | null;
-    loading: boolean;
-    error: Error | null;
-    refresh: () => Promise<unknown>;
-}>({ user: null, loading: true, error: null, refresh: async () => {} });
 export function SessionProvider({ children }: { children: ReactNode }) {
     const client = useQueryClient();
     const query = useQuery({
@@ -35,7 +29,4 @@ export function SessionProvider({ children }: { children: ReactNode }) {
             {children}
         </Session.Provider>
     );
-}
-export function useSession() {
-    return useContext(Session);
 }
