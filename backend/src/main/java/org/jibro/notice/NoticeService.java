@@ -87,12 +87,39 @@ public class NoticeService {
     public void samplePublish(UUID id,String guide){var n=entity(id);n.basicReview="PASS";n.guideReview=guide;}
 
     @Transactional
+    public UUID importSource(org.jibro.collection.LhNoticeClient.Item item){
+        var existing=repo.findBySourceKey(item.key());
+        if(existing.isEmpty()){
+            UUID id=insert(item.key(),item.title(),"LH",item.region(),item.type(),null,null,item.published(),
+                new Content("공식 목록에서 자동 수집했습니다. 신청 기간·조건·서류는 원문 대조 후 제공합니다.",
+                        new Evidence("LH 공식 공고 원문",item.url(),LocalDate.now().toString()),List.of(),List.of(),List.of(),List.of()));
+            entity(id).sourceFingerprint=item.fingerprint();return id;
+        }
+        var n=repo.locked(existing.get().id).orElseThrow();
+        if(!Objects.equals(n.sourceFingerprint,item.fingerprint())){
+            n.title=item.title();n.region=item.region();n.supportType=item.type();n.publishedDate=item.published();
+            n.version++;n.revision++;n.basicReview="HOLD";n.guideReview="HOLD";n.changeReview=true;
+            n.sourceFingerprint=item.fingerprint();
+        }
+        return n.id;
+    }
+
+    @Transactional
     public Review updateContent(UUID id,int revision,Content c){
         validateContent(c);
         var n=repo.locked(id).orElseThrow(ApiException::notFound);
         if(n.revision!=revision)throw ApiException.conflict();
         n.content=json.writeValueAsString(c);n.version++;n.revision++;n.basicReview="HOLD";n.guideReview="HOLD";n.changeReview=true;
         return reviewView(n);
+    }
+    public record Draft(String title,String agency,String region,String type,LocalDate startDate,LocalDate endDate,LocalDate publishedDate,Content content){}
+    public Draft draft(UUID id){var n=entity(id);return new Draft(n.title,n.agency,n.region,n.supportType,n.startDate,n.endDate,n.publishedDate,content(id));}
+    @Transactional public Review updateDraft(UUID id,int revision,Draft draft){
+        if(draft==null || !text(draft.title(),300) || !text(draft.agency(),100) || !text(draft.region(),100) || !text(draft.type(),100)
+                || draft.startDate()!=null && draft.endDate()!=null && draft.startDate().isAfter(draft.endDate()))throw new IllegalArgumentException();
+        updateContent(id,revision,draft.content());var n=entity(id);
+        n.title=draft.title();n.agency=draft.agency();n.region=draft.region();n.supportType=draft.type();
+        n.startDate=draft.startDate();n.endDate=draft.endDate();n.publishedDate=draft.publishedDate();return reviewView(n);
     }
     public void validateContent(Content c){
         if(c==null || c.summary()==null || c.summary().length()>10000 || c.evidence()==null || c.questions()==null
