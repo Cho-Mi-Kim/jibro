@@ -1,10 +1,12 @@
 export class ApiError extends Error {
     readonly status: number;
 
-    constructor(status: number) {
-        super(`요청을 처리하지 못했습니다. (HTTP ${status})`);
+    readonly code?: string;
+    constructor(status: number, message?: string, code?: string) {
+        super(message ?? `요청을 처리하지 못했습니다. (HTTP ${status})`);
         this.name = 'ApiError';
         this.status = status;
+        this.code = code;
     }
 }
 
