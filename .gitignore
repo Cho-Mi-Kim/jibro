@@ -1,0 +1,17 @@
+**/node_modules/
+**/dist/
+**/coverage/
+**/*.tsbuildinfo
+**/.gradle/
+**/build/
+.tools/
+.idea/
+**/.idea/
+*.iml
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.log
+.DS_Store
+Thumbs.db

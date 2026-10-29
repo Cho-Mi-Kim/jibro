@@ -1,0 +1,36 @@
+.container {
+    max-width: 48rem;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.label {
+    color: #b64a32;
+    font-weight: 700;
+}
+
+.card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #e6ddd6;
+    border-radius: 0.75rem;
+}
+
+.card h2 {
+    font-size: 1.125rem;
+}
+
+.card button {
+    padding: 0.625rem 1rem;
+    border: 0;
+    border-radius: 0.375rem;
+    color: #ffffff;
+    background: #b64a32;
+    cursor: pointer;
+}
+
+.card button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}

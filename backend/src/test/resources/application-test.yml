@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: ${TEST_DB_URL:jdbc:postgresql://localhost:15432/jibro_test}
+  flyway:
+    locations: classpath:db/test-migration
