@@ -15,8 +15,10 @@
 
 처음에는 앞 브랜치를 대상으로 PR을 쌓았고, 앞 PR 병합 후 다음 PR의 base를 develop으로 변경했다. PR #4의 코드 규칙 실패를 수정하고 PR #5에 반영하면서 공통 UI 파일 충돌을 해결했다. 각 head의 CI 통과와 충돌 상태를 확인한 뒤 순서대로 병합했다. PR #10에는 서류 초안 유실·준비도 반올림 문제의 수정과 회귀 테스트를 추가했다. 전체 기능 확인 기준은 이제 develop이다.
 
-main은 Git 이력상 develop의 조상이 아니지만 이번 점검에서 파일 차이가 없었다. 별도 미반영 작업이 없어 빈 PR은 생성하지 않았다. 이전 작업 기록 자동화 PR #1·#2는 이미 병합된 이력이다.
+최초 PR 생성 시점에는 main과 develop의 파일 내용이 같아 main의 별도 작업 PR은 만들지 않았다. 이번 통합 후에는 develop에 제품 구현이 추가되었고 main은 기존 상태를 유지한다. 이전 작업 기록 자동화 PR #1·#2는 이미 병합된 이력이다.
 
 로컬 통합 검증은 [검증 기록](../verification.md), 판단과 구현 한계는 [백엔드 계약](backend-contracts.md), 변경 과정은 [작업 기록](../history/entries/2026-10-30-backend-integration.md)을 확인한다. 원격 CI의 최신 상태는 각 PR의 Checks가 기준이다. 최종 연동 PR부터는 feature 대상 PR에도 검사가 실행되도록 CI 조건을 확장했다.
 
 병합 후 develop에서 테스트 38건·프론트/백엔드 빌드·실제 HTTP·브라우저 저장/복원을 재확인했다. [통합 CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/40970346584)의 세 작업도 통과했다. 상세 근거와 추가 종료 도구 수정은 [통합 검토 기록](../history/entries/2026-10-30-develop-integration-review.md)을 따른다.
+
+통합 후 종료 도구 수정·검증 문서는 [후속 PR #11](https://github.com/Cho-Mi-Kim/jibro/pull/11)에서 추적한다.

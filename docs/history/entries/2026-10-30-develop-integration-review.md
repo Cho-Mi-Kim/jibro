@@ -78,4 +78,4 @@ PR #3부터 #10까지 순서대로 develop에 merge commit으로 병합하며 �
 
 ## 재시작 도구에서 추가로 해결한 문제
 
-PowerShell의 `ConvertFrom-Json`이 ISO 시각을 DateTime으로 바꾸어 `Stop-Preview.ps1`의 문자열 비교가 실패했다. 이전 서버를 종료하지 못해 새 JAR 시작 시 8080 포트 충돌을 실제로 확인했다. 프로세스 ID·실행 경로 검사는 유지하고 시작 시각을 UTC Ticks로 정규화해 비교하도록 수정했다. 기록된 기존 프로세스 두 개만 종료된 뒤 새 프로세스로 8080·5173이 열리는 것을 확인했고, 새 서버에서 위 HTTP·브라우저 검증을 수행했다. 이 도구 수정과 결과 문서는 후속 PR로 관리한다.
+PowerShell의 `ConvertFrom-Json`이 ISO 시각을 DateTime으로 바꾸어 `Stop-Preview.ps1`의 문자열 비교가 실패했다. 이전 서버를 종료하지 못해 새 JAR 시작 시 8080 포트 충돌을 실제로 확인했다. 프로세스 ID·실행 경로 검사는 유지하고 시작 시각을 UTC Ticks로 정규화해 비교하도록 수정했다. 기록된 기존 프로세스 두 개만 종료된 뒤 새 프로세스로 8080·5173이 열리는 것을 확인했고, 새 서버에서 위 HTTP·브라우저 검증을 수행했다. 이 도구 수정과 결과 문서는 [후속 PR #11](https://github.com/Cho-Mi-Kim/jibro/pull/11)로 관리한다.
