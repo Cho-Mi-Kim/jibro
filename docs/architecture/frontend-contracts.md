@@ -4,13 +4,13 @@
 
 ## 연결·인증
 
-기본은 실제 /api/v1 서버다. 개발 때만 VITE_API_MODE=demo로 명시적으로 시연 어댑터를 사용한다. 시연 데이터는 가상 공고·메모리 저장이며 새로고침 때 초기화된다. 실제 개인정보를 입력하지 않는다. 운영 빌드에는 데모 분기를 활성화하지 않는다.
+기본은 실제 /api/v1 서버다. 개발 때만 npm run dev:demo 또는 VITE_API_MODE=demo로 명시적으로 시연 어댑터를 사용한다. 시연 데이터는 가상 공고·메모리 저장이며 새로고침 때 초기화된다. 실제 개인정보를 입력하지 않는다. 운영 빌드에는 데모 분기를 활성화하지 않는다.
 
 Access Token은 메모리, Refresh Token은 서버 HttpOnly 쿠키. GET /auth/csrf → {token}, 변경 요청 X-CSRF-TOKEN. POST /auth/login → {accessToken,user}, POST /auth/refresh → {accessToken}, POST /auth/logout → 204. GET /users/me → User. 401은 재발급 1회만 재시도하며 동시 재발급을 공유한다. 회원가입 POST /auth/signup {name,email,password} → 204 후 로그인한다. 소셜 /oauth2/authorization/google|kakao → /auth/callback으로 복귀하고 me 재조회로 복원한다. 토큰을 URL로 전달하지 않는다. 회원가입 이름 2~30자, 비밀번호 10~72자. 소셜 앱·이메일 검증·재설정 서버는 후속 구현이다.
 
 ## 공고
 
-GET /notices?keyword=&region=&type=&status=&sort=deadline&page=0&size=20. 복수값은 같은 키 반복, 필터 간 AND/같은 필터 OR. sort=deadline은 마감일 오름차순·동률 id 오름차순, newest는 공고 식별자 내림차순을 임시 계약으로 사용(서버 공고일 필드 도입 시 변경). 날짜 미확인은 뒤로. 검색 대상 제목·기관·지역. 응답 {items,page,size,totalElements,totalPages}. GET /notices/filters → {regions,types}. GET /notices/:id → Notice. 필터 변경 시 page=0. 잘못된 page/size는 프론트에서 정상 범위로 보정하고 서버도 검증한다.
+GET /notices?keyword=&region=&type=&status=&sort=deadline&page=0&size=20. 복수값은 같은 키 반복, 필터 간 AND/같은 필터 OR. sort=deadline은 마감일 오름차순·동률 id 오름차순, newest는 publishedDate 내림차순·동률 id 오름차순. 날짜 미확인은 뒤로. 검색 대상 제목·기관·지역. 응답 {items,page,size,totalElements,totalPages}. GET /notices/filters → {regions,types}. GET /notices/:id → Notice. 필터 변경 시 page=0. 잘못된 page/size는 프론트에서 정상 범위로 보정하고 서버도 검증한다.
 
 기본 정보 공개와 guideState=AVAILABLE|REVIEWING|UNSUPPORTED|CHANGE_REVIEW는 독립적이다. canStart는 서버가 결정한다. 미검수 질문·서류는 응답에서 제외한다. 공식 원문은 HTTPS만 연결하고 주소가 없으면 확인 필요를 표시한다.
 

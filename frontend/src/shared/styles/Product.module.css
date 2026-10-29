@@ -322,7 +322,7 @@ main {
     position: fixed;
     z-index: 10;
     bottom: 0;
-    left: calc(50% + 76px);
+    right: max(24px, calc((100vw - 1120px) / 2 + 24px));
     width: 480px;
     display: flex;
     justify-content: space-around;
@@ -406,6 +406,7 @@ dialog::backdrop {
     }
     .bottom-nav {
         left: 50%;
+        right: auto;
         transform: translateX(-50%);
         width: min(100%, 480px);
     }

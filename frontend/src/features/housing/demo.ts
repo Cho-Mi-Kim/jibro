@@ -45,6 +45,8 @@ export const notices: Notice[] = [
     type: index % 2 ? '주거비 지원' : '공공임대',
     status: index === 2 ? 'CLOSED' : 'OPEN',
     startDate: '2026-10-01',
+    publishedDate: '2026-09-30',
+    attachments: [],
     endDate: index === 2 ? '2026-10-15' : '2026-12-10',
     summary:
         '화면과 준비 흐름을 확인하기 위한 가상 데이터입니다. 실제 신청에 사용할 수 없습니다.',
@@ -203,7 +205,9 @@ export async function demoRequest<T>(
         );
         items.sort(
             q.get('sort') === 'newest'
-                ? (a, b) => b.id.localeCompare(a.id)
+                ? (a, b) =>
+                      b.publishedDate.localeCompare(a.publishedDate) ||
+                      a.id.localeCompare(b.id)
                 : (a, b) =>
                       a.endDate.localeCompare(b.endDate) ||
                       a.id.localeCompare(b.id),

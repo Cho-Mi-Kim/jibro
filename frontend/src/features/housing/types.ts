@@ -23,6 +23,8 @@ export interface Notice {
     status: 'OPEN' | 'UPCOMING' | 'CLOSED';
     startDate: string;
     endDate: string;
+    publishedDate: string;
+    attachments: Evidence[];
     summary: string;
     version: number;
     guideVersion: number | null;
