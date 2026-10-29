@@ -2,10 +2,10 @@
 
 - 기록일: 2026-10-29 (Asia/Seoul)
 - 기록 상태: 근거 정리·담당자 검토 전
-- 작업 상태: 로컬 구현·검증 완료, 팀 적용 확인은 후속
+- 작업 상태: 로컬 구현·검증 완료. develop·main 통합과 원격 검증은 관련 PR 기록에서 확인
 - 유형: 협업 / 문서 / 개발 자동화
 - 담당·검토: 사용자가 목적을 제시하고 Codex가 구현·기록을 지원. 팀원 검토 전
-- 관련 이슈·PR: 미등록. 작업 브랜치는 `chore/docs-project-history`이며 사용자 요청에 따라 커밋·push한다. 실제 커밋은 이 파일의 Git 이력에서 확인
+- 관련 이슈: 미등록. 작업 브랜치 `chore/docs-project-history`, [개발 통합 PR #1](https://github.com/Cho-Mi-Kim/jibro/pull/1), [기능 커밋 7b6dc28](https://github.com/Cho-Mi-Kim/jibro/commit/7b6dc284e013642a67b65c887f3ea6f963a22ebf)
 
 ## 배경·문제
 
@@ -42,9 +42,11 @@ Codex 작업 지침에 기록 갱신을 포함하고 Git 커밋 직전에는 sta
 6. 실제 임시 `git commit`에서 기록이 포함되고 추가 커밋을 재귀 생성하지 않는지 확인.
 7. 기존 hook 경로 설정이 있으면 덮어쓰지 않는지 확인.
 
-첫 실행에서는 6개가 통과하고 Windows 격리 환경에서 Git의 shell 실행 권한 제한으로 실제 hook 검사 1개가 실패했다. 승인된 일반 실행 환경에서 같은 검사를 다시 실행해 7개 모두 통과했다. 이를 제품 코드 오류로 오인하거나 검사 성공으로 생략하지 않았다. GitHub Actions에는 같은 테스트 job을 추가했으며 원격 실행은 아직 확인하지 않았다.
+첫 실행에서는 6개가 통과하고 Windows 격리 환경에서 Git의 shell 실행 권한 제한으로 실제 hook 검사 1개가 실패했다. 승인된 일반 실행 환경에서 같은 검사를 다시 실행해 7개 모두 통과했다. 이를 제품 코드 오류로 오인하거나 검사 성공으로 생략하지 않았다. GitHub Actions에는 같은 테스트 job을 추가했다. 원격 실행의 최신 결과는 커밋별 [PR #1 Checks](https://github.com/Cho-Mi-Kim/jibro/pull/1/checks)를 기준으로 확인하며 로컬 결과를 원격 성공으로 대체하지 않는다.
 
 현재 저장소에는 로컬 hook을 설치했다. 실제 `git hook run pre-commit`에서도 stage된 변경이 없으면 기록을 생성하지 않고 끝나는 것을 확인했다. 기록 도구 자체는 커밋·push를 실행하지 않으며, 이후 사용자가 요청한 범위에서 작업 변경을 선택해 커밋·push한다.
+
+사용자 요청으로 기능 커밋을 push한 뒤 develop 대상 PR #1을 생성했다. 원격 검사 확인 후 merge commit으로 develop에 반영하고 develop → main PR을 진행하는 순서다. 최종 승인·검사·병합 증거는 GitHub PR 상태와 커밋 이력으로 확인한다. 별도 동료 검토가 있었다고 기록하지 않는다.
 
 ## 기여·한계
 
