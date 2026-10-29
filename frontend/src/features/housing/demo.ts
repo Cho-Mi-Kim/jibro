@@ -180,13 +180,18 @@ export async function demoRequest<T>(
             types: ['공공임대', '주거비 지원'],
         };
     else if (parts[0] === 'notices' && parts[1]) {
-        result = notices.find((n) => n.id === parts[1]);
+        result = notices.find(
+            (n) =>
+                n.id === parts[1] &&
+                reviews.find((r) => r.id === n.id)?.basic === 'PASS',
+        );
         if (!result) throw new ApiError(404, '공고를 찾을 수 없습니다.');
     } else if (parts[0] === 'notices') {
         const q = url.searchParams;
         const keyword = q.get('keyword') ?? '';
         const items = notices.filter(
             (n) =>
+                reviews.find((r) => r.id === n.id)?.basic === 'PASS' &&
                 [n.title, n.region, n.agency].join(' ').includes(keyword) &&
                 ['region', 'type', 'status'].every(
                     (key) =>
@@ -218,7 +223,11 @@ export async function demoRequest<T>(
         if (parts.length === 1 && method === 'GET') result = preparations;
         else if (parts.length === 1) {
             const n = notices.find((n) => n.id === input.noticeId);
-            if (!n?.canStart || n.version !== input.version)
+            if (
+                !n?.canStart ||
+                n.version !== input.version ||
+                reviews.find((r) => r.id === n.id)?.basic !== 'PASS'
+            )
                 throw new ApiError(
                     409,
                     '준비 안내 상태가 변경되었습니다. 공고를 다시 확인하세요.',
@@ -343,4 +352,24 @@ export async function demoRequest<T>(
         }
     } else throw new ApiError(404, '시연에서 지원하지 않는 요청입니다.');
     return structuredClone(result) as T;
+}
+
+const originalNotices = structuredClone(notices);
+export function resetDemo() {
+    user = null;
+    preparations.length = 0;
+    collections.length = 0;
+    notices.splice(0, notices.length, ...structuredClone(originalNotices));
+    reviews.splice(
+        0,
+        reviews.length,
+        ...notices.map((n) => ({
+            id: n.id,
+            notice: n,
+            basic: 'PASS' as const,
+            guide: n.canStart ? ('PASS' as const) : ('HOLD' as const),
+            reason: '시연 데이터',
+            revision: 1,
+        })),
+    );
 }

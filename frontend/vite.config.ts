@@ -12,6 +12,7 @@ export default defineConfig({
         },
     },
     test: {
+        server: { deps: { inline: [/@seed-design\//] } },
         environment: 'jsdom',
         setupFiles: ['./src/test/setup.ts'],
         clearMocks: true,
