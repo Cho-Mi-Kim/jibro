@@ -313,13 +313,19 @@ const stateNames: Record<DocumentState, string> = {
     RECHECK: '재확인',
 };
 function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
-    const [state, setState] = useState(d.state);
-    const [note, setNote] = useState(d.note);
+    const [draftState, setState] = useState<DocumentState | null>(null);
+    const [draftNote, setNote] = useState<string | null>(null);
+    const state = draftState ?? d.state;
+    const note = draftNote ?? d.note;
     useUnsavedChanges(state !== d.state || note !== d.note);
     const saved = useSaved();
     const mutation = useMutation({
         mutationFn: () => api.document(p.id, d.id, p.revision, state, note),
-        onSuccess: saved,
+        onSuccess: (next) => {
+            saved(next);
+            setState(null);
+            setNote(null);
+        },
     });
     return (
         <details className={cx('card')}>
@@ -350,6 +356,7 @@ function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
                 준비 상태
                 <select
                     value={state}
+                    disabled={mutation.isPending}
                     onChange={(e) => setState(e.target.value as DocumentState)}
                 >
                     {Object.entries(stateNames).map(([key, label]) => (
@@ -363,6 +370,7 @@ function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
                 메모 (개인정보·증빙 내용 입력 금지)
                 <textarea
                     maxLength={500}
+                    disabled={mutation.isPending}
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                 />
@@ -417,11 +425,7 @@ export function DocumentsPage() {
                         개
                     </p>
                     {p.documents.map((d) => (
-                        <DocumentEditor
-                            key={d.id + ':' + p.revision}
-                            p={p}
-                            d={d}
-                        />
+                        <DocumentEditor key={p.id + ':' + d.id} p={p} d={d} />
                     ))}
                     <p className={cx('muted')}>
                         준비 완료는 사용자 기록입니다. 원본 검증이나 기관 접수를

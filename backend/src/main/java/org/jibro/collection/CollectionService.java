@@ -62,5 +62,3 @@ public class CollectionService {
         return new Collection(id.toString(), status, now, message);
     }
 }
-
-

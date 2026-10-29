@@ -155,6 +155,9 @@ public class PreparationService {
         long recorded = p.schedules.stream().filter(s -> s.recorded).count();
         p.progress = (int) Math.round((p.questions.isEmpty() ? 0 : 30.0 * known / p.questions.size()) + (relevant.isEmpty() ? 0 : 50.0 * ready / relevant.size())
                 + (p.schedules.isEmpty() ? 0 : 20.0 * recorded / p.schedules.size()));
+        // Rounding must not turn an unfinished checklist into a completed house.
+        if (known < p.questions.size() || ready < relevant.size() || recorded < p.schedules.size())
+            p.progress = Math.min(99, p.progress);
         p.houseStage = p.progress < 20 ? 1 : p.progress < 40 ? 2 : p.progress < 70 ? 3 : p.progress < 100 ? 4 : 5;
         p.warnings = new ArrayList<>(p.questions.stream().filter(q -> p.answers.getOrDefault(q.id(), Answer.UNKNOWN) == Answer.UNKNOWN).map(Question::title).toList());
         String prefix = "/preparations/" + p.id;
@@ -173,4 +176,3 @@ public class PreparationService {
         return p;
     }
 }
-

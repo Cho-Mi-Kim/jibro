@@ -105,11 +105,17 @@ export function calculate(p: Preparation): Preparation {
         (d) => d.state === 'READY' && d.necessity !== 'UNKNOWN',
     ).length;
     const recorded = p.schedules.filter((s) => s.recorded).length;
-    const progress = Math.round(
+    const rounded = Math.round(
         (p.questions.length ? known / p.questions.length : 0) * 30 +
             (docs.length ? ready / docs.length : 0) * 50 +
             (p.schedules.length ? recorded / p.schedules.length : 0) * 20,
     );
+    const progress =
+        known < p.questions.length ||
+        ready < docs.length ||
+        recorded < p.schedules.length
+            ? Math.min(99, rounded)
+            : rounded;
     const warnings = p.questions
         .filter((q) => !p.answers[q.id] || p.answers[q.id] === 'UNKNOWN')
         .map((q) => q.title);

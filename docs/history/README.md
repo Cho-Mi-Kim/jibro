@@ -60,6 +60,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 기록일 | 내용 | 기록 상태 |
 | --- | --- | --- |
 | 2026-10-30 | [백엔드 구현과 실제 API 연동](entries/2026-10-30-backend-integration.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-30 | [누적 PR 검토와 develop 통합 검증](entries/2026-10-30-develop-integration-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-30 | [프론트엔드 전반 구현과 기능 계약 구체화](entries/2026-10-30-frontend-implementation.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-30 | [구현 착수 준비 상태와 프론트엔드·백엔드 진행 순서 검토](entries/2026-10-30-implementation-readiness.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-29 | [초기 개발 환경 구성과 기존 DB 환경 변수 충돌 해결](entries/2026-10-29-initial-setup.md) | 근거 정리·담당자 검토 전 |

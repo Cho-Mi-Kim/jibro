@@ -49,4 +49,3 @@ class CollectionIntegrationTest {
         assertEquals(2, notices.reviews().stream().filter(r -> r.id().equals(id.toString())).findFirst().orElseThrow().notice().version());
     }
 }
-

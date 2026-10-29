@@ -18,7 +18,7 @@ GET /notices?keyword=&region=&type=&status=&sort=deadline&page=0&size=20. 복수
 
 GET /preparations → Preparation[], GET /preparations/:id → Preparation. POST /preparations {noticeId,version} → Preparation. 같은 회원·공고 중복 요청은 기존 건 반환. PUT /preparations/:id/answers {revision,answers}; PATCH /preparations/:id/documents/:documentId {revision,state,note}; PATCH /preparations/:id/schedules/:scheduleId {revision,recorded}. 변경 응답은 새 Preparation 전체다. revision 불일치 409, 타인 기록은 404, 인증 없음 401. 낙관적 완료 표시 없이 성공 응답 후 캐시 갱신. 모름 UNKNOWN과 미응답(키 없음)을 구분한다. 서류 필요 여부와 준비 상태를 별도 관리한다. 사용자 증빙 파일 업로드 없음.
 
-초기 계산 초안: 답변 확인 30%, 필요한 서류 완료 50%, 공식 일정 확인 기록 20%. 모름은 답변 완료 점수 제외하며 경고 표시. 조건부 해당 여부 미확인은 완료 처리하지 않는다. 평가 항목이 0개인 영역은 자동 완료하지 않고 0점. 정수 반올림. houseStage는 0~19=1,20~39=2,40~69=3,70~99=4,100=5. 이는 준비 작업 기록이며 자격·신청 완료 판정이 아니다. 서버가 progress/houseStage/warnings/nextAction을 반환한다. 운영 계산은 백엔드 PreparationService에서 수행하며 시연 어댑터에는 같은 초안 계산이 별도로 있다. 실제 UI는 계산하지 않는다. 실제 공고 검증 후 계산 기준 버전을 확정한다.
+초기 계산 초안: 답변 확인 30%, 필요한 서류 완료 50%, 공식 일정 확인 기록 20%. 모름은 답변 완료 점수 제외하며 경고 표시. 조건부 해당 여부 미확인은 완료 처리하지 않는다. 평가 항목이 0개인 영역은 자동 완료하지 않고 0점. 정수 반올림하되 미완료 항목이 남아 있으면 최대 99%로 제한한다. houseStage는 0~19=1,20~39=2,40~69=3,70~99=4,100=5. 이는 준비 작업 기록이며 자격·신청 완료 판정이 아니다. 서버가 progress/houseStage/warnings/nextAction을 반환한다. 운영 계산은 백엔드 PreparationService에서 수행하며 시연 어댑터에는 같은 초안 계산이 별도로 있다. 실제 UI는 계산하지 않는다. 실제 공고 검증 후 계산 기준 버전을 확정한다.
 
 변경 검토 중에는 기존 기준 버전으로 조회하고 수정은 409로 보류한다. 기존 답변·완료 상태는 보존한다. now action 우선순위: 재확인 → 미응답/모름 → 미완료 서류 → 미기록 일정. 공식 사이트 이동은 완료 기록을 변경하지 않는다.
 
@@ -40,3 +40,5 @@ SEED 공식 React 수동 설치와 ActionButton 공개 컴포넌트를 사용하
 - 관리자 원고 편집과 수집 시작 페이지, 서버 샘플 표시, 활성 소셜 제공자 목록 API를 추가했다.
 - 갱신 요청에 만료된 접근 토큰을 보내지 않는다. 갱신 후 재시도에서 발생한 업무 충돌은 원래 코드로 보존한다.
 
+
+서류별 편집 초안은 독립적으로 유지한다. 한 서류를 저장해 전체 revision이 바뀌어도 다른 서류의 미저장 상태·메모를 초기화하지 않는다. 저장 중인 서류의 입력은 잠시 잠그며 성공한 서류의 초안만 비운다.

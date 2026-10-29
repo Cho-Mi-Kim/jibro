@@ -26,4 +26,3 @@ public class CollectionController {
         return service.collect(jwt.getSubject(), startPage);
     }
 }
-
