@@ -206,10 +206,11 @@ export async function demoRequest<T>(
         items.sort(
             q.get('sort') === 'newest'
                 ? (a, b) =>
-                      b.publishedDate.localeCompare(a.publishedDate) ||
-                      a.id.localeCompare(b.id)
+                      (b.publishedDate ?? '').localeCompare(
+                          a.publishedDate ?? '',
+                      ) || a.id.localeCompare(b.id)
                 : (a, b) =>
-                      a.endDate.localeCompare(b.endDate) ||
+                      (a.endDate ?? '').localeCompare(b.endDate ?? '') ||
                       a.id.localeCompare(b.id),
         );
         const page = Math.max(0, Number(q.get('page')) || 0),
@@ -262,7 +263,7 @@ export async function demoRequest<T>(
                         {
                             id: 'apply',
                             title: '공식 신청 여부 확인',
-                            date: n.endDate,
+                            date: n.endDate ?? '',
                             recorded: false,
                             evidence,
                         },

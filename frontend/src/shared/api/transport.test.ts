@@ -17,9 +17,42 @@ describe('실제 서버 API 전송', () => {
         setToken('old-token');
         expect(await call('/users/me')).toEqual({ id: '1' });
         expect(fetch.mock.calls[2][1].headers['X-CSRF-TOKEN']).toBe('csrf');
+        expect(fetch.mock.calls[2][1].headers.Authorization).toBeUndefined();
         expect(fetch.mock.calls[3][1].headers.Authorization).toBe(
             'Bearer new-token',
         );
+    });
+    it('빈 201 회원가입 응답을 정상 처리한다', async () => {
+        vi.stubGlobal(
+            'fetch',
+            vi
+                .fn()
+                .mockResolvedValueOnce(Response.json({ token: 'csrf' }))
+                .mockResolvedValueOnce(new Response(null, { status: 201 })),
+        );
+        await expect(call('/auth/signup', 'POST', {})).resolves.toBeUndefined();
+    });
+    it('토큰 재발급 이후 업무 충돌을 인증 오류로 바꾸지 않는다', async () => {
+        vi.stubGlobal(
+            'fetch',
+            vi
+                .fn()
+                .mockResolvedValueOnce(new Response('{}', { status: 401 }))
+                .mockResolvedValueOnce(Response.json({ token: 'csrf' }))
+                .mockResolvedValueOnce(
+                    Response.json({ accessToken: 'new-token' }),
+                )
+                .mockResolvedValueOnce(
+                    Response.json(
+                        { code: 'VERSION_CONFLICT', message: '다시 확인' },
+                        { status: 409 },
+                    ),
+                ),
+        );
+        await expect(call('/preparations/1')).rejects.toMatchObject({
+            status: 409,
+            code: 'VERSION_CONFLICT',
+        });
     });
     it('409의 업무 오류 코드를 보존한다', async () => {
         vi.stubGlobal(

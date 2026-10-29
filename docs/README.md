@@ -22,7 +22,7 @@
 
 ## 읽는 순서
 
-프론트엔드 업무 API와 판단한 세부 정책은 [프론트엔드 구현 계약](architecture/frontend-contracts.md)을 확인합니다. 백엔드 미구현 계약과 실제 동작 검증 범위를 구분합니다.
+프론트엔드 업무 API와 판단한 세부 정책은 [프론트엔드 구현 계약](architecture/frontend-contracts.md)을 확인합니다. [백엔드 구현 계약](architecture/backend-contracts.md)의 실제 기능·외부 설정·검증 한계를 함께 확인합니다.
 
 1. 새 팀원은 [개발 시작 안내](getting-started.md)에 따라 환경을 준비하고 프론트·API·DB 연결을 확인합니다.
 2. 작업 전 [팀 컨벤션](conventions/team-conventions.md)과 [코딩 컨벤션](conventions/coding-conventions.md)을 확인합니다.

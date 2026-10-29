@@ -11,6 +11,8 @@ import type {
     User,
 } from './types';
 export const api = {
+    meta: () => call<{ sampleData: boolean }>('/meta'),
+    providers: () => call<string[]>('/auth/providers'),
     notices: (query: string) => call<Page<Notice>>('/notices?' + query),
     filters: () =>
         call<{ regions: string[]; types: string[] }>('/notices/filters'),
@@ -71,5 +73,12 @@ export const api = {
         review: Pick<Review, 'basic' | 'guide' | 'reason' | 'revision'>,
     ) => call<Review>('/admin/reviews/' + id, 'PATCH', review),
     collections: () => call<Collection[]>('/admin/collections'),
-    collect: () => call<Collection>('/admin/collections', 'POST'),
+    collect: (startPage = 1) =>
+        call<Collection>('/admin/collections?startPage=' + startPage, 'POST'),
+    draft: (id: string) => call<unknown>('/admin/reviews/' + id + '/draft'),
+    saveDraft: (id: string, revision: number, draft: unknown) =>
+        call<Review>('/admin/reviews/' + id + '/draft', 'PUT', {
+            revision,
+            draft,
+        }),
 };

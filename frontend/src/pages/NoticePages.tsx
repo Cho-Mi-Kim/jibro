@@ -19,6 +19,7 @@ const statusLabels = {
     OPEN: '접수 중',
     UPCOMING: '접수 예정',
     CLOSED: '접수 종료',
+    UNKNOWN: '일정 확인 필요',
 };
 export function NoticeCard({ notice: n }: { notice: Notice }) {
     return (
@@ -34,7 +35,8 @@ export function NoticeCard({ notice: n }: { notice: Notice }) {
             </Link>
             <p>{n.agency}</p>
             <p className={cx('muted')}>
-                신청 기간 {n.startDate} ~ {n.endDate}
+                신청 기간 {n.startDate ?? '확인 필요'} ~{' '}
+                {n.endDate ?? '확인 필요'}
             </p>
             <div className={cx('row')}>
                 <Badge>{guideLabels[n.guideState]}</Badge>
@@ -100,7 +102,11 @@ export function NoticesPage() {
                 {[
                     ['region', '지역', filters.data?.regions ?? []],
                     ['type', '지원 유형', filters.data?.types ?? []],
-                    ['status', '접수 상태', ['OPEN', 'UPCOMING', 'CLOSED']],
+                    [
+                        'status',
+                        '접수 상태',
+                        ['OPEN', 'UPCOMING', 'CLOSED', 'UNKNOWN'],
+                    ],
                 ].map(([key, label, values]) => (
                     <fieldset key={String(key)}>
                         <legend>{String(label)}</legend>
@@ -223,11 +229,12 @@ export function NoticeDetailPage() {
                             공식 신청 기간
                             <br />
                             <strong>
-                                {n.startDate} ~ {n.endDate}
+                                {n.startDate ?? '확인 필요'} ~{' '}
+                                {n.endDate ?? '확인 필요'}
                             </strong>
                         </p>
                         <EvidenceLink evidence={n.evidence} />
-                        <p>공고일 {n.publishedDate}</p>
+                        <p>공고일 {n.publishedDate ?? '확인 필요'}</p>
                         {n.attachments.map((attachment, index) => (
                             <EvidenceLink key={index} evidence={attachment} />
                         ))}
@@ -257,7 +264,8 @@ export function NoticeDetailPage() {
                             <p>{n.summary}</p>
                         ) : tab === '일정' ? (
                             <p>
-                                신청 기간 {n.startDate} ~ {n.endDate}
+                                신청 기간 {n.startDate ?? '확인 필요'} ~{' '}
+                                {n.endDate ?? '확인 필요'}
                             </p>
                         ) : n.guideState !== 'AVAILABLE' ? (
                             <p>
