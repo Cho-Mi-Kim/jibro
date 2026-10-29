@@ -1,3 +1,5 @@
+import { cx } from '../styles/classes';
+import { safeUrl } from './helpers';
 import {
     useEffect,
     useRef,
@@ -7,14 +9,14 @@ import {
 } from 'react';
 import { ActionButton } from '@seed-design/react';
 import { Link } from 'react-router';
-import type { Evidence, GuideState } from '../../features/housing/types';
+import type { Evidence } from '../../features/housing/types';
 export function Button(
     props: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
 ) {
     return (
         <ActionButton
             {...props}
-            className={'button ' + (props.className ?? '')}
+            className={cx('button ' + (props.className ?? ''))}
         />
     );
 }
@@ -28,8 +30,8 @@ export function Heading({
     children?: ReactNode;
 }) {
     return (
-        <header className="page-heading">
-            <span className="eyebrow">
+        <header className={cx('page-heading')}>
+            <span className={cx('eyebrow')}>
                 {eyebrow ?? 'JIBRO · HOUSING PREPARATION'}
             </span>
             <h1>{title}</h1>
@@ -38,7 +40,7 @@ export function Heading({
     );
 }
 export function Card({ children }: { children: ReactNode }) {
-    return <section className="card">{children}</section>;
+    return <section className={cx('card')}>{children}</section>;
 }
 export function State({
     error,
@@ -51,13 +53,13 @@ export function State({
 }) {
     if (loading)
         return (
-            <div className="state" role="status">
+            <div className={cx('state')} role="status">
                 내용을 불러오고 있어요…
             </div>
         );
     if (error)
         return (
-            <div className="state" role="alert">
+            <div className={cx('state')} role="alert">
                 <h2>내용을 불러오지 못했어요</h2>
                 <p>{error.message}</p>
                 {retry && <Button onClick={retry}>다시 시도</Button>}{' '}
@@ -66,18 +68,12 @@ export function State({
         );
     return null;
 }
-export const guideLabels: Record<GuideState, string> = {
-    AVAILABLE: '준비 안내 제공 중',
-    REVIEWING: '준비 안내 검수 중',
-    UNSUPPORTED: '준비 안내 미제공',
-    CHANGE_REVIEW: '준비 안내 변경 검토 중',
-};
 export function Badge({ children }: { children: ReactNode }) {
-    return <span className="badge">{children}</span>;
+    return <span className={cx('badge')}>{children}</span>;
 }
 export function EvidenceLink({ evidence }: { evidence: Evidence }) {
     return (
-        <div className="evidence">
+        <div className={cx('evidence')}>
             <span>
                 {evidence.label} · 확인 {evidence.checkedAt}
             </span>
@@ -91,15 +87,6 @@ export function EvidenceLink({ evidence }: { evidence: Evidence }) {
         </div>
     );
 }
-export function safeUrl(value: string | null) {
-    if (!value) return false;
-    try {
-        const url = new URL(value);
-        return url.protocol === 'https:' && !url.username && !url.password;
-    } catch {
-        return false;
-    }
-}
 export function Soon({ label }: { label: string }) {
     const [open, setOpen] = useState(false);
     const ref = useRef<HTMLDialogElement>(null);
@@ -111,7 +98,7 @@ export function Soon({ label }: { label: string }) {
         <>
             <button
                 type="button"
-                className="text-button"
+                className={cx('text-button')}
                 onClick={() => setOpen(true)}
             >
                 {label} <small>준비 중</small>
@@ -140,7 +127,7 @@ export function House({
     stage: number;
 }) {
     return (
-        <div className="house-row">
+        <div className={cx('house-row')}>
             <svg
                 viewBox="0 0 160 140"
                 role="img"
@@ -174,8 +161,8 @@ export function House({
                 )}
             </svg>
             <div>
-                <span className="muted">내 준비 진행률</span>
-                <strong className="progress-number">{progress}%</strong>
+                <span className={cx('muted')}>내 준비 진행률</span>
+                <strong className={cx('progress-number')}>{progress}%</strong>
                 <progress max="100" value={progress} aria-label="준비도" />
                 <small>자격 충족도나 선정 가능성이 아닙니다.</small>
             </div>
