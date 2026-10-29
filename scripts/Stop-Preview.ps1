@@ -8,7 +8,7 @@ if (-not (Test-Path -LiteralPath $processFile)) {
 foreach ($entry in (Get-Content -LiteralPath $processFile -Raw | ConvertFrom-Json)) {
     $previewProcess = Get-Process -Id $entry.Id -ErrorAction SilentlyContinue
     if ($previewProcess -and $previewProcess.Path -eq $entry.Path -and
-            $previewProcess.StartTime.ToUniversalTime().ToString('o') -eq $entry.StartTimeUtc) {
+            $previewProcess.StartTime.ToUniversalTime().Ticks -eq ([datetime]$entry.StartTimeUtc).ToUniversalTime().Ticks) {
         Stop-Process -Id $previewProcess.Id
         Write-Output "Stopped preview process $($entry.Id)."
     }
