@@ -10,6 +10,7 @@ import org.hibernate.type.SqlTypes;
 public class NoticeEntity {
     @Id UUID id;
     @Column(name="source_key") String sourceKey;
+    String sourceFingerprint;
     @Column(length=300,nullable=false) String title;
     @Column(length=100,nullable=false) String agency;
     @Column(length=100,nullable=false) String region;
