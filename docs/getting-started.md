@@ -93,6 +93,14 @@ Docker 없이 로컬 PostgreSQL 17을 설치한 경우 두 DB를 개발용 계�
 
 ## 6. 프론트·백엔드 각각 실행
 
+Docker Desktop을 실행한 뒤, 저장소 루트에서 먼저 DB가 실행 중인지 확인합니다. PC 재시작 등으로 컨테이너가 중지되어 있으면 다음 명령으로 기존 데이터를 유지하면서 시작합니다.
+
+```powershell
+docker compose up -d --wait postgres
+```
+
+`Start-Backend.ps1`은 DB를 자동으로 시작하지 않습니다. `SQL State: 08001`, `localhost:15432`, `Connection refused`가 함께 나오면 DB 연결부터 확인합니다. 콘솔에서 한글이 깨져 보이는 것만으로 폴더 경로 오류라고 판단하지 않습니다.
+
 가장 간단한 방법은 루트에서 서로 다른 터미널로 실행하는 것입니다.
 
 ```powershell
