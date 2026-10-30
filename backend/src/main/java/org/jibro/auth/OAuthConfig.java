@@ -2,6 +2,8 @@ package org.jibro.auth;
 
 import java.util.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.jibro.global.config.SecurityConfig;
 import org.springframework.context.annotation.*;
 import org.springframework.core.annotation.Order;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Configuration
 public class OAuthConfig {
+    private static final Logger log = LoggerFactory.getLogger(OAuthConfig.class);
     private final List<ClientRegistration> registrations = new ArrayList<>();
     private final String frontend;
 
@@ -73,7 +76,12 @@ public class OAuthConfig {
                             if (session != null) session.invalidate();
                             response.sendRedirect(frontend + "/login?oauthError=account");
                         }
-                    }).failureHandler((request, response, exception) -> response.sendRedirect(frontend + "/login?oauthError=provider")));
+                    }).failureHandler((request, response, exception) -> {
+                        log.warn("OAuth login failed: {}", OAuthFailureDiagnostics.summarize(exception));
+                        var session = request.getSession(false);
+                        if (session != null) session.invalidate();
+                        response.sendRedirect(frontend + "/login?oauthError=provider");
+                    }));
         }
         http.exceptionHandling(e -> e.authenticationEntryPoint((req, res, ex) -> SecurityConfig.error(res, 503, "PROVIDER_UNAVAILABLE", "소셜 로그인 설정을 확인해 주세요.")));
         return http.build();

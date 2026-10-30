@@ -86,3 +86,7 @@ LH 키는 URL 인코딩된 값이어서 서버에서 이중 인코딩되고 있�
 - 기존 자동 테스트 재실행: `gradlew.bat integrationTest --tests org.jibro.auth.AuthIntegrationTest --console=plain` 2건 성공, `npm run test:run -- src/shared/api/transport.test.ts` 5건 성공. 제품 코드는 이번 추가 검증에서 변경하지 않았다.
 - 카카오 로그아웃 후 로그인 화면 증거는 로컬 `.tools/social-logout-verification.png`에 보관했다(Git 제외).
 - 범위 한계: Google Chrome 정체 원인, 제공자 자체 세션 종료, 다른 기기 전체 로그아웃, 기발급 접근 토큰 즉시 무효화는 이번 성공 판정에 포함하지 않는다.
+
+## 변경 제출 단위
+
+사용자 요청으로 최신 develop과 같은 기준 커밋에서 `fix/social-login-lh-integration-20261031`을 만들었다. DB 실행 안내, LH 수집 요청·회귀 테스트, 소셜 로그인 진단·안내 및 검증 결과를 세 커밋으로 나눴다. 이 기록은 두 외부 연동의 통합 검증 근거이며 LH 수정 커밋에서 처음 포함하고 소셜 로그인 수정 커밋에서 제출 단위를 보완했다. 기존 사용자 화면 이미지 10개와 개인 `.vscode/` 변경은 제출 대상에서 제외했다. 실제 외부 키·로컬 실행 로그·검증 스크린샷은 Git에 포함하지 않는다. PR 대상은 develop이며 병합은 이번 요청 범위에 포함하지 않는다.
