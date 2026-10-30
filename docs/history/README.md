@@ -60,6 +60,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 기록일 | 내용 | 기록 상태 |
 | --- | --- | --- |
 | 2026-10-31 | [외부 로그인 및 LH 실서비스 연동 검증](entries/2026-10-31-external-integration-verification.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-31 | [개인 VS Code 설정의 Git 추적 제외](entries/2026-10-31-ignore-vscode.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-31 | [백엔드 시작 실패: 중지된 PostgreSQL 복구](entries/2026-10-31-local-db-startup.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-31 | [화면 설계 이미지 10개 갱신](entries/2026-10-31-screen-mockups.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-30 | [백엔드 구현과 실제 API 연동](entries/2026-10-30-backend-integration.md) | 근거 정리·담당자 검토 전 |
