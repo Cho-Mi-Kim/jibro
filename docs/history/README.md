@@ -59,6 +59,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 <!-- PROJECT-HISTORY:START -->
 | 기록일 | 내용 | 기록 상태 |
 | --- | --- | --- |
+| 2026-10-31 | [외부 로그인 및 LH 실서비스 연동 검증](entries/2026-10-31-external-integration-verification.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-31 | [백엔드 시작 실패: 중지된 PostgreSQL 복구](entries/2026-10-31-local-db-startup.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-30 | [백엔드 구현과 실제 API 연동](entries/2026-10-30-backend-integration.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-30 | [누적 PR 검토와 develop 통합 검증](entries/2026-10-30-develop-integration-review.md) | 근거 정리·담당자 검토 전 |

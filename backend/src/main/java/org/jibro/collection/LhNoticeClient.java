@@ -34,15 +34,20 @@ public class LhNoticeClient {
     }
 
     public Batch fetch(int page) throws Exception {
-        String query = "ServiceKey=" + URLEncoder.encode(key, StandardCharsets.UTF_8) + "&PG_SZ=100&PAGE=" + page + "&UPP_AIS_TP_CD=06"
-                + "&PAN_NT_ST_DT=" + LocalDate.now().minusMonths(3).format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
-                + "&CLSG_DT=" + LocalDate.now().plusYears(1).format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
-        var request = HttpRequest.newBuilder(URI.create("https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1?" + query))
+        var request = HttpRequest.newBuilder(requestUri(page, LocalDate.now(ZoneId.of("Asia/Seoul"))))
                 .timeout(Duration.ofSeconds(20)).header("Accept", "application/json").GET().build();
         var response = http.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
         if (response.statusCode() != 200 || response.body().length() > 5_000_000)
             throw new IllegalStateException("SOURCE_RESPONSE_INVALID");
         return parse(response.body());
+    }
+
+    URI requestUri(int page, LocalDate today) {
+        // PAN_NT_ST_DT and CLSG_DT are response fields, not the publication-date search range.
+        String query = "ServiceKey=" + URLEncoder.encode(key, StandardCharsets.UTF_8) + "&PG_SZ=100&PAGE=" + page + "&UPP_AIS_TP_CD=06"
+                + "&PAN_ST_DT=" + today.minusMonths(3).format(DateTimeFormatter.BASIC_ISO_DATE)
+                + "&PAN_ED_DT=" + today.format(DateTimeFormatter.BASIC_ISO_DATE);
+        return URI.create("https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1?" + query);
     }
 
     public Batch parse(String body) {
