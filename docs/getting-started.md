@@ -93,6 +93,14 @@ Docker 없이 로컬 PostgreSQL 17을 설치한 경우 두 DB를 개발용 계�
 
 ## 6. 프론트·백엔드 각각 실행
 
+Docker Desktop을 실행한 뒤, 저장소 루트에서 먼저 DB가 실행 중인지 확인합니다. PC 재시작 등으로 컨테이너가 중지되어 있으면 다음 명령으로 기존 데이터를 유지하면서 시작합니다.
+
+```powershell
+docker compose up -d --wait postgres
+```
+
+`Start-Backend.ps1`은 DB를 자동으로 시작하지 않습니다. `SQL State: 08001`, `localhost:15432`, `Connection refused`가 함께 나오면 DB 연결부터 확인합니다. 콘솔에서 한글이 깨져 보이는 것만으로 폴더 경로 오류라고 판단하지 않습니다.
+
 가장 간단한 방법은 루트에서 서로 다른 터미널로 실행하는 것입니다.
 
 ```powershell
@@ -140,6 +148,10 @@ GitHub Actions는 PR마다 양쪽 작업을 모두 실행하도록 작성했습�
 브라우저 http://127.0.0.1:5173 에서 이메일 회원가입 → 공고 선택 → 조건 확인 → 서류·일정 저장을 확인합니다. 로컬 샘플도 실제 DB에 저장되므로 새로고침 후 복원됩니다. 실제 개인정보는 테스트에 사용하지 않습니다.
 
 `JWT_SECRET`은 필수이며 로컬 초기화가 생성합니다. `AUTH_SECURE_COOKIE=false`는 로컬 HTTP 전용입니다. `FRONTEND_URL`은 OAuth 복귀 주소이며 기본 http://127.0.0.1:5173 입니다. Google·카카오·LH 키는 `.env.example`을 참고합니다. 키가 없으면 해당 외부 연결을 성공으로 표시하지 않습니다.
+
+`LH_SERVICE_KEY`에는 공공데이터포털의 **Decoding 인증키**를 입력합니다. Encoding 키의 `%2B`, `%2F`, `%3D` 등을 그대로 넣으면 서버가 다시 인코딩하여 HTTP 403·`SERVICE_KEY_IS_NOT_REGISTERED_ERROR`가 발생할 수 있습니다. `.env` 변경 후 백엔드를 재시작합니다. 실제 키는 로그·문서·Git에 남기지 않습니다.
+
+카카오 로그인에서 토큰 교환 이후 `invalid_user_info_response`, `providerCode=-401`, `reason=ip_restricted`가 기록되면 REST API 키의 호출 허용 IP를 확인합니다. 카카오 Developers의 앱 → 플랫폼 키에서 사용하는 키의 호출 허용 IP에 **백엔드의 외부 공인 IP**를 등록합니다. 로컬 접속 주소인 `127.0.0.1`과는 다릅니다. 네트워크·VPN·배포 서버가 달라지면 외부 IP도 달라질 수 있습니다. 접근 제한을 없애거나 키를 재발급하는 대신 필요한 서버 IP를 등록하는 것을 우선합니다. [카카오 공식 설정 안내](https://developers.kakao.com/docs/ko/app-setting/app).
 
 추가 HTTP 흐름 검사: 환경 도우미를 로드한 뒤 `node scripts/verify-api.mjs`. 샘플 데이터가 있는 localhost만 허용하며 합성 테스트 계정·준비 건이 DB에 남습니다. 이 검사는 외부 OAuth 왕복이나 실제 LH 수집을 검증하지 않습니다.
 

@@ -61,8 +61,9 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
         <>
             {params.get('oauthError') && (
                 <p role="alert">
-                    소셜 로그인을 완료하지 못했습니다. 이메일 동의 또는 기존
-                    계정 가입 여부를 확인해 주세요.
+                    {params.get('oauthError') === 'account'
+                        ? '소셜 계정을 연결하지 못했습니다. 이메일 동의 또는 기존 계정 가입 여부를 확인해 주세요.'
+                        : '소셜 인증을 완료하지 못했습니다. 다시 시도하고, 문제가 반복되면 관리자에게 문의해 주세요.'}
                 </p>
             )}
             <Heading title={signup ? '회원가입' : '로그인'}>
