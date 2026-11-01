@@ -464,6 +464,11 @@ export function NoticeDetailPage() {
                         ) : (
                             <Card>
                                 <h2>제출서류</h2>
+                                <p className={cx('muted')}>
+                                    공통 서류와 해당자 서류를 함께 표시합니다.
+                                    모두 제출하는 목록이 아니며, 내 조건 확인 후
+                                    필요한 항목과 발급 방법을 확인하세요.
+                                </p>
                                 {n.documents.map((d) => (
                                     <p key={d}>{d}</p>
                                 ))}

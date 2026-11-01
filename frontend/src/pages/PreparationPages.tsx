@@ -258,9 +258,13 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                 <legend>{question.title}</legend>
                                 <div className={cx('info-note')}>
                                     <Icon name="calendar" />
-                                    공고 기준일:{' '}
+                                    공고 게시일:{' '}
                                     {displayDate(n.data?.publishedDate)}
                                 </div>
+                                <p className={cx('muted')}>
+                                    자격 판단 기준일은 아래 질문 안내를
+                                    확인하세요.
+                                </p>
                                 <p className={cx('muted')}>{question.reason}</p>
                                 {(['YES', 'NO', 'UNKNOWN'] as const).map(
                                     (a, i) => (
