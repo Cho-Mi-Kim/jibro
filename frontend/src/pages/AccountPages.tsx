@@ -1,3 +1,4 @@
+import { SocialLogo } from '../shared/ui/SocialLogo';
 import { Disc } from '../shared/ui/HousingUI';
 import { Icon } from '../shared/ui/Icon';
 import { cx } from '../shared/styles/classes';
@@ -60,7 +61,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
         window.location.assign('/oauth2/authorization/' + provider);
     }
     return (
-        <>
+        <div className={cx('auth-page')}>
             {params.get('oauthError') && (
                 <p role="alert">
                     {params.get('oauthError') === 'account'
@@ -118,6 +119,43 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                               : '로그인'}
                     </Button>
                 </form>
+                {!demoMode && (
+                    <div className={cx('social-login')}>
+                        <p className={cx('social-divider')}>
+                            또는 다른 계정으로 계속하기
+                        </p>
+                        <div className={cx('social-buttons')}>
+                            <button
+                                type="button"
+                                className={cx('social-button social-google')}
+                                disabled={!providers.data?.includes('google')}
+                                onClick={() => social('google')}
+                            >
+                                <SocialLogo provider="google" />
+                                <span>Google로 계속하기</span>
+                            </button>
+                            <button
+                                type="button"
+                                className={cx('social-button social-kakao')}
+                                disabled={!providers.data?.includes('kakao')}
+                                onClick={() => social('kakao')}
+                            >
+                                <SocialLogo provider="kakao" />
+                                <span>카카오로 계속하기</span>
+                            </button>
+                        </div>
+                        {providers.data?.length === 0 && (
+                            <p>
+                                현재 소셜 로그인 연결을 준비 중입니다. 이메일로
+                                계속해 주세요.
+                            </p>
+                        )}
+                        <State
+                            error={providers.error}
+                            retry={() => void providers.refetch()}
+                        />
+                    </div>
+                )}
             </Card>
             {demoMode ? (
                 <Card>
@@ -149,35 +187,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                         시연 관리자로 보기
                     </Button>
                 </Card>
-            ) : (
-                <Card>
-                    <p>다른 계정으로 계속하기</p>
-                    <Button
-                        className={cx('secondary')}
-                        disabled={!providers.data?.includes('google')}
-                        onClick={() => social('google')}
-                    >
-                        Google로 로그인
-                    </Button>
-                    <Button
-                        className={cx('secondary')}
-                        disabled={!providers.data?.includes('kakao')}
-                        onClick={() => social('kakao')}
-                    >
-                        카카오로 로그인
-                    </Button>
-                    {providers.data?.length === 0 && (
-                        <p>
-                            현재 소셜 로그인 연결을 준비 중입니다. 이메일로
-                            계속해 주세요.
-                        </p>
-                    )}
-                    <State
-                        error={providers.error}
-                        retry={() => void providers.refetch()}
-                    />
-                </Card>
-            )}
+            ) : null}
             <Link
                 to={
                     (signup ? '/login' : '/signup') +
@@ -188,7 +198,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                 {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
             </Link>
             <Soon label="비밀번호 재설정" />
-        </>
+        </div>
     );
 }
 export function CallbackPage() {
