@@ -1,33 +1,37 @@
 # 프로젝트 문서 안내
 
-최종 수정일: 2026-10-29
+최종 수정일: 2026-11-01
 
 팀 컨벤션·코딩 규칙·기획·화면설계의 최신본을 이 프로젝트 안에서 관리합니다. 기존 작업 폴더의 원본은 보존했고, 이후 이 저장소에서는 날짜 없는 파일명을 유지하며 문서 상단 수정일과 Git 이력으로 변경을 확인합니다.
 
 ## 문서별 역할
 
-| 영역 | 기준 문서 | 관리하는 내용 |
-| --- | --- | --- |
-| 팀 협업 | [팀 컨벤션](conventions/team-conventions.md) | 역할·회의·연락·작업 관리·기여 기준 |
-| 코드·기술 계약 | [코딩 컨벤션](conventions/coding-conventions.md) | 브랜치·PR·스타일·패키지 구조·API·인증·DB 규칙과 기술 선택 이유 |
-| 제품 기획 | [기획안](planning/project-proposal.md) | 문제·타깃·가설·기능 범위·검수·공개·준비도 등 제품 정책 |
-| 상세 기획 | [기획 세부안](planning/project-details.md) | 수업·제출 자료에 사용하는 과제 개요·개발 및 검증 계획 |
-| 화면 설계 | [화면설계서](design/screen-spec.md) | 메뉴·핵심 화면·상태·상호작용·팔레트·SEED 적용 지침 |
-| 실행·환경 설정 | [개발 시작 안내](getting-started.md) | 설치·IDE 설정·환경 변수·실행·검사 순서 |
-| 구조 요약 | [아키텍처](architecture.md) | 모노레포·연동·배포 원칙의 빠른 요약 |
-| 설치 버전 | [버전 기록](versions.md) | 실제 초기 설정 버전. 최종 해석 버전은 잠금 파일·Gradle 설정과 함께 확인 |
-| 구현·검증 상태 | [검증 기록](verification.md) | 실제 실행한 검사와 결과·미완료 작업 |
-| 진행·문제 해결·의사결정 | [프로젝트 작업 기록](history/README.md) | 변경 이유·고민·선택·해결 과정·검증·기여·한계와 발표 재사용 근거 |
-| 시각 참고 자료 | [문서 이미지 안내](assets/README.md) | 화면설계서가 참조하는 기존 통합 목업 10장 |
+| 영역                    | 기준 문서                                                                                                | 관리하는 내용                                                           |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 팀 협업                 | [팀 컨벤션](conventions/team-conventions.md)                                                             | 역할·회의·연락·작업 관리·기여 기준                                      |
+| 코드·기술 계약          | [코딩 컨벤션](conventions/coding-conventions.md)                                                         | 브랜치·PR·스타일·패키지 구조·API·인증·DB 규칙과 기술 선택 이유          |
+| 제품 기획               | [기획안](planning/project-proposal.md)                                                                   | 문제·타깃·가설·기능 범위·검수·공개·준비도 등 제품 정책                  |
+| 상세 기획               | [기획 세부안](planning/project-details.md)                                                               | 수업·제출 자료에 사용하는 과제 개요·개발 및 검증 계획                   |
+| 화면 설계               | [화면설계서](design/screen-spec.md)                                                                      | 메뉴·핵심 화면·상태·상호작용·팔레트·SEED 적용 지침                      |
+| 실행·환경 설정          | [개발 시작 안내](getting-started.md)                                                                     | 설치·IDE 설정·환경 변수·실행·검사 순서                                  |
+| 팀 화면 테스트          | [GitHub Pages 시연 안내](github-pages-demo.md)                                                           | 공개 시연 주소·체험 순서·피드백·초기화·실제 연동과의 차이               |
+| 기능별 구현 계약        | [프론트엔드 계약](architecture/frontend-contracts.md) · [백엔드 계약](architecture/backend-contracts.md) | 화면·API·인증·저장·검수와 외부 연동 설정                                |
+| 질문·서류 규칙          | [질문·서류 계약](contracts/question-options-and-documents.md)                                            | 질문별 답변 선택지·준비 대상 서류·변경 공고 이관                        |
+| 공식 공고 자료          | [공고 자료 안내](../data/notices/README.md) · [검수 근거](planning/official-guidance-review-20261101.md) | 공식 공고 입력·검수·반영 절차와 확인 근거                               |
+| 구조 요약               | [아키텍처](architecture.md)                                                                              | 모노레포·연동·배포 원칙의 빠른 요약                                     |
+| 설치 버전               | [버전 기록](versions.md)                                                                                 | 실제 초기 설정 버전. 최종 해석 버전은 잠금 파일·Gradle 설정과 함께 확인 |
+| 구현·검증 상태          | [검증 기록](verification.md)                                                                             | 실제 실행한 검사와 결과·미완료 작업                                     |
+| 진행·문제 해결·의사결정 | [프로젝트 작업 기록](history/README.md)                                                                  | 변경 이유·고민·선택·해결 과정·검증·기여·한계와 발표 재사용 근거         |
+| 시각 참고 자료          | [문서 이미지 안내](assets/README.md)                                                                     | 화면설계서가 참조하는 기존 통합 목업 10장                               |
 
 ## 읽는 순서
 
 프론트엔드 업무 API와 판단한 세부 정책은 [프론트엔드 구현 계약](architecture/frontend-contracts.md)을 확인합니다. [백엔드 구현 계약](architecture/backend-contracts.md)의 실제 기능·외부 설정·검증 한계를 함께 확인합니다.
 
-1. 새 팀원은 [개발 시작 안내](getting-started.md)에 따라 환경을 준비하고 프론트·API·DB 연결을 확인합니다.
+1. 화면 테스트만 하는 팀원은 [공개 시연](https://cho-mi-kim.github.io/jibro/)과 [테스트 안내](github-pages-demo.md)부터 확인합니다. 개발자는 [개발 시작 안내](getting-started.md)에 따라 환경을 준비하고 프론트·API·DB 연결을 확인합니다.
 2. 작업 전 [팀 컨벤션](conventions/team-conventions.md)과 [코딩 컨벤션](conventions/coding-conventions.md)을 확인합니다.
 3. 기능별로 [기획안](planning/project-proposal.md)과 [화면설계서](design/screen-spec.md)를 함께 보고 구현합니다.
-4. 구현 완료 판단은 문서의 계획과 [실제 검증 기록](verification.md)을 구분해 확인합니다. 초기 환경 검증이 로그인·실제 공고·준비 관리·배포 구현 완료를 뜻하지 않습니다.
+4. 구현 완료 판단은 문서의 계획과 [검증 기록](verification.md)·[최신 작업 기록](history/README.md)을 구분해 확인합니다. 공개 시연 검증과 실제 인증·수집·DB 연동 검증은 범위가 다릅니다.
 5. 변경의 배경과 해결 과정을 찾거나 발표·포트폴리오를 준비할 때는 [프로젝트 작업 기록](history/README.md)을 확인합니다. 자동 수집 기록의 보완 상태와 개인 기여를 검토한 뒤 사용합니다.
 
 ## 수정·동기화 규칙
@@ -44,12 +48,12 @@
 
 다음 기존 문서를 복사해 경로·수정일·초기 설정 현황을 보정했습니다. 파일명은 이관 출처를 기록하기 위한 것이며 기존 작업 폴더의 사본을 프로젝트 기준 문서로 다시 수정하지 않습니다.
 
-| 기존 파일 | 프로젝트 현재본 |
-| --- | --- |
-| `team-conventions-20261020.md` | [팀 컨벤션](conventions/team-conventions.md) |
-| `coding-conventions-20261020.md` | [코딩 컨벤션](conventions/coding-conventions.md) |
-| `집으로-화면설계서-20261020.md` | [화면설계서](design/screen-spec.md) |
-| `🏠집으로 — 청년 주거 지원 준비 노트 기획안-20261020.md` | [기획안](planning/project-proposal.md) |
-| `개인 맞춤형 청년 주거지원 신청 준비 관리 웹 서비스 개발 기획 세부안.md` | [기획 세부안](planning/project-details.md) |
+| 기존 파일                                                                | 프로젝트 현재본                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------ |
+| `team-conventions-20261020.md`                                           | [팀 컨벤션](conventions/team-conventions.md)     |
+| `coding-conventions-20261020.md`                                         | [코딩 컨벤션](conventions/coding-conventions.md) |
+| `집으로-화면설계서-20261020.md`                                          | [화면설계서](design/screen-spec.md)              |
+| `🏠집으로 — 청년 주거 지원 준비 노트 기획안-20261020.md`                 | [기획안](planning/project-proposal.md)           |
+| `개인 맞춤형 청년 주거지원 신청 준비 관리 웹 서비스 개발 기획 세부안.md` | [기획 세부안](planning/project-details.md)       |
 
 제품의 준비도(%)·집 건축 표현 초기 포함, 동시 검수·공개 상태 분리, 공식 발급 링크·캘린더/알림 우선순위 등 기존 합의는 유지합니다.

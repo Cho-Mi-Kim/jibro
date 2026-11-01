@@ -2,10 +2,10 @@
 
 - 기록일: 2026-11-01 (Asia/Seoul)
 - 기록 상태: 근거 정리·담당자 검토 전
-- 작업 상태: 진행 중
+- 작업 상태: 해결
 - 유형: 개발 / 의사결정 / 협업
 - 담당·검토: 사용자 시연 방식 선택, Codex 구현·검증 보조. 팀원 사용성 검토 미실시.
-- 관련 PR: 생성 예정
+- 관련 PR: [#20](https://github.com/Cho-Mi-Kim/jibro/pull/20), [#21](https://github.com/Cho-Mi-Kim/jibro/pull/21)
 
 ## 배경·문제
 
@@ -63,3 +63,15 @@ AI가 코드·배포 문서·검증을 보조했다. 가상 데이터는 메모�
 - 질문 페이지의 계정 저장 문구도 공개 시연에서는 탭 내 임시 보관·초기화 안내로 변경했다.
 - 문구 보완 후 frontend ci(25개 테스트 포함)와 Pages 빌드를 다시 통과했다.
 - PR #20: https://github.com/Cho-Mi-Kim/jibro/pull/20. 첫 두 커밋의 CI 3개는 통과했다. 최종 커밋의 CI는 병합 직전 다시 확인한다.
+
+## 배포 후 최종 확인
+
+- PR #20 최종 커밋 b93f819의 frontend/backend/project-history 모두 통과 후 develop에 병합(ea21a6b).
+- PR #21도 검사 3개 모두 통과 후 main에 병합(176999e). 기존 main의 사용자 CNAME 이력을 보존했다.
+- [Pages 배포 실행](https://github.com/Cho-Mi-Kim/jibro/actions/runs/41301192885): build와 deploy 성공.
+- 공개 주소 https://cho-mi-kim.github.io/jibro/ 에서 공고 → 시연 시작 → 질문 답변 → 준비 대상 서류 1개 → 서류 완료 → 신청 기록 → 홈 준비도 100% 및 집 건축 5단계까지 확인했다. 브라우저 오류 로그는 없었다.
+- 공개 상세 해시 주소를 새로고침한 뒤 조건 확인을 누르면 시연 시작으로 이동하여 초기화를 확인했다.
+- 화면 증거는 로컬 `.tools/pages-demo-published.png`에 보관했다(저장소 제외).
+- 로컬 develop을 origin/develop으로 fast-forward했다. 기존 `2026-10-30-develop-integration-review.md` 미커밋 내용은 SHA-256 비교로 보존을 확인했다.
+- Pages 공식 액션의 Node 20 사용 중단 안내가 표시되었지만 Node 24로 실행되어 배포는 통과했다. 추후 공식 액션 업데이트 시 검토한다.
+- 이 배포 후 확인 절은 원격 반영 이후 로컬에 작성했으며, 사용자 요청으로 [PR #22](https://github.com/Cho-Mi-Kim/jibro/pull/22)에 포함한다. 구현·배포 설정·테스트 안내는 #20/#21로 이미 반영되었다.
