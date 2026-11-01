@@ -1,3 +1,4 @@
+import { BrickHouse } from './BrickHouse';
 import { cx } from '../styles/classes';
 import { safeUrl } from './helpers';
 import {
@@ -31,9 +32,7 @@ export function Heading({
 }) {
     return (
         <header className={cx('page-heading')}>
-            <span className={cx('eyebrow')}>
-                {eyebrow ?? 'JIBRO · HOUSING PREPARATION'}
-            </span>
+            <span className={cx('eyebrow')}>{eyebrow}</span>
             <h1>{title}</h1>
             {children && <p>{children}</p>}
         </header>
@@ -128,44 +127,17 @@ export function House({
 }) {
     return (
         <div className={cx('house-row')}>
-            <svg
-                viewBox="0 0 160 140"
-                role="img"
-                aria-label={'집 건축 ' + stage + '단계'}
-            >
-                <path d="M12 124H148" stroke="#b64a32" strokeWidth="5" />
-                <path
-                    d="M35 120V68H125V120"
-                    fill={stage >= 2 ? '#f3e3da' : 'none'}
-                    stroke="#b64a32"
-                    strokeWidth="4"
-                    strokeDasharray={stage < 2 ? '5 5' : undefined}
-                />
-                <path
-                    d="M22 70L80 20L138 70"
-                    fill={stage >= 3 ? '#b64a32' : 'none'}
-                    stroke="#b64a32"
-                    strokeWidth="4"
-                />
-                {stage >= 4 && (
-                    <>
-                        <path d="M70 122V88H92V122" fill="#b64a32" />
-                        <path
-                            d="M45 80H60V96H45ZM105 80H120V96H105Z"
-                            fill="#fff"
-                        />
-                    </>
-                )}
-                {stage >= 5 && (
-                    <circle cx="135" cy="110" r="8" fill="#b64a32" />
-                )}
-            </svg>
             <div>
-                <span className={cx('muted')}>내 준비 진행률</span>
+                <span>전체 준비도</span>
                 <strong className={cx('progress-number')}>{progress}%</strong>
                 <progress max="100" value={progress} aria-label="준비도" />
-                <small>자격 충족도나 선정 가능성이 아닙니다.</small>
+                <small>
+                    준비도는 기록한 준비 작업의 진행률이며,
+                    <br />
+                    신청 자격이나 선정 가능성을 의미하지 않습니다.
+                </small>
             </div>
+            <BrickHouse stage={stage} />
         </div>
     );
 }
