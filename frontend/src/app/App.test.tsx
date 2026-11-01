@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App } from './App';
-import { demoRequest, resetDemo } from '../features/housing/demo';
+import { demoRequest, resetDemo, notices } from '../features/housing/demo';
 import { api } from '../features/housing/api';
 vi.mock('../shared/api/transport', () => ({
     demoMode: true,
@@ -50,6 +50,66 @@ beforeEach(() => {
     );
 });
 describe('사용자 준비 흐름', () => {
+    it('질문별 선택지를 저장하고 결과에서 선택한 답변을 보여준다', async () => {
+        notices[0].questions[0].options = [
+            { value: 'SEOUL', label: '서울특별시에 거주해요' },
+            { value: 'GYEONGGI', label: '경기도에 거주해요' },
+            { value: 'UNKNOWN', label: '기준일의 거주지를 모르겠어요' },
+        ];
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        mount('/preparations/' + p.id + '/conditions/edit');
+        await userEvent.click(
+            await screen.findByRole('radio', { name: '경기도에 거주해요' }),
+        );
+        expect(
+            screen.queryByRole('radio', { name: '확인했어요' }),
+        ).not.toBeInTheDocument();
+        await userEvent.click(
+            screen.getByRole('button', { name: '저장 후 다음' }),
+        );
+        await userEvent.click(
+            await screen.findByRole('radio', { name: '해당하지 않아요' }),
+        );
+        await userEvent.click(
+            screen.getByRole('button', { name: '저장 후 결과 보기' }),
+        );
+        await screen.findByRole('heading', { name: '내 조건 확인 결과' });
+        await userEvent.click(screen.getByText('답변 완료 2개 보기'));
+        expect(screen.getByText('경기도에 거주해요')).toBeVisible();
+        expect((await api.preparation(p.id)).answers.residence).toBe(
+            'GYEONGGI',
+        );
+    });
+    it('해당 없는 서류는 목록에서 숨긴다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        await api.answers(p.id, p.revision, { residence: 'YES', house: 'NO' });
+        mount('/preparations/' + p.id + '/documents');
+        await screen.findByRole('button', { name: /거주 확인 서류/ });
+        expect(
+            screen.queryByRole('button', { name: /조건별 확인 서류/ }),
+        ).not.toBeInTheDocument();
+        expect(screen.queryByText('조건별 확인 서류')).not.toBeInTheDocument();
+        expect(
+            screen.getByRole('heading', { name: /준비 대상 서류 1개/ }),
+        ).toBeVisible();
+    });
+    it('미확정 서류는 준비 목록 대신 추가 확인 안내에만 표시한다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        mount('/preparations/' + p.id + '/documents');
+        await screen.findByRole('button', { name: /거주 확인 서류/ });
+        expect(
+            screen.queryByRole('button', { name: /조건별 확인 서류/ }),
+        ).not.toBeInTheDocument();
+        expect(
+            screen.getByRole('heading', { name: '해당 여부 추가 확인 1개' }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('link', { name: '조건 답변 보완하기' }),
+        ).toBeVisible();
+    });
     it('한 서류 저장 후 다른 서류의 미저장 입력을 유지한다', async () => {
         await api.login('demo@example.invalid', 'demo');
         const p = await api.start('1', 1);

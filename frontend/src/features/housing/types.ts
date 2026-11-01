@@ -2,7 +2,12 @@ export type GuideState =
     'AVAILABLE' | 'REVIEWING' | 'UNSUPPORTED' | 'CHANGE_REVIEW';
 export type DocumentState =
     'UNCHECKED' | 'NEEDED' | 'IN_PROGRESS' | 'READY' | 'RECHECK';
-export type Answer = 'YES' | 'NO' | 'UNKNOWN';
+export type Answer = string;
+export interface AnswerOption {
+    value: string;
+    label: string;
+    requiresFollowUp?: boolean;
+}
 export interface Evidence {
     label: string;
     url: string | null;
@@ -13,6 +18,7 @@ export interface Question {
     title: string;
     reason: string;
     evidence: Evidence;
+    options?: AnswerOption[] | null;
 }
 export interface Notice {
     id: string;

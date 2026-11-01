@@ -8,6 +8,7 @@ import type {
     User,
 } from './types';
 import { ApiError } from '../../shared/api/client';
+import { needsFollowUp } from './questions';
 const evidence = {
     label: '시연용 자료 · 실제 모집 공고 아님',
     url: null,
@@ -98,7 +99,7 @@ function requireUser() {
 }
 export function calculate(p: Preparation): Preparation {
     const known = p.questions.filter(
-        (q) => p.answers[q.id] && p.answers[q.id] !== 'UNKNOWN',
+        (q) => !needsFollowUp(q, p.answers[q.id]),
     ).length;
     const docs = p.documents.filter((d) => d.necessity !== 'NOT_APPLICABLE');
     const ready = docs.filter(
@@ -117,7 +118,7 @@ export function calculate(p: Preparation): Preparation {
             ? Math.min(99, rounded)
             : rounded;
     const warnings = p.questions
-        .filter((q) => !p.answers[q.id] || p.answers[q.id] === 'UNKNOWN')
+        .filter((q) => needsFollowUp(q, p.answers[q.id]))
         .map((q) => q.title);
     const unready = docs.find((d) => d.state !== 'READY');
     const next = warnings.length

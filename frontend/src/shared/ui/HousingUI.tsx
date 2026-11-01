@@ -1,3 +1,4 @@
+import { needsFollowUp } from '../../features/housing/questions';
 import { displayDate, daysLeft, useNotice } from './housingHelpers';
 import { Link } from 'react-router';
 import type { Notice, Preparation } from '../../features/housing/types';
@@ -117,9 +118,7 @@ export function Deadline({
 export function Journey({ p }: { p: Preparation }) {
     const conditions =
         p.questions.length > 0 &&
-        p.questions.every(
-            (q) => p.answers[q.id] && p.answers[q.id] !== 'UNKNOWN',
-        );
+        p.questions.every((q) => !needsFollowUp(q, p.answers[q.id]));
     const docs = p.documents.filter((d) => d.necessity !== 'NOT_APPLICABLE');
     const ready =
         docs.length > 0 &&
@@ -180,10 +179,8 @@ export function Metrics({
                     <small>
                         추가 확인{' '}
                         {
-                            p.questions.filter(
-                                (q) =>
-                                    !p.answers[q.id] ||
-                                    p.answers[q.id] === 'UNKNOWN',
+                            p.questions.filter((q) =>
+                                needsFollowUp(q, p.answers[q.id]),
                             ).length
                         }
                         개

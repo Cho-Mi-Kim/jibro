@@ -1,3 +1,8 @@
+import {
+    answerOptions,
+    answerLabel,
+    needsFollowUp,
+} from '../features/housing/questions';
 import { displayDate, daysLeft, useNotice } from '../shared/ui/housingHelpers';
 import { cx } from '../shared/styles/classes';
 import { useState } from 'react';
@@ -49,6 +54,48 @@ function useSaved() {
         void client.invalidateQueries({ queryKey: ['preparations'] });
     };
 }
+function GuidanceRefresh({
+    p,
+    onRefreshed,
+}: {
+    p: Preparation;
+    onRefreshed?: () => void;
+}) {
+    const notice = useNotice(p.noticeId);
+    const saved = useSaved();
+    const refresh = useMutation({
+        mutationFn: () =>
+            api.refreshPreparation(p.id, p.revision, notice.data!.version),
+        onSuccess: (next) => {
+            saved(next);
+            onRefreshed?.();
+        },
+    });
+    if (
+        !notice.data ||
+        notice.data.guideState !== 'AVAILABLE' ||
+        notice.data.version <= p.version
+    )
+        return null;
+    return (
+        <Card>
+            <h2>새로운 질문과 준비 안내가 있어요</h2>
+            <p>
+                기존 답변은 이전 기록으로 보관하고, 바뀐 질문은 다시 답변합니다.
+                서류 메모는 유지하며 완료한 서류는 재확인이 필요합니다.
+            </p>
+            <Button
+                disabled={refresh.isPending}
+                onClick={() => refresh.mutate()}
+            >
+                {refresh.isPending
+                    ? '불러오는 중…'
+                    : '새 안내로 질문 다시 확인하기'}
+            </Button>
+            {refresh.error && <p role="alert">{refresh.error.message}</p>}
+        </Card>
+    );
+}
 export function PreparationNav({
     p,
     context = true,
@@ -59,10 +106,11 @@ export function PreparationNav({
     return (
         <>
             {context && <NoticeContext p={p} />}
+            <GuidanceRefresh p={p} />
             {p.guideState !== 'AVAILABLE' && (
                 <p className={cx('callout')}>
-                    수정 공고 검토 중입니다. 기존 기록을 보존하며 변경 저장은
-                    잠시 보류합니다.
+                    현재 기록과 최신 안내가 다르거나 안내 검수 중입니다. 기존
+                    기록은 보존되며 새 안내 확인 전에는 저장할 수 없습니다.
                 </p>
             )}
             <nav className={cx('tabs preparation-tabs')} aria-label="개인 준비">
@@ -205,12 +253,9 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
     const question = p?.questions[step];
     const n = useNotice(p?.noticeId);
     const uncertain =
-        p?.questions.filter(
-            (x) => !p.answers[x.id] || p.answers[x.id] === 'UNKNOWN',
-        ) ?? [];
+        p?.questions.filter((x) => needsFollowUp(x, p.answers[x.id])) ?? [];
     const confirmed =
-        p?.questions.filter((x) => p.answers[x.id] === 'YES') ?? [];
-    const negative = p?.questions.filter((x) => p.answers[x.id] === 'NO') ?? [];
+        p?.questions.filter((x) => !needsFollowUp(x, p.answers[x.id])) ?? [];
     return (
         <div className={cx(edit ? 'condition-page' : 'result-page')}>
             <Heading
@@ -224,6 +269,16 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                 error={q.error}
                 retry={() => void q.refetch()}
             />
+            {p && (
+                <GuidanceRefresh
+                    p={p}
+                    onRefreshed={() => {
+                        setAnswers({});
+                        setStep(0);
+                        setDirty(false);
+                    }}
+                />
+            )}
             {p &&
                 (edit && question ? (
                     <div className={cx('condition-layout')}>
@@ -266,8 +321,8 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                     확인하세요.
                                 </p>
                                 <p className={cx('muted')}>{question.reason}</p>
-                                {(['YES', 'NO', 'UNKNOWN'] as const).map(
-                                    (a, i) => (
+                                {answerOptions(question).map(
+                                    ({ value: a, label }) => (
                                         <label className={cx('choice')} key={a}>
                                             <input
                                                 type="radio"
@@ -287,13 +342,7 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                                     setDirty(true);
                                                 }}
                                             />
-                                            {
-                                                [
-                                                    '확인했어요',
-                                                    '해당하지 않아요',
-                                                    '잘 모르겠어요',
-                                                ][i]
-                                            }
+                                            {label}
                                         </label>
                                     ),
                                 )}
@@ -356,7 +405,7 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                 <div>
                                     <Disc name="check" tone="green" />
                                     <span>
-                                        입력 기준 확인
+                                        답변 완료
                                         <strong>{confirmed.length}개</strong>
                                     </span>
                                 </div>
@@ -390,6 +439,10 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                         </Status>
                                     </div>
                                     <h2>{x.title}</h2>
+                                    <p>
+                                        내 답변:{' '}
+                                        {answerLabel(x, p.answers[x.id])}
+                                    </p>
                                     <p className={cx('muted')}>{x.reason}</p>
                                     <EvidenceLink evidence={x.evidence} />
                                     <Link
@@ -406,31 +459,16 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                             ))}
                             <details className={cx('card')}>
                                 <summary>
-                                    입력 기준 확인 {confirmed.length}개 보기
+                                    답변 완료 {confirmed.length}개 보기
                                 </summary>
                                 {confirmed.map((x) => (
                                     <div key={x.id}>
                                         <h3>{x.title}</h3>
+                                        <p>{answerLabel(x, p.answers[x.id])}</p>
                                         <EvidenceLink evidence={x.evidence} />
                                     </div>
                                 ))}
                             </details>
-                            {negative.length > 0 && (
-                                <details className={cx('card')} open>
-                                    <summary>
-                                        해당 없음으로 답변 {negative.length}개
-                                    </summary>
-                                    {negative.map((x) => (
-                                        <div key={x.id}>
-                                            <h3>{x.title}</h3>
-                                            <p>{x.reason}</p>
-                                            <EvidenceLink
-                                                evidence={x.evidence}
-                                            />
-                                        </div>
-                                    ))}
-                                </details>
-                            )}
                         </section>
                         <aside className={cx('panel result-documents')}>
                             <div className={cx('row')}>
@@ -645,7 +683,14 @@ export function DocumentsPage() {
             (d) => d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL',
         ) ?? [];
     const ready = docs.filter((d) => d.state === 'READY').length;
-    const active = selected ?? p?.documents[0]?.id;
+    const unresolved =
+        p?.documents.filter((d) => d.necessity === 'UNKNOWN') ?? [];
+    const active =
+        selected === ''
+            ? ''
+            : docs.some((d) => d.id === selected)
+              ? selected
+              : docs[0]?.id;
     return (
         <>
             <Heading title="서류 준비" backTo="/preparations" />
@@ -657,6 +702,30 @@ export function DocumentsPage() {
             {p && (
                 <>
                     <PreparationNav p={p} />
+                    {unresolved.length > 0 && (
+                        <Card>
+                            <h2>해당 여부 추가 확인 {unresolved.length}개</h2>
+                            <p>
+                                아직 준비 대상인지 정하지 못한 서류가 있어요.
+                                조건에 답하면 필요한 서류만 목록에 추가됩니다.
+                            </p>
+                            <details>
+                                <summary>확인이 필요한 항목 보기</summary>
+                                <ul>
+                                    {unresolved.map((d) => (
+                                        <li key={d.id}>{d.title}</li>
+                                    ))}
+                                </ul>
+                            </details>
+                            <Link
+                                to={
+                                    '/preparations/' + p.id + '/conditions/edit'
+                                }
+                            >
+                                조건 답변 보완하기
+                            </Link>
+                        </Card>
+                    )}
                     <div className={cx('documents-layout')}>
                         <div className={cx('document-progress')}>
                             <h2>
@@ -691,7 +760,7 @@ export function DocumentsPage() {
                                 개
                             </small>
                         </div>
-                        {p.documents.map((d) => (
+                        {docs.map((d) => (
                             <DocumentEditor
                                 key={p.id + ':' + d.id}
                                 p={p}
@@ -702,10 +771,9 @@ export function DocumentsPage() {
                                 }
                             />
                         ))}
-                        {p.documents.length === 0 && (
+                        {docs.length === 0 && (
                             <Card>
-                                등록된 서류가 없습니다. 공식 공고를 확인해
-                                주세요.
+                                현재 답변으로 확인된 준비 대상 서류가 없습니다.
                             </Card>
                         )}
                     </div>

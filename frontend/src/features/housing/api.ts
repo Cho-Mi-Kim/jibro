@@ -38,6 +38,11 @@ export const api = {
         call<Preparation>('/preparations/' + encodeURIComponent(id)),
     start: (noticeId: string, version: number) =>
         call<Preparation>('/preparations', 'POST', { noticeId, version }),
+    refreshPreparation: (id: string, revision: number, version: number) =>
+        call<Preparation>('/preparations/' + id + '/refresh', 'POST', {
+            revision,
+            version,
+        }),
     answers: (id: string, revision: number, answers: Record<string, Answer>) =>
         call<Preparation>('/preparations/' + id + '/answers', 'PUT', {
             revision,
