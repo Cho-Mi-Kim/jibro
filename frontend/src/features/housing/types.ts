@@ -33,6 +33,7 @@ export interface Notice {
     evidence: Evidence;
     questions: Question[];
     documents: string[];
+    schedules?: Omit<Schedule, 'recorded'>[];
 }
 export interface Page<T> {
     items: T[];

@@ -92,8 +92,8 @@ export function Shell({ children }: { children: ReactNode }) {
             )}
             {!demoMode && meta.data?.sampleData && (
                 <div className={cx('demo-banner')} role="status">
-                    로컬 검증 · 가상 공고 · 실제 서버 저장 · 신청에 사용할 수
-                    없는 자료입니다
+                    로컬 개발 환경 · 예시 공고는 실제 신청에 사용할 수 없습니다.
+                    실제 공고는 공식 원문을 확인하세요.
                 </div>
             )}
             <div className={cx('workspace')}>

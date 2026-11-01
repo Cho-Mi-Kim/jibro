@@ -1,3 +1,12 @@
+.notice-source {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+.notice-source a {
+    color: var(--brand);
+}
 .auth-page {
     width: 100%;
     max-width: 560px;
@@ -1085,6 +1094,11 @@ dialog::backdrop {
 }
 .notice-card-main > div {
     flex: 1;
+    min-width: 0;
+}
+.notice-card .card-title {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
 }
 .notice-card-main p {
     margin: 4px 0;

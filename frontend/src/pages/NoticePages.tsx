@@ -64,6 +64,14 @@ export function NoticeCard({ notice: n }: { notice: Notice }) {
                 </Link>
             </div>
             <NoticeDates notice={n} />
+            {n.evidence.url && (
+                <div className={cx('notice-source row')}>
+                    <small>원문 확인 {displayDate(n.evidence.checkedAt)}</small>
+                    <OfficialLink url={n.evidence.url}>
+                        공식 원문 보기
+                    </OfficialLink>
+                </div>
+            )}
         </article>
     );
 }
@@ -425,6 +433,18 @@ export function NoticeDetailPage() {
                             <Card>
                                 <h2>공식 접수 일정</h2>
                                 <NoticeDates notice={n} />
+                                {n.schedules?.map((schedule) => (
+                                    <div
+                                        key={schedule.id}
+                                        className={cx('notice-source')}
+                                    >
+                                        <h3>{schedule.title}</h3>
+                                        <p>{displayDate(schedule.date)}</p>
+                                        <EvidenceLink
+                                            evidence={schedule.evidence}
+                                        />
+                                    </div>
+                                ))}
                                 <EvidenceLink evidence={n.evidence} />
                             </Card>
                         ) : n.guideState !== 'AVAILABLE' ? (

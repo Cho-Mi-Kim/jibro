@@ -62,6 +62,7 @@ export function NoticeDates({
     notice?: Notice;
     preparation?: Preparation;
 }) {
+    const schedules = preparation?.schedules ?? notice?.schedules ?? [];
     const dates = [
         ['공고일', notice?.publishedDate],
         [
@@ -74,12 +75,12 @@ export function NoticeDates({
         ],
         [
             '대상자 발표',
-            preparation?.schedules.find((s) => /발표/.test(s.title))?.date,
+            schedules.find((s) => /서류.*대상.*발표/.test(s.title))?.date ??
+                schedules.find((s) => /발표/.test(s.title))?.date,
         ],
         [
             '서류 제출 마감',
-            preparation?.schedules.find((s) => /서류.*마감/.test(s.title))
-                ?.date,
+            schedules.find((s) => /서류.*마감/.test(s.title))?.date,
         ],
     ];
     return (
