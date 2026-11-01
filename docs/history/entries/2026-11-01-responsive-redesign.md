@@ -66,4 +66,5 @@ AI 보조 구현이다. 사용성 개선 수치나 사용자 테스트 결과는
 - 참고 자료: [Google 브랜드 가이드](https://developers.google.com/identity/branding-guidelines), [카카오 로그인 디자인 가이드](https://developers.kakao.com/docs/ko/kakaologin/design-guide). 문구는 사용자가 요청한 '계속하기'를 사용한다.
 - PC·390px 실화면에서 세로 배치와 동일 크기를 확인했다. 320px에서도 가로 넘침이 없었으며 `npm run ci` 전체 통과(20개 테스트, 빌드 포함). 외부 계정 로그인은 다시 수행하지 않았다.
 - AI 구현 보조이며 팀 검토 대기. 최종 스크린샷은 `.tools/redesign-review/login-social-mobile.png`에 보관한다.
+- 후속 색상 조정: 사용자 승인에 따라 Google 버튼 테두리를 `#747775`에서 `#b8b0aa`로 밝게 변경했다. 입력란의 `#d8d1cc`와 같은 따뜻한 회색 계열이며 입력란보다 진한 경계를 유지한다. CSS 색상만 변경하여 Prettier 및 Git 공백 검사를 수행했으며 기능 테스트는 재실행하지 않았다. 위 스크린샷은 이 색상 조정 전 기록이다.
 
