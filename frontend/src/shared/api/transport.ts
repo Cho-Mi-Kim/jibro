@@ -1,8 +1,10 @@
 import { ApiError } from './client';
+import { pagesDemo } from './environment';
 let accessToken: string | null = null;
 let refreshing: Promise<void> | null = null;
 export const demoMode =
-    import.meta.env.DEV && import.meta.env.VITE_API_MODE === 'demo';
+    pagesDemo ||
+    (import.meta.env.DEV && import.meta.env.VITE_API_MODE === 'demo');
 export function clearToken() {
     accessToken = null;
 }

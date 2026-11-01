@@ -9,6 +9,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from '../app/useSession';
 import { api } from '../features/housing/api';
 import { demoMode } from '../shared/api/transport';
+import { pagesDemo } from '../shared/api/environment';
 import { Button, Card, Heading, Soon, State } from '../shared/ui/ui';
 export function LoginPage({ signup = false }: { signup?: boolean }) {
     const providers = useQuery({
@@ -69,101 +70,120 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                         : '소셜 인증을 완료하지 못했습니다. 다시 시도하고, 문제가 반복되면 관리자에게 문의해 주세요.'}
                 </p>
             )}
-            <Heading title={signup ? '회원가입' : '로그인'}>
-                내 준비를 저장하고 다음에 이어가세요.
+            <Heading
+                title={pagesDemo ? '시연 시작' : signup ? '회원가입' : '로그인'}
+            >
+                {pagesDemo
+                    ? '가입 없이 가상 사용자로 준비 과정을 체험하세요.'
+                    : '내 준비를 저장하고 다음에 이어가세요.'}
             </Heading>
-            <Card>
-                <form onSubmit={submit}>
-                    {signup && (
+            {!pagesDemo && (
+                <Card>
+                    <form onSubmit={submit}>
+                        {signup && (
+                            <label>
+                                이름
+                                <input
+                                    name="name"
+                                    autoComplete="name"
+                                    required
+                                    minLength={2}
+                                    maxLength={30}
+                                />
+                            </label>
+                        )}
                         <label>
-                            이름
+                            이메일
                             <input
-                                name="name"
-                                autoComplete="name"
+                                name="email"
+                                type="email"
+                                autoComplete="email"
                                 required
-                                minLength={2}
-                                maxLength={30}
                             />
                         </label>
-                    )}
-                    <label>
-                        이메일
-                        <input
-                            name="email"
-                            type="email"
-                            autoComplete="email"
-                            required
-                        />
-                    </label>
-                    <label>
-                        비밀번호
-                        <input
-                            name="password"
-                            type="password"
-                            autoComplete={
-                                signup ? 'new-password' : 'current-password'
-                            }
-                            required
-                            minLength={signup ? 10 : 1}
-                            maxLength={72}
-                        />
-                    </label>
-                    {(error || mutation.error) && (
-                        <p role="alert">{error || mutation.error?.message}</p>
-                    )}
-                    <Button disabled={mutation.isPending}>
-                        {mutation.isPending
-                            ? '처리 중…'
-                            : signup
-                              ? '가입 후 로그인'
-                              : '로그인'}
-                    </Button>
-                </form>
-                {!demoMode && (
-                    <div className={cx('social-login')}>
-                        <p className={cx('social-divider')}>
-                            또는 다른 계정으로 계속하기
-                        </p>
-                        <div className={cx('social-buttons')}>
-                            <button
-                                type="button"
-                                className={cx('social-button social-google')}
-                                disabled={!providers.data?.includes('google')}
-                                onClick={() => social('google')}
-                            >
-                                <SocialLogo provider="google" />
-                                <span>Google로 계속하기</span>
-                            </button>
-                            <button
-                                type="button"
-                                className={cx('social-button social-kakao')}
-                                disabled={!providers.data?.includes('kakao')}
-                                onClick={() => social('kakao')}
-                            >
-                                <SocialLogo provider="kakao" />
-                                <span>카카오로 계속하기</span>
-                            </button>
-                        </div>
-                        {providers.data?.length === 0 && (
-                            <p>
-                                현재 소셜 로그인 연결을 준비 중입니다. 이메일로
-                                계속해 주세요.
+                        <label>
+                            비밀번호
+                            <input
+                                name="password"
+                                type="password"
+                                autoComplete={
+                                    signup ? 'new-password' : 'current-password'
+                                }
+                                required
+                                minLength={signup ? 10 : 1}
+                                maxLength={72}
+                            />
+                        </label>
+                        {(error || mutation.error) && (
+                            <p role="alert">
+                                {error || mutation.error?.message}
                             </p>
                         )}
-                        <State
-                            error={providers.error}
-                            retry={() => void providers.refetch()}
-                        />
-                    </div>
-                )}
-            </Card>
+                        <Button disabled={mutation.isPending}>
+                            {mutation.isPending
+                                ? '처리 중…'
+                                : signup
+                                  ? '가입 후 로그인'
+                                  : '로그인'}
+                        </Button>
+                    </form>
+                    {!demoMode && (
+                        <div className={cx('social-login')}>
+                            <p className={cx('social-divider')}>
+                                또는 다른 계정으로 계속하기
+                            </p>
+                            <div className={cx('social-buttons')}>
+                                <button
+                                    type="button"
+                                    className={cx(
+                                        'social-button social-google',
+                                    )}
+                                    disabled={
+                                        !providers.data?.includes('google')
+                                    }
+                                    onClick={() => social('google')}
+                                >
+                                    <SocialLogo provider="google" />
+                                    <span>Google로 계속하기</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={cx('social-button social-kakao')}
+                                    disabled={
+                                        !providers.data?.includes('kakao')
+                                    }
+                                    onClick={() => social('kakao')}
+                                >
+                                    <SocialLogo provider="kakao" />
+                                    <span>카카오로 계속하기</span>
+                                </button>
+                            </div>
+                            {providers.data?.length === 0 && (
+                                <p>
+                                    현재 소셜 로그인 연결을 준비 중입니다.
+                                    이메일로 계속해 주세요.
+                                </p>
+                            )}
+                            <State
+                                error={providers.error}
+                                retry={() => void providers.refetch()}
+                            />
+                        </div>
+                    )}
+                </Card>
+            )}
             {demoMode ? (
                 <Card>
                     <p>
-                        개발용 시연입니다. 실제 이메일·비밀번호를 입력하지
-                        마세요.
+                        화면 테스트용 시연입니다. 실제 로그인이나 서버 저장은
+                        하지 않습니다. 새로고침하면 시연 계정과 준비 기록이
+                        초기화됩니다.
                     </p>
+                    {mutation.error && (
+                        <p role="alert">{mutation.error.message}</p>
+                    )}
                     <Button
+                        disabled={mutation.isPending}
                         onClick={() =>
                             mutation.mutate({
                                 name: '시연',
@@ -175,6 +195,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                         시연 사용자로 보기
                     </Button>
                     <Button
+                        disabled={mutation.isPending}
                         className={cx('secondary')}
                         onClick={() =>
                             mutation.mutate({
@@ -188,16 +209,20 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     </Button>
                 </Card>
             ) : null}
-            <Link
-                to={
-                    (signup ? '/login' : '/signup') +
-                    '?returnTo=' +
-                    encodeURIComponent(returnTo)
-                }
-            >
-                {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
-            </Link>
-            <Soon label="비밀번호 재설정" />
+            {!pagesDemo && (
+                <>
+                    <Link
+                        to={
+                            (signup ? '/login' : '/signup') +
+                            '?returnTo=' +
+                            encodeURIComponent(returnTo)
+                        }
+                    >
+                        {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
+                    </Link>
+                    <Soon label="비밀번호 재설정" />
+                </>
+            )}
         </div>
     );
 }

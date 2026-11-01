@@ -47,7 +47,15 @@ export function Shell({ children }: { children: ReactNode }) {
     }, [location.pathname]);
     return (
         <>
-            <a className={cx('skip-link')} href="#main">
+            <a
+                className={cx('skip-link')}
+                href="#main"
+                onClick={(event) => {
+                    event.preventDefault();
+                    main.current?.focus();
+                    main.current?.scrollIntoView();
+                }}
+            >
                 본문으로 바로가기
             </a>
             <header
@@ -86,8 +94,8 @@ export function Shell({ children }: { children: ReactNode }) {
             </header>
             {demoMode && (
                 <div className={cx('demo-banner')} role="status">
-                    개발 시연 · 가상 공고 · 메모리 임시 저장 · 새로고침 시
-                    초기화
+                    화면 테스트용 시연 · 가상 공고 · 서버 저장 없음 · 새로고침
+                    시 초기화
                 </div>
             )}
             {!demoMode && meta.data?.sampleData && (

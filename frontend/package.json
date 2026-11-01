@@ -7,6 +7,7 @@
         "dev": "vite",
         "dev:demo": "vite --mode demo",
         "build": "tsc -b && vite build",
+        "build:pages": "tsc -b && vite build --mode pages-demo",
         "lint": "eslint . --max-warnings 0",
         "typecheck": "tsc -b --pretty false",
         "format": "prettier --write .",

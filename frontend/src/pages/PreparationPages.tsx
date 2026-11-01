@@ -17,6 +17,7 @@ import type {
     Preparation,
 } from '../features/housing/types';
 import { useSession } from '../app/useSession';
+import { pagesDemo } from '../shared/api/environment';
 import {
     Button,
     Card,
@@ -354,7 +355,9 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                             <div className={cx('info-note')}>
                                 <Icon name="info" />
                                 <span>
-                                    답변과 준비 상태를 계정에 저장합니다.
+                                    {pagesDemo
+                                        ? '답변과 준비 상태는 이 탭에서만 임시 보관합니다. 새로고침하면 초기화됩니다.'
+                                        : '답변과 준비 상태를 계정에 저장합니다.'}
                                     <br />
                                     주민등록번호와 증빙 원본은 입력하지 않아요.
                                 </span>
