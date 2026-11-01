@@ -1,3 +1,6 @@
+import { SocialLogo } from '../shared/ui/SocialLogo';
+import { Disc } from '../shared/ui/HousingUI';
+import { Icon } from '../shared/ui/Icon';
 import { cx } from '../shared/styles/classes';
 import { safeReturn } from '../shared/api/returnPath';
 import { useEffect, useState, type FormEvent } from 'react';
@@ -58,7 +61,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
         window.location.assign('/oauth2/authorization/' + provider);
     }
     return (
-        <>
+        <div className={cx('auth-page')}>
             {params.get('oauthError') && (
                 <p role="alert">
                     {params.get('oauthError') === 'account'
@@ -116,6 +119,43 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                               : '로그인'}
                     </Button>
                 </form>
+                {!demoMode && (
+                    <div className={cx('social-login')}>
+                        <p className={cx('social-divider')}>
+                            또는 다른 계정으로 계속하기
+                        </p>
+                        <div className={cx('social-buttons')}>
+                            <button
+                                type="button"
+                                className={cx('social-button social-google')}
+                                disabled={!providers.data?.includes('google')}
+                                onClick={() => social('google')}
+                            >
+                                <SocialLogo provider="google" />
+                                <span>Google로 계속하기</span>
+                            </button>
+                            <button
+                                type="button"
+                                className={cx('social-button social-kakao')}
+                                disabled={!providers.data?.includes('kakao')}
+                                onClick={() => social('kakao')}
+                            >
+                                <SocialLogo provider="kakao" />
+                                <span>카카오로 계속하기</span>
+                            </button>
+                        </div>
+                        {providers.data?.length === 0 && (
+                            <p>
+                                현재 소셜 로그인 연결을 준비 중입니다. 이메일로
+                                계속해 주세요.
+                            </p>
+                        )}
+                        <State
+                            error={providers.error}
+                            retry={() => void providers.refetch()}
+                        />
+                    </div>
+                )}
             </Card>
             {demoMode ? (
                 <Card>
@@ -147,35 +187,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                         시연 관리자로 보기
                     </Button>
                 </Card>
-            ) : (
-                <Card>
-                    <p>다른 계정으로 계속하기</p>
-                    <Button
-                        className={cx('secondary')}
-                        disabled={!providers.data?.includes('google')}
-                        onClick={() => social('google')}
-                    >
-                        Google로 로그인
-                    </Button>
-                    <Button
-                        className={cx('secondary')}
-                        disabled={!providers.data?.includes('kakao')}
-                        onClick={() => social('kakao')}
-                    >
-                        카카오로 로그인
-                    </Button>
-                    {providers.data?.length === 0 && (
-                        <p>
-                            현재 소셜 로그인 연결을 준비 중입니다. 이메일로
-                            계속해 주세요.
-                        </p>
-                    )}
-                    <State
-                        error={providers.error}
-                        retry={() => void providers.refetch()}
-                    />
-                </Card>
-            )}
+            ) : null}
             <Link
                 to={
                     (signup ? '/login' : '/signup') +
@@ -186,7 +198,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                 {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
             </Link>
             <Soon label="비밀번호 재설정" />
-        </>
+        </div>
     );
 }
 export function CallbackPage() {
@@ -227,50 +239,125 @@ export function MyPage() {
             navigate('/');
         },
     });
+    const preparations = useQuery({
+        queryKey: ['preparations', user?.id],
+        queryFn: api.preparations,
+        enabled: !!user,
+    });
+    const completed = preparations.data?.filter(
+        (p) => p.progress === 100,
+    ).length;
+    const ongoing = preparations.data
+        ? preparations.data.length - (completed ?? 0)
+        : undefined;
     return (
         <>
             <Heading title="마이" />
-            <Card>
-                <div className={cx('avatar')}>
-                    {user?.name.slice(0, 1) ?? 'J'}
-                </div>
-                <h2>
-                    {user ? user.name + '님' : '로그인하고 준비를 이어가세요'}
-                </h2>
-                {user ? (
-                    <>
-                        <p>{user.email}</p>
-                        <Link to="/preparations">내 준비 기록 보기 →</Link>
-                    </>
-                ) : (
-                    <Link className={cx('link-button')} to="/login">
-                        로그인
-                    </Link>
+            <div className={cx('my-grid')}>
+                <section className={cx('panel profile')}>
+                    <div className={cx('avatar')}>
+                        {user?.name.slice(0, 1) ?? <Icon name="user" />}
+                    </div>
+                    <div>
+                        <h2>
+                            {user
+                                ? user.name + '님'
+                                : '로그인하고 준비를 이어가세요'}
+                        </h2>
+                        {user ? (
+                            <Soon label="내 정보 관리" />
+                        ) : (
+                            <Link className={cx('link-button')} to="/login">
+                                로그인
+                            </Link>
+                        )}
+                    </div>
+                </section>
+                {user && (
+                    <div className={cx('my-counts')}>
+                        <Link className={cx('metric')} to="/preparations">
+                            <Disc name="file" />
+                            <div>
+                                진행 중 준비<strong>{ongoing ?? '—'}건</strong>
+                            </div>
+                            <Icon name="arrow" />
+                        </Link>
+                        <Link className={cx('metric')} to="/preparations">
+                            <Disc name="check" tone="gray" />
+                            <div>
+                                준비 기록 완료
+                                <strong>{completed ?? '—'}건</strong>
+                            </div>
+                            <Icon name="arrow" />
+                        </Link>
+                    </div>
                 )}
-            </Card>
-            <Card>
-                <h2>서비스 이용 안내</h2>
-                <p>
-                    집으로는 신청 준비를 돕는 서비스입니다. 공식 신청과 최종
-                    심사는 각 기관에서 진행합니다.
-                </p>
-                <p>준비도는 기록한 작업의 진행 상태입니다.</p>
-                <Soon label="관심 공고" />
-                <Soon label="알림 설정" />
-                <Soon label="계정 연결·탈퇴" />
-            </Card>
-            {user?.role === 'ADMIN' && (
-                <Link to="/admin">관리자 검수 화면</Link>
-            )}
-            {logout.error && <p role="alert">{logout.error.message}</p>}
-            {user && (
-                <Button
-                    disabled={logout.isPending}
-                    onClick={() => logout.mutate()}
-                >
-                    로그아웃
-                </Button>
-            )}
+                <section className={cx('panel my-menu')}>
+                    <Link to="/preparations">
+                        <Disc name="calendar" />
+                        <strong>내 신청 준비</strong>
+                        <Icon name="arrow" />
+                    </Link>
+                    {(
+                        ['관심 공고', '알림 설정', '완료 여정 보관'] as const
+                    ).map((label, i) => (
+                        <div key={label}>
+                            <Disc
+                                name={
+                                    (['star', 'bell', 'bookmark'] as const)[i]
+                                }
+                                tone="gray"
+                            />
+                            <Soon label={label} />
+                            <Icon name="arrow" />
+                        </div>
+                    ))}
+                    <Link to="/guide">
+                        <Disc name="file" />
+                        <strong>서비스 이용 안내</strong>
+                        <Icon name="arrow" />
+                    </Link>
+                    {user?.role === 'ADMIN' && (
+                        <Link to="/admin">
+                            <Disc name="check" />
+                            <strong>관리자 검수 화면</strong>
+                            <Icon name="arrow" />
+                        </Link>
+                    )}
+                </section>
+                <div className={cx('callout my-disclaimer')}>
+                    <Disc name="info" tone="amber" />
+                    <ul>
+                        <li>
+                            준비도는 신청 자격이나 선정 가능성을 뜻하지
+                            않습니다.
+                        </li>
+                        <li>
+                            실제 신청은 운영기관 공식 사이트에서 진행됩니다.
+                        </li>
+                        <li>주민등록번호와 증빙 원본은 저장하지 않습니다.</li>
+                    </ul>
+                </div>
+                {user && (
+                    <div className={cx('my-logout')}>
+                        <State
+                            error={preparations.error}
+                            retry={() => void preparations.refetch()}
+                        />
+                        {logout.error && (
+                            <p role="alert">{logout.error.message}</p>
+                        )}
+                        <Button
+                            className="secondary wide"
+                            disabled={logout.isPending}
+                            onClick={() => logout.mutate()}
+                        >
+                            <Icon name="logout" />
+                            로그아웃
+                        </Button>
+                    </div>
+                )}
+            </div>
         </>
     );
 }

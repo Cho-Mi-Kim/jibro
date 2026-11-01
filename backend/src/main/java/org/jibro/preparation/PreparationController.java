@@ -22,7 +22,15 @@ public class PreparationController {
     public record Start(@NotNull UUID noticeId, @Min(1) int version) {
     }
 
-    public record Answers(@Min(1) int revision, @NotNull Map<String, Answer> answers) {
+    public record Answers(@Min(1) int revision, @NotNull Map<String, String> answers) {
+    }
+
+    public record Refresh(@Min(1) int revision, @Min(1) int version) {
+    }
+
+    @PostMapping("/{id}/refresh")
+    Preparation refresh(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @Valid @RequestBody Refresh body) {
+        return service.refresh(jwt.getSubject(), id, body.revision(), body.version());
     }
 
     public record DocumentUpdate(@Min(1) int revision, @NotNull DocumentState state,

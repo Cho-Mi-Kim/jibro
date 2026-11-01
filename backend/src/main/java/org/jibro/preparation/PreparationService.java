@@ -43,15 +43,24 @@ public class PreparationService {
         Notice notice = notices.notice(noticeId);
         if (!notice.canStart() || notice.version() != version) throw ApiException.conflict();
         Content content = notices.content(noticeId);
+        Snapshot snap = fresh(notice, content);
+        Preparation p = snap.preparation();
+        db.update("INSERT INTO preparation(id,user_id,notice_id,notice_version,snapshot) VALUES (?,?,?,?,?::jsonb)",
+                UUID.fromString(p.id), UUID.fromString(user), noticeId, version, json.writeValueAsString(snap));
+        return p;
+    }
+
+    private Snapshot fresh(Notice notice, Content content) {
         Preparation p = new Preparation();
         p.id = UUID.randomUUID().toString();
-        p.noticeId = noticeId.toString();
+        p.noticeId = notice.id();
         p.title = notice.title();
-        p.version = version;
+        p.version = notice.version();
         p.revision = 1;
         p.guideState = notice.guideState();
         p.questions = content.questions();
         Map<String, String> rules = new LinkedHashMap<>();
+        Map<String, List<String>> ruleValues = new LinkedHashMap<>();
         for (var template : content.documents()) {
             var d = new Document();
             d.id = template.id();
@@ -63,6 +72,7 @@ public class PreparationService {
             d.evidence = template.evidence();
             p.documents.add(d);
             if (template.conditionQuestionId() != null) rules.put(d.id, template.conditionQuestionId());
+            if (template.conditionAnswerValues() != null) ruleValues.put(d.id, template.conditionAnswerValues());
         }
         for (var template : content.schedules()) {
             var s = new Schedule();
@@ -73,23 +83,63 @@ public class PreparationService {
             p.schedules.add(s);
         }
         calculate(p);
-        db.update("INSERT INTO preparation(id,user_id,notice_id,notice_version,snapshot) VALUES (?,?,?,?,?::jsonb)",
-                UUID.fromString(p.id), UUID.fromString(user), noticeId, version, json.writeValueAsString(new Snapshot(p, rules)));
-        return p;
+        return new Snapshot(p, rules, ruleValues);
     }
 
-    public Preparation answers(String user, UUID id, int revision, Map<String, Answer> answers) {
+    public Preparation refresh(String user, UUID id, int revision, int version) {
+        Snapshot previous = load(user, id, true);
+        Preparation old = previous.preparation();
+        if (old.revision != revision) throw ApiException.conflict();
+        UUID noticeId = UUID.fromString(old.noticeId);
+        notices.lock(noticeId);
+        Notice current = notices.notice(noticeId);
+        if (!current.guideState().equals("AVAILABLE") || current.version() != version || old.version >= version)
+            throw ApiException.conflict();
+        Snapshot next = fresh(current, notices.content(noticeId));
+        Preparation p = next.preparation();
+        p.id = old.id;
+        p.revision = old.revision;
+        for (var question : p.questions) {
+            // Only an identical question contract may retain an old answer.
+            if (old.questions.contains(question) && old.answers.containsKey(question.id()))
+                p.answers.put(question.id(), old.answers.get(question.id()));
+        }
+        for (var d : p.documents) {
+            old.documents.stream().filter(prior -> prior.id.equals(d.id)).findFirst().ifPresent(prior -> {
+                d.note = prior.note;
+                d.state = prior.state == DocumentState.READY ? DocumentState.RECHECK : prior.state;
+            });
+            String rule = next.rules().get(d.id);
+            if (rule != null) {
+                String answer = p.answers.getOrDefault(rule, "UNKNOWN");
+                d.necessity = answer.equals("UNKNOWN") ? "UNKNOWN" : next.valuesFor(d.id).contains(answer) ? "CONDITIONAL" : "NOT_APPLICABLE";
+            }
+        }
+        for (var schedule : p.schedules) old.schedules.stream()
+                .filter(prior -> prior.id.equals(schedule.id) && prior.date.equals(schedule.date) && prior.title.equals(schedule.title))
+                .findFirst().ifPresent(prior -> schedule.recorded = prior.recorded);
+        db.update("INSERT INTO preparation_history(preparation_id,notice_version,snapshot) VALUES (?,?,?::jsonb)",
+                id, old.version, json.writeValueAsString(previous));
+        db.update("UPDATE preparation SET notice_version=? WHERE id=?", version, id);
+        return save(next);
+    }
+
+    public Preparation answers(String user, UUID id, int revision, Map<String, String> answers) {
         Snapshot snap = editable(user, id, revision);
         Preparation p = snap.preparation();
         Set<String> ids = new HashSet<>(p.questions.stream().map(Question::id).toList());
         if (answers == null || !ids.containsAll(answers.keySet()) || answers.values().stream().anyMatch(Objects::isNull))
             throw new IllegalArgumentException();
+        for (var question : p.questions) {
+            if (answers.containsKey(question.id()) && question.answerOptions().stream()
+                    .noneMatch(option -> option.value().equals(answers.get(question.id())))) throw new IllegalArgumentException();
+        }
         p.answers = new LinkedHashMap<>(answers);
         for (var d : p.documents) {
             String question = snap.rules().get(d.id);
             if (question == null) continue;
-            Answer a = p.answers.getOrDefault(question, Answer.UNKNOWN);
-            String next = a == Answer.YES ? "CONDITIONAL" : a == Answer.NO ? "NOT_APPLICABLE" : "UNKNOWN";
+            String a = p.answers.getOrDefault(question, "UNKNOWN");
+            String next = a.equals("UNKNOWN") ? "UNKNOWN" : snap.valuesFor(d.id).contains(a) ? "CONDITIONAL" : "NOT_APPLICABLE";
             if (!next.equals(d.necessity)) {
                 d.state = d.state == DocumentState.READY ? DocumentState.RECHECK : DocumentState.UNCHECKED;
                 d.necessity = next;
@@ -149,7 +199,7 @@ public class PreparationService {
     }
 
     public static Preparation calculate(Preparation p) {
-        long known = p.questions.stream().filter(q -> p.answers.containsKey(q.id()) && p.answers.get(q.id()) != Answer.UNKNOWN).count();
+        long known = p.questions.stream().filter(q -> !q.needsFollowUp(p.answers.get(q.id()))).count();
         var relevant = p.documents.stream().filter(d -> !d.necessity.equals("NOT_APPLICABLE")).toList();
         long ready = relevant.stream().filter(d -> d.state == DocumentState.READY && !d.necessity.equals("UNKNOWN")).count();
         long recorded = p.schedules.stream().filter(s -> s.recorded).count();
@@ -159,7 +209,7 @@ public class PreparationService {
         if (known < p.questions.size() || ready < relevant.size() || recorded < p.schedules.size())
             p.progress = Math.min(99, p.progress);
         p.houseStage = p.progress < 20 ? 1 : p.progress < 40 ? 2 : p.progress < 70 ? 3 : p.progress < 100 ? 4 : 5;
-        p.warnings = new ArrayList<>(p.questions.stream().filter(q -> p.answers.getOrDefault(q.id(), Answer.UNKNOWN) == Answer.UNKNOWN).map(Question::title).toList());
+        p.warnings = new ArrayList<>(p.questions.stream().filter(q -> q.needsFollowUp(p.answers.get(q.id()))).map(Question::title).toList());
         String prefix = "/preparations/" + p.id;
         var recheck = relevant.stream().filter(d -> d.state == DocumentState.RECHECK).findFirst();
         var unready = relevant.stream().filter(d -> d.state != DocumentState.READY || d.necessity.equals("UNKNOWN")).findFirst();

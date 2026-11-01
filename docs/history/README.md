@@ -59,6 +59,10 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 <!-- PROJECT-HISTORY:START -->
 | 기록일 | 내용 | 기록 상태 |
 | --- | --- | --- |
+| 2026-11-01 | [LH 원문 준비 안내 검수와 조건부 서류 연결](entries/2026-11-01-official-guidance-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-01 | [실제 LH 공고 기반 공고 찾기 전환](entries/2026-11-01-official-notice-catalog.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-01 | [질문별 답변과 준비 대상 서류 필터](entries/2026-11-01-question-options-documents.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-01 | [모바일·PC 시안 기반 프론트엔드 재디자인](entries/2026-11-01-responsive-redesign.md) | 검증 완료 |
 | 2026-10-31 | [외부 로그인 및 LH 실서비스 연동 검증](entries/2026-10-31-external-integration-verification.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-31 | [개인 VS Code 설정의 Git 추적 제외](entries/2026-10-31-ignore-vscode.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-31 | [백엔드 시작 실패: 중지된 PostgreSQL 복구](entries/2026-10-31-local-db-startup.md) | 근거 정리·담당자 검토 전 |
