@@ -79,3 +79,13 @@ PR #3부터 #10까지 순서대로 develop에 merge commit으로 병합하며 �
 ## 재시작 도구에서 추가로 해결한 문제
 
 PowerShell의 `ConvertFrom-Json`이 ISO 시각을 DateTime으로 바꾸어 `Stop-Preview.ps1`의 문자열 비교가 실패했다. 이전 서버를 종료하지 못해 새 JAR 시작 시 8080 포트 충돌을 실제로 확인했다. 프로세스 ID·실행 경로 검사는 유지하고 시작 시각을 UTC Ticks로 정규화해 비교하도록 수정했다. 기록된 기존 프로세스 두 개만 종료된 뒤 새 프로세스로 8080·5173이 열리는 것을 확인했고, 새 서버에서 위 HTTP·브라우저 검증을 수행했다. 이 도구 수정과 결과 문서는 [후속 PR #11](https://github.com/Cho-Mi-Kim/jibro/pull/11)로 관리한다.
+
+## develop → main PR #19 검토·병합 — 2026-11-01
+
+사용자 요청으로 PR #19의 최신 head `309df44`와 main 대비 변경을 검토했다. 작업별 선행 PR 기록을 참고하여 인증·JWT 갱신·CSRF·권한 처리, 공고 수집·검수 공개, 준비 기록 보존, Flyway V2~V5를 중점 확인했다. Git 공백 검사와 GitHub CI의 project-history·frontend·backend가 모두 통과했고, 검토 범위에서 병합 차단 문제를 발견하지 못했다. 이번에는 외부 OAuth·LH 실서비스와 브라우저 검증을 재실행하지 않았다.
+
+검토 head를 지정한 merge 방식으로 main에 병합했다. 병합 커밋은 `8e1fa8983e5cf106d55bd781c47c840dc8fcf851`이며, fetch 후 main이 검토 커밋을 포함하고 파일 트리가 동일함을 확인했다. 동일 트리의 테스트는 반복하지 않았다. AWS 배포·운영 DB 자료 적용은 수행하지 않았다. 기존 안내의 운영 설정·자료 검수·미구현 기능 한계는 유지한다. AI 보조 검토이며 별도 사람 코드 리뷰를 수행한 것으로 표현하지 않는다.
+
+- PR: https://github.com/Cho-Mi-Kim/jibro/pull/19
+- CI: https://github.com/Cho-Mi-Kim/jibro/actions/runs/41291053658
+- 당시에는 로컬 문서에만 남겼으며, 이후 사용자 요청으로 [PR #22](https://github.com/Cho-Mi-Kim/jibro/pull/22)에 사후 기록을 포함한다. 기존 PR #19의 병합 결과는 변경하지 않는다.
