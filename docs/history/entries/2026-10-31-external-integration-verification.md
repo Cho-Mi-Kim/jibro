@@ -5,7 +5,7 @@
 - 작업 상태: 실제 로그인·수집 및 로그인 유지·로그아웃 확인 완료, Chrome Google 정체 원인 미확정
 - 유형: 문제 해결 / 개발 / 문서
 - 담당·검토: 사용자 외부 키 설정·본인 인증, Codex 요청·응답 및 DB 검증·수정, 팀 검토자 미확인
-- 관련 이슈·PR·커밋: PR 등록 준비, 작업 브랜치 fix/social-login-lh-integration-20261031
+- 관련 이슈·PR·커밋: [PR #12](https://github.com/Cho-Mi-Kim/jibro/pull/12), 작업 브랜치 fix/social-login-lh-integration-20261031
 
 ## 배경·문제
 
@@ -90,3 +90,22 @@ LH 키는 URL 인코딩된 값이어서 서버에서 이중 인코딩되고 있�
 ## 변경 제출 단위
 
 사용자 요청으로 최신 develop과 같은 기준 커밋에서 `fix/social-login-lh-integration-20261031`을 만들었다. DB 실행 안내, LH 수집 요청·회귀 테스트, 소셜 로그인 진단·안내 및 검증 결과를 세 커밋으로 나눴다. 이 기록은 두 외부 연동의 통합 검증 근거이며 LH 수정 커밋에서 처음 포함하고 소셜 로그인 수정 커밋에서 제출 단위를 보완했다. 기존 사용자 화면 이미지 10개와 개인 `.vscode/` 변경은 제출 대상에서 제외했다. 실제 외부 키·로컬 실행 로그·검증 스크린샷은 Git에 포함하지 않는다. PR 대상은 develop이며 병합은 이번 요청 범위에 포함하지 않는다.
+
+## PR #12 검토 — 2026-10-31
+
+- 사용자 요청으로 PR #12의 13개 파일 변경과 최신 head `0119fbf7037845a39cf93ff443d3e1ffd3448501`을 확인했다. develop 기준은 `a8f084748944b3a47ac20f888763aa6864be8ae3`이며 충돌은 없다.
+- LH 날짜 요청 필드·한국 날짜·단일 키 인코딩, 합성 키 회귀 테스트, 외부 키를 강제로 비우는 통합 테스트를 검토했다.
+- OAuth 실패 세션 폐기, 예외 원문 대신 제한된 코드·분류만 출력하는 진단과 테스트, 프론트 오류 안내 분기를 검토했다. API·DB 스키마 변경 및 비밀키·개인 IDE·화면 이미지 포함은 없다.
+- 검토 범위에서 병합을 막을 결함은 발견하지 못했다. Google Chrome 계정 선택 정체는 재현된 후속 조사 항목이며 해결로 기록하지 않는다.
+- 원격 CI 실행 `41100431833`은 project-history·frontend·backend 모두 queued 상태로, 도구와 GitHub CLI로 대조했다. 실행 성공 확인 전에는 병합하지 않는다.
+- 이후 CI는 queued에서 in_progress로 전환되었지만, 2026-10-31 02:50 KST 최종 조회까지 완료 결과는 없었다. 세 작업의 개별 조회에서는 in_progress와 빈 steps가 확인되었으며, GitHub API 502 및 도구 조회 시간 초과도 반복되었다. 지연 원인은 확정하지 않는다.
+- 원격 CI 통과를 확인하지 못했으므로 PR 병합은 보류했다. 검토한 head는 그대로이며, 추가 제품 코드 변경·CI 우회·강제 병합은 하지 않았다. 이 검토 메모는 로컬 작업 기록에 남기고 커밋·push하지 않았다.
+
+## PR #12 CI 통과·develop 병합 — 2026-10-31
+
+- 사용자 재확인 요청으로 동일 head `0119fbf7037845a39cf93ff443d3e1ffd3448501`의 CI 실행 `41100431833`을 확인했다. 전체 실행과 project-history·frontend·backend 세 작업 모두 completed/success였다.
+- 이미 검토한 head 및 develop 기준이 그대로이고 충돌이 없어 merge commit 방식으로 병합했다. GitHub 연결 도구의 쓰기 권한 부족(403)으로 기존 GitHub CLI를 사용했으며, `--match-head-commit`으로 검토 대상 변경 시 병합을 막았다.
+- GitHub에서 PR merged=true 및 병합 시각 2026-10-31 02:59:29 KST를 확인했다. 원격 develop 병합 커밋은 `c78d0fa5619780b016ad5358dce06e43832deee7`이다.
+- fetch 후 `git diff --exit-code 0119fbf7037845a39cf93ff443d3e1ffd3448501 origin/develop --`에서 차이 없음(종료 코드 0)을 확인했다. 병합 결과의 파일 내용이 CI 통과 head와 같으므로 같은 테스트를 반복하지 않았다.
+- 작업 브랜치를 삭제하지 않았으며, 기존 `.gitignore`·화면 이미지 변경을 보존했다. 이 사후 검토·병합 메모는 로컬에만 남겼으며 별도 커밋·push하지 않았다. Google Chrome 로그인 정체는 기존 후속 조사 항목으로 유지한다.
+- CI 근거: https://github.com/Cho-Mi-Kim/jibro/actions/runs/41100431833
