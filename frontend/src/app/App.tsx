@@ -13,6 +13,7 @@ import {
 import { CallbackPage, LoginPage, MyPage } from '../pages/AccountPages';
 import { AdminPage } from '../pages/AdminPage';
 import { DevelopmentPage } from '../pages/DevelopmentPage';
+import { pagesDemo } from '../shared/api/environment';
 export function App() {
     return (
         <SessionProvider>
@@ -85,7 +86,12 @@ export function App() {
                             </Protected>
                         }
                     />
-                    <Route path="/development" element={<DevelopmentPage />} />
+                    {!pagesDemo && (
+                        <Route
+                            path="/development"
+                            element={<DevelopmentPage />}
+                        />
+                    )}
                     <Route
                         path="*"
                         element={
