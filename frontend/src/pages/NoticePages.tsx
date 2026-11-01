@@ -283,8 +283,7 @@ export function NoticeDetailPage() {
         <>
             <Link className={cx('breadcrumb')} to="/notices">
                 <Icon name="back" />
-                공고 <Icon name="arrow" />
-                공고 상세
+                공고 목록 보기
             </Link>
             <State
                 loading={query.isPending}
