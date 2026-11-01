@@ -6,7 +6,6 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
 import { useSession } from '../app/useSession';
 import {
-    Badge,
     Button,
     Card,
     EvidenceLink,
@@ -14,6 +13,16 @@ import {
     State,
     Soon,
 } from '../shared/ui/ui';
+import {
+    Deadline,
+    Disc,
+    displayDate,
+    GuideBadge,
+    NoticeDates,
+    OfficialLink,
+    Status,
+} from '../shared/ui/HousingUI';
+import { Icon } from '../shared/ui/Icon';
 import type { Notice } from '../features/housing/types';
 const statusLabels = {
     OPEN: '접수 중',
@@ -23,26 +32,39 @@ const statusLabels = {
 };
 export function NoticeCard({ notice: n }: { notice: Notice }) {
     return (
-        <Card>
+        <article className={cx('panel notice-card')}>
             <div className={cx('row')}>
-                <Badge>{statusLabels[n.status]}</Badge>
-                <span className={cx('muted')}>
-                    {n.region} · {n.type}
+                <Status tone={n.status === 'OPEN' ? 'red' : 'gray'}>
+                    {statusLabels[n.status]}
+                </Status>
+                <GuideBadge state={n.guideState} />
+            </div>
+            <div className={cx('notice-card-main')}>
+                <div>
+                    <Link
+                        className={cx('card-title')}
+                        to={'/notices/' + n.id}
+                        aria-label={n.title + ' ↗'}
+                    >
+                        {n.title}
+                    </Link>
+                    <p className={cx('muted')}>
+                        {n.agency}　|　{n.region}　|　{n.type}
+                    </p>
+                </div>
+                <span className={cx('bookmark-action')}>
+                    <Icon name="bookmark" />
+                    <Soon label="관심 공고" />
                 </span>
+                <Link
+                    to={'/notices/' + n.id}
+                    aria-label={n.title + ' 상세 보기'}
+                >
+                    <Icon name="arrow" />
+                </Link>
             </div>
-            <Link className={cx('card-title')} to={'/notices/' + n.id}>
-                {n.title} <span>↗</span>
-            </Link>
-            <p>{n.agency}</p>
-            <p className={cx('muted')}>
-                신청 기간 {n.startDate ?? '확인 필요'} ~{' '}
-                {n.endDate ?? '확인 필요'}
-            </p>
-            <div className={cx('row')}>
-                <Badge>{guideLabels[n.guideState]}</Badge>
-                <Soon label="즐겨찾기" />
-            </div>
-        </Card>
+            <NoticeDates notice={n} />
+        </article>
     );
 }
 export function NoticesPage() {
@@ -80,112 +102,133 @@ export function NoticesPage() {
             String(new FormData(e.currentTarget).get('keyword') ?? ''),
         );
     }
+    const options: [string, string, string[]][] = [
+        ['region', '지역', filters.data?.regions ?? []],
+        ['type', '지원 유형', filters.data?.types ?? []],
+        ['status', '접수 상태', ['OPEN', 'UPCOMING', 'CLOSED', 'UNKNOWN']],
+    ];
     return (
-        <>
-            <Heading title="공고 찾기">
-                나의 다음 시작을 위한 주거지원 공고
-            </Heading>
+        <div className={cx('notice-search-page')}>
+            <Heading title="공고 찾기" />
             <form className={cx('search')} onSubmit={search}>
+                <Icon name="search" />
                 <input
                     key={params.get('keyword')}
                     name="keyword"
                     aria-label="공고 검색"
-                    placeholder="공고명, 기관, 지역 검색"
+                    placeholder="공고명이나 기관을 검색하세요."
                     defaultValue={params.get('keyword') ?? ''}
                 />
-                <Button>검색</Button>
+                <button aria-label="검색" type="submit">
+                    <Icon name="arrow" />
+                </button>
             </form>
-            <details className={cx('card')}>
-                <summary>
-                    검색 조건 {params.size > 0 ? '· 적용 중' : ''}
-                </summary>
-                {[
-                    ['region', '지역', filters.data?.regions ?? []],
-                    ['type', '지원 유형', filters.data?.types ?? []],
-                    [
-                        'status',
-                        '접수 상태',
-                        ['OPEN', 'UPCOMING', 'CLOSED', 'UNKNOWN'],
-                    ],
-                ].map(([key, label, values]) => (
-                    <fieldset key={String(key)}>
-                        <legend>{String(label)}</legend>
-                        {(values as string[]).map((value) => (
-                            <label className={cx('chip')} key={value}>
-                                <input
-                                    type="checkbox"
-                                    checked={params
-                                        .getAll(String(key))
-                                        .includes(value)}
-                                    onChange={() =>
-                                        change(String(key), value, true)
-                                    }
-                                />
-                                {statusLabels[
-                                    value as keyof typeof statusLabels
-                                ] ?? value}
-                            </label>
-                        ))}
-                    </fieldset>
+            <aside className={cx('filter-panel')}>
+                <h2>검색 조건</h2>
+                {options.map(([key, label, values]) => (
+                    <details key={key} className={cx('filter-group')} open>
+                        <summary>
+                            {label} <Icon name="down" />
+                        </summary>
+                        <div>
+                            {values.map((value) => (
+                                <label className={cx('chip')} key={value}>
+                                    <input
+                                        type="checkbox"
+                                        checked={params
+                                            .getAll(key)
+                                            .includes(value)}
+                                        onChange={() =>
+                                            change(key, value, true)
+                                        }
+                                    />
+                                    {statusLabels[
+                                        value as keyof typeof statusLabels
+                                    ] ?? value}
+                                </label>
+                            ))}
+                        </div>
+                    </details>
                 ))}
                 <button
-                    className={cx('text-button')}
+                    className={cx('link-button outline-button wide')}
                     onClick={() => setParams({})}
                 >
                     필터 초기화
                 </button>
-            </details>
-            <div className={cx('row')}>
-                <span>{query.data?.totalElements ?? '—'}개 공고</span>
-                <select
-                    aria-label="공고 정렬"
-                    value={params.get('sort') ?? 'deadline'}
-                    onChange={(e) => change('sort', e.target.value)}
-                >
-                    <option value="deadline">마감 가까운 순</option>
-                    <option value="newest">최신순</option>
-                </select>
-            </div>
-            <State
-                loading={query.isPending}
-                error={query.error}
-                retry={() => void query.refetch()}
-            />
-            {query.data?.items.map((n) => (
-                <NoticeCard key={n.id} notice={n} />
-            ))}
-            {query.data?.items.length === 0 && (
-                <Card>
-                    <h2>조건에 맞는 공고가 없어요</h2>
-                    <Button onClick={() => setParams({})}>
-                        검색 조건 초기화
-                    </Button>
-                </Card>
-            )}
-            <div className={cx('row')}>
-                <Button
-                    disabled={page === 0}
-                    onClick={() => {
-                        normalized.set('page', String(page - 1));
-                        setParams(normalized);
-                    }}
-                >
-                    이전
-                </Button>
-                <span>
-                    {page + 1} / {Math.max(1, query.data?.totalPages ?? 1)}
-                </span>
-                <Button
-                    disabled={!query.data || page + 1 >= query.data.totalPages}
-                    onClick={() => {
-                        normalized.set('page', String(page + 1));
-                        setParams(normalized);
-                    }}
-                >
-                    다음
-                </Button>
-            </div>
-        </>
+                {filters.error && (
+                    <State
+                        error={filters.error}
+                        retry={() => void filters.refetch()}
+                    />
+                )}
+            </aside>
+            <section className={cx('notice-results')}>
+                <div className={cx('row results-heading')}>
+                    <h2>
+                        공고 <em>{query.data?.totalElements ?? '—'}건</em>
+                    </h2>
+                    <div className={cx('row')}>
+                        <select
+                            aria-label="공고 정렬"
+                            value={params.get('sort') ?? 'deadline'}
+                            onChange={(e) => change('sort', e.target.value)}
+                        >
+                            <option value="deadline">마감 가까운 순</option>
+                            <option value="newest">최신순</option>
+                        </select>
+                        <Soon label="공고 비교" />
+                    </div>
+                </div>
+                <State
+                    loading={query.isPending}
+                    error={query.error}
+                    retry={() => void query.refetch()}
+                />
+                {query.data?.items.map((n) => (
+                    <NoticeCard key={n.id} notice={n} />
+                ))}
+                {query.data?.items.length === 0 && (
+                    <Card>
+                        <h2>조건에 맞는 공고가 없어요</h2>
+                        <Button onClick={() => setParams({})}>
+                            검색 조건 초기화
+                        </Button>
+                    </Card>
+                )}
+                <p className={cx('muted info-line')}>
+                    <Icon name="info" />
+                    접수 상태와 준비 안내 제공 여부는 별개입니다.
+                </p>
+                <nav className={cx('pagination')} aria-label="공고 페이지">
+                    <button
+                        disabled={page === 0}
+                        aria-label="이전 페이지"
+                        onClick={() => {
+                            normalized.set('page', String(page - 1));
+                            setParams(normalized);
+                        }}
+                    >
+                        <Icon name="back" />
+                    </button>
+                    <span>
+                        {page + 1} / {Math.max(1, query.data?.totalPages ?? 1)}
+                    </span>
+                    <button
+                        disabled={
+                            !query.data || page + 1 >= query.data.totalPages
+                        }
+                        aria-label="다음 페이지"
+                        onClick={() => {
+                            normalized.set('page', String(page + 1));
+                            setParams(normalized);
+                        }}
+                    >
+                        <Icon name="arrow" />
+                    </button>
+                </nav>
+            </section>
+        </div>
     );
 }
 export function NoticeDetailPage() {
@@ -193,7 +236,7 @@ export function NoticeDetailPage() {
     const session = useSession();
     const navigate = useNavigate();
     const client = useQueryClient();
-    const [tab, setTab] = useState('요약');
+    const [tab, setTab] = useState('핵심 요약');
     const query = useQuery({
         queryKey: ['notice', noticeId],
         queryFn: () => api.notice(noticeId),
@@ -208,103 +251,185 @@ export function NoticeDetailPage() {
     const n = query.data;
     return (
         <>
-            <Link to="/notices">← 공고 목록</Link>
+            <Link className={cx('breadcrumb')} to="/notices">
+                <Icon name="back" />
+                공고 <Icon name="arrow" />
+                공고 상세
+            </Link>
             <State
                 loading={query.isPending}
                 error={query.error}
                 retry={() => void query.refetch()}
             />
             {n && (
-                <>
-                    <Heading eyebrow={n.agency} title={n.title}>
-                        {n.region} · {n.type}
-                    </Heading>
-                    <div className={cx('row')}>
-                        <Badge>{statusLabels[n.status]}</Badge>
-                        <Badge>{guideLabels[n.guideState]}</Badge>
-                    </div>
-                    <Card>
-                        <p>{n.summary}</p>
-                        <p>
-                            공식 신청 기간
-                            <br />
-                            <strong>
-                                {n.startDate ?? '확인 필요'} ~{' '}
-                                {n.endDate ?? '확인 필요'}
-                            </strong>
-                        </p>
-                        <EvidenceLink evidence={n.evidence} />
-                        <p>공고일 {n.publishedDate ?? '확인 필요'}</p>
-                        {n.attachments.map((attachment, index) => (
-                            <EvidenceLink key={index} evidence={attachment} />
-                        ))}
-                        <small>
-                            기본 정보 v{n.version} · 준비 안내{' '}
-                            {n.guideVersion ? 'v' + n.guideVersion : '검수 전'}
-                        </small>
-                    </Card>
-                    <div
-                        className={cx('tabs')}
-                        role="tablist"
-                        aria-label="공고 정보"
-                    >
-                        {['요약', '조건', '서류', '일정'].map((x) => (
-                            <button
-                                role="tab"
-                                aria-selected={x === tab}
-                                key={x}
-                                onClick={() => setTab(x)}
+                <div className={cx('notice-detail')}>
+                    <header className={cx('notice-detail-heading')}>
+                        <Heading title={n.title}>
+                            {n.agency} · {n.region} · 공고일{' '}
+                            {displayDate(n.publishedDate)}
+                        </Heading>
+                    </header>
+                    <aside className={cx('panel notice-detail-aside')}>
+                        <div className={cx('row')}>
+                            <Status
+                                tone={n.status === 'OPEN' ? 'green' : 'gray'}
                             >
-                                {x}
-                            </button>
-                        ))}
-                    </div>
-                    <Card>
-                        {tab === '요약' ? (
-                            <p>{n.summary}</p>
+                                {statusLabels[n.status]}
+                            </Status>
+                            <GuideBadge state={n.guideState} />
+                        </div>
+                        <Deadline date={n.endDate} />
+                        <NoticeDates notice={n} />
+                        <div className={cx('divider')} />
+                        <div className={cx('notice-facts')}>
+                            <Icon name="pin" />
+                            <div>
+                                <small>지역</small>
+                                <strong>{n.region}</strong>
+                            </div>
+                            <Icon name="building" />
+                            <div>
+                                <small>유형</small>
+                                <strong>{n.type}</strong>
+                            </div>
+                        </div>
+                        {start.error && (
+                            <p role="alert">{start.error.message}</p>
+                        )}
+                        {n.canStart && (
+                            <Button
+                                className="wide"
+                                disabled={start.isPending || session.loading}
+                                onClick={() =>
+                                    session.user
+                                        ? start.mutate()
+                                        : navigate(
+                                              '/login?returnTo=' +
+                                                  encodeURIComponent(
+                                                      '/notices/' + noticeId,
+                                                  ),
+                                          )
+                                }
+                            >
+                                {start.isPending
+                                    ? '준비 건 만드는 중…'
+                                    : '내 조건 확인하기'}
+                            </Button>
+                        )}
+                        <OfficialLink
+                            url={n.evidence.url}
+                            className="link-button outline-button wide"
+                        >
+                            공식 공고 보기
+                        </OfficialLink>
+                        <p className={cx('muted info-line')}>
+                            <Icon name="info" />
+                            최종 자격은 운영기관의 심사로 결정됩니다.
+                        </p>
+                    </aside>
+                    <section className={cx('notice-detail-content')}>
+                        <div
+                            className={cx('tabs')}
+                            role="tablist"
+                            aria-label="공고 정보"
+                        >
+                            {['핵심 요약', '조건', '제출서류', '일정'].map(
+                                (x) => (
+                                    <button
+                                        role="tab"
+                                        aria-selected={x === tab}
+                                        key={x}
+                                        onClick={() => setTab(x)}
+                                    >
+                                        {x}
+                                    </button>
+                                ),
+                            )}
+                        </div>
+                        {tab === '핵심 요약' ? (
+                            <>
+                                <section className={cx('panel summary-card')}>
+                                    <Disc name="file" />
+                                    <div>
+                                        <h2>어떤 지원인가요?</h2>
+                                        <p>{n.summary}</p>
+                                        <EvidenceLink evidence={n.evidence} />
+                                    </div>
+                                </section>
+                                <section className={cx('panel summary-card')}>
+                                    <Disc name="file" />
+                                    <div>
+                                        <h2>자격과 순위를 구분해요</h2>
+                                        <p>
+                                            신청 자격과 선정 순위는 서로 다른
+                                            기준이에요.
+                                        </p>
+                                        <button
+                                            className={cx('text-button')}
+                                            onClick={() => setTab('조건')}
+                                        >
+                                            조건과 공식 근거 확인{' '}
+                                            <Icon name="arrow" />
+                                        </button>
+                                    </div>
+                                </section>
+                                <section className={cx('panel summary-card')}>
+                                    <Disc name="file" />
+                                    <div>
+                                        <h2>필요한 서류 확인</h2>
+                                        <p>
+                                            공통 서류와 해당자 제출 서류를
+                                            나누어 확인해요.
+                                        </p>
+                                        <button
+                                            className={cx('text-button')}
+                                            onClick={() => setTab('제출서류')}
+                                        >
+                                            제출서류 확인 <Icon name="arrow" />
+                                        </button>
+                                    </div>
+                                </section>
+                            </>
                         ) : tab === '일정' ? (
-                            <p>
-                                신청 기간 {n.startDate ?? '확인 필요'} ~{' '}
-                                {n.endDate ?? '확인 필요'}
-                            </p>
+                            <Card>
+                                <h2>공식 접수 일정</h2>
+                                <NoticeDates notice={n} />
+                                <EvidenceLink evidence={n.evidence} />
+                            </Card>
                         ) : n.guideState !== 'AVAILABLE' ? (
-                            <p>
-                                {guideLabels[n.guideState]}입니다. 검수되지 않은
-                                개인별 안내는 제공하지 않습니다.
-                            </p>
+                            <Card>
+                                <p>
+                                    {guideLabels[n.guideState]}입니다. 검수되지
+                                    않은 개인별 안내는 제공하지 않습니다.
+                                </p>
+                            </Card>
                         ) : tab === '조건' ? (
                             n.questions.map((q) => (
-                                <div key={q.id}>
-                                    <h3>{q.title}</h3>
+                                <Card key={q.id}>
+                                    <h2>{q.title}</h2>
                                     <p>{q.reason}</p>
                                     <EvidenceLink evidence={q.evidence} />
-                                </div>
+                                </Card>
                             ))
                         ) : (
-                            n.documents.map((d) => <p key={d}>{d}</p>)
+                            <Card>
+                                <h2>제출서류</h2>
+                                {n.documents.map((d) => (
+                                    <p key={d}>{d}</p>
+                                ))}
+                                <EvidenceLink evidence={n.evidence} />
+                            </Card>
                         )}
-                    </Card>
-                    {start.error && <p role="alert">{start.error.message}</p>}
-                    {n.canStart && (
-                        <Button
-                            disabled={start.isPending || session.loading}
-                            onClick={() =>
-                                session.user
-                                    ? start.mutate()
-                                    : navigate(
-                                          '/login?returnTo=' +
-                                              encodeURIComponent(
-                                                  '/notices/' + noticeId,
-                                              ),
-                                      )
-                            }
-                        >
-                            {start.isPending
-                                ? '준비 건 만드는 중…'
-                                : '내 조건 확인하기'}
-                        </Button>
-                    )}
-                </>
+                        {n.attachments.length > 0 && (
+                            <Card>
+                                <h2>공고 첨부 자료</h2>
+                                {n.attachments.map((e, i) => (
+                                    <EvidenceLink key={i} evidence={e} />
+                                ))}
+                            </Card>
+                        )}
+                    </section>
+                </div>
             )}
         </>
     );
