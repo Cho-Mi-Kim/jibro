@@ -16,6 +16,9 @@ export function BrickHouse({ stage = 3 }: { stage?: number }) {
                     <stop stopColor="#ffdbac" />
                     <stop offset="1" stopColor="#e5a368" />
                 </linearGradient>
+                <clipPath id={id + 'wall'}>
+                    <path d="M61 167V82l63-54 59 54v85Z" />
+                </clipPath>
             </defs>
             <ellipse cx="132" cy="172" rx="123" ry="12" fill="#f4eee7" />
             <path
@@ -27,29 +30,42 @@ export function BrickHouse({ stage = 3 }: { stage?: number }) {
                 fill="#faf4ee"
                 stroke="#eaded4"
             />
-            {Array.from({ length: 5 }, (_, row) =>
-                Array.from({ length: row % 2 === 0 ? 4 : 5 }, (_, col) => {
-                    // Offset alternating courses by half a brick, trimming the ends to the wall.
-                    const left = 61 + col * 31 - (row % 2) * 15.5;
-                    const x = Math.max(61, left);
-                    const width = Math.min(183, left + 29) - x;
-                    const complete =
-                        row >= 5 - Math.max(1, stage + 1) &&
-                        !(stage < 4 && col === 2 && row < 3);
-                    return (
-                        <rect
-                            key={row + '-' + col}
-                            x={x}
-                            y={82 + row * 17}
-                            width={width}
-                            height="15"
-                            rx="1.5"
-                            fill={complete ? 'url(#' + id + 'brick)' : '#fff'}
-                            opacity={complete ? 1 : 0.7}
-                        />
+            <g clipPath={'url(#' + id + 'wall)'}>
+                {Array.from({ length: 8 }, (_, index) => {
+                    const row = index - 3;
+                    return Array.from(
+                        { length: row % 2 === 0 ? 4 : 5 },
+                        (_, col) => {
+                            // Offset alternating courses by half a brick, trimming the ends to the wall.
+                            const left =
+                                61 + col * 31 - Math.abs(row % 2) * 15.5;
+                            const x = Math.max(61, left);
+                            const width = Math.min(183, left + 29) - x;
+                            const complete =
+                                row < 0
+                                    ? stage >= 4
+                                    : row >= 5 - Math.max(1, stage + 1) &&
+                                      !(stage < 4 && col === 2 && row < 3);
+                            return (
+                                <rect
+                                    key={row + '-' + col}
+                                    x={x}
+                                    y={82 + row * 17}
+                                    width={width}
+                                    height="15"
+                                    rx="1.5"
+                                    fill={
+                                        complete
+                                            ? 'url(#' + id + 'brick)'
+                                            : '#fff'
+                                    }
+                                    opacity={complete ? 1 : 0.7}
+                                />
+                            );
+                        },
                     );
-                }),
-            )}
+                })}
+            </g>
             {stage >= 3 && (
                 <>
                     <rect
