@@ -1,7 +1,7 @@
 import { displayDate } from '../shared/ui/housingHelpers';
 import { cx } from '../shared/styles/classes';
 import { guideLabels } from '../shared/ui/helpers';
-import { useState, type FormEvent } from 'react';
+import { useState, useSyncExternalStore, type FormEvent } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
@@ -67,7 +67,17 @@ export function NoticeCard({ notice: n }: { notice: Notice }) {
         </article>
     );
 }
+function subscribeWidth(onChange: () => void) {
+    const media = window.matchMedia?.('(min-width: 1024px)');
+    media?.addEventListener('change', onChange);
+    return () => media?.removeEventListener('change', onChange);
+}
+function desktopSnapshot() {
+    return window.matchMedia?.('(min-width: 1024px)').matches ?? false;
+}
 export function NoticesPage() {
+    const desktop = useSyncExternalStore(subscribeWidth, desktopSnapshot);
+    const [openFilter, setOpenFilter] = useState<string | null>(null);
     const [params, setParams] = useSearchParams();
     const filters = useQuery({
         queryKey: ['notice-filters'],
@@ -126,8 +136,20 @@ export function NoticesPage() {
             <aside className={cx('filter-panel')}>
                 <h2>검색 조건</h2>
                 {options.map(([key, label, values]) => (
-                    <details key={key} className={cx('filter-group')} open>
-                        <summary>
+                    <details
+                        key={key}
+                        className={cx('filter-group')}
+                        open={desktop || openFilter === key}
+                    >
+                        <summary
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (!desktop)
+                                    setOpenFilter(
+                                        openFilter === key ? null : key,
+                                    );
+                            }}
+                        >
                             {label} <Icon name="down" />
                         </summary>
                         <div>
@@ -270,62 +292,71 @@ export function NoticeDetailPage() {
                         </Heading>
                     </header>
                     <aside className={cx('panel notice-detail-aside')}>
-                        <div className={cx('row')}>
-                            <Status
-                                tone={n.status === 'OPEN' ? 'green' : 'gray'}
-                            >
-                                {statusLabels[n.status]}
-                            </Status>
-                            <GuideBadge state={n.guideState} />
-                        </div>
-                        <Deadline date={n.endDate} />
-                        <NoticeDates notice={n} />
-                        <div className={cx('divider')} />
-                        <div className={cx('notice-facts')}>
-                            <Icon name="pin" />
-                            <div>
-                                <small>지역</small>
-                                <strong>{n.region}</strong>
+                        <div className={cx('notice-detail-facts')}>
+                            <div className={cx('row')}>
+                                <Status
+                                    tone={
+                                        n.status === 'OPEN' ? 'green' : 'gray'
+                                    }
+                                >
+                                    {statusLabels[n.status]}
+                                </Status>
+                                <GuideBadge state={n.guideState} />
                             </div>
-                            <Icon name="building" />
-                            <div>
-                                <small>유형</small>
-                                <strong>{n.type}</strong>
+                            <Deadline date={n.endDate} />
+                            <NoticeDates notice={n} />
+                            <div className={cx('divider')} />
+                            <div className={cx('notice-facts')}>
+                                <Icon name="pin" />
+                                <div>
+                                    <small>지역</small>
+                                    <strong>{n.region}</strong>
+                                </div>
+                                <Icon name="building" />
+                                <div>
+                                    <small>유형</small>
+                                    <strong>{n.type}</strong>
+                                </div>
                             </div>
                         </div>
-                        {start.error && (
-                            <p role="alert">{start.error.message}</p>
-                        )}
-                        {n.canStart && (
-                            <Button
-                                className="wide"
-                                disabled={start.isPending || session.loading}
-                                onClick={() =>
-                                    session.user
-                                        ? start.mutate()
-                                        : navigate(
-                                              '/login?returnTo=' +
-                                                  encodeURIComponent(
-                                                      '/notices/' + noticeId,
-                                                  ),
-                                          )
-                                }
+                        <div className={cx('notice-detail-actions')}>
+                            {start.error && (
+                                <p role="alert">{start.error.message}</p>
+                            )}
+                            {n.canStart && (
+                                <Button
+                                    className="wide"
+                                    disabled={
+                                        start.isPending || session.loading
+                                    }
+                                    onClick={() =>
+                                        session.user
+                                            ? start.mutate()
+                                            : navigate(
+                                                  '/login?returnTo=' +
+                                                      encodeURIComponent(
+                                                          '/notices/' +
+                                                              noticeId,
+                                                      ),
+                                              )
+                                    }
+                                >
+                                    {start.isPending
+                                        ? '준비 건 만드는 중…'
+                                        : '내 조건 확인하기'}
+                                </Button>
+                            )}
+                            <OfficialLink
+                                url={n.evidence.url}
+                                className="link-button outline-button wide"
                             >
-                                {start.isPending
-                                    ? '준비 건 만드는 중…'
-                                    : '내 조건 확인하기'}
-                            </Button>
-                        )}
-                        <OfficialLink
-                            url={n.evidence.url}
-                            className="link-button outline-button wide"
-                        >
-                            공식 공고 보기
-                        </OfficialLink>
-                        <p className={cx('muted info-line')}>
-                            <Icon name="info" />
-                            최종 자격은 운영기관의 심사로 결정됩니다.
-                        </p>
+                                공식 공고 보기
+                            </OfficialLink>
+                            <p className={cx('muted info-line')}>
+                                <Icon name="info" />
+                                최종 자격은 운영기관의 심사로 결정됩니다.
+                            </p>
+                        </div>
                     </aside>
                     <section className={cx('notice-detail-content')}>
                         <div

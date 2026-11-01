@@ -153,6 +153,10 @@ export function GuidePage() {
                     </div>
                 </div>
             </header>
+            <div className={cx('mobile-only guide-mobile-search')}>
+                <Icon name="search" />
+                <Soon label="가이드 검색" />
+            </div>
             <div className={cx('guide-layout')}>
                 <aside>
                     <h2 className={cx('mobile-only')}>주제별 가이드</h2>

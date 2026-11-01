@@ -9,11 +9,7 @@ export function useNotice(id?: string) {
 }
 export function displayDate(value?: string | null) {
     if (!value) return '확인 필요';
-    return value
-        .replace(/-/g, '.')
-        .replace('T', ' ')
-
-        .slice(0, 16);
+    return value.replace(/-/g, '.').replace('T', ' ').slice(0, 16);
 }
 export function daysLeft(value?: string | null, now = new Date()) {
     if (!value) return '일정 확인';

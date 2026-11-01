@@ -197,6 +197,57 @@ describe('사용자 준비 흐름', () => {
             }),
         ).toBeInTheDocument();
     });
+    it('서류 완료 바로 기록 후 준비도와 상태가 갱신된다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        mount('/preparations/' + p.id + '/documents');
+        await userEvent.click(
+            await screen.findByRole('button', {
+                name: '이 서류 준비 완료로 기록',
+            }),
+        );
+        expect(
+            await screen.findByText('이 서류의 준비 기록을 저장했어요.'),
+        ).toBeInTheDocument();
+        expect(
+            screen.getByRole('button', { name: '준비 완료로 기록했어요' }),
+        ).toBeDisabled();
+        expect((await api.preparation(p.id)).documents[0].state).toBe('READY');
+    });
+    it('신청 여부 기록을 저장하고 다시 취소할 수 있다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        mount('/preparations/' + p.id + '/schedule');
+        await userEvent.click(
+            await screen.findByRole('button', { name: '신청 여부 기록' }),
+        );
+        await userEvent.click(screen.getByRole('checkbox'));
+        await waitFor(async () =>
+            expect((await api.preparation(p.id)).schedules[0].recorded).toBe(
+                true,
+            ),
+        );
+        await userEvent.click(screen.getByRole('checkbox'));
+        await waitFor(async () =>
+            expect((await api.preparation(p.id)).schedules[0].recorded).toBe(
+                false,
+            ),
+        );
+    });
+    it('마이에서 로그아웃한 뒤 내 준비 접근은 로그인을 요구한다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        mount('/my');
+        await userEvent.click(
+            await screen.findByRole('button', { name: '로그아웃' }),
+        );
+        await screen.findByRole('heading', { name: /나의 첫 집을 향해/ });
+        await userEvent.click(
+            screen.getAllByRole('link', { name: '내 준비' })[0],
+        );
+        expect(
+            await screen.findByRole('heading', { name: '로그인' }),
+        ).toBeInTheDocument();
+    });
     it('일반 회원에게 관리자 접근을 허용하지 않는다', async () => {
         await api.login('demo@example.invalid', 'demo');
         mount('/admin');

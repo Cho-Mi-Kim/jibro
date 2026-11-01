@@ -213,7 +213,10 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
     const negative = p?.questions.filter((x) => p.answers[x.id] === 'NO') ?? [];
     return (
         <div className={cx(edit ? 'condition-page' : 'result-page')}>
-            <Heading title={edit ? '조건 확인' : '내 조건 확인 결과'}>
+            <Heading
+                title={edit ? '조건 확인' : '내 조건 확인 결과'}
+                backTo={p ? '/preparations/' + p.id : '/preparations'}
+            >
                 {edit && p ? p.title + ' · 안내 v' + p.version : undefined}
             </Heading>
             <State
@@ -641,7 +644,7 @@ export function DocumentsPage() {
     const active = selected ?? p?.documents[0]?.id;
     return (
         <>
-            <Heading title="서류 준비" />
+            <Heading title="서류 준비" backTo="/preparations" />
             <State
                 loading={q.isPending}
                 error={q.error}
@@ -720,7 +723,7 @@ export function SchedulePage() {
     });
     return (
         <>
-            <Heading title="신청 일정" />
+            <Heading title="신청 일정" backTo="/preparations" />
             <State
                 loading={q.isPending}
                 error={q.error}

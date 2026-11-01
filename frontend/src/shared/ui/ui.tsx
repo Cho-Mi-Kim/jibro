@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import { BrickHouse } from './BrickHouse';
 import { cx } from '../styles/classes';
 import { safeUrl } from './helpers';
@@ -23,17 +24,30 @@ export function Button(
 }
 export function Heading({
     eyebrow,
+    backTo,
     title,
     children,
 }: {
     eyebrow?: string;
+    backTo?: string;
     title: string;
     children?: ReactNode;
 }) {
     return (
         <header className={cx('page-heading')}>
             <span className={cx('eyebrow')}>{eyebrow}</span>
-            <h1>{title}</h1>
+            <div className={cx('heading-title')}>
+                {backTo && (
+                    <Link
+                        className={cx('mobile-back')}
+                        to={backTo}
+                        aria-label="이전 화면으로"
+                    >
+                        <Icon name="back" />
+                    </Link>
+                )}
+                <h1>{title}</h1>
+            </div>
             {children && <p>{children}</p>}
         </header>
     );

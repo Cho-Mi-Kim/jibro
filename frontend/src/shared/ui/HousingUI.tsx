@@ -226,10 +226,10 @@ export function Metrics({
 export function NextAction({ p }: { p: Preparation }) {
     return (
         <section className={cx('panel next-action')}>
-            <div className={cx('row')}>
+            <div className={cx('next-icon')}>
                 <Disc name="warning" tone="amber" />
-                지금 할 일
             </div>
+            <p className={cx('next-label')}>지금 할 일</p>
             <h2>{p.nextAction.label}</h2>
             <Link className={cx('link-button wide')} to={p.nextAction.path}>
                 준비 방법 보기

@@ -43,7 +43,7 @@ export function Shell({ children }: { children: ReactNode }) {
     const main = useRef<HTMLElement>(null);
     useEffect(() => {
         window.scrollTo(0, 0);
-        main.current?.focus();
+        main.current?.focus({ preventScroll: true });
     }, [location.pathname]);
     return (
         <>
