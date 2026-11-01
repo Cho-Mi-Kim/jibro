@@ -48,6 +48,30 @@ class HousingIntegrationTest {
     }
 
     @Test
+    void publicCatalogExcludesSamplesButPreservesTheirDetailsAndPreparations() {
+        UUID sample = notices.insert("local-sample-" + UUID.randomUUID(), "샘플", "가상 운영기관", "샘플지역", "샘플유형",
+                LocalDate.now().minusDays(1), LocalDate.now().plusDays(30), LocalDate.now(), SampleData.content());
+        notices.samplePublish(sample, "PASS");
+        var preparation = preparations.start(owner, sample, 1);
+        assertEquals(0, notices.search(List.of("샘플지역"), List.of(), List.of(), "", "deadline", 0, 20).totalElements());
+        assertEquals(1, notices.search(List.of("샘플지역"), List.of(), List.of(), "", "deadline", 0, 20, true).totalElements());
+        assertFalse(notices.filters().get("regions").contains("샘플지역"));
+        assertEquals(sample.toString(), notices.notice(sample).id());
+        assertEquals(preparation.id, preparations.get(owner, UUID.fromString(preparation.id)).id);
+    }
+
+    @Test
+    void basicReviewedSchedulesArePublicWhilePersonalGuidanceStaysUnavailable() {
+        notices.samplePublish(notice, "HOLD");
+        var result = notices.notice(notice);
+        assertEquals(1, result.schedules().size());
+        assertTrue(result.questions().isEmpty());
+        assertTrue(result.documents().isEmpty());
+        assertFalse(result.canStart());
+        assertEquals("REVIEWING", result.guideState());
+    }
+
+    @Test
     void filterOrWithinAndAcrossAndHideUnreviewedGuide() {
         UUID second = insert("경기", "공공임대");
         notices.samplePublish(second, "HOLD");

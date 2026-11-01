@@ -32,7 +32,7 @@ await request('/auth/signup', 'POST', { name: 'API 검증', email, password }, 2
 const session = await request('/auth/login', 'POST', { email, password });
 access = session.accessToken;
 assert.equal((await request('/users/me')).id, session.user.id);
-const page = await request('/notices?region=' + encodeURIComponent('서울') + '&type=' + encodeURIComponent('공공임대'));
+const page = await request('/notices?includeSamples=true&region=' + encodeURIComponent('서울') + '&type=' + encodeURIComponent('공공임대'));
 const notice = page.items.find((n) => n.canStart && n.title.startsWith('[로컬 샘플]'));
 assert.ok(notice, 'A reviewed local sample is required');
 let p = await request('/preparations', 'POST', { noticeId: notice.id, version: notice.version });

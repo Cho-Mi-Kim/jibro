@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-11-01",
+  "reviewScope": "공식 상세 페이지의 제목·지역·유형·게시일·접수기간·공급일정 대조. 개인별 조건·서류 안내는 검수 대기.",
+  "items": [
+    {
+      "panId": "2015122300019376",
+      "title": "2026년 청년 전세임대 1순위 입주자 수시모집",
+      "agency": "LH",
+      "region": "전국",
+      "type": "청년 전세임대",
+      "publishedDate": "2026-02-24",
+      "startDate": "2026-02-24",
+      "endDate": "2026-12-31",
+      "content": {
+        "summary": "전국 청년 전세임대 1순위 수시모집입니다. 공식 접수기간은 2026년 2월 24일 10:00부터 12월 31일 18:00까지이며, 접수 물량에 따라 조기 종료될 수 있습니다. 자격·서류 및 최신 접수 여부는 LH 원문을 확인해 주세요.",
+        "evidence": {
+          "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019376&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+          "checkedAt": "2026-11-01"
+        },
+        "attachments": [],
+        "questions": [],
+        "documents": [],
+        "schedules": []
+      }
+    },
+    {
+      "panId": "2015122300020759",
+      "title": "[서울지역본부] 26년 3차 청년 매입임대주택 예비입주자 모집공고",
+      "agency": "LH",
+      "region": "서울",
+      "type": "청년 매입임대",
+      "publishedDate": "2026-09-17",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "content": {
+        "summary": "서울지역 청년 매입임대주택 예비입주자 모집공고입니다. 접수는 종료되었습니다. 서류제출대상자 발표는 10월 2일, 서류접수는 10월 6일부터 8일까지로 안내되어 있습니다. 이후 당첨자 발표 및 계약 안내는 공식 원문을 확인해 주세요.",
+        "evidence": {
+          "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020759&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+          "checkedAt": "2026-11-01"
+        },
+        "attachments": [],
+        "questions": [],
+        "documents": [],
+        "schedules": [
+          {
+            "id": "document-result",
+            "title": "서류제출대상자 발표",
+            "date": "2026-10-02",
+            "evidence": {
+              "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020759&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "document-deadline",
+            "title": "서류 제출 마감",
+            "date": "2026-10-08",
+            "evidence": {
+              "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020759&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "winner-result",
+            "title": "당첨자 발표",
+            "date": "2026-12-11",
+            "evidence": {
+              "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020759&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+              "checkedAt": "2026-11-01"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "panId": "2015122300020688",
+      "title": "[정정공고][경기남부] 26년 3차 청년 매입임대주택 예비입주자 모집공고",
+      "agency": "LH",
+      "region": "경기",
+      "type": "청년 매입임대",
+      "publishedDate": "2026-08-27",
+      "startDate": "2026-09-07",
+      "endDate": "2026-09-09",
+      "content": {
+        "summary": "성남·수원·시흥·안산·오산·용인·이천 지역의 청년 매입임대 예비입주자 모집 정정공고입니다. 접수는 종료되었습니다. 일부 지역 공급주택 증가가 반영된 정정본이며, 주택별 세부 내용과 이후 절차는 공식 원문을 확인해 주세요.",
+        "evidence": {
+          "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020688&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+          "checkedAt": "2026-11-01"
+        },
+        "attachments": [],
+        "questions": [],
+        "documents": [],
+        "schedules": [
+          {
+            "id": "document-result",
+            "title": "서류제출대상자 발표",
+            "date": "2026-09-11",
+            "evidence": {
+              "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020688&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "document-deadline",
+            "title": "서류 제출 마감",
+            "date": "2026-09-16",
+            "evidence": {
+              "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020688&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "winner-result",
+            "title": "당첨자 발표",
+            "date": "2026-11-27",
+            "evidence": {
+              "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020688&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+              "checkedAt": "2026-11-01"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

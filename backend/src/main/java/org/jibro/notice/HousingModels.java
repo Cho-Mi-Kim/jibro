@@ -27,7 +27,7 @@ public final class HousingModels {
     public record Notice(String id, String title, String agency, String region, String type, String status,
                          LocalDate startDate, LocalDate endDate, LocalDate publishedDate, List<Evidence> attachments,
                          String summary, int version, Integer guideVersion, String guideState, boolean canStart,
-                         Evidence evidence, List<Question> questions, List<String> documents) {
+                         Evidence evidence, List<Question> questions, List<String> documents, List<ScheduleTemplate> schedules) {
     }
 
     public record Page<T>(List<T> items, int page, int size, long totalElements, long totalPages) {

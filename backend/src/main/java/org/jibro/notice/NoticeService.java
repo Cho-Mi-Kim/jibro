@@ -59,7 +59,7 @@ public class NoticeService {
         boolean ready = n.basicReview.equals("PASS") && state.equals("AVAILABLE");
         return new Notice(n.id.toString(), n.title, n.agency, n.region, n.supportType, status, n.startDate, n.endDate, n.publishedDate,
                 c.attachments(), c.summary(), n.version, ready ? n.version : null, state, ready && !status.equals("CLOSED"), c.evidence(),
-                ready || admin ? c.questions() : List.of(), ready || admin ? c.documents().stream().map(DocumentTemplate::title).toList() : List.of());
+                ready || admin ? c.questions() : List.of(), ready || admin ? c.documents().stream().map(DocumentTemplate::title).toList() : List.of(), c.schedules());
     }
 
     private String status(NoticeEntity n) {
@@ -69,11 +69,16 @@ public class NoticeService {
     }
 
     public Page<Notice> search(List<String> regions, List<String> types, List<String> statuses, String keyword, String sort, int page, int size) {
+        return search(regions, types, statuses, keyword, sort, page, size, false);
+    }
+
+    public Page<Notice> search(List<String> regions, List<String> types, List<String> statuses, String keyword, String sort, int page, int size, boolean includeSamples) {
         if (page < 0 || page > 100000 || size < 1 || size > 100 || keyword.length() > 200 || !List.of("deadline", "newest").contains(sort)
                 || !List.of("OPEN", "UPCOMING", "CLOSED", "UNKNOWN").containsAll(statuses))
             throw new IllegalArgumentException();
         var n = QNoticeEntity.noticeEntity;
         var where = new BooleanBuilder(n.basicReview.eq("PASS"));
+        if (!includeSamples) where.and(n.sourceKey.isNull().or(n.sourceKey.startsWith("local-sample-").not()));
         if (!regions.isEmpty()) where.and(n.region.in(regions));
         if (!types.isEmpty()) where.and(n.supportType.in(types));
         if (!keyword.isBlank())
@@ -95,8 +100,9 @@ public class NoticeService {
 
     public Map<String, List<String>> filters() {
         var n = QNoticeEntity.noticeEntity;
-        return Map.of("regions", query.select(n.region).distinct().from(n).where(n.basicReview.eq("PASS")).orderBy(n.region.asc()).fetch(),
-                "types", query.select(n.supportType).distinct().from(n).where(n.basicReview.eq("PASS")).orderBy(n.supportType.asc()).fetch());
+        var visible = n.basicReview.eq("PASS").and(n.sourceKey.isNull().or(n.sourceKey.startsWith("local-sample-").not()));
+        return Map.of("regions", query.select(n.region).distinct().from(n).where(visible).orderBy(n.region.asc()).fetch(),
+                "types", query.select(n.supportType).distinct().from(n).where(visible).orderBy(n.supportType.asc()).fetch());
     }
 
     public List<Review> reviews() {
