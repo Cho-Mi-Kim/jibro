@@ -28,16 +28,20 @@ export function BrickHouse({ stage = 3 }: { stage?: number }) {
                 stroke="#eaded4"
             />
             {Array.from({ length: 5 }, (_, row) =>
-                Array.from({ length: 4 }, (_, col) => {
+                Array.from({ length: row % 2 === 0 ? 4 : 5 }, (_, col) => {
+                    // Offset alternating courses by half a brick, trimming the ends to the wall.
+                    const left = 61 + col * 31 - (row % 2) * 15.5;
+                    const x = Math.max(61, left);
+                    const width = Math.min(183, left + 29) - x;
                     const complete =
                         row >= 5 - Math.max(1, stage + 1) &&
                         !(stage < 4 && col === 2 && row < 3);
                     return (
                         <rect
                             key={row + '-' + col}
-                            x={61 + col * 31}
+                            x={x}
                             y={82 + row * 17}
-                            width="29"
+                            width={width}
                             height="15"
                             rx="1.5"
                             fill={complete ? 'url(#' + id + 'brick)' : '#fff'}
