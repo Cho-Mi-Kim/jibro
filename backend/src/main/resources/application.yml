@@ -24,3 +24,9 @@ server:
   error:
     include-message: never
     include-stacktrace: never
+
+app:
+  auth:
+    jwt-secret: ${JWT_SECRET}
+    secure-cookie: ${AUTH_SECURE_COOKIE:true}
+    frontend-url: ${FRONTEND_URL:http://127.0.0.1:5173}

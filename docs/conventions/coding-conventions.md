@@ -419,7 +419,7 @@ Refs #12
 | Java 배포판 | Eclipse Temurin 17 (JDK 배포판, IDE와 별개) | 로컬·CI·배포에서 JDK 환경 차이를 줄임 | 팀·CI 기준은 Temurin 17. 현재 PC의 로컬 검증은 OpenJDK 17 사용 |
 | 빌드 설정 | Gradle 8.14.6, Groovy DSL, Java Toolchain 17 | Wrapper·Toolchain으로 빌드 환경을 재현 | Wrapper·Toolchain 구성 및 로컬 빌드 검증 완료 |
 | DB 접근 | Spring Data JPA | 반복 CRUD 구현을 줄이고 도메인·트랜잭션 단위로 데이터 접근 관리 | JPA 기본 구성·테스트 엔티티 검증 완료. 실제 도메인 엔티티·Repository는 후속 구현 |
-| 동적 조회 | OpenFeign 계열 Querydsl 7.7 | 초기부터 필요한 지역·지원 유형·마감 상태·키워드의 복합 검색 구현 | Q 클래스 생성·테스트 DB의 AND/OR 조회 검증 완료. 실제 공고 복합 검색은 후속 구현 |
+| 동적 조회 | OpenFeign 계열 Querydsl 7.7 | 초기부터 필요한 지역·지원 유형·마감 상태·키워드의 복합 검색 구현 | Q 클래스 생성·테스트 DB의 AND/OR 조회 검증 완료. 실제 공고 복합 검색과 DB 통합 검증 구현 |
 | DB 버전 | PostgreSQL 17.x (로컬 17.6) | 로컬·RDS의 메이저 버전을 맞춰 DB 동작 차이를 줄임 | 로컬 개발·테스트 DB 분리 완료. RDS 제공 버전·실제 배포는 후속 확인 |
 | 스키마 변경 이력 | Flyway | 테이블 변경을 SQL 이력으로 기록하고 같은 구조를 재현 | Flyway 기본 구성·테스트 마이그레이션 검증 완료. 운영 SQL은 모델 합의 후 작성 |
 | Java 포맷 | IntelliJ 내장 포맷터 + 공유 코드 스타일 XML·EditorConfig, Spotless의 idea() 연동 | IntelliJ의 편집·포맷 동작과 자동 검사를 같은 규칙으로 맞추고 공백 4칸 유지 | 공유 XML·Spotless 8.10.4·IntelliJ 2025.1.4.1 로컬 검사 완료. 팀·CI 동일 환경과 필수 검사 연결은 후속 작업 |

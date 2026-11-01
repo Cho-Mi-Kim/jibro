@@ -1,6 +1,6 @@
 # 프로젝트 진행·의사결정·문제 해결 기록
 
-최종 수정일: 2026-10-29
+최종 수정일: 2026-10-30
 
 팀원이 무엇이 왜 바뀌었는지 이해하고, 발표·회고·포트폴리오에서 문제 해결의 근거를 재사용하기 위한 기록입니다. [현재 제품 기획](../planning/project-proposal.md)·[기술 규칙](../conventions/coding-conventions.md)은 현재 기준을, 이 폴더는 그 기준에 이른 과정과 변경 이력을 설명합니다.
 
@@ -59,6 +59,19 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 <!-- PROJECT-HISTORY:START -->
 | 기록일 | 내용 | 기록 상태 |
 | --- | --- | --- |
+| 2026-11-01 | [LH 원문 준비 안내 검수와 조건부 서류 연결](entries/2026-11-01-official-guidance-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-01 | [실제 LH 공고 기반 공고 찾기 전환](entries/2026-11-01-official-notice-catalog.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-01 | [질문별 답변과 준비 대상 서류 필터](entries/2026-11-01-question-options-documents.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-01 | [모바일·PC 시안 기반 프론트엔드 재디자인](entries/2026-11-01-responsive-redesign.md) | 검증 완료 |
+| 2026-10-31 | [외부 로그인 및 LH 실서비스 연동 검증](entries/2026-10-31-external-integration-verification.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-31 | [개인 VS Code 설정의 Git 추적 제외](entries/2026-10-31-ignore-vscode.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-31 | [백엔드 시작 실패: 중지된 PostgreSQL 복구](entries/2026-10-31-local-db-startup.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-31 | [최신 develop 동기화와 로컬 기록 보존](entries/2026-10-31-local-develop-sync.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-31 | [화면 설계 이미지 10개 갱신](entries/2026-10-31-screen-mockups.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-30 | [백엔드 구현과 실제 API 연동](entries/2026-10-30-backend-integration.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-30 | [누적 PR 검토와 develop 통합 검증](entries/2026-10-30-develop-integration-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-30 | [프론트엔드 전반 구현과 기능 계약 구체화](entries/2026-10-30-frontend-implementation.md) | 근거 정리·담당자 검토 전 |
+| 2026-10-30 | [구현 착수 준비 상태와 프론트엔드·백엔드 진행 순서 검토](entries/2026-10-30-implementation-readiness.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-29 | [초기 개발 환경 구성과 기존 DB 환경 변수 충돌 해결](entries/2026-10-29-initial-setup.md) | 근거 정리·담당자 검토 전 |
 | 2026-10-29 | [발표·포트폴리오에 활용할 프로젝트 기록 자동화](entries/2026-10-29-project-history.md) | 근거 정리·담당자 검토 전 |
 <!-- PROJECT-HISTORY:END -->

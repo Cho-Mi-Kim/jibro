@@ -2,7 +2,7 @@
 
 대상: Windows, 새 `jibro-housing` 저장소. 명령을 기존 `jibro-housing-prep`에서 실행하지 않습니다.
 
-최종 수정일: 2026-10-29. 이 문서는 실행 절차를 관리합니다. 작업 전 [팀 컨벤션](conventions/team-conventions.md)·[코딩 컨벤션](conventions/coding-conventions.md)을 확인하고 기능 구현에는 [기획안](planning/project-proposal.md)·[화면설계서](design/screen-spec.md)를 함께 사용합니다. [전체 문서 안내](README.md).
+최종 수정일: 2026-10-30. 이 문서는 실행 절차를 관리합니다. 작업 전 [팀 컨벤션](conventions/team-conventions.md)·[코딩 컨벤션](conventions/coding-conventions.md)을 확인하고 기능 구현에는 [기획안](planning/project-proposal.md)·[화면설계서](design/screen-spec.md)를 함께 사용합니다. [전체 문서 안내](README.md).
 
 ## 1. 사전 도구
 
@@ -39,7 +39,7 @@ npm create vite@latest frontend -- --template react-ts --no-interactive
 | Packaging | Jar |
 | Dependencies | Spring Web(MVC), Validation, Spring Data JPA, PostgreSQL Driver, Flyway, Spring Security, OAuth2 Client, OAuth2 Resource Server |
 
-생성된 Wrapper는 합의한 Gradle 8.14 계열인 **8.14.6**으로 맞췄습니다. OpenFeign Querydsl **7.7**과 annotation processing, Spotless **8.10.4**를 추가했습니다. `com.querydsl` 원본 계열 의존성을 혼용하지 않습니다. 운영 엔티티는 모델 합의 후 추가합니다.
+생성된 Wrapper는 합의한 Gradle 8.14 계열인 **8.14.6**으로 맞췄습니다. OpenFeign Querydsl **7.7**과 annotation processing, Spotless **8.10.4**를 추가했습니다. `com.querydsl` 원본 계열 의존성을 혼용하지 않습니다. 공고 엔티티와 실제 복합 검색, 인증·개인 준비·검수 스키마를 추가했습니다.
 
 공식 근거: [Vite 생성 안내](https://vite.dev/guide/), [Boot 지원 환경](https://docs.spring.io/spring-boot/system-requirements.html), [Spring Data의 Querydsl 안내](https://docs.spring.io/spring-data/jpa/reference/repositories/core-extensions.html).
 
@@ -79,7 +79,7 @@ Docker Desktop의 Linux 엔진을 시작한 뒤 루트에서 실행합니다.
 .\scripts\Initialize-Local.ps1
 ```
 
-`.env`가 없는 경우에만 임의 로컬 비밀번호를 생성합니다. Docker Compose는 새 프로젝트명 `jibro-housing-dev`와 새 볼륨을 사용합니다. 기존 DB를 초기화하지 않습니다. 바인딩 포트는 충돌을 줄이기 위해 `127.0.0.1:15432`입니다.
+`.env`가 없는 경우 임의 로컬 DB 비밀번호를 생성하고, JWT_SECRET이 없으면 임의 서명 키를 추가합니다. 기존 비밀번호나 서명 키를 덮어쓰지 않습니다. Docker Compose는 새 프로젝트명 `jibro-housing-dev`와 새 볼륨을 사용합니다. 기존 DB를 초기화하지 않습니다. 바인딩 포트는 충돌을 줄이기 위해 `127.0.0.1:15432`입니다.
 
 - 개발 DB: `jibro`
 - 통합 테스트 DB: `jibro_test`
@@ -92,6 +92,14 @@ Docker Desktop의 Linux 엔진을 시작한 뒤 루트에서 실행합니다.
 Docker 없이 로컬 PostgreSQL 17을 설치한 경우 두 DB를 개발용 계정 소유로 만들고 `DB_URL`·`TEST_DB_URL`을 실제 주소로 맞춥니다.
 
 ## 6. 프론트·백엔드 각각 실행
+
+Docker Desktop을 실행한 뒤, 저장소 루트에서 먼저 DB가 실행 중인지 확인합니다. PC 재시작 등으로 컨테이너가 중지되어 있으면 다음 명령으로 기존 데이터를 유지하면서 시작합니다.
+
+```powershell
+docker compose up -d --wait postgres
+```
+
+`Start-Backend.ps1`은 DB를 자동으로 시작하지 않습니다. `SQL State: 08001`, `localhost:15432`, `Connection refused`가 함께 나오면 DB 연결부터 확인합니다. 콘솔에서 한글이 깨져 보이는 것만으로 폴더 경로 오류라고 판단하지 않습니다.
 
 가장 간단한 방법은 루트에서 서로 다른 터미널로 실행하는 것입니다.
 
@@ -126,12 +134,25 @@ Vite의 `/api` 요청은 `http://127.0.0.1:8080`으로 전달합니다. `/api`�
 
 GitHub Actions는 PR마다 양쪽 작업을 모두 실행하도록 작성했습니다. 원격 저장소 연결·push·Actions 실제 실행 및 보호 브랜치 설정은 별도 작업입니다. 배포는 자동 수행하지 않습니다.
 
-## 8. 다음 개발 순서
+## 8. 실제 전체 기능 실행
 
-1. 실제 공고 한 건의 모델·API 계약·Flyway 마이그레이션 합의.
-2. 공개 가능한 공고 조회 API와 화면 연결.
-3. 이메일 로그인·JWT 발급/검증·Refresh Token·쿠키/CSRF·개인 데이터 접근 제어.
-4. Google·카카오 OAuth2 연결과 공통 서비스 토큰 발급.
-5. 준비 항목 저장·재조회·준비도 계산과 관리자 검수로 확장.
+백엔드는 다음처럼 샘플 프로필로 실행하고 프론트엔드는 기존 `Start-Frontend.ps1`로 실행합니다. 프론트엔드의 demo 모드는 사용하지 않습니다.
 
-Security 의존성을 설치한 것과 인증 구현 완료를 구분합니다. 초기 SecurityConfig의 `denyAll`을 전체 `permitAll`로 바꾸어 개발 문제를 해결하지 않습니다.
+```powershell
+.\scripts\Initialize-Local.ps1
+.\scripts\Start-Backend.ps1 -SampleData
+# 별도 터미널
+.\scripts\Start-Frontend.ps1
+```
+
+브라우저 http://127.0.0.1:5173 에서 이메일 회원가입 → 공고 선택 → 조건 확인 → 서류·일정 저장을 확인합니다. 로컬 샘플도 실제 DB에 저장되므로 새로고침 후 복원됩니다. 실제 개인정보는 테스트에 사용하지 않습니다.
+
+`JWT_SECRET`은 필수이며 로컬 초기화가 생성합니다. `AUTH_SECURE_COOKIE=false`는 로컬 HTTP 전용입니다. `FRONTEND_URL`은 OAuth 복귀 주소이며 기본 http://127.0.0.1:5173 입니다. Google·카카오·LH 키는 `.env.example`을 참고합니다. 키가 없으면 해당 외부 연결을 성공으로 표시하지 않습니다.
+
+`LH_SERVICE_KEY`에는 공공데이터포털의 **Decoding 인증키**를 입력합니다. Encoding 키의 `%2B`, `%2F`, `%3D` 등을 그대로 넣으면 서버가 다시 인코딩하여 HTTP 403·`SERVICE_KEY_IS_NOT_REGISTERED_ERROR`가 발생할 수 있습니다. `.env` 변경 후 백엔드를 재시작합니다. 실제 키는 로그·문서·Git에 남기지 않습니다.
+
+카카오 로그인에서 토큰 교환 이후 `invalid_user_info_response`, `providerCode=-401`, `reason=ip_restricted`가 기록되면 REST API 키의 호출 허용 IP를 확인합니다. 카카오 Developers의 앱 → 플랫폼 키에서 사용하는 키의 호출 허용 IP에 **백엔드의 외부 공인 IP**를 등록합니다. 로컬 접속 주소인 `127.0.0.1`과는 다릅니다. 네트워크·VPN·배포 서버가 달라지면 외부 IP도 달라질 수 있습니다. 접근 제한을 없애거나 키를 재발급하는 대신 필요한 서버 IP를 등록하는 것을 우선합니다. [카카오 공식 설정 안내](https://developers.kakao.com/docs/ko/app-setting/app).
+
+추가 HTTP 흐름 검사: 환경 도우미를 로드한 뒤 `node scripts/verify-api.mjs`. 샘플 데이터가 있는 localhost만 허용하며 합성 테스트 계정·준비 건이 DB에 남습니다. 이 검사는 외부 OAuth 왕복이나 실제 LH 수집을 검증하지 않습니다.
+
+권한·관리자 원고·공개 상태·수집 범위·후속 작업은 [백엔드 계약](architecture/backend-contracts.md)을 참고합니다. 배포 구성·HTTPS·관리자 승격·외부 키·실제 공고 검수는 별도 단계입니다.

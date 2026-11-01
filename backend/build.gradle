@@ -48,6 +48,10 @@ tasks.named('test') {
     exclude '**/*IntegrationTest.class'
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
 tasks.register('integrationTest', Test) {
     description = 'Runs PostgreSQL integration tests against the separate jibro_test database.'
     group = 'verification'

@@ -2,7 +2,7 @@ name: PR checks
 
 on:
   pull_request:
-    branches: [develop, main]
+    # Stacked feature PRs also need checks before their base reaches develop.
   workflow_dispatch:
 
 permissions:
