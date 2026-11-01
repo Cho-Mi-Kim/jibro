@@ -47,3 +47,9 @@ node scripts/apply-guidance-review.mjs --apply
 ```
 
 최초 자료와 버전이 일치할 때만 로컬 DB에 반영하며 재실행은 같은 결과를 유지한다. 계정·기존 준비 기록은 변경하지 않는다. 팀의 사람 검토 완료를 뜻하지 않는다.
+
+## 질문별 선택지 v3
+
+`question-options-20261101.json`은 전세임대 v2의 원문 근거를 유지하면서 중복 질문을 7개로 합치고, 신청 유형·증명서 명의 등 질문별 선택지와 서류 조건값을 지정한다. `node scripts/apply-guidance-review.mjs --question-options --apply`로 v2와 일치하는 로컬 공고 1건에만 적용한다. 새 백엔드와 V5 마이그레이션이 먼저 필요하다.
+
+기존 준비 기록은 자동 변환하지 않는다. 사용자가 새 안내 적용 버튼을 누르면 이전 스냅샷을 보관하고 변경된 질문에 다시 답한다. [질문·서류 계약](../../docs/contracts/question-options-and-documents.md)을 참고한다.

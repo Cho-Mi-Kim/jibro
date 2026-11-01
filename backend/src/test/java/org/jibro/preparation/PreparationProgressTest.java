@@ -16,7 +16,7 @@ class PreparationProgressTest {
         p.questions = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             p.questions.add(new Question("q" + i, "확인 항목", "근거", null));
-            p.answers.put("q" + i, i == 99 ? Answer.UNKNOWN : Answer.YES);
+            p.answers.put("q" + i, i == 99 ? "UNKNOWN" : "YES");
         }
         Document document = new Document();
         document.necessity = "REQUIRED";
@@ -29,7 +29,7 @@ class PreparationProgressTest {
         assertEquals(99, p.progress);
         assertEquals(4, p.houseStage);
         assertEquals(1, p.warnings.size());
-        p.answers.put("q99", Answer.YES);
+        p.answers.put("q99", "YES");
         PreparationService.calculate(p);
         assertEquals(100, p.progress);
         assertEquals(5, p.houseStage);

@@ -1,0 +1,419 @@
+{
+  "checkedAt": "2026-11-01",
+  "reviewer": "Codex 보조 검수 (별도 사람 검토자 미확인)",
+  "sources": [
+    {
+      "file": "jeonse.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885",
+      "sha256": "dddfd576015ad86f9d7855010aa1d613e0c0c80b258409973937247f5eca61bb"
+    },
+    {
+      "file": "jeonse-qa.hwp",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+      "sha256": "3796fd54af58ed5ac1798517f49d7ae64d8966c7eb623a7f3fa73c3e81a7915a"
+    },
+    {
+      "file": "jeonse-consent.hwpx",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68824433",
+      "sha256": "746100789cb4814b6ebdaad3ad11b306a55680b7d79ea6569af680134ddd0c95"
+    },
+    {
+      "file": "seoul.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68646610",
+      "sha256": "f2d6fd02e5a0a5cef243c853285612145172f7162a9c340e0bba2adf2e594477"
+    },
+    {
+      "file": "seoul-cautions.hwpx",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68596946",
+      "sha256": "1c83d63e087ddbbdac83ae3362277dc320cadc207b28b92320b660256f2e8f65"
+    },
+    {
+      "file": "gyeonggi.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68441895",
+      "sha256": "e327d37ee9cb641ede05c9387f9ddd3c2504ded8b8f603d9d1df1b548a65fecc"
+    },
+    {
+      "file": "gyeonggi-qa.hwpx",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68441899",
+      "sha256": "218fbaa734b401240ed4d6e74b6174ddf35d54f038a91b3bd3a39a921f9bf5d5"
+    }
+  ],
+  "items": [
+    {
+      "panId": "2015122300019376",
+      "expectedVersion": 2,
+      "expectedRevision": 2,
+      "basic": "PASS",
+      "guide": "PASS",
+      "reason": "2026-11-01 Codex / 기존 검수 근거 유지, 질문별 선택지와 서류 조건값 명시. 자격 자동 판정 없음.",
+      "content": {
+        "summary": "청년 전세임대 1순위 신청 준비 안내입니다. 자격 판단 기준은 공고 게시일이 아닌 신청일입니다. 신청일 현재 본인 무주택·혼인 중 아님 및 연령/학적/취업준비 유형과 1순위 증빙을 원문으로 확인하세요. 접수는 2026.02.24 10:00~12.31 18:00이며 조기 중단될 수 있습니다. 모든 발급서류는 신청일 기준 2주 이내 발급용이어야 합니다. 선정은 신청일부터 최소 4주가 걸리며 개별 통보하므로 고정 발표일을 만들지 않습니다. 이 안내는 서류 준비를 돕고 최종 자격이나 주택 계약 가능 여부를 판정하지 않습니다. 제출 원본은 LH에만 제출하세요.",
+        "evidence": {
+          "label": "LH청약플러스 공식 모집공고 · 기본 정보 대조",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019376&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+          "checkedAt": "2026-11-01"
+        },
+        "attachments": [
+          {
+            "label": "수정 모집공고문 PDF",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885",
+            "checkedAt": "2026-11-01"
+          },
+          {
+            "label": "공식 Q&A 전체",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+            "checkedAt": "2026-11-01"
+          },
+          {
+            "label": "개인정보 동의서 수정 양식",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68824433",
+            "checkedAt": "2026-11-01"
+          },
+          {
+            "label": "복학확약각서 양식",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733879",
+            "checkedAt": "2026-11-01"
+          }
+        ],
+        "questions": [
+          {
+            "id": "no-house",
+            "title": "신청일 현재 본인 명의의 주택을 소유하고 있나요?",
+            "reason": "판단 시점은 신청일입니다. 공유지분·분양권과 무주택 인정 예외는 공고문 11쪽을 확인하고, 경계 사례는 LH에 문의하세요. 자격은 계약 시까지 유지해야 합니다.",
+            "evidence": {
+              "label": "수정 공고문 2쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=2",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "NO_HOUSE",
+                "label": "소유한 주택이 없어요"
+              },
+              {
+                "value": "HAS_HOUSE",
+                "label": "소유한 주택이 있어요",
+                "requiresFollowUp": true
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          },
+          {
+            "id": "unmarried",
+            "title": "신청일 현재 혼인 상태는 어떻게 되나요?",
+            "reason": "신청일 현재 혼인 중이 아니어야 합니다. 이 답변만으로 최종 신청 자격을 판단하지 않습니다.",
+            "evidence": {
+              "label": "수정 공고문 2쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=2",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "UNMARRIED",
+                "label": "현재 혼인 중이 아니에요"
+              },
+              {
+                "value": "MARRIED",
+                "label": "현재 혼인 중이에요",
+                "requiresFollowUp": true
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          },
+          {
+            "id": "youth-route",
+            "title": "어떤 신청 유형으로 준비하나요?",
+            "reason": "19~39세는 연령 유형입니다. 범위 밖인 경우 2026년 입·복학 예정 또는 재학 대학생, 또는 인정 학교 졸업·중퇴 후 2년 이내 미취업 취업준비생(졸업유예 포함)인지 확인하세요. 대학생 유형은 대학 소재 특별시·광역시·도 및 연접 시·군만 신청 가능합니다. 학교 인정·제외 기준은 공고문 2쪽을 따릅니다.",
+            "evidence": {
+              "label": "수정 공고문 2쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=2",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "AGE_19_39",
+                "label": "19~39세 청년"
+              },
+              {
+                "value": "STUDENT",
+                "label": "19~39세 범위 밖의 대학생"
+              },
+              {
+                "value": "JOBSEEKER",
+                "label": "19~39세 범위 밖의 취업준비생"
+              },
+              {
+                "value": "OTHER",
+                "label": "해당하는 신청 유형이 없어요",
+                "requiresFollowUp": true
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          },
+          {
+            "id": "priority-proof",
+            "title": "제출할 1순위 자격 증명서는 누구 명의인가요?",
+            "reason": "생계·의료·주거급여 수급, 지원대상 한부모가족, 차상위계층 중 해당 유형을 확인하세요. 교육급여만으로는 이 공고의 1순위가 아닙니다. 증명서는 본인 명의가 원칙이며 부모·형제자매 명의 예외는 Q&A 5번에 따라 관계 서류와 동의서 범위를 확인합니다. 형제자매 명의는 본인·부모 명의 발급이 불가능하고 해당 형제자매와 같은 등본에 등재된 경우에만 선택하세요. 명의 예외를 확인하지 못했다면 잘 모르겠어요를 선택하세요.",
+            "evidence": {
+              "label": "공식 Q&A 4~5번",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "SELF",
+                "label": "본인 명의"
+              },
+              {
+                "value": "PARENT",
+                "label": "부 또는 모 명의"
+              },
+              {
+                "value": "SIBLING",
+                "label": "형제자매 명의 (공식 예외 해당)"
+              },
+              {
+                "value": "NONE",
+                "label": "준비할 수 있는 1순위 증명서가 없어요",
+                "requiresFollowUp": true
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          },
+          {
+            "id": "parent-abstracts",
+            "title": "30세 이상이며 부모 명의 증명서를 쓰고, 해당 부모와 등본이 분리되어 있나요?",
+            "reason": "세 조건을 모두 충족하면 본인·부·모 초본 총 3부가 필요합니다. 신청자 등본에 1순위 자격자인 부모가 함께 등재되어 있으면 초본은 불필요합니다. 본인 명의 1순위 증명서를 발급받은 경우 부모 관련 서류·서명은 면제됩니다. 부모 부재 등 개별 사정은 LH에 문의하고 모름으로 남겨주세요.",
+            "evidence": {
+              "label": "공식 Q&A 5번 ②",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "YES",
+                "label": "세 조건 모두 해당해요"
+              },
+              {
+                "value": "NO",
+                "label": "하나 이상 해당하지 않아요"
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          },
+          {
+            "id": "submission-check",
+            "title": "발급일·서명·파일 규격과 신청 제한을 어디까지 확인했나요?",
+            "reason": "발급서류는 신청일 기준 2주 이내 발급용이며 열람용은 불가합니다. 원문이 요구하는 공개 항목, 동의서 자필 서명, 파일 식별 가능 여부를 확인하세요. 첨부는 3,000KB 미만이며 허용 확장자는 tif/tiff/jpg/jpeg/gif/hwp/pdf/zip입니다. 순위·지역 중복 신청은 불가하며 수정은 신청일 24시(마감일 18시)까지입니다. 집으로에는 주민번호·증빙 원본을 올리지 않습니다.",
+            "evidence": {
+              "label": "수정 공고문 3쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=3",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "CHECKED",
+                "label": "안내 내용을 모두 확인했어요"
+              },
+              {
+                "value": "PENDING",
+                "label": "아직 확인할 내용이 남아 있어요",
+                "requiresFollowUp": true
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          },
+          {
+            "id": "later-procedure",
+            "title": "선정 후 LH 승인과 기존 지원·기금대출 절차를 이해했나요?",
+            "reason": "기 지원기간은 청년 전세임대 총 지원기간에서 차감됩니다. 기금대출은 입주 전 상환, 기존 공공임대 계약자는 입주 전 명도 등이 필요할 수 있습니다. 선정 및 지역본부 안내 후 주택을 찾고 LH 권리분석 승인 없이 가계약하지 마세요. 상세 적용은 공고문 7~9쪽과 LH에 확인합니다.",
+            "evidence": {
+              "label": "수정 공고문 8쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=8",
+              "checkedAt": "2026-11-01"
+            },
+            "options": [
+              {
+                "value": "UNDERSTOOD",
+                "label": "절차를 이해했어요"
+              },
+              {
+                "value": "NEED_HELP",
+                "label": "LH 문의나 추가 설명이 필요해요",
+                "requiresFollowUp": true
+              },
+              {
+                "value": "UNKNOWN",
+                "label": "잘 모르겠어요"
+              }
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "id": "resident-register",
+            "title": "주민등록표등본",
+            "conditionQuestionId": null,
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. 신청자 본인 기준으로 주소변동을 제외한 모든 사항을 공개 발급합니다. 공식 제출용 공개 항목은 공고문을 따르며 집으로에는 원본을 저장하지 않습니다.",
+            "issuer": "행정복지센터",
+            "issueUrl": null,
+            "evidence": {
+              "label": "수정 공고문 4쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=4",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "family-detail",
+            "title": "가족관계증명서(상세)",
+            "conditionQuestionId": null,
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. 신청자 본인 기준 상세 증명서, 주민번호 공개 발급이 공식 제출 기준입니다. 원본은 LH에만 제출하세요.",
+            "issuer": "행정복지센터",
+            "issueUrl": null,
+            "evidence": {
+              "label": "수정 공고문 4쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=4",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "privacy-consent",
+            "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+            "conditionQuestionId": null,
+            "method": "공식 수정 첨부 양식에 자필 서명·날인합니다(타이핑 불가). 본인 명의 1순위 증명서는 본인만, 부모 명의는 본인과 해당 부모, 형제자매 명의 예외는 본인과 해당 형제자매의 동의를 Q&A 5번과 수정 양식에 맞춰 준비합니다.",
+            "issuer": "LH 공고 첨부 양식",
+            "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68824433",
+            "evidence": {
+              "label": "공식 Q&A 5번",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "priority-certificate",
+            "title": "1순위 자격 증명서(해당 유형)",
+            "conditionQuestionId": null,
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. 생계·주거·의료급여 수급자 증명서, 보호대상 한부모가족 증명서, 인정되는 차상위 증명 중 해당 유형을 준비합니다. 모두 제출하라는 뜻은 아닙니다. 차상위 인정 서류 목록과 명의 예외는 공고문 4쪽·Q&A 5번을 확인하세요.",
+            "issuer": "행정복지센터 등 해당 발급기관",
+            "issueUrl": null,
+            "evidence": {
+              "label": "수정 공고문 4쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=4",
+              "checkedAt": "2026-11-01"
+            }
+          },
+          {
+            "id": "student-proof",
+            "title": "대학생 증빙 묶음",
+            "conditionQuestionId": "youth-route",
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. 재학생은 재학증명서, 휴학 상태는 휴학 또는 재적증명서. 신입생은 합격통지서 또는 등록금 납부영수증(발표 전이면 응시원서 후 보완), 복학예정자는 휴학/재적증명서와 복학확약각서를 준비합니다. 필요한 추후 재학 증빙까지 원문에 따라 제출하며 한 서류만으로 묶음을 완료하지 마세요.",
+            "issuer": "해당 학교 · LH 첨부 양식",
+            "issueUrl": null,
+            "evidence": {
+              "label": "수정 공고문 4쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=4",
+              "checkedAt": "2026-11-01"
+            },
+            "conditionAnswerValues": [
+              "STUDENT"
+            ]
+          },
+          {
+            "id": "school-completion",
+            "title": "졸업·중퇴 등 학력 증빙",
+            "conditionQuestionId": "youth-route",
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. 졸업증명서, 중퇴자는 제적증명서, 2026년 졸업예정·유예자는 졸업예정증명서 또는 수료증, 검정고시 합격자는 합격증명서 중 해당 증빙을 준비합니다.",
+            "issuer": "해당 교육기관",
+            "issueUrl": null,
+            "evidence": {
+              "label": "수정 공고문 4쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=4",
+              "checkedAt": "2026-11-01"
+            },
+            "conditionAnswerValues": [
+              "JOBSEEKER"
+            ]
+          },
+          {
+            "id": "insurance-history",
+            "title": "건강보험자격득실확인서",
+            "conditionQuestionId": "youth-route",
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. 건강보험 가입일부터 신청일 현재까지 전체 자격득실 이력을 표기하고 주민번호 공개 발급합니다. 공식 제출 원본은 LH에만 제출하세요.",
+            "issuer": "국민건강보험공단",
+            "issueUrl": null,
+            "evidence": {
+              "label": "수정 공고문 4쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=4",
+              "checkedAt": "2026-11-01"
+            },
+            "conditionAnswerValues": [
+              "JOBSEEKER"
+            ]
+          },
+          {
+            "id": "parent-abstracts",
+            "title": "본인·부·모 주민등록표초본 묶음",
+            "conditionQuestionId": "parent-abstracts",
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. Q&A 5번 ②의 제출 조건에 해당할 때 총 3부를 상세유형·주민번호·주소변동내역 공개로 발급합니다. 1순위 자격 부모가 신청자의 등본에 함께 등재되면 제출 불필요합니다. 가족관계 예외는 LH 문의 후 확정하세요.",
+            "issuer": "행정복지센터",
+            "issueUrl": null,
+            "evidence": {
+              "label": "공식 Q&A 5번 ②",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+              "checkedAt": "2026-11-01"
+            },
+            "conditionAnswerValues": [
+              "YES"
+            ]
+          },
+          {
+            "id": "sibling-family",
+            "title": "해당 형제자매 가족관계증명서",
+            "conditionQuestionId": "priority-proof",
+            "method": "신청일 기준 2주 이내 발급용을 준비하세요. 열람용은 제출하지 않습니다. Q&A 5번 ③의 제한된 명의 예외에 해당하는 형제자매의 가족관계증명서를 본인의 가족관계증명서와 함께 준비합니다. 개인정보 동의서에도 해당 형제자매가 참여해야 합니다.",
+            "issuer": "행정복지센터",
+            "issueUrl": null,
+            "evidence": {
+              "label": "공식 Q&A 5번 ③",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65733877",
+              "checkedAt": "2026-11-01"
+            },
+            "conditionAnswerValues": [
+              "SIBLING"
+            ]
+          }
+        ],
+        "schedules": [
+          {
+            "id": "application-deadline",
+            "title": "신청 접수 마감 (18:00, 조기 중단 가능)",
+            "date": "2026-12-31",
+            "evidence": {
+              "label": "수정 공고문 3쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885#page=3",
+              "checkedAt": "2026-11-01"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

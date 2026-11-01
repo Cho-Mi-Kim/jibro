@@ -7,8 +7,9 @@ import { resolve } from 'node:path';
 // Versioned local editorial import. No user is impersonated as an administrator.
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = name => JSON.parse(readFileSync(resolve(root, 'data/notices', name), 'utf8'));
-const review = read('guidance-review-20261101.json');
-const original = read('official-20261101.json');
+const questionUpgrade = process.argv.includes('--question-options');
+const review = read(questionUpgrade ? 'question-options-20261101.json' : 'guidance-review-20261101.json');
+const original = read(questionUpgrade ? 'guidance-review-20261101.json' : 'official-20261101.json');
 const literal = value => "'" + String(value).replaceAll("'", "''") + "'";
 const official = value => {
     const url = new URL(value);
@@ -37,7 +38,7 @@ for (const item of review.items) {
     if (item.guide === 'PASS') assert.ok(c.questions.length && c.documents.length && c.schedules.length);
 }
 if (!process.argv.includes('--apply')) {
-    console.log('Validated 3 source-backed review decisions; no database changes.');
+    console.log(`Validated ${review.items.length} source-backed review decisions; no database changes.`);
 } else {
     const container = 'jibro-housing-dev-postgres-1';
     const info = JSON.parse(execFileSync('docker', ['inspect', container], { encoding: 'utf8' }))[0];
@@ -62,7 +63,7 @@ if (!process.argv.includes('--apply')) {
             IF EXISTS(SELECT 1 FROM notice WHERE ${applied}) THEN RETURN; END IF;
             UPDATE notice SET content=${content}::jsonb, basic_review='PASS', guide_review=${literal(item.guide)}, reason=${literal(item.reason)}, version=version+1, revision=revision+1, change_review=false, updated_at=now()
             WHERE ${match} AND version=${item.expectedVersion} AND revision=${item.expectedRevision}
-              AND basic_review='PASS' AND guide_review='HOLD' AND NOT change_review
+              AND basic_review='PASS' AND guide_review=${literal(questionUpgrade ? old.guide : 'HOLD')} AND NOT change_review
               AND content=${literal(JSON.stringify(old.content))}::jsonb;
             GET DIAGNOSTICS affected = ROW_COUNT;
             IF affected <> 1 THEN RAISE EXCEPTION 'Review conflict for ${item.panId}; no changes committed'; END IF;

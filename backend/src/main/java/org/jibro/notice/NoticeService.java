@@ -234,6 +234,13 @@ public class NoticeService {
             if (q == null || !validId(q.id()) || !questions.add(q.id()) || !text(q.title(), 300) || !text(q.reason(), 2000))
                 throw new IllegalArgumentException();
             validateEvidence(q.evidence());
+            Set<String> options = new HashSet<>();
+            if (q.answerOptions().size() < 2 || q.answerOptions().size() > 20) throw new IllegalArgumentException();
+            for (var option : q.answerOptions()) {
+                if (option == null || option.value() == null || !option.value().matches("[A-Z][A-Z0-9_]{0,49}")
+                        || !options.add(option.value()) || !text(option.label(), 300)) throw new IllegalArgumentException();
+            }
+            if (!options.contains("UNKNOWN")) throw new IllegalArgumentException();
         }
         Set<String> docs = new HashSet<>();
         for (var d : c.documents()) {
@@ -241,6 +248,14 @@ public class NoticeService {
                     || d.conditionQuestionId() != null && !questions.contains(d.conditionQuestionId()))
                 throw new IllegalArgumentException();
             validateUrl(d.issueUrl());
+            if (d.conditionAnswerValues() != null) {
+                if (d.conditionQuestionId() == null || d.conditionAnswerValues().isEmpty()
+                        || new HashSet<>(d.conditionAnswerValues()).size() != d.conditionAnswerValues().size()) throw new IllegalArgumentException();
+                var question = c.questions().stream().filter(q -> q.id().equals(d.conditionQuestionId())).findFirst().orElseThrow();
+                var values = question.answerOptions().stream().map(AnswerOption::value).toList();
+                if (d.conditionAnswerValues().contains("UNKNOWN") || !values.containsAll(d.conditionAnswerValues())) throw new IllegalArgumentException();
+            } else if (d.conditionQuestionId() != null && c.questions().stream().filter(q -> q.id().equals(d.conditionQuestionId()))
+                    .flatMap(q -> q.answerOptions().stream()).noneMatch(o -> o.value().equals("YES"))) throw new IllegalArgumentException();
             validateEvidence(d.evidence());
         }
         Set<String> schedules = new HashSet<>();
