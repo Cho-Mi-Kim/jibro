@@ -46,3 +46,12 @@ IDE 설정 파일 자체를 올리는 대신 기존 사용자 변경인 제외 �
 - .gitignore
 - docs/history/entries/2026-10-31-ignore-vscode.md
 - docs/history/README.md
+
+## PR 검토 및 develop 병합 — 2026-10-31
+
+- PR #14의 검토 대상 커밋은 8c1d13320cffce441af1e424107d78000874d83c이며 제출 이후 변경이 없음을 확인했다.
+- CI 실행 41103950180의 frontend·backend·project-history 세 작업 모두 success를 확인한 후 merge commit 방식으로 병합했다.
+- 병합 커밋: 783b00c3c639b5083f385a382c0f1689268a1d82. PR #13을 먼저, #14를 이후에 병합했다. 두 변경의 사전 병합 검사에서 충돌이 없었으며, 최종 develop 783b00c의 파일 트리가 검토한 조합 b9e6f9b849901bc9ce3a28c35f5649e4b8f61c66과 같음을 확인했다.
+- 이미지·제외 규칙·작업 기록 이외 제품 코드 변경은 없으며, 병합 후 동일한 테스트를 중복 실행하지 않았다. 기존 추적 프론트엔드 VS Code 설정과 두 작업 기록 목록이 유지된다.
+- 원본 작업 폴더의 미커밋 변경과 작업 브랜치를 보존했다. 이 사후 검토 기록은 해당 독립 작업 사본에만 남기며 별도 커밋·push하지 않았다.
+- CI: https://github.com/Cho-Mi-Kim/jibro/actions/runs/41103950180
