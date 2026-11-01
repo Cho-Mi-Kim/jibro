@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.jibro.notice.HousingModels.*;
 
 import java.time.LocalDate;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 import org.jibro.auth.AuthService;
@@ -25,6 +27,8 @@ class HousingIntegrationTest {
     PreparationService preparations;
     @Autowired
     AuthService auth;
+    @Autowired
+    tools.jackson.databind.ObjectMapper json;
     String owner, other;
     UUID notice;
 
@@ -45,6 +49,37 @@ class HousingIntegrationTest {
     UUID insert(String region, String type) {
         return notices.insert(UUID.randomUUID().toString(), "테스트 청년 공고", "테스트 기관", region, type,
                 LocalDate.now().minusDays(1), LocalDate.now().plusDays(30), LocalDate.now(), SampleData.content());
+    }
+
+    @Test
+    void reviewedOfficialGuidancePreservesConditionalDocumentsAndUnknowns() throws Exception {
+        var items = json.readTree(Files.readString(Path.of("../data/notices/guidance-review-20261101.json"))).get("items");
+        for (var item : items) notices.validateContent(json.treeToValue(item.get("content"), Content.class));
+        Content content = json.treeToValue(items.get(0).get("content"), Content.class);
+        UUID reviewed = notices.insert(UUID.randomUUID().toString(), "원문 검수 테스트", "LH", "전국", "청년 전세임대",
+                LocalDate.now().minusDays(1), LocalDate.now().plusDays(30), LocalDate.now(), content);
+        notices.review(reviewed, owner, 1, "PASS", "PASS", "테스트 데이터 검수");
+        var p = preparations.start(owner, reviewed, 1);
+        UUID id = UUID.fromString(p.id);
+        assertEquals(4, p.documents.stream().filter(d -> d.necessity.equals("REQUIRED")).count());
+        assertEquals(5, p.documents.stream().filter(d -> d.necessity.equals("UNKNOWN")).count());
+        var answers = new HashMap<>(Map.of("student-route", Answer.NO, "jobseeker-route", Answer.NO,
+                "parent-abstracts", Answer.NO, "sibling-proof", Answer.NO));
+        p = preparations.answers(owner, id, p.revision, answers);
+        assertEquals(5, p.documents.stream().filter(d -> d.necessity.equals("NOT_APPLICABLE")).count());
+        answers.put("parent-abstracts", Answer.YES);
+        answers.put("sibling-proof", Answer.YES);
+        p = preparations.answers(owner, id, p.revision, answers);
+        assertEquals(2, p.documents.stream().filter(d -> d.necessity.equals("CONDITIONAL")).count());
+        p = preparations.document(owner, id, "parent-abstracts", p.revision, DocumentState.READY, "");
+        answers.put("parent-abstracts", Answer.UNKNOWN);
+        p = preparations.answers(owner, id, p.revision, answers);
+        var parentDocument = p.documents.stream().filter(d -> d.id.equals("parent-abstracts")).findFirst().orElseThrow();
+        assertEquals("UNKNOWN", parentDocument.necessity);
+        assertEquals(DocumentState.RECHECK, parentDocument.state);
+        assertTrue(p.progress < 100);
+        assertEquals(1, p.schedules.size()); // Rolling selection has no invented result date.
+        assertTrue(p.schedules.get(0).title.contains("18:00"));
     }
 
     @Test
