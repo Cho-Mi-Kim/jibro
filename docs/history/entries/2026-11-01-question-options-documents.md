@@ -60,3 +60,7 @@ AI 보조 구현이며 실제 신청 자격을 판정하는 기능이 아니다.
 - `frontend/src/features/housing`, `frontend/src/pages/PreparationPages.tsx`, `frontend/src/shared/ui/HousingUI.tsx`, `frontend/src/app/App.test.tsx`
 - `data/notices/question-options-20261101.json`, `scripts/apply-guidance-review.mjs`
 - `docs/contracts/question-options-and-documents.md`, 관련 검수 문서
+
+## 통합 PR 준비
+
+사용자 요청에 따라 develop 미반영 14개 구현 커밋(반응형 재디자인, 실제 공고, 안내 검수, 질문별 선택지·대상 서류)을 현재 브랜치의 통합 PR 범위로 확인했다. 기존 미커밋 동기화 기록은 제외하고 보존했다. PR 준비 중 발견한 재디자인 기록의 파일 끝 빈 줄만 정리했다. 구현 검증 결과는 위 기록을 인용하며 PR 생성 시 GitHub CI 결과와 구분한다.
