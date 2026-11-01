@@ -1,8 +1,8 @@
+import { displayDate, daysLeft, useNotice } from '../shared/ui/housingHelpers';
 import { cx } from '../shared/styles/classes';
-import { safeUrl } from '../shared/ui/helpers';
 import { useState } from 'react';
 import { useUnsavedChanges } from '../shared/ui/useUnsavedChanges';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, NavLink, useNavigate, useParams } from 'react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
 import type {
@@ -13,7 +13,6 @@ import type {
 } from '../features/housing/types';
 import { useSession } from '../app/useSession';
 import {
-    Badge,
     Button,
     Card,
     EvidenceLink,
@@ -22,6 +21,17 @@ import {
     Soon,
     State,
 } from '../shared/ui/ui';
+import {
+    Deadline,
+    Disc,
+    Journey,
+    Metrics,
+    NextAction,
+    NoticeContext,
+    OfficialLink,
+    Status,
+} from '../shared/ui/HousingUI';
+import { Icon } from '../shared/ui/Icon';
 function usePreparation() {
     const { preparationId = '' } = useParams();
     const { user } = useSession();
@@ -39,23 +49,37 @@ function useSaved() {
         void client.invalidateQueries({ queryKey: ['preparations'] });
     };
 }
-export function PreparationNav({ p }: { p: Preparation }) {
+export function PreparationNav({
+    p,
+    context = true,
+}: {
+    p: Preparation;
+    context?: boolean;
+}) {
     return (
         <>
-            <p className={cx('context')}>
-                {p.title} · 기준 v{p.version}
-            </p>
+            {context && <NoticeContext p={p} />}
             {p.guideState !== 'AVAILABLE' && (
                 <p className={cx('callout')}>
                     수정 공고 검토 중입니다. 기존 기록을 보존하며 변경 저장은
                     잠시 보류합니다.
                 </p>
             )}
-            <nav className={cx('tabs')} aria-label="개인 준비">
-                <Link to={'/preparations/' + p.id}>개요</Link>
-                <Link to={'/preparations/' + p.id + '/conditions'}>조건</Link>
-                <Link to={'/preparations/' + p.id + '/documents'}>서류</Link>
-                <Link to={'/preparations/' + p.id + '/schedule'}>일정</Link>
+            <nav className={cx('tabs preparation-tabs')} aria-label="개인 준비">
+                {[
+                    ['', '개요'],
+                    ['/conditions', '조건'],
+                    ['/documents', '서류'],
+                    ['/schedule', '일정'],
+                ].map(([suffix, label]) => (
+                    <NavLink
+                        key={suffix}
+                        to={'/preparations/' + p.id + suffix}
+                        end
+                    >
+                        {label}
+                    </NavLink>
+                ))}
             </nav>
         </>
     );
@@ -67,9 +91,29 @@ export function PreparationListPage() {
         queryFn: api.preparations,
         enabled: !!user,
     });
+    const [selected, setSelected] = useState('');
+    const p = q.data?.find((x) => x.id === selected) ?? q.data?.[0];
     return (
         <>
-            <Heading title="내 준비">하나씩 확인하며 나의 집에 가까이</Heading>
+            <div className={cx('inline-heading preparation-heading')}>
+                <Heading title="내 준비" />
+                {q.data && q.data.length > 0 && (
+                    <label className={cx('preparation-select')}>
+                        <span>준비 건 선택 · {q.data.length}건</span>
+                        <select
+                            aria-label="준비 건 선택"
+                            value={p?.id ?? ''}
+                            onChange={(e) => setSelected(e.target.value)}
+                        >
+                            {q.data.map((x) => (
+                                <option key={x.id} value={x.id}>
+                                    {x.title}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+                )}
+            </div>
             <State
                 loading={q.isPending}
                 error={q.error}
@@ -83,79 +127,59 @@ export function PreparationListPage() {
                     </Link>
                 </Card>
             )}
-            {q.data?.map((p) => (
-                <Card key={p.id}>
-                    <Link
-                        className={cx('card-title')}
-                        to={'/preparations/' + p.id}
-                    >
-                        {p.title}
-                    </Link>
-                    <House progress={p.progress} stage={p.houseStage} />
-                </Card>
-            ))}
+            {p && <PreparationOverview p={p} />}
         </>
+    );
+}
+function PreparationOverview({ p }: { p: Preparation }) {
+    const n = useNotice(p.noticeId);
+    return (
+        <div className={cx('prep-overview')}>
+            <div className={cx('prep-overview-main')}>
+                <NoticeContext p={p} />
+                <PreparationNav p={p} context={false} />
+                <div className={cx('prep-next')}>
+                    <NextAction p={p} />
+                </div>
+                <Metrics p={p} />
+                <Journey p={p} />
+                <section className={cx('panel official-application')}>
+                    <Disc name="external" />
+                    <h2>공식 신청</h2>
+                    <OfficialLink url={n.data?.evidence.url}>
+                        공식 공고·신청 경로 열기
+                    </OfficialLink>
+                    <Link
+                        className={cx('link-button outline-button')}
+                        to={'/preparations/' + p.id + '/schedule'}
+                    >
+                        신청 여부 기록
+                    </Link>
+                </section>
+            </div>
+            <aside className={cx('panel prep-overview-progress')}>
+                <Status tone="green">신청 준비 중</Status>
+                <House progress={p.progress} stage={p.houseStage} />
+                <div className={cx('divider')} />
+                <Deadline date={n.data?.endDate} />
+                <Link className={cx('link-button wide')} to={p.nextAction.path}>
+                    준비 계속하기 <Icon name="arrow" />
+                </Link>
+            </aside>
+        </div>
     );
 }
 export function PreparationPage() {
     const q = usePreparation();
-    const p = q.data;
     return (
         <>
-            <Heading title="나의 준비 여정" />
+            <Heading title="내 준비" />
             <State
                 loading={q.isPending}
                 error={q.error}
                 retry={() => void q.refetch()}
             />
-            {p && (
-                <>
-                    <PreparationNav p={p} />
-                    <Card>
-                        <House progress={p.progress} stage={p.houseStage} />
-                        <ol className={cx('journey')}>
-                            {[
-                                '집터',
-                                '기초',
-                                '벽과 지붕',
-                                '문과 창문',
-                                '열쇠',
-                            ].map((x, i) => (
-                                <li
-                                    key={x}
-                                    aria-current={
-                                        p.houseStage === i + 1
-                                            ? 'step'
-                                            : undefined
-                                    }
-                                >
-                                    {i + 1}. {x}
-                                </li>
-                            ))}
-                        </ol>
-                    </Card>
-                    <Card>
-                        <span className={cx('eyebrow')}>지금 할 일</span>
-                        <h2>{p.nextAction.label}</h2>
-                        <p>{p.nextAction.reason}</p>
-                        <Link
-                            className={cx('link-button')}
-                            to={p.nextAction.path}
-                        >
-                            준비 방법 보기
-                        </Link>
-                    </Card>
-                    {p.warnings.length > 0 && (
-                        <div className={cx('callout')}>
-                            <h3>추가 확인이 필요해요</h3>
-                            {p.warnings.map((w) => (
-                                <p key={w}>{w}</p>
-                            ))}
-                        </div>
-                    )}
-                    <Link to="/preparations">다른 준비 건 보기</Link>
-                </>
-            )}
+            {q.data && <PreparationOverview p={q.data} />}
         </>
     );
 }
@@ -179,29 +203,62 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
         },
     });
     const question = p?.questions[step];
+    const n = useNotice(p?.noticeId);
+    const uncertain =
+        p?.questions.filter(
+            (x) => !p.answers[x.id] || p.answers[x.id] === 'UNKNOWN',
+        ) ?? [];
+    const confirmed =
+        p?.questions.filter((x) => p.answers[x.id] === 'YES') ?? [];
+    const negative = p?.questions.filter((x) => p.answers[x.id] === 'NO') ?? [];
     return (
-        <>
-            <Heading title={edit ? '내 조건 확인' : '내 조건 확인 결과'} />
+        <div className={cx(edit ? 'condition-page' : 'result-page')}>
+            <Heading title={edit ? '조건 확인' : '내 조건 확인 결과'}>
+                {edit && p ? p.title + ' · 안내 v' + p.version : undefined}
+            </Heading>
             <State
                 loading={q.isPending}
                 error={q.error}
                 retry={() => void q.refetch()}
             />
-            {p && (
-                <>
-                    <PreparationNav p={p} />
-                    <p className={cx('callout')}>
-                        입력 내용에 따른 안내이며 최종 자격 판단은 기관에서
-                        진행합니다.
-                    </p>
-                    {edit && question ? (
-                        <Card>
-                            <p>
-                                {step + 1} / {p.questions.length} 질문
-                            </p>
+            {p &&
+                (edit && question ? (
+                    <div className={cx('condition-layout')}>
+                        <aside className={cx('question-steps')}>
+                            <h3>
+                                질문 단계 <em>{step + 1}</em> /{' '}
+                                {p.questions.length}
+                            </h3>
+                            <ol>
+                                {p.questions.map((x, i) => (
+                                    <li
+                                        key={x.id}
+                                        aria-current={
+                                            i === step ? 'step' : undefined
+                                        }
+                                        data-complete={i < step}
+                                    >
+                                        <span>
+                                            {i < step ? (
+                                                <Icon name="check" />
+                                            ) : (
+                                                i + 1
+                                            )}
+                                        </span>
+                                        <small title={x.title}>{x.title}</small>
+                                    </li>
+                                ))}
+                            </ol>
+                        </aside>
+                        <section className={cx('panel question-panel')}>
                             <fieldset>
                                 <legend>{question.title}</legend>
-                                <p>{question.reason}</p>
+                                <div className={cx('info-note')}>
+                                    <Icon name="calendar" />
+                                    공고 기준일:{' '}
+                                    {displayDate(n.data?.publishedDate)}
+                                </div>
+                                <p className={cx('muted')}>{question.reason}</p>
                                 {(['YES', 'NO', 'UNKNOWN'] as const).map(
                                     (a, i) => (
                                         <label className={cx('choice')} key={a}>
@@ -214,6 +271,7 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                                             question.id
                                                         ]) === a
                                                 }
+                                                disabled={save.isPending}
                                                 onChange={() => {
                                                     setAnswers({
                                                         ...answers,
@@ -233,16 +291,33 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                     ),
                                 )}
                             </fieldset>
-                            <EvidenceLink evidence={question.evidence} />
+                            <div className={cx('question-evidence')}>
+                                <Icon name="file" />
+                                <EvidenceLink evidence={question.evidence} />
+                            </div>
+                            <div className={cx('info-note')}>
+                                <Icon name="info" />
+                                <span>
+                                    답변과 준비 상태를 계정에 저장합니다.
+                                    <br />
+                                    주민등록번호와 증빙 원본은 입력하지 않아요.
+                                </span>
+                            </div>
+                            {p.guideState !== 'AVAILABLE' && (
+                                <p role="alert">
+                                    안내 검토 중으로 저장이 보류됩니다.
+                                </p>
+                            )}
                             {save.error && (
                                 <p role="alert">{save.error.message}</p>
                             )}
-                            <div className={cx('row')}>
+                            <div className={cx('question-buttons')}>
                                 <Button
+                                    className="secondary"
                                     disabled={step === 0 || save.isPending}
                                     onClick={() => setStep(step - 1)}
                                 >
-                                    이전
+                                    이전 단계
                                 </Button>
                                 <Button
                                     disabled={
@@ -262,47 +337,137 @@ export function ConditionsPage({ edit = false }: { edit?: boolean }) {
                                           : '저장 후 다음'}
                                 </Button>
                             </div>
-                            <small>답변과 준비 상태를 계정에 저장합니다.</small>
-                        </Card>
-                    ) : (
-                        <>
-                            {p.questions.map((question) => (
-                                <Card key={question.id}>
-                                    <Badge>
-                                        {p.answers[question.id] === 'YES'
-                                            ? '입력 기준 확인'
-                                            : p.answers[question.id] === 'NO'
-                                              ? '해당 없음으로 답변'
-                                              : p.answers[question.id] ===
-                                                  'UNKNOWN'
-                                                ? '추가 확인 필요'
-                                                : '미입력'}
-                                    </Badge>
-                                    <h2>{question.title}</h2>
-                                    <p>{question.reason}</p>
-                                    <EvidenceLink
-                                        evidence={question.evidence}
-                                    />
-                                </Card>
+                        </section>
+                    </div>
+                ) : (
+                    <div className={cx('result-grid')}>
+                        <div className={cx('result-context')}>
+                            <NoticeContext p={p} />
+                        </div>
+                        <section className={cx('panel result-counts')}>
+                            <div className={cx('row')}>
+                                <div>
+                                    <Disc name="check" tone="green" />
+                                    <span>
+                                        입력 기준 확인
+                                        <strong>{confirmed.length}개</strong>
+                                    </span>
+                                </div>
+                                <div>
+                                    <Disc name="warning" tone="amber" />
+                                    <span>
+                                        추가 확인
+                                        <strong>{uncertain.length}개</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <p className={cx('info-note')}>
+                                입력한 내용에 대한 안내이며 최종 신청 자격을
+                                뜻하지 않습니다.
+                            </p>
+                        </section>
+                        <section className={cx('result-questions')}>
+                            <h2>추가로 확인할 조건</h2>
+                            {uncertain.length === 0 && (
+                                <Card>추가 확인으로 남긴 조건이 없습니다.</Card>
+                            )}
+                            {uncertain.map((x) => (
+                                <article
+                                    className={cx('panel result-question')}
+                                    key={x.id}
+                                >
+                                    <div className={cx('row')}>
+                                        <Disc name="warning" tone="amber" />
+                                        <Status tone="amber">
+                                            추가 확인 필요
+                                        </Status>
+                                    </div>
+                                    <h2>{x.title}</h2>
+                                    <p className={cx('muted')}>{x.reason}</p>
+                                    <EvidenceLink evidence={x.evidence} />
+                                    <Link
+                                        className={cx('result-action')}
+                                        to={
+                                            '/preparations/' +
+                                            p.id +
+                                            '/conditions/edit'
+                                        }
+                                    >
+                                        답변 이어서 작성 <Icon name="arrow" />
+                                    </Link>
+                                </article>
                             ))}
-                            <Link
-                                to={
-                                    '/preparations/' + p.id + '/conditions/edit'
+                            <details className={cx('card')}>
+                                <summary>
+                                    입력 기준 확인 {confirmed.length}개 보기
+                                </summary>
+                                {confirmed.map((x) => (
+                                    <div key={x.id}>
+                                        <h3>{x.title}</h3>
+                                        <EvidenceLink evidence={x.evidence} />
+                                    </div>
+                                ))}
+                            </details>
+                            {negative.length > 0 && (
+                                <details className={cx('card')} open>
+                                    <summary>
+                                        해당 없음으로 답변 {negative.length}개
+                                    </summary>
+                                    {negative.map((x) => (
+                                        <div key={x.id}>
+                                            <h3>{x.title}</h3>
+                                            <p>{x.reason}</p>
+                                            <EvidenceLink
+                                                evidence={x.evidence}
+                                            />
+                                        </div>
+                                    ))}
+                                </details>
+                            )}
+                        </section>
+                        <aside className={cx('panel result-documents')}>
+                            <div className={cx('row')}>
+                                <Disc name="file" />
+                                <h2>개인별 서류</h2>
+                            </div>
+                            <p>
+                                필요 서류{' '}
+                                {
+                                    p.documents.filter(
+                                        (d) =>
+                                            d.necessity === 'REQUIRED' ||
+                                            d.necessity === 'CONDITIONAL',
+                                    ).length
                                 }
-                            >
-                                답변 수정
-                            </Link>
+                                개
+                            </p>
+                            <p className={cx('muted')}>
+                                해당 여부 추가 확인{' '}
+                                {
+                                    p.documents.filter(
+                                        (d) => d.necessity === 'UNKNOWN',
+                                    ).length
+                                }
+                                개
+                            </p>
                             <Link
-                                className={cx('link-button')}
+                                className={cx('link-button wide')}
                                 to={'/preparations/' + p.id + '/documents'}
                             >
                                 내 준비 목록 보기
                             </Link>
-                        </>
-                    )}
-                </>
-            )}
-        </>
+                            <Link
+                                className={cx('result-edit')}
+                                to={
+                                    '/preparations/' + p.id + '/conditions/edit'
+                                }
+                            >
+                                답변 수정하기
+                            </Link>
+                        </aside>
+                    </div>
+                ))}
+        </div>
     );
 }
 const stateNames: Record<DocumentState, string> = {
@@ -312,7 +477,17 @@ const stateNames: Record<DocumentState, string> = {
     READY: '준비 완료',
     RECHECK: '재확인',
 };
-function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
+function DocumentEditor({
+    p,
+    d,
+    active,
+    onSelect,
+}: {
+    p: Preparation;
+    d: DocumentItem;
+    active: boolean;
+    onSelect: () => void;
+}) {
     const [draftState, setState] = useState<DocumentState | null>(null);
     const [draftNote, setNote] = useState<string | null>(null);
     const state = draftState ?? d.state;
@@ -320,85 +495,153 @@ function DocumentEditor({ p, d }: { p: Preparation; d: DocumentItem }) {
     useUnsavedChanges(state !== d.state || note !== d.note);
     const saved = useSaved();
     const mutation = useMutation({
-        mutationFn: () => api.document(p.id, d.id, p.revision, state, note),
+        mutationFn: (ready: boolean) =>
+            api.document(p.id, d.id, p.revision, ready ? 'READY' : state, note),
         onSuccess: (next) => {
             saved(next);
             setState(null);
             setNote(null);
         },
     });
+    const unavailable =
+        p.guideState !== 'AVAILABLE' ||
+        d.necessity === 'UNKNOWN' ||
+        d.necessity === 'NOT_APPLICABLE';
+    const necessity = {
+        REQUIRED: '공통 필수',
+        CONDITIONAL: '해당 조건부',
+        UNKNOWN: '해당 여부 미확인',
+        NOT_APPLICABLE: '해당 없음',
+    }[d.necessity];
     return (
-        <details className={cx('card')}>
-            <summary>
-                {d.title} · {stateNames[d.state]}
-                <small>
-                    {
-                        {
-                            REQUIRED: '공통 필수',
-                            CONDITIONAL: '해당 조건부',
-                            UNKNOWN: '해당 여부 미확인',
-                            NOT_APPLICABLE: '해당 없음',
-                        }[d.necessity]
-                    }
-                </small>
-            </summary>
-            <p>{d.method}</p>
-            <p>발급기관: {d.issuer}</p>
-            <EvidenceLink evidence={d.evidence} />
-            {safeUrl(d.issueUrl) ? (
-                <a href={d.issueUrl!} target="_blank" rel="noreferrer">
-                    공식 발급처 열기 ↗
-                </a>
-            ) : (
-                <p>발급 경로 확인 필요 · 공식 공고의 발급 방법을 확인하세요.</p>
-            )}
-            <label>
-                준비 상태
-                <select
-                    value={state}
-                    disabled={mutation.isPending}
-                    onChange={(e) => setState(e.target.value as DocumentState)}
-                >
-                    {Object.entries(stateNames).map(([key, label]) => (
-                        <option key={key} value={key}>
-                            {label}
-                        </option>
-                    ))}
-                </select>
-            </label>
-            <label>
-                메모 (개인정보·증빙 내용 입력 금지)
-                <textarea
-                    maxLength={500}
-                    disabled={mutation.isPending}
-                    value={note}
-                    onChange={(e) => setNote(e.target.value)}
-                />
-            </label>
-            {mutation.error && <p role="alert">{mutation.error.message}</p>}
-            {mutation.isSuccess && (
-                <p role="status">이 서류의 준비 기록을 저장했어요.</p>
-            )}
-            <Button
-                disabled={
-                    mutation.isPending ||
-                    p.guideState !== 'AVAILABLE' ||
-                    d.necessity === 'UNKNOWN' ||
-                    d.necessity === 'NOT_APPLICABLE'
-                }
-                onClick={() => mutation.mutate()}
+        <div className={cx('document-item')} data-active={active}>
+            <button
+                className={cx('document-select')}
+                aria-expanded={active}
+                aria-controls={'document-' + d.id}
+                onClick={onSelect}
             >
-                {mutation.isPending ? '저장 중…' : '이 서류 준비 상태 저장'}
-            </Button>
-        </details>
+                <Disc
+                    name="file"
+                    tone={d.state === 'READY' ? 'green' : 'amber'}
+                />
+                <strong>{d.title}</strong>
+                <span className={cx('necessity-label')}>{necessity}</span>
+                <Status
+                    tone={
+                        d.state === 'READY'
+                            ? 'green'
+                            : d.state === 'NEEDED'
+                              ? 'red'
+                              : 'gray'
+                    }
+                >
+                    {stateNames[d.state]}
+                </Status>
+                <Icon name="arrow" />
+            </button>
+            <section
+                id={'document-' + d.id}
+                className={cx('document-editor')}
+                hidden={!active}
+            >
+                <header>
+                    <Disc name="file" tone="amber" />
+                    <div>
+                        <h2>{d.title}</h2>
+                        <Status tone="amber">{necessity}</Status>{' '}
+                        <Status>{stateNames[d.state]}</Status>
+                    </div>
+                </header>
+                <dl className={cx('document-facts')}>
+                    <dt>발급처</dt>
+                    <dd>{d.issuer}</dd>
+                    <dt>발급 기준</dt>
+                    <dd>{d.method}</dd>
+                    <dt>공식 근거</dt>
+                    <dd>
+                        <EvidenceLink evidence={d.evidence} />
+                    </dd>
+                </dl>
+                <OfficialLink
+                    url={d.issueUrl}
+                    className="link-button outline-button wide"
+                >
+                    공식 발급처 열기
+                </OfficialLink>
+                <details className={cx('document-options')}>
+                    <summary>준비 상태와 메모 수정</summary>
+                    <label>
+                        준비 상태
+                        <select
+                            value={state}
+                            disabled={mutation.isPending || unavailable}
+                            onChange={(e) =>
+                                setState(e.target.value as DocumentState)
+                            }
+                        >
+                            {Object.entries(stateNames).map(([key, label]) => (
+                                <option key={key} value={key}>
+                                    {label}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+                    <label>
+                        메모 (개인정보·증빙 내용 입력 금지)
+                        <textarea
+                            maxLength={500}
+                            disabled={mutation.isPending || unavailable}
+                            value={note}
+                            onChange={(e) => setNote(e.target.value)}
+                        />
+                    </label>
+                    <Button
+                        className="secondary wide"
+                        disabled={mutation.isPending || unavailable}
+                        onClick={() => mutation.mutate(false)}
+                    >
+                        이 서류 준비 상태 저장
+                    </Button>
+                </details>
+                {mutation.error && <p role="alert">{mutation.error.message}</p>}
+                {mutation.isSuccess && (
+                    <p role="status">이 서류의 준비 기록을 저장했어요.</p>
+                )}
+                <Button
+                    className="wide"
+                    disabled={
+                        mutation.isPending || unavailable || d.state === 'READY'
+                    }
+                    onClick={() => mutation.mutate(true)}
+                >
+                    {mutation.isPending
+                        ? '저장 중…'
+                        : d.state === 'READY'
+                          ? '준비 완료로 기록했어요'
+                          : '이 서류 준비 완료로 기록'}
+                </Button>
+                <p className={cx('muted info-line')}>
+                    <Icon name="info" />
+                    서류 원본은 올리지 않고 준비 상태만 기록합니다.
+                </p>
+            </section>
+        </div>
     );
 }
 export function DocumentsPage() {
     const q = usePreparation();
     const p = q.data;
+    const [selected, setSelected] = useState<string | null>(null);
+    const docs =
+        p?.documents.filter(
+            (d) => d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL',
+        ) ?? [];
+    const ready = docs.filter((d) => d.state === 'READY').length;
+    const active = selected ?? p?.documents[0]?.id;
     return (
         <>
-            <Heading title="서류 체크리스트" />
+            <Heading title="서류 준비" />
             <State
                 loading={q.isPending}
                 error={q.error}
@@ -407,30 +650,58 @@ export function DocumentsPage() {
             {p && (
                 <>
                     <PreparationNav p={p} />
-                    <p>
-                        준비 완료{' '}
-                        {
-                            p.documents.filter(
-                                (d) =>
-                                    d.state === 'READY' &&
-                                    d.necessity !== 'UNKNOWN' &&
-                                    d.necessity !== 'NOT_APPLICABLE',
-                            ).length
-                        }
-                        개 · 해당 여부 미확인{' '}
-                        {
-                            p.documents.filter((d) => d.necessity === 'UNKNOWN')
-                                .length
-                        }
-                        개
-                    </p>
-                    {p.documents.map((d) => (
-                        <DocumentEditor key={p.id + ':' + d.id} p={p} d={d} />
-                    ))}
-                    <p className={cx('muted')}>
-                        준비 완료는 사용자 기록입니다. 원본 검증이나 기관 접수를
-                        의미하지 않습니다.
-                    </p>
+                    <div className={cx('documents-layout')}>
+                        <div className={cx('document-progress')}>
+                            <h2>
+                                준비 대상 서류 {docs.length}개 중{' '}
+                                <em>{ready}개</em> 준비 완료
+                            </h2>
+                            <div className={cx('row')}>
+                                <strong>
+                                    {ready} / {docs.length}
+                                </strong>
+                                <progress
+                                    aria-label="서류 준비 진행률"
+                                    max={Math.max(1, docs.length)}
+                                    value={ready}
+                                />
+                                <span>
+                                    {docs.length
+                                        ? Math.round(
+                                              (ready / docs.length) * 100,
+                                          )
+                                        : 0}
+                                    %
+                                </span>
+                            </div>
+                            <small>
+                                준비 완료 {ready}개 · 해당 여부 미확인{' '}
+                                {
+                                    p.documents.filter(
+                                        (d) => d.necessity === 'UNKNOWN',
+                                    ).length
+                                }
+                                개
+                            </small>
+                        </div>
+                        {p.documents.map((d) => (
+                            <DocumentEditor
+                                key={p.id + ':' + d.id}
+                                p={p}
+                                d={d}
+                                active={active === d.id}
+                                onSelect={() =>
+                                    setSelected(active === d.id ? '' : d.id)
+                                }
+                            />
+                        ))}
+                        {p.documents.length === 0 && (
+                            <Card>
+                                등록된 서류가 없습니다. 공식 공고를 확인해
+                                주세요.
+                            </Card>
+                        )}
+                    </div>
                 </>
             )}
         </>
@@ -439,7 +710,9 @@ export function DocumentsPage() {
 export function SchedulePage() {
     const q = usePreparation();
     const p = q.data;
+    const n = useNotice(p?.noticeId);
     const saved = useSaved();
+    const [recording, setRecording] = useState(false);
     const mutation = useMutation({
         mutationFn: ({ id, recorded }: { id: string; recorded: boolean }) =>
             api.schedule(p!.id, id, p!.revision, recorded),
@@ -454,43 +727,113 @@ export function SchedulePage() {
                 retry={() => void q.refetch()}
             />
             {p && (
-                <>
-                    <PreparationNav p={p} />
-                    {p.schedules.map((s) => (
-                        <Card key={s.id}>
-                            <Badge>공식 일정</Badge>
-                            <h2>{s.title}</h2>
-                            <strong>{s.date}</strong>
-                            <EvidenceLink evidence={s.evidence} />
-                            <label className={cx('choice')}>
-                                <input
-                                    type="checkbox"
-                                    checked={s.recorded}
-                                    disabled={
-                                        mutation.isPending ||
-                                        p.guideState !== 'AVAILABLE'
-                                    }
-                                    onChange={(e) =>
-                                        mutation.mutate({
-                                            id: s.id,
-                                            recorded: e.target.checked,
-                                        })
-                                    }
-                                />
-                                해당 절차를 직접 확인하고 완료했다고 기록합니다
-                            </label>
-                        </Card>
-                    ))}
-                    {mutation.error && (
-                        <p role="alert">{mutation.error.message}</p>
-                    )}
-                    <p>
-                        일정 경과와 실제 신청 완료는 다릅니다. 공식 기관에서
-                        접수 결과를 확인해 주세요.
-                    </p>
-                    <Soon label="알림 설정" />
-                    <Soon label="캘린더 파일 내보내기" />
-                </>
+                <div className={cx('schedule-grid')}>
+                    <div className={cx('schedule-main-column')}>
+                        <div className={cx('schedule-context')}>
+                            <PreparationNav p={p} />
+                        </div>
+                        <section className={cx('panel schedule-timeline')}>
+                            <h2>공식 일정</h2>
+                            <ol>
+                                {p.schedules.map((s) => (
+                                    <li key={s.id}>
+                                        <span className={cx('timeline-dot')} />
+                                        <time>{displayDate(s.date)}</time>
+                                        <strong>{s.title}</strong>
+                                        <Status
+                                            tone={
+                                                s.recorded
+                                                    ? 'green'
+                                                    : daysLeft(s.date) ===
+                                                        '일정 경과'
+                                                      ? 'gray'
+                                                      : 'red'
+                                            }
+                                        >
+                                            {s.recorded
+                                                ? '완료 기록'
+                                                : daysLeft(s.date)}
+                                        </Status>
+                                        <div
+                                            className={cx('timeline-evidence')}
+                                        >
+                                            <EvidenceLink
+                                                evidence={s.evidence}
+                                            />
+                                        </div>
+                                    </li>
+                                ))}
+                            </ol>
+                            <p className={cx('info-note')}>
+                                <Icon name="info" />
+                                일정 경과와 실제 신청 완료는 별개입니다.
+                            </p>
+                        </section>
+                    </div>
+                    <div className={cx('schedule-side-column')}>
+                        <aside className={cx('panel schedule-next')}>
+                            <h3>다음 중요한 일정</h3>
+                            <Deadline date={n.data?.endDate} />
+                            <div className={cx('divider')} />
+                            <div className={cx('schedule-soon')}>
+                                <Icon name="bell" />
+                                <Soon label="알림 설정" />
+                            </div>
+                            <div className={cx('schedule-soon')}>
+                                <Icon name="calendar" />
+                                <Soon label="캘린더 파일 내보내기" />
+                            </div>
+                        </aside>
+                        <section className={cx('panel schedule-record')}>
+                            <h2>나의 신청 기록</h2>
+                            <div className={cx('row')}>
+                                <Disc name="file" />
+                                <strong>
+                                    {p.schedules.some((s) => s.recorded)
+                                        ? '완료로 기록한 절차가 있어요.'
+                                        : '아직 기록하지 않았어요.'}
+                                </strong>
+                                <Button
+                                    className="secondary"
+                                    onClick={() => setRecording(!recording)}
+                                >
+                                    {recording ? '기록 닫기' : '신청 여부 기록'}
+                                </Button>
+                            </div>
+                            {recording &&
+                                p.schedules.map((s) => (
+                                    <label className={cx('choice')} key={s.id}>
+                                        <input
+                                            type="checkbox"
+                                            checked={s.recorded}
+                                            disabled={
+                                                mutation.isPending ||
+                                                p.guideState !== 'AVAILABLE'
+                                            }
+                                            onChange={(e) =>
+                                                mutation.mutate({
+                                                    id: s.id,
+                                                    recorded: e.target.checked,
+                                                })
+                                            }
+                                        />
+                                        {s.title} 절차를 직접 확인하고
+                                        완료했다고 기록합니다
+                                    </label>
+                                ))}
+                            {mutation.error && (
+                                <p role="alert">{mutation.error.message}</p>
+                            )}
+                            <div className={cx('divider')} />
+                            <OfficialLink
+                                url={n.data?.evidence.url}
+                                className="link-button wide"
+                            >
+                                공식 공고·신청 경로 열기
+                            </OfficialLink>
+                        </section>
+                    </div>
+                </div>
             )}
         </>
     );

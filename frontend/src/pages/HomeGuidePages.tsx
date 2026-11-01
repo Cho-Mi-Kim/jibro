@@ -1,3 +1,4 @@
+import { useNotice } from '../shared/ui/housingHelpers';
 import { cx } from '../shared/styles/classes';
 import { Link, useSearchParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
@@ -11,7 +12,6 @@ import {
     Metrics,
     NextAction,
     PreparationSummary,
-    useNotice,
 } from '../shared/ui/HousingUI';
 import type { Preparation } from '../features/housing/types';
 import { Icon, type IconName } from '../shared/ui/Icon';

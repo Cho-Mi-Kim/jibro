@@ -50,7 +50,15 @@ export function Shell({ children }: { children: ReactNode }) {
             <a className={cx('skip-link')} href="#main">
                 본문으로 바로가기
             </a>
-            <header className={cx('topbar' + (focused ? ' focus-header' : ''))}>
+            <header
+                className={cx(
+                    'topbar' +
+                        (focused ? ' focus-header' : '') +
+                        (!['/', '/my'].includes(location.pathname)
+                            ? ' mobile-header-hidden'
+                            : ''),
+                )}
+            >
                 <Link className={cx('brand')} to="/">
                     <Icon name="home" />
                     집으로

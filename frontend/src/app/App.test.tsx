@@ -55,40 +55,42 @@ describe('사용자 준비 흐름', () => {
         const p = await api.start('1', 1);
         await api.answers(p.id, p.revision, { residence: 'YES', house: 'YES' });
         mount('/preparations/' + p.id + '/documents');
+        await screen.findByRole('button', { name: /거주 확인 서류/ });
+        await userEvent.click(screen.getAllByText('준비 상태와 메모 수정')[0]);
+        await userEvent.type(screen.getByRole('textbox'), '첫 번째 저장 메모');
         await userEvent.click(
-            await screen.findByText('거주 확인 서류 · 미확인', {
-                exact: false,
-            }),
+            screen.getByRole('button', { name: /조건별 확인 서류/ }),
         );
-        const summaries = document.querySelectorAll('details > summary');
-        await userEvent.click(summaries[1]);
-        const notes = screen.getAllByRole('textbox');
-        await userEvent.type(notes[0], '첫 번째 저장 메모');
-        await userEvent.type(notes[1], '두 번째 작성 중 메모');
+        await userEvent.click(screen.getAllByText('준비 상태와 메모 수정')[1]);
+        await userEvent.type(
+            screen.getByRole('textbox'),
+            '두 번째 작성 중 메모',
+        );
         await userEvent.selectOptions(
-            screen.getAllByLabelText('준비 상태')[1],
+            screen.getByRole('combobox', { name: '준비 상태' }),
             'IN_PROGRESS',
         );
         await userEvent.click(
-            screen.getAllByRole('button', {
-                name: '이 서류 준비 상태 저장',
-            })[0],
+            screen.getByRole('button', { name: /거주 확인 서류/ }),
+        );
+        expect(screen.getByRole('textbox')).toHaveValue('첫 번째 저장 메모');
+        await userEvent.click(
+            screen.getByRole('button', { name: '이 서류 준비 상태 저장' }),
         );
         await waitFor(async () =>
             expect((await api.preparation(p.id)).documents[0].note).toBe(
                 '첫 번째 저장 메모',
             ),
         );
-        expect(screen.getAllByRole('textbox')[1]).toHaveValue(
-            '두 번째 작성 중 메모',
+        await userEvent.click(
+            screen.getByRole('button', { name: /조건별 확인 서류/ }),
         );
-        expect(screen.getAllByLabelText('준비 상태')[1]).toHaveValue(
+        expect(screen.getByRole('textbox')).toHaveValue('두 번째 작성 중 메모');
+        expect(screen.getByRole('combobox', { name: '준비 상태' })).toHaveValue(
             'IN_PROGRESS',
         );
         await userEvent.click(
-            screen.getAllByRole('button', {
-                name: '이 서류 준비 상태 저장',
-            })[1],
+            screen.getByRole('button', { name: '이 서류 준비 상태 저장' }),
         );
         await waitFor(async () =>
             expect((await api.preparation(p.id)).documents[1].note).toBe(
@@ -153,13 +155,12 @@ describe('사용자 준비 흐름', () => {
         await userEvent.click(
             screen.getByRole('link', { name: '내 준비 목록 보기' }),
         );
-        await userEvent.click(
-            await screen.findByText('거주 확인 서류 · 미확인', {
-                exact: false,
-            }),
+        await screen.findByRole('button', { name: /거주 확인 서류/ });
+        await userEvent.click(screen.getAllByText('준비 상태와 메모 수정')[0]);
+        await userEvent.selectOptions(
+            screen.getByRole('combobox', { name: '준비 상태' }),
+            'READY',
         );
-        const selects = screen.getAllByLabelText('준비 상태');
-        await userEvent.selectOptions(selects[0], 'READY');
         const save = vi
             .spyOn(api, 'document')
             .mockRejectedValueOnce(new Error('시연 저장 실패'));

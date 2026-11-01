@@ -1,3 +1,4 @@
+import { displayDate } from '../shared/ui/housingHelpers';
 import { cx } from '../shared/styles/classes';
 import { guideLabels } from '../shared/ui/helpers';
 import { useState, type FormEvent } from 'react';
@@ -16,7 +17,6 @@ import {
 import {
     Deadline,
     Disc,
-    displayDate,
     GuideBadge,
     NoticeDates,
     OfficialLink,
@@ -49,7 +49,7 @@ export function NoticeCard({ notice: n }: { notice: Notice }) {
                         {n.title}
                     </Link>
                     <p className={cx('muted')}>
-                        {n.agency}　|　{n.region}　|　{n.type}
+                        {n.agency} | {n.region} | {n.type}
                     </p>
                 </div>
                 <span className={cx('bookmark-action')}>
