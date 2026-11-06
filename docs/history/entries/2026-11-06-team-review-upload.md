@@ -2,11 +2,12 @@
 
 - 기록일: 2026-11-06 (Asia/Seoul)
 - 기록 상태: 근거 정리·담당자 검토 전
-- 작업 상태: 업로드 준비
+- 작업 상태: 업로드 완료 / 팀 검토 전
 - 유형: 협업 / 검증
 - 담당·검토: 사용자가 업로드를 요청했고 Codex가 파일 범위·원격 상태를 확인했다. 팀 검토는 미실행.
 - 기준 브랜치: `feature/local-mobile-screens-20261103`
 - 기준 커밋: `ebccaa7` (업로드 커밋 생성 전 HEAD, 원격 develop과 동일)
+- 공유: [초안 PR #24](https://github.com/Cho-Mi-Kim/jibro/pull/24), 구현 업로드 커밋 `e0e5f9f`
 
 ## 배경·결정
 
@@ -25,6 +26,7 @@
 - 전체 포맷 검사에서 임시 Vitest 결과와 생성 HTML만 지적되었다. 제외 규칙 반영 후 `npm --prefix frontend run format:check` 통과. `npm --prefix frontend run build:pages`도 통과했으며 정적 시연 산출물은 로컬에서만 생성했다.
 - 이전 동일 제품 소스 검증: 프론트 빌드·린트·Vitest 132건, 백엔드 빌드·단위 15건·실제 PostgreSQL 통합 23건 통과. 자세한 실행 범위는 [리팩토링 기록](2026-11-06-refactoring-candidates.md)을 따른다.
 - 실제 브라우저 연결 흐름과 최신 서버 재시작, 개념 모델 검증은 [개념 모델 기록](2026-11-06-code-concept-model.md)을 따른다. 원격 CI와 외부 서비스 연동을 이 로컬 검증으로 대체하지 않는다.
+- 구현 커밋 `e0e5f9f`를 작업 브랜치에 push했고 원격 PR의 head와 대조했다. PR #24는 open/draft, base develop, merged false, auto-merge 미설정 상태를 확인했다. GitHub 연결 도구의 PR 생성 권한 부족은 기존 Git 인증을 사용하는 공식 API로 처리했다.
 
 ## 기여·한계와 후속 작업
 
