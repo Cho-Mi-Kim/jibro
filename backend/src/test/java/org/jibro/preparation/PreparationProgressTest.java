@@ -25,13 +25,13 @@ class PreparationProgressTest {
         Schedule schedule = new Schedule();
         schedule.recorded = true;
         p.schedules.add(schedule);
-        PreparationService.calculate(p);
-        assertEquals(99, p.progress);
-        assertEquals(4, p.houseStage);
-        assertEquals(1, p.warnings.size());
+        var unfinished = PreparationRules.assess(p);
+        assertEquals(99, unfinished.progress());
+        assertEquals(4, unfinished.houseStage());
+        assertEquals(1, unfinished.warnings().size());
         p.answers.put("q99", "YES");
-        PreparationService.calculate(p);
-        assertEquals(100, p.progress);
-        assertEquals(5, p.houseStage);
+        var complete = PreparationRules.assess(p);
+        assertEquals(100, complete.progress());
+        assertEquals(5, complete.houseStage());
     }
 }

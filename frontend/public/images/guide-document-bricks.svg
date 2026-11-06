@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="132" viewBox="0 0 160 132" fill="none">
+  <defs>
+    <linearGradient id="paper" x1="36" y1="20" x2="102" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6EEE5"/><stop offset="1" stop-color="#EDE1D5"/>
+    </linearGradient>
+    <linearGradient id="brick" x1="0" y1="0" x2="1" y2="0.8">
+      <stop stop-color="#D57C5C"/><stop offset="0.55" stop-color="#C35B3E"/><stop offset="1" stop-color="#B64A32"/>
+    </linearGradient>
+    <linearGradient id="side" x1="98" y1="22" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DCC8B7"/><stop offset="1" stop-color="#D2BEAB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="81" cy="119" rx="72" ry="5" fill="#E8DED0" opacity=".35"/>
+  <path d="M11 115c-6-8-1-17 7-17-1-7 5-12 11-10 2-10 16-12 21-4 10-2 17 6 14 14 10 2 12 12 6 19H15Z" fill="#C1CAAA"/>
+  <path d="M26 116c-4-5-1-11 4-12-1-6 4-10 9-8 1-6 10-9 15-4l5 24Z" fill="#AFBD93" opacity=".45"/>
+  <rect x="35" y="20" width="73" height="98" rx="7" fill="url(#side)"/>
+  <path d="M40 20h57a5 5 0 0 1 5 5v93H35V25a5 5 0 0 1 5-5Z" fill="url(#paper)"/>
+  <g stroke="#CCBCAE" stroke-width="5" stroke-linecap="round">
+    <path d="M48 37h28"/><path d="M48 50h42"/><path d="M48 63h42"/><path d="M48 76h30"/>
+  </g>
+  <g fill="url(#brick)" stroke="#FAF3EB" stroke-width="1.2">
+    <rect x="98" y="73" width="29" height="14" rx="1.8"/>
+    <rect x="83" y="88" width="29" height="14" rx="1.8"/>
+    <rect x="113" y="88" width="29" height="14" rx="1.8"/>
+    <rect x="68" y="103" width="29" height="15" rx="1.8"/>
+    <rect x="98" y="103" width="29" height="15" rx="1.8"/>
+    <rect x="128" y="103" width="24" height="15" rx="1.8"/>
+  </g>
+</svg>

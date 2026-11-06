@@ -1,0 +1,111 @@
+.panel {
+    min-width: 0;
+    align-self: start;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+}
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+.heading h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 650;
+    line-height: 1.5;
+}
+.count {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 0;
+    white-space: nowrap;
+}
+.count strong {
+    color: var(--brand);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+.count > span {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+.panel ol {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: grid;
+    gap: 12px;
+}
+.panel li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    min-width: 0;
+}
+.panel li > span {
+    flex: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: grid;
+    place-items: center;
+    background: var(--canvas);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--muted);
+    font-size: 0.8125rem;
+}
+.panel [aria-current] > span {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--surface);
+}
+.panel small {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.panel [aria-current] small {
+    color: var(--ink);
+    font-weight: 700;
+}
+@media (max-width: 1023px) {
+    .panel {
+        margin-bottom: 16px;
+    }
+    .panel ol {
+        display: flex;
+        gap: 6px;
+        margin-top: 12px;
+    }
+    .panel li {
+        flex: 1;
+        height: 6px;
+        border-radius: 99px;
+        background: var(--line);
+    }
+    .panel [data-past='true'] {
+        background: var(--soft);
+    }
+    .panel [aria-current] {
+        background: var(--brand);
+    }
+    .panel li > span {
+        display: none;
+    }
+    .panel small {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+}

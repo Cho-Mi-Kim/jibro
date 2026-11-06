@@ -1,16 +1,16 @@
+import { TrialEntry } from '../features/auth/TrialEntry';
+import { useSessionEntry } from '../features/auth/useSessionEntry';
 import { SocialLogo } from '../shared/ui/SocialLogo';
-import { Disc } from '../shared/ui/HousingUI';
-import { Icon } from '../shared/ui/Icon';
 import { cx } from '../shared/styles/classes';
 import { safeReturn } from '../shared/api/returnPath';
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useSession } from '../app/useSession';
 import { api } from '../features/housing/api';
 import { demoMode } from '../shared/api/transport';
 import { pagesDemo } from '../shared/api/environment';
-import { Button, Card, Heading, Soon, State } from '../shared/ui/ui';
+import { Button, Card, Heading, State } from '../shared/ui/ui';
 export function LoginPage({ signup = false }: { signup?: boolean }) {
     const providers = useQuery({
         queryKey: ['auth', 'providers'],
@@ -18,32 +18,9 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
         enabled: !demoMode,
     });
     const [params] = useSearchParams();
-    const navigate = useNavigate();
-    const client = useQueryClient();
     const [error, setError] = useState('');
-    const returnTo = safeReturn(params.get('returnTo'));
-    const mutation = useMutation({
-        mutationFn: async ({
-            name,
-            email,
-            password,
-        }: {
-            name: string;
-            email: string;
-            password: string;
-        }) => {
-            if (signup) await api.signup(name, email, password);
-            return api.login(email, password);
-        },
-        onSuccess: async (user) => {
-            await client.cancelQueries();
-            client.setQueryData(['session'], user);
-            client.removeQueries({
-                predicate: (q) => q.queryKey[0] !== 'session',
-            });
-            navigate(returnTo, { replace: true });
-        },
-    });
+    const returnTo = safeReturn(params.get('returnTo') ?? '/my');
+    const mutation = useSessionEntry(returnTo, signup);
     function submit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -53,6 +30,10 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
         setError('');
         if (signup && (name.trim().length < 2 || password.length < 10)) {
             setError('이름은 2자 이상, 비밀번호는 10자 이상 입력해 주세요.');
+            return;
+        }
+        if (signup && password !== String(form.get('confirmPassword') ?? '')) {
+            setError('비밀번호 확인이 일치하지 않습니다.');
             return;
         }
         mutation.mutate({ name, email, password });
@@ -114,6 +95,17 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                                 maxLength={72}
                             />
                         </label>
+                        {signup && (
+                            <label>
+                                비밀번호 확인
+                                <input
+                                    type="password"
+                                    name="confirmPassword"
+                                    autoComplete="new-password"
+                                    required
+                                />
+                            </label>
+                        )}
                         {(error || mutation.error) && (
                             <p role="alert">
                                 {error || mutation.error?.message}
@@ -172,6 +164,10 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     )}
                 </Card>
             )}
+            <TrialEntry
+                onStart={() => mutation.mutate('trial')}
+                pending={mutation.isPending}
+            />
             {demoMode ? (
                 <Card>
                     <p>
@@ -220,7 +216,9 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     >
                         {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
                     </Link>
-                    <Soon label="비밀번호 재설정" />
+                    <Link className={cx('text-button')} to="/recovery">
+                        비밀번호 재설정
+                    </Link>
                 </>
             )}
         </div>
@@ -246,143 +244,6 @@ export function CallbackPage() {
                     <Link to="/login">로그인으로 돌아가기</Link>
                 </Card>
             )}
-        </>
-    );
-}
-export function MyPage() {
-    const { user } = useSession();
-    const client = useQueryClient();
-    const navigate = useNavigate();
-    const logout = useMutation({
-        mutationFn: api.logout,
-        onSuccess: async () => {
-            await client.cancelQueries();
-            client.setQueryData(['session'], null);
-            client.removeQueries({
-                predicate: (q) => q.queryKey[0] !== 'session',
-            });
-            navigate('/');
-        },
-    });
-    const preparations = useQuery({
-        queryKey: ['preparations', user?.id],
-        queryFn: api.preparations,
-        enabled: !!user,
-    });
-    const completed = preparations.data?.filter(
-        (p) => p.progress === 100,
-    ).length;
-    const ongoing = preparations.data
-        ? preparations.data.length - (completed ?? 0)
-        : undefined;
-    return (
-        <>
-            <Heading title="마이" />
-            <div className={cx('my-grid')}>
-                <section className={cx('panel profile')}>
-                    <div className={cx('avatar')}>
-                        {user?.name.slice(0, 1) ?? <Icon name="user" />}
-                    </div>
-                    <div>
-                        <h2>
-                            {user
-                                ? user.name + '님'
-                                : '로그인하고 준비를 이어가세요'}
-                        </h2>
-                        {user ? (
-                            <Soon label="내 정보 관리" />
-                        ) : (
-                            <Link className={cx('link-button')} to="/login">
-                                로그인
-                            </Link>
-                        )}
-                    </div>
-                </section>
-                {user && (
-                    <div className={cx('my-counts')}>
-                        <Link className={cx('metric')} to="/preparations">
-                            <Disc name="file" />
-                            <div>
-                                진행 중 준비<strong>{ongoing ?? '—'}건</strong>
-                            </div>
-                            <Icon name="arrow" />
-                        </Link>
-                        <Link className={cx('metric')} to="/preparations">
-                            <Disc name="check" tone="gray" />
-                            <div>
-                                준비 기록 완료
-                                <strong>{completed ?? '—'}건</strong>
-                            </div>
-                            <Icon name="arrow" />
-                        </Link>
-                    </div>
-                )}
-                <section className={cx('panel my-menu')}>
-                    <Link to="/preparations">
-                        <Disc name="calendar" />
-                        <strong>내 신청 준비</strong>
-                        <Icon name="arrow" />
-                    </Link>
-                    {(
-                        ['관심 공고', '알림 설정', '완료 여정 보관'] as const
-                    ).map((label, i) => (
-                        <div key={label}>
-                            <Disc
-                                name={
-                                    (['star', 'bell', 'bookmark'] as const)[i]
-                                }
-                                tone="gray"
-                            />
-                            <Soon label={label} />
-                            <Icon name="arrow" />
-                        </div>
-                    ))}
-                    <Link to="/guide">
-                        <Disc name="file" />
-                        <strong>서비스 이용 안내</strong>
-                        <Icon name="arrow" />
-                    </Link>
-                    {user?.role === 'ADMIN' && (
-                        <Link to="/admin">
-                            <Disc name="check" />
-                            <strong>관리자 검수 화면</strong>
-                            <Icon name="arrow" />
-                        </Link>
-                    )}
-                </section>
-                <div className={cx('callout my-disclaimer')}>
-                    <Disc name="info" tone="amber" />
-                    <ul>
-                        <li>
-                            준비도는 신청 자격이나 선정 가능성을 뜻하지
-                            않습니다.
-                        </li>
-                        <li>
-                            실제 신청은 운영기관 공식 사이트에서 진행됩니다.
-                        </li>
-                        <li>주민등록번호와 증빙 원본은 저장하지 않습니다.</li>
-                    </ul>
-                </div>
-                {user && (
-                    <div className={cx('my-logout')}>
-                        <State
-                            error={preparations.error}
-                            retry={() => void preparations.refetch()}
-                        />
-                        {logout.error && (
-                            <p role="alert">{logout.error.message}</p>
-                        )}
-                        <Button
-                            className="secondary wide"
-                            disabled={logout.isPending}
-                            onClick={() => logout.mutate()}
-                        >
-                            <Icon name="logout" />
-                            로그아웃
-                        </Button>
-                    </div>
-                )}
-            </div>
         </>
     );
 }

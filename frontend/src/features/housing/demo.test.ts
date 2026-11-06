@@ -58,4 +58,107 @@ describe('계약 시연 어댑터', () => {
             call('/preparations', 'POST', { noticeId: '1', version: 1 }),
         ).rejects.toMatchObject({ status: 409 });
     });
+    it('완료 서류의 해당 여부가 바뀌면 메모는 보존하고 재확인을 우선한다', async () => {
+        await call('/auth/login', 'POST', { email: 'demo' });
+        let p = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        const path = '/preparations/' + p.id;
+        p = await call<Preparation>(path + '/answers', 'PUT', {
+            revision: p.revision,
+            answers: { house: 'YES' },
+        });
+        const conditional = p.documents.find(
+            (d) => d.necessity === 'CONDITIONAL',
+        )!;
+        p = await call<Preparation>(
+            path + '/documents/' + conditional.id,
+            'PUT',
+            {
+                revision: p.revision,
+                state: 'READY',
+                note: '보존할 메모',
+            },
+        );
+        p = await call<Preparation>(path + '/answers', 'PUT', {
+            revision: p.revision,
+            answers: { house: 'UNKNOWN' },
+        });
+        expect(p.documents.find((d) => d.id === conditional.id)).toMatchObject({
+            necessity: 'UNKNOWN',
+            state: 'RECHECK',
+            note: '보존할 메모',
+        });
+        expect(p.nextAction).toMatchObject({
+            label: '서류 다시 확인하기',
+            path: path + '/documents',
+        });
+        p = await call<Preparation>(path + '/answers', 'PUT', {
+            revision: p.revision,
+            answers: { house: 'YES' },
+        });
+        expect(p.documents.find((d) => d.id === conditional.id)).toMatchObject({
+            necessity: 'CONDITIONAL',
+            state: 'UNCHECKED',
+            note: '보존할 메모',
+        });
+    });
+    it('없는 질문과 허용되지 않은 답변은 기록과 revision을 바꾸지 않는다', async () => {
+        await call('/auth/login', 'POST', { email: 'demo' });
+        const p = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        for (const answers of [{ missing: 'YES' }, { house: 'INVALID' }]) {
+            await expect(
+                call('/preparations/' + p.id + '/answers', 'PUT', {
+                    revision: p.revision,
+                    answers,
+                }),
+            ).rejects.toMatchObject({ status: 400 });
+        }
+        expect(await call('/preparations/' + p.id, 'GET')).toEqual(p);
+    });
+    it('검수 상태를 다시 읽어 저장을 막고 기존 준비 기록은 보존한다', async () => {
+        await call('/auth/login', 'POST', { email: 'admin@demo.local' });
+        const p = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        await call('/admin/reviews/1', 'PATCH', {
+            revision: 1,
+            basic: 'PASS',
+            guide: 'HOLD',
+            reason: '안내 재검수',
+        });
+        const latest = await call<Preparation>('/preparations/' + p.id, 'GET');
+        expect(latest.guideState).toBe('REVIEWING');
+        expect(latest.nextAction.path).toBe('/notices/1');
+        await expect(
+            call('/preparations/' + p.id + '/answers', 'PUT', {
+                revision: p.revision,
+                answers: { house: 'YES' },
+            }),
+        ).rejects.toMatchObject({ status: 409 });
+        const existing = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        expect(existing.id).toBe(p.id);
+        expect(existing.answers).toEqual({});
+        expect(existing.revision).toBe(p.revision);
+    });
+    it('다른 사용자로 전환하면 앞 사용자의 시연 기록이 보이지 않는다', async () => {
+        await call('/auth/login', 'POST', { email: 'demo' });
+        const p = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        await call('/auth/login', 'POST', { email: 'admin@demo.local' });
+        expect(await call('/preparations', 'GET')).toEqual([]);
+        await expect(
+            call('/preparations/' + p.id, 'GET'),
+        ).rejects.toMatchObject({ status: 404 });
+    });
 });

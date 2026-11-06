@@ -1,0 +1,29 @@
+.dates {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 0.75rem 1rem;
+    margin: 1rem 0;
+    padding: 0;
+}
+.dates > div {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+}
+.dates > div:nth-child(even) {
+    border-left: 1px solid var(--line);
+    padding-left: 1rem;
+}
+.dates dt,
+.dates dd {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+.dates dt {
+    margin-bottom: 0.125rem;
+    color: var(--muted);
+}
+.dates dd {
+    margin: 0;
+    color: var(--ink);
+}

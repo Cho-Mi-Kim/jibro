@@ -1,4 +1,4 @@
-import { ApiError } from './client';
+import { ApiError, sessionExpiredEvent } from './client';
 import { pagesDemo } from './environment';
 let accessToken: string | null = null;
 let refreshing: Promise<void> | null = null;
@@ -10,6 +10,11 @@ export function clearToken() {
 }
 export function setToken(token: string) {
     accessToken = token;
+}
+function expire(token: string | null) {
+    if (accessToken !== token || token === null) return;
+    clearToken();
+    window.dispatchEvent(new Event(sessionExpiredEvent));
 }
 async function csrf() {
     const response = await fetch('/api/v1/auth/csrf', {
@@ -31,6 +36,7 @@ export async function call<T>(
             method,
             body,
         );
+    const requestToken = accessToken;
     const headers: Record<string, string> = { Accept: 'application/json' };
     if (body !== undefined) headers['Content-Type'] = 'application/json';
     if (accessToken && !path.startsWith('/auth/'))
@@ -63,13 +69,16 @@ export async function call<T>(
         try {
             await refreshing;
         } catch (error) {
-            if (error instanceof ApiError && error.status === 401) clearToken();
+            if (error instanceof ApiError && error.status === 401)
+                expire(requestToken);
             throw error;
         }
         // Preserve a retried request's 403/409/network error; it is not a login failure.
         return call<T>(path, method, body, false);
     }
     if (!response.ok) {
+        if (response.status === 401 && !path.startsWith('/auth/'))
+            expire(requestToken);
         const error = (await response.json().catch(() => ({}))) as {
             message?: string;
             code?: string;

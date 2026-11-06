@@ -5,6 +5,7 @@ export type IconName =
     | 'book'
     | 'user'
     | 'bell'
+    | 'settings'
     | 'search'
     | 'arrow'
     | 'back'
@@ -20,6 +21,7 @@ export type IconName =
     | 'logout'
     | 'pin'
     | 'building'
+    | 'share'
     | 'star';
 const paths: Record<IconName, string> = {
     home: 'M3 10 12 3l9 7v11h-7v-7h-4v7H3Z',
@@ -28,6 +30,8 @@ const paths: Record<IconName, string> = {
     book: 'M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1Zm0 0v16',
     user: 'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2',
     bell: 'M18 8a6 6 0 0 0-12 0c0 8-3 8-3 10h18c0-2-3-2-3-10ZM10 21h4',
+    settings:
+        'M10 2h4l.5 2.3 1.4.6 2.1-1.2 2.3 2.3-1.2 2.1.6 1.4L22 10v4l-2.3.5-.6 1.4 1.2 2.1-2.3 2.3-2.1-1.2-1.4.6L14 22h-4l-.5-2.3-1.4-.6L6 20.3 3.7 18l1.2-2.1-.6-1.4L2 14v-4l2.3-.5.6-1.4L3.7 6 6 3.7l2.1 1.2 1.4-.6Z M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 1 1 7 0Z',
     search: 'M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Zm-2 5 6 6',
     arrow: 'm9 5 7 7-7 7',
     back: 'm14 4-8 8 8 8',
@@ -43,6 +47,7 @@ const paths: Record<IconName, string> = {
     logout: 'M9 3H3v18h6m6-14 5 5-5 5M8 12h12',
     pin: 'M19 9c0 6-7 12-7 12S5 15 5 9a7 7 0 0 1 14 0ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z',
     building: 'M5 21V3h14v18M9 7h1m4 0h1M9 11h1m4 0h1m-5 10v-6h4v6',
+    share: 'M12 15V3m-4 4 4-4 4 4M4 13v7h16v-7',
     star: 'm12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z',
 };
 export function Icon({

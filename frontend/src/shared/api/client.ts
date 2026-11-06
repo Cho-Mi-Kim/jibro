@@ -1,3 +1,4 @@
+export const sessionExpiredEvent = 'jibro.session-expired';
 export class ApiError extends Error {
     readonly status: number;
 

@@ -1,10 +1,22 @@
-import { type ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { Session } from './useSession';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
-import { ApiError } from '../shared/api/client';
+import { ApiError, sessionExpiredEvent } from '../shared/api/client';
 export function SessionProvider({ children }: { children: ReactNode }) {
     const client = useQueryClient();
+    useEffect(() => {
+        function expired() {
+            if (!client.getQueryData(['session'])) return;
+            void client.cancelQueries();
+            client.setQueryData(['session'], null);
+            client.removeQueries({
+                predicate: (query) => query.queryKey[0] !== 'session',
+            });
+        }
+        window.addEventListener(sessionExpiredEvent, expired);
+        return () => window.removeEventListener(sessionExpiredEvent, expired);
+    }, [client]);
     const query = useQuery({
         queryKey: ['session'],
         queryFn: async () => {

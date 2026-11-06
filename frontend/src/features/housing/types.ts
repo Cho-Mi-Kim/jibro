@@ -53,6 +53,7 @@ export interface User {
     name: string;
     email: string;
     role: 'USER' | 'ADMIN';
+    trial?: boolean;
 }
 export interface DocumentItem {
     id: string;
