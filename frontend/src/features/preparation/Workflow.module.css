@@ -1,0 +1,27 @@
+.steps {
+    margin: 0;
+    padding-inline-start: 1.5rem;
+}
+.steps li + li {
+    border-top: 1px solid var(--line);
+}
+.steps a {
+    display: grid;
+    gap: 0.25rem;
+    min-height: var(--target);
+    padding: 0.75rem 0;
+    text-decoration: none;
+}
+.steps a:hover strong {
+    text-decoration: underline;
+}
+.steps span {
+    color: var(--muted);
+}
+.journeyLink {
+    display: inline-flex;
+    min-height: var(--target);
+    align-items: center;
+    color: var(--brand);
+    font-weight: 700;
+}

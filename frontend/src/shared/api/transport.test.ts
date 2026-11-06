@@ -22,6 +22,27 @@ describe('실제 서버 API 전송', () => {
             'Bearer new-token',
         );
     });
+    it('갱신 토큰까지 만료되면 개인 화면에 재로그인 신호를 한 번 보낸다', async () => {
+        const expired = vi.fn();
+        window.addEventListener('jibro.session-expired', expired);
+        try {
+            setToken('expired');
+            vi.stubGlobal(
+                'fetch',
+                vi
+                    .fn()
+                    .mockResolvedValueOnce(new Response(null, { status: 401 }))
+                    .mockResolvedValueOnce(Response.json({ token: 'csrf' }))
+                    .mockResolvedValueOnce(new Response(null, { status: 401 })),
+            );
+            await expect(call('/preparations')).rejects.toMatchObject({
+                status: 401,
+            });
+            expect(expired).toHaveBeenCalledTimes(1);
+        } finally {
+            window.removeEventListener('jibro.session-expired', expired);
+        }
+    });
     it('빈 201 회원가입 응답을 정상 처리한다', async () => {
         vi.stubGlobal(
             'fetch',

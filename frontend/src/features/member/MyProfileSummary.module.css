@@ -1,0 +1,109 @@
+.summary {
+    grid-column: 1;
+    min-width: 0;
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
+}
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem 0;
+}
+.avatar {
+    display: grid;
+    place-items: center;
+    flex: 0 0 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: var(--brand);
+    font-size: 1.25rem;
+}
+.avatar[data-visitor='true'] {
+    border: 1px solid var(--line);
+}
+.avatar svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.nameBlock {
+    min-width: 0;
+}
+.nameBlock h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: 1.375rem;
+    line-height: 1.4;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+.entryLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+.counts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+}
+.stat {
+    display: grid;
+    grid-template-columns: 1.125rem minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-content: start;
+    align-items: baseline;
+    gap: 0.25rem 0.5rem;
+    min-height: var(--target);
+    padding: 1rem;
+    color: var(--ink);
+    text-decoration: none;
+}
+.statIcon {
+    align-self: start;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: var(--brand);
+}
+.stat:last-child .statIcon {
+    color: var(--muted);
+}
+.label {
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.value {
+    grid-column: 2;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+.unit {
+    margin-inline-start: 0.125rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 500;
+}
+@media (hover: hover) {
+    .stat:hover {
+        background: var(--canvas);
+    }
+}
+.stat:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: -3px;
+}
+.stat:active {
+    background: var(--soft);
+}

@@ -1,0 +1,74 @@
+.root {
+    position: relative;
+}
+.root summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+.root summary::-webkit-details-marker {
+    display: none;
+}
+.root summary svg {
+    width: 16px;
+    height: 16px;
+}
+.root[open] summary svg {
+    transform: rotate(180deg);
+}
+.menu {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: calc(100% + 6px);
+    width: min(272px, 80vw);
+    padding: 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: 0 8px 28px rgb(0 0 0 / 12%);
+}
+.menu button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 64px;
+    padding: 12px;
+    border: 0;
+    border-radius: var(--radius-control);
+    background: transparent;
+    color: var(--ink);
+    text-align: left;
+}
+.menu button:hover {
+    background: var(--canvas);
+}
+.menu button[aria-pressed='true'] {
+    background: var(--soft);
+}
+.menu strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+}
+.menu small {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--muted);
+}
+.menu button svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}

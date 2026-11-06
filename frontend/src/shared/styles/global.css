@@ -7,12 +7,29 @@
         'Segoe UI',
         'Malgun Gothic',
         sans-serif;
-    color: #101b2c;
-    background: #faf9f7;
+    --ink: #262626;
+    --canvas: #faf8f5;
+    --surface: #fff;
+    --line: #e4dfda;
+    --muted: #595959;
+    --positive: #28764d;
+    --positive-soft: #edf6f0;
+    --warning: #805b00;
+    --warning-soft: #fff5d6;
+    --radius-card: 1rem;
+    --radius-control: 0.75rem;
+    --gutter: clamp(1rem, 5vw, 1.25rem);
+    --target: 2.75rem;
+    --mobile-nav-height: calc(
+        1px + 10px + max(var(--target), 28px + 1.1625rem) +
+            max(10px, env(safe-area-inset-bottom))
+    );
+    color: var(--ink);
+    background: var(--canvas);
     line-height: 1.55;
     font-synthesis: none;
-    --brand: #bd452c;
-    --soft: #fbefeb;
+    --brand: #b64a32;
+    --soft: #f3e3da;
 }
 * {
     box-sizing: border-box;
@@ -61,21 +78,21 @@ p {
     margin-top: 0;
 }
 h1 {
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 1.4;
     letter-spacing: -1.3px;
     margin-bottom: 12px;
 }
 h2 {
-    font-size: 22px;
+    font-size: 1.375rem;
     line-height: 1.5;
     letter-spacing: -0.6px;
 }
 h3 {
-    font-size: 17px;
+    font-size: 1.0625rem;
 }
 small {
-    font-size: 12px;
+    font-size: 0.75rem;
     display: block;
     color: #626262;
 }
@@ -94,7 +111,7 @@ legend {
 label {
     display: block;
     margin: 14px 0;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 input:not([type='checkbox']):not([type='radio']),
 select,
@@ -105,7 +122,7 @@ textarea {
     border-radius: 10px;
     background: #fff;
     padding: 12px;
-    color: #101b2c;
+    color: var(--ink);
     min-height: 46px;
 }
 textarea {
@@ -145,10 +162,10 @@ progress::-webkit-progress-bar {
     border-radius: 99px;
 }
 progress::-webkit-progress-value {
-    background: linear-gradient(90deg, #ca5739, #b9462d);
+    background: var(--brand);
     border-radius: 99px;
 }
 progress::-moz-progress-bar {
-    background: #bd452c;
+    background: var(--brand);
     border-radius: 99px;
 }

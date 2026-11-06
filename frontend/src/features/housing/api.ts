@@ -11,13 +11,26 @@ import type {
     User,
 } from './types';
 export const api = {
-    meta: () => call<{ sampleData: boolean }>('/meta'),
+    meta: () =>
+        call<{
+            sampleData: boolean;
+            trialAvailable?: boolean;
+            trialNoticeId?: string;
+        }>('/meta'),
     providers: () => call<string[]>('/auth/providers'),
     notices: (query: string) => call<Page<Notice>>('/notices?' + query),
     filters: () =>
         call<{ regions: string[]; types: string[] }>('/notices/filters'),
     notice: (id: string) => call<Notice>('/notices/' + encodeURIComponent(id)),
     me: () => call<User>('/users/me'),
+    startTrial: async () => {
+        const result = await call<{ accessToken: string; user: User }>(
+            '/auth/trial',
+            'POST',
+        );
+        setToken(result.accessToken);
+        return result.user;
+    },
     login: async (email: string, password: string) => {
         const result = await call<{ accessToken: string; user: User }>(
             '/auth/login',
