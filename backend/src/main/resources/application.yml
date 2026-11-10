@@ -13,6 +13,14 @@ spring:
       hibernate:
         jdbc:
           time_zone: UTC
+  mail:
+    properties:
+      "[mail.smtp.connectiontimeout]": 5000
+      "[mail.smtp.timeout]": 8000
+      "[mail.smtp.writetimeout]": 8000
+      "[mail.smtp.auth]": ${JIBRO_SMTP_AUTH:true}
+      "[mail.smtp.starttls.enable]": ${JIBRO_SMTP_STARTTLS:true}
+      "[mail.smtp.starttls.required]": ${JIBRO_SMTP_STARTTLS:true}
   flyway:
     enabled: true
   jackson:

@@ -1,3 +1,9 @@
+import {
+    demoMember,
+    resetDemoMember,
+    isDemoArchived,
+    demoFacts,
+} from '../member/demoMember';
 import type {
     Answer,
     Collection,
@@ -8,7 +14,13 @@ import type {
     User,
 } from './types';
 import { ApiError } from '../../shared/api/client';
-import { needsFollowUp } from './questions';
+import { waitForDemoResponse } from './demoDelay';
+import {
+    answerDemoPreparation,
+    assessDemoPreparation,
+    demoDocumentNecessity,
+    type DemoDocumentRule,
+} from './demoPreparationRules';
 const evidence = {
     label: '시연용 자료 · 실제 모집 공고 아님',
     url: null,
@@ -28,6 +40,13 @@ const questions = [
         evidence,
     },
 ];
+const documentTemplates = [
+    { id: '0', title: '거주 확인 서류' },
+    { id: '1', title: '조건별 확인 서류' },
+];
+const documentRules: Readonly<Record<string, DemoDocumentRule>> = {
+    '1': { questionId: 'house', answerValues: ['YES'] },
+};
 export const notices: Notice[] = [
     'AVAILABLE',
     'REVIEWING',
@@ -58,7 +77,7 @@ export const notices: Notice[] = [
     evidence,
     questions: state === 'AVAILABLE' ? questions : [],
     documents:
-        state === 'AVAILABLE' ? ['거주 확인 서류', '조건별 확인 서류'] : [],
+        state === 'AVAILABLE' ? documentTemplates.map((d) => d.title) : [],
 }));
 let user: User | null = null;
 const preparations: Preparation[] = [];
@@ -97,80 +116,63 @@ const guides: Guide[] = [
 function requireUser() {
     if (!user) throw new ApiError(401, '로그인이 필요합니다.');
 }
-export function calculate(p: Preparation): Preparation {
-    const known = p.questions.filter(
-        (q) => !needsFollowUp(q, p.answers[q.id]),
-    ).length;
-    const docs = p.documents.filter((d) => d.necessity !== 'NOT_APPLICABLE');
-    const ready = docs.filter(
-        (d) => d.state === 'READY' && d.necessity !== 'UNKNOWN',
-    ).length;
-    const recorded = p.schedules.filter((s) => s.recorded).length;
-    const rounded = Math.round(
-        (p.questions.length ? known / p.questions.length : 0) * 30 +
-            (docs.length ? ready / docs.length : 0) * 50 +
-            (p.schedules.length ? recorded / p.schedules.length : 0) * 20,
-    );
-    const progress =
-        known < p.questions.length ||
-        ready < docs.length ||
-        recorded < p.schedules.length
-            ? Math.min(99, rounded)
-            : rounded;
-    const warnings = p.questions
-        .filter((q) => needsFollowUp(q, p.answers[q.id]))
-        .map((q) => q.title);
-    const unready = docs.find((d) => d.state !== 'READY');
-    const next = warnings.length
-        ? {
-              label: '확인하지 못한 조건 살펴보기',
-              reason: '모름·미입력 항목이 남아 있어요.',
-              path: '/conditions/edit',
-          }
-        : unready
-          ? {
-                label: unready.title + ' 준비하기',
-                reason: '아직 준비가 끝나지 않은 서류예요.',
-                path: '/documents',
-            }
-          : {
-                label: '신청 일정과 기록 확인하기',
-                reason: '공식 절차와 내 기록을 함께 확인하세요.',
-                path: '/schedule',
-            };
-    return {
+function currentPreparation(p: Preparation): Preparation {
+    const notice = notices.find((n) => n.id === p.noticeId);
+    const published =
+        reviews.find((r) => r.id === p.noticeId)?.basic === 'PASS';
+    return assessDemoPreparation({
         ...p,
-        progress,
-        houseStage:
-            progress < 20
-                ? 1
-                : progress < 40
-                  ? 2
-                  : progress < 70
-                    ? 3
-                    : progress < 100
-                      ? 4
-                      : 5,
-        warnings,
-        nextAction: { ...next, path: '/preparations/' + p.id + next.path },
-    };
+        guideState:
+            !notice || !published || notice.version !== p.version
+                ? 'CHANGE_REVIEW'
+                : notice.guideState,
+    });
 }
+
 export async function demoRequest<T>(
     path: string,
     method: string,
     body?: unknown,
 ): Promise<T> {
-    await new Promise((r) => setTimeout(r, 180));
+    await waitForDemoResponse();
     const url = new URL(path, 'http://demo.local');
     const parts = url.pathname.split('/').filter(Boolean);
     const input = (body ?? {}) as Record<string, unknown>;
     let result: unknown;
-    if (path === '/users/me') {
+    if (parts[0] === 'member') {
+        requireUser();
+        result = demoMember(
+            parts,
+            method,
+            input,
+            user!,
+            notices.filter(
+                (n) => reviews.find((r) => r.id === n.id)?.basic === 'PASS',
+            ),
+            preparations,
+        );
+    } else if (parts[0] === 'notices' && parts[2] === 'versions') {
+        const n = notices.find(
+            (n) =>
+                n.id === parts[1] &&
+                reviews.find((r) => r.id === n.id)?.basic === 'PASS',
+        );
+        if (!n) throw new ApiError(404);
+        result = [
+            { version: n.version, revision: n.version, facts: demoFacts(n) },
+        ];
+    } else if (path === '/users/me') {
         requireUser();
         result = user;
     } else if (path === '/auth/login') {
+        const demoId =
+            input.email === 'admin@demo.local' ? 'demo-admin' : 'demo';
+        if (user && user.id !== demoId) {
+            preparations.length = 0;
+            resetDemoMember();
+        }
         user = {
-            id: 'demo',
+            id: demoId,
             name:
                 input.email === 'admin@demo.local'
                     ? '시연 관리자'
@@ -182,6 +184,8 @@ export async function demoRequest<T>(
     } else if (path === '/auth/signup') result = undefined;
     else if (path === '/auth/logout') {
         user = null;
+        preparations.length = 0;
+        resetDemoMember();
         result = undefined;
     } else if (path === '/notices/filters')
         result = {
@@ -232,21 +236,31 @@ export async function demoRequest<T>(
     } else if (parts[0] === 'guides') result = guides;
     else if (parts[0] === 'preparations') {
         requireUser();
-        if (parts.length === 1 && method === 'GET') result = preparations;
+        if (parts.length === 1 && method === 'GET')
+            result = preparations
+                .filter((p) => !isDemoArchived(p.id))
+                .map(currentPreparation);
         else if (parts.length === 1) {
-            const n = notices.find((n) => n.id === input.noticeId);
-            if (
-                !n?.canStart ||
-                n.version !== input.version ||
-                reviews.find((r) => r.id === n.id)?.basic !== 'PASS'
-            )
+            let p = preparations.find((p) => p.noticeId === input.noticeId);
+            if (p && isDemoArchived(p.id))
                 throw new ApiError(
                     409,
-                    '준비 안내 상태가 변경되었습니다. 공고를 다시 확인하세요.',
+                    '보관함에서 이 준비 건을 복원해 주세요.',
+                    'ARCHIVED',
                 );
-            let p = preparations.find((p) => p.noticeId === n.id);
             if (!p) {
-                p = calculate({
+                const n = notices.find((n) => n.id === input.noticeId);
+                if (
+                    !n?.canStart ||
+                    n.status === 'CLOSED' ||
+                    n.version !== input.version ||
+                    reviews.find((r) => r.id === n.id)?.basic !== 'PASS'
+                )
+                    throw new ApiError(
+                        409,
+                        '준비 안내 상태가 변경되었습니다. 공고를 다시 확인하세요.',
+                    );
+                p = assessDemoPreparation({
                     id: crypto.randomUUID(),
                     noticeId: n.id,
                     title: n.title,
@@ -255,10 +269,10 @@ export async function demoRequest<T>(
                     guideState: n.guideState,
                     questions: n.questions,
                     answers: {},
-                    documents: n.documents.map((title, i) => ({
-                        id: String(i),
+                    documents: documentTemplates.map(({ id, title }) => ({
+                        id,
                         title,
-                        necessity: i ? 'UNKNOWN' : 'REQUIRED',
+                        necessity: demoDocumentNecessity(documentRules[id], {}),
                         state: 'UNCHECKED',
                         method: '실제 공고에서 발급 기준과 제출 방법을 확인하세요.',
                         issuer: '공고에서 확인',
@@ -282,16 +296,16 @@ export async function demoRequest<T>(
                 });
                 preparations.push(p);
             }
-            result = p;
+            result = currentPreparation(p);
         } else {
             const index = preparations.findIndex((p) => p.id === parts[1]);
-            if (index < 0)
+            if (index < 0 || isDemoArchived(parts[1]))
                 throw new ApiError(404, '준비 기록을 찾을 수 없습니다.');
-            let p = preparations[index];
+            let p = currentPreparation(preparations[index]);
             if (method !== 'GET') {
                 if (
                     p.revision !== input.revision ||
-                    p.guideState === 'CHANGE_REVIEW'
+                    p.guideState !== 'AVAILABLE'
                 )
                     throw new ApiError(
                         409,
@@ -299,13 +313,11 @@ export async function demoRequest<T>(
                     );
                 p = structuredClone(p);
                 if (parts[2] === 'answers') {
-                    p.answers = input.answers as Record<string, Answer>;
-                    p.documents[1].necessity =
-                        p.answers.house === 'YES'
-                            ? 'CONDITIONAL'
-                            : p.answers.house === 'NO'
-                              ? 'NOT_APPLICABLE'
-                              : 'UNKNOWN';
+                    p = answerDemoPreparation(
+                        p,
+                        input.answers as Record<string, Answer>,
+                        documentRules,
+                    );
                 }
                 if (parts[2] === 'documents') {
                     const d = p.documents.find((d) => d.id === parts[3]);
@@ -318,18 +330,38 @@ export async function demoRequest<T>(
                             409,
                             '서류 해당 여부를 먼저 확인하세요.',
                         );
+                    if (
+                        ![
+                            'UNCHECKED',
+                            'NEEDED',
+                            'IN_PROGRESS',
+                            'READY',
+                            'RECHECK',
+                        ].includes(String(input.state)) ||
+                        typeof input.note !== 'string' ||
+                        input.note.length > 2000
+                    )
+                        throw new ApiError(
+                            400,
+                            '준비 상태와 메모를 다시 확인해 주세요.',
+                        );
                     d.state = input.state as typeof d.state;
-                    d.note = String(input.note ?? '');
+                    d.note = input.note;
                 }
                 if (parts[2] === 'schedules') {
                     const s = p.schedules.find((s) => s.id === parts[3]);
                     if (!s) throw new ApiError(404);
                     s.recorded = Boolean(input.recorded);
                 }
+                if (!['answers', 'documents', 'schedules'].includes(parts[2]))
+                    throw new ApiError(
+                        404,
+                        '시연에서 지원하지 않는 요청입니다.',
+                    );
                 p.revision++;
-                preparations[index] = calculate(p);
+                preparations[index] = assessDemoPreparation(p);
             }
-            result = preparations[index];
+            result = currentPreparation(preparations[index]);
         }
     } else if (parts[0] === 'admin') {
         requireUser();
@@ -368,6 +400,7 @@ export async function demoRequest<T>(
 
 const originalNotices = structuredClone(notices);
 export function resetDemo() {
+    resetDemoMember();
     user = null;
     preparations.length = 0;
     collections.length = 0;

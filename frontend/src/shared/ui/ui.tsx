@@ -2,13 +2,7 @@ import { Icon } from './Icon';
 import { BrickHouse } from './BrickHouse';
 import { cx } from '../styles/classes';
 import { safeUrl } from './helpers';
-import {
-    useEffect,
-    useRef,
-    useState,
-    type ButtonHTMLAttributes,
-    type ReactNode,
-} from 'react';
+import { type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { ActionButton } from '@seed-design/react';
 import { Link } from 'react-router';
 import type { Evidence } from '../../features/housing/types';
@@ -84,52 +78,47 @@ export function State({
 export function Badge({ children }: { children: ReactNode }) {
     return <span className={cx('badge')}>{children}</span>;
 }
-export function EvidenceLink({ evidence }: { evidence: Evidence }) {
+export function EvidenceLink({
+    evidence,
+    className = '',
+    checkedAtOnNewLine = false,
+}: {
+    evidence: Evidence;
+    className?: string;
+    checkedAtOnNewLine?: boolean;
+}) {
     return (
-        <div className={cx('evidence')}>
+        <div className={`${cx('evidence')} ${className}`}>
             <span>
-                {evidence.label} · 확인 {evidence.checkedAt}
+                {safeUrl(evidence.url) ? (
+                    <a href={evidence.url!} target="_blank" rel="noreferrer">
+                        {evidence.label} ↗
+                    </a>
+                ) : (
+                    evidence.label
+                )}
+                {checkedAtOnNewLine ? <br /> : ' · '}
+                {'확인 '}
+                {evidence.checkedAt}
             </span>
-            {safeUrl(evidence.url) ? (
-                <a href={evidence.url!} target="_blank" rel="noreferrer">
-                    공식 근거 열기 ↗
-                </a>
-            ) : (
-                <span>원문 경로 확인 필요</span>
-            )}
+            {!safeUrl(evidence.url) && <span>원문 경로 확인 필요</span>}
         </div>
     );
 }
-export function Soon({ label }: { label: string }) {
-    const [open, setOpen] = useState(false);
-    const ref = useRef<HTMLDialogElement>(null);
-    useEffect(() => {
-        if (open) ref.current?.showModal();
-        else ref.current?.close();
-    }, [open]);
+export function InlineExplanation({
+    label,
+    children,
+}: {
+    label: string;
+    children: ReactNode;
+}) {
     return (
-        <>
-            <button
-                type="button"
-                className={cx('text-button')}
-                onClick={() => setOpen(true)}
-            >
-                {label} <small>준비 중</small>
-            </button>
-            <dialog
-                ref={ref}
-                onCancel={() => setOpen(false)}
-                onClose={() => setOpen(false)}
-                aria-label={label}
-            >
-                <h2>{label}</h2>
-                <p>아직 준비 중인 기능입니다.</p>
-                <p>
-                    현재는 공고의 공식 원문과 내 준비 목록을 확인할 수 있어요.
-                </p>
-                <Button onClick={() => setOpen(false)}>닫기</Button>
-            </dialog>
-        </>
+        <details className={cx('progress-explanation')}>
+            <summary aria-label={label}>
+                <Icon name="down" />
+            </summary>
+            {children}
+        </details>
     );
 }
 export function House({
@@ -145,13 +134,17 @@ export function House({
                 <span>전체 준비도</span>
                 <strong className={cx('progress-number')}>{progress}%</strong>
                 <progress max="100" value={progress} aria-label="준비도" />
+            </div>
+            <div className={cx('house-picture')}>
+                <BrickHouse progress={progress} stage={stage} />
+            </div>
+            <InlineExplanation label="준비도 설명">
                 <small>
                     준비도는 기록한 준비 작업의 진행률이며,
                     <br />
                     신청 자격이나 선정 가능성을 의미하지 않습니다.
                 </small>
-            </div>
-            <BrickHouse stage={stage} />
+            </InlineExplanation>
         </div>
     );
 }

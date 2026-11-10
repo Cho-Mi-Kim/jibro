@@ -1,0 +1,20 @@
+.deadline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    min-width: 0;
+    margin: 0;
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+.deadline dt,
+.deadline dd {
+    margin: 0;
+    white-space: nowrap;
+}
+.deadline dd {
+    font-variant-numeric: tabular-nums;
+}

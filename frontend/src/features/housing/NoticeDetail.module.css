@@ -1,0 +1,594 @@
+.page {
+    display: grid;
+    gap: 1rem;
+    max-width: 48rem;
+    margin-inline: auto;
+    min-width: 0;
+    color: var(--ink);
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: var(--target);
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: -0.04em;
+}
+.back {
+    display: grid;
+    place-items: center;
+    min-width: var(--target);
+    min-height: var(--target);
+    margin-left: -0.5rem;
+}
+.back svg {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+.tools {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.tools button[aria-pressed] {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+}
+.tools button[aria-pressed] > span {
+    display: none;
+}
+.overview,
+.summaryCard,
+.contentCard {
+    min-width: 0;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    padding: 1rem;
+}
+.overview {
+    padding-bottom: 12px;
+}
+.guidanceStatus {
+    margin-block-start: 0.75rem;
+    border-block-start: 1px solid var(--line);
+}
+.guidanceStatus summary {
+    display: flex;
+    align-items: center;
+    min-height: var(--target);
+    padding: 0.5rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 650;
+}
+.guidanceStatus summary::-webkit-details-marker {
+    display: none;
+}
+.guidanceChevron {
+    position: absolute;
+    inset-block-start: 4px;
+    inset-inline-end: 6px;
+    display: grid;
+    place-items: center;
+    width: var(--explanation-toggle-width);
+    height: var(--explanation-toggle-height);
+    color: var(--brand);
+}
+.guidanceChevron svg {
+    width: 1rem;
+    height: 1rem;
+}
+.guidanceStatus[open] summary svg {
+    transform: rotate(180deg);
+}
+.guidanceBody {
+    padding-block-end: 0.25rem;
+    font-size: 0.875rem;
+}
+.guidanceBody dl {
+    display: grid;
+    gap: 0.375rem;
+    margin: 0;
+}
+.guidanceBody dl > div {
+    display: grid;
+    grid-template-columns: 2.5em 1fr;
+    gap: 0.5rem;
+}
+.guidanceBody dt {
+    font-weight: 650;
+}
+.guidanceBody dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+.guidanceBody p {
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+}
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.75rem;
+    padding-inline-end: var(--explanation-toggle-width);
+}
+.badges > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
+}
+.badges svg {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+}
+.noticeTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    margin: 0 0 0.375rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    letter-spacing: -0.03em;
+}
+.publishedDate {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
+    margin: 0;
+}
+.housingFacts {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.36fr);
+    gap: 0.75rem;
+    margin: 0.875rem 0 0;
+    padding-block-start: 0.75rem;
+    border-block-start: 1px solid var(--line);
+}
+.housingFacts dt {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
+}
+.housingFacts svg {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+    color: var(--brand);
+}
+.housingFacts dd {
+    margin: 0.1875rem 0 0;
+    margin-inline-start: 1.375rem;
+    color: var(--ink);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.3;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.dates {
+    --date-label-size: 0.8125rem;
+    --date-value-size: 0.9375rem;
+    --date-small-size: clamp(0.59375rem, calc(100vw * 10.5 / 393), 0.875rem);
+    display: grid;
+    grid-template-columns: minmax(max-content, 1.2fr) repeat(
+            2,
+            minmax(4.25rem, 1fr)
+        );
+    overflow-x: auto;
+    align-items: stretch;
+    margin: 0.875rem 0 0;
+}
+.dates > div {
+    padding: 0 0.25rem;
+    min-width: 0;
+    text-align: center;
+}
+.dates > div + div {
+    border-inline-start: 1px solid var(--line);
+}
+.dates dt {
+    font-size: var(--date-label-size);
+    white-space: nowrap;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+    color: var(--muted);
+}
+.dates dd {
+    margin: 0;
+    min-height: 1.375rem;
+    font-variant-numeric: tabular-nums;
+    font-size: var(--date-value-size);
+    line-height: 1.4;
+    white-space: nowrap;
+    font-weight: 650;
+}
+.dates dd > .period {
+    display: flex;
+    justify-content: center;
+    font-size: calc(var(--date-value-size) + 2px);
+    flex-wrap: nowrap;
+    column-gap: 0.0625rem;
+}
+.period > span {
+    white-space: nowrap;
+}
+.dates small {
+    display: block;
+    color: var(--muted);
+    font-size: var(--date-small-size);
+    line-height: 1.4;
+    white-space: nowrap;
+    font-weight: 400;
+    margin-top: 0.25rem;
+}
+.scheduleHeader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-block-start: 1rem;
+}
+.scheduleHeader h3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+.scheduleHeader svg {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+    color: var(--brand);
+}
+.deadline {
+    border-radius: 999px;
+    padding: 0.1875rem 0.5625rem;
+    background: color-mix(in srgb, var(--line) 55%, var(--surface));
+    color: var(--muted);
+    font-size: 0.8125rem;
+    font-weight: 650;
+    line-height: 1.375;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-bottom: 1px solid var(--line);
+}
+.tabs button {
+    position: relative;
+    min-height: 3rem;
+    border: 0;
+    padding: 0.5rem 0.125rem;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.375rem;
+    word-break: keep-all;
+}
+.tabs button[aria-selected='true'] {
+    color: var(--brand);
+    font-weight: 700;
+}
+.tabs button[aria-selected='true']::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    inset-inline: 0;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: var(--brand);
+}
+.content {
+    min-width: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+.summaryCard {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.75rem;
+    color: var(--ink);
+    text-align: left;
+}
+.summaryCard > span:first-child {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.summaryCard > span:first-child svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.summaryCard h2,
+.contentCard h2 {
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+.summaryCard p,
+.summaryDetails summary > span {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0.375rem 0 0;
+    font-weight: 400;
+}
+.summaryDetails summary {
+    position: relative;
+    list-style: none;
+    padding: 0 1.5rem 0 0;
+    min-height: var(--target);
+}
+.summaryDetails summary::-webkit-details-marker,
+.resources summary::-webkit-details-marker {
+    display: none;
+}
+.summaryDetails summary > svg {
+    position: absolute;
+    inset-block-start: 0.25rem;
+    inset-inline-end: 0;
+    width: 1rem;
+    height: 1rem;
+    color: var(--brand);
+}
+.summaryDetails[open] summary > svg {
+    transform: rotate(180deg);
+}
+.cardAction {
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+.summaryCard a,
+.cardAction {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
+    color: var(--brand);
+    margin-top: 0.5rem;
+    min-height: var(--target);
+    overflow-wrap: anywhere;
+}
+.summaryCard a svg,
+.cardAction svg {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+}
+.contentCard {
+    font-size: 1rem;
+    line-height: 1.375rem;
+}
+.contentCard h2 {
+    margin-bottom: 0.75rem;
+}
+.contentCard h3 {
+    font-size: 1rem;
+}
+.contentCard p {
+    margin-bottom: 0.75rem;
+}
+.page .contentCard :is(dt, dd),
+.page .evidence {
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
+}
+.page .evidence {
+    color: var(--muted);
+    row-gap: 4px;
+}
+.page .evidence > a {
+    align-items: flex-start;
+}
+.contentCard a,
+.resources a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--target);
+    font-size: 0.875rem;
+}
+.scheduleDates {
+    margin: 0;
+}
+.scheduleDates > div {
+    display: grid;
+    grid-template-columns: 5em minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.75rem;
+    padding-block: 0.5rem;
+}
+.scheduleDates > div + div {
+    border-top: 1px solid var(--line);
+}
+.scheduleDates dt {
+    color: var(--muted);
+}
+.scheduleDates dd {
+    margin: 0;
+    min-height: 1.1875rem;
+    font-variant-numeric: tabular-nums;
+}
+.source {
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+.disclosureTitle {
+    padding-inline-end: var(--explanation-toggle-width);
+}
+.documents {
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none;
+}
+.documents li {
+    display: flex;
+    gap: 0.5rem;
+    padding-block: 0.75rem;
+    border-bottom: 1px solid var(--line);
+}
+.documents svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--brand);
+    flex: none;
+}
+.scrollContent {
+    display: grid;
+    gap: inherit;
+    min-width: 0;
+}
+.actions {
+    display: grid;
+    gap: 0.375rem;
+    padding-block: 0.5rem;
+}
+.actionInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.8125rem;
+}
+.actionButtons {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 0.5rem;
+}
+.actionButtons > :is(a, button) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-height: 2.875rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-control);
+    font-size: 1rem;
+    font-weight: 650;
+}
+.actionButtons > a {
+    border: 1px solid var(--brand);
+    color: var(--brand);
+    background: var(--surface);
+}
+.actions svg {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+}
+@media (max-width: 767px) {
+    .page {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        width: 100%;
+        gap: 0;
+    }
+    .scrollContent {
+        flex: 1;
+        overflow-y: auto;
+        gap: 1rem;
+        padding-block: 1rem 0.5rem;
+    }
+}
+.resources {
+    border-top: 1px solid var(--line);
+    font-size: 0.875rem;
+}
+.resources summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    list-style: none;
+    font-weight: 500;
+    color: var(--muted);
+}
+.resources summary svg {
+    width: 1rem;
+    height: 1rem;
+}
+.resources[open] summary svg {
+    transform: rotate(180deg);
+}
+.resources nav {
+    display: grid;
+}
+.resources nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--target);
+    gap: 0.5rem;
+}
+.resources h2 {
+    display: flex;
+    align-items: center;
+    min-height: var(--target);
+    margin: 0;
+    font-size: 1.125rem;
+}
+.attachments {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--muted);
+}
+.attachments li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 0.25rem;
+    min-height: var(--target);
+    overflow-wrap: anywhere;
+}
+@media (min-width: 768px) {
+    .page {
+        gap: 1.25rem;
+    }
+    .overview,
+    .summaryCard,
+    .contentCard {
+        padding: 1.25rem;
+    }
+    .summaryCard {
+        grid-template-columns: 3rem minmax(0, 1fr);
+        gap: 1rem;
+    }
+    .summaryCard > span:first-child {
+        width: 3rem;
+        height: 3rem;
+    }
+}

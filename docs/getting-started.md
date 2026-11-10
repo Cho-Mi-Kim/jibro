@@ -2,7 +2,7 @@
 
 대상: Windows, 새 `jibro-housing` 저장소. 명령을 기존 `jibro-housing-prep`에서 실행하지 않습니다.
 
-최종 수정일: 2026-10-30. 이 문서는 실행 절차를 관리합니다. 작업 전 [팀 컨벤션](conventions/team-conventions.md)·[코딩 컨벤션](conventions/coding-conventions.md)을 확인하고 기능 구현에는 [기획안](planning/project-proposal.md)·[화면설계서](design/screen-spec.md)를 함께 사용합니다. [전체 문서 안내](README.md).
+최종 수정일: 2026-11-10. 이 문서는 실행 절차를 관리합니다. 작업 전 [팀 컨벤션](conventions/team-conventions.md)·[코딩 컨벤션](conventions/coding-conventions.md)을 확인하고 기능 구현에는 [기획안](planning/project-proposal.md)·[화면설계서](design/screen-spec.md)를 함께 사용합니다. [전체 문서 안내](README.md).
 
 ## 1. 사전 도구
 
@@ -91,7 +91,32 @@ Docker Desktop의 Linux 엔진을 시작한 뒤 루트에서 실행합니다.
 
 Docker 없이 로컬 PostgreSQL 17을 설치한 경우 두 DB를 개발용 계정 소유로 만들고 `DB_URL`·`TEST_DB_URL`을 실제 주소로 맞춥니다.
 
-## 6. 프론트·백엔드 각각 실행
+## 6. 실행 모드 선택과 프론트·백엔드 실행
+
+아래 명령은 모두 **저장소 루트 `jibro-housing`의 PowerShell**에서 실행합니다.
+
+| 구분 | 화면 테스트용 시연 모드 | 실제 서버 연동 모드 |
+| --- | --- | --- |
+| 주소 | `http://127.0.0.1:5174` | `http://127.0.0.1:5173` |
+| 실행 대상 | 프론트엔드만 | PostgreSQL·백엔드·프론트엔드 |
+| 데이터·저장 | 가상 데이터·메모리 저장, 새로고침 시 초기화 | 실제 API·로컬 DB 저장 |
+| Google·카카오 로그인 | 버튼을 숨기며 실제 인증하지 않음 | 버튼 표시, 제공자 설정이 있어야 활성화 |
+| 필요한 도구 | Node.js 24·npm | Node.js 24·npm·JDK 17·PostgreSQL(Docker 권장) |
+
+### 6.1. 백엔드 없이 시연 모드 실행
+
+```powershell
+. .\scripts\Use-DevEnvironment.ps1
+# 최초 설치 또는 package-lock.json 변경 시 실행
+npm --prefix frontend ci
+npm --prefix frontend run dev:demo -- --port 5174
+```
+
+[로컬 시연](http://127.0.0.1:5174/)에서 공고를 선택하고 조건 확인으로 진입한 뒤 **시연 사용자로 보기**를 선택합니다. 가상 데이터로 조건·서류·일정·보관 화면을 확인할 수 있습니다. Docker·백엔드·외부 키 발급은 필요하지 않습니다. 환경 도우미는 있으면 루트 `.env`를 읽지만 시연을 위해 `.env`를 만들거나 초기화할 필요는 없습니다.
+
+실제 Google·카카오 인증, LH 수집, 이메일·서버 푸시 발송과 서버 영속 저장은 이 모드에서 확인하지 않습니다. 소셜 로그인 버튼 디자인까지 보려면 아래 실제 서버 연동 모드를 사용합니다. 서버의 **가입 없이 체험하기**는 실제 API를 사용하는 별도 기능으로, 이 시연 모드와 다릅니다.
+
+### 6.2. 실제 서버 연동 모드 실행
 
 Docker Desktop을 실행한 뒤, 저장소 루트에서 먼저 DB가 실행 중인지 확인합니다. PC 재시작 등으로 컨테이너가 중지되어 있으면 다음 명령으로 기존 데이터를 유지하면서 시작합니다.
 
@@ -124,15 +149,24 @@ docker compose up -d --wait postgres
 
 Vite의 `/api` 요청은 `http://127.0.0.1:8080`으로 전달합니다. `/api`를 제거하는 rewrite는 사용하지 않습니다. 프론트 fetch는 상대 경로 `/api/v1/health`를 사용하므로 개발 단계에서 전체 CORS 허용 설정이 필요하지 않습니다. Vite proxy는 개발용이며 배포 때 Nginx의 `/api/` 전달 설정을 별도로 구성해야 합니다.
 
+[서비스 홈](http://127.0.0.1:5173/) 또는 [로그인 화면](http://127.0.0.1:5173/login)을 엽니다. Google·카카오 키와 복귀 주소는 기존 루트 `.env` 설정을 사용합니다. `/api/v1/auth/providers`에 `google`, `kakao`가 반환되면 제공자 설정이 등록된 상태이며, 실제 인증 완료 여부는 각 로그인 흐름에서 별도로 확인합니다.
+
+### 6.3. 모드 전환·동시 실행·종료
+
+- 기본 설정에서는 `.env`를 바꾸지 않고 프론트엔드 실행 명령으로 모드를 선택합니다. `dev:demo`는 시연 모드를 명시적으로 켜고, `Start-Frontend.ps1`의 기본 `dev`는 실제 API를 사용합니다.
+- 이전에 환경 변수나 환경 파일에 직접 `VITE_API_MODE=demo`를 지정했다면 실제 서버 연동 모드로 돌아갈 때 해당 설정을 제거하거나 `server`로 바꾸고 프론트엔드를 재시작합니다. 주소의 포트만 바꿔서는 모드가 전환되지 않습니다.
+- 서로 다른 터미널에서 5173(실제 서버)과 5174(시연)를 동시에 실행해 비교할 수 있습니다. 두 화면의 로그인·준비 기록은 공유하지 않습니다. 이미 해당 포트가 실행 중이면 중복 실행하지 말고 기존 창을 사용하거나 서버를 종료합니다.
+- 직접 실행한 서버는 각 터미널에서 `Ctrl+C`로 종료합니다. DB도 중지하려면 `docker compose stop postgres`를 사용합니다. 데이터 보존을 위해 볼륨 삭제 명령은 사용하지 않습니다.
+
 ## 7. 확인·검사
 
 1. API 직접 호출: `http://127.0.0.1:8080/api/v1/health`의 `status`·`database`가 `UP`인지 확인합니다.
-2. 브라우저: `http://127.0.0.1:5173`에서 같은 응답이 표시되는지 확인합니다.
+2. 실제 서버 모드의 [연결 진단 화면](http://127.0.0.1:5173/development)에서 API·DB 연결을 확인합니다. 시연 모드의 화면 동작을 서버 연결 성공으로 해석하지 않습니다.
 3. 프론트 `npm run ci`: 포맷·린트·타입·테스트·빌드를 검사합니다.
 4. 백엔드 `.\gradlew.bat clean build`: 단위 테스트와 컴파일·JAR 생성을 확인합니다.
 5. 백엔드 `.\gradlew.bat integrationTest`: 별도 DB에서 Flyway·JPA validate·Q 클래스 생성·복합 조회를 확인합니다. `build`만으로 이 단계까지 검증했다고 기록하지 않습니다.
 
-GitHub Actions는 PR마다 양쪽 작업을 모두 실행하도록 작성했습니다. 원격 저장소 연결·push·Actions 실제 실행 및 보호 브랜치 설정은 별도 작업입니다. 배포는 자동 수행하지 않습니다.
+GitHub Actions의 PR 검사는 작업 기록, 프론트엔드 검사·일반/Pages 빌드, 백엔드 빌드·통합 테스트를 수행합니다. develop 병합은 실제 API 서버를 배포하지 않습니다. main의 Pages 배포 대상 변경은 별도 워크플로로 공개 시연에 반영됩니다.
 
 ## 8. 실제 전체 기능 실행
 
