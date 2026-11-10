@@ -1,12 +1,14 @@
 # 프론트엔드 구현 계약 v1
 
-초기 작성일: 2026-10-30. 사용자가 미확정 기능 계약의 판단을 위임했다. 기본 계약을 백엔드에 구현했다. 아래 표시 모듈·개인 준비 경로·계산 및 일정 책임은 2026-11-06 코드 기준으로 갱신했다. 날짜가 명시된 과거 비교 결정은 현행 구현과 구분한다. 구현 결정과 외부 연결 제약은 [백엔드 계약](backend-contracts.md)을 함께 확인한다.
+초기 작성일: 2026-10-30. 최종 대조일: 2026-11-10. 사용자가 미확정 기능 계약의 판단을 위임했다. PR #24 (`e288a99`)의 구현을 기준으로 하며 아직 develop/main에 병합된 상태는 아니다. 날짜가 명시된 과거 비교 결정은 현행 구현과 구분한다. 구현 결정과 외부 연결 제약은 [백엔드 계약](backend-contracts.md)을 함께 확인한다.
 
 ## 연결·인증
 
 기본은 실제 /api/v1 서버다. 개발용 `npm run dev:demo` 또는 개발 환경의 `VITE_API_MODE=demo`, 별도 정적 공개 시연용 `pages-demo` 빌드에서만 시연 어댑터를 사용한다. 일반 운영 빌드는 이 어댑터를 활성화하지 않는다. 시연 데이터는 가상 공고·메모리 저장이며 새로고침 때 초기화된다. 실제 개인정보를 입력하지 않는다. 서버의 비회원 체험 세션은 이 어댑터와 별개이며 아래 로컬 비회원 체험 계약을 따른다.
 
-Access Token은 메모리, Refresh Token은 서버 HttpOnly 쿠키. GET /auth/csrf → {token}, 변경 요청 X-CSRF-TOKEN. POST /auth/login → {accessToken,user}, POST /auth/refresh → {accessToken}, POST /auth/logout → 204. GET /users/me → User. 401은 재발급 1회만 재시도하며 동시 재발급을 공유한다. 회원가입 POST /auth/signup {name,email,password} → 빈 201 응답 후 로그인한다. 소셜 /oauth2/authorization/google|kakao → /auth/callback으로 복귀하고 me 재조회로 복원한다. 토큰을 URL로 전달하지 않는다. 회원가입 이름 2~30자, 비밀번호 10자 이상·UTF-8 72바이트 이하. 소셜 연결 코드는 구현했으며 제공자 키 등록과 실제 왕복 검증은 남아 있다. 이메일 검증·재설정은 후속 구현이다.
+Access Token은 메모리, Refresh Token은 서버 HttpOnly 쿠키. GET /auth/csrf → {token}, 변경 요청 X-CSRF-TOKEN. POST /auth/login → {accessToken,user}, POST /auth/refresh → {accessToken}, POST /auth/logout → 204. GET /users/me → User. 401은 재발급 1회만 재시도하며 동시 재발급을 공유한다. 회원가입 POST /auth/signup {name,email,password} → 빈 201 응답 후 로그인한다. 소셜 /oauth2/authorization/google|kakao → /auth/callback으로 복귀하고 me 재조회로 복원한다. 토큰을 URL로 전달하지 않는다. 회원가입 이름 2~30자, 비밀번호 10자 이상·UTF-8 72바이트 이하. 소셜 로그인은 구현되어 있고 과거 로컬 실제 연동 확인 기록이 있지만 현재 브랜치·운영 환경에서의 재검증과 구분한다. 이메일 확인·재설정·탈퇴 및 프로필 변경은 [회원 기능 계약](../contracts/member-features.md)에 따라 구현했다. 기존 계정과 소셜 계정 연결·해제는 미구현이다.
+
+계정 확인 링크의 일회용 값은 `/account/confirm#verify=…`, `#reset=…`, `#delete=…`의 fragment로 전달한다. 이는 접근 토큰 전달이 아니며 사용자가 확인을 제출해야 API를 호출한다. 성공 후 fragment를 제거한다. 메일 발송 불가 환경과 Pages 시연에서는 실제 발송이 완료된 것처럼 표시하지 않는다. 비밀번호 변경·재설정·탈퇴 후 재인증하며, 일반 API의 최종 401에 세션 만료 이벤트를 받아 개인 캐시를 비운다.
 
 ## 공고
 
@@ -65,7 +67,7 @@ GET /guides → Guide[]. GET /admin/reviews → Review[]. PATCH /admin/reviews/:
 
 ## UI와 구현 경계
 
-React Router 경로는 화면설계서 기준. 서버 상태는 TanStack Query. 쿼리 키에 사용자 ID·공고 ID·검색 URL을 포함한다. 로그아웃 성공 후 개인 캐시 제거. 실패 시 입력을 유지하고 재시도. 404 경로와 인증 필요·권한 부족·빈 결과를 표시한다. 후순위 알림·캘린더·즐겨찾기는 실제 변경 없는 접근 가능한 dialog로 시작했다. 2026-11-03 로컬 구현에서는 [계정 기능 계약](../contracts/member-features.md)에 따라 실제 기능을 사용한다.
+React Router 경로는 화면설계서 기준. 서버 상태는 TanStack Query. 쿼리 키에 사용자 ID·공고 ID·검색 URL을 포함한다. 로그아웃 성공 후 개인 캐시 제거. 실패 시 입력을 유지하고 재시도. 404 경로와 인증 필요·권한 부족·빈 결과를 표시한다. 관심 공고, 비교, 가이드 검색, 알림 설정·읽음, 캘린더 내보내기, 보관·복원·메모 연결, 프로필·계정 관리는 [회원 기능 계약](../contracts/member-features.md)에 따라 실제 API 또는 명시적 시연 어댑터를 사용한다. 이전의 ‘준비 중’ 안내만 있는 단계와 구분한다. 외부 메일·푸시 제공 여부는 서버 설정과 브라우저 지원·권한에 따른다.
 
 SEED 공식 React 수동 설치와 ActionButton 공개 컴포넌트를 사용하며 브랜드 CSS는 제품 레이어에서 적용한다. 기타 UI는 semantic HTML과 제품 전용 CSS를 사용한다. 공식 스니펫 설치를 수행했다고 주장하지 않는다.
 
@@ -82,7 +84,7 @@ SEED 공식 React 수동 설치와 ActionButton 공개 컴포넌트를 사용하
 
 ## 로컬 비회원 체험
 
-- 홈과 로그인·회원가입 화면은 서버의 `/api/v1/meta`에서 체험 제공 여부를 확인한다. 사용자가 버튼을 누르면 CSRF를 포함한 `POST /api/v1/auth/trial` 요청으로 임시 일반 사용자 세션을 시작한다. 예시 공고 보기와 실제 공고에서 시작한 복귀 경로가 모두 동작한다.
+- 홈과 로그인·회원가입 화면은 서버의 `/api/v1/meta`에서 체험 제공 여부를 확인한다. `local-sample` 프로필에서만 체험 API가 활성화된다. 사용자가 버튼을 누르면 CSRF를 포함한 `POST /api/v1/auth/trial` 요청으로 TRIAL 권한의 임시 사용자 세션을 시작한다. 예시 공고 보기와 실제 공고에서 시작한 복귀 경로가 모두 동작한다.
 - 체험 기록은 소유자별 서버 데이터다. 같은 브라우저에서 새로고침해도 유지되며 마이에서 체험을 종료하면 삭제된다. 만료는 생성 후 24시간이며 만료 직후 토큰 사용을 차단하고 정리 작업이 남은 기록을 삭제한다.
 - 로그인한 일반 계정의 세션을 체험으로 교체하지 않는다. 체험은 관리자 작업, 외부 알림 채널, 이메일 인증과 계정 자격 증명 변경을 사용할 수 없다. 실제 계정 로그인과 정적 시연 빌드는 기존 방식을 사용한다.
 

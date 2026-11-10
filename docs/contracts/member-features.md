@@ -1,6 +1,6 @@
-# 공고 탐색·계정 기능의 로컬 구현 계약
+# 공고 탐색·회원 기능 구현 계약
 
-적용일은 2026-11-03이다. 사용자가 이전 Codex 작업의 기능을 현재 사이트에 새로 이식하고 준비 중이던 항목을 실제로 구현하도록 범위를 변경했다. 이 문서는 로컬 작업 브랜치에서 화면설계서 7.1의 항목별 연결 범위를 정한다.
+최초 적용일은 2026-11-03, 최종 코드 대조일은 2026-11-10이다. PR #24 (`feature/local-mobile-screens-20261103`, 구현 커밋 `e288a99`)의 계약이며 develop/main 병합·운영 검증 완료를 뜻하지 않는다. 사용자가 이전 Codex 작업의 기능을 현재 사이트에 이식하고 준비 중이던 항목을 구현하도록 범위를 변경했다. 이 문서는 화면설계서 7.1의 항목별 연결 범위를 정한다. [검토 기록](../history/entries/2026-11-10-pr24-contract-review.md)의 미해결 지적은 구현 완료 설명과 함께 확인한다.
 
 | 진입점 | 동작과 저장 경계 |
 | --- | --- |
@@ -17,9 +17,51 @@
 
 ## 데이터와 API
 
-Flyway V6~V8에서 관심 공고, 알림 설정·읽음·전송 상태, 푸시 구독, 보관 메모와 연결, 계정 링크, 공개 버전 이력을 추가한다. 기존 준비 스냅샷 형식은 유지한다. 로컬에 남아 있던 공고 가져오기 전 백업에서 현재 공식 원고와 내용·공고 ID·출처·버전이 일치하는 공개본만 복원했다.
+Flyway V6은 관심 공고·알림 설정/읽음·보관 메모/참조·계정 상태/일회용 링크·공개본 이력을, V7은 메일 설정·푸시 구독·발송 기록을, V8은 공개본 상세 비교 정보를, V9는 체험 계정 만료 시각을 추가한다. 기존 준비 스냅샷 형식은 유지한다. 과거 로컬 백업 복원은 당시 작업 환경에서 수행한 일이며 다른 개발자의 DB나 운영 DB에 같은 데이터가 들어 있다고 가정하지 않는다. 마이그레이션은 모든 과거 공고를 소급 복원하지 않으며 저장된 공개본이 없는 경우 비교 불가를 표시한다.
 
 공개 조회는 `GET /api/v1/guides`, `GET /api/v1/notices/{id}/versions`와 기존 공고 API를 사용한다. 계정 쓰기는 기존 Bearer 인증과 CSRF를 적용한다. `/api/v1/member` 아래에 `saved`, `alerts`, `alert-settings`, `channels`, `archive`, `preparations/{id}/references`, `profile`, `password`, `verify`, `closure`가 있다. 계정 링크는 `/auth/reset/request`, `/auth/reset/complete`, `/auth/verify`로 처리한다. 요청 화면에서 등록 여부를 노출하지 않는다.
+
+### API 입출력
+
+아래 경로는 `/api/v1` 기준이다. 회원 API는 본인 범위이며 변경 요청은 CSRF가 필요하다. 소유권 위반·비공개 조회는 404, 인증 실패는 401, 권한·CSRF 실패는 403을 기본으로 한다. 본문 없는 회원 변경 응답은 HTTP 200 빈 본문이며 로그아웃의 204와 구분한다.
+
+| 요청 | 입력·응답 |
+| --- | --- |
+| `GET /member/saved` | `{id,title,agency,region,endDate}[]`; 현재 공개된 항목만 반환 |
+| `PUT /member/saved/{id}`, `DELETE /member/saved/{id}` | 본문 없음. 저장 당시 버전을 유지하며 반복 저장·해제는 멱등 |
+| `GET /member/alerts` | `{settings:{enabled,leadDays,includeSaved},items:[{key,noticeId,title,label,date,read}]}` |
+| `PUT /member/alert-settings` | `{enabled,leadDays,includeSaved}`; leadDays는 1·3·7만 허용 |
+| `PUT /member/alerts/read` | `{keys:string[]}`; 최대 1,000개, 현재 본인 알림에 있는 키만 반영. UI는 500개씩 분할 |
+| `GET /member/channels` | `{emailEnabled,emailVerified,mailMode,publicKey}`; publicKey는 VAPID 공개키 또는 null |
+| `PUT /member/channels/email` | `{enabled}`; 확인되지 않은 이메일·발송 불가 환경에서 활성화는 409 |
+| `PUT /member/channels/push` | `{endpoint}`; 지원하는 HTTPS 푸시 제공자 주소만 허용, 서버 키가 없으면 503 |
+| `POST /member/channels/push/status`, `POST /member/channels/push/remove` | `{endpoint}`; 본인 구독 여부 boolean 조회 / 본인 구독 삭제 |
+| `GET /member/archive` | `{id,title,version,progress,note,archivedAt}[]` |
+| `PUT /member/archive/{id}` | `{revision,note}`; note 최대 500자. 현재 revision 대조 후 보관·메모 저장 |
+| `DELETE /member/archive/{id}` | 진행 중으로 복원하고 해당 기록을 출처로 하는 메모 연결 삭제 |
+| `GET /member/preparations/{id}/references` | 본인 대상에 연결된 본인의 보관 기록 배열 |
+| `PUT /member/preparations/{id}/references/{source}` | 본인 진행 건에 본인 보관 건을 연결. 같은 건·타인 건·잘못된 상태 거절 |
+| `GET /member/profile`, `PUT /member/profile` | 조회/반환 `{name,email,region,verified,passwordLogin,mailMode}`; 수정 입력 `{name,region}` |
+| `PUT /member/password` | `{current,password}`; 비밀번호 로그인 계정에서 현재 비밀번호 확인 후 변경 |
+| `GET /auth/mail-mode` | `{mode:'local'|'smtp'|'unavailable'}` |
+| `POST /member/verify`, `POST /member/closure/request` | 본문 없음. 이메일 확인 / 탈퇴 확인 링크 요청 |
+| `POST /auth/reset/request` | `{email}`; 비밀번호 계정만 발급 대상, 등록 여부와 무관한 빈 응답 |
+| `POST /auth/reset/complete`, `POST /auth/verify` | `{token,password}` / `{token}`; 만료·재사용 링크는 400 |
+| `POST /member/closure/complete` | `{token,confirmation:'회원 탈퇴'}`; 로그인 계정과 링크 소유자가 일치해야 함 |
+| `GET /notices/{id}/versions` | `{version,revision,facts}[]`, 최신순. 현재 준비 안내 미제공이면 과거 questions/documents/schedules도 응답에서 제외하는 현행 구현 |
+
+### 저장·권한·동작 경계
+
+- 보관은 답변·준비도·신청 기록을 완료로 바꾸지 않는다. 보관된 건은 진행 목록에서 제외하고 준비 조회·수정 경로로 편집할 수 없다. 같은 공고로 다시 시작하면 409 `ARCHIVED`로 복원을 안내한다. 현행 보관/복원은 revision을 증가시키지 않으며 보관 재요청의 메모 덮어쓰기 문제가 검토 중이다. 모든 수정에서 충돌 방지가 완성됐다고 해석하지 않는다.
+- 알림은 저장된 영구 알림 게시물이 아니라 현재 공개 공고·진행 준비·선택한 관심 공고에서 계산한다. 기본 수신은 꺼짐, 기본 범위는 3일, 관심 공고 포함 기본값은 true다. 버전 변경과 오늘부터 leadDays 뒤까지의 일정을 표시하며 날짜가 지나거나 공개가 중단되면 목록에서 빠질 수 있다. 시각 단위 예약 발송은 아니며 하루 단위로 기한을 고른다.
+- 서버 발송은 기본 최초 45초 뒤, 이후 60초 간격이다. 읽지 않은 이벤트만 처리하며 계정·이벤트·채널별 전송 상태를 저장한다. 실패는 최소 10분 간격, 최대 4회 시도한다. 404/410인 푸시 구독은 제거한다. 이 스케줄러는 LH 공고 수집을 실행하지 않는다.
+- 사이트를 열어 둔 동안의 기기 알림, 서버 Web Push, 이메일은 별개다. 사용자가 명시적으로 브라우저 권한·구독을 승인해야 하며 일반 로그아웃 시 현재 브라우저의 푸시 구독 해제를 시도한다. 서버 Web Push는 본문 없는 요청이며 서비스 워커는 개인 공고명·답변 없는 공통 문구를 표시한다.
+- 이메일 확인을 모든 로그인에 강제하지 않는다. 링크는 계정·용도별로 관리하며 1분 내 재요청은 새 링크를 만들지 않는다. 비밀번호 변경·재설정은 기존 refresh token과 계정 링크를 지우고 security_version을 올린다. 탈퇴는 개인 기록·연결·구독을 지우고 감사 기록의 참조 키를 위한 비식별 비활성 계정만 남긴다.
+- 체험 API는 `local-sample`에서만 활성화되며 역할은 TRIAL, 유효 시간은 24시간이다. 체험 종료·만료 정리 시 계정과 준비 기록을 삭제한다. 외부 채널·메일 확인·비밀번호·탈퇴 링크 기능은 USER/ADMIN만 허용한다. 기존 계정과 소셜 계정 연결 기능은 없다.
+
+### 시연과 실제 연동의 차이
+
+Pages/`dev:demo`는 메모리 어댑터다. 관심 저장·보관·프로필·알림 설정과 캘린더 파일 생성은 체험할 수 있으나 외부 로그인, 실제 메일·푸시, 서버 영속 저장은 제공하지 않는다. 시연 알림은 신청 접수 마감 중심으로 단순화되어 서버의 전체 공식 일정·버전 변경 알림과 같지 않다. 이메일·비밀번호·탈퇴 처리는 실제 API 모드에서 확인한다. 캘린더 파일은 다운로드 복사본이며 기관 신청이나 캘린더 자동 동기화가 아니다.
 
 ## 이 컴퓨터의 발송 방식
 
