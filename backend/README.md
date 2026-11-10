@@ -1,6 +1,6 @@
 # 백엔드
 
-최종 수정일: 2026-11-01. GitHub Pages의 [공개 시연](https://cho-mi-kim.github.io/jibro/)은 이 서버를 사용하지 않습니다. 실제 인증·공고 수집·DB 저장을 확인하려면 아래 환경을 실행합니다.
+최종 수정일: 2026-11-10. GitHub Pages의 [공개 시연](https://cho-mi-kim.github.io/jibro/)과 로컬 프론트엔드 `dev:demo` 모드는 이 서버를 사용하지 않습니다. 실제 인증·공고 수집·DB 저장을 확인하려면 아래 환경을 실행합니다. 시연/실제 서버 모드의 실행·전환·동시 실행 방법은 [개발 시작 안내](../docs/getting-started.md#6-실행-모드-선택과-프론트백엔드-실행)에 정리했습니다.
 
 Spring Boot 4.1.2 · JDK 17 · Gradle Wrapper 8.14.6 · PostgreSQL 17 · JPA · Flyway · OpenFeign Querydsl 7.7.
 
