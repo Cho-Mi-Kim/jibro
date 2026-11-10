@@ -25,8 +25,8 @@ public class PreparationService {
     }
 
     public List<Preparation> list(String user) {
-        return db.query("SELECT snapshot::text FROM preparation WHERE user_id=? ORDER BY updated_at DESC,id", (rs, n) ->
-                decorate(json.readValue(rs.getString(1), Snapshot.class).preparation()), UUID.fromString(user));
+        return db.query("SELECT snapshot::text FROM preparation WHERE user_id=? AND archived_at IS NULL ORDER BY updated_at DESC,id", (rs, n) ->
+            decorate(json.readValue(rs.getString(1), Snapshot.class).preparation()), UUID.fromString(user));
     }
 
     public Preparation get(String user, UUID id) {
@@ -37,8 +37,12 @@ public class PreparationService {
         // Serialize starts for one owner before checking the unique owner/notice key.
         if (db.queryForList("SELECT id FROM app_user WHERE id=? FOR UPDATE", UUID.fromString(user)).isEmpty())
             throw ApiException.notFound();
-        var existing = db.queryForList("SELECT id FROM preparation WHERE user_id=? AND notice_id=?", UUID.fromString(user), noticeId);
-        if (!existing.isEmpty()) return get(user, (UUID) existing.get(0).get("id"));
+        var existing = db.queryForList("SELECT id,archived_at FROM preparation WHERE user_id=? AND notice_id=?", UUID.fromString(user), noticeId);
+        if (!existing.isEmpty()) {
+            if (existing.get(0).get("archived_at") != null)
+                throw new ApiException(409, "ARCHIVED", "보관함에서 이 준비 건을 복원해 주세요.");
+            return get(user, (UUID) existing.get(0).get("id"));
+        }
         notices.lock(noticeId);
         Notice notice = notices.notice(noticeId);
         if (!notice.canStart() || notice.version() != version) throw ApiException.conflict();
@@ -46,7 +50,7 @@ public class PreparationService {
         Snapshot snap = fresh(notice, content);
         Preparation p = snap.preparation();
         db.update("INSERT INTO preparation(id,user_id,notice_id,notice_version,snapshot) VALUES (?,?,?,?,?::jsonb)",
-                UUID.fromString(p.id), UUID.fromString(user), noticeId, version, json.writeValueAsString(snap));
+            UUID.fromString(p.id), UUID.fromString(user), noticeId, version, json.writeValueAsString(snap));
         return p;
     }
 
@@ -65,7 +69,8 @@ public class PreparationService {
             var d = new Document();
             d.id = template.id();
             d.title = template.title();
-            d.necessity = template.conditionQuestionId() == null ? "REQUIRED" : "UNKNOWN";
+            d.necessity = PreparationRules.necessity(template.conditionQuestionId(),
+                template.conditionAnswerValues() == null ? List.of("YES") : template.conditionAnswerValues(), p.answers);
             d.method = template.method();
             d.issuer = template.issuer();
             d.issueUrl = template.issueUrl();
@@ -82,7 +87,7 @@ public class PreparationService {
             s.evidence = template.evidence();
             p.schedules.add(s);
         }
-        calculate(p);
+        applyAssessment(p);
         return new Snapshot(p, rules, ruleValues);
     }
 
@@ -109,17 +114,14 @@ public class PreparationService {
                 d.note = prior.note;
                 d.state = prior.state == DocumentState.READY ? DocumentState.RECHECK : prior.state;
             });
-            String rule = next.rules().get(d.id);
-            if (rule != null) {
-                String answer = p.answers.getOrDefault(rule, "UNKNOWN");
-                d.necessity = answer.equals("UNKNOWN") ? "UNKNOWN" : next.valuesFor(d.id).contains(answer) ? "CONDITIONAL" : "NOT_APPLICABLE";
-            }
+            d.necessity = PreparationRules.necessity(next.rules().get(d.id), next.valuesFor(d.id), p.answers);
         }
-        for (var schedule : p.schedules) old.schedules.stream()
+        for (var schedule : p.schedules)
+            old.schedules.stream()
                 .filter(prior -> prior.id.equals(schedule.id) && prior.date.equals(schedule.date) && prior.title.equals(schedule.title))
                 .findFirst().ifPresent(prior -> schedule.recorded = prior.recorded);
         db.update("INSERT INTO preparation_history(preparation_id,notice_version,snapshot) VALUES (?,?,?::jsonb)",
-                id, old.version, json.writeValueAsString(previous));
+            id, old.version, json.writeValueAsString(previous));
         db.update("UPDATE preparation SET notice_version=? WHERE id=?", version, id);
         return save(next);
     }
@@ -132,14 +134,14 @@ public class PreparationService {
             throw new IllegalArgumentException();
         for (var question : p.questions) {
             if (answers.containsKey(question.id()) && question.answerOptions().stream()
-                    .noneMatch(option -> option.value().equals(answers.get(question.id())))) throw new IllegalArgumentException();
+                .noneMatch(option -> option.value().equals(answers.get(question.id()))))
+                throw new IllegalArgumentException();
         }
         p.answers = new LinkedHashMap<>(answers);
         for (var d : p.documents) {
             String question = snap.rules().get(d.id);
             if (question == null) continue;
-            String a = p.answers.getOrDefault(question, "UNKNOWN");
-            String next = a.equals("UNKNOWN") ? "UNKNOWN" : snap.valuesFor(d.id).contains(a) ? "CONDITIONAL" : "NOT_APPLICABLE";
+            String next = PreparationRules.necessity(question, snap.valuesFor(d.id), p.answers);
             if (!next.equals(d.necessity)) {
                 d.state = d.state == DocumentState.READY ? DocumentState.RECHECK : DocumentState.UNCHECKED;
                 d.necessity = next;
@@ -167,8 +169,8 @@ public class PreparationService {
     }
 
     private Snapshot load(String user, UUID id, boolean lock) {
-        return db.query("SELECT snapshot::text FROM preparation WHERE user_id=? AND id=?" + (lock ? " FOR UPDATE" : ""),
-                (rs, n) -> json.readValue(rs.getString(1), Snapshot.class), UUID.fromString(user), id).stream().findFirst().orElseThrow(ApiException::notFound);
+        return db.query("SELECT snapshot::text FROM preparation WHERE user_id=? AND id=? AND archived_at IS NULL" + (lock ? " FOR UPDATE" : ""),
+            (rs, n) -> json.readValue(rs.getString(1), Snapshot.class), UUID.fromString(user), id).stream().findFirst().orElseThrow(ApiException::notFound);
     }
 
     private Snapshot editable(String user, UUID id, int revision) {
@@ -187,42 +189,23 @@ public class PreparationService {
             if (ex.status != 404) throw ex;
             p.guideState = "CHANGE_REVIEW";
         }
-        return calculate(p);
+        return applyAssessment(p);
     }
 
     private Preparation save(Snapshot snap) {
         Preparation p = snap.preparation();
         p.revision++;
-        calculate(p);
+        applyAssessment(p);
         db.update("UPDATE preparation SET revision=?,snapshot=?::jsonb,updated_at=now() WHERE id=?", p.revision, json.writeValueAsString(snap), UUID.fromString(p.id));
         return p;
     }
 
-    public static Preparation calculate(Preparation p) {
-        long known = p.questions.stream().filter(q -> !q.needsFollowUp(p.answers.get(q.id()))).count();
-        var relevant = p.documents.stream().filter(d -> !d.necessity.equals("NOT_APPLICABLE")).toList();
-        long ready = relevant.stream().filter(d -> d.state == DocumentState.READY && !d.necessity.equals("UNKNOWN")).count();
-        long recorded = p.schedules.stream().filter(s -> s.recorded).count();
-        p.progress = (int) Math.round((p.questions.isEmpty() ? 0 : 30.0 * known / p.questions.size()) + (relevant.isEmpty() ? 0 : 50.0 * ready / relevant.size())
-                + (p.schedules.isEmpty() ? 0 : 20.0 * recorded / p.schedules.size()));
-        // Rounding must not turn an unfinished checklist into a completed house.
-        if (known < p.questions.size() || ready < relevant.size() || recorded < p.schedules.size())
-            p.progress = Math.min(99, p.progress);
-        p.houseStage = p.progress < 20 ? 1 : p.progress < 40 ? 2 : p.progress < 70 ? 3 : p.progress < 100 ? 4 : 5;
-        p.warnings = new ArrayList<>(p.questions.stream().filter(q -> q.needsFollowUp(p.answers.get(q.id()))).map(Question::title).toList());
-        String prefix = "/preparations/" + p.id;
-        var recheck = relevant.stream().filter(d -> d.state == DocumentState.RECHECK).findFirst();
-        var unready = relevant.stream().filter(d -> d.state != DocumentState.READY || d.necessity.equals("UNKNOWN")).findFirst();
-        if (!p.guideState.equals("AVAILABLE")) {
-            p.warnings.add("공고 기준이 변경되었거나 안내를 재검수 중입니다. 기존 기록은 보존됩니다.");
-            p.nextAction = new NextAction("공고 변경 내용 확인하기", "새 기준 확인 전에는 준비 기록을 수정할 수 없어요.", "/notices/" + p.noticeId);
-        } else if (recheck.isPresent())
-            p.nextAction = new NextAction("서류 다시 확인하기", "조건 변경으로 재확인이 필요한 서류가 있어요.", prefix + "/documents");
-        else if (!p.warnings.isEmpty())
-            p.nextAction = new NextAction("확인하지 못한 조건 살펴보기", "모름·미입력 항목이 남아 있어요.", prefix + "/conditions/edit");
-        else if (unready.isPresent())
-            p.nextAction = new NextAction(unready.get().title + " 준비하기", "아직 준비가 끝나지 않은 서류예요.", prefix + "/documents");
-        else p.nextAction = new NextAction("신청 일정과 기록 확인하기", "공식 절차와 내 기록을 함께 확인하세요.", prefix + "/schedule");
+    private Preparation applyAssessment(Preparation p) {
+        var result = PreparationRules.assess(p);
+        p.progress = result.progress();
+        p.houseStage = result.houseStage();
+        p.warnings = result.warnings();
+        p.nextAction = result.nextAction();
         return p;
     }
 }

@@ -1,0 +1,16 @@
+.house {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+.brick,
+.structure {
+    transition: opacity 180ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+    .brick,
+    .structure {
+        transition: none;
+    }
+}

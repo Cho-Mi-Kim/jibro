@@ -1,13 +1,23 @@
+import { ForegroundAlerts } from '../features/member/ForegroundAlerts';
+import { AlertSettingsControl } from '../features/member/AlertSettingsControl';
 import { cx } from '../shared/styles/classes';
 import { useEffect, useRef, type ReactNode } from 'react';
-import { Link, NavLink, Navigate, useLocation } from 'react-router';
+import {
+    Link,
+    NavLink,
+    Navigate,
+    useLocation,
+    useNavigate,
+    useNavigationType,
+} from 'react-router';
 import { useSession } from './useSession';
 import { demoMode } from '../shared/api/transport';
 import { Icon, type IconName } from '../shared/ui/Icon';
-import { Soon } from '../shared/ui/ui';
 import { State } from '../shared/ui/ui';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
+import { getPreparationTab } from '../features/preparation/preparationTabRoutes';
+import { getHomeReturn } from '../shared/navigation/useNoticeEntryState';
 const tabs: [string, string, IconName][] = [
     ['/', '홈', 'home'],
     ['/notices', '공고', 'file'],
@@ -38,13 +48,34 @@ export function Shell({ children }: { children: ReactNode }) {
         staleTime: Infinity,
     });
     const location = useLocation();
+    const navigate = useNavigate();
+    const navigationType = useNavigationType();
     const { user } = useSession();
-    const focused = /\/conditions(?:\/edit)?$/.test(location.pathname);
+    const alertsHeader = location.pathname === '/alerts' && !!user;
+    const inPreparationTab = !!getPreparationTab(location);
+    const focused = /\/conditions\/(?:edit|result)$/.test(location.pathname);
+    const resultHeader =
+        !!user && location.pathname.endsWith('/conditions/result');
+    const homeReturn = getHomeReturn(location.state);
     const main = useRef<HTMLElement>(null);
+    const previousTab = useRef(false);
+    const previousPath = useRef<string | null>(null);
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (
+            previousPath.current === location.pathname &&
+            previousTab.current === inPreparationTab
+        )
+            return;
+        const returningFromAlerts =
+            previousPath.current === '/alerts' && navigationType === 'POP';
+        previousPath.current = location.pathname;
+        const switchingTabs = previousTab.current && inPreparationTab;
+        previousTab.current = inPreparationTab;
+        if (switchingTabs && main.current?.contains(document.activeElement))
+            return;
+        if (!returningFromAlerts) window.scrollTo(0, 0);
         main.current?.focus({ preventScroll: true });
-    }, [location.pathname]);
+    }, [location.pathname, inPreparationTab, navigationType]);
     return (
         <>
             <a
@@ -58,36 +89,118 @@ export function Shell({ children }: { children: ReactNode }) {
             >
                 본문으로 바로가기
             </a>
+            <ForegroundAlerts />
             <header
+                data-guide-header={location.pathname === '/guide' || undefined}
+                data-notice-header={
+                    location.pathname === '/notices' || undefined
+                }
                 className={cx(
                     'topbar' +
+                        (location.pathname === '/notices'
+                            ? ' notice-sticky-header'
+                            : '') +
                         (focused ? ' focus-header' : '') +
-                        (!['/', '/my'].includes(location.pathname)
+                        (!inPreparationTab &&
+                        ![
+                            '/',
+                            '/my',
+                            '/notices',
+                            '/preparations',
+                            '/guide',
+                        ].includes(location.pathname) &&
+                        !alertsHeader &&
+                        !resultHeader
                             ? ' mobile-header-hidden'
                             : ''),
                 )}
             >
-                <Link className={cx('brand')} to="/">
-                    <Icon name="home" />
-                    집으로
-                </Link>
+                {resultHeader ? (
+                    <div className={cx('brand screen-title')}>
+                        <Link
+                            to={
+                                homeReturn ??
+                                location.pathname.replace(
+                                    /\/conditions\/result$/,
+                                    '',
+                                )
+                            }
+                            replace={!!homeReturn}
+                            aria-label="이전 화면으로"
+                        >
+                            <Icon name="back" />
+                        </Link>
+                        <h1>내 조건 확인 결과</h1>
+                    </div>
+                ) : alertsHeader ? (
+                    <div className={cx('brand screen-title')}>
+                        <button
+                            type="button"
+                            aria-label="이전 화면으로"
+                            onClick={() => {
+                                // A push has a predecessor; the router index also survives reloads.
+                                if (
+                                    navigationType === 'PUSH' ||
+                                    window.history.state?.idx > 0
+                                ) {
+                                    navigate(-1);
+                                } else {
+                                    navigate('/my', { replace: true });
+                                }
+                            }}
+                        >
+                            <Icon name="back" />
+                        </button>
+                        <h1>알림</h1>
+                    </div>
+                ) : (
+                    <Link className={cx('brand')} to="/">
+                        <Icon name="home" /> 집으로
+                    </Link>
+                )}
                 {focused ? (
-                    <Link to="/preparations">나가기</Link>
+                    !resultHeader && <Link to="/preparations">나가기</Link>
                 ) : (
                     <>
                         <Navigation desktop />
                         <div className={cx('header-actions')}>
-                            <span className={cx('notification')}>
-                                <Icon name="bell" />
-                                <Soon label="알림" />
-                            </span>
-                            <Link
-                                className={cx('avatar')}
-                                to="/my"
-                                aria-label="내 계정"
-                            >
-                                {user?.name.slice(0, 1) ?? <Icon name="user" />}
-                            </Link>
+                            {alertsHeader ? (
+                                <AlertSettingsControl />
+                            ) : (
+                                <>
+                                    <Link
+                                        className={cx('notification')}
+                                        aria-label="알림 확인"
+                                        to="/alerts"
+                                    >
+                                        <Icon name="bell" />
+                                    </Link>
+                                    {location.pathname === '/my' ? (
+                                        <Link
+                                            className={cx('avatar my-settings')}
+                                            to="/settings"
+                                            aria-label="내 정보 관리"
+                                            title="내 정보 관리"
+                                        >
+                                            <Icon name="settings" />
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            className={cx('avatar')}
+                                            to="/my"
+                                            aria-label="내 계정"
+                                        >
+                                            {user?.trial ? (
+                                                <Icon name="user" />
+                                            ) : (
+                                                (user?.name.slice(0, 1) ?? (
+                                                    <Icon name="user" />
+                                                ))
+                                            )}
+                                        </Link>
+                                    )}
+                                </>
+                            )}
                         </div>
                     </>
                 )}
@@ -98,7 +211,7 @@ export function Shell({ children }: { children: ReactNode }) {
                     시 초기화
                 </div>
             )}
-            {!demoMode && meta.data?.sampleData && (
+            {!demoMode && !user?.trial && meta.data?.sampleData && (
                 <div className={cx('demo-banner')} role="status">
                     로컬 개발 환경 · 예시 공고는 실제 신청에 사용할 수 없습니다.
                     실제 공고는 공식 원문을 확인하세요.
@@ -134,7 +247,9 @@ export function Protected({
             <Navigate
                 to={
                     '/login?returnTo=' +
-                    encodeURIComponent(location.pathname + location.search)
+                    encodeURIComponent(
+                        location.pathname + location.search + location.hash,
+                    )
                 }
                 replace
             />

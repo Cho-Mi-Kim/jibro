@@ -1,6 +1,6 @@
 # 프론트엔드
 
-React·TypeScript·Vite, React Router, TanStack Query, CSS Modules, SEED Design을 사용합니다. VS Code에서 이 폴더를 엽니다. 최종 수정일: 2026-11-01.
+React·TypeScript·Vite, React Router, TanStack Query, CSS Modules, SEED Design을 사용합니다. VS Code에서 이 폴더를 엽니다. 최종 수정일: 2026-11-10.
 
 [공개 시연](https://cho-mi-kim.github.io/jibro/) · [팀원 테스트 안내](../docs/github-pages-demo.md) · [개발 환경 설정](../docs/getting-started.md) · [코딩 컨벤션](../docs/conventions/coding-conventions.md)
 
@@ -16,6 +16,8 @@ Node.js 24를 준비한 뒤 **frontend 폴더**에서 `npm ci`로 의존성을 �
 | Pages 시연 산출물   | `npm run build:pages`             | `dist/` · 가상 API·해시 라우팅·`/jibro/` 경로     |
 
 각 빌드는 같은 `dist/`를 갱신합니다. 시연 데이터는 새로고침 시 초기화되며 서버 오류가 발생했다고 자동 시연 모드로 전환하지 않습니다. 일반 운영 빌드에서는 시연이 활성화되지 않고, 전용 `pages-demo` 빌드에서만 허용됩니다.
+
+시연 모드에서는 Google·카카오 로그인 버튼이 숨겨집니다. 로그인 버튼과 실제 인증 흐름은 서버 모드의 `/login`에서 확인합니다. 5173의 서버 모드와 5174의 시연 모드를 동시에 실행할 수 있으며 로그인·기록은 공유되지 않습니다. 환경 변수에 `VITE_API_MODE=demo`를 직접 지정했다면 실제 서버 모드로 전환할 때 제거하거나 `server`로 변경한 뒤 재시작합니다. 루트 기준 명령과 종료 방법은 [실행 모드 안내](../docs/getting-started.md#6-실행-모드-선택과-프론트백엔드-실행)를 따릅니다.
 
 ### 실제 백엔드 연결
 

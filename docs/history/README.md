@@ -59,6 +59,23 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 <!-- PROJECT-HISTORY:START -->
 | 기록일 | 내용 | 기록 상태 |
 | --- | --- | --- |
+| 확인 필요 | [알림 화면의 설정 팝업](entries/2026-11-05-alert-settings-dialog.md) | 확인 필요 |
+| 확인 필요 | [마이 프로필과 준비 건수](entries/2026-11-05-my-profile-summary.md) | 확인 필요 |
+| 확인 필요 | [공고 카드 펼침과 상단 이동 (2026-11-05)](entries/2026-11-05-notice-card-expand.md) | 확인 필요 |
+| 확인 필요 | [실제 코드 기반 개념 모델 HTML](entries/2026-11-06-code-concept-model.md) | 확인 필요 |
+| 2026-11-10 | [PR #24 구현 계약 대조와 병합 전 검토](entries/2026-11-10-pr24-contract-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-06 | [현재 코드 기반 리팩토링 후보 검토](entries/2026-11-06-refactoring-candidates.md) | 9개 후보 구현·검증 완료. 후속 사용자 재시작 요청으로 최신 서버까지 적용 완료. |
+| 2026-11-06 | [로컬 모바일 구현을 팀 검토용 브랜치로 공유](entries/2026-11-06-team-review-upload.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-04 | [로그인 없이 신청 준비를 체험하는 로컬 세션](entries/2026-11-04-guest-trial.md) | 실행 근거 정리·담당자 검토 전 |
+| 2026-11-04 | [모바일 홈 조정과 참고 이미지 기반 벽돌 진행도](entries/2026-11-04-mobile-home-brick-progress.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-04 | [공고 상세 시안 반영과 표시 책임 분리](entries/2026-11-04-notice-detail-reference.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-04 | [참고 시안에 맞춘 공고 목록 화면 정리](entries/2026-11-04-notice-list-reference.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-04 | [내 준비 개요 이미지 반영과 표시 모듈 분리](entries/2026-11-04-preparation-overview-reference.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-04 | [선택한 공고 기준으로 홈 보기](entries/2026-11-04-selected-notice-home.md) | 실행 근거 정리·담당자 검토 전 |
+| 2026-11-03 | [Windows에서 GitHub 사본을 실행하고 공고 목록 확인](entries/2026-11-03-local-windows-run.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-03 | [공고 탐색에서 개인 준비 기록까지 이어지는 흐름](entries/2026-11-03-miro-preparation-workflow.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-03 | [모바일 화면 10종과 로컬 브라우저 검증](entries/2026-11-03-mobile-screen-references.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-03 | [준비 중 메뉴를 현재 사이트의 실제 기능으로 전환](entries/2026-11-03-record-based-feature-port.md) | 실행 근거 정리·담당자 검토 전 |
 | 2026-11-01 | [GitHub Pages 팀 화면 테스트용 시연 배포](entries/2026-11-01-github-pages-demo.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-01 | [LH 원문 준비 안내 검수와 조건부 서류 연결](entries/2026-11-01-official-guidance-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-01 | [실제 LH 공고 기반 공고 찾기 전환](entries/2026-11-01-official-notice-catalog.md) | 근거 정리·담당자 검토 전 |

@@ -1,0 +1,176 @@
+.card {
+    position: relative;
+    min-width: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+}
+.header {
+    padding-right: var(--target);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.header h2 {
+    margin: 0;
+    font-size: 1.125rem;
+}
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20px 76px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    min-height: 64px;
+}
+.row::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--line);
+}
+.row:first-child::after {
+    top: 50%;
+}
+.row:last-child::after {
+    bottom: 50%;
+}
+.marker {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c8bdb6;
+    border-radius: 50%;
+    background: var(--surface);
+}
+.marker svg {
+    width: 14px;
+    height: 14px;
+}
+.row[data-tone='done'] .marker,
+.row[data-tone='active'] .marker {
+    border-color: var(--brand);
+    background: var(--brand);
+    color: white;
+}
+.row[data-tone='active'] .marker {
+    box-shadow: 0 0 0 4px var(--soft);
+}
+.date {
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 650;
+    white-space: nowrap;
+}
+.date > span {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+}
+.date small {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+.row[data-tone='active'] .date {
+    color: var(--brand);
+}
+.title {
+    font-size: 0.875rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.badge {
+    padding: 3px 7px;
+    border-radius: 99px;
+    background: #f0f0f1;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 650;
+    white-space: nowrap;
+}
+.row[data-tone='active'] .badge,
+.row:first-child[data-tone='done'] .badge {
+    background: var(--soft);
+    color: var(--brand);
+}
+.checked,
+.note {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+.checked {
+    margin: 0 0 0.5rem;
+}
+.sources[open] {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+}
+.sources > summary {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--target);
+    height: var(--target);
+    color: var(--muted);
+    list-style: none;
+    cursor: pointer;
+}
+.sourcesTitle {
+    margin: 0 0 0.75rem;
+    color: var(--brand);
+    font-size: 0.875rem;
+}
+.sources > summary::-webkit-details-marker {
+    display: none;
+}
+.sources > summary svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.sources[open] > summary svg {
+    transform: rotate(180deg);
+}
+.source {
+    margin: 0.75rem 0;
+}
+.source h3,
+.source p {
+    margin: 0 0 4px;
+    font-size: 0.875rem;
+}
+.sources .evidence {
+    margin: 0;
+    padding: 0;
+}
+.note {
+    margin: 1rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+}
+@media (max-width: 1023px) {
+    .card {
+        order: 2;
+        margin-bottom: 0;
+    }
+}

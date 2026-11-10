@@ -1,0 +1,106 @@
+.root {
+    position: relative;
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+.label {
+    font-size: 0.875rem;
+}
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--target);
+    padding: 10px 12px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+}
+.trigger > span {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.trigger > svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+.trigger[aria-expanded='true'] > svg {
+    transform: rotate(180deg);
+}
+.list {
+    position: absolute;
+    z-index: 40;
+    top: calc(100% + 6px);
+    inset-inline: 0;
+    display: grid;
+    gap: 4px;
+    max-height: min(320px, 40dvh);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 6px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    box-shadow: 0 6px 20px rgb(38 38 38 / 12%);
+}
+.option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--target);
+    padding: 12px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    text-align: left;
+}
+.option > span:first-child {
+    flex: 1;
+    min-width: 0;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.option[aria-selected='true'] {
+    font-weight: 650;
+}
+.option:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: -2px;
+}
+@media (hover: hover) {
+    .option:hover {
+        background: var(--canvas);
+    }
+}
+.check {
+    display: grid;
+    place-items: center;
+    flex: 0 0 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+[aria-selected='true'] > .check {
+    background: var(--ink);
+    color: #fff;
+}
+.check > svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.5;
+}

@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
+import org.springframework.core.env.Environment;
+import org.jibro.global.common.ApiException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -18,8 +20,10 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     private final AuthService service;
     private final boolean secure;
+    private final boolean trialEnabled;
 
-    public AuthController(AuthService service, @Value("${app.auth.secure-cookie:true}") boolean secure) {
+    public AuthController(AuthService service, @Value("${app.auth.secure-cookie:true}") boolean secure, Environment environment) {
+        this.trialEnabled = environment.matchesProfiles("local-sample");
         this.service = service;
         this.secure = secure;
     }
@@ -48,6 +52,12 @@ public class AuthController {
     @PostMapping("/auth/login")
     Session login(@Valid @RequestBody Login body, HttpServletResponse response) {
         return session(service.login(body.email(), body.password()), response);
+    }
+
+    @PostMapping("/auth/trial")
+    Session trial(@CookieValue(name = "jibro_refresh", required = false) String token, HttpServletResponse response) {
+        if (!trialEnabled) throw ApiException.notFound();
+        return session(service.startTrial(token), response);
     }
 
     @PostMapping("/auth/refresh")

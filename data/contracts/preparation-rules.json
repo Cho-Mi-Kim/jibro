@@ -1,0 +1,69 @@
+[
+  {
+    "name": "partially-prepared",
+    "preparation": {
+      "id": "p", "noticeId": "n", "guideState": "AVAILABLE",
+      "questions": [{"id":"q1","title":"거주","reason":""},{"id":"q2","title":"소득","reason":""}],
+      "answers": {"q1":"YES"},
+      "documents": [{"id":"d1","title":"등본","necessity":"REQUIRED","state":"READY"},{"id":"d2","title":"소득 서류","necessity":"REQUIRED","state":"UNCHECKED"}],
+      "schedules": [{"id":"s1","recorded":false}]
+    },
+    "expected": {"progress":40,"houseStage":3,"warnings":["소득"],"nextAction":{"label":"확인하지 못한 조건 살펴보기","reason":"모름·미입력 항목이 남아 있어요.","path":"/preparations/p/conditions/edit"}}
+  },
+  {
+    "name": "recheck-before-unanswered",
+    "preparation": {
+      "id":"p","noticeId":"n","guideState":"AVAILABLE",
+      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{},
+      "documents":[{"id":"d","title":"등본","necessity":"CONDITIONAL","state":"RECHECK"}],
+      "schedules":[{"id":"s","recorded":false}]
+    },
+    "expected":{"progress":0,"houseStage":1,"warnings":["거주"],"nextAction":{"label":"서류 다시 확인하기","reason":"조건 변경으로 재확인이 필요한 서류가 있어요.","path":"/preparations/p/documents"}}
+  },
+  {
+    "name":"unavailable-before-recheck",
+    "preparation":{
+      "id":"p","noticeId":"n","guideState":"REVIEWING",
+      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{},
+      "documents":[{"id":"d","title":"등본","necessity":"CONDITIONAL","state":"RECHECK"}],
+      "schedules":[{"id":"s","recorded":false}]
+    },
+    "expected":{"progress":0,"houseStage":1,"warnings":["거주","공고 기준이 변경되었거나 안내를 재검수 중입니다. 기존 기록은 보존됩니다."],"nextAction":{"label":"공고 변경 내용 확인하기","reason":"새 기준 확인 전에는 준비 기록을 수정할 수 없어요.","path":"/notices/n"}}
+  },
+  {
+    "name":"complete-with-excluded-document",
+    "preparation":{
+      "id":"p","noticeId":"n","guideState":"AVAILABLE",
+      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{"q":"NO"},
+      "documents":[{"id":"d1","title":"등본","necessity":"REQUIRED","state":"READY"},{"id":"d2","title":"소득 서류","necessity":"NOT_APPLICABLE","state":"RECHECK"}],
+      "schedules":[{"id":"s","recorded":true}]
+    },
+    "expected":{"progress":100,"houseStage":5,"warnings":[],"nextAction":{"label":"신청 일정 확인하기","reason":"공식 절차와 일정을 확인하세요.","path":"/preparations/p/schedule"}}
+  },
+  {
+    "name":"unknown-document-is-not-ready",
+    "preparation":{
+      "id":"p","noticeId":"n","guideState":"AVAILABLE",
+      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{"q":"YES"},
+      "documents":[{"id":"d","title":"등본","necessity":"UNKNOWN","state":"READY"}],
+      "schedules":[{"id":"s","recorded":true}]
+    },
+    "expected":{"progress":50,"houseStage":3,"warnings":[],"nextAction":{"label":"등본 준비하기","reason":"아직 준비가 끝나지 않은 서류예요.","path":"/preparations/p/documents"}}
+  },
+  {
+    "name":"option-requires-follow-up",
+    "preparation":{
+      "id":"p","noticeId":"n","guideState":"AVAILABLE",
+      "questions":[{"id":"q","title":"제출 확인","reason":"","options":[{"value":"PENDING","label":"확인 중","requiresFollowUp":true},{"value":"DONE","label":"확인 완료"}]}],
+      "answers":{"q":"PENDING"},
+      "documents":[{"id":"d","title":"등본","necessity":"REQUIRED","state":"READY"}],
+      "schedules":[{"id":"s","recorded":true}]
+    },
+    "expected":{"progress":70,"houseStage":4,"warnings":["제출 확인"],"nextAction":{"label":"확인하지 못한 조건 살펴보기","reason":"모름·미입력 항목이 남아 있어요.","path":"/preparations/p/conditions/edit"}}
+  },
+  {
+    "name":"empty-groups-do-not-add-progress",
+    "preparation":{"id":"p","noticeId":"n","guideState":"AVAILABLE","questions":[],"answers":{},"documents":[],"schedules":[]},
+    "expected":{"progress":0,"houseStage":1,"warnings":[],"nextAction":{"label":"신청 일정 확인하기","reason":"공식 절차와 일정을 확인하세요.","path":"/preparations/p/schedule"}}
+  }
+]

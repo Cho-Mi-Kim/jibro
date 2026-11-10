@@ -1,97 +1,30 @@
-import { displayDate } from '../shared/ui/housingHelpers';
 import { cx } from '../shared/styles/classes';
-import { guideLabels } from '../shared/ui/helpers';
-import { useState, useSyncExternalStore, type FormEvent } from 'react';
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
-import { useSession } from '../app/useSession';
-import {
-    Button,
-    Card,
-    EvidenceLink,
-    Heading,
-    State,
-    Soon,
-} from '../shared/ui/ui';
-import {
-    Deadline,
-    Disc,
-    GuideBadge,
-    NoticeDates,
-    OfficialLink,
-    Status,
-} from '../shared/ui/HousingUI';
+import { Button, Card, State } from '../shared/ui/ui';
 import { Icon } from '../shared/ui/Icon';
-import type { Notice } from '../features/housing/types';
-const statusLabels = {
-    OPEN: '접수 중',
-    UPCOMING: '접수 예정',
-    CLOSED: '접수 종료',
-    UNKNOWN: '일정 확인 필요',
-};
-export function NoticeCard({ notice: n }: { notice: Notice }) {
-    return (
-        <article className={cx('panel notice-card')}>
-            <div className={cx('row')}>
-                <Status tone={n.status === 'OPEN' ? 'red' : 'gray'}>
-                    {statusLabels[n.status]}
-                </Status>
-                <GuideBadge state={n.guideState} />
-            </div>
-            <div className={cx('notice-card-main')}>
-                <div>
-                    <Link
-                        className={cx('card-title')}
-                        to={'/notices/' + n.id}
-                        aria-label={n.title + ' ↗'}
-                    >
-                        {n.title}
-                    </Link>
-                    <p className={cx('muted')}>
-                        {n.agency} | {n.region} | {n.type}
-                    </p>
-                </div>
-                <span className={cx('bookmark-action')}>
-                    <Icon name="bookmark" />
-                    <Soon label="관심 공고" />
-                </span>
-                <Link
-                    to={'/notices/' + n.id}
-                    aria-label={n.title + ' 상세 보기'}
-                >
-                    <Icon name="arrow" />
-                </Link>
-            </div>
-            <NoticeDates notice={n} />
-            {n.evidence.url && (
-                <div className={cx('notice-source row')}>
-                    <small>원문 확인 {displayDate(n.evidence.checkedAt)}</small>
-                    <OfficialLink url={n.evidence.url}>
-                        공식 원문 보기
-                    </OfficialLink>
-                </div>
-            )}
-        </article>
-    );
-}
-function subscribeWidth(onChange: () => void) {
-    const media = window.matchMedia?.('(min-width: 1024px)');
-    media?.addEventListener('change', onChange);
-    return () => media?.removeEventListener('change', onChange);
-}
-function desktopSnapshot() {
-    return window.matchMedia?.('(min-width: 1024px)').matches ?? false;
-}
+import { NoticeCard } from '../features/housing/NoticeCard';
+import { NoticeSort } from '../features/housing/NoticeSort';
+import { NoticeFilters } from '../features/housing/NoticeFilters';
+import styles from '../features/housing/NoticeList.module.css';
+import { useNoticeToolbarOffset } from '../features/housing/useNoticeToolbarOffset';
+import { useNoticeToolbarReveal } from '../features/housing/useNoticeToolbarReveal';
 export function NoticesPage() {
-    const desktop = useSyncExternalStore(subscribeWidth, desktopSnapshot);
-    const [openFilter, setOpenFilter] = useState<string | null>(null);
+    const controls = useRef<HTMLDivElement>(null);
+    useNoticeToolbarOffset(controls);
     const [params, setParams] = useSearchParams();
+    const [preview, setPreview] = useState<{
+        id: string;
+        search: string;
+    } | null>(null);
     const filters = useQuery({
         queryKey: ['notice-filters'],
         queryFn: api.filters,
     });
     const normalized = new URLSearchParams(params);
+    normalized.delete('appearance');
     const page = Math.max(0, Math.floor(Number(params.get('page')) || 0));
     normalized.set('page', String(page));
     normalized.set('size', '20');
@@ -99,16 +32,29 @@ export function NoticesPage() {
         queryKey: ['notices', normalized.toString()],
         queryFn: () => api.notices(normalized.toString()),
     });
-    function change(key: string, value: string, multiple = false) {
+    const activePreview =
+        preview?.search === normalized.toString() &&
+        query.data?.items.some((notice) => notice.id === preview.id)
+            ? preview
+            : null;
+    const controlsCollapsed = useNoticeToolbarReveal(activePreview);
+    const { state } = useLocation();
+    useEffect(() => {
+        if (typeof state?.noticeAnchor !== 'string' || !query.data) return;
+        const frame = requestAnimationFrame(() => {
+            const card = document.getElementById(
+                'notice-card-' + state.noticeAnchor,
+            );
+            card?.querySelector<HTMLButtonElement>('h3 button')?.focus({
+                preventScroll: true,
+            });
+            card?.scrollIntoView({ block: 'nearest' });
+        });
+        return () => cancelAnimationFrame(frame);
+    }, [state, query.data]);
+    function change(key: string, value: string) {
         const next = new URLSearchParams(params);
-        if (multiple) {
-            const values = next.getAll(key);
-            next.delete(key);
-            (values.includes(value)
-                ? values.filter((v) => v !== value)
-                : [...values, value]
-            ).forEach((v) => next.append(key, v));
-        } else if (value) next.set(key, value);
+        if (value) next.set(key, value);
         else next.delete(key);
         next.set('page', '0');
         setParams(next);
@@ -120,113 +66,156 @@ export function NoticesPage() {
             String(new FormData(e.currentTarget).get('keyword') ?? ''),
         );
     }
-    const options: [string, string, string[]][] = [
-        ['region', '지역', filters.data?.regions ?? []],
-        ['type', '지원 유형', filters.data?.types ?? []],
-        ['status', '접수 상태', ['OPEN', 'UPCOMING', 'CLOSED', 'UNKNOWN']],
-    ];
+    function goToPage(nextPage: number) {
+        const next = new URLSearchParams(params);
+        next.set('page', String(nextPage));
+        setParams(next);
+    }
     return (
-        <div className={cx('notice-search-page')}>
-            <Heading title="공고 찾기" />
-            <form className={cx('search')} onSubmit={search}>
-                <Icon name="search" />
-                <input
-                    key={params.get('keyword')}
-                    name="keyword"
-                    aria-label="공고 검색"
-                    placeholder="공고명이나 기관을 검색하세요."
-                    defaultValue={params.get('keyword') ?? ''}
-                />
-                <button aria-label="검색" type="submit">
-                    <Icon name="arrow" />
-                </button>
-            </form>
-            <aside className={cx('filter-panel')}>
-                <h2>검색 조건</h2>
-                {options.map(([key, label, values]) => (
-                    <details
-                        key={key}
-                        className={cx('filter-group')}
-                        open={desktop || openFilter === key}
-                    >
-                        <summary
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (!desktop)
-                                    setOpenFilter(
-                                        openFilter === key ? null : key,
-                                    );
-                            }}
-                        >
-                            {label} <Icon name="down" />
-                        </summary>
-                        <div>
-                            {values.map((value) => (
-                                <label className={cx('chip')} key={value}>
-                                    <input
-                                        type="checkbox"
-                                        checked={params
-                                            .getAll(key)
-                                            .includes(value)}
-                                        onChange={() =>
-                                            change(key, value, true)
-                                        }
-                                    />
-                                    {statusLabels[
-                                        value as keyof typeof statusLabels
-                                    ] ?? value}
-                                </label>
-                            ))}
+        <div className={styles.page}>
+            <div
+                ref={controls}
+                className={styles.controls}
+                data-notice-controls
+                data-collapsed={controlsCollapsed}
+            >
+                <div className={styles.controlsClip}>
+                    <div className={styles.controlsContent}>
+                        <div className={styles.heading}>
+                            <h1 className={cx('visually-hidden')}>공고 찾기</h1>
+                            <div className={styles.refreshRow}>
+                                {query.dataUpdatedAt > 0 && (
+                                    <p className={styles.loadedAt}>
+                                        최종 업데이트 ·{' '}
+                                        <time
+                                            dateTime={new Date(
+                                                query.dataUpdatedAt,
+                                            ).toISOString()}
+                                        >
+                                            {new Intl.DateTimeFormat('ko-KR', {
+                                                timeZone: 'Asia/Seoul',
+                                                year: 'numeric',
+                                                month: '2-digit',
+                                                day: '2-digit',
+                                                hour: '2-digit',
+                                                minute: '2-digit',
+                                                hourCycle: 'h23',
+                                            }).format(query.dataUpdatedAt)}
+                                        </time>
+                                    </p>
+                                )}
+                                <button
+                                    type="button"
+                                    className={styles.refreshButton}
+                                    aria-label="공고 새로고침"
+                                    title="새로고침"
+                                    disabled={query.isFetching}
+                                    aria-busy={query.isFetching}
+                                    onClick={() => void query.refetch()}
+                                >
+                                    <svg
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.8"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M20 4v6h-6M20 10a8 8 0 1 0 .1 4" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                    </details>
-                ))}
-                <button
-                    className={cx('link-button outline-button wide')}
-                    onClick={() => setParams({})}
-                >
-                    필터 초기화
-                </button>
-                {filters.error && (
-                    <State
-                        error={filters.error}
-                        retry={() => void filters.refetch()}
-                    />
-                )}
-            </aside>
-            <section className={cx('notice-results')}>
-                <div className={cx('row results-heading')}>
-                    <h2>
-                        공고 <em>{query.data?.totalElements ?? '—'}건</em>
-                    </h2>
-                    <div className={cx('row')}>
-                        <select
-                            aria-label="공고 정렬"
-                            value={params.get('sort') ?? 'deadline'}
-                            onChange={(e) => change('sort', e.target.value)}
+                        <form
+                            className={styles.search}
+                            role="search"
+                            onSubmit={search}
                         >
-                            <option value="deadline">마감 가까운 순</option>
-                            <option value="newest">최신순</option>
-                        </select>
-                        <Soon label="공고 비교" />
+                            <button aria-label="검색" type="submit">
+                                <Icon name="search" />
+                            </button>
+                            <input
+                                key={params.get('keyword')}
+                                name="keyword"
+                                aria-label="공고 검색"
+                                placeholder="공고명이나 기관을 검색하세요."
+                                defaultValue={params.get('keyword') ?? ''}
+                            />
+                        </form>
+                        <NoticeFilters
+                            regions={filters.data?.regions ?? []}
+                            types={filters.data?.types ?? []}
+                            params={params}
+                            onApply={setParams}
+                        />
+                        {filters.error && (
+                            <State
+                                error={filters.error}
+                                retry={() => void filters.refetch()}
+                            />
+                        )}
+                        <div className={styles.toolbar}>
+                            <h2>
+                                공고{' '}
+                                <em>{query.data?.totalElements ?? '—'}건</em>
+                            </h2>
+                            <Link to="/compare" className={styles.compare}>
+                                <Icon name="file" /> 공고 비교
+                            </Link>
+                            <NoticeSort
+                                value={params.get('sort') ?? 'deadline'}
+                                onChange={(value) => change('sort', value)}
+                            />
+                        </div>
                     </div>
                 </div>
+            </div>
+            <section className={styles.results} aria-label="공고 검색 결과">
                 <State
                     loading={query.isPending}
                     error={query.error}
                     retry={() => void query.refetch()}
                 />
-                {query.data?.items.map((n) => (
-                    <NoticeCard key={n.id} notice={n} />
-                ))}
+                <div className={styles.list} data-notice-list>
+                    {query.data?.items.map((n) => (
+                        <NoticeCard
+                            key={n.id}
+                            notice={n}
+                            expanded={activePreview?.id === n.id}
+                            toggle={() =>
+                                setPreview((previous) =>
+                                    previous?.id === n.id &&
+                                    previous.search === normalized.toString()
+                                        ? null
+                                        : {
+                                              id: n.id,
+                                              search: normalized.toString(),
+                                          },
+                                )
+                            }
+                        />
+                    ))}
+                </div>
                 {query.data?.items.length === 0 && (
                     <Card>
                         <h2>조건에 맞는 공고가 없어요</h2>
                         <Button onClick={() => setParams({})}>
                             검색 조건 초기화
                         </Button>
+                        <a
+                            className={cx('link-button outline-button')}
+                            href="https://apply.lh.or.kr/lhapply/apply/noti/mp/list.do?mi=1331"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            LH 공식 공고 목록 보기
+                        </a>
                     </Card>
                 )}
-                <p className={cx('muted info-line')}>
+                <p className={styles.note}>
                     <Icon name="info" />
                     접수 상태와 준비 안내 제공 여부는 별개입니다.
                 </p>
@@ -234,258 +223,27 @@ export function NoticesPage() {
                     <button
                         disabled={page === 0}
                         aria-label="이전 페이지"
-                        onClick={() => {
-                            normalized.set('page', String(page - 1));
-                            setParams(normalized);
-                        }}
+                        onClick={() => goToPage(page - 1)}
                     >
                         <Icon name="back" />
                     </button>
-                    <span>
-                        {page + 1} / {Math.max(1, query.data?.totalPages ?? 1)}
+                    <span
+                        aria-current="page"
+                        aria-label={`${page + 1}페이지, 전체 ${Math.max(1, query.data?.totalPages ?? 1)}페이지`}
+                    >
+                        {page + 1}
                     </span>
                     <button
                         disabled={
                             !query.data || page + 1 >= query.data.totalPages
                         }
                         aria-label="다음 페이지"
-                        onClick={() => {
-                            normalized.set('page', String(page + 1));
-                            setParams(normalized);
-                        }}
+                        onClick={() => goToPage(page + 1)}
                     >
                         <Icon name="arrow" />
                     </button>
                 </nav>
             </section>
         </div>
-    );
-}
-export function NoticeDetailPage() {
-    const { noticeId = '' } = useParams();
-    const session = useSession();
-    const navigate = useNavigate();
-    const client = useQueryClient();
-    const [tab, setTab] = useState('핵심 요약');
-    const query = useQuery({
-        queryKey: ['notice', noticeId],
-        queryFn: () => api.notice(noticeId),
-    });
-    const start = useMutation({
-        mutationFn: () => api.start(noticeId, query.data!.version),
-        onSuccess: (p) => {
-            void client.invalidateQueries({ queryKey: ['preparations'] });
-            navigate('/preparations/' + p.id + '/conditions/edit');
-        },
-    });
-    const n = query.data;
-    return (
-        <>
-            <Link className={cx('breadcrumb')} to="/notices">
-                <Icon name="back" />
-                공고 목록 보기
-            </Link>
-            <State
-                loading={query.isPending}
-                error={query.error}
-                retry={() => void query.refetch()}
-            />
-            {n && (
-                <div className={cx('notice-detail')}>
-                    <header className={cx('notice-detail-heading')}>
-                        <Heading title={n.title}>
-                            {n.agency} · {n.region} · 공고일{' '}
-                            {displayDate(n.publishedDate)}
-                        </Heading>
-                    </header>
-                    <aside className={cx('panel notice-detail-aside')}>
-                        <div className={cx('notice-detail-facts')}>
-                            <div className={cx('row')}>
-                                <Status
-                                    tone={
-                                        n.status === 'OPEN' ? 'green' : 'gray'
-                                    }
-                                >
-                                    {statusLabels[n.status]}
-                                </Status>
-                                <GuideBadge state={n.guideState} />
-                            </div>
-                            <Deadline date={n.endDate} />
-                            <NoticeDates notice={n} />
-                            <div className={cx('divider')} />
-                            <div className={cx('notice-facts')}>
-                                <Icon name="pin" />
-                                <div>
-                                    <small>지역</small>
-                                    <strong>{n.region}</strong>
-                                </div>
-                                <Icon name="building" />
-                                <div>
-                                    <small>유형</small>
-                                    <strong>{n.type}</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('notice-detail-actions')}>
-                            {start.error && (
-                                <p role="alert">{start.error.message}</p>
-                            )}
-                            {n.canStart && (
-                                <Button
-                                    className="wide"
-                                    disabled={
-                                        start.isPending || session.loading
-                                    }
-                                    onClick={() =>
-                                        session.user
-                                            ? start.mutate()
-                                            : navigate(
-                                                  '/login?returnTo=' +
-                                                      encodeURIComponent(
-                                                          '/notices/' +
-                                                              noticeId,
-                                                      ),
-                                              )
-                                    }
-                                >
-                                    {start.isPending
-                                        ? '준비 건 만드는 중…'
-                                        : '내 조건 확인하기'}
-                                </Button>
-                            )}
-                            <OfficialLink
-                                url={n.evidence.url}
-                                className="link-button outline-button wide"
-                            >
-                                공식 공고 보기
-                            </OfficialLink>
-                            <p className={cx('muted info-line')}>
-                                <Icon name="info" />
-                                최종 자격은 운영기관의 심사로 결정됩니다.
-                            </p>
-                        </div>
-                    </aside>
-                    <section className={cx('notice-detail-content')}>
-                        <div
-                            className={cx('tabs')}
-                            role="tablist"
-                            aria-label="공고 정보"
-                        >
-                            {['핵심 요약', '조건', '제출서류', '일정'].map(
-                                (x) => (
-                                    <button
-                                        role="tab"
-                                        aria-selected={x === tab}
-                                        key={x}
-                                        onClick={() => setTab(x)}
-                                    >
-                                        {x}
-                                    </button>
-                                ),
-                            )}
-                        </div>
-                        {tab === '핵심 요약' ? (
-                            <>
-                                <section className={cx('panel summary-card')}>
-                                    <Disc name="file" />
-                                    <div>
-                                        <h2>어떤 지원인가요?</h2>
-                                        <p>{n.summary}</p>
-                                        <EvidenceLink evidence={n.evidence} />
-                                    </div>
-                                </section>
-                                <section className={cx('panel summary-card')}>
-                                    <Disc name="file" />
-                                    <div>
-                                        <h2>자격과 순위를 구분해요</h2>
-                                        <p>
-                                            신청 자격과 선정 순위는 서로 다른
-                                            기준이에요.
-                                        </p>
-                                        <button
-                                            className={cx('text-button')}
-                                            onClick={() => setTab('조건')}
-                                        >
-                                            조건과 공식 근거 확인{' '}
-                                            <Icon name="arrow" />
-                                        </button>
-                                    </div>
-                                </section>
-                                <section className={cx('panel summary-card')}>
-                                    <Disc name="file" />
-                                    <div>
-                                        <h2>필요한 서류 확인</h2>
-                                        <p>
-                                            공통 서류와 해당자 제출 서류를
-                                            나누어 확인해요.
-                                        </p>
-                                        <button
-                                            className={cx('text-button')}
-                                            onClick={() => setTab('제출서류')}
-                                        >
-                                            제출서류 확인 <Icon name="arrow" />
-                                        </button>
-                                    </div>
-                                </section>
-                            </>
-                        ) : tab === '일정' ? (
-                            <Card>
-                                <h2>공식 접수 일정</h2>
-                                <NoticeDates notice={n} />
-                                {n.schedules?.map((schedule) => (
-                                    <div
-                                        key={schedule.id}
-                                        className={cx('notice-source')}
-                                    >
-                                        <h3>{schedule.title}</h3>
-                                        <p>{displayDate(schedule.date)}</p>
-                                        <EvidenceLink
-                                            evidence={schedule.evidence}
-                                        />
-                                    </div>
-                                ))}
-                                <EvidenceLink evidence={n.evidence} />
-                            </Card>
-                        ) : n.guideState !== 'AVAILABLE' ? (
-                            <Card>
-                                <p>
-                                    {guideLabels[n.guideState]}입니다. 검수되지
-                                    않은 개인별 안내는 제공하지 않습니다.
-                                </p>
-                            </Card>
-                        ) : tab === '조건' ? (
-                            n.questions.map((q) => (
-                                <Card key={q.id}>
-                                    <h2>{q.title}</h2>
-                                    <p>{q.reason}</p>
-                                    <EvidenceLink evidence={q.evidence} />
-                                </Card>
-                            ))
-                        ) : (
-                            <Card>
-                                <h2>제출서류</h2>
-                                <p className={cx('muted')}>
-                                    공통 서류와 해당자 서류를 함께 표시합니다.
-                                    모두 제출하는 목록이 아니며, 내 조건 확인 후
-                                    필요한 항목과 발급 방법을 확인하세요.
-                                </p>
-                                {n.documents.map((d) => (
-                                    <p key={d}>{d}</p>
-                                ))}
-                                <EvidenceLink evidence={n.evidence} />
-                            </Card>
-                        )}
-                        {n.attachments.length > 0 && (
-                            <Card>
-                                <h2>공고 첨부 자료</h2>
-                                {n.attachments.map((e, i) => (
-                                    <EvidenceLink key={i} evidence={e} />
-                                ))}
-                            </Card>
-                        )}
-                    </section>
-                </div>
-            )}
-        </>
     );
 }

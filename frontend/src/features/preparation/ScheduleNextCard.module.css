@@ -1,0 +1,85 @@
+.card {
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    min-width: 0;
+}
+.card > h3 {
+    margin: 0 0 0.875rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px;
+}
+.summary h4 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.45;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.countdown {
+    padding: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: 1.75rem;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+.note {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0.625rem 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+    word-break: keep-all;
+}
+.actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-width: 0;
+    min-height: var(--target);
+    padding: 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: transparent;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    word-break: keep-all;
+}
+.action svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+@media (max-width: 1023px) {
+    .card {
+        order: 1;
+    }
+}
+@media (min-width: 1024px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+}
