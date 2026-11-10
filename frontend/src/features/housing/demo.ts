@@ -14,6 +14,7 @@ import type {
     User,
 } from './types';
 import { ApiError } from '../../shared/api/client';
+import { waitForDemoResponse } from './demoDelay';
 import {
     answerDemoPreparation,
     assessDemoPreparation,
@@ -133,7 +134,7 @@ export async function demoRequest<T>(
     method: string,
     body?: unknown,
 ): Promise<T> {
-    await new Promise((r) => setTimeout(r, 180));
+    await waitForDemoResponse();
     const url = new URL(path, 'http://demo.local');
     const parts = url.pathname.split('/').filter(Boolean);
     const input = (body ?? {}) as Record<string, unknown>;

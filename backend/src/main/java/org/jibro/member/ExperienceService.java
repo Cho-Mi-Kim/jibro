@@ -33,14 +33,18 @@ public class ExperienceService {
     public void archive(UUID user, UUID id, String note, int revision) {
         var rows = db.queryForList("SELECT revision,archived_at FROM preparation WHERE user_id=? AND id=? FOR UPDATE", user, id);
         if (rows.isEmpty()) throw ApiException.notFound();
-        if (((Number) rows.get(0).get("revision")).intValue() != revision) throw ApiException.conflict();
-        db.update("UPDATE preparation SET archived_at=coalesce(archived_at,now()),takeaway=? WHERE id=?", note.strip(), id);
+        if (rows.get(0).get("archived_at") != null
+                || ((Number) rows.get(0).get("revision")).intValue() != revision) throw ApiException.conflict();
+        // Keep the column used by archive and the snapshot used by preparation writes in sync.
+        db.update("UPDATE preparation SET archived_at=now(),takeaway=?,revision=revision+1,snapshot=jsonb_set(snapshot,'{preparation,revision}',to_jsonb(revision+1)),updated_at=now() WHERE id=?", note.strip(), id);
     }
 
     @Transactional
     public void restore(UUID user, UUID id) {
-        if (db.update("UPDATE preparation SET archived_at=NULL WHERE user_id=? AND id=?", user, id) == 0)
-            throw ApiException.notFound();
+        var rows = db.queryForList("SELECT archived_at FROM preparation WHERE user_id=? AND id=? FOR UPDATE", user, id);
+        if (rows.isEmpty()) throw ApiException.notFound();
+        if (rows.get(0).get("archived_at") == null) return;
+        db.update("UPDATE preparation SET archived_at=NULL,revision=revision+1,snapshot=jsonb_set(snapshot,'{preparation,revision}',to_jsonb(revision+1)),updated_at=now() WHERE id=?", id);
         db.update("DELETE FROM experience_reference WHERE source_id=?", id);
     }
 

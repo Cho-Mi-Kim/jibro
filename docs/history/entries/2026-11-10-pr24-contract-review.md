@@ -2,8 +2,8 @@
 
 - 기록일: 2026-11-10 (Asia/Seoul)
 - 기록 상태: 근거 정리·담당자 검토 전
-- 작업 상태: 계약 문서 수정 / PR 수정 필요 / 병합 미진행
-- 유형: 문서·코드 검토
+- 작업 상태: R1·R2 수정 및 로컬 검증 완료 / 사용자 디자인 확인 대기 / 병합 보류
+- 유형: 문서·코드 검토·오류 수정
 - 담당·검토: 사용자 요청에 따라 Codex가 현재 원격 코드·계약·CI를 대조하고 로컬 검사를 실행했다. 팀원의 승인 검토는 미확인이다.
 - 관련 PR: [PR #24](https://github.com/Cho-Mi-Kim/jibro/pull/24), 검토한 제품 코드 `e288a993a9a828a798d44eea165c0f276ab34a60`
 
@@ -47,7 +47,25 @@
 
 권장 수정: 사용자 흐름을 검증하는 테스트에서 인위적 시연 지연을 제어하거나 명시적인 요청 완료 경계를 기다린다. 오류·복구·저장 여부 단정은 유지한다. 단순 대기 연장만으로 제품 결함 해결을 주장하지 않는다.
 
+## 후속 수정 (2026-11-10)
+
+사용자가 두 지적의 수정·테스트·PR #24 커밋·푸시·코멘트 작성을 요청했다. 이후 병합을 중단하고 디자인을 먼저 확인하겠다고 명시했으므로, PR은 초안·미병합 상태로 유지한다.
+
+- R1 해결: 보관 시 이미 보관된 기록과 오래된 revision을 409로 거절한다. 실제 보관·복원 때 DB revision과 JSON 스냅샷 revision을 함께 증가시키며, 반복 복원은 변경 없이 종료한다. 시연 어댑터에도 같은 정책을 적용했다.
+- R1 회귀 검증: 첫 보관 메모 보존, 동일·최신 revision의 중복 보관 거절, 보관·복원 후 오래된 보관·답변 저장 거절, 최신 답변 저장 허용 및 반복 복원의 revision 유지 사례를 PostgreSQL 통합 테스트와 시연 계약 테스트에 추가했다.
+- R2 해결: 시연용 180ms 지연을 `demoDelay.ts`로 분리했다. App 흐름 테스트에서만 해당 지연을 제외하며 실제 시연의 지연, 데이터·오류 처리와 기존 사용자 흐름 단정은 유지했다. 대기 시간 상향으로 해결하지 않았다.
+- 회원 기능·프론트엔드·백엔드 계약에 수정된 동작과 검증 경계를 반영했다. CSS·레이아웃·화면 구성은 변경하지 않았다.
+
 ## 검증·결과
+
+### 수정 후 로컬 검증
+
+- `npm --prefix frontend run ci`: 포맷·ESLint·타입 검사, Vitest 21개 파일·134건 및 일반 빌드 모두 통과.
+- `npm --prefix frontend run build:pages`: 시연용 Pages 빌드 통과.
+- 백엔드 `build integrationTest`: 단위 15건·PostgreSQL 통합 25건 모두 통과, 실패·오류 0. 개발 DB 데이터 삭제 없이 테스트 DB를 사용했다.
+- 실제 브라우저 디자인 확인은 사용자 검토 대기다. 아래 최초 검토 실패는 수정 전 증거이며 현재 검사 결과와 구분한다.
+
+### 최초 검토 결과 (수정 전)
 
 - 원격: [PR checks 실행](https://github.com/Cho-Mi-Kim/jibro/actions/runs/42191585747)의 project-history/frontend/backend 모두 SUCCESS. 대상은 `e288a99`다.
 - 로컬: 프론트 포맷·ESLint·타입 검사 통과. Vitest 21개 파일 중 20개 통과, 132건 중 131건 통과·1건 실패(R2). 해당 테스트 단독 실행도 같은 지점에서 실패했다.
@@ -62,17 +80,24 @@ AI가 코드 대조·계약 문서 작성·검증을 보조했다. PR의 기존 
 
 ## 발표·포트폴리오 메모
 
-초기 계약과 확장된 구현의 차이를 정리하고 기존 검사에서 다루지 않은 보관 상태 전이 문제를 추가 재현했다. 미해결 문제를 수정 완료나 운영 검증 완료로 표현하지 않는다.
+초기 계약과 확장된 구현의 차이를 정리하고 기존 검사에서 다루지 않은 보관 상태 전이 문제를 재현·수정했으며 회귀 검사를 추가했다. 로컬 자동 검사 통과를 디자인 승인이나 운영 검증 완료로 표현하지 않는다.
 
 ## 후속 작업
 
-- R1 보관 동시 수정 문제와 R2 테스트 지연 의존을 해결하고 최신 head의 검사를 다시 확인한다.
-- 팀원이 초안 PR의 화면·권한·DB 변경을 검토한 뒤 병합 여부를 결정한다.
+- 수정 커밋을 PR #24에 푸시하고 최신 head의 CI를 확인해 PR 코멘트에 결과를 남긴다.
+- 사용자가 디자인을 확인한 뒤 별도로 병합을 요청하기 전까지 PR을 병합하지 않는다.
 - README·개발 시작 안내 등 요약 문서와 외부 발송 설정 예시의 동기화도 병합 준비 시 확인한다.
 - 인수인계 문서는 사용자가 재개를 요청할 때 작성한다.
 
 ## 변경 파일
 
+- `backend/src/main/java/org/jibro/member/ExperienceService.java`
+- `backend/src/test/java/org/jibro/member/MemberFeaturesIntegrationTest.java`
+- `frontend/src/features/member/demoMember.ts`
+- `frontend/src/features/housing/demo.ts`
+- `frontend/src/features/housing/demoDelay.ts`
+- `frontend/src/features/housing/demo.test.ts`
+- `frontend/src/app/App.test.tsx`
 - `docs/architecture/frontend-contracts.md`
 - `docs/architecture/backend-contracts.md`
 - `docs/contracts/member-features.md`

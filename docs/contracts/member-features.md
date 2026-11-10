@@ -1,6 +1,6 @@
 # 공고 탐색·회원 기능 구현 계약
 
-최초 적용일은 2026-11-03, 최종 코드 대조일은 2026-11-10이다. PR #24 (`feature/local-mobile-screens-20261103`, 구현 커밋 `e288a99`)의 계약이며 develop/main 병합·운영 검증 완료를 뜻하지 않는다. 사용자가 이전 Codex 작업의 기능을 현재 사이트에 이식하고 준비 중이던 항목을 구현하도록 범위를 변경했다. 이 문서는 화면설계서 7.1의 항목별 연결 범위를 정한다. [검토 기록](../history/entries/2026-11-10-pr24-contract-review.md)의 미해결 지적은 구현 완료 설명과 함께 확인한다.
+최초 적용일은 2026-11-03, 최종 코드 대조일은 2026-11-10이다. PR #24 (`feature/local-mobile-screens-20261103`)의 계약이며 develop/main 병합·운영 검증 완료를 뜻하지 않는다. 사용자가 이전 Codex 작업의 기능을 현재 사이트에 이식하고 준비 중이던 항목을 구현하도록 범위를 변경했다. 이 문서는 화면설계서 7.1의 항목별 연결 범위를 정한다. 초기 구현 `e288a99`에 대한 지적과 후속 수정은 [검토 기록](../history/entries/2026-11-10-pr24-contract-review.md)에서 구분한다.
 
 | 진입점 | 동작과 저장 경계 |
 | --- | --- |
@@ -37,8 +37,8 @@ Flyway V6은 관심 공고·알림 설정/읽음·보관 메모/참조·계정 �
 | `PUT /member/channels/push` | `{endpoint}`; 지원하는 HTTPS 푸시 제공자 주소만 허용, 서버 키가 없으면 503 |
 | `POST /member/channels/push/status`, `POST /member/channels/push/remove` | `{endpoint}`; 본인 구독 여부 boolean 조회 / 본인 구독 삭제 |
 | `GET /member/archive` | `{id,title,version,progress,note,archivedAt}[]` |
-| `PUT /member/archive/{id}` | `{revision,note}`; note 최대 500자. 현재 revision 대조 후 보관·메모 저장 |
-| `DELETE /member/archive/{id}` | 진행 중으로 복원하고 해당 기록을 출처로 하는 메모 연결 삭제 |
+| `PUT /member/archive/{id}` | `{revision,note}`; note 최대 500자. 진행 중 상태와 현재 revision을 대조한 뒤 보관·메모 저장, revision 증가. 이미 보관된 건·오래된 revision은 409 |
+| `DELETE /member/archive/{id}` | 진행 중으로 복원하고 해당 기록을 출처로 하는 메모 연결 삭제, revision 증가. 이미 진행 중이면 변경 없는 성공, 없는 건·타인 건은 404 |
 | `GET /member/preparations/{id}/references` | 본인 대상에 연결된 본인의 보관 기록 배열 |
 | `PUT /member/preparations/{id}/references/{source}` | 본인 진행 건에 본인 보관 건을 연결. 같은 건·타인 건·잘못된 상태 거절 |
 | `GET /member/profile`, `PUT /member/profile` | 조회/반환 `{name,email,region,verified,passwordLogin,mailMode}`; 수정 입력 `{name,region}` |
@@ -52,7 +52,7 @@ Flyway V6은 관심 공고·알림 설정/읽음·보관 메모/참조·계정 �
 
 ### 저장·권한·동작 경계
 
-- 보관은 답변·준비도·신청 기록을 완료로 바꾸지 않는다. 보관된 건은 진행 목록에서 제외하고 준비 조회·수정 경로로 편집할 수 없다. 같은 공고로 다시 시작하면 409 `ARCHIVED`로 복원을 안내한다. 현행 보관/복원은 revision을 증가시키지 않으며 보관 재요청의 메모 덮어쓰기 문제가 검토 중이다. 모든 수정에서 충돌 방지가 완성됐다고 해석하지 않는다.
+- 보관은 답변·준비도·신청 기록을 완료로 바꾸지 않는다. 보관된 건은 진행 목록에서 제외하고 준비 조회·수정 경로로 편집할 수 없다. 같은 공고로 다시 시작하면 409 `ARCHIVED`로 복원을 안내한다. 실제 보관·복원 상태 전환마다 DB 컬럼과 JSON 스냅샷의 revision을 함께 1씩 증가시키고 updated_at을 갱신한다. 이미 보관된 기록의 재보관은 409로 거절해 메모를 보존한다. 이미 진행 중인 기록의 반복 복원은 revision을 올리지 않는다. 복원 후 수정·재보관은 새로 조회한 revision을 사용해야 하며, 시연 어댑터도 같은 규칙을 적용한다.
 - 알림은 저장된 영구 알림 게시물이 아니라 현재 공개 공고·진행 준비·선택한 관심 공고에서 계산한다. 기본 수신은 꺼짐, 기본 범위는 3일, 관심 공고 포함 기본값은 true다. 버전 변경과 오늘부터 leadDays 뒤까지의 일정을 표시하며 날짜가 지나거나 공개가 중단되면 목록에서 빠질 수 있다. 시각 단위 예약 발송은 아니며 하루 단위로 기한을 고른다.
 - 서버 발송은 기본 최초 45초 뒤, 이후 60초 간격이다. 읽지 않은 이벤트만 처리하며 계정·이벤트·채널별 전송 상태를 저장한다. 실패는 최소 10분 간격, 최대 4회 시도한다. 404/410인 푸시 구독은 제거한다. 이 스케줄러는 LH 공고 수집을 실행하지 않는다.
 - 사이트를 열어 둔 동안의 기기 알림, 서버 Web Push, 이메일은 별개다. 사용자가 명시적으로 브라우저 권한·구독을 승인해야 하며 일반 로그아웃 시 현재 브라우저의 푸시 구독 해제를 시도한다. 서버 Web Push는 본문 없는 요청이며 서비스 워커는 개인 공고명·답변 없는 공통 문구를 표시한다.

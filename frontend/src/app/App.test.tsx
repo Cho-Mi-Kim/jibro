@@ -6,6 +6,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App } from './App';
 import { demoRequest, resetDemo, notices } from '../features/housing/demo';
 import { api } from '../features/housing/api';
+// Exercise the real demo contract without accumulating artificial presentation delays.
+vi.mock('../features/housing/demoDelay', () => ({
+    waitForDemoResponse: async () => {},
+}));
 vi.mock('../shared/api/transport', () => ({
     demoMode: true,
     call: (path: string, method = 'GET', body?: unknown) =>

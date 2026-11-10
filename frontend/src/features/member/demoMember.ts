@@ -109,13 +109,18 @@ export function demoMember(
     }
     if (resource === 'archive') {
         if (method === 'GET') return [...archived.values()];
+        const p = preps.find((p) => p.id === id);
+        if (!p) throw new ApiError(404);
         if (method === 'DELETE') {
-            archived.delete(id);
-            for (const sources of refs.values()) sources.delete(id);
+            if (archived.delete(id)) {
+                p.revision++;
+                for (const sources of refs.values()) sources.delete(id);
+            }
             return;
         }
-        const p = preps.find((p) => p.id === id);
-        if (!p || p.revision !== input.revision) throw new ApiError(409);
+        if (archived.has(id) || p.revision !== input.revision)
+            throw new ApiError(409);
+        p.revision++;
         archived.set(id, {
             id,
             title: p.title,

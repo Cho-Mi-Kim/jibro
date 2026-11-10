@@ -34,6 +34,8 @@ class MemberFeaturesIntegrationTest {
     ExperienceService experiences;
     @Autowired
     AlertService alerts;
+    @Autowired
+    org.springframework.jdbc.core.JdbcTemplate db;
 
     private UUID user() {
         String email = UUID.randomUUID() + "@example.invalid";
@@ -91,6 +93,50 @@ class MemberFeaturesIntegrationTest {
         var reread = alerts.inbox(owner).items();
         assertTrue(reread.stream().filter(item -> item.key().equals(closing.key())).findFirst().orElseThrow().read());
         assertFalse(reread.stream().filter(item -> item.label().equals("서류 제출 마감")).findFirst().orElseThrow().read());
+    }
+
+    private void assertRevision(UUID id, int expected) {
+        assertEquals(expected, db.queryForObject("SELECT revision FROM preparation WHERE id=?", Integer.class, id));
+        assertEquals(expected, db.queryForObject("SELECT (snapshot->'preparation'->>'revision')::int FROM preparation WHERE id=?", Integer.class, id));
+    }
+
+    @Test
+    void secondArchiveCannotOverwriteAnAlreadyArchivedMemo() {
+        UUID owner = user();
+        var p = preparations.start(owner.toString(), notice(), 1);
+        UUID id = UUID.fromString(p.id);
+        experiences.archive(owner, id, "첫 화면의 메모", p.revision);
+        assertRevision(id, p.revision + 1);
+        assertEquals(409, assertThrows(ApiException.class,
+                () -> experiences.archive(owner, id, "오래된 화면의 메모", p.revision)).status);
+        // Even a caller that learns the latest revision cannot edit a locked archive.
+        assertEquals(409, assertThrows(ApiException.class,
+                () -> experiences.archive(owner, id, "보관 중 변경", p.revision + 1)).status);
+        assertEquals("첫 화면의 메모", experiences.list(owner).get(0).note());
+        assertRevision(id, p.revision + 1);
+    }
+
+    @Test
+    void restoreInvalidatesOldCommandsAndKeepsBothRevisionsConsistent() {
+        UUID owner = user();
+        var p = preparations.start(owner.toString(), notice(), 1);
+        UUID id = UUID.fromString(p.id);
+        experiences.archive(owner, id, "보존할 메모", p.revision);
+        experiences.restore(owner, id);
+        assertRevision(id, p.revision + 2);
+        assertEquals(p.revision + 2, preparations.get(owner.toString(), id).revision);
+        experiences.restore(owner, id); // Repeated restore is a no-op.
+        assertRevision(id, p.revision + 2);
+        assertEquals(409, assertThrows(ApiException.class,
+                () -> experiences.archive(owner, id, "오래된 보관 요청", p.revision)).status);
+        assertEquals(409, assertThrows(ApiException.class,
+                () -> preparations.answers(owner.toString(), id, p.revision, Map.of("residence", "YES"))).status);
+        assertEquals("보존할 메모", db.queryForObject("SELECT takeaway FROM preparation WHERE id=?", String.class, id));
+        var edited = preparations.answers(owner.toString(), id, p.revision + 2, Map.of("residence", "YES"));
+        assertRevision(id, edited.revision);
+        experiences.archive(owner, id, "새로 확인한 메모", edited.revision);
+        assertEquals("새로 확인한 메모", experiences.list(owner).get(0).note());
+        assertRevision(id, edited.revision + 1);
     }
 
     @Test
