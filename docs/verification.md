@@ -1,5 +1,19 @@
 # 구현·검증 기록
 
+## 최신 코드 검증 기준 — 2026-11-15
+
+- 사용자 승인 후 PR #26을 develop `8428e78`에 병합했고 검증 커밋 `69fd749`와 파일 차이가 없음을 확인했다. 문서 전용 후속 PR은 #27이다.
+- 코드 기준은 PR #26 `69fd749`이다. [최신 CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/43724321929)의 frontend·backend·operations·project-history가 모두 통과했다. 상세 과정은 [충돌 해결·회귀 검증](history/entries/2026-11-15-pr26-conflict-resolution.md)을 따른다.
+- 로컬 프론트엔드 419건, 백엔드 단위·구조 668건·PostgreSQL 통합 358건과 빌드가 통과했다. 최초 Linux CI에서 발견한 OCR 테스트 프로세스의 종료 경합을 수정하고 관련 5건 및 최신 Linux 전체 CI로 재확인했다.
+- 이 검증은 실제 OAuth/LH/SMTP/Web Push 왕복이나 AWS 운영 배포 완료를 뜻하지 않는다. main/Pages의 PR #25 배포 기록과 구분한다. 후속 작업은 [개발 인수인계](developer-handoff.md)를 확인한다.
+
+## 과거 배포 기준 — 2026-11-10
+
+- PR #24·#25 반영 후 main `90a1535`, develop `06ccac3`의 파일 내용은 동일하다. [PR #25 CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/42767253943)와 [Pages 배포](https://github.com/Cho-Mi-Kim/jibro/actions/runs/42767523116)가 성공했다.
+- 최근 제품 검증은 프론트 21개 테스트 파일·134건, 백엔드 단위 15건·PostgreSQL 통합 25건 및 일반/Pages 빌드 통과다. [수정·검토·배포 기록](history/entries/2026-11-10-pr24-contract-review.md)에서 실행 범위를 확인한다.
+- 공개 사이트는 공고 목록·상세·시연 사용자·조건 첫 질문 진입을 확인했다. 실제 OAuth/메일/푸시의 운영 연동, 실기기 전체 흐름, AWS·운영 DB 복구는 별도 검증이다.
+- 현재 구현 상태와 후속 우선순위는 [개발 인수인계](developer-handoff.md)를 따른다. 아래 날짜별 기록은 당시 결과를 보존한 것이므로 초기 ‘인증·도메인 후속 설정’을 현재 미구현 목록으로 읽지 않는다.
+
 ## 외부 실서비스 확인 — 2026-10-31
 
 - LH 인증키의 이중 인코딩을 교정하고 최근 3개월 검색 필드를 수정했다. 실제 관리자 수집 API 2회 성공, 276건 저장·재수집 후 276건 유지·전건 HOLD/HOLD를 확인했다.
