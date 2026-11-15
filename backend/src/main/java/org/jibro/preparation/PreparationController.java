@@ -22,7 +22,7 @@ public class PreparationController {
     public record Start(@NotNull UUID noticeId, @Min(1) int version) {
     }
 
-    public record Answers(@Min(1) int revision, @NotNull Map<String, String> answers) {
+    public record Answers(@Min(1) int revision, @NotNull Map<String, Object> answers) {
     }
 
     public record Refresh(@Min(1) int revision, @Min(1) int version) {
@@ -41,7 +41,7 @@ public class PreparationController {
     }
 
     @GetMapping
-    List<Preparation> list(@AuthenticationPrincipal Jwt jwt) {
+    List<PreparationListItem> list(@AuthenticationPrincipal Jwt jwt) {
         return service.list(jwt.getSubject());
     }
 

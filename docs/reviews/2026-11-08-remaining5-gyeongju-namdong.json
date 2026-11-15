@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-08T15:50:24.714545+09:00",
+  "reviewType": "AI_ASSISTED_READ_ONLY_OFFICIAL_SOURCE_RECHECK",
+  "scope": {
+    "noticeCount": 2,
+    "officialListDateWindow": {
+      "from": "2026-09-08",
+      "to": "2026-11-08"
+    },
+    "officialSearchTerms": [
+      "경주",
+      "영천",
+      "남동",
+      "논현3"
+    ],
+    "searchedSurfaces": [
+      "LH 공고문 목록 (접수상태 전체)",
+      "LH 알려드려요 공지사항 (제목+내용)",
+      "공식 상세 및 현재 첨부",
+      "웹 검색 및 공식 상세 열람"
+    ],
+    "limitations": [
+      "정정 미발견은 기록한 검색어·기간과 확인 시점에 한정. 사이트 전역에 정정이 절대로 없다는 뜻이 아님.",
+      "담당기관 전화·이메일 문의를 보내거나 답변을 받은 것은 아님.",
+      "원문 충돌을 임의 해석하거나 신청자격·선정 가능성을 확정하지 않음."
+    ]
+  },
+  "summary": {
+    "PASS": 0,
+    "HOLD": 2,
+    "UNSUPPORTED": 0,
+    "freshAttachmentDownloads": 9,
+    "previousHashesCompared": 8,
+    "previousHashesUnchanged": 8,
+    "newlyRecordedAttachmentIds": [
+      "69190889"
+    ],
+    "productionSourceChanged": false,
+    "databaseChanged": false,
+    "publicationChanged": false
+  },
+  "officialListSearches": [
+    {
+      "key": "gyeongju",
+      "term": "경주",
+      "requestedAt": "2026-11-08T15:42:47.709128+09:00",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&viewType=srch&panNm=%EA%B2%BD%EC%A3%BC&panSs=&srchY=Y&indVal=N&listCo=100&currPage=1&startDt=2026-09-08&endDt=2026-11-08&srchUppAisTpCd=061339&uppAisTpCd=06",
+      "sha256": "c228df90f0694bfdfd32cf126c822acf4e4a6ed92ea3db846ea5ab90ec366a98",
+      "statusSelect": [
+        "<option value=\"\" selected>전체</option>"
+      ],
+      "rows": [
+        {
+          "title": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증) 1일전",
+          "panId": "2015122300021025",
+          "system": "03",
+          "uppAisTpCd": "06",
+          "aisTpCd": "07",
+          "cells": [
+            "1",
+            "국민임대",
+            "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증) 1일전",
+            "경상북도",
+            "첨부파일 있음",
+            "2026.11.05",
+            "2026.11.19",
+            "공고중",
+            "4,806"
+          ]
+        }
+      ],
+      "resultCount": 1,
+      "totalHint": {
+        "totalResults": 1,
+        "currentPage": 1,
+        "totalPages": 1
+      },
+      "dateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "applicationStatus": "전체",
+      "observedApplicableCorrection": false
+    },
+    {
+      "key": "yeongcheon",
+      "term": "영천",
+      "requestedAt": "2026-11-08T15:42:47.696646+09:00",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&viewType=srch&panNm=%EC%98%81%EC%B2%9C&panSs=&srchY=Y&indVal=N&listCo=100&currPage=1&startDt=2026-09-08&endDt=2026-11-08&srchUppAisTpCd=061339&uppAisTpCd=06",
+      "sha256": "ea35e3c01c4a9895f8c47566710c04b22f54a141ad0cd9453a4ea62a2826aeb3",
+      "statusSelect": [
+        "<option value=\"\" selected>전체</option>"
+      ],
+      "rows": [
+        {
+          "title": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증) 1일전",
+          "panId": "2015122300021025",
+          "system": "03",
+          "uppAisTpCd": "06",
+          "aisTpCd": "07",
+          "cells": [
+            "3",
+            "국민임대",
+            "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증) 1일전",
+            "경상북도",
+            "첨부파일 있음",
+            "2026.11.05",
+            "2026.11.19",
+            "공고중",
+            "4,806"
+          ]
+        },
+        {
+          "title": "영천문외 센트럴타운 공가세대 일반매각 공고 1일전",
+          "panId": "2015122300020994",
+          "system": "03",
+          "uppAisTpCd": "05",
+          "aisTpCd": "05",
+          "cells": [
+            "2",
+            "분양주택",
+            "영천문외 센트럴타운 공가세대 일반매각 공고 1일전",
+            "경상북도",
+            "첨부파일 있음",
+            "2026.11.02",
+            "2026.11.24",
+            "공고중",
+            "3,019"
+          ]
+        },
+        {
+          "title": "영천하이테크파크 산업시설용지 공급공고 1일전",
+          "panId": "BN-0007958",
+          "system": "01",
+          "uppAisTpCd": "01",
+          "aisTpCd": "01",
+          "cells": [
+            "1",
+            "토지",
+            "영천하이테크파크 산업시설용지 공급공고 1일전",
+            "경상북도",
+            "첨부파일 있음",
+            "2026.09.21",
+            "2026.10.08",
+            "접수마감",
+            "10,486"
+          ]
+        }
+      ],
+      "resultCount": 3,
+      "totalHint": {
+        "totalResults": 3,
+        "currentPage": 1,
+        "totalPages": 1
+      },
+      "dateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "applicationStatus": "전체",
+      "observedApplicableCorrection": false
+    },
+    {
+      "key": "namdong",
+      "term": "남동",
+      "requestedAt": "2026-11-08T15:42:47.696646+09:00",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&viewType=srch&panNm=%EB%82%A8%EB%8F%99&panSs=&srchY=Y&indVal=N&listCo=100&currPage=1&startDt=2026-09-08&endDt=2026-11-08&srchUppAisTpCd=061339&uppAisTpCd=06",
+      "sha256": "8bb8c3ccd3b854ac20930419933543299f6e6c04540f840ec66f61800ae8e40c",
+      "statusSelect": [
+        "<option value=\"\" selected>전체</option>"
+      ],
+      "rows": [
+        {
+          "title": "'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.) 1일전",
+          "panId": "2015122300020987",
+          "system": "03",
+          "uppAisTpCd": "06",
+          "aisTpCd": "07",
+          "cells": [
+            "6",
+            "국민임대",
+            "'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.) 1일전",
+            "인천광역시",
+            "첨부파일 있음",
+            "2026.11.05",
+            "2026.11.17",
+            "공고중",
+            "11,131"
+          ]
+        },
+        {
+          "title": "인천남동도시첨단산업단지 생활대책용지 재공급공고 1일전",
+          "panId": "BN-0008150",
+          "system": "01",
+          "uppAisTpCd": "01",
+          "aisTpCd": "01",
+          "cells": [
+            "5",
+            "토지",
+            "인천남동도시첨단산업단지 생활대책용지 재공급공고 1일전",
+            "전국",
+            "첨부파일 있음",
+            "2026.11.05",
+            "",
+            "상담요청",
+            "156"
+          ]
+        },
+        {
+          "title": "인천남동도시첨단산업단지 점포겸용 단독주택용지 선착순 수의계약(5년 무이자 분할납부) 공급공고[중개알선대상토지포함] 1일전",
+          "panId": "BN-0008108",
+          "system": "01",
+          "uppAisTpCd": "01",
+          "aisTpCd": "01",
+          "cells": [
+            "4",
+            "토지",
+            "인천남동도시첨단산업단지 점포겸용 단독주택용지 선착순 수의계약(5년 무이자 분할납부) 공급공고[중개알선대상토지포함] 1일전",
+            "인천광역시",
+            "첨부파일 있음",
+            "2026.10.23",
+            "",
+            "상담요청",
+            "417"
+          ]
+        },
+        {
+          "title": "인천남동도시첨단산업단지 산업시설용지 7차 공급공고 1일전",
+          "panId": "BN-0008090",
+          "system": "01",
+          "uppAisTpCd": "01",
+          "aisTpCd": "01",
+          "cells": [
+            "3",
+            "토지",
+            "인천남동도시첨단산업단지 산업시설용지 7차 공급공고 1일전",
+            "인천광역시",
+            "첨부파일 있음",
+            "2026.10.16",
+            "2026.11.05",
+            "접수마감",
+            "1,391"
+          ]
+        },
+        {
+          "title": "'26년 9월 인천시(남동구) 행복주택 입주자격완화 예비입주자 모집 1일전",
+          "panId": "2015122300020744",
+          "system": "03",
+          "uppAisTpCd": "06",
+          "aisTpCd": "10",
+          "cells": [
+            "2",
+            "행복주택",
+            "'26년 9월 인천시(남동구) 행복주택 입주자격완화 예비입주자 모집 1일전",
+            "인천광역시",
+            "첨부파일 있음",
+            "2026.09.16",
+            "2026.09.30",
+            "접수마감",
+            "38,650"
+          ]
+        },
+        {
+          "title": "인천남동도시첨단산업단지 점포겸용 단독주택용지 재공급공고(5년 무이자 분할납부) 1일전",
+          "panId": "BN-0007979",
+          "system": "01",
+          "uppAisTpCd": "01",
+          "aisTpCd": "01",
+          "cells": [
+            "1",
+            "토지",
+            "인천남동도시첨단산업단지 점포겸용 단독주택용지 재공급공고(5년 무이자 분할납부) 1일전",
+            "인천광역시",
+            "첨부파일 있음",
+            "2026.09.15",
+            "2026.09.30",
+            "접수마감",
+            "818"
+          ]
+        }
+      ],
+      "resultCount": 6,
+      "totalHint": {
+        "totalResults": 6,
+        "currentPage": 1,
+        "totalPages": 1
+      },
+      "dateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "applicationStatus": "전체",
+      "observedApplicableCorrection": false
+    },
+    {
+      "key": "nonhyeon3",
+      "term": "논현3",
+      "requestedAt": "2026-11-08T15:42:47.706699+09:00",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&viewType=srch&panNm=%EB%85%BC%ED%98%843&panSs=&srchY=Y&indVal=N&listCo=100&currPage=1&startDt=2026-09-08&endDt=2026-11-08&srchUppAisTpCd=061339&uppAisTpCd=06",
+      "sha256": "17698d05636b23624e9fe6f3921e640824ad9559073ddbac8188c954936705d3",
+      "statusSelect": [
+        "<option value=\"\" selected>전체</option>"
+      ],
+      "rows": [],
+      "resultCount": 0,
+      "totalHint": {
+        "totalResults": 0,
+        "currentPage": 0,
+        "totalPages": 0
+      },
+      "dateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "applicationStatus": "전체",
+      "observedApplicableCorrection": false
+    }
+  ],
+  "officialAnnouncementSearches": [
+    {
+      "term": "경주",
+      "key": "gyeongju",
+      "url": "https://apply.lh.or.kr/lhapply/apply/noti/an/list.do?slBbsKdCd=03&mi=1079&srchTy=0&srchNm=%EA%B2%BD%EC%A3%BC&startDt=2026-09-08&endDt=2026-11-08&currPage=1&listCo=100&srchRes=Y&srchY=Y&indVal=N",
+      "checkedAt": "2026-11-08T15:49:06.513701+09:00",
+      "htmlSha256": "1165ad35e2e889b156be4e92b5ace00b7647c3d799d8ea9fc92e7aefb290c803",
+      "searchMode": "제목+내용",
+      "searchDateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "totals": [
+        "전체 1 건 1 / 1페이지 15건 30건 50건 100건 공지사"
+      ],
+      "rows": [
+        [
+          "1",
+          "LH",
+          "국민임대",
+          "[잔여세대 게시] 경주시, 영천시, 포항시 부도매입(국민임대)주택 모집공고 잔여세대 게시",
+          "대구경북지역본부",
+          "첨부파일 있음",
+          "2026.09.21",
+          "1,085"
+        ]
+      ],
+      "htmlPath": ".tools/qa/remaining5/gyeongju-announcements.html",
+      "observedApplicableCorrection": false,
+      "assessment": "검색된 게시물은 모두 해당 2026-11-05 모집공고보다 앞선 다른 모집/공급/접수 결과이며, 검토 중인 충돌의 정정 근거로 적용할 수 없음."
+    },
+    {
+      "term": "영천",
+      "key": "yeongcheon",
+      "url": "https://apply.lh.or.kr/lhapply/apply/noti/an/list.do?slBbsKdCd=03&mi=1079&srchTy=0&srchNm=%EC%98%81%EC%B2%9C&startDt=2026-09-08&endDt=2026-11-08&currPage=1&listCo=100&srchRes=Y&srchY=Y&indVal=N",
+      "checkedAt": "2026-11-08T15:49:06.527440+09:00",
+      "htmlSha256": "afe40231ac09d93e804ebe99dd82fc8fcb0cf7ff6d916ec2206043a96ffb6e54",
+      "searchMode": "제목+내용",
+      "searchDateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "totals": [
+        "전체 2 건 1 / 1페이지 15건 30건 50건 100건 공지사"
+      ],
+      "rows": [
+        [
+          "2",
+          "LH",
+          "분양주택",
+          "영천해피포유 일반매각 분양유치금제 시행 안내 [개업 공인중개사 대상]",
+          "대구경북지역본부",
+          "첨부파일 있음",
+          "2026.10.19",
+          "273"
+        ],
+        [
+          "1",
+          "LH",
+          "국민임대",
+          "[잔여세대 게시] 경주시, 영천시, 포항시 부도매입(국민임대)주택 모집공고 잔여세대 게시",
+          "대구경북지역본부",
+          "첨부파일 있음",
+          "2026.09.21",
+          "1,085"
+        ]
+      ],
+      "htmlPath": ".tools/qa/remaining5/yeongcheon-announcements.html",
+      "observedApplicableCorrection": false,
+      "assessment": "검색된 게시물은 모두 해당 2026-11-05 모집공고보다 앞선 다른 모집/공급/접수 결과이며, 검토 중인 충돌의 정정 근거로 적용할 수 없음."
+    },
+    {
+      "term": "남동",
+      "key": "namdong",
+      "url": "https://apply.lh.or.kr/lhapply/apply/noti/an/list.do?slBbsKdCd=03&mi=1079&srchTy=0&srchNm=%EB%82%A8%EB%8F%99&startDt=2026-09-08&endDt=2026-11-08&currPage=1&listCo=100&srchRes=Y&srchY=Y&indVal=N",
+      "checkedAt": "2026-11-08T15:49:06.531440+09:00",
+      "htmlSha256": "f316dbb36c6b514ee24d5845ff81ed69808dea76e302c6fe74a148c5ff86f4b3",
+      "searchMode": "제목+내용",
+      "searchDateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "totals": [
+        "전체 3 건 1 / 1페이지 15건 30건 50건 100건 공지사"
+      ],
+      "rows": [
+        [
+          "3",
+          "LH",
+          "행복주택",
+          "'26년 9월 인천시(남동구) 행복주택 예비입주자 모집 접수결과게시",
+          "인천지역본부",
+          "첨부파일 있음",
+          "2026.10.01",
+          "877"
+        ],
+        [
+          "2",
+          "LH",
+          "국민임대",
+          "2026년9월7일공고 인천시 남동구 국민임대주택 예비입주자 청약률 및 마감안내(9.21)",
+          "인천지역본부",
+          "첨부파일 있음",
+          "2026.09.21",
+          "1,033"
+        ],
+        [
+          "1",
+          "LH",
+          "산업시설용지",
+          "인천남동도시첨단산업단지 산업시설용지(6차) 추첨결과 및 계약 체결 등 안내",
+          "인천지역본부",
+          "첨부파일 있음",
+          "2026.09.09",
+          "282"
+        ]
+      ],
+      "htmlPath": ".tools/qa/remaining5/namdong-announcements.html",
+      "observedApplicableCorrection": false,
+      "assessment": "검색된 게시물은 모두 해당 2026-11-05 모집공고보다 앞선 다른 모집/공급/접수 결과이며, 검토 중인 충돌의 정정 근거로 적용할 수 없음."
+    },
+    {
+      "term": "논현3",
+      "key": "nonhyeon3",
+      "url": "https://apply.lh.or.kr/lhapply/apply/noti/an/list.do?slBbsKdCd=03&mi=1079&srchTy=0&srchNm=%EB%85%BC%ED%98%843&startDt=2026-09-08&endDt=2026-11-08&currPage=1&listCo=100&srchRes=Y&srchY=Y&indVal=N",
+      "checkedAt": "2026-11-08T15:49:06.572669+09:00",
+      "htmlSha256": "88a7c3a6a64bc3bbb357b0e5136662ef373509a4e52ba5aa077a40949e0fa16f",
+      "searchMode": "제목+내용",
+      "searchDateWindow": {
+        "from": "2026-09-08",
+        "to": "2026-11-08"
+      },
+      "totals": [
+        "전체 0 건 0 / 0페이지 15건 30건 50건 100건 공지사"
+      ],
+      "rows": [
+        [
+          "검색하신 결과가 없습니다."
+        ]
+      ],
+      "htmlPath": ".tools/qa/remaining5/nonhyeon3-announcements.html",
+      "observedApplicableCorrection": false,
+      "assessment": "검색 결과 없음."
+    }
+  ],
+  "webSearches": [
+    {
+      "queries": [
+        "site:apply.lh.or.kr \"경주시,영천시\" \"2026\" \"정정\"",
+        "site:apply.lh.or.kr \"인천남동구\" \"2026.11\" \"정정\""
+      ],
+      "result": "대상 정정 공고는 결과에서 확인되지 않음."
+    },
+    {
+      "queries": [
+        "\"경주시 영천시\" \"동호지정\" \"26.11.05\"",
+        "\"인천시 남동구\" \"예비입주자\" \"26.11.05\" 정정",
+        "\"논현3\" \"2026.11.05\" 정정"
+      ],
+      "result": "현재 경주 원 공고가 검색됨. 대상 충돌을 해소하는 별도 공식 정정 미발견.",
+      "officialResultUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021025&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026"
+    },
+    {
+      "queries": [
+        "\"남동구\" \"2026.11.05\" \"정정\"",
+        "\"경주시\" \"영천시\" \"2026.11.05\" \"정정\"",
+        "\"논현3\" \"김포시\" \"2026\" \"국민임대\""
+      ],
+      "domainFilters": [
+        "lh.or.kr",
+        "apply.lh.or.kr",
+        "namdong.go.kr",
+        "gyeongju.go.kr",
+        "yc.go.kr"
+      ],
+      "result": "LH 캘린더와 무관한 토지 정정 등이 검색됨. 대상 충돌을 해소하는 정정 미발견.",
+      "officialResultUrl": "https://apply.lh.or.kr/lhapply/apply/sc/list.do?mi=1312"
+    }
+  ],
+  "notices": [
+    {
+      "noticeId": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "title": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+      "disposition": "HOLD",
+      "detail": {
+        "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021025&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "savedHtmlPath": ".tools/qa/remaining5/gyeongju-detail.html",
+        "savedHtmlSha256": "1baa4776ae80e872b250694d72b76e20512bcd852c1b9cba7dabcd65c9b0c049",
+        "hashNote": "저장한 상세 HTML의 원시 해시. 조회수 등 변동 요소를 포함하므로 기존 정규화 문맥 해시와 동일성 비교하지 않음.",
+        "applicableCorrectionFound": false
+      },
+      "attachments": [
+        {
+          "group": "gyeongju",
+          "fileId": "69313343",
+          "label": "경주시,영천시국민임대주택동호지정입주자모집(26.11.05).hwpx",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313343",
+          "bytes": 294249,
+          "sha256": "63eb9a16b10266c47eec771b0c7b0c6b89f7a4c1be9567db067098390efafc45",
+          "previousSha256": "63eb9a16b10266c47eec771b0c7b0c6b89f7a4c1be9567db067098390efafc45",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.298883+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69313343.hwpx"
+        },
+        {
+          "group": "gyeongju",
+          "fileId": "69313344",
+          "label": "경주시,영천시국민임대주택동호지정입주자모집(26.11.05).pdf",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+          "bytes": 514814,
+          "sha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511",
+          "previousSha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.357910+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69313344.pdf"
+        },
+        {
+          "group": "gyeongju",
+          "fileId": "69313345",
+          "label": "국민임대_공급대상_주택내역(26.11.05).pdf",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313345",
+          "bytes": 4230952,
+          "sha256": "5f79310bdc7053e6c29a6541f2c467252dbe2221c7ed6ccb8d841fbfe10fc5aa",
+          "previousSha256": "5f79310bdc7053e6c29a6541f2c467252dbe2221c7ed6ccb8d841fbfe10fc5aa",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.567683+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69313345.pdf"
+        }
+      ],
+      "downloadComparison": "현재 상세에 있는 3개 첨부를 전부 재다운로드. 모두 기존 검토 SHA-256과 동일.",
+      "officialSearchKeys": [
+        "gyeongju",
+        "yeongcheon"
+      ],
+      "findings": [
+        {
+          "code": "DEPOSIT_PAYMENT_CUTOFF_CONFLICT",
+          "status": "UNRESOLVED",
+          "meaning": "동호지정 후 당일 계약금 미입금 시 신청무효/동호지정 취소라는 같은 절차의 마감 시간이 16시와 17시로 다름. 단순 접수 시간과 계약 시간의 구분으로 해소할 수 없음.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+              "fileId": "69313344",
+              "sha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511",
+              "physicalPdfPage": 9,
+              "printedPage": 17,
+              "side": "left",
+              "summary": "계약금 입금 행은 당일 16시까지 납부, 같은 쪽 강조 안내는 10:00~16:00 내 미입금 시 계약 불가·신청무효로 설명.",
+              "renderPath": ".tools/qa/remaining5/69313344-page-9.png"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+              "fileId": "69313344",
+              "sha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511",
+              "physicalPdfPage": 9,
+              "printedPage": 18,
+              "side": "right",
+              "summary": "계약 및 입주 안내는 당일 오후 5시까지 미입금 시 계약 불가·신청무효·동호지정 취소로 설명.",
+              "renderPath": ".tools/qa/remaining5/69313344-page-9.png"
+            }
+          ],
+          "hwpxCrossCheck": {
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313343",
+            "sha256": "63eb9a16b10266c47eec771b0c7b0c6b89f7a4c1be9567db067098390efafc45",
+            "section": "Contents/section0.xml",
+            "result": "16시 납부 안내와 오후 5시까지 미입금 취소 안내가 모두 존재. PDF 추출/배치만의 오류가 아님."
+          },
+          "requiredOfficialClarification": "동호지정 당일 계약금 입금의 실제 최종 시각이 16:00인지 17:00인지, 지연 시 취소 기준을 명시한 정정 또는 담당기관 확인 필요."
+        },
+        {
+          "code": "ELIGIBILITY_REFERENCE_DATE_CONFLICT",
+          "status": "UNRESOLVED",
+          "meaning": "주 공고문은 모집공고일을 입주자격 판단 기준으로 명시하지만, 공급대상 안내 PDF는 접수일 현재 무주택세대구성원으로 안내. 자격 요건을 실제로 설명한 첨부라 단순 평면도 역할로 제외할 수 없음.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+              "fileId": "69313344",
+              "sha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511",
+              "physicalPdfPage": 1,
+              "printedPage": 1,
+              "side": "left",
+              "summary": "모집공고일 2026.11.05가 입주자격 심사 기준일이라고 명시."
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+              "fileId": "69313344",
+              "sha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511",
+              "physicalPdfPage": 4,
+              "printedPage": null,
+              "side": null,
+              "summary": "입주자모집공고일 현재 무주택세대구성원이며 공고일부터 입주 시까지 유지하도록 설명."
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313345",
+              "fileId": "69313345",
+              "sha256": "5f79310bdc7053e6c29a6541f2c467252dbe2221c7ed6ccb8d841fbfe10fc5aa",
+              "physicalPdfPage": 1,
+              "printedPage": null,
+              "side": null,
+              "summary": "신청자격 칸에서 접수일 현재 세대구성원 전체의 무주택 요건을 안내. 일정과 연락처는 같은 11월 모집과 연결됨.",
+              "renderPath": ".tools/qa/remaining5/69313345-page-1.png"
+            }
+          ],
+          "requiredOfficialClarification": "무주택 등 자격 판단 기준일의 공고일/접수일 차이를 바로잡는 공식 정정 또는 적용 범위를 명시한 확인 필요."
+        }
+      ],
+      "decisionReason": "새 정정이나 공식 해소 근거를 찾지 못했고 현재 공식 파일 자체의 두 충돌을 재확인. 임의로 더 이른 시각이나 주 공고문 기준을 선택해 PASS하지 않음."
+    },
+    {
+      "noticeId": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "title": "'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+      "disposition": "HOLD",
+      "detail": {
+        "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020987&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "savedHtmlPath": ".tools/qa/remaining5/namdong-detail.html",
+        "savedHtmlSha256": "575f86dd3743bc810ec2e620d932fdbe766dad4e401e1b977c818ecba13accce",
+        "hashNote": "저장한 상세 HTML의 원시 해시. 조회수 등 변동 요소를 포함하므로 기존 정규화 문맥 해시와 동일성 비교하지 않음.",
+        "applicableCorrectionFound": false
+      },
+      "attachments": [
+        {
+          "group": "namdong",
+          "fileId": "69190884",
+          "label": "인천시남동구지역국민임대예비입주자모집(26.11.05.).hwpx",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190884",
+          "bytes": 515114,
+          "sha256": "01f6c6028878d52fbfbda132fc99cad7a2b537941559a4807681888cf8b071c8",
+          "previousSha256": "01f6c6028878d52fbfbda132fc99cad7a2b537941559a4807681888cf8b071c8",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.496268+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69190884.hwpx"
+        },
+        {
+          "group": "namdong",
+          "fileId": "69190885",
+          "label": "인천시남동구지역국민임대예비입주자모집(26.11.05.).pdf",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190885",
+          "bytes": 585181,
+          "sha256": "9cf46fd73a540442a28c3200a4af47a7db3b4bf4a113a33c428272e8c8e632a0",
+          "previousSha256": "9cf46fd73a540442a28c3200a4af47a7db3b4bf4a113a33c428272e8c8e632a0",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.547520+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69190885.pdf"
+        },
+        {
+          "group": "namdong",
+          "fileId": "69190890",
+          "label": "마이마이서비스고객매뉴얼(v6).hwpx",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190890",
+          "bytes": 7455109,
+          "sha256": "98e03325a6a23d868fa6406d61597c830ea7cdb1563014f25670cb5ec84e1cd9",
+          "previousSha256": "98e03325a6a23d868fa6406d61597c830ea7cdb1563014f25670cb5ec84e1cd9",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:16.055591+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69190890.hwpx"
+        },
+        {
+          "group": "namdong",
+          "fileId": "69190891",
+          "label": "마이마이서비스고객매뉴얼(v6).pdf",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190891",
+          "bytes": 2978887,
+          "sha256": "4e790c7311d4d8782194fb2cbea586879c196281c1eec79364b74225434dd5f3",
+          "previousSha256": "4e790c7311d4d8782194fb2cbea586879c196281c1eec79364b74225434dd5f3",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.880165+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69190891.pdf"
+        },
+        {
+          "group": "namdong",
+          "fileId": "69190887",
+          "label": "제출서류양식(현장대행).hwpx",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190887",
+          "bytes": 310848,
+          "sha256": "daea486e46fab95d790b58c720bd89fe02d77c5d9dabc19b5c3284b48e70e63c",
+          "previousSha256": "daea486e46fab95d790b58c720bd89fe02d77c5d9dabc19b5c3284b48e70e63c",
+          "matchesPrevious": true,
+          "downloadedAt": "2026-11-08T15:43:15.785317+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69190887.hwpx"
+        },
+        {
+          "group": "namdong",
+          "fileId": "69190889",
+          "label": "제출서류양식(현장대행).pdf",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190889",
+          "bytes": 703410,
+          "sha256": "72e8700fca2468d94bae7792e6b5ff7e35eaee6d1afc5cdaf51100f3c4c83817",
+          "previousSha256": null,
+          "matchesPrevious": null,
+          "downloadedAt": "2026-11-08T15:43:15.998503+09:00",
+          "contentType": "application/octet-stream;charset=utf-8",
+          "path": ".tools/qa/remaining5/files/69190889.pdf"
+        }
+      ],
+      "downloadComparison": "현재 상세에 있는 6개 첨부를 전부 재다운로드. 이전 검토 패키지에 해시가 있었던 5개는 모두 동일. 현장대행 PDF 69190889는 이번 확인에서 추가로 기록했으며, 실제로 새로 게시되었다는 의미가 아님.",
+      "officialSearchKeys": [
+        "namdong",
+        "nonhyeon3"
+      ],
+      "findings": [
+        {
+          "code": "RESIDENCY_SCORING_REGION_CONFLICT",
+          "status": "UNRESOLVED",
+          "meaning": "공급 및 순위 지역은 인천 남동구와 인접 지역이나, 계속거주 배점과 초본 제출대상에 김포시가 명시되어 있음. 배점·서류 범위에 영향을 주므로 자동으로 남동구로 치환하지 않음.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190885",
+              "fileId": "69190885",
+              "sha256": "9cf46fd73a540442a28c3200a4af47a7db3b4bf4a113a33c428272e8c8e632a0",
+              "physicalPdfPage": 5,
+              "printedPage": 9,
+              "side": "left",
+              "summary": "선정 순위는 남동구 및 인접구·시를 대상으로 하는데, 계속거주기간 배점 표에는 김포시 계속거주기간이라고 기재.",
+              "renderPath": ".tools/qa/remaining5/69190885-page-5.png"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190885",
+              "fileId": "69190885",
+              "sha256": "9cf46fd73a540442a28c3200a4af47a7db3b4bf4a113a33c428272e8c8e632a0",
+              "physicalPdfPage": 9,
+              "printedPage": 18,
+              "side": "right",
+              "summary": "신청자의 주민등록표초본 제출대상에 공고일 현재 김포시 거주자 중 등본으로 김포시 거주기간이 확인되지 않는 자를 명시.",
+              "renderPath": ".tools/qa/remaining5/69190885-page-9.png"
+            }
+          ],
+          "hwpxCrossCheck": {
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190884",
+            "sha256": "01f6c6028878d52fbfbda132fc99cad7a2b537941559a4807681888cf8b071c8",
+            "section": "Contents/section0.xml",
+            "result": "김포시 배점 문구와 김포시 초본 제출대상 문구가 모두 존재. PDF/HWPX 형식 차이가 아닌 공식 원문 내용 충돌."
+          },
+          "requiredOfficialClarification": "계속거주 배점의 대상 지역과 그 증빙용 초본 제출대상 지역이 어디인지 명시한 정정 또는 담당기관 확인 필요."
+        }
+      ],
+      "additionalAttachmentReview": {
+        "fileId": "69190889",
+        "role": "APPLICATION_FORMS",
+        "sha256": "72e8700fca2468d94bae7792e6b5ff7e35eaee6d1afc5cdaf51100f3c4c83817",
+        "physicalPages": 12,
+        "scope": "현장대행 PDF 전체 텍스트의 지역/정정 관련 단어 및 첫 쪽 인터넷 대행접수 요청서 확인. 새 자격 기준을 전부 재승인한 검토가 아님.",
+        "result": "김포·남동구·계속거주·주민등록표초본 문구가 없고, 확인된 정정 문자열은 행정정보의 일부였음. 이 PDF에서 문제의 지역 배점을 바로잡는 근거를 찾지 못함.",
+        "textPath": ".tools/qa/remaining5/files/69190889.text.json"
+      },
+      "citationCorrection": {
+        "previous": "초본 대상: PDF10쪽(문서19쪽)",
+        "correct": "초본 대상: PDF9쪽 오른쪽(문서18쪽)",
+        "verifiedBy": "현행 공식 PDF 재다운로드 후 페이지 렌더",
+        "correctedDocumentation": "docs/reviews/2026-11-08-public18-group-a.md",
+        "immutableAppliedPackageEdited": false
+      },
+      "decisionReason": "현행 공식 주 공고문 두 형식에 모두 지역 충돌이 남고 적용 가능한 공식 정정 미발견. 초본 페이지 위치만 바로잡고 HOLD 유지."
+    }
+  ]
+}

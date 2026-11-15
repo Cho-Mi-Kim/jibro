@@ -1,0 +1,46 @@
+{
+  "noticeId": "96a16272-c853-4505-bdbb-d88f652d6e77",
+  "title": "[정정공고]2026년 2차 대구경북지역 든든전세주택 입주자 모집공고(분양전환형)",
+  "version": 3,
+  "status": "CLOSED",
+  "canStart": false,
+  "reviewIssues": [
+    {
+      "id": "application_change_scope",
+      "area": "CONDITION",
+      "title": "온라인 일반 입력내용 수정 가능 범위 확인",
+      "detail": "모집단위 변경 불가와 다른 공고 신청을 위한 서류제출기간 종료 전 취소 가능은 구분하여 안내합니다. 일반 입력정보 수정은 공고 1·5쪽의 신청 후 변경 불가와 12쪽 온라인 신청 항목의 접수기간 중 수정 가능 문구가 직접 달라, 이 범위만 LH 확인 대상으로 남깁니다. 이미 제출한 서류 내용 변경 불가와도 구분합니다.",
+      "questionIds": [
+        "application_change"
+      ],
+      "documentIds": [],
+      "evidence": [
+        {
+          "label": "공고문 1쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=1",
+          "checkedAt": "2026-11-12"
+        },
+        {
+          "label": "공고문 5쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "checkedAt": "2026-11-12"
+        },
+        {
+          "label": "공고문 12쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=12",
+          "checkedAt": "2026-11-12"
+        },
+        {
+          "label": "첨부 Q&A 3·4·6번 · 변경과 취소 구분",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+          "checkedAt": "2026-11-12"
+        }
+      ]
+    }
+  ],
+  "postalOptionRemoved": true,
+  "postalApplicationDocumentRemoved": true,
+  "commonConsentDocumentsUnconditional": true,
+  "nonconversionUnchanged": true,
+  "datesAndSchedulesUnchanged": true
+}

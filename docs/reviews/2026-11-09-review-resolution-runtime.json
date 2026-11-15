@@ -1,0 +1,1312 @@
+{
+  "reviewDate": "2026-11-09",
+  "scope": "12 affected notices / 20 displayed issues; 17-notice prior review scope",
+  "appliedPackages": 12,
+  "resolvedDisplayItems": 14,
+  "remainingDisplayItems": 6,
+  "remainingDistinctIssues": 4,
+  "apiVerification": {
+    "checkedAt": "2026-11-08T16:55:33.285822+00:00",
+    "notices": [
+      {
+        "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 11,
+        "documents": 14,
+        "issues": 2
+      },
+      {
+        "noticeId": "1ecfdb35-d469-4eca-bdf4-c88dab451735",
+        "guideState": "UNSUPPORTED",
+        "status": "UNKNOWN",
+        "canStart": false,
+        "questions": 0,
+        "documents": 0,
+        "issues": 0
+      },
+      {
+        "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 18,
+        "documents": 24,
+        "issues": 0
+      },
+      {
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 14,
+        "documents": 10,
+        "issues": 0
+      },
+      {
+        "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 11,
+        "documents": 6,
+        "issues": 1
+      },
+      {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 28,
+        "issues": 0
+      },
+      {
+        "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 15,
+        "documents": 20,
+        "issues": 0
+      },
+      {
+        "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 28,
+        "issues": 0
+      },
+      {
+        "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 11,
+        "documents": 14,
+        "issues": 2
+      },
+      {
+        "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 15,
+        "documents": 14,
+        "issues": 0
+      },
+      {
+        "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 16,
+        "documents": 11,
+        "issues": 0
+      },
+      {
+        "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 24,
+        "documents": 39,
+        "issues": 0
+      },
+      {
+        "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 11,
+        "documents": 13,
+        "issues": 0
+      },
+      {
+        "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 31,
+        "issues": 0
+      },
+      {
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 30,
+        "issues": 0
+      },
+      {
+        "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 13,
+        "documents": 20,
+        "issues": 1
+      },
+      {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "guideState": "AVAILABLE",
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 14,
+        "documents": 10,
+        "issues": 0
+      }
+    ],
+    "totals": {
+      "notices": 17,
+      "available": 16,
+      "questions": 249,
+      "documents": 312,
+      "reviewIssues": 6,
+      "resolvedDisplayItems": 14
+    },
+    "corrections": [
+      {
+        "originalId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "targetId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "status": 200
+      },
+      {
+        "originalId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "targetId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "status": 200
+      }
+    ],
+    "unverifiedNaepoCorrectionStatus": 204,
+    "officialClosureFilterChecks": [
+      "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+      "36c61d71-0881-415a-8be3-6e7bc4830be0",
+      "9a8f0666-9d01-4807-b2f0-e153b979f087",
+      "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+      "dc3837d1-d296-4c6e-95cc-e09d05922593"
+    ],
+    "backendTests": {
+      "test": {
+        "tests": 499,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integrationTest": {
+        "tests": 280,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "frontendTests": {
+      "files": 5,
+      "tests": 37,
+      "failures": 0
+    }
+  },
+  "apply": {
+    "notices": [
+      {
+        "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "disposition": "PARTIAL",
+        "packageFingerprint": "3dad30db5df33b52bdb9373b38387c1180f4208630aa9df326e6eca92f827adb",
+        "verifiedAt": "2026-11-08T16:54:09.287906900Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813": "d5fd463dae00132b674ec9ef82c10c3a1c51b3944c11ca4f504a2302b6a9fdbf",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984834": "b39780b3ee91a2f760e7fdc5658824bb51b21e7e695a8cfddea180fdc5af8b07",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984830": "c3aa3a1c6caa02a119fdcd0bd8b04acb32c0feedc84e349a057dec4c534d9546",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "26b6dedb6666cc32bfe3ed7f2b412c872ffcb61288ec942ab13897685c5a0f31"
+        },
+        "previousPackageFingerprint": "0a959fa94c703ed4813aa9ff26d2e51a0f6811c5e336a22de0fd1ec3a2f450fc",
+        "amended": true,
+        "result": "PASS",
+        "questions": 11,
+        "documents": 14,
+        "issues": 2
+      },
+      {
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "disposition": "PASS",
+        "packageFingerprint": "e46d54e9f793253018a8b889da5eb80785505b295b70cf4027ca868e77fbc3fe",
+        "verifiedAt": "2026-11-08T16:54:10.099596500Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000890&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "f20f9b3fff039f9f30da34a5eb9bddd981ad8b179197e9059cc8aa8fdf06a5d5",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980": "b68ce68be2c762b604600fbd3f88a1b2370aff4e55ce3e7e15ba98cc799bf79f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437970": "d4926822070c1a28ff5a9664ac759f69edb123bc58d9f317bd877c2faeda6821"
+        },
+        "previousPackageFingerprint": "f73a2b6c4958d8925ea84b8cbd42771b7afdaa2c146bca710588ef5596b91af9",
+        "amended": true,
+        "result": "PASS",
+        "questions": 14,
+        "documents": 10,
+        "issues": 0
+      },
+      {
+        "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+        "disposition": "PARTIAL",
+        "packageFingerprint": "82fe344a3c3a744cd7be0331c7c197d22076e278fd18a23c235c46f2d185dcfd",
+        "verifiedAt": "2026-11-08T16:54:11.177999Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000003848&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "8da2001a004ea622cda071268dee8f53f5022b6dcdf4d6b5d2f305068bd50fbb",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004173&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "f48e6dc434d330d30f76bc608a432b818e7112ee51c6384502a0c950431d5f2b",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557554": "6e5ea8c84a0563d9a1cd7b207d7ca3c41f09810ba1ad604f87a8c1eeba8e331b",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557556": "6e9c7b19798a800b2f01141263d5442c48f54950a201982ece1b18c785264429",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557555": "a4f11ba52f9ea0179815131eb7ff1e2fc14bbfb684ef993c63acd65cb64a00bb",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559116": "fe88cc08c4c9dea2d888fec80cbf1756c226f35823c1447b7d87e57de37a90b9",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279": "abbe8d4f9f91ac90090ed5e4d79a834e22dbf1c3442fb83f2ef7d4137f2bb266",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559123": "afa18f636752df7d057e86d41a923848a3620853bf49ae63a5f7d11cecc2a9ea"
+        },
+        "previousPackageFingerprint": "227adf7b521ff16374998c87e7710c4793832ed4615204c0078da99cffa96adf",
+        "amended": true,
+        "result": "PASS",
+        "questions": 11,
+        "documents": 6,
+        "issues": 1
+      },
+      {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "disposition": "PASS",
+        "packageFingerprint": "3da3dff44f10b2a7456e16bc256d1164b6d77fec81c527c1a23da26109d5039c",
+        "verifiedAt": "2026-11-08T16:54:14.615438500Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24662701": "76063c04b3f3a2cae2e2bf1d1c67255b4b6ed6caea0a05207521ffb4432afb6d",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560006": "9d7c8561a62126d4ad8725f9d5f895c4f6d182fc304d983045061a456de9b559",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560005": "12ebca91c907b73595364a5b946378d9bf398fadfeeccef99c6f040b5bae1337",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559691": "5cdf352b7f6aec4f0d464ca38bd87e1a787618a916054741370a610037818376",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004188&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "3919d78ed6ec11793eb6d2130cc6d0305bc7b96488cad463934e74e96ada11fc",
+          "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9100221057&ccrCnntSysDsCd=03&slBbsKdCd=03&mi=1079": "e253d6c9ad9c8483237979381f06d653e8d9a7d220801f8cea7f99c588b032c1"
+        },
+        "previousPackageFingerprint": "eecb899c92b8fa3fa5d38a64ec507d25fc6038824099fdf64457ba526521f9d9",
+        "amended": true,
+        "result": "PASS",
+        "questions": 19,
+        "documents": 28,
+        "issues": 0
+      },
+      {
+        "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "disposition": "PASS",
+        "packageFingerprint": "bde9fe2f37958aefd56e6882a3a7886faef738a8a03c04dc5a36fe31853d9890",
+        "verifiedAt": "2026-11-08T16:54:15.584106200Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24662701": "76063c04b3f3a2cae2e2bf1d1c67255b4b6ed6caea0a05207521ffb4432afb6d",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004175&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "326ff0d6bac692c5e8128924527aae5191cdbdfa4fff7e46eb4de0e6e7305e93",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037": "3f25f8f00e886c350d27d5891b9e696cba3f6ce91459438d3b6a8fa1e34ac24d",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559282": "5cdf352b7f6aec4f0d464ca38bd87e1a787618a916054741370a610037818376",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560034": "f328eff1cc6e6399df60b6660920528ceb9d6ac8744242c1d7d95fc1bf1f0e9c",
+          "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9100221057&ccrCnntSysDsCd=03&slBbsKdCd=03&mi=1079": "e253d6c9ad9c8483237979381f06d653e8d9a7d220801f8cea7f99c588b032c1"
+        },
+        "previousPackageFingerprint": "1be270d36613c6393e87ae96c4053d733281db601cb65611ffa84d55fa0219af",
+        "amended": true,
+        "result": "PASS",
+        "questions": 19,
+        "documents": 28,
+        "issues": 0
+      },
+      {
+        "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "disposition": "PARTIAL",
+        "packageFingerprint": "60be10bcdf2a4d957642a147a3aef3e456e79977d335cf39ce65cee808c99c0c",
+        "verifiedAt": "2026-11-08T16:54:16.535230300Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941549": "778e90448b018d9435aa6e0a198f4b1e891e056328dc82bfd61431adac82d3d1",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941520": "baad810ecb8548ecca5fb20f8783adb7d05a4470f1be5735ac9e5d1f44d7bf51",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813": "d5fd463dae00132b674ec9ef82c10c3a1c51b3944c11ca4f504a2302b6a9fdbf",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538": "540dffb927714af20ea5e9462b068cb4f845229bdb0abc804dbb88c385b1b7e1",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984834": "b39780b3ee91a2f760e7fdc5658824bb51b21e7e695a8cfddea180fdc5af8b07",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058681&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "7a9b1b84f443bc6baf889034ff59031c0dfc61d0849108e772052fc67c62658f",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "c9a5f5f3441c0874714f1576691844adea10f2cebe62788a118b0f729254dc11"
+        },
+        "previousPackageFingerprint": "7811f77170beb448fd3afe9d71f33c1b294cc666ffb488ab32b161f6a2e1de2f",
+        "amended": true,
+        "result": "PASS",
+        "questions": 11,
+        "documents": 14,
+        "issues": 2
+      },
+      {
+        "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+        "disposition": "PASS",
+        "packageFingerprint": "2d7a09dd1ec83ac26e4c8fa3d5114ab249a2ed13004418fb67a7cf6ee4c5f86f",
+        "verifiedAt": "2026-11-08T16:54:16.994036400Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32950541": "ab3763ce2a0e0d36423d68088119f69fb2790d89e30be7d33b48a924a377d903",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058682&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "ecbdca5ab2a9ebdbd20cd29f9bf955caef5f269dbd0deda91b618513ec2fe61d",
+          "https://www.law.go.kr/LSW/lsInfoR.do?lsiSeq=203510&lsId=008243&chrClsCd=010202&efYd=20180504": "04e7924328b8fb6d059c15fe90d1b38477a7220a2b84d6d42a1812352749a590",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32951949": "95ae017a73d4cd93bbca21fc4ba7a5224219b874c0003b53a989fba07fa7dedf",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32950553": "a50ae24f9028fd1c381b466e4e898b0b4a80f1349f836e7bfbb638a21a77febd"
+        },
+        "previousPackageFingerprint": "9244d3dd219296960f9391279a45b2eb8bdd1b069564b5a555737f58a3707f4d",
+        "amended": true,
+        "result": "PASS",
+        "questions": 16,
+        "documents": 11,
+        "issues": 0
+      },
+      {
+        "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+        "disposition": "PASS",
+        "packageFingerprint": "14cfd83ec522c7bf4a25a446a269d082cb2bed62885344297e59aba5b39f9ad7",
+        "verifiedAt": "2026-11-08T16:54:18.324120900Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698": "70ef615017d7fb2646aeaf464f322e18b77a8617a8151ef018ab8616a91485ed",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691712": "91fbcf536733aa2bbec25f2642ecef6fa81b9d5f9a4de1b2be564e42d6d867f8",
+          "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102428306&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079": "aa30576c064cb81e8e3658422c21d131e337bf5b9516096af72366b58d01b592",
+          "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102829719&ccrCnntSysDsCd=03&slBbsKdCd=03&mi=1079": "c3a4a45cc377d2e1ef236c16dac3221edf8f083b9c7b36a30328a168b114b2a3",
+          "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102428450&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079": "8bc9f0b1129fe2d4c57b57c9fb667c4a396acace28675685d5c108c3d43a6405",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300012096&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026": "cba6becb4ac54925e33fb5143b5d768cd07bec9b02a0486911c95bcf46d440cf"
+        },
+        "previousPackageFingerprint": "770b79073693af37ae94bb8db9b917e149f55a8734fbb5b1de8d677b51608987",
+        "amended": true,
+        "result": "PASS",
+        "questions": 24,
+        "documents": 39,
+        "issues": 0
+      },
+      {
+        "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+        "disposition": "PASS",
+        "packageFingerprint": "ac02bb24451bb992c1787c071770d30f3a97c63faae701d3f3f074dcc9cab2d2",
+        "verifiedAt": "2026-11-08T16:54:19.707289800Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102423648&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079": "9558231abb57838a745b91ee167e90e4f802143a6e3d6eaa24f5687d0e3ba55e",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34132028": "1816977b0a8c62c89cfffbecdcb7a293a2868baddcd0a7214ec8bbac6ccfe644",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34131787": "7c02ed66a21aabcb3075a554507e9ee713ac76032b5c74d0ad17aa18c9723917",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058858&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "e9f9f5548e100073720342021571d200e5f30d7ad287a7831b8d357dc1b9089f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34131810": "12c355a082069f13d24b9cc179e59c4b38cbb97c72b605b54abdb05fa499719d"
+        },
+        "previousPackageFingerprint": "73d4dd1d8ae8c4145a3757fccdd8350d0d14552cb4304b532d0bdd0ee7badd24",
+        "amended": true,
+        "result": "PASS",
+        "questions": 11,
+        "documents": 13,
+        "issues": 0
+      },
+      {
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "disposition": "PASS",
+        "packageFingerprint": "db00a2e95a675a12b99edcdf0716a271bbf99011c5e25b2dfa61e30ebae6ece8",
+        "verifiedAt": "2026-11-08T16:54:20.057027500Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001023&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "2a246c0bf76e07c26ba56f836f107875494779942abac2e77cca99237f48a392",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557273": "050dd75d84ebf78609d3c8c1f2804f30377b28ef36b41250382a224ad0f90921",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557272": "f0a2adc18a530b7706e46d51fd059a03fe089daa3273c57568f43c458d1dd203",
+          "https://www.law.go.kr/LSW/lsInfoR.do?lsiSeq=124711&lsId=008243&chrClsCd=010202&efYd=20120415": "ae84b840915d5f2caffd67a98d2ea4cda5334dfb2fc89f81b286bf7a1eec4fad"
+        },
+        "previousPackageFingerprint": "69da65354fe2a07324193d62d240659b2d1c78c6a6d4f697950a6a22104d2a6e",
+        "amended": true,
+        "result": "PASS",
+        "questions": 19,
+        "documents": 30,
+        "issues": 0
+      },
+      {
+        "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+        "disposition": "PARTIAL",
+        "packageFingerprint": "960bda8edbebdcbecbb3d3a2461eb93af7ac6fbd8b2122ec7863ce34bc062246",
+        "verifiedAt": "2026-11-08T16:54:21.064215900Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557306": "542aa739f8fcc7da6e046e39f572d454815f23df266b2da13c1b0d0cb6fe5cee",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557305": "33263748baa0277a227a50d51228c48a2cefade788b028ae7e9bcf6604606588",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "dcdd53aed9db26770ff8a58198482a77d169a91f27b6db277da575efcce2e385",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557307": "736aac13053db80bef7dda85aeb5a1c4258372ce50261cccebcea0e01a72e8d5"
+        },
+        "previousPackageFingerprint": "85f093f5e2dea08faf09d361553f4a8e1c47219d8e9d86e7b777e2e4e45b0317",
+        "amended": true,
+        "result": "PASS",
+        "questions": 13,
+        "documents": 20,
+        "issues": 1
+      },
+      {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "disposition": "PASS",
+        "packageFingerprint": "bebab4f22a46121f60b8c40b11538fe7a905b0a6ef8d87f03f555fd3f8bdaa83",
+        "verifiedAt": "2026-11-08T16:54:21.493666400Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562": "db49725b20481aa6d00ff078f68fbafa9d4a4bf04a98ae08d7ffd4aa7d230658",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000903&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "f0cdb7078ff1272aa4e20ba4ffd91cb6d681613577abf3e660e736a1c8e67e4f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448469": "73c625940c9020591db9a10d658388b96f33c90ced3b7054383f1dba2361711f"
+        },
+        "previousPackageFingerprint": "050d03a4ce73521d9e2be8c5d9faf367e1ab7841911a931642b9eb2b22869638",
+        "amended": true,
+        "result": "PASS",
+        "questions": 14,
+        "documents": 10,
+        "issues": 0
+      }
+    ],
+    "mode": "apply",
+    "checkedAt": "2026-11-08T16:54:22.585789800Z"
+  },
+  "correctionReverification": [
+    {
+      "correction": {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "reason": "영우예인촌 모집일정 (접수일 미충원시 익일부터 : 1층 주거복지사업1부) 수정",
+        "evidence": {
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000903&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "checkedAt": "2026-11-09"
+        },
+        "checkedAt": "2026-11-08T16:55:05.250932500Z"
+      },
+      "originalId": "36c61d71-0881-415a-8be3-6e7bc4830be0"
+    },
+    {
+      "correction": {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "title": "[정정공고][정정공고] 성남지역 국민임대주택 예비입주자 모집",
+        "reason": "50㎡미만 주택 가구원수별 가구당 월평균소득의 50%초과 70%이하인 세대 공급일정 추가\r\n-1,2,3순위: 2013.12.24",
+        "evidence": {
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004188&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "checkedAt": "2026-11-09"
+        },
+        "checkedAt": "2026-11-08T16:55:06.526707300Z"
+      },
+      "originalId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203"
+    }
+  ],
+  "preservation": {
+    "checkedAt": "2026-11-08T17:02:22.272905+00:00",
+    "otherNotices": 18906,
+    "addedOrRemoved": 0,
+    "contentVersionGuideReviewUnchanged": true,
+    "allFieldsUnchanged": false,
+    "revisionChangedByConcurrentAutomaticBasicReview": 410,
+    "revisionTransitions": "1 -> 2",
+    "automaticBasicReviewObservation": "동일410건 BASIC/PASS 감사, source_revision1 -> applied_revision2, official-rules-v6; 기본정보 검수 상태 HOLD -> PASS. 안내 내용 및 guide_review 변경 없음.",
+    "personalPreparationCountBefore": 0,
+    "personalPreparationCountAfter": 0,
+    "personalPreparationDigestUnchanged": true,
+    "inputFileSha256": {
+      "preserve-before.txt": "0bc5b7f0bd56638e09eedffb2eadc7da3de6555ba748437f43cad9fbbb052c3e",
+      "preserve-after.txt": "1716960cbffb3d536119742bdedab70713631af8f99eb87f6bb768c9e9740afb"
+    },
+    "concurrentReviewAudit": {
+      "matchingRows": 410,
+      "phase": "BASIC",
+      "decision": "PASS",
+      "policyVersion": "official-rules-v6",
+      "sourceRevision": 1,
+      "appliedRevision": 2,
+      "firstCheckedAtKst": "2026-11-09T01:33:42+09:00",
+      "lastCheckedAtKst": "2026-11-09T01:56:47+09:00",
+      "collectionRequestsDuringComparison": 0,
+      "sourceCollectionWindowKst": "2026-11-09 00:04:42 ~ 00:05:12",
+      "manualReviewOrSourceReviewRowsOnTheseNotices": 0,
+      "evidence": "DB 감사 행을 정확한 변경 공고 집합과 대조. 실행 로그는 비어 있으므로 로그 기반 결론 아님."
+    }
+  },
+  "browserVerification": {
+    "performed": true,
+    "viewports": [
+      {
+        "width": 393,
+        "height": 852
+      },
+      {
+        "width": 360,
+        "height": 800
+      }
+    ],
+    "observations": [
+      "성남 정정본 실제 접수마감 12/19와 후속 서류·발표 일정 표시",
+      "청주 원본의 종료 조건과 현재 접수종료 상태, 정정본 연결 표시",
+      "내포 원본 공급269호 안내와 계좌·후속마감 미확정 범위 분리",
+      "하단 고정 버튼·탐색 영역 정상"
+    ],
+    "horizontalOverflowPx": 0,
+    "consoleErrors": 0,
+    "actualPhoneTest": false,
+    "personalPreparationWrites": false,
+    "temporaryBrowserTabClosed": true
+  },
+  "runtimeJarSha256": "bb264d84c47ee9b1f48c32b1258f7b9d6ae7cdb7b9ab45df19f12c1c347cc3df",
+  "remotePushOrDeployment": false,
+  "issueResolution": [
+    {
+      "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+      "title": "[정정공고]내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+      "issueId": "payment-account",
+      "previousIssue": {
+        "id": "payment-account",
+        "area": "DOCUMENT",
+        "title": "계약금 입금 계좌 확인 필요",
+        "detail": "HTML과 공고문 본문·구비서류표의 계좌 숫자 표기가 일치하지 않습니다. OCR 추정으로 숫자를 합치지 않았으며, 계약금 100만원과 입금증 필요 여부는 확인되지만 실제 입금 계좌는 기관 확인이 필요합니다.",
+        "questionIds": [
+          "payment"
+        ],
+        "documentIds": [
+          "receipt"
+        ],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=6",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 8쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=8",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "REQUIRES_AGENCY_CONFIRMATION",
+      "remainingIssue": {
+        "id": "payment-account",
+        "area": "DOCUMENT",
+        "title": "계약금 입금 계좌 확인 필요",
+        "detail": "원문 본문·서류표·공식 상세의 계약금 계좌 표기가 일치하지 않습니다. 계약금 100만원과 입금증 준비는 확인되지만 계좌 자체는 LH의 당시 납부 안내 확인이 필요합니다.",
+        "questionIds": [
+          "payment"
+        ],
+        "documentIds": [
+          "receipt"
+        ],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=6",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 8쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=8",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      }
+    },
+    {
+      "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+      "title": "[정정공고]내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+      "issueId": "application-period",
+      "previousIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "공식 화면과 첨부의 접수기한 확인 필요",
+        "detail": "공식 상세 화면 마감일은 2019-01-03이나 상세 안내 및 첨부 1·6쪽의 선착순 계약·주택열람은 2018-08-27~08-29 10:30~16:00입니다. 이후 연장 여부·HTML 마감일의 의미가 설명되어 있지 않아 하나의 확정 신청기간으로 합치지 않았습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 1쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=1",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=6",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "REQUIRES_AGENCY_CONFIRMATION",
+      "remainingIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "후속 선착순 접수 종료일 확인 필요",
+        "detail": "확인된 최초 현장 절차는 2018.8.27~8.29 10:30~16:00입니다. 공식 상세의 마감일 2019.1.3이 후속 접수 종료인지 게시 종료인지 확인되지 않아 전체 최종 마감일은 비워 둡니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 1쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=1",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813#page=6",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      }
+    },
+    {
+      "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+      "title": "청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+      "issueId": "application-period-scope",
+      "previousIssue": {
+        "id": "application-period-scope",
+        "area": "SCHEDULE",
+        "title": "전체 신청 종료일 확인 필요",
+        "detail": "공식 상세에는 2016.10.10~10.10로 표시되지만 첨부 원문은 단지별 10/10~10/14 최초 접수와 미충원 잔여 접수를 안내합니다. 단지별 첫날과 시간을 확인했으나 전체 종료일은 확정할 수 없어 전체 마감과 D-day를 만들지 않았습니다. 충원 시 조기 종료 안내를 별도로 확인해야 합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 5쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980#page=5",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000890&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+      "title": "청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+      "issueId": "result-date-scope",
+      "previousIssue": {
+        "id": "result-date-scope",
+        "area": "SCHEDULE",
+        "title": "결과 발표일의 적용 범위 확인 필요",
+        "detail": "공식 상세의 2016.11.30 결과 날짜와 달리 첨부 공고는 자격 검증·공가 발생·기존 예비순서에 따른 개별 계약 안내를 설명합니다. 이 날짜가 모든 단지·잔여 접수자에게 적용되는지 확정할 근거가 부족해 공통 결과 발표 일정으로 만들지 않았습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 5쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980#page=5",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공고문 8쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980#page=8",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000890&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "title": "[정정공고] 대전노은3 A3블록 공공임대주택(10년, 분납) 선착순모집",
+      "issueId": "application-period",
+      "previousIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "신청 마감 표기 확인 필요",
+        "detail": "공식 상세 HTML은 마감일2013.12.18 및 신청접수 시간 변동이라고 표시합니다. HWP와 PDF5쪽은2013.12.11~13 접수,12.13은15시 마감이라고 일치합니다. 상세의 마감이 계약종료를 뜻하는지 확정할 수 없어 신청 종료일을 선택하지 않았습니다. 원문에 확인된 접수 시작과 순번 발표만 일정으로 제공합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 마감일·수정정보",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004173&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "신청일정 및 장소",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559123",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF5쪽 접수표",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "title": "[정정공고] 대전노은3 A3블록 공공임대주택(10년, 분납) 선착순모집",
+      "issueId": "contract-end",
+      "previousIssue": {
+        "id": "contract-end",
+        "area": "SCHEDULE",
+        "title": "계약 종료일 원문 표기 차이",
+        "detail": "HWP 및 PDF1쪽은12.19(수)15:30,5쪽 상세 계약표와 유의사항은12.16~18입니다. 실제 인쇄 원문 차이를 발견했으며 특정 종료일을 확정하지 않습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "청약신청 유의사항·계약표",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559123",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF1쪽·5쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "REQUIRES_AGENCY_CONFIRMATION",
+      "remainingIssue": {
+        "id": "contract-end",
+        "area": "SCHEDULE",
+        "title": "계약 종료일 원문 표기 차이",
+        "detail": "HWP 및 PDF1쪽은12.19(수)15:30,5쪽 상세 계약표와 유의사항은12.16~18입니다. 실제 인쇄 원문 차이를 발견했으며 특정 종료일을 확정하지 않습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "청약신청 유의사항·계약표",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559123",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF1쪽·5쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      }
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "title": "[정정공고] 대전노은3 A3블록 공공임대주택(10년, 분납) 선착순모집",
+      "issueId": "original-terms-missing",
+      "previousIssue": {
+        "id": "original-terms-missing",
+        "area": "CONDITION",
+        "title": "최초공고 준용 사항 추가 확인",
+        "detail": "잔여 공고가 준용하는2013.10.4 최초공고 전문은 이번 공식 첨부에 포함되어 있지 않습니다. 단지여건·마감재 등 미기재 준용 범위만 추가 확인으로 분리합니다. 현재 공고의 명시적 조건과 서류는 안내합니다.",
+        "questionIds": [
+          "original-terms"
+        ],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "알려드립니다·기타 안내사항",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559123",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF1쪽·5~6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+      "title": "[정정공고][정정공고] 성남지역 국민임대주택 예비입주자 모집",
+      "issueId": "result-year-conflict",
+      "previousIssue": {
+        "id": "result-year-conflict",
+        "area": "SCHEDULE",
+        "title": "최종 결과 발표 연도 원문 충돌",
+        "detail": "PDF 4쪽의 50㎡ 미만 표는 2014.3.11, 50㎡ 이상 표는 2013.3.11로 실제 인쇄되어 있습니다. 9쪽과 공식 상세는 2014.3.11로 표시하지만 OCR 오독이 아닌 원문 자체 차이이므로 임의로 연도를 고쳐 전체 최종 발표일로 확정하지 않았습니다. 2014.1.10 서류 제출 대상자 발표와 1.14~15 서류 접수는 별도 확인된 일정입니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 4쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560006#page=4",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공고문 9쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560006#page=9",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004188&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+      "title": "성남지역 국민임대주택 예비입주자 모집",
+      "issueId": "result-year-conflict",
+      "previousIssue": {
+        "id": "result-year-conflict",
+        "area": "SCHEDULE",
+        "title": "최종 결과 발표 연도 원문 충돌",
+        "detail": "PDF 4쪽의 50㎡ 미만 표는 2014.3.11, 50㎡ 이상 표는 2013.3.11로 실제 인쇄되어 있습니다. 9쪽과 공식 상세는 2014.3.11로 표시하지만 OCR 오독이 아닌 원문 자체 차이이므로 임의로 연도를 고쳐 전체 최종 발표일로 확정하지 않았습니다. 2014.1.10 서류 제출 대상자 발표와 1.14~15 서류 접수는 별도 확인된 일정입니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 4쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037#page=4",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공고문 9쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037#page=9",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004175&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+      "title": "성남지역 국민임대주택 예비입주자 모집",
+      "issueId": "income-band-application-day",
+      "previousIssue": {
+        "id": "income-band-application-day",
+        "area": "SCHEDULE",
+        "title": "50㎡ 미만 소득 50~70% 세대 접수일 확인 필요",
+        "detail": "원본은 50㎡ 미만 소득 50% 초과 70% 이하 세대도 잔여호수에 공급한다고 설명하지만 접수표에는 해당 소득 구간의 접수일이 명확하지 않습니다. 공식 상세의 12.19~12.23만으로 전체 구간의 종료일을 확정하지 않았습니다. 후속 정정 공고에서 추가한 날짜를 이 원본에 소급하지 않고 원본에 확인된 순위별 접수일만 유지했습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 3쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037#page=3",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공고문 4쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037#page=4",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공고문 5쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037#page=5",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004175&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+      "title": "내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+      "issueId": "payment-account",
+      "previousIssue": {
+        "id": "payment-account",
+        "area": "DOCUMENT",
+        "title": "계약금 입금 계좌 확인 필요",
+        "detail": "HTML과 공고문 본문·구비서류표의 계좌 숫자 표기가 일치하지 않습니다. OCR 추정으로 숫자를 합치지 않았으며, 계약금 100만원과 입금증 필요 여부는 확인되지만 실제 입금 계좌는 기관 확인이 필요합니다.",
+        "questionIds": [
+          "payment"
+        ],
+        "documentIds": [
+          "receipt"
+        ],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058681&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=6",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 8쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=8",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "REQUIRES_AGENCY_CONFIRMATION",
+      "remainingIssue": {
+        "id": "payment-account",
+        "area": "DOCUMENT",
+        "title": "계약금 입금 계좌 확인 필요",
+        "detail": "원문 본문·서류표·공식 상세의 계약금 계좌 표기가 일치하지 않습니다. 계약금 100만원과 입금증 준비는 확인되지만 계좌 자체는 LH의 당시 납부 안내 확인이 필요합니다.",
+        "questionIds": [
+          "payment"
+        ],
+        "documentIds": [
+          "receipt"
+        ],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058681&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=6",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 8쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=8",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      }
+    },
+    {
+      "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+      "title": "내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+      "issueId": "application-period",
+      "previousIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "공식 화면과 첨부의 접수기한 확인 필요",
+        "detail": "공식 상세 화면 마감일은 2019-01-03이나 상세 안내 및 첨부 1·6쪽의 선착순 계약·주택열람은 2018-08-27~08-29 10:30~16:00입니다. 이후 연장 여부·HTML 마감일의 의미가 설명되어 있지 않아 하나의 확정 신청기간으로 합치지 않았습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058681&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 1쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=1",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=6",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "REQUIRES_AGENCY_CONFIRMATION",
+      "remainingIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "후속 선착순 접수 종료일 확인 필요",
+        "detail": "확인된 최초 현장 절차는 2018.8.27~8.29 10:30~16:00입니다. 공식 상세의 마감일 2019.1.3이 후속 접수 종료인지 게시 종료인지 확인되지 않아 전체 최종 마감일은 비워 둡니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058681&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 1쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=1",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=6",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      }
+    },
+    {
+      "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+      "title": "내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+      "issueId": "corrected-stock",
+      "previousIssue": {
+        "id": "corrected-stock",
+        "area": "CONDITION",
+        "title": "공급 동호는 정정 공고 확인 필요",
+        "detail": "원본 271호·84A 87호 이후 공식 정정 공고(별도 공고 035f9dc6-5b68-46ee-a763-5f36d92a5790)에서 홍보관 2호 제외로 269호·84A 85호로 변경했습니다. 원본 기준 안내의 자격·제출서류는 유지하되 공급 동호 선택은 최신 정정본으로 확인해야 합니다.",
+        "questionIds": [
+          "stock"
+        ],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf · 공고문 2쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538#page=2",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "내포스타힐스재임대세대내역(2018.7.31기준).xlsx · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941549",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+      "title": "남양주 별가람마을1-4단지 10년 공공임대주택 예비입주자 모집공고",
+      "issueId": "restriction-start-conflict",
+      "previousIssue": {
+        "id": "restriction-start-conflict",
+        "area": "CONDITION",
+        "title": "재당첨 제한의 기산점 확인",
+        "detail": "첨부 공고 6쪽은 계약일로부터 3년, 7쪽은 당첨일로부터 3년이라고 안내합니다. 현재 신청에 필요한 기존 당첨 제한 확인과 서류 안내는 제공하되, 이 공고로 계약한 뒤의 제한 기산점은 운영기관 확인이 필요합니다.",
+        "questionIds": [
+          "postaward-restriction"
+        ],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "2018.08.09 별가람 공고문 6쪽 · 계약일 기준 제한",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32950541#page=6",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "2018.08.09 별가람 공고문 7쪽 · 당첨일 기준 제한",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32950541#page=7",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+      "title": "[정정공고]화성시 병점 복합타운 A-1블럭 행복주택 예비입주자 모집",
+      "issueId": "document-selection-date",
+      "previousIssue": {
+        "id": "document-selection-date",
+        "area": "SCHEDULE",
+        "title": "서류제출 대상자 발표일 확인 필요",
+        "detail": "첨부 공고문 9쪽 및 공식 화면 상단 항목은 2022.8.23 17시 이후를 서류제출 대상자 발표로 안내하지만 공식 화면 하단 상세 설명은 2022.11.25 17시 이후를 같은 이름으로 기재합니다. 11.25는 첨부에서 최종 예비자 발표일입니다. 어느 표기를 따를지 임의 확정하지 않고 대상자 발표 항목만 확인 필요로 남겼습니다. 신청기간과 등기우편 제출기간은 공식 자료가 일치합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300012096&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "(정정공고문)화성시병점복합타운A-1블럭행복주택예비입주자모집공고문(2022.08.05) · 공고문 9쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698#page=9",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "(정정공고문)화성시병점복합타운A-1블럭행복주택예비입주자모집공고문(2022.08.05) · 공고문 16쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698#page=16",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+      "title": "[정정공고]내포스타힐스(10년임대) 잔여세대 입주자 모집(20181204)",
+      "issueId": "application-period",
+      "previousIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "공식 화면과 첨부의 접수기한 확인 필요",
+        "detail": "공식 상세 화면 마감일은 2018-12-20이나 첨부 1·6쪽의 현장 신청접수는 2018-12-13 11:00~16:00입니다. 연장 여부·HTML 마감일의 의미를 설명하는 근거가 없어 하나의 확정 접수기간으로 합치지 않았습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 본문 · 원문 대조",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058858&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "[정정공고]내포신도시내포스타힐스공공임대(10년)잔여세대입주자모집(2018124).pdf · 공고문 1쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34132028#page=1",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "[정정공고]내포신도시내포스타힐스공공임대(10년)잔여세대입주자모집(2018124).pdf · 공고문 6쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34132028#page=6",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+      "title": "군산지역 매입 국민임대 예비입주자 모집",
+      "issueId": "elder-income-basis",
+      "previousIssue": {
+        "id": "elder-income-basis",
+        "area": "CONDITION",
+        "title": "직계존속 부양 사회취약계층의 소득 기준 확인",
+        "detail": "원문 배점표4쪽에는 수급자 선정기준 소득평가액 이하, 제출서류표6쪽에는 소득인정액 이하라고 적혀 있습니다. OCR 오독이 아닌 인쇄 원문의 차이이므로 이 배점 항목과 연관 증빙만 확인 필요로 남깁니다. 일반 무주택·소득·자산 및1년 부양 가점 자체를 보류하지 않습니다.",
+        "questionIds": [
+          "elder-social"
+        ],
+        "documentIds": [
+          "elder-social-proof"
+        ],
+        "evidence": [
+          {
+            "label": "배점기준표·해당자 제출서류",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557272",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF4쪽 배점표·6쪽 서류표",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557273",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+      "title": "전북 익산한스빌 매입국민임대 선착순 입주자 모집",
+      "issueId": "application-period",
+      "previousIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "신청 종료일 공식 자료 차이",
+        "detail": "공식 상세 HTML 접수기간은2012.05.17~05.17, HWP 및 PDF2쪽은2012.05.17~06.15 10~16시이고 모집호수 도달 시 조기마감이라고 적혀 있습니다. 조기마감 이력이 확인된 것이 아니므로 어느 종료일도 실제 신청마감으로 확정하지 않습니다. 시작일만 확인된 일정으로 제공합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 접수기간",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공급일정 및 장소",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557305",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF2쪽 접수기간·조기마감 조항",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557306",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "REQUIRES_AGENCY_CONFIRMATION",
+      "remainingIssue": {
+        "id": "application-period",
+        "area": "SCHEDULE",
+        "title": "실제 조기종료일은 기관 확인 필요",
+        "detail": "첨부의 예정 신청기간은 2012.5.17~6.15 10~16시(토·일·법정공휴일 제외)이며 모집호수 도달 시 조기마감합니다. 공식 상세의 접수기간은 5.17~5.17로 남아 있습니다. 예정마감은 6.15 16시로 확인되지만 5.17 실제 조기종료를 증명하는 후속 공고는 확인하지 못했습니다. 실제 종료일만 미확정으로 두고 조건·서류·확인된 시작일을 안내합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공식 상세 접수기간",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공급일정 및 장소",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557305",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "PDF2쪽 접수기간·조기마감 조항",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557306",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      }
+    },
+    {
+      "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+      "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+      "issueId": "application-period-scope",
+      "previousIssue": {
+        "id": "application-period-scope",
+        "area": "SCHEDULE",
+        "title": "전체 신청 종료일 확인 필요",
+        "detail": "공식 상세에는 2016.10.10~10.10로 표시되지만 첨부 원문은 단지별 10/10~10/14 최초 접수와 미충원 잔여 접수를 안내합니다. 단지별 첫날과 시간을 확인했으나 전체 종료일은 확정할 수 없어 전체 마감과 D-day를 만들지 않았습니다. 충원 시 조기 종료 안내를 별도로 확인해야 합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 5쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562#page=5",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000903&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    },
+    {
+      "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+      "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+      "issueId": "result-date-scope",
+      "previousIssue": {
+        "id": "result-date-scope",
+        "area": "SCHEDULE",
+        "title": "결과 발표일의 적용 범위 확인 필요",
+        "detail": "공식 상세의 2016.11.30 결과 날짜와 달리 첨부 공고는 자격 검증·공가 발생·기존 예비순서에 따른 개별 계약 안내를 설명합니다. 이 날짜가 모든 단지·잔여 접수자에게 적용되는지 확정할 근거가 부족해 공통 결과 발표 일정으로 만들지 않았습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 5쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562#page=5",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "공고문 8쪽 · 원문 화면 대조",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562#page=8",
+            "checkedAt": "2026-11-08"
+          },
+          {
+            "label": "LH 공식 상세의 날짜·정정 안내",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000903&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          }
+        ]
+      },
+      "result": "RESOLVED_FROM_OFFICIAL_EVIDENCE",
+      "remainingIssue": null
+    }
+  ]
+}

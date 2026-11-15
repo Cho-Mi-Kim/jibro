@@ -1,0 +1,636 @@
+{
+  "checkedAt": "2026-11-08T15:48:33.804516+09:00",
+  "purpose": "기존 HOLD 두 공고의 최신 정정자료 및 공식 원문 재확인. 생산 코드·DB·게시 상태 변경 없음.",
+  "publicationAction": "NONE",
+  "searchMethod": {
+    "lh": "공식 목록에서 게시일 2026-01-01~2026-11-08, 상태 전체, 한 페이지 50건, 한스빌/충주연수/충주시 영구 검색. 검색 입력·선택값·결과 행 실제 응답 확인.",
+    "operator": "주택관리공단 공식 예비입주자 모집 게시판 제목 검색 POST(schCon=1). 최신 페이지에서 익산한스빌 10행(2025년까지), 충주연수2 10행(2015년까지) 확인. 기존 26형 발표 갱신을 신규 31.32형 정정과 구별.",
+    "web": "공식 도메인 및 정확한 제목·공고일·정정/확약서/발표일 조합 검색. 검색 결과는 원문 발견에 사용하고 판단은 직접 다운로드한 LH·주택관리공단 자료로 수행.",
+    "limitation": "확인 시각과 검색 범위 내에서 충돌을 해소하는 새로운 정정 공고·교체 첨부를 확인하지 못함. 모든 경로에 자료가 없다고 단정하지 않음. 이후 원문 변경은 별도 재확인 필요.",
+    "rejectedSearch": "주택관리공단 GET schCon=subject는 필터가 적용되지 않아 검색 근거에서 제외. 올바른 POST 검색으로 재수행."
+  },
+  "officialSearchEvidence": [
+    {
+      "key": "iksan-broad-search",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%95%9C%EC%8A%A4%EB%B9%8C&viewType=srch&panSs=&schTy=0&startDt=2026-01-01&endDt=2026-11-08&srchY=Y&listCo=50",
+      "sha256": "df16752aede5d001bb6fbd57ad6033c3b704ecfb92cb7905f61c30b60da147eb",
+      "rows": [
+        {
+          "text": "7 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고 1일전 전북특별자치도 첨부파일 있음 2026.11.04 2026.11.26 공고중 2,929",
+          "panId": "2015122300021017",
+          "source": "03",
+          "type": "07"
+        },
+        {
+          "text": "6 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고 1일전 전북특별자치도 첨부파일 있음 2026.10.08 2026.10.22 접수마감 11,004",
+          "panId": "2015122300020893",
+          "source": "03",
+          "type": "07"
+        },
+        {
+          "text": "5 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고 1일전 전북특별자치도 첨부파일 있음 2026.09.04 2026.09.23 접수마감 7,634",
+          "panId": "2015122300020694",
+          "source": "03",
+          "type": "07"
+        },
+        {
+          "text": "4 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고 1일전 전북특별자치도 첨부파일 있음 2026.08.05 2026.08.21 접수마감 6,531",
+          "panId": "2015122300020520",
+          "source": "03",
+          "type": "07"
+        },
+        {
+          "text": "3 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고 1일전 전북특별자치도 첨부파일 있음 2026.07.06 2026.07.24 접수마감 4,704",
+          "panId": "2015122300020270",
+          "source": "03",
+          "type": "07"
+        },
+        {
+          "text": "2 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집공고 1일전 전북특별자치도 첨부파일 있음 2026.06.04 2026.06.25 접수마감 5,183",
+          "panId": "2015122300020058",
+          "source": "03",
+          "type": "07"
+        },
+        {
+          "text": "1 국민임대 익산한스빌 국민임대주택 예비입주자 자격완화 모집공고 1일전 전북특별자치도 첨부파일 있음 2026.05.08 2026.05.27 접수마감 8,298",
+          "panId": "2015122300019895",
+          "source": "03",
+          "type": "07"
+        }
+      ],
+      "selects": {
+        "srchTypeAisTpCd": [
+          [
+            "",
+            "전체"
+          ]
+        ],
+        "null": [],
+        "mvinQf": [
+          [
+            "0",
+            "전체"
+          ]
+        ],
+        "cnpCd": [],
+        "panSs": [
+          [
+            "",
+            "전체"
+          ]
+        ],
+        "schTy": [
+          [
+            "0",
+            "게시일"
+          ]
+        ],
+        "listCo": [
+          [
+            "50",
+            "50건"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "chungju-broad-search",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EC%B6%A9%EC%A3%BC%EC%97%B0%EC%88%98&viewType=srch&panSs=&schTy=0&startDt=2026-01-01&endDt=2026-11-08&srchY=Y&listCo=50",
+      "sha256": "10ecd3be5d8338e0e960af9be783801de7f8489d5e1de9a4a002ebc059aa12b4",
+      "rows": [
+        {
+          "text": "2 영구임대 충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04] 1일전 충청북도 첨부파일 있음 2026.11.04 2026.12.16 공고중 3,549",
+          "panId": "2015122300020974",
+          "source": "03",
+          "type": "09"
+        },
+        {
+          "text": "1 영구임대 충주연수2 영구임대주택 예비입주자 모집 공고[2026.03.25] 1일전 충청북도 첨부파일 있음 2026.03.25 2026.04.30 접수마감 9,372",
+          "panId": "2015122300019453",
+          "source": "03",
+          "type": "09"
+        }
+      ],
+      "selects": {
+        "srchTypeAisTpCd": [
+          [
+            "",
+            "전체"
+          ]
+        ],
+        "null": [],
+        "mvinQf": [
+          [
+            "0",
+            "전체"
+          ]
+        ],
+        "cnpCd": [],
+        "panSs": [
+          [
+            "",
+            "전체"
+          ]
+        ],
+        "schTy": [
+          [
+            "0",
+            "게시일"
+          ]
+        ],
+        "listCo": [
+          [
+            "50",
+            "50건"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "chungju-city-broad-search",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EC%B6%A9%EC%A3%BC%EC%8B%9C+%EC%98%81%EA%B5%AC&viewType=srch&panSs=&schTy=0&startDt=2026-01-01&endDt=2026-11-08&srchY=Y&listCo=50",
+      "sha256": "c3c0ff440f0d231d1bf22bf3b1070204ee4c086f618698429ce92902cc7384fd",
+      "rows": [],
+      "selects": {
+        "srchTypeAisTpCd": [
+          [
+            "",
+            "전체"
+          ]
+        ],
+        "null": [],
+        "mvinQf": [
+          [
+            "0",
+            "전체"
+          ]
+        ],
+        "cnpCd": [],
+        "panSs": [
+          [
+            "",
+            "전체"
+          ]
+        ],
+        "schTy": [
+          [
+            "0",
+            "게시일"
+          ]
+        ],
+        "listCo": [
+          [
+            "50",
+            "50건"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "iksan",
+      "url": "https://www.kohom.or.kr/web/mainComm/HM001002002.do",
+      "method": "POST search",
+      "parameters": {
+        "page": "1",
+        "divType": "1",
+        "schCon": "1",
+        "schStr": "익산한스빌"
+      },
+      "sha256": "8da363723a55adf10863160e5f8e1eea884d0ba19928b4869db0f254d85e8e35",
+      "rows": [
+        {
+          "text": "210 전북 2026년 11월 익산한스빌 국민임대주택 예비입주... 익산한스빌관리소 2026-11-04 공고 6,112",
+          "links": [
+            "fn_goView('16073');return false;"
+          ]
+        },
+        {
+          "text": "209 전북 2026년 8월 익산한스빌 국민임대주택 예비입주자... 익산한스빌관리소 2026-11-04 당첨자발표 7,184",
+          "links": [
+            "fn_goView('15897');return false;"
+          ]
+        },
+        {
+          "text": "208 전북 2026년 7월 익산한스빌 국민임대주택 예비입주자... 익산한스빌관리소 2026-11-04 당첨자발표 6,453",
+          "links": [
+            "fn_goView('15813');return false;"
+          ]
+        },
+        {
+          "text": "207 전북 2026년 10월 익산한스빌 국민임대주택 예비입주... 익산한스빌관리소 2026-10-08 공고 643",
+          "links": [
+            "fn_goView('16029');return false;"
+          ]
+        },
+        {
+          "text": "206 전북 2026년 9월 익산한스빌 국민임대주택 예비입주자... 익산한스빌관리소 2026-09-04 공고 4,634",
+          "links": [
+            "fn_goView('15937');return false;"
+          ]
+        },
+        {
+          "text": "205 전북 2026년 6월 익산한스빌 국민임대주택 예비입주자... 익산한스빌관리소 2026-09-01 당첨자발표 4,242",
+          "links": [
+            "fn_goView('15767');return false;"
+          ]
+        },
+        {
+          "text": "204 전북 2026년  5월 익산한스빌 국민임대주택 예비입주... 익산한스빌관리소 2026-07-27 당첨자발표 5,048",
+          "links": [
+            "fn_goView('15694');return false;"
+          ]
+        },
+        {
+          "text": "203 전북 2025년  12월 익산한스빌 국민임대주택 예비입주... 익산한스빌관리소 2026-02-23 당첨자발표 382",
+          "links": [
+            "fn_goView('15389');return false;"
+          ]
+        },
+        {
+          "text": "202 전북 2025년 11월 익산한스빌 국민임대주택 예비입주... 익산한스빌관리소 2026-01-23 당첨자발표 813",
+          "links": [
+            "fn_goView('15305');return false;"
+          ]
+        },
+        {
+          "text": "201 전북 2025년 09월 익산한스빌 국민임대주택 예비입주... 익산한스빌관리소 2025-11-25 당첨자발표 253",
+          "links": [
+            "fn_goView('15261');return false;"
+          ]
+        }
+      ],
+      "effectiveInput": "<input class=\"search_text\" id=\"schStr\" name=\"schStr\" title=\"검색어 입력\" type=\"text\" value=\"익산한스빌\"/>"
+    },
+    {
+      "key": "chungju",
+      "url": "https://www.kohom.or.kr/web/mainComm/HM001002002.do",
+      "method": "POST search",
+      "parameters": {
+        "page": "1",
+        "divType": "1",
+        "schCon": "1",
+        "schStr": "충주연수2"
+      },
+      "sha256": "8e93ab9c15eb33875b23274dc731544ef07cd9660fad19b9963d5fcb73b905d6",
+      "rows": [
+        {
+          "text": "16 충북 충주연수2 영구임대 아파트 26형 예비입주자 모... 충주연수2관리소 2026-11-05 당첨자발표 4,496",
+          "links": [
+            "fn_goView('15567');return false;"
+          ]
+        },
+        {
+          "text": "15 충북 충주연수2 영구임대 아파트 31.32형 예비입주자 ... 충주연수2관리소 2026-11-04 공고 6,471",
+          "links": [
+            "fn_goView('16071');return false;"
+          ]
+        },
+        {
+          "text": "14 충북 충주연수2 영구임대 아파트 26형 예비입주자 모... 충주연수2관리소 2024-03-14 공고 13,537",
+          "links": [
+            "fn_goView('14191');return false;"
+          ]
+        },
+        {
+          "text": "13 충북 충주연수2 영구임대 아파트 26형 예비입주자 모... 충주연수2관리소 2023-05-11 공고 593",
+          "links": [
+            "fn_goView('13684');return false;"
+          ]
+        },
+        {
+          "text": "12 충북 [충주연수2] 영구임대 예비입주자 모집 충주연수2관리소 2022-08-31 공고 496",
+          "links": [
+            "fn_goView('13229');return false;"
+          ]
+        },
+        {
+          "text": "11 충북 충주연수2단지 예비후보자 모집 충주연수2관리소 2018-05-17 공고 974",
+          "links": [
+            "fn_goView('9428');return false;"
+          ]
+        },
+        {
+          "text": "10 충북 충주연수2단지 영구임대주택 예비후보자 모집 충주연수2관리소 2017-11-03 공고 1,414",
+          "links": [
+            "fn_goView('8898');return false;"
+          ]
+        },
+        {
+          "text": "9 충북 충주연수2단지 영구임대주택 예비후보자 모집 충주연수2관리소 2017-08-08 공고 1,527",
+          "links": [
+            "fn_goView('8682');return false;"
+          ]
+        },
+        {
+          "text": "8 충북 충주연수2단지 영구임대주택 예비입주자 모집 충주연수2관리소 2017-07-03 공고 986",
+          "links": [
+            "fn_goView('8619');return false;"
+          ]
+        },
+        {
+          "text": "7 충북 충주연수2단지 예비입주자 모집(영구임대) 충주연수2관리소 2015-08-03 공고 1,195",
+          "links": [
+            "fn_goView('7149');return false;"
+          ]
+        }
+      ],
+      "effectiveInput": "<input class=\"search_text\" id=\"schStr\" name=\"schStr\" title=\"검색어 입력\" type=\"text\" value=\"충주연수2\"/>"
+    }
+  ],
+  "webQueries": [
+    "site:apply.lh.or.kr 익산한스빌 정정 2026.11.04",
+    "site:apply.lh.or.kr 충주연수2 정정 2026.11.04",
+    "충주연수2 2026.11.04 2027.07.06 주택관리공단",
+    "site:chungju.go.kr 충주연수2 2026.11.04 정정",
+    "site:chungju.go.kr 충주연수2 2027.07.06",
+    "site:kohom.or.kr 익산한스빌 2026.11.04",
+    "site:apply.lh.or.kr 익산한스빌 확약서 10.08"
+  ],
+  "notices": [
+    {
+      "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "title": "익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고",
+      "officialUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "disposition": "HOLD",
+      "correctionFound": false,
+      "freshSources": [
+        {
+          "key": "iksan",
+          "index": 0,
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "label": "공식 상세 본문",
+          "sha256": "4bfc9e4e8d58239fda171c299b7d2406cab7ea882ad558a66cdf1d0cd07dcfd7",
+          "previousSha256": "821a2ecab7e9ab0113046e262b7eeab9977c7d965149189c373b48cb2631a98e",
+          "bytes": 195747,
+          "sameBytes": false,
+          "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\iksan-0.html",
+          "headers": {
+            "Date": "Sun, 08 Nov 2026 06:41:19 GMT",
+            "Content-type": "text/html; charset=UTF-8"
+          }
+        },
+        {
+          "key": "iksan",
+          "index": 1,
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296594",
+          "finalUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296594",
+          "label": "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).hwpx",
+          "sha256": "c5f74bd04de6b63020f86f5b86ac000ca7286a4361403935f959afd5dd3e175f",
+          "previousSha256": "c5f74bd04de6b63020f86f5b86ac000ca7286a4361403935f959afd5dd3e175f",
+          "bytes": 943637,
+          "sameBytes": true,
+          "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\iksan-1.hwpx",
+          "headers": {
+            "Date": "Sun, 08 Nov 2026 06:41:19 GMT",
+            "Content-type": "application/octet-stream;charset=utf-8"
+          }
+        },
+        {
+          "key": "iksan",
+          "index": 2,
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+          "finalUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+          "label": "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf",
+          "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee",
+          "previousSha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee",
+          "bytes": 1451241,
+          "sameBytes": true,
+          "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\iksan-2.pdf",
+          "headers": {
+            "Date": "Sun, 08 Nov 2026 06:41:19 GMT",
+            "Content-type": "application/octet-stream;charset=utf-8"
+          }
+        },
+        {
+          "key": "iksan",
+          "url": "https://www.kohom.or.kr/common/download.do?f=6j%2Bg0NIBn8SgNlaiGsPDGGO9a1uNuiFjKkb29ynMyT4k%2FOX0ygrgsqChaW5puJ1Xn6SCgHR3pe8B%0AMbqet8U3XE2tHAawjYazx55VEK23ZaZ6ClrUqzMHStGxg2KhWwalr1Pnc13LqIKdt3gO4hmeGoA9%0ATEFEZtbrzxoMdisjgGChFDbPgYsmzwP8ImQnp0jD1ls8C60NB%2FjIRY5%2BtgesYg%3D%3D",
+          "label": "익산한스빌 국민임대주택 예비입주자 자격완화 모집공고문(2026.11.04).hwpx",
+          "sha256": "c5f74bd04de6b63020f86f5b86ac000ca7286a4361403935f959afd5dd3e175f",
+          "bytes": 943637,
+          "path": ".tools\\qa\\remaining5\\iksan-chungju\\iksan-operator-0.hwpx",
+          "kind": "관리기관 공식 첨부"
+        },
+        {
+          "key": "iksan",
+          "url": "https://www.kohom.or.kr/common/download.do?f=8YCZiah1pGZSJKQtnWATnwOgPfKtJGydBy9tRVkJ15kTiJZteYNAsnTV3Vehk14xa7bWGXFq7z80%0Az9fbriyLr55c51Z%2FTqUUUz500P0%2BAL8XzXcbOgtSvUph0KdZGbEatC2eAWT2iSz%2F9OzddqcPk9qy%0AVoytFsWKKjWVdRgefhFwDN6ESheBJPI1OrB7BvJD",
+          "label": "익산한스빌 국민임대주택 예비입주자 자격완화 모집공고문(2026.11.04).pdf",
+          "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee",
+          "bytes": 1451241,
+          "path": ".tools\\qa\\remaining5\\iksan-chungju\\iksan-operator-1.pdf",
+          "kind": "관리기관 공식 첨부"
+        }
+      ],
+      "additionalOfficialSource": {
+        "url": "https://www.kohom.or.kr/web/mainComm/HM001002002.do?mode=view&p_idx=16073",
+        "sha256": "1558867a2694c3a67b2c8e77ae42e14741a467f81f82f667ba9853e809012bee",
+        "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\iksan-operator.html",
+        "kind": "관리기관 공식 상세"
+      },
+      "latestCheck": "LH 최신 목록은 11/4 공고(2015122300021017). 해당 상세의 정정 버튼은 display:none이고 GoCrc의 대상 panId가 빈 값. 공단 최신 11월 공고(16073)의 PDF/HWPX는 LH 현재 첨부와 SHA까지 동일.",
+      "separateRounds": {
+        "conclusion": "10/8은 11/4의 정정본이 아니라 공고 ID와 신청·발표 일정이 다른 이전 모집 차수이다. 11/4 문서에 남은 10/8 확약서 문구를 근거로 신규 공고의 기준일을 10/8로 바꾸면 안 된다.",
+        "current": {
+          "lhPanId": "2015122300021017",
+          "operatorId": "16073",
+          "noticeDate": "2026-11-04",
+          "applicationWindow": "2026-11-25 10:00~2026-11-26 16:00",
+          "resultAt": "2027-01-21 16:00",
+          "evidence": "LH 공식 상세, 공단 16073 공급일정, 공고문 3·9·11쪽"
+        },
+        "previous": {
+          "lhUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020893&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "operatorUrl": "https://www.kohom.or.kr/web/mainComm/HM001002002.do?mode=view&p_idx=16029",
+          "noticeDate": "2026-10-08",
+          "applicationWindow": "2026-10-21 10:00~2026-10-22 16:00",
+          "resultAt": "2026-12-17 16:00",
+          "operatorHtmlSha256": "d2b1ac8a5c460f4345ef61fe177b0bf4e71ab4958707fbf897535eee97eb0fb5",
+          "evidence": "LH 공식 목록 10/8 행 및 공단 이전 10월 상세 직접 확인"
+        }
+      },
+      "remainingConflicts": [
+        {
+          "code": "FORM_NOTICE_DATE_MISMATCH",
+          "facts": [
+            "본문 3쪽과 서류 발급기준 11쪽은 2026.11.04.",
+            "PDF 32쪽 확약서는 공고(26.10.08.)에 따른 입주자라고 명시. 동일 HWPX에도 동일 문구.",
+            "공단 11월 첨부 역시 동일 SHA여서 해당 문구를 정정하지 않았다."
+          ],
+          "directImpact": {
+            "documentId": "nr-doc-waiver",
+            "document": "11쪽에서 필수로 요구하는 입주자격 완화 입주자 확인서와 32쪽 확약서의 대응 및 최신 서식 사용 여부를 확정할 수 없다. 확인서 미제출 시 신청 접수 거부 문구가 있으므로 임의 생략·기재일 수정 안내는 금지.",
+            "questions": [
+              "nr-housing의 SMALL/OUTSIDE/EXCEPTION 선택자에게 적용될 완화 조건 및 계약·재계약 설명",
+              "완화 입주자 확인서 준비 및 계약 시 확약 절차(현재 후보에는 별도 확인 완료 질문 없음)"
+            ],
+            "phase": "32쪽은 임대차계약 특약 및 재계약 조건이다. 이를 초기 신청의 소득·총자산 배제와 충돌하는 최초 자격 제한으로 단순 전환하면 안 된다.",
+            "unaffected": "11/4 기준이 명시된 성년·국적·세대·차량·현장신청 질문과 신청 일정 자체를 10/8로 옮기거나 모두 폐기할 이유는 아니다."
+          },
+          "requiredClarification": "관리기관이 11/4 모집에 사용할 확인서/확약서 양식과 10/8 기재 처리 방법을 명시한 정정자료 또는 공식 답변 필요."
+        },
+        {
+          "code": "WAIVER_VS_STANDARD_DOCUMENT_SCOPE",
+          "facts": [
+            "7쪽 소득·총자산 요건 배제.",
+            "9쪽 거주지역·순위·배점에 관계없이 접수 순번으로 선정.",
+            "11~12쪽 가족관계증명서에는 육아지원세대 배점·직계존속 가산점 사유, 12쪽 임신/입양 증빙에는 월평균소득기준 가구원수 포함 사유가 잔존."
+          ],
+          "affectedQuestions": [
+            "nr-family-certificate의 REVIEW/가산점 조건",
+            "nr-household와 태아·입양 가구원수 증빙의 적용 범위(자동 생략하지 않음)"
+          ],
+          "affectedDocuments": [
+            "nr-doc-family",
+            "임신진단서/입양관계증명서의 현재 모집 제출 여부",
+            "nr-doc-finance: 소득·총자산 배제와 금융정보 조회 동의는 별개이므로 무조건 제외하지 않음"
+          ],
+          "requiredClarification": "현재 완화·선착순 모집에서 표준 소득·배점 증빙을 어느 범위로 받는지 명시 필요."
+        }
+      ],
+      "contact": {
+        "institution": "익산한스빌 관리소",
+        "phone": "063-843-0039",
+        "source": "LH 상세 및 공단 16073"
+      },
+      "recommendedAction": "HOLD 유지. 14질문·19서류 기존 후보를 검토용으로 보존하고, 공고일 불일치/필수 완화 서식/표준 증빙 적용 범위를 별도 미해결로 노출. 새 정정본을 발견하지 못했다는 제한된 결과만 전달."
+    },
+    {
+      "noticeId": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "title": "충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04]",
+      "officialUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "disposition": "HOLD",
+      "correctionFound": false,
+      "freshSources": [
+        {
+          "key": "chungju",
+          "index": 0,
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "공식 상세 본문",
+          "sha256": "89b73e8c77129a92e301cf76aaff7c05f62bac19c9e16830ff079870e73b4fe0",
+          "previousSha256": "e5eeb3e23e2a9ebdf57ab2d85bb758ce699453a7989cdaa83a223f4339cf9d5e",
+          "bytes": 199078,
+          "sameBytes": false,
+          "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\chungju-0.html",
+          "headers": {
+            "Date": "Sun, 08 Nov 2026 06:41:19 GMT",
+            "Content-type": "text/html; charset=UTF-8"
+          }
+        },
+        {
+          "key": "chungju",
+          "index": 1,
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162254",
+          "finalUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162254",
+          "label": "(261104)충주시영구임대예비입주자표준모집공고문.hwpx",
+          "sha256": "9dd51ba13b3137dd54d42471ba0ba691b85ffa385ec5ce77df21cb1e066920e8",
+          "previousSha256": "9dd51ba13b3137dd54d42471ba0ba691b85ffa385ec5ce77df21cb1e066920e8",
+          "bytes": 271162,
+          "sameBytes": true,
+          "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\chungju-1.hwpx",
+          "headers": {
+            "Date": "Sun, 08 Nov 2026 06:41:19 GMT",
+            "Content-type": "application/octet-stream;charset=utf-8"
+          }
+        },
+        {
+          "key": "chungju",
+          "index": 2,
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258",
+          "finalUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258",
+          "label": "(261104)충주시영구임대예비입주자표준모집공고문.pdf",
+          "sha256": "72212e521e6cecc95f8f0c00852f9a8ed7d204b95a6e581b0b419e8779d3783d",
+          "previousSha256": "72212e521e6cecc95f8f0c00852f9a8ed7d204b95a6e581b0b419e8779d3783d",
+          "bytes": 794359,
+          "sameBytes": true,
+          "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\chungju-2.pdf",
+          "headers": {
+            "Date": "Sun, 08 Nov 2026 06:41:19 GMT",
+            "Content-type": "application/octet-stream;charset=utf-8"
+          }
+        },
+        {
+          "key": "chungju",
+          "url": "https://www.kohom.or.kr/common/download.do?f=%2BcP8vTTehnrf%2FDtDaVVkHp8xuPErVWJ2%2BbrGGS9SjHH8tqqRkAcTQZvv%2F0XEjtCmPJr66WSallcn%0AI3zWaCNSy0FKqhuWjqg%2BD643kdnFPP3vjIdrXPdr5trQcXnTQcgOCDJGwnpsUQXYJvspKhEwU6qV%0AYu6sUWeIRo6oSCJAc3g%3D",
+          "label": "(261104) 충주시 영구임대 예비입주자 표준 모집 공고문.hwpx",
+          "sha256": "fc66a78a54a12b72e7332d58032672e44f2d26471e7310763cf6d8fdf8291ba0",
+          "bytes": 270421,
+          "path": ".tools\\qa\\remaining5\\iksan-chungju\\chungju-operator-0.hwpx",
+          "kind": "관리기관 공식 첨부"
+        },
+        {
+          "key": "chungju",
+          "url": "https://www.kohom.or.kr/common/download.do?f=PRKXxu78P4j%2BYvupE0LEMz%2Fxg3eBruoVQagupvj5AMFUoK%2FDxmtyHQivquebCeb4e7vnV9xuMqlk%0AgtCP1%2Bq%2Bspljzg87syBtGCqFoxF6fNHv2IdbX0ZoyXQB7zFVAIV9yY9GH0M1sLPHoWUTeLFBA9pA%0AbCpylhznxcrDH%2F5hjsA%3D",
+          "label": "(261104) 충주시 영구임대 예비입주자 표준 모집 공고문.pdf",
+          "sha256": "b669d49106c12a82a990095df74b7f9d4b01ee90ba4ece9d5782f36beb7bf982",
+          "bytes": 793245,
+          "path": ".tools\\qa\\remaining5\\iksan-chungju\\chungju-operator-1.pdf",
+          "kind": "관리기관 공식 첨부"
+        }
+      ],
+      "additionalOfficialSource": {
+        "url": "https://www.kohom.or.kr/web/mainComm/HM001002002.do?mode=view&p_idx=16071",
+        "sha256": "e447e606dea7ffd036935267693a36bd2b29605de09589a0ae05e9aef1067c32",
+        "savedPath": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\chungju-operator.html",
+        "kind": "관리기관 공식 상세"
+      },
+      "latestCheck": "LH 공식 올해 검색은 11/4 31.32형 공고와 3/25 이전 모집 2건. 최신 상세에 정정 대상 panId가 없고 네트워크에서 다시 받은 LH 첨부 두 개는 기존 SHA와 동일.",
+      "remainingConflicts": [
+        {
+          "code": "ANNOUNCEMENT_YEAR_CONFLICT",
+          "evidence": [
+            {
+              "source": "LH 상세 공급일정",
+              "value": "2027.07.06"
+            },
+            {
+              "source": "LH 상세 접수처정보 안내사항",
+              "value": "2026.07.06(화) 10:00시 이후"
+            },
+            {
+              "source": "LH PDF 13쪽 예비입주자 발표 및 계약안내 및 동일 HWPX",
+              "value": "2027.07.06.(화) 10:00 이후"
+            },
+            {
+              "source": "주택관리공단 16071 공급일정 표",
+              "value": "2027-07-06 10:00"
+            },
+            {
+              "source": "주택관리공단 16071 일정관련 안내사항",
+              "value": "2027.07.06(화) 10:00 이후"
+            },
+            {
+              "source": "주택관리공단 PDF 13쪽 및 동일 HWPX 내용",
+              "value": "2027.07.06.(화) 10:00 이후"
+            }
+          ],
+          "narrowedScope": "2027년을 지지하는 서로 다른 공식 게시 경로와 첨부 근거를 추가 확보했다. 충돌은 LH HTML 접수처 안내의 2026년 문구에 남아 있으며, 이 원문 자체가 정정된 것은 아니다.",
+          "affectedFeature": "결과 발표 일정 안내·캘린더·알림의 연도 확정. 2026 발표일은 신청기간 이전이지만 상식만으로 공식 충돌을 덮지 않는다.",
+          "requiredClarification": "LH 접수처 안내의 연도를 수정하는 정정/공식 확인 또는 명시적으로 승인된 출처 우선순위 결정 필요."
+        }
+      ],
+      "operatorAttachmentComparison": {
+        "pdf": "LH와 공단 PDF 전체 layout 텍스트 diff: 1쪽 건설위치에서 충청북도 생략, 후반 두 서식의 공백 정렬 차이. 날짜·자격·서류·선정·계약 조항의 텍스트 변경은 발견되지 않음.",
+        "hwpx": "전체 section XML의 텍스트를 순서대로 비교한 유일한 변경은 건설위치의 충청북도 삭제.",
+        "diffArtifact": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\remaining5\\iksan-chungju\\chungju-operator-vs-lh.diff",
+        "conclusion": "공단 파일은 다른 바이트이나 발표일을 바꾼 신규 정정본으로 볼 근거가 없으며 현재 LH 첨부와 동일한 2027 발표일을 재확인한다."
+      },
+      "excludedLatestResult": {
+        "operatorUrl": "https://www.kohom.or.kr/web/mainComm/HM001002002.do?mode=view&p_idx=15567",
+        "listUpdatedDate": "2026-11-05",
+        "actualNoticeDate": "2026-03-25",
+        "size": "26형",
+        "applicationWindow": "2026-04-15~2026-04-30",
+        "resultAt": "2026-11-02 10:00",
+        "reason": "검색목록상 더 최근인 11/5 행은 이전 26형 모집의 당첨자발표 갱신이다. 현재 11/4 31.32형 공고의 정정자료가 아니다.",
+        "sha256": "9693c7d5bdf29fcc88806accbb1950cfb588974d9686edf892edeae6d25d071d"
+      },
+      "contact": {
+        "institution": "충주연수2 관리소",
+        "phone": "043-852-3808",
+        "source": "공단 16071 공식 상세"
+      },
+      "recommendedAction": "원문 충돌을 임의 PASS로 바꾸지 않고 HOLD 유지. 2027년 일치의 보강 근거와 실제 충돌이 남은 LH 안내 위치를 구분해 보존."
+    }
+  ]
+}

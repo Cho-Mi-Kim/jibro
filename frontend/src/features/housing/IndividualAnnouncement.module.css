@@ -1,0 +1,57 @@
+.trigger {
+    display: block;
+    margin-inline: auto;
+    min-height: var(--target, 44px);
+    padding: 0 2px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--brand);
+    font: inherit;
+    font-weight: 650;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.dialog {
+    width: min(26rem, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    color: var(--ink);
+    font-weight: 400;
+    text-align: left;
+}
+.dialog::backdrop {
+    background: rgb(0 0 0 / 40%);
+}
+.dialog header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.dialog h2 {
+    margin: 0;
+    font-size: 1.125rem;
+}
+.close {
+    width: var(--target);
+    height: var(--target);
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: 1.5rem;
+}
+.description {
+    font-size: 1rem;
+    line-height: 1.7;
+    white-space: pre-line;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}

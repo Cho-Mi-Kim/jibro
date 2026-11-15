@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-11-11T12:43:39.934666500Z",
+  "result": "LINKED",
+  "review": {
+    "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000522&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+    "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000520&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+    "title": "대구혁신 B-3블록 10년 공공임대주택 추가 입주자 모집",
+    "publishedDate": "2012-11-26",
+    "correctionReason": "수정정보 : 대구혁신 B-3블록 추가입주자모집 공고문 상 공급규모 및 게약 시 구비서류 발급일자 정정\r\n\r\n- 공급규모 \r\n   정정전 : 236세대  \r\n   정정후 : 235세대\r\n\r\n- 계약시 구지서류 발급일자\r\n  정정전 : 2012.10.16 이후 발급분\r\n  정정후 : 2012.11.26 이후 발급분",
+    "findings": "공식 두 페이지의 같은 2012.11.26 모집회차를 확인. 서로 다른 파일ID의 공고문 PDF(9쪽) 및 HWP 전체 바이트가 각각 동일. PDF 1쪽 공급규모 235세대 및 계약서류 2012.11.26 이후 발급분이 정정사유의 수정 후 값과 일치. 원공고 페이지 첨부에도 정정 후 자료가 반영된 동일 모집으로 판단. 다른 날짜의 추가모집은 연결하지 않음.",
+    "attachments": [
+      {
+        "originalFileId": "24555876",
+        "correctedFileId": "24555842",
+        "sha256": "40aa405a8ac388a121324537b0cf5cc2ea9202a48c3355437dfaea7d61fc49ce",
+        "mediaType": "application/pdf"
+      },
+      {
+        "originalFileId": "24555875",
+        "correctedFileId": "24555462",
+        "sha256": "4039cf5b62ebda133632e4add60e86cfc47d5a019c922a6c551ae9e5133ab20b",
+        "mediaType": "application/x-ole-storage"
+      }
+    ]
+  },
+  "links": [
+    {
+      "original_notice_id": "bae67c28-74f1-4262-b5cd-60051c31ce27",
+      "corrected_notice_id": "fae762c2-2969-4769-86ed-3e84870be4d1",
+      "reason": "수정정보 : 대구혁신 B-3블록 추가입주자모집 공고문 상 공급규모 및 게약 시 구비서류 발급일자 정정\r\n\r\n- 공급규모 \r\n   정정전 : 236세대  \r\n   정정후 : 235세대\r\n\r\n- 계약시 구지서류 발급일자\r\n  정정전 : 2012.10.16 이후 발급분\r\n  정정후 : 2012.11.26 이후 발급분",
+      "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000520&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000522&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000520&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000000522\", \"correctedPanId\": \"000000000000000000000000000520\", \"attachmentReview\": {\"title\": \"대구혁신 B-3블록 10년 공공임대주택 추가 입주자 모집\", \"findings\": \"공식 두 페이지의 같은 2012.11.26 모집회차를 확인. 서로 다른 파일ID의 공고문 PDF(9쪽) 및 HWP 전체 바이트가 각각 동일. PDF 1쪽 공급규모 235세대 및 계약서류 2012.11.26 이후 발급분이 정정사유의 수정 후 값과 일치. 원공고 페이지 첨부에도 정정 후 자료가 반영된 동일 모집으로 판단. 다른 날짜의 추가모집은 연결하지 않음.\", \"attachments\": [{\"sha256\": \"40aa405a8ac388a121324537b0cf5cc2ea9202a48c3355437dfaea7d61fc49ce\", \"mediaType\": \"application/pdf\", \"originalFileId\": \"24555876\", \"correctedFileId\": \"24555842\"}, {\"sha256\": \"4039cf5b62ebda133632e4add60e86cfc47d5a019c922a6c551ae9e5133ab20b\", \"mediaType\": \"application/x-ole-storage\", \"originalFileId\": \"24555875\", \"correctedFileId\": \"24555462\"}], \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000522&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000000520&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"publishedDate\": \"2012-11-26\", \"correctionReason\": \"수정정보 : 대구혁신 B-3블록 추가입주자모집 공고문 상 공급규모 및 게약 시 구비서류 발급일자 정정\\r\\n\\r\\n- 공급규모 \\r\\n   정정전 : 236세대  \\r\\n   정정후 : 235세대\\r\\n\\r\\n- 계약시 구지서류 발급일자\\r\\n  정정전 : 2012.10.16 이후 발급분\\r\\n  정정후 : 2012.11.26 이후 발급분\"}, \"originalHtmlSha256\": \"e304443029250daf07812975153fc56d7f6635b3a471153824b04fb30bad6669\", \"correctedHtmlSha256\": \"cffaeb524a4eeef61514b769157ddeca798a39841c6df1ec3d23c7734d25596a\"}",
+      "checked_at": "2026-11-11 21:43:38.499048+09"
+    }
+  ],
+  "noticeContentRevisionFingerprintStatusUnchanged": true,
+  "noticeSnapshotsChecked": 42,
+  "otherRelationsUnchanged": true,
+  "relationsBefore": 884,
+  "relationsAfter": 885,
+  "remaining": [
+    {
+      "fileIds": [
+        "24550459",
+        "24550458"
+      ],
+      "reason": "2015.04.21 회차의 원공고 별도ID를 확인하지 못함. 첨부의 2012.08.31 최초공고는 별도 회차여서 연결하지 않음.",
+      "id": "cfcd17e9-cb27-4baa-8e4e-38cd833357c1",
+      "officialUrl": null
+    },
+    {
+      "fileIds": [
+        "24563164",
+        "24563165"
+      ],
+      "reason": "2014.12.01 회차의 원공고 별도ID를 확인하지 못함. 첨부의 2014.07.17 최초공고와 12월 잔여세대 모집은 별도 모집이므로 연결하지 않음.",
+      "id": "5f0555e4-f4d6-456f-a1ad-d7726e44667d",
+      "officialUrl": null
+    }
+  ],
+  "runtimeChecks": {
+    "defaultTotal": 82,
+    "latestVisible": true,
+    "originalHidden": true,
+    "remainingTwoVisible": true,
+    "originalAlsoHiddenFromExplicitClosedList": true,
+    "otherDaeguRecruitmentsVisible": true,
+    "originalDetailPreserved": true
+  }
+}

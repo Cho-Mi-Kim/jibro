@@ -1,0 +1,884 @@
+{
+  "content" : {
+    "summary" : "남원시에 거주하는 성년 무주택세대구성원을 대상으로 남원노암 영구임대 예비입주자를 모집합니다. 이번 모집은 소득·총자산 요건을 배제하지만 자동차 기준은 유지합니다. 2026.09.07 기준의 자격과 공고일 이후 발급서류를 확인하세요. 접수는 2026.09.21~12.31 평일 10:00~16:00(12:00~13:00 제외), 거주지 읍·면·동 행정복지센터 방문 방식입니다. 공식 상세페이지의 당첨자 발표 예정일은 2027.03.31이며, 공고문에 따라 적격자에게 개별 통보하고 자격검증 일정에 따라 변경될 수 있습니다. 계약은 순번에 따라 별도 개별 안내합니다. 재계약 임대조건 할증은 본문과 확약서에 차이가 있어 기관 확인이 필요합니다.",
+    "evidence" : {
+      "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "label" : "LH 정정 공고 · 본문·첨부 대조",
+      "checkedAt" : "2026-11-09"
+    },
+    "documents" : [ {
+      "id" : "application",
+      "title" : "영구임대주택 공급신청서",
+      "issuer" : "LH·거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 행정복지센터 비치 또는 별지1 양식. 원하는 형별과 가점·세대사항을 정확히 작성합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=13",
+        "label" : "정정 공고문 인쇄 25쪽 · 영구임대주택 공급신청서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=13",
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "privacy",
+      "title" : "개인정보 수집·이용·제3자 제공 동의서",
+      "issuer" : "LH 첨부 양식",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 세대원 전원(예비신혼은 예정세대 전원) 작성. 만14세미만은 법정대리인이 서명합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=14",
+        "label" : "정정 공고문 인쇄 27쪽 · 개인정보 수집·이용·제3자 제공 동의서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=14",
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "finance",
+      "title" : "금융정보 등 제공동의서",
+      "issuer" : "LH 첨부 양식",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 소득·총자산 완화라도 공통 서류목록에 따라 대상자 전원 서명하여 제출. 정보제공과 미통보 동의란·6개월 조회 유효기간을 확인합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=15",
+        "label" : "정정 공고문 인쇄 29쪽 · 금융정보 등 제공동의서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=15",
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "duplicate",
+      "title" : "예비입주자 중복선정 불가 확인서",
+      "issuer" : "LH 첨부 양식",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 신청자(예비신혼 대표)가 내용 확인 후 서명·날인합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=16",
+        "label" : "정정 공고문 인쇄 32쪽 · 예비입주자 중복선정 불가 확인서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=16",
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "resident",
+      "title" : "주민등록표등본",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 거주기간·세대구성사유/일자·관계·전원주민번호·전입일/변동일 전부 표시. 예비신혼은 양측 등본, 분리배우자나 공고 당시 세대주와 분리된 경우 추가 등본도 확인합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 주민등록표등본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "spouse-register",
+      "title" : "분리배우자 주민등록표등본",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 배우자와 등본이 나뉘어 있으면 배우자 등본1통 추가.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 분리배우자 주민등록표등본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "SEPARATE" ]
+    }, {
+      "id" : "changed-register",
+      "title" : "공고 당시 세대주 등본·주민등록표초본",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 공고 이후 세대주와 분리되면 당시 세대주 등본, 주소·세대주 변동이 있는 해당 세대원은 과거 주소와 관계를 모두 표시한 초본을 준비.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 공고 당시 세대주 등본·주민등록표초본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "CHANGE" ]
+    }, {
+      "id" : "family",
+      "title" : "가족관계증명서",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 등본에서 배우자가 확인되지 않는 미혼·이혼·사별·세대분리 등에 해당하면 제출. 외국인 배우자는 등록증 사본도 추가.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 가족관계증명서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "FAMILY", "SEPARATE", "FOREIGN" ]
+    }, {
+      "id" : "foreign",
+      "title" : "외국인등록사실증명서·등록증 사본",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 외국인 배우자 해당시 등록·주소 관계를 확인하여 준비.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 외국인등록사실증명서·등록증 사본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "FOREIGN" ]
+    }, {
+      "id" : "pregnancy",
+      "title" : "임신진단서",
+      "issuer" : "의료기관",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 태아 포함 또는 출산자녀 가산을 인정받으려는 경우. 선정 이후 입주 전 임신/출산 증빙도 필요합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 임신진단서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "PREGNANT" ]
+    }, {
+      "id" : "adoption",
+      "title" : "입양관계증명서",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 입양자녀를 포함해 기준을 인정받으려는 경우 준비.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 입양관계증명서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "ADOPTED" ]
+    }, {
+      "id" : "exclude",
+      "title" : "세대원 제외 입증서류",
+      "issuer" : "법원·경찰서·행정기관",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 실종·행방불명·생계주거 분리의 공고상 요건을 증명할 자료를 해당 기관에 확인.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=2",
+        "label" : "정정 공고문 인쇄 4쪽 · 세대원 제외 입증서류",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "household",
+      "conditionAnswerValues" : [ "EXCLUDE" ]
+    }, {
+      "id" : "minor",
+      "title" : "미성년 세대주 예외 입증서류",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 동일등본의 부양관계·직계존속 사망/실종 등 또는 외국인 부모 대리사유를 입증.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=2",
+        "label" : "정정 공고문 인쇄 3쪽 · 미성년 세대주 예외 입증서류",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "adult",
+      "conditionAnswerValues" : [ "CHILD", "SIBLING", "FOREIGN_PARENT" ]
+    }, {
+      "id" : "housing-proof",
+      "title" : "주택소유 예외·처분 소명자료",
+      "issuer" : "등기소·지자체 등",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 예외별 처분기한·등기/건축물대장·지자체 회신문 등 원문 요구자료를 기관과 확인.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=8",
+        "label" : "정정 공고문 인쇄 16쪽 · 주택소유 예외·처분 소명자료",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "housing",
+      "conditionAnswerValues" : [ "EXCEPTION" ]
+    }, {
+      "id" : "category-benefit",
+      "title" : "수급자·차상위 증명서",
+      "issuer" : "행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 수급자·차상위 증명서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "BENEFIT" ]
+    }, {
+      "id" : "category-single",
+      "title" : "한부모가족 증명서",
+      "issuer" : "행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 한부모가족 증명서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "SINGLE" ]
+    }, {
+      "id" : "category-disability",
+      "title" : "장애인증명서·해당 중증장애인 확인서",
+      "issuer" : "행정복지센터·장애인고용공단",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 장애인증명서·해당 중증장애인 확인서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "DISABILITY" ]
+    }, {
+      "id" : "category-north",
+      "title" : "북한이탈주민등록확인서",
+      "issuer" : "시·군·구청",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 북한이탈주민등록확인서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "NORTH" ]
+    }, {
+      "id" : "category-veteran",
+      "title" : "해당 보훈 자격 확인서",
+      "issuer" : "보훈기관·행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 해당 보훈 자격 확인서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "VETERAN" ]
+    }, {
+      "id" : "category-elder",
+      "title" : "피부양자 소득인정액·가족관계 증빙",
+      "issuer" : "행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 피부양자 소득인정액·가족관계 증빙",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "ELDER" ]
+    }, {
+      "id" : "category-facility",
+      "title" : "시설 추천서·아동복지시설 신고증 사본",
+      "issuer" : "아동복지시설",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 시설 추천서·아동복지시설 신고증 사본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "FACILITY" ]
+    }, {
+      "id" : "category-pow",
+      "title" : "귀환용사증 사본",
+      "issuer" : "국방부",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 귀환용사증 사본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "POW" ]
+    }, {
+      "id" : "category-victim",
+      "title" : "일본군위안부 피해자 결정통지서 사본",
+      "issuer" : "관련 행정기관",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 일본군위안부 피해자 결정통지서 사본",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "VICTIM" ]
+    }, {
+      "id" : "category-other",
+      "title" : "기타 인정대상·가점 입증서류",
+      "issuer" : "해당 행정기관",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신분·가점을 주장할 때 인쇄12쪽 표의 발급처·서류를 확인하여 제출.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 기타 인정대상·가점 입증서류",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "category",
+      "conditionAnswerValues" : [ "OTHER" ]
+    }, {
+      "id" : "newly",
+      "title" : "혼인관계증명서·자녀 관련 증빙",
+      "issuer" : "거주지 행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 해당 신혼 자격은 혼인관계 및 자녀 기본증명서·임신/입양 관련 증빙 중 해당분을 확인.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 혼인관계증명서·자녀 관련 증빙",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "marriage",
+      "conditionAnswerValues" : [ "NEWLY" ]
+    }, {
+      "id" : "planned",
+      "title" : "예비신혼 신청·세대구성 확인서 및 증빙",
+      "issuer" : "LH·행정기관",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 대표자·예비배우자 서명, 예정세대명단·예비배우자 신분증 사본과 양측 등본·혼인관계증명서 등 준비. 대표신청자의 주민등록표초본은 주소·세대주 변경 여부와 관계없이 제출하며, 과거 주소변동·세대주 성명 및 관계·당해지역 전체 거주기간을 표시합니다. 혼인으로 구성될 세대에 두 사람 외의 사람이 포함될 때에는 해당 세대원과의 관계를 확인할 수 있는 신청자 또는 예비배우자의 가족관계증명서도 제출합니다. 입주 전 혼인 증명 및 세대관계 확인.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 예비신혼 신청·세대구성 확인서 및 증빙",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=17",
+      "conditionQuestionId" : "marriage",
+      "conditionAnswerValues" : [ "PLANNED" ]
+    }, {
+      "id" : "proxy",
+      "title" : "대리신청 위임장·증명서",
+      "issuer" : "LH·행정복지센터",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 본인발급 인감증명서 또는 본인서명사실확인서 등 별지5 첨부 요건을 준비하고 신분증·도장 등 접수처 요구를 확인.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=17",
+        "label" : "정정 공고문 인쇄 33쪽 · 대리신청 위임장·증명서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=17",
+      "conditionQuestionId" : "agent",
+      "conditionAnswerValues" : [ "OTHER" ]
+    }, {
+      "id" : "relaxation-pledge",
+      "title" : "입주자격 완화 확약서",
+      "issuer" : "LH 첨부 양식",
+      "method" : "모집공고일(2026.09.07) 이후 발행분을 준비하세요. 계약 시 별지7 확인. 재계약 할증에 관한 본문/확약서 차이는 먼저 관리소에 확인.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=18",
+        "label" : "정정 공고문 인쇄 36쪽 · 입주자격 완화 확약서",
+        "checkedAt" : "2026-11-09"
+      },
+      "issueUrl" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=18",
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    } ],
+    "questions" : [ {
+      "id" : "residence",
+      "title" : "2026.09.07 현재 남원시에 거주하나요?",
+      "reason" : "이번 모집의 거주 요건은 모집공고일 현재 남원시 거주입니다. 거주기간 배점은 최종 전입일 다음 날부터 공고일까지로 계산하며 말소가 있었다면 재등록 이후 기간을 봅니다.",
+      "options" : [ {
+        "label" : "남원시 거주",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "다른 지역 거주",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=2",
+        "label" : "정정 공고문 인쇄 3쪽 · 2026.09.07 현재 남원시에 거주하나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "adult",
+      "title" : "성년자 또는 미성년 세대주 예외에 해당하나요?",
+      "reason" : "만19세 이상이 원칙입니다. 같은 등본의 자녀를 부양하는 미성년 세대주, 직계존속 사망·실종·행방불명 등으로 형제자매를 부양하는 미성년 세대주, 외국인 부모와 미성년 자녀로 구성된 한부모가족(외국인 부모 대리신청)은 예외 증빙을 확인합니다. 외국인 본인은 신청할 수 없습니다.",
+      "options" : [ {
+        "label" : "만19세 이상",
+        "value" : "ADULT",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "자녀 부양 미성년 세대주",
+        "value" : "CHILD",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "형제자매 부양 미성년 세대주",
+        "value" : "SIBLING",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "외국인 부모가 대리하는 미성년 한부모 세대",
+        "value" : "FOREIGN_PARENT",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "해당하지 않음",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=2",
+        "label" : "정정 공고문 인쇄 3쪽 · 성년자 또는 미성년 세대주 예외에 해당하나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "household",
+      "title" : "세대구성에 해당하는 항목을 골라주세요.",
+      "reason" : "신청자와 배우자(분리배우자 포함), 신청자·분리배우자와 등본을 같이 하는 직계존비속 및 지정 배우자가 검증 대상입니다. 외국인 가족은 가족관계등록·외국인등록/거소·동일주소 요건, 태아, 예정 혼인세대를 따로 확인합니다. 국내 비거주 재외국민 배우자·미등록 외국인 배우자는 제한됩니다. 실종절차·신고 후1개월 경과 가출/행방불명·기관이 확인한 생계주거 분리는 입증 후 제외합니다.",
+      "options" : [ {
+        "label" : "배우자와 등본 분리",
+        "value" : "SEPARATE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "등본에서 배우자를 확인할 수 없음(미혼·이혼·사별 포함)",
+        "value" : "FAMILY",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "외국인 배우자/가족",
+        "value" : "FOREIGN",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "공고 후 주소·세대주 변경",
+        "value" : "CHANGE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "태아를 세대원으로 포함",
+        "value" : "PREGNANT",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "입양자녀를 세대원으로 포함",
+        "value" : "ADOPTED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "세대원 제외 소명이 필요함",
+        "value" : "EXCLUDE",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "해당 없음",
+        "value" : "NONE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=2",
+        "label" : "정정 공고문 인쇄 4쪽 · 세대구성에 해당하는 항목을 골라주세요.",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "MULTIPLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "housing",
+      "title" : "세대원 전원의 주택·분양권 소유 여부를 확인했나요?",
+      "reason" : "공고일부터 입주·임대차계약 종료까지 무주택 유지가 원칙입니다. 공유지분·주택 포함 복합건물·분양권/입주권도 확인합니다. 인쇄16~17쪽에는 상속 공유지분 처분, 비수도권 비도시/면지역 단독주택 이주, 사업자 분양/숙소, 20㎡이하1호, 폐가·멸실·용도변경, 적법 무허가, 선착순 직접취득 분양권, 상속·증여 분양권, 2018.12.11 이전 승인신청 등의 분양권, 2024년 취득 종전임차주택(생애최초·면적60㎡·가격2억원/수도권3억원·종전1년거주) 예외를 정합니다. 소유이력이 있으면 각 조건과 소명자료를 기관에 확인하고 자동 무주택 판정을 하지 않습니다.",
+      "options" : [ {
+        "label" : "소유한 세대원이 없음",
+        "value" : "NONE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "원문 예외에 따른 소명 필요",
+        "value" : "EXCEPTION",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "소유한 세대원이 있음",
+        "value" : "OWNED",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=8",
+        "label" : "정정 공고문 인쇄 16쪽 · 세대원 전원의 주택·분양권 소유 여부를 확인했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "relaxed",
+      "title" : "소득·총자산 배제와 자동차 심사를 구분했나요?",
+      "reason" : "인쇄1·5·10쪽은 이번 입주심사의 소득·총자산 요건 배제를 명시합니다. 소득표·자산 산정 설명은 배점/임대조건·재계약을 위한 자료이며 일반 총자산2억4,500만원이나 소득150%를 이번 입주자격 상한으로 다시 적용하지 않습니다. 금융정보 동의서는 서류목록이 전체 제출을 요구하므로 배제를 이유로 생략하지 않습니다.",
+      "options" : [ {
+        "label" : "확인했어요",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아직 확인이 필요해요",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=3",
+        "label" : "정정 공고문 인쇄 5쪽 · 소득·총자산 배제와 자동차 심사를 구분했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "vehicle",
+      "title" : "자동차 기준과 제외·출산가산을 확인했나요?",
+      "reason" : "기본 자동차 기준은4,542만원 이하입니다. 비영업용 승용자동차 중 가장 높은 가액을 보고 장애인사용·상이1~7급 보철용 제외, 저공해차 보조금 차감을 확인합니다. 2023.3.28 이후 출생자녀(입양·태아 포함)1명은10%p,2명이상20%p 가산, 이후 출생자녀가 있으면 이전 출생자녀도 포함해2자녀 인정하는 공고문 설명을 확인하세요. 일반 차량 기준과 개인 가산 인정 여부는 공적자료로 심사합니다.",
+      "options" : [ {
+        "label" : "차량 기준·제외 여부 확인",
+        "value" : "CHECKED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "출산·입양·태아 가산 적용 확인 필요",
+        "value" : "CHILD_ADD",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "초과 또는 소명 필요",
+        "value" : "OVER",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=3",
+        "label" : "정정 공고문 인쇄 5쪽 · 자동차 기준과 제외·출산가산을 확인했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "restriction",
+      "title" : "불법양도·전대 및 중복신청 제한을 확인했나요?",
+      "reason" : "세대원 중 공공임대 불법양도·전대 적발 후4년이 지나지 않은 사람이 있으면 입주자로 선정할 수 없습니다. 이 공고에서는1세대1주택 신청이며 주택형 중복은 모두 무효입니다. 동일유형 예비자로 다시 선정되면 종전 순위가 상실될 수 있고 장기공공임대 입주 시 대기자 명부에서 제외됩니다. 기존 임대주택 입주자는 신규 입주 전 명도가 필요합니다.",
+      "options" : [ {
+        "label" : "확인했어요",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아직 확인이 필요해요",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=4",
+        "label" : "정정 공고문 인쇄 7쪽 · 불법양도·전대 및 중복신청 제한을 확인했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "ranking",
+      "title" : "선정 순위와 배점 증빙을 확인했나요?",
+      "reason" : "신청자격 충족과 선정순위는 다릅니다. 합산배점→전입일이 오래된 사람→세대원수→연령→추첨 순서입니다. 거주기간·연령·세대원수·소득수준·해당 가점은 인쇄8~9쪽 및 지자체 기준으로 확인합니다. 소득요건 배제여도 소득구간이 배점에 쓰일 수 있습니다. 앱에서 최종점수·당첨가능성을 확정하지 않습니다.",
+      "options" : [ {
+        "label" : "확인했어요",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아직 확인이 필요해요",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=4",
+        "label" : "정정 공고문 인쇄 8쪽 · 선정 순위와 배점 증빙을 확인했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "category",
+      "title" : "해당하는 증명 대상이 있나요?",
+      "reason" : "해당 신분·가점을 증명할 경우에만 관련 서류를 준비합니다. 생계·의료수급, 한부모, 장애/중증장애, 차상위, 북한이탈, 보훈, 65세이상 직계존속부양, 시설퇴소, 귀환국군포로, 위안부피해, 인정이주 등의 원문 증명을 확인하세요. 신분 서류가 모든 신청자에게 공통 필수인 것은 아닙니다.",
+      "options" : [ {
+        "label" : "생계·의료·차상위",
+        "value" : "BENEFIT",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "지원대상 한부모",
+        "value" : "SINGLE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "장애·중증장애",
+        "value" : "DISABILITY",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "북한이탈주민",
+        "value" : "NORTH",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "국가유공자 등 보훈",
+        "value" : "VETERAN",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "65세이상 직계존속 부양",
+        "value" : "ELDER",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아동복지시설 퇴소",
+        "value" : "FACILITY",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "귀환국군포로",
+        "value" : "POW",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "일본군위안부 피해자",
+        "value" : "VICTIM",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "기타 인정 대상/가점",
+        "value" : "OTHER",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "해당 없음",
+        "value" : "NONE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 해당하는 증명 대상이 있나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "MULTIPLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "marriage",
+      "title" : "신혼 또는 예비신혼 증빙이 필요한가요?",
+      "reason" : "해당 가점을 신청한다면 혼인기간7년이내 신혼 또는 예비신혼에 관한 서류를 확인합니다. 예비신혼은 대표신청자를 정하고 신청 후 변경할 수 없습니다. 예정세대 명단·양측 동의서·등본을 제출하고 입주 전 혼인 사실을 증명해야 합니다. 첨부 세대구성확인서는 입주 시 분리세대 예정이면 양쪽 예정세대원을 적도록 명시합니다.",
+      "options" : [ {
+        "label" : "신혼 증빙",
+        "value" : "NEWLY",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "예비신혼 증빙",
+        "value" : "PLANNED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "해당 없음",
+        "value" : "NONE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 12쪽 · 신혼 또는 예비신혼 증빙이 필요한가요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "agent",
+      "title" : "본인·배우자 외 대리인이 신청하나요?",
+      "reason" : "원칙상 본인·배우자가 신청합니다. 불가피한 다른 대리신청은 위임장과 본인 인감증명/도장 등 추가서류를 준비합니다. 첨부 위임장은 본인발급 인감증명서 또는 본인서명사실확인서를 명시합니다. 방문 전 신분증 등 접수처 요구사항을 확인하세요.",
+      "options" : [ {
+        "label" : "본인 또는 배우자",
+        "value" : "SELF",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "그 외 대리인",
+        "value" : "OTHER",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=7",
+        "label" : "정정 공고문 인쇄 14쪽 · 본인·배우자 외 대리인이 신청하나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "documents",
+      "title" : "공고일 이후 발급·서명·현장접수 준비를 확인했나요?",
+      "reason" : "제출서류는2026.09.07 이후 발행분, 기관 발급분은 직인 있는 원본을 준비합니다. 등본은 세대구성 사유·일자·관계·전입/변동·전원 주민번호 등이 요구됩니다. 해당 정보는 공식 제출서류에만 기재하고 이 서비스에는 입력하거나 원본을 올리지 않습니다. 개인정보 동의는14세이상 본인,미만 법정대리인 서명. 금융정보 동의서와 중복선정 확인서는 누락하지 마세요.",
+      "options" : [ {
+        "label" : "확인했어요",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아직 확인이 필요해요",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=6",
+        "label" : "정정 공고문 인쇄 11쪽 · 공고일 이후 발급·서명·현장접수 준비를 확인했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "renewal",
+      "title" : "완화 입주 후 재계약의 임대조건을 확인했나요?",
+      "reason" : "이번 입주심사 완화와 재계약은 다릅니다. 본문 인쇄13쪽은 소득기준 초과1·2회 재계약에 임대조건 할증을 쓰지만 별지7 인쇄36쪽은1·2회 소득·총자산 초과시 할증 없음을 설명합니다. 별지7에서 3회 이상 초과자는 원칙상 퇴거 대상이며, 단지 공가율이 높아 추가 재계약이 필요하고 기존 입주자의 재계약 요건까지 충족하는 경우에만 재계약 검토 및 일반 할증이 가능합니다. 해당 적용조건은 남원노암관리소063-625-1939에 확인해야 하며 앱에서 어느 한쪽을 확정하지 않습니다. 무주택·차량 기준 유지와 별도 확약서 준비는 계속 확인할 수 있습니다.",
+      "options" : [ {
+        "label" : "확인했어요",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아직 확인이 필요해요",
+        "value" : "NO",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요 · 추가 확인",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=7",
+        "label" : "정정 공고문 인쇄 13쪽 · 완화 입주 후 재계약의 임대조건을 확인했나요?",
+        "checkedAt" : "2026-11-09"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : true
+    } ],
+    "schedules" : [ {
+      "id" : "start",
+      "date" : "2026-09-21",
+      "title" : "신청 접수 시작 (10:00)",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=5",
+        "label" : "정정 공고문 인쇄 10쪽 · 공급일정",
+        "checkedAt" : "2026-11-09"
+      }
+    }, {
+      "id" : "end",
+      "date" : "2026-12-31",
+      "title" : "신청 접수 마감 (16:00)",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=5",
+        "label" : "정정 공고문 인쇄 10쪽 · 공급일정",
+        "checkedAt" : "2026-11-09"
+      }
+    }, {
+      "id" : "result",
+      "date" : "2027-03-31",
+      "title" : "당첨자 발표 (예정·자격검증 일정에 따라 변경 가능)",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "label" : "LH 공식 상세페이지 · 공급일정 · 당첨자발표일",
+        "checkedAt" : "2026-11-09"
+      }
+    }, {
+      "id" : "documents-end",
+      "title" : "서류 제출 마감 · 신청 시 함께 제출 (16:00)",
+      "date" : "2026-12-31",
+      "evidence" : {
+        "label" : "공고문 5·6쪽 · 신청기간 및 동시 서류 제출",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=5",
+        "checkedAt" : "2026-11-10"
+      }
+    } ],
+    "attachments" : [ {
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+      "label" : "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).hwpx",
+      "checkedAt" : "2026-11-09"
+    }, {
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+      "label" : "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).pdf",
+      "checkedAt" : "2026-11-09"
+    } ],
+    "reviewIssues" : [ {
+      "id" : "renewal-surcharge",
+      "area" : "CONDITION",
+      "title" : "재계약 임대조건 할증은 기관 확인이 필요해요",
+      "detail" : "본문13쪽은 소득기준 초과1·2회에 할증 후 재계약을, 별지7(36쪽)은1·2회 소득·총자산 초과에 할증 없음을 기재합니다. 별지7의 3회 이상 초과자는 원칙상 퇴거 대상이며, 높은 공가율로 추가 재계약이 필요하고 기존 입주자 재계약 요건을 충족할 때에만 재계약 검토 및 일반 할증이 가능합니다. PDF와 HWPX 모두 같아 적용조건을 확정하지 않습니다. 남원노암관리소063-625-1939에 확인하세요. 이번 입주자격의 소득·총자산 배제, 자동차 심사, 신청서류·기간 안내는 계속 이용할 수 있습니다.",
+      "evidence" : [ {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=7",
+        "label" : "정정 공고문 인쇄 13쪽 · 재계약 할증 설명",
+        "checkedAt" : "2026-11-09"
+      }, {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=18",
+        "label" : "정정 공고문 인쇄 36쪽 · 별지7 재계약 요건",
+        "checkedAt" : "2026-11-09"
+      }, {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+        "label" : "HWPX · 본문·별지7",
+        "checkedAt" : "2026-11-09"
+      } ],
+      "documentIds" : [ "relaxation-pledge" ],
+      "questionIds" : [ "renewal" ]
+    } ],
+    "applicationClosure" : null
+  },
+  "endDate" : "2026-12-31",
+  "noticeId" : "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+  "revision" : 3,
+  "packageId" : "documents-deadline-20261110-de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+  "startDate" : "2026-09-21",
+  "disposition" : "PARTIAL",
+  "reviewNotes" : "공식 공고문 신청기간과 신청시 서류제출 조항 대조. 신청과 함께 제출하는 서류마감 누락만 보완. 기존 조건·서류·불확실성·신청일정 유지.",
+  "extractionId" : "4c9b2f48-86de-4130-9053-8050527b848e",
+  "sourceReviews" : [ {
+    "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+    "role" : "OFFICIAL_LISTING",
+    "label" : "공식 상세 본문",
+    "sha256" : "c0c89427769d2581825adec7345dec3b5479b73ab03f440fcf3b3768609537e5",
+    "reviewNotes" : "현재 공고중과 정정본 식별, 첨부목록·신청기간을 대조. 게시종료일과 발표일을 혼동하지 않음."
+  }, {
+    "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+    "role" : "MAIN_NOTICE",
+    "label" : "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).hwpx",
+    "sha256" : "060b2bf5d48ac249b6e096b78db7cc8ed9b896a4315f0715db7e97d3e73f9734",
+    "reviewNotes" : "PDF 전면과 HWPX의 적용 기준·표·서류·기간·별지·유의사항을 대조. 인쇄5·10·11~14·36쪽 표를 렌더로 확인. 판정·배점·재계약을 구분하고 후속 확정일은 생성하지 않음."
+  }, {
+    "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+    "role" : "MAIN_NOTICE",
+    "label" : "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).pdf",
+    "sha256" : "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6",
+    "reviewNotes" : "PDF 전면과 HWPX의 적용 기준·표·서류·기간·별지·유의사항을 대조. 인쇄5·10·11~14·36쪽 표를 렌더로 확인. 판정·배점·재계약을 구분하고 후속 확정일은 생성하지 않음."
+  } ],
+  "unresolvedFindings" : [ "renewal-surcharge" ],
+  "supplementalReferences" : [ ],
+  "applicationPeriodIssueId" : null,
+  "confirmedOpenEndedPeriod" : null
+}

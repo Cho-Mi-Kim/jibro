@@ -1,0 +1,88 @@
+[
+  {
+    "noticeId": "c492f779-58e0-40b9-bac4-66830c698ff5",
+    "issueId": "closing_date_conflict",
+    "checkedAt": "2026-11-10",
+    "disposition": "RETAIN_INSTITUTION_CONFIRMATION",
+    "reason": "최신 공식 원문·첨부는 이전과 동일하고 동일 모집의 공식 후속공지 검색 결과 0건. 현재 정정 연결에 더 최신의 정정 대상 없음. 접수일/공고일을 같은 날짜로 해석하거나 실제 접수기간12.30/12.31 중 한 값을 우선한다는 근거가 없어 유지.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020730&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "label": "공식 상세 · 접수기간 항목",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929#page=5",
+        "label": "공고 PDF 5쪽(인쇄9쪽) · 모집일정",
+        "checkedAt": "2026-11-09"
+      }
+    ],
+    "reviewedDetail": ".tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\verification.json",
+    "searchEvidence": ".tools\\qa\\active12-recheck-20261110\\timing\\official-search-results.json",
+    "scope": "공식 상세의 접수기간 항목은 2026.09.28~12.31이며 첨부 PDF 물리5쪽(인쇄9쪽) 및 동일 HWPX 모집일정은 12.30 15시까지입니다. 둘 다 실제 접수기간으로 표시되어 확정 마감일은 기관 확인이 필요합니다. 첫날9.28 13:30~15시, 이후10~15시(점심12~13시·주말·공휴일 제외) 현장접수와 조기마감 가능성은 확인되었습니다."
+  },
+  {
+    "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+    "issueId": "dh-history-conflict",
+    "checkedAt": "2026-11-10",
+    "disposition": "RETAIN_INSTITUTION_CONFIRMATION",
+    "reason": "최신 공식 원문·첨부는 이전과 동일하고 동일 모집의 공식 후속공지 검색 결과 0건. 현재 정정 연결에 더 최신의 정정 대상 없음. 접수일/공고일을 같은 날짜로 해석하거나 실제 접수기간12.30/12.31 중 한 값을 우선한다는 근거가 없어 유지.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=1",
+        "label": "공고문 2쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=2",
+        "label": "공고문 4쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+        "label": "공고문 14쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=8",
+        "label": "공고문 16쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      }
+    ],
+    "reviewedDetail": ".tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\verification.json",
+    "searchEvidence": ".tools\\qa\\active12-recheck-20261110\\timing\\official-search-results.json",
+    "scope": "공고2·4쪽은 신청접수일을 자격판단·무주택 유지의 시작으로 안내하지만14쪽과 붙임은 공고일부터 무주택이어야 한다고 기재합니다. 정정으로 명시된 1호 무주택 완화 범위 자체는 안내하며, 공고일~신청일 사이 취득·처분 이력에 어느 시점을 적용하는지만 LH에 확인해야 합니다.현재 확인 가능한 조건·서류와 접수일정은 계속 제공합니다. 이 이력 항목만 자동 충족으로 판단하지 않습니다."
+  },
+  {
+    "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+    "issueId": "tg-history-conflict",
+    "checkedAt": "2026-11-10",
+    "disposition": "RETAIN_INSTITUTION_CONFIRMATION",
+    "reason": "최신 공식 원문·첨부는 이전과 동일하고 동일 모집의 공식 후속공지 검색 결과 0건. 현재 정정 연결에 더 최신의 정정 대상 없음. 접수일/공고일을 같은 날짜로 해석하거나 실제 접수기간12.30/12.31 중 한 값을 우선한다는 근거가 없어 유지.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=2",
+        "label": "공고문 2쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=4",
+        "label": "공고문 4쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=14",
+        "label": "공고문 14쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=16",
+        "label": "공고문 16쪽 · 상호 대조",
+        "checkedAt": "2026-11-09"
+      }
+    ],
+    "reviewedDetail": ".tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\verification.json",
+    "searchEvidence": ".tools\\qa\\active12-recheck-20261110\\timing\\official-search-results.json",
+    "scope": "공고2·4쪽은 신청접수일을 자격판단·무주택 유지의 시작으로 안내하지만14쪽과 붙임은 공고일부터 무주택이어야 한다고 기재합니다. 6쪽의 주택·소득·자산 산정시점도 공고일로 표기되어 있어 공고일~신청일 사이 변동 이력의 적용시점을 LH에 확인해야 합니다.현재 확인 가능한 조건·서류와 접수일정은 계속 제공합니다. 이 이력 항목만 자동 충족으로 판단하지 않습니다."
+  }
+]

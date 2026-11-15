@@ -1,30 +1,48 @@
-import { cx } from '../shared/styles/classes';
+import { bindClasses } from '../shared/styles/classes';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { Card, State } from '../shared/ui/ui';
-import { safeUrl } from '../shared/ui/helpers';
+import { DocumentIssuanceLinks } from '../features/housing/DocumentIssuanceLinks';
+import { onlineIssuanceLinks } from '../features/housing/onlineIssuance';
 import { Icon } from '../shared/ui/Icon';
 import { PreparationGuidance } from '../features/preparation/PreparationNav';
-import { NoticeContext } from '../shared/ui/HousingUI';
+import { NoticeContext } from '../features/preparation/PreparationUI';
 import { usePreparation } from '../features/preparation/usePreparation';
+import { documentSummary } from '../features/housing/documentSummary';
+import { DocumentSummaryFacts } from '../features/housing/DocumentSummaryFacts';
 import { DocumentEditor } from '../features/preparation/DocumentEditor';
+import { documentNeedsReview } from '../features/housing/reviewIssueSelectors';
+import documentsClasses from '../features/preparation/Documents.module.css';
+
+const cx = bindClasses(documentsClasses);
+
 export function DocumentsPage() {
     const q = usePreparation();
     const p = q.data;
     const [selected, setSelected] = useState<string | null>(null);
     const docs =
         p?.documents.filter(
-            (d) => d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL',
+            (d) =>
+                !documentNeedsReview(d, p?.reviewIssues) &&
+                (d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL'),
         ) ?? [];
     const ready = docs.filter((d) => d.state === 'READY').length;
     const unresolved =
-        p?.documents.filter((d) => d.necessity === 'UNKNOWN') ?? [];
+        p?.documents.filter(
+            (d) =>
+                d.necessity === 'UNKNOWN' &&
+                !documentNeedsReview(d, p.reviewIssues),
+        ) ?? [];
+    const officialReview =
+        p?.documents.filter((d) => documentNeedsReview(d, p.reviewIssues)) ??
+        [];
+    const selectable = [...docs, ...officialReview];
     const active =
         selected === ''
             ? ''
-            : docs.some((d) => d.id === selected)
+            : selectable.some((d) => d.id === selected)
               ? selected
-              : docs[0]?.id;
+              : selectable[0]?.id;
     return (
         <>
             <State
@@ -63,6 +81,13 @@ export function DocumentsPage() {
                             <small>
                                 준비 완료 {ready}개 · 해당 여부 미확인{' '}
                                 {unresolved.length}개
+                                {officialReview.length > 0 && (
+                                    <>
+                                        {' '}
+                                        · 공식 확인 필요 {officialReview.length}
+                                        개
+                                    </>
+                                )}
                             </small>
                         </div>
                         {(['REQUIRED', 'CONDITIONAL'] as const).map(
@@ -106,6 +131,30 @@ export function DocumentsPage() {
                             </Card>
                         )}
                     </div>
+                    {officialReview.length > 0 && (
+                        <section className={cx('document-group')}>
+                            <h2>
+                                공식 확인이 필요한 서류 {officialReview.length}
+                                개
+                            </h2>
+                            <p>
+                                이 항목은 공식 자료의 적용 기준을 확인해야 해요.
+                                답변을 바꾸어도 준비 완료로 처리되지 않으며,
+                                다른 서류는 계속 준비할 수 있어요.
+                            </p>
+                            {officialReview.map((d) => (
+                                <DocumentEditor
+                                    key={p.id + ':' + d.id}
+                                    p={p}
+                                    d={d}
+                                    active={active === d.id}
+                                    onSelect={() =>
+                                        setSelected(active === d.id ? '' : d.id)
+                                    }
+                                />
+                            ))}
+                        </section>
+                    )}
                     {unresolved.length > 0 && (
                         <Card>
                             <h2>해당 여부 추가 확인 {unresolved.length}개</h2>
@@ -115,9 +164,20 @@ export function DocumentsPage() {
                             </p>
                             <strong>확인이 필요한 항목</strong>
                             <ul>
-                                {unresolved.map((d) => (
-                                    <li key={d.id}>{d.title}</li>
-                                ))}
+                                {unresolved.map((d) => {
+                                    const summary = documentSummary(d, p);
+                                    return (
+                                        <li key={d.id}>
+                                            <strong>{d.title}</strong>
+                                            <DocumentSummaryFacts
+                                                summary={summary}
+                                            />
+                                            <DocumentIssuanceLinks
+                                                links={summary.links}
+                                            />
+                                        </li>
+                                    );
+                                })}
                             </ul>
                             <Link
                                 className={cx('button secondary wide')}
@@ -131,7 +191,9 @@ export function DocumentsPage() {
                     )}
                     {docs.length > 0 && (
                         <footer className={cx('document-issue-note')}>
-                            {docs.some((doc) => !safeUrl(doc.issueUrl)) && (
+                            {docs.some(
+                                (doc) => onlineIssuanceLinks(doc).length === 0,
+                            ) && (
                                 <p>
                                     온라인 발급 주소가 표시되지 않은 서류는 각
                                     서류의 공식 근거에서 제출 방법과 발급 기관을

@@ -1,7 +1,7 @@
 import { cx } from '../../shared/styles/classes';
 import { Link } from 'react-router';
-import type { Preparation } from '../housing/types';
-import { Disc } from '../../shared/ui/HousingUI';
+import type { PreparationListItem } from '../housing/types';
+import { Disc } from '../../shared/ui/Disc';
 import { Icon } from '../../shared/ui/Icon';
 import styles from './PreparationHeader.module.css';
 
@@ -10,7 +10,7 @@ export function PreparationHeader({
     activeId,
     onSelect,
 }: {
-    preparations?: Preparation[];
+    preparations?: PreparationListItem[];
     activeId?: string;
     onSelect?: (id: string) => void;
 }) {
@@ -19,7 +19,7 @@ export function PreparationHeader({
     return (
         <header className={styles.header}>
             <h1 className={cx('visually-hidden')}>내 준비</h1>
-            {!!preparations?.length && onSelect ? (
+            {!!preparations?.length && onSelect && (
                 <details className={styles.selector}>
                     <summary>
                         <Disc name="file" tone="green" />
@@ -49,10 +49,6 @@ export function PreparationHeader({
                         </Link>
                     </div>
                 </details>
-            ) : (
-                <Link className={styles.archive} to="/archive">
-                    완료 여정 보관함
-                </Link>
             )}
         </header>
     );

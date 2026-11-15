@@ -4,6 +4,7 @@ on:
   pull_request:
     # Stacked feature PRs also need checks before their base reaches develop.
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
@@ -32,6 +33,11 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci
       - run: npm run ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-production
+          path: frontend/dist/
+          retention-days: 7
       - run: npm run build:pages
 
   backend:
@@ -63,6 +69,13 @@ jobs:
       - run: chmod +x gradlew
       - run: ./gradlew --no-daemon clean build integrationTest
       - uses: actions/upload-artifact@v4
+        with:
+          name: backend-production
+          path: |
+            backend/build/libs/*.jar
+            !backend/build/libs/*-plain.jar
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: backend-test-reports
@@ -70,3 +83,12 @@ jobs:
 
 # Java formatter gate is pending a pinned IntelliJ CLI runtime on CI.
 # spotlessCheck remains an explicit task and must fail if the formatter is unavailable.
+
+  operations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s scripts/ops -p 'test_*.py' -v

@@ -1,14 +1,15 @@
 import { Link, useLocation, useParams, useSearchParams } from 'react-router';
 import { getHomeReturn } from '../shared/navigation/useNoticeEntryState';
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../features/housing/api';
+import { useNotice } from '../features/housing/useNotice';
+import { usePreparationList } from '../features/preparation/usePreparationList';
 import { NoticeDetailOverview } from '../features/housing/NoticeDetailOverview';
-import { useSession } from '../app/useSession';
+import { NoticeCorrectionBanner } from '../features/housing/NoticeCorrectionBanner';
 import {
     NoticeDetailActions,
     NoticeResources,
 } from '../features/housing/NoticeDetailActions';
 import { NoticeDetailContent } from '../features/housing/NoticeDetailContent';
+import { useNoticeSourceInformation } from '../features/housing/useNoticeSourceInformation';
 import {
     noticeDetailTabs,
     type NoticeDetailTab,
@@ -35,17 +36,10 @@ export function NoticeDetailPage() {
             state,
         });
     }
-    const query = useQuery({
-        queryKey: ['notice', noticeId],
-        queryFn: () => api.notice(noticeId),
-    });
+    const query = useNotice(noticeId);
     const notice = query.data;
-    const { user } = useSession();
-    const preparations = useQuery({
-        queryKey: ['preparations', user?.id],
-        queryFn: api.preparations,
-        enabled: !!user && !!notice?.canStart,
-    });
+    const sourceInformation = useNoticeSourceInformation(notice);
+    const preparations = usePreparationList(!!notice?.canStart);
     const current = preparations.data?.find(
         (item) =>
             item.noticeId === noticeId && item.version === notice?.version,
@@ -53,7 +47,11 @@ export function NoticeDetailPage() {
 
     return (
         <div className={styles.page} data-notice-detail>
-            <div className={styles.scrollContent} key={noticeId}>
+            <div
+                className={styles.scrollContent}
+                key={noticeId}
+                data-notice-detail-scroll
+            >
                 <header className={styles.header}>
                     <Link
                         className={styles.back}
@@ -90,6 +88,7 @@ export function NoticeDetailPage() {
                 />
                 {notice && (
                     <>
+                        <NoticeCorrectionBanner notice={notice} />
                         <NoticeDetailOverview key={notice.id} notice={notice} />
                         <div
                             className={styles.tabs}
@@ -158,6 +157,7 @@ export function NoticeDetailPage() {
                                 notice={notice}
                                 tab={tab}
                                 onTabChange={setTab}
+                                sourceInformation={sourceInformation}
                             />
                         </section>
                         <NoticeResources notice={notice} />

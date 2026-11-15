@@ -1,0 +1,50 @@
+.panel {
+    margin-block: 8px 16px;
+}
+.panel summary {
+    cursor: pointer;
+    padding-block: 10px;
+    font-weight: 600;
+}
+.panel p {
+    margin-block: 6px;
+    font-size: 14px;
+}
+.list {
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+.receipt {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 0;
+}
+.heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 12px;
+}
+.heading span {
+    font-size: 14px;
+}
+.hash {
+    overflow-wrap: anywhere;
+}
+.toggle {
+    margin-top: 8px;
+}
+.json {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow: auto;
+    max-height: 320px;
+    font-size: 12px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}

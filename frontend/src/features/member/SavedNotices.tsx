@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link, useLocation, useNavigate } from 'react-router';
-import { useSession } from '../../app/useSession';
+import { useSession } from '../auth/useSession';
+import { noticeListTitle } from '../housing/noticeDisplay';
 import { Icon } from '../../shared/ui/Icon';
 import { Heading, State } from '../../shared/ui/ui';
 import { memberApi } from './memberApi';
@@ -88,7 +89,9 @@ export function SavedPage() {
                                     className={styles.savedNoticeLink}
                                     to={'/notices/' + n.id}
                                 >
-                                    <h2>{n.title}</h2>
+                                    <h2 aria-label={n.title} title={n.title}>
+                                        {noticeListTitle(n.title)}
+                                    </h2>
                                     <p>
                                         {n.agency} · {n.region}
                                     </p>

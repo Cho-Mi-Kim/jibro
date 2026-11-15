@@ -1,0 +1,17 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.auth-page {
+}
+.social-login {
+}
+.social-divider {
+}
+.social-buttons {
+}
+.social-button {
+}
+.social-google {
+}
+.social-kakao {
+}
+.trial-entry {
+}

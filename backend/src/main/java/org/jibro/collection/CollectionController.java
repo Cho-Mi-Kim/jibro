@@ -25,4 +25,7 @@ public class CollectionController {
     Collection collect(@AuthenticationPrincipal Jwt jwt, @RequestParam(defaultValue = "1") int startPage) {
         return service.collect(jwt.getSubject(), startPage);
     }
+
+    @GetMapping("/schedule")
+    CollectionService.ScheduleStatus schedule() { return service.schedule(); }
 }

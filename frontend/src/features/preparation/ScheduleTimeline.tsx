@@ -1,9 +1,13 @@
 import type { Notice, Preparation } from '../housing/types';
+import { IndividualAnnouncement } from '../housing/IndividualAnnouncement';
 import { Icon } from '../../shared/ui/Icon';
-import { EvidenceLink } from '../../shared/ui/ui';
-import { displayDate } from '../../shared/ui/housingHelpers';
+import { EvidenceLink } from '../housing/EvidenceLink';
+import { displayDate } from '../housing/noticeDisplay';
 import { buildScheduleTimeline } from './scheduleTimelineModel';
+import { ReviewIssues } from '../housing/ReviewIssues';
+import { scheduleReviewIssues } from '../housing/reviewIssueSelectors';
 import styles from './ScheduleTimeline.module.css';
+import { PreparationScrollSection } from './PreparationScrollSection';
 
 export function ScheduleTimeline({
     notice,
@@ -14,7 +18,11 @@ export function ScheduleTimeline({
 }) {
     const timeline = buildScheduleTimeline(notice, preparation);
     return (
-        <section id="timeline" tabIndex={-1} className={styles.card}>
+        <PreparationScrollSection
+            id="timeline"
+            tabIndex={-1}
+            className={styles.card}
+        >
             <header className={styles.header}>
                 <h2>전체 일정</h2>
             </header>
@@ -37,14 +45,35 @@ export function ScheduleTimeline({
                                     {row.time && <small>{row.time}</small>}
                                 </time>
                             ) : (
-                                <span aria-label="날짜 확인 필요">—</span>
+                                <span
+                                    aria-label={
+                                        row.announcementExplanation
+                                            ? '정해진 발표일 없음'
+                                            : '날짜 확인 필요'
+                                    }
+                                >
+                                    —
+                                </span>
                             )}
                         </div>
                         <strong className={styles.title}>{row.title}</strong>
-                        <span className={styles.badge}>{row.status}</span>
+                        <span className={styles.badge}>
+                            {row.announcementExplanation ? (
+                                <IndividualAnnouncement
+                                    event={row.announcementExplanation}
+                                />
+                            ) : (
+                                row.status
+                            )}
+                        </span>
                     </li>
                 ))}
             </ol>
+            <ReviewIssues
+                issues={scheduleReviewIssues(
+                    notice?.reviewIssues ?? preparation.reviewIssues,
+                )}
+            />
             <details className={styles.sources}>
                 <summary aria-label="일정 근거와 안내 펼치기">
                     <Icon name="down" />
@@ -66,7 +95,9 @@ export function ScheduleTimeline({
                 {timeline.details.map((event) => (
                     <div key={event.id} className={styles.source}>
                         <h3>{event.title}</h3>
-                        <p>{displayDate(event.date)}</p>
+                        <p>
+                            {event.timingDescription || displayDate(event.date)}
+                        </p>
                         {event.recorded && <p>내 기록 · 완료</p>}
                         <EvidenceLink
                             evidence={event.evidence}
@@ -85,6 +116,6 @@ export function ScheduleTimeline({
                     주세요. 일정 경과와 실제 신청 완료는 별개입니다.
                 </p>
             </details>
-        </section>
+        </PreparationScrollSection>
     );
 }

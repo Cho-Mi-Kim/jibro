@@ -1,0 +1,52 @@
+{
+  "total": 62,
+  "states": {
+    "AVAILABLE": 42,
+    "PARTIAL": 20
+  },
+  "results": [
+    {
+      "id": "ac107e42-1689-493e-887f-f12eab3ae6b8",
+      "title": "LH임대주택 기장군 중소기업 근로자 공공임대주택 기관공급 사업 대상기업 모집계획 공고",
+      "decision": "EXCLUDE",
+      "publicStatus": "404"
+    },
+    {
+      "id": "e458eb8f-56f0-47a2-8406-e187d0c7e949",
+      "title": "[정정공고] [정정공고]강원혁신 B-2블록 10년 공공임대 입주자 추가모집 공고",
+      "decision": "CLOSE",
+      "publicStatus": "CLOSED"
+    },
+    {
+      "id": "3b88774b-0f9b-4730-8619-8852e887d791",
+      "title": "[정정공고] 평택소사벌 B-5블록 10년공공임대주택 잔여세대 입주자모집 공고",
+      "decision": "CLOSE",
+      "publicStatus": "CLOSED"
+    },
+    {
+      "id": "2a89466d-aaf5-481a-bc5f-a979c6208cd7",
+      "title": "[정정공고] [정정공고]충북혁신 B-7블록 10년 공공임대 입주자모집재공고 (2014.11.21) (임대조건완화)",
+      "decision": "CLOSE",
+      "publicStatus": "CLOSED"
+    },
+    {
+      "id": "0cfa6d56-eec6-44f9-b7cb-bbb56174bdf0",
+      "title": "논산내동2 A1블록 10년 공공임대주택 잔여세대 공급공고(계약금인하)",
+      "decision": "CLOSE",
+      "publicStatus": "CLOSED"
+    },
+    {
+      "id": "ab7d5629-2f4f-4f87-98cd-acce2242e437",
+      "title": "파주시 중소기업체 기관공급(행복주택)",
+      "decision": "EXCLUDE",
+      "publicStatus": "404"
+    },
+    {
+      "id": "7ab36bbf-d74f-4c29-9e00-7f8b6243e466",
+      "title": "인천계양 A3블록 가정어린이집 운영예정자 모집공고(1회차)",
+      "decision": "EXCLUDE",
+      "publicStatus": "404"
+    }
+  ],
+  "preserved": "content, dates, official status, reviews, version"
+}

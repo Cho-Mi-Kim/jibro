@@ -1,0 +1,82 @@
+.panel {
+    margin-block: 16px;
+    padding-block: 16px;
+    border-block: 1px solid var(--theme-line, var(--border, #ddd));
+}
+
+.result {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.result p,
+.result h4 {
+    margin: 0;
+}
+
+.status {
+    display: grid;
+    gap: 6px;
+}
+
+.status strong {
+    font-size: 18px;
+}
+
+.counts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px 0;
+    border-block: 1px solid var(--theme-line, var(--border, #ddd));
+}
+
+.counts span {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.details summary {
+    min-height: 44px;
+    display: list-item;
+    align-content: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.findings,
+.items {
+    display: grid;
+    gap: 16px;
+    margin: 8px 0 0;
+    padding-inline-start: 20px;
+}
+
+.findings li,
+.items > li {
+    min-width: 0;
+}
+
+.items > li > * + *,
+.findings li > * + * {
+    margin-top: 6px;
+}
+
+.reason {
+    white-space: pre-wrap;
+}
+
+.evidence {
+    display: grid;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.findings code {
+    display: block;
+    font-size: 12px;
+}

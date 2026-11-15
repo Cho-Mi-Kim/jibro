@@ -1,33 +1,48 @@
+import { useState } from 'react';
+import { lifecycleLabel } from '../features/housing/noticeLifecycle';
 import { PreparationIdentity } from '../features/preparation/PreparationIdentity';
 import { NextAction } from '../features/preparation/NextAction';
-import { useSessionEntry } from '../features/auth/useSessionEntry';
-import { TrialEntry } from '../features/auth/TrialEntry';
-import { useNotice } from '../shared/ui/housingHelpers';
-import { cx } from '../shared/styles/classes';
+import { useNotice } from '../features/housing/useNotice';
+import { bindClasses } from '../shared/styles/classes';
 import { Link } from 'react-router';
 import { NoticeHomeSummary } from '../features/home/NoticeHomeSummary';
-import { noticeHomePath } from '../shared/navigation/homeNotice';
+import { HomeNoticeTitle } from '../features/home/HomeNoticeTitle';
 import { useHomeNotice } from '../features/home/useHomeNotice';
-import { useSession } from '../app/useSession';
+import { useSession } from '../features/auth/useSession';
 import { Card, Heading, State } from '../shared/ui/ui';
+import { Deadline } from '../features/housing/NoticeFacts';
+import { Disc } from '../shared/ui/Disc';
 import {
-    Deadline,
-    Disc,
     Journey,
     Metrics,
     PreparationSummary,
-} from '../shared/ui/HousingUI';
+} from '../features/preparation/PreparationUI';
 import type { Preparation } from '../features/housing/types';
 import { Icon } from '../shared/ui/Icon';
+import homeClasses from '../features/home/Home.module.css';
+
+const cx = bindClasses(homeClasses);
+
 function HomeDashboard({ p }: { p: Preparation }) {
     const n = useNotice(p.noticeId);
+    const [expanded, setExpanded] = useState(false);
     return (
         <div className={cx('home-dashboard')}>
             <div className={cx('home-summary')}>
                 <PreparationSummary
                     p={p}
+                    onExplanationToggle={setExpanded}
                     identity={
-                        <PreparationIdentity preparation={p} notice={n.data} />
+                        <PreparationIdentity
+                            preparation={p}
+                            notice={n.data}
+                            titleContent={
+                                <HomeNoticeTitle
+                                    title={p.title}
+                                    expanded={expanded}
+                                />
+                            }
+                        />
                     }
                 />
             </div>
@@ -41,7 +56,10 @@ function HomeDashboard({ p }: { p: Preparation }) {
                 <Metrics p={p} schedule />
             </div>
             <aside className={cx('panel home-deadline')}>
-                <Deadline date={n.data?.endDate}>
+                <Deadline
+                    date={n.data?.endDate}
+                    statusLabel={lifecycleLabel(n.data) || undefined}
+                >
                     <Link
                         className={cx('link-button outline-button wide')}
                         to={'/preparations/' + p.id + '/schedule'}
@@ -61,47 +79,39 @@ export function HomePage() {
         noticeId,
         notice,
         selectNotice,
+        preparation,
+        hasPreparation,
     } = useHomeNotice();
-    const trial = useSessionEntry(noticeId ? noticeHomePath(noticeId) : '/my');
-    const entry = !user && (
-        <>
-            <TrialEntry
-                onStart={() => {
-                    if (noticeId) selectNotice(noticeId);
-                    trial.mutate('trial');
-                }}
-                pending={trial.isPending}
-            />
-            {trial.error && <p role="alert">{trial.error.message}</p>}
-        </>
-    );
     return (
         <>
             <div className={cx('home-heading')}>
                 <Heading title="홈" />
             </div>
             <State
-                loading={loading || (!!user && q.isPending)}
-                error={error || q.error}
+                loading={
+                    loading ||
+                    (!!user && q.isPending) ||
+                    (hasPreparation && preparation.isPending)
+                }
+                error={error || q.error || preparation.error}
                 retry={() => {
                     if (error) void refresh();
-                    else void q.refetch();
+                    else {
+                        void q.refetch();
+                        if (hasPreparation) void preparation.refetch();
+                    }
                 }}
             />
             {p && !error ? (
-                <HomeDashboard p={p} />
-            ) : noticeId ? (
+                <HomeDashboard key={p.noticeId} p={p} />
+            ) : hasPreparation ? null : noticeId ? (
                 <>
                     <State
                         loading={notice.isPending}
                         error={notice.error}
                         retry={() => void notice.refetch()}
                     />
-                    {notice.data && (
-                        <NoticeHomeSummary notice={notice.data}>
-                            {entry}
-                        </NoticeHomeSummary>
-                    )}
+                    {notice.data && <NoticeHomeSummary notice={notice.data} />}
                     {notice.isError && (
                         <button
                             className={cx('text-button')}
@@ -125,47 +135,54 @@ export function HomePage() {
                                 하나씩 준비해요.
                             </h1>
                             <p>
-                                공고를 이해하고, 필요한 서류와 일정을 한곳에.
+                                공고를 이해하고,
+                                <br />
+                                필요한 서류와 일정을 한곳에.
                                 <br />
                                 집으로가 신청 준비를 함께합니다.
                             </p>
                             <Link className={cx('link-button')} to="/notices">
                                 공고 둘러보기 <Icon name="arrow" />
                             </Link>
-                            {entry}
                         </section>
-                        <div className={cx('intro-grid')}>
-                            {[
-                                [
-                                    '공고 확인',
-                                    '공식 근거와 안내 상태를 확인해요.',
-                                ],
-                                [
-                                    '내 조건 정리',
-                                    '모르는 항목은 추가 확인으로 남겨요.',
-                                ],
-                                [
-                                    '준비 이어가기',
-                                    '서류와 일정을 하나씩 기록해요.',
-                                ],
-                            ].map(([t, d], i) => (
-                                <Card key={t}>
-                                    <Disc
-                                        name={
-                                            (
-                                                [
-                                                    'file',
-                                                    'check',
-                                                    'calendar',
-                                                ] as const
-                                            )[i]
-                                        }
-                                    />
-                                    <h2>{t}</h2>
-                                    <p>{d}</p>
-                                </Card>
-                            ))}
-                        </div>
+                        <Card>
+                            <ol
+                                className={cx('home-intro')}
+                                aria-label="집으로 이용 순서"
+                                role="list"
+                            >
+                                {(
+                                    [
+                                        {
+                                            icon: 'file',
+                                            title: '공고 확인',
+                                            description:
+                                                '공식 근거와 안내 상태를 확인해요.',
+                                        },
+                                        {
+                                            icon: 'check',
+                                            title: '내 조건 정리',
+                                            description:
+                                                '모르는 항목은 추가 확인으로 남겨요.',
+                                        },
+                                        {
+                                            icon: 'calendar',
+                                            title: '준비 이어가기',
+                                            description:
+                                                '서류와 일정을 하나씩 기록해요.',
+                                        },
+                                    ] as const
+                                ).map(({ icon, title, description }) => (
+                                    <li key={title}>
+                                        <Disc name={icon} />
+                                        <div>
+                                            <h2>{title}</h2>
+                                            <p>{description}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ol>
+                        </Card>
                     </>
                 )
             )}

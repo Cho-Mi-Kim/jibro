@@ -1,8 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { Icon } from '../../shared/ui/Icon';
 import styles from './NoticeSort.module.css';
+import { DEFAULT_NOTICE_SORT } from './noticeOrdering';
 
 const options = [
+    {
+        value: DEFAULT_NOTICE_SORT,
+        label: '접수·준비 안내 순',
+        description: '접수 중 → 예정 → 종료, 같은 상태는 준비 안내 순',
+    },
     {
         value: 'deadline',
         label: '마감 가까운 순',

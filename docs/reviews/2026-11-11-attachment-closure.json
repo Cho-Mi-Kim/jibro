@@ -1,0 +1,181 @@
+[ {
+  "timing" : {
+    "startsAt" : "2015-11-26T01:00:00Z",
+    "endsAt" : "2015-11-27T08:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "[정정공고] 서울등촌6 50년 공공임대주택 예비입주자 모집",
+  "id" : "484d210f-3487-47c8-b708-a9a1cd0ed5f0",
+  "end" : "2015-11-27",
+  "files" : {
+    "24561836" : "0952c0b2f74e1a122953727c0fe2da9a6b1772dbfff911198dc0a53aeb7d0ef7",
+    "24561835" : "4aef74629f7e105bc538d16c90dd4b05c0d21756b3e4d48604381046eb7a4a5d"
+  },
+  "start" : "2015-11-26",
+  "mode" : "AUTOMATIC_PERIOD_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-11-26T01:00:00Z",
+    "endsAt" : "2015-11-27T08:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "서울등촌6 50년 공공임대주택 예비입주자 모집",
+  "id" : "8020f6c5-9592-466a-b1ed-95f1b302ecc6",
+  "end" : "2015-11-27",
+  "files" : {
+    "24561103" : "efaf6d745ede278bf1f9760eb4b4f670ce6c735cc556241fb0a1a7edf76e2734",
+    "24561102" : "874c2fea9961a80972a807f48cb7fdd0c2d1465e80c0c20f3deb7b19272bf214"
+  },
+  "start" : "2015-11-26",
+  "mode" : "AUTOMATIC_PERIOD_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-09-10T01:00:00Z",
+    "endsAt" : "2015-09-11T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "인천부개5단지 50년공공임대주택 예비입주자 모집",
+  "id" : "60802851-ac24-4cbf-8209-47810a26e3ca",
+  "end" : "2015-09-11",
+  "files" : {
+    "24551794" : "d4b319a950d47ed2eae236f9e341a0fe21d13064de339c943eaa99709e07b169",
+    "24551793" : "886c9f019bf402491d6c26a9c7d235aeb185efd06e8fe03db90eeb5e8aa6d5f8"
+  },
+  "start" : "2015-09-10",
+  "mode" : "AUTOMATIC_PERIOD_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-09-10T01:00:00Z",
+    "endsAt" : "2015-09-11T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "문산당동1 50년공공임대주택 예비입주자 모집",
+  "id" : "c32b0108-0e59-4768-bb15-a80225c3622f",
+  "end" : "2015-09-11",
+  "files" : {
+    "24551788" : "d10a9d620d533c90ab02b0f647fbfe8280823e74efcb376d08b7251c205d4911",
+    "24552016" : "1238cc5be6f0c9eeacf1e4c8ceafe6bf7a60a3d0c053480afd82cbb1c92522b5"
+  },
+  "start" : "2015-09-10",
+  "mode" : "AUTOMATIC_PERIOD_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-09-14T01:00:00Z",
+    "endsAt" : "2015-09-16T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "서울송파 도시형생활주택(10년 공공임대) 예비입주자 모집",
+  "id" : "158ac5be-190e-40f9-bf77-11f33327a795",
+  "end" : "2015-09-16",
+  "files" : {
+    "24551455" : "2e4d95878962765920b46be206b7ee8c70073f18e05f5281cf00f263cf9098ad",
+    "24551454" : "dabb1643d9795c09aba2e17d964f394a9d60ac45fa02ff657e07cd2ff211b787"
+  },
+  "start" : "2015-09-14",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-11-13T01:00:00Z",
+    "endsAt" : "2015-11-13T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "대전노은3지구 B3블록(에코힐아파트) 10년 공공임대 잔여세대(예비) 입주자모집공고",
+  "id" : "cf7a5dc1-3e9a-4708-ba98-1c69674c22c3",
+  "end" : "2015-11-13",
+  "files" : {
+    "24561843" : "94867b00ac74d63c6f825cc4861c26b1cbc2f6c2be2c84be4957c53b6adeaee7",
+    "24561842" : "80529da61d59d97fa55998f401e83a910c492c1ef01d3067b874a80acb392dff"
+  },
+  "start" : "2015-11-13",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-10-13T01:00:00Z",
+    "endsAt" : "2015-10-14T08:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "[정정공고] 평택소사벌 B-2블록 10년공공임대주택리츠 추가입주자 모집공고",
+  "id" : "f72fb6e4-2306-4d4a-9587-e0be646a5516",
+  "end" : "2015-10-14",
+  "files" : {
+    "24560858" : "1cdda8824869d3decb20ae27668b0740573736214509239abed7260d95c53dc4",
+    "24560857" : "d931d931d90029eb91c8a3e7a75ac8ce98908e2fe01ceac6c64a79517de2417c"
+  },
+  "start" : "2015-10-13",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-04-24T01:00:00Z",
+    "endsAt" : "2015-04-24T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "부여쌍북2 50년공공임대주택 예비입주자모집",
+  "id" : "3dce0747-4ede-452a-885f-a66899878a0c",
+  "end" : "2015-04-24",
+  "files" : {
+    "24550911" : "ffe1c3c762c2ded7a8ce2b1716c0ee55ad0358f04d1a4718f1b1d22ba107b83a",
+    "24550910" : "8be0dd9cbb08e65bea1efa963cd8dca34b5feab6606b955226597b13bcb7d60d"
+  },
+  "start" : "2015-04-24",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-04-29T01:00:00Z",
+    "endsAt" : "2015-04-29T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "보령명천2  50년공공임대주택 예비입주자 모집",
+  "id" : "1596c8fb-b35d-491a-9257-db4004b96359",
+  "end" : "2015-04-29",
+  "files" : {
+    "24550426" : "7ffc6b0c283984871539e4487f5627c1043e35373db23ce0947c20269f8764f2",
+    "24550425" : "8b2c9cc59b7e111c8da47dce51735a839a465ddabcf4ba3b3659075254fe9d33"
+  },
+  "start" : "2015-04-29",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2015-06-01T01:00:00Z",
+    "endsAt" : "2015-06-02T07:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "파주지역 10년 공공임대주택 예비입주자 모집공고(운정3,운정6,한빛7,가람5,산내3)",
+  "id" : "b7f67111-d1bf-4edb-9997-e667c62e36b3",
+  "end" : "2015-06-02",
+  "files" : {
+    "24550031" : "0d2a296edd1490374dcd77b7e1fc8c09dd0e89dff8e334990a6db395706d4d0d",
+    "24550030" : "08b441eb89cc3d0b0395ae35bffe580014961c8deef54728397315c3ad1a3b56"
+  },
+  "start" : "2015-06-01",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2014-07-17T01:00:00Z",
+    "endsAt" : "2014-07-18T08:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "[정정공고] 평택소사벌 B-5블록 10년공공임대주택 잔여세대 추가입주자 모집 공고",
+  "id" : "982d3a99-8afd-4400-a62d-00f49a97d5d1",
+  "end" : "2014-07-18",
+  "files" : {
+    "24553696" : "07875ea537d102ec80b0fb93fe8d7e5b194368d4b16614e9065862aa70440529",
+    "24553695" : "c91f0b4fe8c783a6eb0cf8ec89110aad06979ab534da66e935868322e6f11411"
+  },
+  "start" : "2014-07-17",
+  "mode" : "EXPLICIT_SOURCE_REVIEW"
+}, {
+  "timing" : {
+    "startsAt" : "2012-12-03T01:00:00Z",
+    "endsAt" : "2012-12-04T08:00:00Z",
+    "nextChangeAt" : null
+  },
+  "title" : "[정정공고] 대구혁신 B-3블록 10년 공공임대주택 추가 입주자 모집",
+  "id" : "fae762c2-2969-4769-86ed-3e84870be4d1",
+  "end" : "2012-12-04",
+  "files" : {
+    "24555842" : "40aa405a8ac388a121324537b0cf5cc2ea9202a48c3355437dfaea7d61fc49ce",
+    "24555462" : "4039cf5b62ebda133632e4add60e86cfc47d5a019c922a6c551ae9e5133ab20b"
+  },
+  "start" : "2012-12-03",
+  "mode" : "AUTOMATIC_PERIOD_REVIEW"
+} ]

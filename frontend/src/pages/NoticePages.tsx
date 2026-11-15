@@ -1,20 +1,36 @@
-import { cx } from '../shared/styles/classes';
+import { bindClasses } from '../shared/styles/classes';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
+import { noticeRefreshInterval } from '../features/housing/noticeRefresh';
 import { Button, Card, State } from '../shared/ui/ui';
 import { Icon } from '../shared/ui/Icon';
 import { NoticeCard } from '../features/housing/NoticeCard';
 import { NoticeSort } from '../features/housing/NoticeSort';
+import { DEFAULT_NOTICE_SORT } from '../features/housing/noticeOrdering';
 import { NoticeFilters } from '../features/housing/NoticeFilters';
 import styles from '../features/housing/NoticeList.module.css';
 import { useNoticeToolbarOffset } from '../features/housing/useNoticeToolbarOffset';
 import { useNoticeToolbarReveal } from '../features/housing/useNoticeToolbarReveal';
+import housingClasses from '../features/housing/NoticeFacts.module.css';
+
+const cx = bindClasses(housingClasses);
+
 export function NoticesPage() {
     const controls = useRef<HTMLDivElement>(null);
     useNoticeToolbarOffset(controls);
-    const [params, setParams] = useSearchParams();
+    const [searchParams, setParams] = useSearchParams();
+    const params = new URLSearchParams(searchParams);
+    const regions = params.getAll('region');
+    if (regions.some((region) => region.endsWith(' 외'))) {
+        params.delete('region');
+        for (const region of new Set(
+            regions.map((value) => value.replace(/ 외$/, '')),
+        )) {
+            params.append('region', region);
+        }
+    }
     const [preview, setPreview] = useState<{
         id: string;
         search: string;
@@ -22,15 +38,24 @@ export function NoticesPage() {
     const filters = useQuery({
         queryKey: ['notice-filters'],
         queryFn: api.filters,
+        staleTime: 60_000,
     });
     const normalized = new URLSearchParams(params);
     normalized.delete('appearance');
+    const sort = params.get('sort') || DEFAULT_NOTICE_SORT;
+    normalized.set('sort', sort);
     const page = Math.max(0, Math.floor(Number(params.get('page')) || 0));
     normalized.set('page', String(page));
     normalized.set('size', '20');
     const query = useQuery({
         queryKey: ['notices', normalized.toString()],
         queryFn: () => api.notices(normalized.toString()),
+        staleTime: 15_000,
+        refetchInterval: (query) =>
+            Math.min(
+                60_000,
+                noticeRefreshInterval(query.state.data?.items ?? []) || 60_000,
+            ),
     });
     const activePreview =
         preview?.search === normalized.toString() &&
@@ -166,7 +191,7 @@ export function NoticesPage() {
                                 <Icon name="file" /> 공고 비교
                             </Link>
                             <NoticeSort
-                                value={params.get('sort') ?? 'deadline'}
+                                value={sort}
                                 onChange={(value) => change('sort', value)}
                             />
                         </div>
@@ -219,30 +244,31 @@ export function NoticesPage() {
                     <Icon name="info" />
                     접수 상태와 준비 안내 제공 여부는 별개입니다.
                 </p>
-                <nav className={cx('pagination')} aria-label="공고 페이지">
-                    <button
-                        disabled={page === 0}
-                        aria-label="이전 페이지"
-                        onClick={() => goToPage(page - 1)}
-                    >
-                        <Icon name="back" />
-                    </button>
-                    <span
-                        aria-current="page"
-                        aria-label={`${page + 1}페이지, 전체 ${Math.max(1, query.data?.totalPages ?? 1)}페이지`}
-                    >
-                        {page + 1}
-                    </span>
-                    <button
-                        disabled={
-                            !query.data || page + 1 >= query.data.totalPages
-                        }
-                        aria-label="다음 페이지"
-                        onClick={() => goToPage(page + 1)}
-                    >
-                        <Icon name="arrow" />
-                    </button>
-                </nav>
+                {query.data && query.data.totalPages > 0 && (
+                    <nav className={styles.pagination} aria-label="공고 페이지">
+                        <button
+                            disabled={page === 0}
+                            aria-label="이전 페이지"
+                            onClick={() => goToPage(page - 1)}
+                        >
+                            <Icon name="back" /> 이전
+                        </button>
+                        <span
+                            aria-current="page"
+                            aria-label={`전체 ${query.data.totalPages}페이지 중 ${page + 1}페이지`}
+                        >
+                            <strong>{page + 1}</strong> /{' '}
+                            {query.data.totalPages}페이지
+                        </span>
+                        <button
+                            disabled={page + 1 >= query.data.totalPages}
+                            aria-label="다음 페이지"
+                            onClick={() => goToPage(page + 1)}
+                        >
+                            다음 <Icon name="arrow" />
+                        </button>
+                    </nav>
+                )}
             </section>
         </div>
     );

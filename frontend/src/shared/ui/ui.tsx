@@ -1,18 +1,15 @@
 import { Icon } from './Icon';
-import { BrickHouse } from './BrickHouse';
 import { cx } from '../styles/classes';
-import { safeUrl } from './helpers';
 import { type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { ActionButton } from '@seed-design/react';
 import { Link } from 'react-router';
-import type { Evidence } from '../../features/housing/types';
 export function Button(
     props: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
 ) {
     return (
         <ActionButton
             {...props}
-            className={cx('button ' + (props.className ?? ''))}
+            className={cx('primary-button ' + (props.className ?? ''))}
         />
     );
 }
@@ -78,73 +75,24 @@ export function State({
 export function Badge({ children }: { children: ReactNode }) {
     return <span className={cx('badge')}>{children}</span>;
 }
-export function EvidenceLink({
-    evidence,
-    className = '',
-    checkedAtOnNewLine = false,
-}: {
-    evidence: Evidence;
-    className?: string;
-    checkedAtOnNewLine?: boolean;
-}) {
-    return (
-        <div className={`${cx('evidence')} ${className}`}>
-            <span>
-                {safeUrl(evidence.url) ? (
-                    <a href={evidence.url!} target="_blank" rel="noreferrer">
-                        {evidence.label} ↗
-                    </a>
-                ) : (
-                    evidence.label
-                )}
-                {checkedAtOnNewLine ? <br /> : ' · '}
-                {'확인 '}
-                {evidence.checkedAt}
-            </span>
-            {!safeUrl(evidence.url) && <span>원문 경로 확인 필요</span>}
-        </div>
-    );
-}
 export function InlineExplanation({
     label,
     children,
+    onToggle,
 }: {
     label: string;
     children: ReactNode;
+    onToggle?: (open: boolean) => void;
 }) {
     return (
-        <details className={cx('progress-explanation')}>
+        <details
+            className={cx('progress-explanation')}
+            onToggle={(event) => onToggle?.(event.currentTarget.open)}
+        >
             <summary aria-label={label}>
                 <Icon name="down" />
             </summary>
             {children}
         </details>
-    );
-}
-export function House({
-    progress,
-    stage,
-}: {
-    progress: number;
-    stage: number;
-}) {
-    return (
-        <div className={cx('house-row')}>
-            <div>
-                <span>전체 준비도</span>
-                <strong className={cx('progress-number')}>{progress}%</strong>
-                <progress max="100" value={progress} aria-label="준비도" />
-            </div>
-            <div className={cx('house-picture')}>
-                <BrickHouse progress={progress} stage={stage} />
-            </div>
-            <InlineExplanation label="준비도 설명">
-                <small>
-                    준비도는 기록한 준비 작업의 진행률이며,
-                    <br />
-                    신청 자격이나 선정 가능성을 의미하지 않습니다.
-                </small>
-            </InlineExplanation>
-        </div>
     );
 }

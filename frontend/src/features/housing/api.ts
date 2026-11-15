@@ -3,10 +3,12 @@ import type {
     Answer,
     Collection,
     DocumentState,
-    Guide,
+    GuidePageData,
     Notice,
+    NoticeListItem,
     Page,
     Preparation,
+    PreparationListItem,
     Review,
     User,
 } from './types';
@@ -18,7 +20,7 @@ export const api = {
             trialNoticeId?: string;
         }>('/meta'),
     providers: () => call<string[]>('/auth/providers'),
-    notices: (query: string) => call<Page<Notice>>('/notices?' + query),
+    notices: (query: string) => call<Page<NoticeListItem>>('/notices?' + query),
     filters: () =>
         call<{ regions: string[]; types: string[] }>('/notices/filters'),
     notice: (id: string) => call<Notice>('/notices/' + encodeURIComponent(id)),
@@ -46,7 +48,7 @@ export const api = {
         await call('/auth/logout', 'POST');
         clearToken();
     },
-    preparations: () => call<Preparation[]>('/preparations'),
+    preparations: () => call<PreparationListItem[]>('/preparations'),
     preparation: (id: string) =>
         call<Preparation>('/preparations/' + encodeURIComponent(id)),
     start: (noticeId: string, version: number) =>
@@ -84,7 +86,7 @@ export const api = {
             'PATCH',
             { revision, recorded },
         ),
-    guides: () => call<Guide[]>('/guides'),
+    guides: (query: string) => call<GuidePageData>('/guides?' + query),
     reviews: () => call<Review[]>('/admin/reviews'),
     review: (
         id: string,

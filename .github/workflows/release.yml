@@ -1,0 +1,31 @@
+name: Release package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    uses: ./.github/workflows/ci.yml
+  package:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          name: frontend-production
+          path: frontend/dist
+      - uses: actions/download-artifact@v4
+        with:
+          name: backend-production
+          path: backend/build/libs
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python scripts/ops/package_release.py --output .tools/releases/${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deployment-package
+          path: .tools/releases/*.zip
+          retention-days: 7
+# No registry push, cloud resources, deployment or database changes run here.

@@ -1,5 +1,5 @@
-import { cx } from '../../shared/styles/classes';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { bindClasses } from '../../shared/styles/classes';
+import { useState } from 'react';
 import { useUnsavedChanges } from '../../shared/ui/useUnsavedChanges';
 import { useMutation } from '@tanstack/react-query';
 import { api } from '../housing/api';
@@ -8,11 +8,22 @@ import type {
     DocumentState,
     Preparation,
 } from '../housing/types';
-import { Button, EvidenceLink } from '../../shared/ui/ui';
-import { safeUrl } from '../../shared/ui/helpers';
-import { Disc, OfficialLink, Status } from '../../shared/ui/HousingUI';
+import { Button } from '../../shared/ui/ui';
+import { EvidenceLink } from '../housing/EvidenceLink';
+import { ReviewIssues } from '../housing/ReviewIssues';
+import { documentNeedsReview } from '../housing/reviewIssueSelectors';
+import { Disc } from '../../shared/ui/Disc';
+import { DocumentIssuanceLinks } from '../housing/DocumentIssuanceLinks';
+import { Status } from '../../shared/ui/Status';
 import { Icon } from '../../shared/ui/Icon';
 import { useSaved } from './usePreparation';
+import { usePreparationCardSelection } from './usePreparationCardSelection';
+import { documentSummary } from '../housing/documentSummary';
+import { DocumentSummaryFacts } from '../housing/DocumentSummaryFacts';
+import documentsClasses from './Documents.module.css';
+
+const cx = bindClasses(documentsClasses);
+
 const stateNames: Record<DocumentState, string> = {
     UNCHECKED: '미확인',
     NEEDED: '발급 필요',
@@ -31,25 +42,8 @@ export function DocumentEditor({
     active: boolean;
     onSelect: () => void;
 }) {
-    const itemRef = useRef<HTMLDivElement>(null);
-    const scrollOnOpen = useRef(false);
-    useLayoutEffect(() => {
-        if (!active || !scrollOnOpen.current) return;
-        scrollOnOpen.current = false;
-        const item = itemRef.current;
-        const panel = item?.closest<HTMLElement>('[data-preparation-panel]');
-        if (!item || !panel) return;
-        panel.scrollTo({
-            top:
-                panel.scrollTop +
-                item.getBoundingClientRect().top -
-                panel.getBoundingClientRect().top,
-            behavior: window.matchMedia('(prefers-reduced-motion: reduce)')
-                .matches
-                ? 'instant'
-                : 'smooth',
-        });
-    }, [active]);
+    const { cardRef, onClick, scrollToCard } =
+        usePreparationCardSelection<HTMLDivElement>();
     const [draftState, setState] = useState<DocumentState | null>(null);
     const [draftNote, setNote] = useState<string | null>(null);
     const state = draftState ?? d.state;
@@ -65,46 +59,61 @@ export function DocumentEditor({
             setNote(null);
         },
     });
+    const reviewRequired = documentNeedsReview(d, p.reviewIssues);
     const unavailable =
+        reviewRequired ||
         p.guideState !== 'AVAILABLE' ||
         d.necessity === 'UNKNOWN' ||
         d.necessity === 'NOT_APPLICABLE';
-    const necessity = {
-        REQUIRED: '공통 필수',
-        CONDITIONAL: '해당 조건부',
-        UNKNOWN: '해당 여부 미확인',
-        NOT_APPLICABLE: '해당 없음',
-    }[d.necessity];
+    const summary = documentSummary(d, p);
+    const onlineIssuance = summary.links;
+    const necessity = reviewRequired
+        ? '공식 확인 필요'
+        : {
+              REQUIRED: '공통 필수',
+              CONDITIONAL: '해당 조건부',
+              UNKNOWN: '해당 여부 미확인',
+              NOT_APPLICABLE: '해당 없음',
+          }[d.necessity];
     return (
-        <div ref={itemRef} className={cx('document-item')} data-active={active}>
-            <button
-                className={cx('document-select')}
-                aria-expanded={active}
-                aria-controls={'document-' + d.id}
-                onClick={() => {
-                    scrollOnOpen.current = !active;
-                    onSelect();
-                }}
-            >
-                <Disc
-                    name="file"
-                    tone={d.state === 'READY' ? 'green' : 'amber'}
-                />
-                <strong>{d.title}</strong>
-                <span className={cx('necessity-label')}>{necessity}</span>
-                <Status
-                    tone={
-                        d.state === 'READY'
-                            ? 'green'
-                            : d.state === 'NEEDED'
-                              ? 'red'
-                              : 'gray'
-                    }
+        <div
+            ref={cardRef}
+            onClick={onClick}
+            className={cx('document-item')}
+            data-active={active}
+        >
+            <div className={documentsClasses.summaryCard}>
+                <button
+                    type="button"
+                    className={cx('document-select')}
+                    aria-expanded={active}
+                    aria-controls={'document-' + d.id}
+                    onClick={() => {
+                        onSelect();
+                        scrollToCard();
+                    }}
                 >
-                    {stateNames[d.state]}
-                </Status>
-                <Icon name="arrow" />
-            </button>
+                    <Disc
+                        name="file"
+                        tone={d.state === 'READY' ? 'green' : 'amber'}
+                    />
+                    <strong>{d.title}</strong>
+                    <span className={cx('necessity-label')}>{necessity}</span>
+                    <Status
+                        tone={
+                            d.state === 'READY'
+                                ? 'green'
+                                : d.state === 'NEEDED'
+                                  ? 'red'
+                                  : 'gray'
+                        }
+                    >
+                        {stateNames[d.state]}
+                    </Status>
+                    <Icon name="arrow" />
+                </button>
+                <DocumentSummaryFacts summary={summary} />
+            </div>
             <section
                 id={'document-' + d.id}
                 className={cx('document-editor')}
@@ -118,21 +127,31 @@ export function DocumentEditor({
                         <Status>{stateNames[d.state]}</Status>
                     </div>
                 </header>
+                {summary.criteria.length > 2 && (
+                    <p>제출 대상 · {summary.criteria.join(' 또는 ')}</p>
+                )}
                 <dl className={cx('document-facts')}>
                     <dt>발급처</dt>
-                    <dd>
-                        {safeUrl(d.issueUrl) ? (
-                            <OfficialLink url={d.issueUrl} className="">
-                                {d.issuer}
-                            </OfficialLink>
-                        ) : (
-                            d.issuer
-                        )}
-                    </dd>
+                    <dd>{d.issuer}</dd>
+                    {onlineIssuance.length > 0 && (
+                        <>
+                            <dt>발급 안내</dt>
+                            <dd>
+                                <DocumentIssuanceLinks links={onlineIssuance} />
+                            </dd>
+                        </>
+                    )}
                     <dt>발급 기준</dt>
                     <dd>{d.method}</dd>
                 </dl>
                 <EvidenceLink evidence={d.evidence} />
+                <ReviewIssues issues={summary.issues} />
+                {reviewRequired && (
+                    <p>
+                        공식 확인 전에는 이 서류를 준비 완료로 기록할 수 없어요.
+                        기존 준비 상태와 메모는 보존됩니다.
+                    </p>
+                )}
                 <Button
                     className="wide"
                     disabled={

@@ -2,14 +2,19 @@ import { MyProfileSummary } from '../features/member/MyProfileSummary';
 import { AlertSettingsControl } from '../features/member/AlertSettingsControl';
 import { disconnectThisDevice } from '../features/member/browserDevice';
 import { memberApi } from '../features/member/memberApi';
-import { Disc } from '../shared/ui/HousingUI';
+import { Disc } from '../shared/ui/Disc';
 import { Icon } from '../shared/ui/Icon';
-import { cx } from '../shared/styles/classes';
+import { bindClasses } from '../shared/styles/classes';
 import { Link, useNavigate } from 'react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useSession } from '../app/useSession';
+import { useSession } from '../features/auth/useSession';
 import { api } from '../features/housing/api';
+import { usePreparationList } from '../features/preparation/usePreparationList';
 import { Button, State } from '../shared/ui/ui';
+import memberClasses from '../features/member/MyPage.module.css';
+
+const cx = bindClasses(memberClasses);
+
 export function MyPage() {
     const { user } = useSession();
     const client = useQueryClient();
@@ -28,11 +33,7 @@ export function MyPage() {
             navigate('/');
         },
     });
-    const preparations = useQuery({
-        queryKey: ['preparations', user?.id],
-        queryFn: api.preparations,
-        enabled: !!user,
-    });
+    const preparations = usePreparationList();
     const archive = useQuery({
         queryKey: ['archive', user?.id],
         queryFn: memberApi.archive,
@@ -81,6 +82,11 @@ export function MyPage() {
                     <Link to="/guide">
                         <Disc name="file" />
                         <strong>서비스 이용 안내</strong>
+                        <Icon name="arrow" />
+                    </Link>
+                    <Link to="/accessibility">
+                        <Disc name="settings" tone="gray" />
+                        <strong>화면·접근성 설정</strong>
                         <Icon name="arrow" />
                     </Link>
                     {user?.role === 'ADMIN' && (

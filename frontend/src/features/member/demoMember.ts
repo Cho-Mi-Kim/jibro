@@ -96,12 +96,17 @@ export function demoMember(
                               86400000 <=
                               settings.leadDays,
                   )
+                  .sort((a, b) => b.endDate!.localeCompare(a.endDate!))
                   .map((n) => ({
                       key: n.id + ':' + n.endDate,
                       noticeId: n.id,
                       title: n.title,
                       label: '신청 접수 마감',
                       date: n.endDate,
+                      occurredAt: new Date(
+                          Date.parse(n.endDate + 'T00:00:00+09:00') -
+                              settings.leadDays * 86_400_000,
+                      ).toISOString(),
                       read: read.has(n.id + ':' + n.endDate),
                   }))
             : [];

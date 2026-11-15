@@ -65,8 +65,8 @@
     font-weight: 600;
 }
 .actions .primary {
-    background: var(--brand);
-    border-color: var(--brand);
+    background: var(--action-brand, var(--brand));
+    border-color: var(--action-brand, var(--brand));
     color: white;
 }
 .error {

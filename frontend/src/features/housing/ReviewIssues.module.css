@@ -1,0 +1,58 @@
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    color: var(--theme-muted, #667084);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+.notice > svg,
+.issue strong > svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-block-start: 2px;
+}
+.list {
+    display: grid;
+    gap: 12px;
+    margin-block: 12px;
+    min-width: 0;
+}
+.issue {
+    border-inline-start: 3px solid var(--warning, #a76900);
+    padding-inline-start: 10px;
+    min-width: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+.issue strong {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    color: var(--ink);
+}
+.issue p {
+    margin: 6px 0;
+    color: var(--theme-muted, #667084);
+}
+.sources summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    min-height: 44px;
+    list-style: none;
+}
+.sources summary::-webkit-details-marker {
+    display: none;
+}
+.sources[open] summary > svg {
+    transform: rotate(180deg);
+}
+.issue .evidence {
+    margin: 4px 0;
+    padding: 0;
+}

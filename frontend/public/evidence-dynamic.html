@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>공식 자료 근거 확인</title>
+        <style>
+            body {
+                font:
+                    16px/1.65 system-ui,
+                    sans-serif;
+                max-width: 850px;
+                margin: auto;
+                padding: 20px;
+                color: #262626;
+                background: #faf8f6;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            a {
+                color: #ac3f28;
+            }
+            pre {
+                white-space: pre-wrap;
+                overflow-wrap: anywhere;
+                font: inherit;
+                background: white;
+                border: 1px solid #e8ddd7;
+                border-radius: 12px;
+                padding: 16px;
+            }
+            mark {
+                background: #fff0a3;
+                scroll-margin: 30vh;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>공식 자료 근거 확인</h1>
+        <p id="status" role="status">원문을 확인하고 있습니다.</p>
+        <p>
+            <a id="source" rel="noopener noreferrer" target="_blank"
+                >공식 원문 열기 ↗</a
+            >
+        </p>
+        <pre id="content" hidden></pre>
+        <script type="module">
+            import { relocateEvidence } from '/evidence-relocation.js';
+            (async () => {
+                const q = new URLSearchParams(location.search),
+                    file = q.get('file'),
+                    sha = q.get('sha'),
+                    part = q.get('part'),
+                    loc = q.get('location'),
+                    anchor = q.get('anchor');
+                const status = document.getElementById('status'),
+                    content = document.getElementById('content'),
+                    source = document.getElementById('source');
+                if (
+                    !/^[0-9]{1,20}$/.test(file || '') ||
+                    !/^[0-9a-f]{64}$/.test(sha || '') ||
+                    !(part === null
+                        ? /^[A-Za-z0-9_-]{1,600}$/.test(loc || '')
+                        : /^[0-9]{1,4}$/.test(part) && loc === null) ||
+                    !/^[A-Za-z0-9_-]{1,600}$/.test(anchor || '')
+                ) {
+                    status.textContent = '근거 위치 정보가 올바르지 않습니다.';
+                    source.hidden = true;
+                    return;
+                }
+                source.href =
+                    'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=' + file;
+                try {
+                    const decode = (value) =>
+                        new TextDecoder('utf-8', { fatal: true }).decode(
+                            Uint8Array.from(
+                                atob(
+                                    value
+                                        .replace(/-/g, '+')
+                                        .replace(/_/g, '/')
+                                        .padEnd(
+                                            Math.ceil(value.length / 4) * 4,
+                                            '=',
+                                        ),
+                                ),
+                                (c) => c.charCodeAt(0),
+                            ),
+                        );
+                    const selector =
+                        part === null
+                            ? '&location=' + encodeURIComponent(decode(loc))
+                            : '&part=' + part;
+                    let response = await fetch(
+                        '/api/v1/notices/official-pdf/' +
+                            file +
+                            '/text?sha256=' +
+                            sha +
+                            selector,
+                        { cache: 'no-store' },
+                    );
+                    let reconnected = false;
+                    if (response.status === 409) {
+                        status.textContent =
+                            '변경된 원문에서 근거를 다시 확인하고 있습니다.';
+                        const found = await relocateEvidence(
+                            file,
+                            sha,
+                            part === null
+                                ? { location: decode(loc) }
+                                : { part: Number(part) },
+                        );
+                        if (!found) {
+                            status.textContent =
+                                '원문이 변경되어 동일한 근거를 확인하지 못했습니다. 공식 원문을 확인해 주세요.';
+                            return;
+                        }
+                        response = await fetch(
+                            '/api/v1/notices/official-pdf/' +
+                                file +
+                                '/text?sha256=' +
+                                found.sha256 +
+                                '&location=' +
+                                encodeURIComponent(found.location),
+                            { cache: 'no-store' },
+                        );
+                        reconnected = true;
+                    }
+                    if (!response.ok) throw new Error();
+                    const data = await response.json();
+                    const text = data.text,
+                        needle = decode(anchor),
+                        index = text.indexOf(needle);
+                    if (index < 0 || index !== text.lastIndexOf(needle)) {
+                        status.textContent =
+                            '근거 위치를 확인할 수 없습니다. 공식 원문을 확인해 주세요.';
+                        return;
+                    }
+                    status.textContent = reconnected
+                        ? '변경된 원문에서 같은 내용을 다시 확인했습니다.'
+                        : '공식 문서에서 확인한 내용';
+                    content.hidden = false;
+                    const readable = (value) =>
+                        value
+                            .replace(/⟦(?:HWPX|HWP|EXCEL):[^⟧]*⟧/g, '')
+                            .replace(/\n{4,}/g, '\n\n\n');
+                    content.append(
+                        document.createTextNode(readable(text.slice(0, index))),
+                    );
+                    const mark = document.createElement('mark');
+                    mark.textContent = readable(needle);
+                    content.append(
+                        mark,
+                        document.createTextNode(
+                            readable(text.slice(index + needle.length)),
+                        ),
+                    );
+                    mark.scrollIntoView({ block: 'center' });
+                } catch {
+                    status.textContent =
+                        '자료를 불러오지 못했습니다. 잠시 후 다시 시도하거나 공식 원문을 확인해 주세요.';
+                }
+            })();
+        </script>
+    </body>
+</html>

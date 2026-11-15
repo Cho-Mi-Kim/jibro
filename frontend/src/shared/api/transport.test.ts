@@ -18,6 +18,7 @@ describe('실제 서버 API 전송', () => {
         expect(await call('/users/me')).toEqual({ id: '1' });
         expect(fetch.mock.calls[2][1].headers['X-CSRF-TOKEN']).toBe('csrf');
         expect(fetch.mock.calls[2][1].headers.Authorization).toBeUndefined();
+        expect(fetch.mock.calls[2][1].signal).toBeUndefined();
         expect(fetch.mock.calls[3][1].headers.Authorization).toBe(
             'Bearer new-token',
         );
@@ -91,6 +92,30 @@ describe('실제 서버 API 전송', () => {
             status: 409,
             code: 'STALE_VERSION',
         });
+    });
+    it('서버 조회가 지연되면 계속 로딩하지 않고 오류를 보여준다', async () => {
+        const timeout = vi.spyOn(AbortSignal, 'timeout');
+        const fetch = vi
+            .fn()
+            .mockRejectedValue(new DOMException('timeout', 'TimeoutError'));
+        vi.stubGlobal('fetch', fetch);
+        try {
+            await expect(call('/notices')).rejects.toThrow('서버 응답이 지연');
+            expect(timeout).toHaveBeenCalledWith(8000);
+            expect(fetch.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
+        } finally {
+            timeout.mockRestore();
+        }
+    });
+    it('저장 요청은 응답 시간만으로 중단하지 않는다', async () => {
+        const fetch = vi
+            .fn()
+            .mockResolvedValueOnce(Response.json({ token: 'csrf' }))
+            .mockResolvedValueOnce(Response.json({ ok: true }));
+        vi.stubGlobal('fetch', fetch);
+        await call('/preparations/1', 'POST', { state: 'READY' });
+        expect(fetch.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
+        expect(fetch.mock.calls[1][1].signal).toBeUndefined();
     });
     it('로그인 복귀 경로가 외부 사이트를 가리키지 않는다', () => {
         expect(safeReturn('https://example.com')).toBe('/preparations');

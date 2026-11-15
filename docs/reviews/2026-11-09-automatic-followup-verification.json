@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-11-08T17:52:45.418295+00:00",
+  "tests": {
+    "test": {
+      "tests": 555,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integrationTest": {
+      "tests": 306,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "health": {
+    "status": "UP",
+    "database": "UP"
+  },
+  "protectedPublicNotices": {
+    "notices": 17,
+    "questions": 249,
+    "documents": 312,
+    "issues": 6,
+    "unchanged": true
+  },
+  "protectedDatabaseRows": {
+    "notices": 50,
+    "unchanged": true,
+    "snapshotSha256": "7183fb4777bea2c7aa5e37c16fc56dd6e443eb365e85948f7b8ae9011d2ef219"
+  },
+  "runtimeJarSha256": "4f93bfa334cc00f252328decbc78506258696c936c42025cab02731af5bf4d7b"
+}

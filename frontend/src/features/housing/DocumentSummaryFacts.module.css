@@ -1,0 +1,14 @@
+.facts {
+    overflow-wrap: anywhere;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.375rem 0.75rem;
+    margin: 0.5rem 0 0;
+    line-height: 1.5;
+}
+.facts dt {
+    color: var(--muted);
+}
+.facts dd {
+    margin: 0;
+}

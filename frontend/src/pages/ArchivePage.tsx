@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useSession } from '../app/useSession';
+import { useSession } from '../features/auth/useSession';
+import { noticeListTitle } from '../features/housing/noticeDisplay';
 import { useActivePreparation } from '../features/preparation/useActivePreparation';
 import { memberApi } from '../features/member/memberApi';
 import { ArchivePreparationSelect } from '../features/member/ArchivePreparationSelect';
+import { PreparationDeleteDialog } from '../features/preparation/PreparationDeleteDialog';
 import { Button, Heading, State } from '../shared/ui/ui';
 import { Icon } from '../shared/ui/Icon';
 import s from '../features/member/Controls.module.css';
@@ -161,7 +163,9 @@ export function ArchivePage() {
                     <ul className={styles.records}>
                         {list.data?.map((x) => (
                             <li key={x.id}>
-                                <h3>{x.title}</h3>
+                                <h3 aria-label={x.title} title={x.title}>
+                                    {noticeListTitle(x.title)}
+                                </h3>
                                 <p className={styles.metadata}>
                                     안내 v{x.version} · 기록한 준비도{' '}
                                     {x.progress}%
@@ -170,6 +174,12 @@ export function ArchivePage() {
                                     {x.note || '남긴 경험 메모가 없습니다.'}
                                 </p>
                                 <div className={styles.actions}>
+                                    <Link
+                                        className={styles.backLink}
+                                        to={`/preparations/${x.id}/history`}
+                                    >
+                                        이전 안내와 답변
+                                    </Link>
                                     <Button
                                         className="secondary"
                                         disabled={update.isPending}
@@ -197,6 +207,7 @@ export function ArchivePage() {
                                             현재 건에 메모 연결
                                         </Button>
                                     )}
+                                    <PreparationDeleteDialog id={x.id} />
                                 </div>
                             </li>
                         ))}

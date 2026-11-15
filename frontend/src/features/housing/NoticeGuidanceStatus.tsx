@@ -1,8 +1,9 @@
-import { guideLabels } from '../../shared/ui/helpers';
-import { displayDate } from '../../shared/ui/housingHelpers';
+import { guideLabels } from './guideLabels';
+import { NoticeReviewDates } from './NoticeReviewDates';
 import { Icon } from '../../shared/ui/Icon';
 import type { Notice } from './types';
 import { scheduleDay } from './schedules';
+import { ReviewIssues } from './ReviewIssues';
 import styles from './NoticeDetail.module.css';
 
 function scheduleStatus(notice: Notice) {
@@ -40,7 +41,7 @@ export function NoticeGuidanceStatus({ notice }: { notice: Notice }) {
                 </span>
             </summary>
             <div className={styles.guidanceBody}>
-                <dl>
+                <dl className={styles.guidanceFacts}>
                     {rows.map(([label, value]) => (
                         <div key={label}>
                             <dt>{label}</dt>
@@ -48,10 +49,9 @@ export function NoticeGuidanceStatus({ notice }: { notice: Notice }) {
                         </div>
                     ))}
                 </dl>
+                <NoticeReviewDates notice={notice} />
+                <ReviewIssues issues={notice.reviewIssues ?? []} />
                 <p>
-                    공고 기본 정보 확인일 ·{' '}
-                    {displayDate(notice.evidence.checkedAt)}
-                    <br />
                     기본 정보 v{notice.version}
                     {notice.guideVersion != null && (
                         <> · 준비 안내 v{notice.guideVersion}</>

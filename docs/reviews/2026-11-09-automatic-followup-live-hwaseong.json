@@ -1,0 +1,53 @@
+{
+  "fetchedAt" : "2026-11-08T17:45:34.055120400Z",
+  "mode" : "CURRENT_NETWORK_READ_ONLY_NO_DATABASE",
+  "noticeId" : "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+  "title" : "[정정공고]화성시 병점 복합타운 A-1블럭 행복주택 예비입주자 모집",
+  "queryTerm" : "병점",
+  "seconds" : 3.721016,
+  "blockers" : [ "FOLLOWUP_CANDIDATE_LIMIT" ],
+  "fingerprint" : "51e0afbdbd832003d735a4eb1a34b8e3376084b6ca84d0c3acc225600f0fdb72",
+  "related" : [ {
+    "title" : "[당첨자 발표연기] 화성시병점복합타운A-1블럭 행복주택예비입주자 (‘22.08.05.공고)",
+    "url" : "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102428306&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079",
+    "sourceCount" : 1,
+    "kind" : "FOLLOWUP",
+    "sources" : [ {
+      "sha256" : "aa30576c064cb81e8e3658422c21d131e337bf5b9516096af72366b58d01b592",
+      "url" : "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102428306&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079",
+      "status" : "EXTRACTED",
+      "label" : "[당첨자 발표연기] 화성시병점복합타운A-1블럭 행복주택예비입주자 (‘22.08.05.공고)",
+      "parts" : 3
+    } ]
+  }, {
+    "title" : "화성 병점복합타운A1블럭 행복주택 예비입주자 당첨자 발표(`22.08.05.모집공고)",
+    "url" : "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102428450&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079",
+    "sourceCount" : 1,
+    "kind" : "FOLLOWUP",
+    "sources" : [ {
+      "sha256" : "8bc9f0b1129fe2d4c57b57c9fb667c4a396acace28675685d5c108c3d43a6405",
+      "url" : "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102428450&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079",
+      "status" : "EXTRACTED",
+      "label" : "화성 병점복합타운A1블럭 행복주택 예비입주자 당첨자 발표(`22.08.05.모집공고)",
+      "parts" : 3
+    } ]
+  }, {
+    "title" : "[접수마감게시] 화성시 병점복합타운 A-1블럭 행복주택 예비입주자 모집 관련(2022.08.05)",
+    "url" : "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102829719&ccrCnntSysDsCd=03&slBbsKdCd=03&mi=1079",
+    "sourceCount" : 2,
+    "kind" : "FOLLOWUP",
+    "sources" : [ {
+      "sha256" : "c3a4a45cc377d2e1ef236c16dac3221edf8f083b9c7b36a30328a168b114b2a3",
+      "url" : "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102829719&ccrCnntSysDsCd=03&slBbsKdCd=03&mi=1079",
+      "status" : "EXTRACTED",
+      "label" : "[접수마감게시] 화성시 병점복합타운 A-1블럭 행복주택 예비입주자 모집 관련(2022.08.05)",
+      "parts" : 3
+    }, {
+      "sha256" : "d37562055396c2576cd5664d5f18a1ce8503e2e8068f90ec75484949760b4f42",
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49704964",
+      "status" : "EXTRACTED",
+      "label" : "(최종신청현황)화성시병점복합타운A-1블럭행복주택예비입주자모집).xlsx",
+      "parts" : 1
+    } ]
+  } ]
+}

@@ -1,11 +1,19 @@
+import { CollectionResponses } from '../features/admin/CollectionResponses';
+import { NoticeLifecycleEditor } from '../features/admin/NoticeLifecycleEditor';
 import { cx } from '../shared/styles/classes';
 import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
 import type { Review } from '../features/housing/types';
-import { Button, Card, EvidenceLink, Heading, State } from '../shared/ui/ui';
+import { Button, Card, Heading, State } from '../shared/ui/ui';
+import { EvidenceLink } from '../features/housing/EvidenceLink';
 import { demoMode } from '../shared/api/transport';
 import { useUnsavedChanges } from '../shared/ui/useUnsavedChanges';
+import { CollectionSchedulePanel } from '../features/admin/CollectionSchedulePanel';
+import { AttachmentChecks } from '../features/admin/AttachmentChecks';
+import { NoticeExtraction } from '../features/admin/NoticeExtraction';
+import { NoticeReviewDates } from '../features/housing/NoticeReviewDates';
+import { EvidenceChecks } from '../features/admin/EvidenceChecks';
 function DraftEditor({
     review,
     onDirtyChange,
@@ -97,6 +105,7 @@ function DraftEditor({
 }
 function ReviewEditor({ review: r }: { review: Review }) {
     const [draftDirty, setDraftDirty] = useState(false);
+    const [open, setOpen] = useState(false);
     const [basic, setBasic] = useState(r.basic),
         [guide, setGuide] = useState(r.guide),
         [reason, setReason] = useState(r.reason);
@@ -107,7 +116,10 @@ function ReviewEditor({ review: r }: { review: Review }) {
         onSuccess: () => client.invalidateQueries(),
     });
     return (
-        <details className={cx('card')}>
+        <details
+            className={cx('card')}
+            onToggle={(event) => setOpen(event.currentTarget.open)}
+        >
             <summary>
                 {r.notice.title} · 검수 v{r.revision}
             </summary>
@@ -118,6 +130,7 @@ function ReviewEditor({ review: r }: { review: Review }) {
                 {r.notice.endDate ?? '종료일 확인 필요'}
             </p>
             <p>{r.notice.summary}</p>
+            <NoticeReviewDates notice={r.notice} />
             <h3>검토할 질문과 서류</h3>
             {r.notice.questions.map((q) => (
                 <p key={q.id}>
@@ -128,7 +141,35 @@ function ReviewEditor({ review: r }: { review: Review }) {
                 <p key={d}>{d}</p>
             ))}
             {!demoMode && (
-                <DraftEditor review={r} onDirtyChange={setDraftDirty} />
+                <>
+                    <DraftEditor review={r} onDirtyChange={setDraftDirty} />
+                    <EvidenceChecks
+                        key={r.id}
+                        noticeId={r.id}
+                        revision={r.revision}
+                        dirty={draftDirty}
+                    />
+                    <NoticeLifecycleEditor
+                        review={r}
+                        dirty={
+                            draftDirty ||
+                            basic !== r.basic ||
+                            guide !== r.guide ||
+                            reason !== r.reason
+                        }
+                    />
+                    <NoticeExtraction
+                        noticeId={r.id}
+                        revision={r.revision}
+                        active={open}
+                        dirty={draftDirty}
+                    />
+                    <AttachmentChecks
+                        noticeId={r.id}
+                        draftDirty={draftDirty}
+                        active={open}
+                    />
+                </>
             )}
             <p>기본 정보와 준비 안내를 함께 대조하고 각각 결과를 기록하세요.</p>
             <label>
@@ -210,6 +251,7 @@ export function AdminPage() {
             </Heading>
             <Card>
                 <h2>수집 실행</h2>
+                <CollectionSchedulePanel />
                 <p>
                     LH 임대주택 목록을 수집합니다. 신규·변경 공고는 검수 대기로
                     저장됩니다.
@@ -219,7 +261,7 @@ export function AdminPage() {
                     <input
                         type="number"
                         min={1}
-                        max={9999}
+                        max={500}
                         value={startPage}
                         onChange={(e) => setStartPage(Number(e.target.value))}
                     />
@@ -229,7 +271,7 @@ export function AdminPage() {
                         collect.isPending ||
                         !Number.isInteger(startPage) ||
                         startPage < 1 ||
-                        startPage > 9999
+                        startPage > 500
                     }
                     onClick={() => collect.mutate()}
                 >
@@ -238,14 +280,17 @@ export function AdminPage() {
                 {collect.error && <p role="alert">{collect.error.message}</p>}
                 <State error={runs.error} retry={() => void runs.refetch()} />
                 {runs.data?.map((r) => (
-                    <p key={r.id}>
-                        {r.status} ·{' '}
-                        {new Date(r.startedAt).toLocaleString('ko-KR', {
-                            timeZone: 'Asia/Seoul',
-                        })}
-                        <br />
-                        {r.message}
-                    </p>
+                    <div key={r.id}>
+                        <p>
+                            {r.status} ·{' '}
+                            {new Date(r.startedAt).toLocaleString('ko-KR', {
+                                timeZone: 'Asia/Seoul',
+                            })}
+                            <br />
+                            {r.message}
+                        </p>
+                        {!demoMode && <CollectionResponses runId={r.id} />}
+                    </div>
                 ))}
                 {runs.data?.length === 0 && <p>수집 실행 이력이 없습니다.</p>}
             </Card>

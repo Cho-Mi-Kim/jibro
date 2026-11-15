@@ -1,0 +1,41 @@
+.banner {
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+}
+
+.banner h2,
+.banner p {
+    margin: 0;
+}
+
+.banner h2 {
+    font-size: 18px;
+}
+
+.banner p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid currentColor;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.banner summary {
+    cursor: pointer;
+    min-height: 44px;
+    align-content: center;
+    font-size: 14px;
+}

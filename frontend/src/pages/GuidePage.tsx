@@ -1,12 +1,18 @@
+import { animateScroll } from '../shared/ui/animateScroll';
 import noticeStyles from '../features/housing/NoticeList.module.css';
-import { cx } from '../shared/styles/classes';
+import { bindClasses } from '../shared/styles/classes';
 import { useSearchParams } from 'react-router';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
-import { api } from '../features/housing/api';
-import { Card, EvidenceLink, State } from '../shared/ui/ui';
-import { Disc } from '../shared/ui/HousingUI';
+import { useGuides } from '../features/guide/useGuides';
+import { Card, State } from '../shared/ui/ui';
+import { EvidenceLink } from '../features/housing/EvidenceLink';
+import { Disc } from '../shared/ui/Disc';
 import { Icon, type IconName } from '../shared/ui/Icon';
+import { prefersReducedMotion } from '../features/accessibility/preferences';
+import guideClasses from '../features/guide/Guide.module.css';
+
+const cx = bindClasses(guideClasses);
+
 const categories: [string, IconName, string][] = [
     ['지원제도 알아보기', 'home', 'red'],
     ['조건과 용어', 'file', 'amber'],
@@ -16,13 +22,17 @@ const categories: [string, IconName, string][] = [
 ];
 export function GuidePage() {
     const [params, setParams] = useSearchParams();
-    const q = useQuery({ queryKey: ['guides'], queryFn: api.guides });
     const category = params.get('category');
     const keyword = params.get('q') ?? '';
+    const page = Math.max(
+        0,
+        Math.min(10000, Math.floor(Number(params.get('page')) || 0)),
+    );
+    const q = useGuides(category ?? '', keyword, page);
     const layoutRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         layoutRef.current?.style.removeProperty('padding-bottom');
-    }, [category, keyword]);
+    }, [category, keyword, page]);
     function alignQuestion(card: HTMLDetailsElement) {
         if (card.open) return;
         requestAnimationFrame(() => {
@@ -40,38 +50,23 @@ export function GuidePage() {
                 previousSpace -
                 window.innerHeight;
             layout.style.paddingBottom = `${Math.ceil(Math.max(0, top - available))}px`;
-            window.scrollTo({
-                top,
-                behavior: window.matchMedia('(prefers-reduced-motion: reduce)')
-                    .matches
-                    ? 'instant'
-                    : 'smooth',
-            });
+            animateScroll(window, top, prefersReducedMotion());
         });
     }
     function change(key: string, value: string) {
         const next = new URLSearchParams(params);
         if (value) next.set(key, value);
         else next.delete(key);
+        next.delete('page');
         setParams(next, { replace: true });
     }
-    const terms = keyword
-        .trim()
-        .normalize('NFC')
-        .toLocaleLowerCase()
-        .split(/\s+/)
-        .filter(Boolean);
-    const selected = q.data?.filter(
-        (g) =>
-            (!category || g.category === category) &&
-            terms.every((term) =>
-                [g.category, g.title, g.body, g.evidence.label]
-                    .join(' ')
-                    .normalize('NFC')
-                    .toLocaleLowerCase()
-                    .includes(term),
-            ),
-    );
+    function goToPage(nextPage: number) {
+        const next = new URLSearchParams(params);
+        next.set('page', String(nextPage));
+        setParams(next);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    const selected = q.waiting ? undefined : q.data?.items;
     return (
         <>
             <header className={cx('guide-heading')}>
@@ -124,11 +119,8 @@ export function GuidePage() {
                     <h2>
                         {keyword ? '가이드 검색 결과' : '자주 확인하는 질문'}
                     </h2>
-                    {keyword && q.isSuccess && (
-                        <p role="status">{selected?.length}건</p>
-                    )}
                     <State
-                        loading={q.isPending}
+                        loading={q.isPending || q.waiting}
                         error={q.error}
                         retry={() => void q.refetch()}
                     />
@@ -170,6 +162,32 @@ export function GuidePage() {
                                 전체 가이드 보기
                             </button>
                         </Card>
+                    )}
+                    {(page > 0 || q.data?.hasMore) && (
+                        <nav
+                            className={guideClasses.pagination}
+                            aria-label="가이드 페이지"
+                        >
+                            <button
+                                disabled={
+                                    page === 0 || q.waiting || q.isPending
+                                }
+                                onClick={() => goToPage(page - 1)}
+                                aria-label="이전 페이지"
+                            >
+                                <Icon name="back" />
+                            </button>
+                            <span aria-current="page">{page + 1}</span>
+                            <button
+                                disabled={
+                                    !q.data?.hasMore || q.waiting || q.isPending
+                                }
+                                onClick={() => goToPage(page + 1)}
+                                aria-label="다음 페이지"
+                            >
+                                <Icon name="arrow" />
+                            </button>
+                        </nav>
                     )}
                     <div className={cx('callout')}>
                         <Disc name="warning" tone="amber" />

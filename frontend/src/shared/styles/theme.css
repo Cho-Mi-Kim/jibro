@@ -1,0 +1,47 @@
+/* Light mode keeps the established palette. Feature fallbacks preserve each
+   existing light color; dark mode supplies their semantic counterparts here. */
+:root {
+    --motion-duration: 750ms;
+    color-scheme: light;
+}
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --canvas: #171615;
+    --surface: #242220;
+    --ink: #f2eeea;
+    --muted: #c0b8b1;
+    --line: #625a54;
+    --brand: #f0a38b;
+    --soft: #3e2b25;
+    --positive: #8bd9b1;
+    --positive-soft: #203b2c;
+    --warning: #f1cf80;
+    --warning-soft: #3c321c;
+    --action-brand: #b64a32;
+    --theme-surface: var(--surface);
+    --theme-canvas: var(--canvas);
+    --theme-surface-muted: #302c29;
+    --theme-line: var(--line);
+    --theme-ink: var(--ink);
+    --theme-muted: var(--muted);
+    --theme-accent: var(--brand);
+    --theme-accent-soft: var(--soft);
+    --theme-positive: var(--positive);
+    --theme-positive-soft: var(--positive-soft);
+    --theme-warning: var(--warning);
+    --theme-warning-soft: var(--warning-soft);
+    --theme-danger: #ffb4a3;
+    --theme-danger-soft: #442823;
+    --theme-track: #56504b;
+}
+:root[data-theme='dark'][data-high-contrast='true'] {
+    --canvas: #101010;
+    --surface: #191919;
+    --ink: #fff;
+    --muted: #e6e0da;
+    --line: #b9b0a8;
+    --brand: #ffc0a8;
+    --positive: #aaf0c9;
+    --warning: #ffe2a1;
+    --theme-danger: #ffc7bb;
+}

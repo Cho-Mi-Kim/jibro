@@ -1,0 +1,236 @@
+{
+  "date": "2026-11-10",
+  "scope": "현재 공개된 접수 중·예정 공고의 지원 대상·지원 내용 요약만 수정. 접수종료 제외.",
+  "verification": {
+    "noticeCount": 21,
+    "sentences": "2–3",
+    "characterRange": [
+      115,
+      183
+    ],
+    "onlySummarySemanticallyChanged": true,
+    "serializationDefaults": "Existing constructors materialize null reviewIssues as [], missing reviewRequired as false, and missing optional fields as null.",
+    "versionAndRevisionIncremented": true,
+    "otherPublicFieldsPreserved": true,
+    "closedNoticesPreserved": 27,
+    "personalPreparationRowsPreserved": 0,
+    "freshOfficialPdfHashesVerified": 21,
+    "browser": {
+      "viewport": "393×852",
+      "documentWidth": 393,
+      "summaryAndEvidenceDisclosureVerified": true
+    }
+  },
+  "notices": [
+    {
+      "id": "cb715a71-3611-4d8a-a23f-573d0bae22e9",
+      "title": "2026년 청년 전세임대 1순위 입주자 수시모집",
+      "summary": "공고의 청년·대학생·취업준비생 요건과 수급자·차상위·보호대상 한부모가족 등 1순위 기준을 충족하는 무주택 미혼 청년이 대상입니다. 입주자로 선정되면 지원 한도 안에서 원하는 전세주택을 찾고, LH가 집주인과 전세계약을 맺어 다시 임대해 줍니다.",
+      "sentenceCount": 2,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019376&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885",
+      "pdfSha": "dddfd576015ad86f9d7855010aa1d613e0c0c80b258409973937247f5eca61bb",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고",
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 삼척도계·정선신동 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 예비입주자로 선정되면 기존 대기자의 후순위로 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020581&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754",
+      "pdfSha": "4e526aedf4d3cc7b09d3bdf9c6c2c8e949ea0240ff07a4e10ea591972b01855a",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "title": "충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04]",
+      "summary": "충주시에 거주하는 성년 무주택세대구성원 중 공고의 자격 유형과 소득·자산 기준을 충족하는 가구가 대상입니다. 충주연수2 영구임대주택의 전용 31.32㎡ 주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258",
+      "pdfSha": "72212e521e6cecc95f8f0c00852f9a8ed7d204b95a6e581b0b419e8779d3783d",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "0db58df5-fe4f-4ded-a870-d1e7b14d74a8",
+      "title": "평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "summary": "수도권에 거주하는 성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상이며, 이번 모집은 소득·자산·청약통장 가입 여부를 제한하지 않습니다. 평택·안성 지역의 10년 공공임대주택(리츠)에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 계약은 빈집이 생겼을 때 대기순번에 따라 안내됩니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061201&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69270187",
+      "pdfSha": "83c84a685c45a934e43814116afdebf3cd0e23c09b05ecd2a4fd8997fab02b45",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "4e9a5c29-8b73-410b-b59f-d8f5dd4f2a38",
+      "title": "오산세교2 7단지(A-6BL) 영구임대 입주자격완화(소득150%완화) 예비입주자 모집공고(2026.11.02)",
+      "summary": "오산시에 거주하는 무주택세대구성원 중 완화된 소득 기준과 유형별 자산 기준 등 공고의 입주자격을 충족하는 가구가 대상입니다. 오산세교2 7단지 영구임대주택의 일반형·주거약자형을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 예비입주자로 선정되면 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020896&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203687",
+      "pdfSha": "72f277edbb41e30c7c2830eaa21c39670022ad162419781030333c8ba6b29b0f",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "cb2ba5d3-53bb-4d7a-a8d1-d526f95a89d7",
+      "title": "2026년 신혼·신생아 전세임대 I 입주자 수시모집 공고",
+      "summary": "신혼부부·예비신혼부부·신생아가구·한부모가족 등 공고의 소득·자산 기준을 충족하는 무주택가구가 대상입니다. 입주자로 선정되면 지원 한도 안에서 원하는 전세주택을 찾고, LH가 집주인과 계약한 뒤 다시 임대해 줍니다. Ⅰ유형의 본인 부담 보증금은 지원 한도 내 전세보증금의 5%이며, 지원금에 대한 월 임대료를 별도로 부담합니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019550&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868733",
+      "pdfSha": "6f0296b0b3c67b7bc0ae4a1b2d4ee7260145196e7126248719fb9971e5c05cd1",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "6766d1f8-0a4c-462d-8d8a-b1390b15cbcf",
+      "title": "2026 다자녀 전세임대 입주자 수시모집 공고",
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하는 무주택가구 중 공고의 수급자·차상위·한부모가족 또는 소득·자산 기준 등을 충족하는 가구가 대상입니다. 선정된 가구가 지원 한도 안에서 전세주택을 찾으면 LH가 집주인과 전세계약을 맺고 다시 임대해 줍니다.",
+      "sentenceCount": 2,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019546&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379",
+      "pdfSha": "8a6023cb889535d1362a8b7915c80d6997281b37048f0ad77ee0af02d58f6a91",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "413075cd-2626-44f6-a020-336513fa6143",
+      "title": "평택시 평택송화 국민임대 예비입주자 모집공고(2026.11.05)",
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 평택송화 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020973&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69320623",
+      "pdfSha": "84deafc3e51542905b24f0514e483e5ae608de4d73fea864fc476fd49454c83c",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "title": "익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고",
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 익산한스빌 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+      "pdfSha": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "title": "[정정공고]남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "summary": "남원시에 거주하는 성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상입니다. 남원노암 영구임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급하며, 이번 모집은 소득·총자산 기준을 배제하지만 자동차 기준은 유지합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+      "pdfSha": "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "summary": "공고의 무주택·자산 기준과 완화된 소득 기준을 충족하는 가구가 대상입니다. 태백궁전 39형 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 입주자격을 갖춘 신청자를 접수순으로 선정해 계약을 안내합니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019307&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+      "pdfSha": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "c717d2e8-a9e2-4b71-8ac2-023bd437135f",
+      "title": "경남 의령군 화정면 다자녀 매입임대주택 예비입주자 모집공고",
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하며 공고의 소득·자산 기준을 충족하는 무주택세대가 대상입니다. 의령군 화정면의 다자녀 매입임대주택을 자격에 따라 시중시세의 30~40% 수준의 임대료로 공급합니다. 예비입주자로 선정되면 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020928&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107811",
+      "pdfSha": "76d9cfeaef8acf3c55413818d595086ba6649b5adb1721157f7252c56086ac3b",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "d71a2dea-b39c-4930-ace3-2d417f6f9787",
+      "title": "연천전곡1단지 국민임대주택 예비입주자 모집공고(2026.11.05.)",
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 연천전곡1단지 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020996&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305",
+      "pdfSha": "b334a6dbea7146bcb9dbb939ff71b82a6dabe69d763a4c9c129166480f0dee14",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "06462f53-d47e-419e-b458-c8a6e212b96a",
+      "title": "경남 거창군 신원면 다자녀 매입임대주택 예비입주자 모집공고",
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하며 공고의 소득·자산 기준을 충족하는 무주택세대가 대상입니다. 거창군 신원면의 다자녀 매입임대주택을 자격에 따라 시중시세의 30~40% 수준의 임대료로 공급합니다. 예비입주자로 선정되면 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020933&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69108015",
+      "pdfSha": "5f55a68c49742e8d857e626af64a1621419d4abc3df4205b530d979fc684b6c2",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+      "title": "[정정공고]평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "summary": "수도권에 거주하는 성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상이며, 이번 모집은 소득·자산·청약통장 가입 여부를 제한하지 않습니다. 평택·안성 지역의 10년 공공임대주택(리츠)에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 계약은 빈집이 생겼을 때 대기순번에 따라 안내됩니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061206&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+      "pdfSha": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "394f7a6e-1054-419c-bd27-f436d6289162",
+      "title": "남원노암 공공임대 50년 예비입주자모집",
+      "summary": "성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상이며, 청약저축 가입·납입 요건 등에 따라 순위가 나뉩니다. 남원노암 50년 공공임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 계약은 빈집이 생겼을 때 대기순번에 따라 안내됩니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021022&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+      "pdfSha": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "3fe0dbde-d45b-42ff-bc6a-14bc2bd2c6e7",
+      "title": "[정정공고]인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 인천논현2단지 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69314336",
+      "pdfSha": "d4ec78c0e528b4a2c5cf0889cb6afe5024bbf33bbb8b69c951abdeedaf3d672b",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "f8563127-e307-4581-8491-7c241ebd1814",
+      "title": "정선사북 행복주택 입주자 추가모집",
+      "summary": "대학생·취업준비생·청년·신혼부부·한부모가족 등 계층별 무주택·소득·자산 기준을 충족하는 사람이 대상입니다. 정선사북 행복주택을 공급하며, 해당 계층과 주택형에 정해진 보증금·월 임대료로 거주할 수 있습니다.",
+      "sentenceCount": 2,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020995&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69219758",
+      "pdfSha": "b018eb68486db16d663d007af1dde4fcd0372e5a1748ae9f93260a9e0294c893",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "bcef4e3d-5cba-426c-80b6-a82f4623ef25",
+      "title": "공주시(덕성그린시티빌,신한1차) 국민임대 자격완화 입주자 모집공고(26.11.02)",
+      "summary": "무주택세대구성원 중 공고의 자동차·세대 등 입주자격 기준을 충족하는 가구가 대상이며, 일반 입주자격에는 소득·총자산 기준을 적용하지 않습니다. 공주 덕성그린시티빌·신한1차 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다.",
+      "sentenceCount": 2,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020962&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143265",
+      "pdfSha": "9164abc5a7008dd7fc221b011eb459501ed564fcd0457b154d5e4d7594c86f98",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "[정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 동해유성·태백철암장미 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 입주자격을 갖춘 신청자를 접수순으로 선정해 계약을 안내합니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019312&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745",
+      "pdfSha": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    },
+    {
+      "id": "11f5a8d1-3100-4d80-8f4b-b0ef6dc8af3c",
+      "title": "2026년 신혼·신생아 전세임대Ⅱ 입주자 수시모집 공고",
+      "summary": "신혼부부·예비신혼부부·신생아가구·한부모가족 등 공고의 소득·자산 기준을 충족하는 무주택가구가 대상입니다. 입주자로 선정되면 지원 한도 안에서 원하는 전세주택을 찾고, LH가 집주인과 계약한 뒤 다시 임대해 줍니다. Ⅱ유형의 본인 부담 보증금은 지원 한도 내 전세보증금의 20%이며, 지원금에 대한 월 임대료를 별도로 부담합니다.",
+      "sentenceCount": 3,
+      "detailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019551&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "pdfUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869337",
+      "pdfSha": "a4c7c51976edf6528dc0b645b69ea1757f4975909b923fcb2970dcc252af4440",
+      "reviewNotes": "공식 PDF 사업 개요·입주 대상·임대조건 및 기존 검수된 조건을 대조. 지원 대상과 지원 내용 중심으로 2~3문장 편집. 일정·서류·확인 필요 이슈는 각 기존 필드에 보존."
+    }
+  ]
+}

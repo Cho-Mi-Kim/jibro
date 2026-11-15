@@ -3,10 +3,6 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig(({ mode }) => ({
     base: mode === 'pages-demo' ? '/jibro/' : '/',
-    define:
-        mode === 'demo'
-            ? { 'import.meta.env.VITE_API_MODE': JSON.stringify('demo') }
-            : {},
     plugins: [react()],
     server: {
         host: '127.0.0.1',

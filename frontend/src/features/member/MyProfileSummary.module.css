@@ -38,11 +38,19 @@
     font-weight: 700;
     overflow-wrap: anywhere;
 }
-.entryLinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+.entryAction {
+    display: grid;
+    width: 98px;
+    max-width: 100%;
     margin-top: 0.75rem;
+}
+.nameBlock .guestTitle {
+    font-size: 1.125rem;
+}
+@media (max-width: 374px) {
+    .nameBlock .guestTitle {
+        font-size: 1rem;
+    }
 }
 .counts {
     display: grid;

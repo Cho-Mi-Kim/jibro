@@ -1,0 +1,120 @@
+{
+  "checkedAt" : "2026-11-11T13:27:44.186679500Z",
+  "changes" : [ {
+    "previousRevision" : 2,
+    "resultRevision" : 3,
+    "id" : "cfcd17e9-cb27-4baa-8e4e-38cd833357c1",
+    "audit" : {
+      "evidence" : {
+        "label" : "정정 공고문 3쪽 · 신청일정 및 방법",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24550459",
+        "checkedAt" : "2026-11-11"
+      },
+      "startDate" : "2015-04-28",
+      "scope" : "VERIFIED_HISTORICAL_APPLICATION_PERIOD",
+      "checkedAt" : "2026-11-11T13:27:43.729214900Z",
+      "reason" : "LH 상세의 공고중/마감일 공란과 달리 공식 첨부의 접수기간이 경과함. PDF 시각검토 및 HWP 대조로 날짜와 시각만 보완.",
+      "attachments" : {
+        "24550458" : "22ecbdd21607a8e2297d9752cf5fe7ff42e9f11365c877d5715193aaefa9f016",
+        "24550459" : "5b1a734429b082a6934a5c4dcb7408c3496749933461b39bbe84bd7f3380c760"
+      },
+      "schedules" : [ {
+        "id" : "application-start",
+        "title" : "신청 접수 시작",
+        "date" : "2015-04-28T10:00:00+09:00",
+        "evidence" : {
+          "label" : "정정 공고문 3쪽 · 신청일정 및 방법",
+          "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24550459",
+          "checkedAt" : "2026-11-11"
+        },
+        "timingDescription" : null
+      }, {
+        "id" : "application-end",
+        "title" : "신청 접수 마감",
+        "date" : "2015-04-28T16:00:00+09:00",
+        "evidence" : {
+          "label" : "정정 공고문 3쪽 · 신청일정 및 방법",
+          "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24550459",
+          "checkedAt" : "2026-11-11"
+        },
+        "timingDescription" : null
+      } ],
+      "officialDetailUrl" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006107&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "beforeContent" : {
+        "summary" : "공식 목록에서 자동 수집했습니다. 신청 기간·조건·서류는 원문 대조 후 제공합니다.",
+        "evidence" : {
+          "label" : "LH 공식 공고 원문",
+          "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006107&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+          "checkedAt" : "2026-11-08"
+        },
+        "attachments" : [ ],
+        "questions" : [ ],
+        "documents" : [ ],
+        "schedules" : [ ],
+        "reviewIssues" : [ ],
+        "applicationClosure" : null
+      },
+      "endDate" : "2015-04-28"
+    },
+    "status" : "CLOSED"
+  }, {
+    "previousRevision" : 2,
+    "resultRevision" : 3,
+    "id" : "5f0555e4-f4d6-456f-a1ad-d7726e44667d",
+    "audit" : {
+      "evidence" : {
+        "label" : "정정 공고문 2쪽 · 신청일정 및 장소",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24563165",
+        "checkedAt" : "2026-11-11"
+      },
+      "startDate" : "2014-12-15",
+      "scope" : "VERIFIED_HISTORICAL_APPLICATION_PERIOD",
+      "checkedAt" : "2026-11-11T13:27:43.979210500Z",
+      "reason" : "LH 상세의 공고중/마감일 공란과 달리 공식 첨부의 접수기간이 경과함. PDF 시각검토 및 HWP 대조로 날짜와 시각만 보완.",
+      "attachments" : {
+        "24563164" : "031865cdf7a8bba3a6c2b28a62575fe8d97068ab11964dd696b49e1356164f81",
+        "24563165" : "366cd971b30e31698b72535c22cd5e8ea06591076d9f598f016defa844f74fcc"
+      },
+      "schedules" : [ {
+        "id" : "application-start",
+        "title" : "신청 접수 시작",
+        "date" : "2014-12-15T10:00:00+09:00",
+        "evidence" : {
+          "label" : "정정 공고문 2쪽 · 신청일정 및 장소",
+          "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24563165",
+          "checkedAt" : "2026-11-11"
+        },
+        "timingDescription" : null
+      }, {
+        "id" : "application-end",
+        "title" : "신청 접수 마감",
+        "date" : "2014-12-16T16:00:00+09:00",
+        "evidence" : {
+          "label" : "정정 공고문 2쪽 · 신청일정 및 장소",
+          "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24563165",
+          "checkedAt" : "2026-11-11"
+        },
+        "timingDescription" : null
+      } ],
+      "officialDetailUrl" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005662&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "beforeContent" : {
+        "summary" : "공식 목록에서 자동 수집했습니다. 신청 기간·조건·서류는 원문 대조 후 제공합니다.",
+        "evidence" : {
+          "label" : "LH 공식 공고 원문",
+          "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005662&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+          "checkedAt" : "2026-11-08"
+        },
+        "attachments" : [ ],
+        "questions" : [ ],
+        "documents" : [ ],
+        "schedules" : [ ],
+        "reviewIssues" : [ ],
+        "applicationClosure" : null
+      },
+      "endDate" : "2014-12-16"
+    },
+    "status" : "CLOSED"
+  } ],
+  "reviewAndSourceFlagsPreserved" : true,
+  "correctionRelationsPreserved" : true
+}

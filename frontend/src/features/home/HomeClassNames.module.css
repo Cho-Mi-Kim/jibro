@@ -1,0 +1,17 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.home-metrics {
+}
+.home-heading {
+}
+.home-summary {
+}
+.home-dashboard {
+}
+.home-action {
+}
+.home-deadline {
+}
+.home-journey {
+}
+.welcome {
+}

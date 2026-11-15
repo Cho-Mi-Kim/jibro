@@ -1,0 +1,527 @@
+{
+  "checkedAt": "2026-11-09T15:50:20.197991+00:00",
+  "scope": "접수종료 제외, 현재 공고중 4건의 위임장 쟁점",
+  "resolvedIssues": 0,
+  "retainedIssues": 4,
+  "confirmedFacets": 2,
+  "searchLimitation": "공식 상세 정정 연결과 2026년 해당 단지명 공식 목록 및 웹 검색에서 적용되는 새 위임장 정정·후속공지를 찾지 못함. 비공개 회신의 부재를 단정하지 않음.",
+  "officialGuidance": [
+    {
+      "key": "signature-law-current",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20241227&lsiSeq=257213&urlMode=lsInfoP",
+      "finalUrl": "https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20241227&lsiSeq=257213&urlMode=lsInfoP",
+      "checkedAt": "2026-11-09T15:43:36.942707+00:00",
+      "sha256": "522db43e081986a2869a9370da9369ddd06157ae3a7b02752e35c8a35a5bcfd6",
+      "bytes": 145151,
+      "records": []
+    },
+    {
+      "key": "signature-law-article13",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0013&lsiSeq=257213&urlMode=lsScJoRltInfoR",
+      "finalUrl": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0013&lsiSeq=257213&urlMode=lsScJoRltInfoR",
+      "checkedAt": "2026-11-09T15:43:36.944212+00:00",
+      "sha256": "4ba4d25c9404c76fc3b9aadf26116aa7c0ee8b52c9155da315ebda1a51bc631e",
+      "bytes": 72061,
+      "records": []
+    },
+    {
+      "key": "signature-certificate",
+      "url": "https://m.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13110000047",
+      "finalUrl": "https://m.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13110000047",
+      "checkedAt": "2026-11-09T15:43:37.099313+00:00",
+      "sha256": "9b6164022d8dc14f3fb9c2a7e752595d2968712a239126aabc6679ebecd2baba",
+      "bytes": 216125,
+      "records": []
+    },
+    {
+      "key": "seal-certificate",
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000025",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000025",
+      "checkedAt": "2026-11-09T15:43:37.099313+00:00",
+      "sha256": "9cb9e6370a6f500d063b70d7fbcdd2301e19d2e59ec01868e1caa4a7888ad05f",
+      "bytes": 222713,
+      "records": []
+    },
+    {
+      "key": "notice-search-1",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EC%82%BC%EC%B2%99%EB%8F%84%EA%B3%84&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EC%82%BC%EC%B2%99%EB%8F%84%EA%B3%84&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "checkedAt": "2026-11-09T15:43:37.103821+00:00",
+      "sha256": "7bb07fca093d1f379a7fd8a84e1370be721c3d05733f8e140cc740fdcd712970",
+      "bytes": 2840,
+      "records": [],
+      "usable": false,
+      "limitation": "공식 사이트 오류 페이지 응답. 검색 결과 없음으로 해석하지 않음."
+    },
+    {
+      "key": "notice-search-2",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%83%9C%EB%B0%B1%EC%9E%A5%EC%84%B1&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%83%9C%EB%B0%B1%EC%9E%A5%EC%84%B1&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "checkedAt": "2026-11-09T15:43:37.103821+00:00",
+      "sha256": "2c80ea6e5dc2dab24a3bb598b6f071a122de66260efc8c5c5d2b75a2d431ae0f",
+      "bytes": 2840,
+      "records": [],
+      "usable": false,
+      "limitation": "공식 사이트 오류 페이지 응답. 검색 결과 없음으로 해석하지 않음."
+    },
+    {
+      "key": "notice-search-3",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EB%8F%99%ED%95%B4%EC%9C%A0%EC%84%B1&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EB%8F%99%ED%95%B4%EC%9C%A0%EC%84%B1&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "checkedAt": "2026-11-09T15:43:37.232065+00:00",
+      "sha256": "8d191e798620f3dd31af509a4e9135035c6caced02f0a43f4722b9df8f9ab088",
+      "bytes": 2840,
+      "records": [],
+      "usable": false,
+      "limitation": "공식 사이트 오류 페이지 응답. 검색 결과 없음으로 해석하지 않음."
+    },
+    {
+      "key": "notice-search-4",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%83%9C%EB%B0%B1%EA%B6%81%EC%A0%84&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%83%9C%EB%B0%B1%EA%B6%81%EC%A0%84&startDt=2026-01-01&endDt=2026-11-10&listCo=50&currPage=1",
+      "checkedAt": "2026-11-09T15:43:37.232065+00:00",
+      "sha256": "c3d2eb5b6cf0faf6bc965af2ff25a43483325d94cff087f086cba60f97504d20",
+      "bytes": 2841,
+      "records": [],
+      "usable": false,
+      "limitation": "공식 사이트 오류 페이지 응답. 검색 결과 없음으로 해석하지 않음."
+    },
+    {
+      "key": "active-list",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?endDt=2026-10-30&listCo=50&mi=1026&panSs=%EA%B3%B5%EA%B3%A0%EC%A4%91&srchUppAisTpCd=061339&startDt=2025-11-01",
+      "checkedAt": "2026-11-09T15:44:25.689062+00:00",
+      "sha256": "d173d319d904ad5087ec76ef3d0b9315dbed6a4e511136ff7dbd1c17a233a3d4",
+      "records": [
+        {
+          "text": "15 국민임대 태백장성 국민임대주택 예비입주자 입주자격완화 상시모집 1일전 강원특별자치도 첨부파일 있음 2026.09.14 2026.12.31 공고중 14,750",
+          "links": [
+            "javascript:",
+            "javascript:"
+          ]
+        },
+        {
+          "text": "12 국민임대 삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고 1일전 강원특별자치도 첨부파일 있음 2026.08.25 2027.01.29 공고중 18,966",
+          "links": [
+            "javascript:",
+            "javascript:"
+          ]
+        },
+        {
+          "text": "3 국민임대 [정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고) 1일전 강원특별자치도 첨부파일 있음 2026.02.02 2026.12.31 공고중 19,148",
+          "links": [
+            "javascript:",
+            "javascript:"
+          ]
+        },
+        {
+          "text": "2 국민임대 동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고) 1일전 강원특별자치도 첨부파일 있음 2026.02.02 2026.12.31 정정공고중 12,619",
+          "links": [
+            "javascript:",
+            "javascript:"
+          ]
+        },
+        {
+          "text": "1 국민임대 태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고) 1일전 강원특별자치도 첨부파일 있음 2026.02.02 2026.12.31 공고중 18,140",
+          "links": [
+            "javascript:",
+            "javascript:"
+          ]
+        }
+      ],
+      "usable": true
+    },
+    {
+      "key": "followup-search-1",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EC%82%BC%EC%B2%99%EB%8F%84%EA%B3%84&panSs=&srchUppAisTpCd=06&startDt=2026-01-01&endDt=2026-11-10&listCo=50",
+      "checkedAt": "2026-11-09T15:44:43.262763+00:00",
+      "sha256": "8c935b08eca0f1c8d12c2e00653f4cb3f3b41ab04fe7cc8a829b3313d66b8267",
+      "records": [
+        {
+          "text": "1 국민임대 삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고 1일전 강원특별자치도 첨부파일 있음 2026.08.25 2027.01.29 공고중 18,966",
+          "links": [
+            {
+              "href": "javascript:",
+              "data-id1": "2015122300020581",
+              "data-id2": "03",
+              "data-id3": "06",
+              "data-id4": "07",
+              "class": [
+                "wrtancInfoBtn"
+              ]
+            },
+            {
+              "href": "javascript:",
+              "class": [
+                "listFileDown",
+                "tbl_web2"
+              ],
+              "data-id1": "06",
+              "data-id2": "07",
+              "data-id3": "03",
+              "data-id4": "",
+              "data-id5": "2015122300020581"
+            }
+          ]
+        }
+      ],
+      "usable": true
+    },
+    {
+      "key": "followup-search-2",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%83%9C%EB%B0%B1%EC%9E%A5%EC%84%B1&panSs=&srchUppAisTpCd=06&startDt=2026-01-01&endDt=2026-11-10&listCo=50",
+      "checkedAt": "2026-11-09T15:44:43.261765+00:00",
+      "sha256": "7ee3d946cccd8585d556364a2ffeaba869e1df7be09c384640ccb5a40aaa1e58",
+      "records": [
+        {
+          "text": "1 국민임대 태백장성 국민임대주택 예비입주자 입주자격완화 상시모집 1일전 강원특별자치도 첨부파일 있음 2026.09.14 2026.12.31 공고중 14,750",
+          "links": [
+            {
+              "href": "javascript:",
+              "data-id1": "2015122300020730",
+              "data-id2": "03",
+              "data-id3": "06",
+              "data-id4": "07",
+              "class": [
+                "wrtancInfoBtn"
+              ]
+            },
+            {
+              "href": "javascript:",
+              "class": [
+                "listFileDown",
+                "tbl_web2"
+              ],
+              "data-id1": "06",
+              "data-id2": "07",
+              "data-id3": "03",
+              "data-id4": "",
+              "data-id5": "2015122300020730"
+            }
+          ]
+        }
+      ],
+      "usable": true
+    },
+    {
+      "key": "followup-search-3",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%EB%8F%99%ED%95%B4%EC%9C%A0%EC%84%B1&panSs=&srchUppAisTpCd=06&startDt=2026-01-01&endDt=2026-11-10&listCo=50",
+      "checkedAt": "2026-11-09T15:44:43.162641+00:00",
+      "sha256": "70759202ca24ea091cff6154be0df1f1c532e76b2d45d00d97f0ea9ec66b0f39",
+      "records": [
+        {
+          "text": "2 국민임대 [정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고) 1일전 강원특별자치도 첨부파일 있음 2026.02.02 2026.12.31 공고중 19,148",
+          "links": [
+            {
+              "href": "javascript:",
+              "data-id1": "2015122300019312",
+              "data-id2": "03",
+              "data-id3": "06",
+              "data-id4": "07",
+              "class": [
+                "wrtancInfoBtn"
+              ]
+            },
+            {
+              "href": "javascript:",
+              "class": [
+                "listFileDown",
+                "tbl_web2"
+              ],
+              "data-id1": "06",
+              "data-id2": "07",
+              "data-id3": "03",
+              "data-id4": "",
+              "data-id5": "2015122300019312"
+            }
+          ]
+        },
+        {
+          "text": "1 국민임대 동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고) 1일전 강원특별자치도 첨부파일 있음 2026.02.02 2026.12.31 정정공고중 12,619",
+          "links": [
+            {
+              "href": "javascript:",
+              "data-id1": "2015122300019308",
+              "data-id2": "03",
+              "data-id3": "06",
+              "data-id4": "07",
+              "class": [
+                "wrtancInfoBtn"
+              ]
+            },
+            {
+              "href": "javascript:",
+              "class": [
+                "listFileDown",
+                "tbl_web2"
+              ],
+              "data-id1": "06",
+              "data-id2": "07",
+              "data-id3": "03",
+              "data-id4": "",
+              "data-id5": "2015122300019308"
+            }
+          ]
+        }
+      ],
+      "usable": true
+    },
+    {
+      "key": "followup-search-4",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&panNm=%ED%83%9C%EB%B0%B1%EA%B6%81%EC%A0%84&panSs=&srchUppAisTpCd=06&startDt=2026-01-01&endDt=2026-11-10&listCo=50",
+      "checkedAt": "2026-11-09T15:44:43.261765+00:00",
+      "sha256": "a6a5cf4b3aa67e1d1efc7b209e534af6bb0078b0877896ed91944bca78f915b9",
+      "records": [
+        {
+          "text": "1 국민임대 태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고) 1일전 강원특별자치도 첨부파일 있음 2026.02.02 2026.12.31 공고중 18,140",
+          "links": [
+            {
+              "href": "javascript:",
+              "data-id1": "2015122300019307",
+              "data-id2": "03",
+              "data-id3": "06",
+              "data-id4": "07",
+              "class": [
+                "wrtancInfoBtn"
+              ]
+            },
+            {
+              "href": "javascript:",
+              "class": [
+                "listFileDown",
+                "tbl_web2"
+              ],
+              "data-id1": "06",
+              "data-id2": "07",
+              "data-id3": "03",
+              "data-id4": "",
+              "data-id5": "2015122300019307"
+            }
+          ]
+        }
+      ],
+      "usable": true
+    }
+  ],
+  "findings": [
+    {
+      "noticeId": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동",
+      "issueId": "proxy_form_method",
+      "conclusion": "PARTIALLY_CLARIFIED_RETAIN_FORM_ISSUE",
+      "resolvedIssue": false,
+      "currentOfficialState": "공고중",
+      "currentPdf": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754",
+        "role": "MAIN_NOTICE_PDF",
+        "label": "삼척도계,정선신동국민임대주택예비입주자입주자격완화(2단계)상시모집공고문.pdf",
+        "sha256": "4e526aedf4d3cc7b09d3bdf9c6c2c8e949ea0240ff07a4e10ea591972b01855a",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\67ba01ef-0fb8-4ac0-b855-adc061b1f8ee\\68195754.pdf",
+        "bytes": 930097
+      },
+      "currentForms": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+        "role": "APPLICATION_FORMS",
+        "label": "상시모집서류양식.zip",
+        "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\67ba01ef-0fb8-4ac0-b855-adc061b1f8ee\\68195774.bin",
+        "bytes": 355488
+      },
+      "formMember": {
+        "member": "위임장.hwp",
+        "sha256": "77f627608f2811f9cf35e94b91f32ed9d4e2b1378afb32fea94d3eae94e12293",
+        "text": " 捤獥      汤捯      \n 위  임  장 \n(배우자 이외의 자가 신청시 작성) \n    (수임인) \n 氠瑢      \n성    명 \n생년월일 \n주    소 \n연 락 처 \n    \n    위 수임인에게 (                 ) 국민임대주택 예비입주자 모집 \n    (2026년   월    일 공고) 신청/접수에 관한 일체의 사항을 위임합니다. \n2026년    월    일 \n    ※ 위임인 인감증명서 1통(본인발급분),신분증(위임인, 수임인), 인감도장 지참 \n    ※ 위임장은 반드시 신청자가 자필로 작성 \n    (위임인) \n 氠瑢      \n성    명 \n        (인감) \n생년월일 \n주    소 \n연 락 처 \n한국토지주택공사 강원지역본부 "
+      },
+      "mainPhysicalPage": 7,
+      "mainPrintedPage": 13,
+      "currentFormInMainPdf": null,
+      "confirmed": [
+        "본문에서 인감증명 방식과 본인서명 방식을 명시함",
+        "본문에서 신청자·대리인 신분증을 공통 요구함"
+      ],
+      "retained": "본문의 인감증명·본인서명 두 증명 방식 및 신청자·대리인 신분증은 확인되어 준비 안내를 제공합니다. 본문은 대리발급 인감증명서도 허용하지만 첨부 위임장은 본인발급분을 요구하고 배우자 이외 신청으로 표시합니다. 대리발급 인감증명서 사용, 배우자에 대한 위임장 적용, 본인서명 방식의 서식 작성 방법만 접수기관 확인 대상으로 남깁니다. 발급기관에서 대리발급이 가능하다는 일반 안내만으로 이 모집의 서식 상충을 해소하지 않습니다.",
+      "evidence": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754#page=7",
+          "label": "공고문 13쪽(PDF 7쪽) · 현장 대리신청 구비서류",
+          "checkedAt": "2026-11-10"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+          "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+          "checkedAt": "2026-11-10"
+        }
+      ],
+      "productCandidate": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/proxy/packages/67ba01ef-0fb8-4ac0-b855-adc061b1f8ee.json",
+      "safeUse": "확인된 증명서·신분증 준비 안내만 분리. 위임장 issue 유지. 기관 수리·법적 적격을 확정하지 않음."
+    },
+    {
+      "noticeId": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "title": "태백장성",
+      "issueId": "proxy_form_method",
+      "conclusion": "PARTIALLY_CLARIFIED_RETAIN_FORM_ISSUE",
+      "resolvedIssue": false,
+      "currentOfficialState": "공고중",
+      "currentPdf": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929",
+        "role": "MAIN_NOTICE_PDF",
+        "label": "260914태백장성국민임대주택예비입주자입주자격완화(1단계)상시모집공고문.pdf",
+        "sha256": "03b4529320b3ebf8563b3570c21333e24f5e7f779556e5511829135c2e100780",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\68561929.pdf",
+        "bytes": 894173
+      },
+      "currentForms": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68552636",
+        "role": "APPLICATION_FORMS",
+        "label": "상시모집서류양식.zip",
+        "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\68552636.bin",
+        "bytes": 355488
+      },
+      "formMember": {
+        "member": "위임장.hwp",
+        "sha256": "77f627608f2811f9cf35e94b91f32ed9d4e2b1378afb32fea94d3eae94e12293",
+        "text": " 捤獥      汤捯      \n 위  임  장 \n(배우자 이외의 자가 신청시 작성) \n    (수임인) \n 氠瑢      \n성    명 \n생년월일 \n주    소 \n연 락 처 \n    \n    위 수임인에게 (                 ) 국민임대주택 예비입주자 모집 \n    (2026년   월    일 공고) 신청/접수에 관한 일체의 사항을 위임합니다. \n2026년    월    일 \n    ※ 위임인 인감증명서 1통(본인발급분),신분증(위임인, 수임인), 인감도장 지참 \n    ※ 위임장은 반드시 신청자가 자필로 작성 \n    (위임인) \n 氠瑢      \n성    명 \n        (인감) \n생년월일 \n주    소 \n연 락 처 \n한국토지주택공사 강원지역본부 "
+      },
+      "mainPhysicalPage": 6,
+      "mainPrintedPage": 12,
+      "currentFormInMainPdf": {
+        "physicalPage": 17,
+        "printedPage": 33
+      },
+      "confirmed": [
+        "본문에서 인감증명 방식과 본인서명 방식을 명시함",
+        "본문에서 신청자·대리인 신분증을 공통 요구함"
+      ],
+      "retained": "본문의 인감증명·본인서명 두 증명 방식 및 신청자·대리인 신분증은 확인되어 준비 안내를 제공합니다. 본문은 대리발급 인감증명서도 허용하지만 첨부 위임장은 본인발급분을 요구하고 배우자 이외 신청으로 표시합니다. 대리발급 인감증명서 사용, 배우자에 대한 위임장 적용, 본인서명 방식의 서식 작성 방법만 접수기관 확인 대상으로 남깁니다. 발급기관에서 대리발급이 가능하다는 일반 안내만으로 이 모집의 서식 상충을 해소하지 않습니다. 같은 위임장 문구는 ZIP뿐 아니라 공고문 부록33쪽에도 있어 본문 안내와 함께 대조했습니다.",
+      "evidence": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929#page=6",
+          "label": "공고문 12쪽(PDF 6쪽) · 현장 대리신청 구비서류",
+          "checkedAt": "2026-11-10"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68552636",
+          "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+          "checkedAt": "2026-11-10"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929#page=17",
+          "label": "공고문 부록 33쪽(PDF 17쪽) · 위임장 본인발급분·배우자 이외 문구",
+          "checkedAt": "2026-11-10"
+        }
+      ],
+      "productCandidate": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/proxy/packages/c492f779-58e0-40b9-bac4-66830c698ff5.json",
+      "safeUse": "확인된 증명서·신분증 준비 안내만 분리. 위임장 issue 유지. 기관 수리·법적 적격을 확정하지 않음."
+    },
+    {
+      "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "동해유성·태백철암장미 정정",
+      "issueId": "dh-proxy-form-conflict",
+      "conclusion": "PARTIALLY_CLARIFIED_RETAIN_FORM_ISSUE",
+      "resolvedIssue": false,
+      "currentOfficialState": "공고중",
+      "currentPdf": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745",
+        "role": "MAIN_NOTICE_PDF",
+        "label": "동해유성,태백철암장미국민임대입주자격완화(2단계)상시모집(26.02.02공고).pdf",
+        "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499745.pdf",
+        "bytes": 904951
+      },
+      "currentForms": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775",
+        "role": "SUPPORTING_FORMS",
+        "label": "상시모집서류양식.zip",
+        "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499775.bin",
+        "bytes": 355488
+      },
+      "formMember": {
+        "member": "위임장.hwp",
+        "sha256": "77f627608f2811f9cf35e94b91f32ed9d4e2b1378afb32fea94d3eae94e12293",
+        "text": " 捤獥      汤捯      \n 위  임  장 \n(배우자 이외의 자가 신청시 작성) \n    (수임인) \n 氠瑢      \n성    명 \n생년월일 \n주    소 \n연 락 처 \n    \n    위 수임인에게 (                 ) 국민임대주택 예비입주자 모집 \n    (2026년   월    일 공고) 신청/접수에 관한 일체의 사항을 위임합니다. \n2026년    월    일 \n    ※ 위임인 인감증명서 1통(본인발급분),신분증(위임인, 수임인), 인감도장 지참 \n    ※ 위임장은 반드시 신청자가 자필로 작성 \n    (위임인) \n 氠瑢      \n성    명 \n        (인감) \n생년월일 \n주    소 \n연 락 처 \n한국토지주택공사 강원지역본부 "
+      },
+      "mainPhysicalPage": 6,
+      "mainPrintedPage": 12,
+      "currentFormInMainPdf": null,
+      "confirmed": [
+        "본문에서 인감증명 방식과 본인서명 방식을 명시함",
+        "본문에서 신청자·대리인 신분증을 공통 요구함"
+      ],
+      "retained": "본문은 인감증명 방식과 본인서명 방식을 모두 명시하고 배우자도 대리신청에 포함합니다. 두 방식 중 하나의 증명서와 공통 신분증 준비는 확인되어 안내합니다. 현재 ZIP 위임장은 배우자 이외 신청으로 표시하고 인감증명서 본인발급분·인감 날인란만 제공합니다. 배우자에 대한 서식 적용과 본인서명 방식의 위임장 작성 방법만 접수기관 확인 대상으로 남깁니다. 법령의 서명 대체효력만으로 이 모집의 서식 작성 방식을 임의 확정하지 않습니다.",
+      "evidence": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+          "label": "공고문 12쪽(PDF 6쪽) · 현장 대리신청 구비서류",
+          "checkedAt": "2026-11-10"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775",
+          "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+          "checkedAt": "2026-11-10"
+        }
+      ],
+      "productCandidate": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/proxy/packages/db9f1ec3-d6aa-4453-8436-7d9cc0855a89.json",
+      "safeUse": "확인된 증명서·신분증 준비 안내만 분리. 위임장 issue 유지. 기관 수리·법적 적격을 확정하지 않음."
+    },
+    {
+      "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전",
+      "issueId": "tg-proxy-form-conflict",
+      "conclusion": "PARTIALLY_CLARIFIED_RETAIN_FORM_ISSUE",
+      "resolvedIssue": false,
+      "currentOfficialState": "공고중",
+      "currentPdf": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+        "role": "MAIN_NOTICE_PDF",
+        "label": "태백궁전국민임대입주자격완화(1단계)예비입주자상시모집(26.02.02공고).pdf",
+        "sha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\65464835.pdf",
+        "bytes": 932869
+      },
+      "currentForms": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465001",
+        "role": "SUPPORTING_FORMS",
+        "label": "상시모집서류양식.zip",
+        "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+        "sameAsReviewed": true,
+        "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\65465001.bin",
+        "bytes": 355488
+      },
+      "formMember": {
+        "member": "위임장.hwp",
+        "sha256": "77f627608f2811f9cf35e94b91f32ed9d4e2b1378afb32fea94d3eae94e12293",
+        "text": " 捤獥      汤捯      \n 위  임  장 \n(배우자 이외의 자가 신청시 작성) \n    (수임인) \n 氠瑢      \n성    명 \n생년월일 \n주    소 \n연 락 처 \n    \n    위 수임인에게 (                 ) 국민임대주택 예비입주자 모집 \n    (2026년   월    일 공고) 신청/접수에 관한 일체의 사항을 위임합니다. \n2026년    월    일 \n    ※ 위임인 인감증명서 1통(본인발급분),신분증(위임인, 수임인), 인감도장 지참 \n    ※ 위임장은 반드시 신청자가 자필로 작성 \n    (위임인) \n 氠瑢      \n성    명 \n        (인감) \n생년월일 \n주    소 \n연 락 처 \n한국토지주택공사 강원지역본부 "
+      },
+      "mainPhysicalPage": 12,
+      "mainPrintedPage": 12,
+      "currentFormInMainPdf": null,
+      "confirmed": [
+        "본문에서 인감증명 방식과 본인서명 방식을 명시함",
+        "본문에서 신청자·대리인 신분증을 공통 요구함"
+      ],
+      "retained": "본문은 인감증명 방식과 본인서명 방식을 모두 명시하고 배우자도 대리신청에 포함합니다. 두 방식 중 하나의 증명서와 공통 신분증 준비는 확인되어 안내합니다. 현재 ZIP 위임장은 배우자 이외 신청으로 표시하고 인감증명서 본인발급분·인감 날인란만 제공합니다. 배우자에 대한 서식 적용과 본인서명 방식의 위임장 작성 방법만 접수기관 확인 대상으로 남깁니다. 법령의 서명 대체효력만으로 이 모집의 서식 작성 방식을 임의 확정하지 않습니다.",
+      "evidence": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=12",
+          "label": "공고문 12쪽(PDF 12쪽) · 현장 대리신청 구비서류",
+          "checkedAt": "2026-11-10"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465001",
+          "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+          "checkedAt": "2026-11-10"
+        }
+      ],
+      "productCandidate": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/proxy/packages/e15cb019-012f-4edb-9bcd-c760885c49bf.json",
+      "safeUse": "확인된 증명서·신분증 준비 안내만 분리. 위임장 issue 유지. 기관 수리·법적 적격을 확정하지 않음."
+    }
+  ]
+}

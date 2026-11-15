@@ -146,7 +146,8 @@
     flex-wrap: wrap;
     gap: 8px;
 }
-.actions > button {
+.actions > button,
+.actions > a {
     flex: 1 1 130px;
     font-size: 0.875rem;
 }

@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 class HealthControllerTest {
     private final JdbcTemplate jdbcTemplate = Mockito.mock(JdbcTemplate.class);
-    private final HealthController controller = new HealthController(jdbcTemplate);
+    private final HealthController controller = new HealthController(new DatabaseHealthRepository(jdbcTemplate));
 
     @Test
     void databaseFailureIsReportedWithoutInternalDetails() {

@@ -1,4 +1,5 @@
 @import '@seed-design/css/all.css';
+@import './theme.css';
 :root {
     font-family:
         'Pretendard',
@@ -68,7 +69,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-    outline: 3px solid #805b00;
+    outline: 3px solid var(--theme-warning, #805b00);
     outline-offset: 4px;
 }
 h1,
@@ -94,7 +95,7 @@ h3 {
 small {
     font-size: 0.75rem;
     display: block;
-    color: #626262;
+    color: var(--theme-muted, #626262);
 }
 svg {
     display: block;
@@ -118,9 +119,9 @@ select,
 textarea {
     display: block;
     width: 100%;
-    border: 1px solid #d8d1cc;
+    border: 1px solid var(--theme-line, #d8d1cc);
     border-radius: 10px;
-    background: #fff;
+    background: var(--surface);
     padding: 12px;
     color: var(--ink);
     min-height: 46px;
@@ -155,10 +156,10 @@ progress {
     border: 0;
     border-radius: 99px;
     overflow: hidden;
-    background: #e4e5e8;
+    background: var(--theme-track, #e4e5e8);
 }
 progress::-webkit-progress-bar {
-    background: #e4e5e8;
+    background: var(--theme-track, #e4e5e8);
     border-radius: 99px;
 }
 progress::-webkit-progress-value {
@@ -168,4 +169,43 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
     background: var(--brand);
     border-radius: 99px;
+}
+
+/* Shared disclosure motion: native details retains its content through closing. */
+@supports (interpolate-size: allow-keywords) {
+    details {
+        interpolate-size: allow-keywords;
+    }
+    details::details-content {
+        block-size: 0;
+        opacity: 0;
+        overflow: clip;
+        transition:
+            block-size var(--motion-duration, 750ms) ease,
+            opacity var(--motion-duration, 750ms) ease,
+            content-visibility var(--motion-duration, 750ms) allow-discrete;
+    }
+    details[open]::details-content {
+        block-size: auto;
+        opacity: 1;
+    }
+    section[id^='document-'] {
+        interpolate-size: allow-keywords;
+        height: auto;
+        transition:
+            height var(--motion-duration, 750ms) ease,
+            opacity var(--motion-duration, 750ms) ease,
+            display var(--motion-duration, 750ms) allow-discrete;
+    }
+    section[id^='document-'][hidden] {
+        height: 0;
+        opacity: 0;
+        overflow: clip;
+    }
+    @starting-style {
+        section[id^='document-']:not([hidden]) {
+            height: 0;
+            opacity: 0;
+        }
+    }
 }

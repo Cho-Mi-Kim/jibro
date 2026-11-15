@@ -1,18 +1,18 @@
 # 프론트엔드 구현 계약 v1
 
-초기 작성일: 2026-10-30. 최종 대조일: 2026-11-10. 사용자가 미확정 기능 계약의 판단을 위임했다. PR #24 작업 브랜치의 구현과 후속 보완을 기준으로 하며 아직 develop/main에 병합된 상태는 아니다. 날짜가 명시된 과거 비교 결정은 현행 구현과 구분한다. 구현 결정과 외부 연결 제약은 [백엔드 계약](backend-contracts.md)을 함께 확인한다.
+초기 작성일: 2026-10-30. 최종 대조일: 2026-11-15. 사용자가 미확정 기능 계약의 판단을 위임했다. PR #24는 develop/main에 반영됐으며, 이 문서는 PR #26의 추가 구현과 develop 통합 결과를 기준으로 한다. PR #26은 develop `8428e78`에 병합됐다. main/Pages 및 실제 서버 운영 배포는 별도다. 날짜가 명시된 과거 비교 결정은 현행 구현과 구분한다. 구현 결정과 외부 연결 제약은 [백엔드 계약](backend-contracts.md)을 함께 확인한다. 코드 대조 기준은 `69fd749`이며, 최신 병합·검증 상태와 다음 작업은 [개발 인수인계](../developer-handoff.md)를 확인한다.
 
 ## 연결·인증
 
 기본은 실제 /api/v1 서버다. 개발용 `npm run dev:demo` 또는 개발 환경의 `VITE_API_MODE=demo`, 별도 정적 공개 시연용 `pages-demo` 빌드에서만 시연 어댑터를 사용한다. 일반 운영 빌드는 이 어댑터를 활성화하지 않는다. 시연 데이터는 가상 공고·메모리 저장이며 새로고침 때 초기화된다. 실제 개인정보를 입력하지 않는다. 서버의 비회원 체험 세션은 이 어댑터와 별개이며 아래 로컬 비회원 체험 계약을 따른다.
 
-Access Token은 메모리, Refresh Token은 서버 HttpOnly 쿠키. GET /auth/csrf → {token}, 변경 요청 X-CSRF-TOKEN. POST /auth/login → {accessToken,user}, POST /auth/refresh → {accessToken}, POST /auth/logout → 204. GET /users/me → User. 401은 재발급 1회만 재시도하며 동시 재발급을 공유한다. 회원가입 POST /auth/signup {name,email,password} → 빈 201 응답 후 로그인한다. 소셜 /oauth2/authorization/google|kakao → /auth/callback으로 복귀하고 me 재조회로 복원한다. 토큰을 URL로 전달하지 않는다. 회원가입 이름 2~30자, 비밀번호 10자 이상·UTF-8 72바이트 이하. 소셜 로그인은 구현되어 있고 과거 로컬 실제 연동 확인 기록이 있지만 현재 브랜치·운영 환경에서의 재검증과 구분한다. 이메일 확인·재설정·탈퇴 및 프로필 변경은 [회원 기능 계약](../contracts/member-features.md)에 따라 구현했다. 기존 계정과 소셜 계정 연결·해제는 미구현이다.
+Access Token은 메모리, Refresh Token은 서버 HttpOnly 쿠키. GET /auth/csrf → {token}, 변경 요청 X-CSRF-TOKEN. POST /auth/login → {accessToken,user}, POST /auth/refresh → {accessToken}, POST /auth/logout → 204. GET /users/me → User. 401은 재발급 1회만 재시도하며 동시 재발급을 공유한다. 회원가입 POST /auth/signup {name,email,password} → 빈 201 응답 후 로그인한다. 소셜 /oauth2/authorization/google|kakao → /auth/callback으로 복귀하고 me 재조회로 복원한다. 토큰을 URL로 전달하지 않는다. 회원가입 이름 2~30자, 비밀번호 10자 이상·UTF-8 72바이트 이하. 소셜 로그인은 구현되어 있고 과거 로컬 실제 연동 확인 기록이 있지만 현재 브랜치·운영 환경에서의 재검증과 구분한다. 이메일 확인·재설정·탈퇴 및 프로필 변경은 [회원 기능 계약](../contracts/member-features.md)에 따라 구현했다. 기존 계정과 소셜 계정의 명시적 연결·해제는 [계정 연결 계약](../contracts/account-connections.md)에 따라 구현했다. 동일 이메일을 자동 연결하지 않으며 외부 제공자 왕복 검증은 별도다.
 
 계정 확인 링크의 일회용 값은 `/account/confirm#verify=…`, `#reset=…`, `#delete=…`의 fragment로 전달한다. 이는 접근 토큰 전달이 아니며 사용자가 확인을 제출해야 API를 호출한다. 성공 후 fragment를 제거한다. 메일 발송 불가 환경과 Pages 시연에서는 실제 발송이 완료된 것처럼 표시하지 않는다. 비밀번호 변경·재설정·탈퇴 후 재인증하며, 일반 API의 최종 401에 세션 만료 이벤트를 받아 개인 캐시를 비운다.
 
 ## 공고
 
-GET /notices?keyword=&region=&type=&status=&sort=deadline&page=0&size=20. 복수값은 같은 키 반복, 필터 간 AND/같은 필터 OR. sort=deadline은 마감일 오름차순·동률 id 오름차순, newest는 publishedDate 내림차순·동률 id 오름차순. 날짜 미확인은 뒤로. 검색 대상 제목·기관·지역. 응답 {items,page,size,totalElements,totalPages}. GET /notices/filters → {regions,types}. GET /notices/:id → Notice. 필터 변경 시 page=0. 잘못된 page/size는 프론트에서 정상 범위로 보정하고 서버도 검증한다.
+GET /notices?keyword=&region=&type=&status=&sort=active&page=0&size=20. 복수값은 같은 키 반복, 필터 간 AND/같은 필터 OR. 2026-11-08 사용자 요청에 따라 기본 sort=active는 접수 중→접수 예정→기간 미확인→접수 종료·조기 마감·취소 순이며, 같은 그룹에서는 마감일 오름차순·게시일 내림차순·id 오름차순이다. 공식 상태와 확인된 접수 시각을 날짜 필터와 같은 기준으로 판정한다. 날짜가 없다고 접수 중으로 추정하지 않는다. 명시적 sort=deadline은 기존 마감일 오름차순·동률 id 오름차순, newest는 publishedDate 내림차순·동률 id 오름차순을 유지한다. 해당 날짜 미확인은 각 날짜 정렬의 뒤로 둔다. 서버에서 정렬 후 페이지를 나누며 현재 페이지를 브라우저에서 재정렬하지 않는다. 검색 대상 제목·기관·지역. 응답 {items,page,size,totalElements,totalPages}. GET /notices/filters → {regions,types}. GET /notices/:id → Notice. 필터 변경 시 page=0. 잘못된 page/size는 프론트에서 정상 범위로 보정하고 서버도 검증한다.
 
 기본 정보 공개와 guideState=AVAILABLE|REVIEWING|UNSUPPORTED|CHANGE_REVIEW는 독립적이다. canStart는 서버가 결정한다. 미검수 질문·서류는 응답에서 제외한다. 공식 원문은 HTTPS만 연결하고 주소가 없으면 확인 필요를 표시한다.
 
@@ -58,7 +58,7 @@ GET /preparations → Preparation[], GET /preparations/:id → Preparation. POST
 
 - `PreparationTabLayout`은 내 준비 목록과 개요·조건·서류·일정 화면의 공통 상단을 유지한다. `PreparationHeader`의 준비 건 선택기와 `PreparationNav`는 스크롤 영역 밖에 두고, 아래의 현재 탭만 스크롤·교체한다. 목록/선택은 `useActivePreparation`에 위임하며 개별 건 URL에서는 URL의 ID를 우선한다. 준비 건 변경 시 현재 탭을 유지하고 미저장 변경을 확인한다. 진행률 100%는 **준비 기록 완료**다.
 - `PreparationOverview`는 요약, 다음 행동, 여정, 공식 신청·신청 기록 버튼과 계속하기를 조합한다. `PreparationGuidance`는 새 안내 갱신·검수 경고를 담당한다. 홈의 `NextAction`은 자체 CSS 격자로 배치하고, 개요의 다음 행동은 `Overview.module.css`가 배치한다. 두 화면 모두 서버가 반환한 문구·이유·경로를 표시하며 다음 행동 정책을 계산하지 않는다.
-- `PreparationOverviewSummary`는 `PreparationIdentity`와 `PreparationDates`로 공고 제목·안내 버전·마감·날짜를 표시하고 공통 `House`에 서버 `progress/houseStage`를 전달한다. 준비도 설명은 홈·개요 모두 같은 접기 동작을 사용한다. `HousingUI.PreparationSummary`는 호출자가 전달한 공고 식별 영역을 조합하며 이전 화면별 fallback 분기를 두지 않는다.
+- `PreparationOverviewSummary`는 `PreparationIdentity`와 `PreparationDates`로 공고 제목·안내 버전·마감·날짜를 표시하고 `PreparationProgress.House`에 서버 `progress/houseStage`를 전달한다. 준비도 설명은 홈·개요 모두 같은 접기 동작을 사용한다. `features/preparation/PreparationUI.PreparationSummary`는 호출자가 전달한 공고 식별 영역을 조합하며 이전 화면별 fallback 분기를 두지 않는다.
 - `/preparations/:id/conditions`는 내 준비의 조건 탭, `/preparations/:id/conditions/result`는 독립적인 내 조건 확인 결과 화면, `/preparations/:id/conditions/edit`는 질문 편집 흐름이다. `preparationTabRoutes`는 URL로 탭을 판단하며 `location.state`로 같은 URL의 화면 종류를 바꾸지 않는다. 복귀 위치 전달은 별도 탐색 상태로 유지한다.
 - `Overview.module.css`, `PreparationHeader.module.css`, `PreparationOverviewSummary.module.css`는 내 준비 개요에만 적용한다. 카드 제목 18px·보조/날짜 14px·버튼 16px·페이지 제목 24px을 유지한다. 이미지의 가상 날짜·65%·김 이름은 실제 값으로 대체하며 글자를 줄여 한 화면에 억지로 맞추지 않는다.
 - 공식 사이트 링크는 읽기 이동이다. 신청 여부는 개요의 `ApplicationRecordDialog`에서 확인 후 기록한다. 여정의 공식 신청 단계는 `/preparations/:id?application=record`로 같은 팝업을 열고, 닫으면 해당 쿼리를 replace로 지운다. 예전 일정 화면의 `#application` 경로는 사용하지 않는다. 팝업을 여는 것만으로 기록하지 않으며, AVAILABLE인 준비 스냅샷의 신청 기록 대상만 수정한다. 조건·서류·일정·계속하기에는 선택한 준비 ID/서버 다음 행동 경로를 전달한다.
@@ -69,7 +69,17 @@ GET /guides → Guide[]. GET /admin/reviews → Review[]. PATCH /admin/reviews/:
 
 ## UI와 구현 경계
 
+### 모듈·스타일 소유권 (현행: 2026-11-07)
+
+- 의존 방향은 `app → pages → features → shared`다. 인증 컨텍스트·훅은 `features/auth/useSession.ts`, 세션 조회·만료 캐시 정리는 `features/auth/SessionProvider.tsx`가 소유한다. App과 각 화면은 이 기능을 사용하며 feature에서 app의 세션 모듈을 역참조하지 않는다. 삭제한 `app/useSession.ts`, `app/session.tsx`를 호환용 재수출 경로로 남기지 않는다.
+- 기존 `shared/ui/HousingUI.tsx`는 제거했다. 공고 날짜·마감·검수 배지는 `features/housing/NoticeFacts.tsx`, 출처는 `EvidenceLink.tsx`, 준비 여정·지표·문맥·요약은 `features/preparation/PreparationUI.tsx`, 준비도 표시는 `PreparationProgress.tsx`가 담당한다. `shared/ui`에는 `Disc`, `Status`, `OfficialLink`, 기본 버튼·접기 등 기능 데이터를 조회하지 않는 공통 표시만 둔다.
+- `shared/styles/Product.module.css`는 제거했다. 공통 카드·버튼·텍스트·배치 규칙은 `Primitives.module.css`, 기능 배치는 `Auth`, `NoticeFacts`, `PreparationUI`, `PreparationWorkspace`, `Conditions`, `Documents`, `Schedule`, `Home`, `Guide`, `MyPage`의 기능별 CSS와 `app/Shell.module.css`가 소유한다. `bindClasses`는 공통 클래스와 호출자가 명시한 CSS 모듈만 합치며 모든 기능 스타일을 공통 모듈에 다시 등록하지 않는다.
+- 다른 CSS 모듈에서 기존 클래스 식별자가 필요하면 `*ClassNames.module.css`의 빈 선택자 계약을 `@value`로 참조한다. 이 파일에는 스타일 선언을 넣지 않는다. 실제 선언이 있는 모듈을 교차 참조해 CSS가 뒤늦게 재적용되는 것을 피한다. `main.tsx`의 첫 import인 `app/presentationStyles.ts`가 공통·기능 기초 스타일을 컴포넌트별 세부 조정보다 먼저 불러오므로 이 순서를 유지한다.
+- `npm run check:boundaries`는 TypeScript 모듈 해석을 사용해 계층 역참조·실행 모듈 순환·strict 설정을 검사한다. 타입 전용 의존과 실행 의존을 구분하며 문자열 동적 import·재수출도 관찰한다. 이 검사와 CSS의 실제 화면 검증은 별개이고 실행 결과는 작업 기록에 남긴다.
+
 React Router 경로는 화면설계서 기준. 서버 상태는 TanStack Query. 쿼리 키에 사용자 ID·공고 ID·검색 URL을 포함한다. 로그아웃 성공 후 개인 캐시 제거. 실패 시 입력을 유지하고 재시도. 404 경로와 인증 필요·권한 부족·빈 결과를 표시한다. 관심 공고, 비교, 가이드 검색, 알림 설정·읽음, 캘린더 내보내기, 보관·복원·메모 연결, 프로필·계정 관리는 [회원 기능 계약](../contracts/member-features.md)에 따라 실제 API 또는 명시적 시연 어댑터를 사용한다. 이전의 ‘준비 중’ 안내만 있는 단계와 구분한다. 외부 메일·푸시 제공 여부는 서버 설정과 브라우저 지원·권한에 따른다.
+
+2026-11-07 외부 연결 보완: 공고 접수 상태·시각은 서버의 `applicationTiming`을 사용하고, 전환 시각에 재조회한다. 시각이 null이면 제목에서 다시 추정하지 않는다. 목록은 빈 OPEN 결과에도 새 접수를 반영하도록 최대 60초 간격으로 갱신한다. 상세 계약은 [접수 시각](../contracts/application-timing.md)을 따른다. 알림 채널은 API·브라우저 구독·화면 상태 훅으로 분리하고 비동기 구독 중 계정 변경 시 이전 작업을 중단한다. 관리자 근거 점검은 [근거 링크 점검](../contracts/evidence-link-checks.md)의 결과를 표시하며 사람 검수를 자동 완료하지 않는다.
 
 SEED 공식 React 수동 설치와 ActionButton 공개 컴포넌트를 사용하며 브랜드 CSS는 제품 레이어에서 적용한다. 기타 UI는 semantic HTML과 제품 전용 CSS를 사용한다. 공식 스니펫 설치를 수행했다고 주장하지 않는다.
 
@@ -86,13 +96,13 @@ SEED 공식 React 수동 설치와 ActionButton 공개 컴포넌트를 사용하
 
 ## 로컬 비회원 체험
 
-- 홈과 로그인·회원가입 화면은 서버의 `/api/v1/meta`에서 체험 제공 여부를 확인한다. `local-sample` 프로필에서만 체험 API가 활성화된다. 사용자가 버튼을 누르면 CSRF를 포함한 `POST /api/v1/auth/trial` 요청으로 TRIAL 권한의 임시 사용자 세션을 시작한다. 예시 공고 보기와 실제 공고에서 시작한 복귀 경로가 모두 동작한다.
+- 홈과 로그인·회원가입 화면은 서버의 `/api/v1/meta`에서 체험 제공 여부를 확인한다. `local-sample` 프로필에서만 체험 API가 활성화된다. 사용자가 버튼을 누르면 CSRF를 포함한 `POST /api/v1/auth/trial` 요청으로 TRIAL 권한의 임시 사용자 세션을 시작한다. 체험 추천은 검수된 실제 공고를 사용하며, 실제 공고에서 시작한 복귀 경로를 유지한다. 가상 공고는 별도 정적 시연 빌드에서만 제공한다.
 - 체험 기록은 소유자별 서버 데이터다. 같은 브라우저에서 새로고침해도 유지되며 마이에서 체험을 종료하면 삭제된다. 만료는 생성 후 24시간이며 만료 직후 토큰 사용을 차단하고 정리 작업이 남은 기록을 삭제한다.
 - 로그인한 일반 계정의 세션을 체험으로 교체하지 않는다. 체험은 관리자 작업, 외부 알림 채널, 이메일 인증과 계정 자격 증명 변경을 사용할 수 없다. 실제 계정 로그인과 정적 시연 빌드는 기존 방식을 사용한다.
 
 ## 준비도 벽돌 일러스트 (2026-11-04)
 
-- `HousingUI.PreparationSummary → ui.House → BrickHouse`가 동일한 서버 `progress`·`houseStage`를 전달한다. 프론트엔드는 업무 가중치나 자격 판정을 계산하지 않는다.
+- 현재 경로는 `features/preparation/PreparationUI.PreparationSummary → PreparationProgress.House → shared/ui/BrickHouse`이며 동일한 서버 `progress`·`houseStage`를 전달한다. 프론트엔드는 업무 가중치나 자격 판정을 계산하지 않는다.
 - `brickHouseLayout.ts`는 27개 벽돌의 좌표·색조만 정의한다. `BrickHouse`는 서버 진행률에 비례한 개수(내림)를 아래부터 표시한다. 0%는 윤곽, 100%는 전체 벽돌이며 기록을 되돌려 진행률이 줄면 표시 개수도 줄어든다. 지붕 강조는 서버 집 단계 3 이상이다. 시간 경과·벌점으로 집이 줄지는 않는다.
 - 참고 이미지의 목재 지붕·벽돌·잔디·여분 자재를 벡터로 재현했다. PNG 원본을 직접 변형한 것이 아니다. `BrickHouse.module.css`는 짧은 투명도 전환과 동작 줄이기 설정을 담당하며 SVG 식별자는 인스턴스마다 독립적이다.
 - 숫자가 아닌 준비도는 일러스트 대체 설명에서 확인 중으로 표시한다. 공고 제목과 준비도 일러스트의 책임은 분리하며 표시 영역의 제목을 일러스트 내부에서 가공하지 않는다.
@@ -109,3 +119,13 @@ SEED 공식 React 수동 설치와 ActionButton 공개 컴포넌트를 사용하
 - 모바일 공고 펼침 중 검색 영역: `useNoticeToolbarReveal`은 현재 펼침의 동일성을 기준으로 검색 영역을 접고, 위 방향 휠·터치 스크롤 및 PageUp/Home/위 화살표·역방향 키보드 탐색에서 복원한다. 카드의 자동 위치 이동은 복원 신호로 사용하지 않는다. 다른 카드 선택은 다시 접고, 전체 닫기·검색 조건 변경은 복원한다. CSS는 1024px 미만에만 접기를 적용하며, 접힌 영역은 높이·빈 여백·탭 순서에 남지 않는다. 카드 스크롤 훅은 접힌 영역 높이 0을 기존 측정 경로에서 처리한다.
 - `NoticeList.module.css`의 controls → controlsClip → controlsContent가 높이/투명도 전환과 내용 배치를 분리한다. desktop에서는 모두 display:contents로 기존 격자 배치를 유지한다. `useNoticeCardScroll`은 접힐 높이를 미리 예약 공간에 반영해 애니메이션 중 브라우저가 스크롤 위치를 강제로 줄이는 현상을 방지한다. reduced-motion에서는 전환을 생략한다.
 - 스크롤 방향 후속: 펼친 공고가 있는 동안 `useNoticeToolbarReveal`은 위 방향에서 복원, 아래 방향에서 다시 접는다. touch 기준점은 방향 반영 시 갱신해 같은 제스처의 반전도 처리한다. 입력 필드·열린 dialog/details 내부 조작과 컨트롤의 Space 활성화는 제외한다.
+
+## 가이드 대량 자료 로딩 (2026-11-11)
+
+GuidePage → features/guide/useGuides → housing/api.guides로 페이지20개씩 조회한다. 화면 내 전체 자료 검색을 제거하고 서버에 category·keyword·page를 보낸다. 현재 페이지만 렌더링하며 다음 페이지는 기존 목록을 교체한다. 검색 입력은250ms 대기, 검색/주제 변경은 첫 페이지 복귀, 선택한 주제 재선택 해제는 보존한다. 전체 자료 개수를 읽기 위해 무제한 응답을 요청하지 않는다. 데모 요청도 동일한 `{items,page,hasMore}` 계약을 따른다.
+
+## 목록과 선택한 상세 분리 (2026-11-11)
+
+공고 카드/미리보기는 NoticeListItem을 사용하며 펼칠 때 상세 API를 호출하지 않는다. 실제 상세 이동에서 useNotice가 전체 자료를 받는다. 필터 후보는 60초, 목록과 공고 상세는 15초 동안 재사용하고 수동 새로고침·접수 경계 갱신은 유지한다.
+
+usePreparationList는 사용자별 작은 목록을 홈·내 준비·마이·공고 상세·보관 선택기에 공유한다. useActivePreparation은 선택할 목록 항목만 결정한다. 홈과 내 준비 개요는 usePreparationRecord로 해당 ID 하나를 읽으며, 명시적 경로의 세부 탭도 같은 상세 쿼리를 공유한다. 세부 탭 이동 시 무관한 준비 건을 미리 읽지 않는다. 목록과 상세는 15초 동안 재사용하며 저장 응답은 상세 캐시에 즉시 반영하고 목록을 무효화한다. 시작 명령의 최신 목록 확인, 저장 실패 시 선택 보존, 보관·삭제·복원 무효화, 로그아웃 시 사용자 캐시 제거는 그대로 유지한다. 데모도 목록 응답에서 상세 데이터를 제외해 UI가 전체 목록에 의존하는 회귀를 드러낸다.

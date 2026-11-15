@@ -84,6 +84,48 @@ describe('공고 상세 일정 표시', () => {
         for (const field of [result.announcement, result.documents]) {
             expect(field).toEqual({ date: '', time: '' });
         }
+        expect(result.period).toEqual({
+            values: ['확인 필요'],
+            label: '접수 기간 확인 필요',
+            note: '',
+        });
+    });
+
+    it.each([
+        {
+            startDate: '2026-01-02',
+            endDate: null,
+            values: ['1/2 시작'],
+            label: '2026.01.02 시작, 마감 미정',
+            note: '마감 미정',
+        },
+        {
+            startDate: null,
+            endDate: '2026-12-31',
+            values: ['12/31 마감'],
+            label: '2026.12.31 마감, 시작 미정',
+            note: '시작 미정',
+        },
+    ])(
+        '접수기간 한쪽만 확인되면 날짜와 미확정 경계를 구분한다: $note',
+        (row) => {
+            const result = noticeDetailDates(
+                notice({ startDate: row.startDate, endDate: row.endDate }),
+            );
+            expect(result.period).toEqual({
+                values: row.values,
+                label: row.label,
+                note: row.note,
+            });
+        },
+    );
+
+    it('양쪽 날짜가 확인된 접수기간의 기존 월/일 표시를 유지한다', () => {
+        expect(noticeDetailDates(notice()).period).toEqual({
+            values: ['1/2', '–', '12/31'],
+            label: '2026.01.02부터 2026.12.31까지',
+            note: '',
+        });
     });
 
     it('검수된 발표일과 서류 마감일이 있으면 실제 날짜와 시각을 유지한다', () => {

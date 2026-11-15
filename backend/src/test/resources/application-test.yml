@@ -1,10 +1,21 @@
 spring:
   datasource:
     url: ${TEST_DB_URL:jdbc:postgresql://localhost:15432/jibro_test}
+    hikari:
+      maximum-pool-size: 6
+      minimum-idle: 0
   flyway:
     locations: classpath:db/migration,classpath:db/test-migration
 
 app:
+  collection:
+    supply-regions-enabled: false
+    official-files-enabled: false
+    extraction-enabled: false
+    automatic-review-enabled: false
+    automatic-followup-enabled: false
+    automatic-correction-enabled: false
+    gemini-enabled: false
   auth:
     jwt-secret: test-only-jwt-signing-key-at-least-32-bytes
     secure-cookie: false

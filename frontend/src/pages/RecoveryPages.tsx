@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { memberApi } from '../features/member/memberApi';
-import { useSession } from '../app/useSession';
+import { useSession } from '../features/auth/useSession';
 import { clearToken, demoMode } from '../shared/api/transport';
 import { Button, Heading } from '../shared/ui/ui';
 import { mailHint } from '../features/member/mailHint';

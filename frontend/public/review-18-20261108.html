@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="color-scheme" content="light" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>준비 안내 검수 결과 · 집으로</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: #faf9f6;
+                color: #262626;
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    'Segoe UI',
+                    'Malgun Gothic',
+                    sans-serif;
+                font-size: 15px;
+                line-height: 1.65;
+            }
+            main {
+                max-width: 1240px;
+                margin: auto;
+                padding: 40px 24px 64px;
+            }
+            .brand {
+                font-weight: 750;
+                font-size: 16px;
+                color: #b6492e;
+                letter-spacing: -0.4px;
+            }
+            .eyebrow {
+                font-size: 12px;
+                letter-spacing: 0.12em;
+                color: #73706b;
+                margin: 28px 0 4px;
+            }
+            h1 {
+                font-size: 32px;
+                line-height: 1.3;
+                letter-spacing: -1px;
+                margin: 0 0 12px;
+            }
+            header > p {
+                margin: 5px 0;
+                color: #605c56;
+            }
+            .timestamp {
+                font-size: 13px;
+            }
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+                margin: 26px 0 18px;
+            }
+            .stat {
+                padding: 16px 20px;
+                background: #fff;
+                border: 1px solid #e5e0da;
+                border-radius: 14px;
+            }
+            .stat span {
+                display: block;
+                color: #625e58;
+                font-size: 13px;
+            }
+            .stat strong {
+                font-size: 28px;
+                line-height: 1.5;
+            }
+            .stat small {
+                font-size: 15px;
+                font-weight: 500;
+                margin-left: 4px;
+            }
+            .note {
+                margin: 0 0 26px;
+                padding: 14px 18px;
+                border-left: 3px solid #ba553d;
+                background: #f4eee8;
+                border-radius: 0 8px 8px 0;
+                font-size: 14px;
+            }
+            .report-frame {
+                border: 1px solid #e2ddd6;
+                border-radius: 16px;
+                overflow: hidden;
+                background: #fff;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+            col:nth-child(1) {
+                width: 29%;
+            }
+            col:nth-child(2) {
+                width: 12%;
+            }
+            col:nth-child(3) {
+                width: 18%;
+            }
+            col:nth-child(4) {
+                width: 41%;
+            }
+            thead {
+                background: #f2f0eb;
+            }
+            th {
+                text-align: left;
+                font-size: 13px;
+                color: #605b54;
+                font-weight: 600;
+                padding: 15px 18px;
+            }
+            td {
+                padding: 22px 18px;
+                vertical-align: top;
+                border-top: 1px solid #ebe6df;
+            }
+            td p {
+                margin: 0 0 8px;
+            }
+            h2 {
+                font-size: 16px;
+                line-height: 1.55;
+                font-weight: 700;
+                margin: 0 0 10px;
+                word-break: keep-all;
+                overflow-wrap: anywhere;
+            }
+            .ordinal {
+                display: block;
+                font-size: 11px;
+                letter-spacing: 0.1em;
+                color: #918b81;
+                margin-bottom: 6px;
+            }
+            a {
+                color: #a43f28;
+                text-decoration-thickness: 1px;
+                text-underline-offset: 3px;
+                overflow-wrap: anywhere;
+            }
+            a:hover {
+                color: #742711;
+            }
+            .main-link {
+                font-size: 13px;
+            }
+            .badge {
+                display: inline-block;
+                padding: 4px 9px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+            .success {
+                color: #12624f;
+                background: #e8f3ef;
+            }
+            .pending {
+                color: #875b16;
+                background: #fcf2da;
+            }
+            .neutral {
+                color: #62656a;
+                background: #f0f1f2;
+            }
+            .source-heading {
+                font-size: 14px;
+                display: block;
+                line-height: 1.5;
+                margin-bottom: 5px;
+            }
+            .muted {
+                color: #77716a;
+                font-size: 12px;
+            }
+            .reason-cell {
+                font-size: 14px;
+                word-break: keep-all;
+                overflow-wrap: anywhere;
+            }
+            .small-label {
+                font-size: 12px;
+                font-weight: 700;
+                color: #875b16;
+            }
+            .unread {
+                margin: 12px 0;
+            }
+            ul {
+                margin: 6px 0 0;
+                padding-left: 18px;
+            }
+            li + li {
+                margin-top: 5px;
+            }
+            .unread li {
+                font-size: 12px;
+                word-break: break-word;
+            }
+            details {
+                margin-top: 13px;
+                border-top: 1px solid #ece8e2;
+                padding-top: 10px;
+            }
+            summary {
+                cursor: pointer;
+                font-size: 13px;
+                color: #68625a;
+                min-height: 32px;
+                line-height: 32px;
+            }
+            summary:hover {
+                color: #a43f28;
+            }
+            summary:focus-visible,
+            a:focus-visible {
+                outline: 2px solid #a43f28;
+                outline-offset: 4px;
+                border-radius: 3px;
+            }
+            .source-list {
+                padding-left: 0;
+                list-style: none;
+            }
+            .source-list li {
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                word-break: break-word;
+                font-size: 12px;
+            }
+            .source-state {
+                color: #8a6228;
+                flex: 0 0 74px;
+                font-size: 11px;
+            }
+            .is-read {
+                color: #34765f;
+            }
+            .technical {
+                border: 0;
+                padding-top: 0;
+                margin-top: 3px;
+            }
+            .technical summary {
+                font-size: 12px;
+                color: #807b74;
+            }
+            .technical dl {
+                font-size: 12px;
+                margin: 8px 0;
+                padding: 12px;
+                background: #f7f6f3;
+                border-radius: 8px;
+                word-break: break-word;
+            }
+            .technical dt {
+                font-weight: 700;
+                margin-top: 8px;
+            }
+            .technical dt:first-child {
+                margin-top: 0;
+            }
+            .technical dd {
+                margin: 3px 0 0;
+                color: #706a63;
+            }
+            footer {
+                margin-top: 20px;
+                font-size: 12px;
+                color: #77716a;
+            }
+            footer p {
+                margin: 5px 0;
+            }
+            @media (max-width: 850px) {
+                main {
+                    padding: 26px 16px 42px;
+                }
+                .report-frame {
+                    border: 0;
+                    border-radius: 0;
+                    background: transparent;
+                }
+                thead,
+                colgroup {
+                    display: none;
+                }
+                table,
+                tbody,
+                tr,
+                td {
+                    display: block;
+                }
+                tr {
+                    background: #fff;
+                    border: 1px solid #e2ddd6;
+                    border-radius: 14px;
+                    padding: 18px;
+                    margin-bottom: 14px;
+                }
+                td {
+                    border: 0;
+                    padding: 0;
+                }
+                td[data-label] {
+                    margin-top: 14px;
+                }
+                td[data-label]::before {
+                    content: attr(data-label);
+                    display: block;
+                    font-size: 11px;
+                    color: #847d73;
+                    margin-bottom: 6px;
+                }
+                td:nth-child(2),
+                td:nth-child(3) {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 48%;
+                }
+                td:nth-child(3) {
+                    padding-left: 10px;
+                }
+                .notice-cell h2 {
+                    font-size: 17px;
+                }
+                .reason-cell {
+                    border-top: 1px solid #ede8e0;
+                    padding-top: 14px;
+                }
+                .stats {
+                    gap: 8px;
+                }
+                .stat {
+                    padding: 12px 14px;
+                }
+                .stat strong {
+                    font-size: 25px;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+                .source-list li {
+                    display: block;
+                }
+                .source-state {
+                    display: inline-block;
+                    min-width: 76px;
+                }
+            }
+            @media print {
+                body {
+                    background: white;
+                }
+                main {
+                    max-width: none;
+                    padding: 0;
+                }
+                .stats {
+                    margin: 16px 0;
+                }
+                tr {
+                    break-inside: avoid;
+                }
+                details {
+                    display: none;
+                }
+                a {
+                    color: inherit;
+                }
+                footer {
+                    font-size: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <header>
+                <div class="brand">집으로</div>
+                <p class="eyebrow">REVIEW REPORT</p>
+                <h1>준비 안내 검수 결과</h1>
+                <p>
+                    우선 확인을 요청한 기존 보류 공고 <strong>18건</strong>의
+                    실제 검수 결과입니다.
+                </p>
+                <p class="timestamp">
+                    확인일 ·
+                    <time datetime="2026-11-07T15:13:50.124586100Z"
+                        >2026. 11. 08. 00:13</time
+                    >
+                    (한국 시간)
+                </p>
+            </header>
+            <section class="stats" aria-label="준비 안내 상태별 공고 수">
+                <div class="stat">
+                    <span>안내 제공</span><strong>0<small>건</small></strong>
+                </div>
+                <div class="stat">
+                    <span>추가 확인</span><strong>18<small>건</small></strong>
+                </div>
+                <div class="stat">
+                    <span>안내 미제공</span><strong>0<small>건</small></strong>
+                </div>
+            </section>
+            <p class="note">
+                검수를 진행한 것과 준비 안내를 제공할 수 있는 것은 구분됩니다.
+                아래에서 공고별 확인 결과와 남은 자료를 볼 수 있습니다.
+            </p>
+            <div class="report-frame">
+                <table aria-label="공고별 준비 안내 검수 결과">
+                    <colgroup>
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">공고</th>
+                            <th scope="col">현재 준비 안내</th>
+                            <th scope="col">실제 원문 상태</th>
+                            <th scope="col">확인 결과와 원문</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">01</span>
+                                <h2>
+                                    [서울지역본부] 26년 3차 청년 매입임대주택
+                                    예비입주자 모집공고
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020759&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=13&amp;aisTpCd=26&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">6개 중 4개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    순위별 소득·자산, 부모 범위, 배점에 따른
+                                    서류를 함께 확인하고 준비 안내를 작성해야
+                                    합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            모집공고문 PDF
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                        <li>
+                                            26년_3차_청년매입임대_공급주택목록_서울지역본부.xlsx
+                                            <span class="muted"
+                                                >· 본문 확인 필요</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 6개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020759&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=13&amp;aisTpCd=26&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68646610"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >모집공고문 PDF<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68646609"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >26년_3차_청년매입임대_예비입주자_모집공고문_서울지역본부.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68596946"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(필독)_서울지역본부_청년매입임대_신청시_유의사항.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68596947"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >26년_3차_청년매입임대_QnA_서울지역본부.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >본문 확인 필요</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68596948"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >26년_3차_청년매입임대_공급주택목록_서울지역본부.xlsx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            2026-11-01 Codex 원문 검수 / 공식
+                                            기본·서류 안내 대조 완료. 순위별
+                                            소득·자산, 부모 범위 및 배점 서류의
+                                            결합 규칙과 주택목록 검증이 남아
+                                            개인별 안내 HOLD 유지. 폐쇄 공고라는
+                                            이유로 보류한 것은 아님.
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:모집공고문
+                                                    PDF
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:26년_3차_청년매입임대_공급주택목록_서울지역본부.xlsx
+                                                </li>
+                                                <li>
+                                                    APPLICATION_PERIOD_MISSING
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">02</span>
+                                <h2>
+                                    [정정공고][경기남부] 26년 3차 청년
+                                    매입임대주택 예비입주자 모집공고
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020688&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=13&amp;aisTpCd=26&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">5개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    순위별 소득·자산, 부모 범위, 배점에 따른
+                                    서류를 함께 확인하고 준비 안내를 작성해야
+                                    합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            정정 모집공고문 PDF
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                        <li>
+                                            ☆(&#39;26-3차)청년매입임대공급대상주택내역(정정).xlsx
+                                            <span class="muted"
+                                                >· 본문 확인 필요</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 5개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020688&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=13&amp;aisTpCd=26&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68441895"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정정 모집공고문 PDF<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68441894"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(&#39;26-3차)경기남부지역본부청년매입임대주택예비입주자모집공고문(정정).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68441899"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >26년청년매입임대_QnA.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >본문 확인 필요</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68448622"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >☆(&#39;26-3차)청년매입임대공급대상주택내역(정정).xlsx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            2026-11-01 Codex 원문 검수 / 공식
+                                            기본·서류 안내 대조 완료. 순위별
+                                            소득·자산, 부모 범위 및 배점 서류의
+                                            결합 규칙과 주택목록 검증이 남아
+                                            개인별 안내 HOLD 유지. 폐쇄 공고라는
+                                            이유로 보류한 것은 아님.
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:정정
+                                                    모집공고문 PDF
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:☆(&#39;26-3차)청년매입임대공급대상주택내역(정정).xlsx
+                                                </li>
+                                                <li>
+                                                    APPLICATION_PERIOD_MISSING
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">03</span>
+                                <h2>
+                                    [정정공고]평택시.안성시 지역 10년
+                                    공공임대주택[리츠] 예비입주자
+                                    모집공고(2026.11.05)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061206&amp;ccrCnntSysDsCd=02&amp;uppAisTpCd=06&amp;aisTpCd=08&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">4개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    필수 원문의 확인이 남아 있습니다. 확인한
+                                    자료를 바탕으로 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 4개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061206&amp;ccrCnntSysDsCd=02&amp;uppAisTpCd=06&amp;aisTpCd=08&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325736"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공고_261105_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261105).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공고_261105_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261105).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325756"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:공고_261105_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261105).pdf
+                                            /
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:공고_261105_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261105).pdf
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip
+                                                </li>
+                                                <li>
+                                                    APPLICATION_PERIOD_MISSING
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">04</span>
+                                <h2>남원노암 공공임대 50년 예비입주자모집</h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021022&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=08&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021022&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=08&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306324"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(261106)공임50년예비입주자표준모집공고문(남원노암).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(261106)공임50년예비입주자표준모집공고문(남원노암).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(261106)공임50년예비입주자표준모집공고문(남원노암).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(261106)공임50년예비입주자표준모집공고문(남원노암).pdf
+                                                </li>
+                                                <li>SCHEDULE_CONFLICT:END</li>
+                                                <li>
+                                                    APPLICATION_PERIOD_MISSING
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">05</span>
+                                <h2>
+                                    [정정공고]인천논현2단지 국임임대주택
+                                    예비입주자 모집 공고
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021026&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021026&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69314329"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천논현2단지국민임대예비입주자모집공고문(2026.11.05).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69314336"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천논현2단지국민임대예비입주자모집공고문(2026.11.05).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천논현2단지국민임대예비입주자모집공고문(2026.11.05).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천논현2단지국민임대예비입주자모집공고문(2026.11.05).pdf
+                                                </li>
+                                                <li>
+                                                    SCHEDULE_AMBIGUOUS:DOCUMENTS
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">06</span>
+                                <h2>
+                                    평택시.안성시 지역 10년 공공임대주택[리츠]
+                                    예비입주자 모집공고(2026.11.05)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061201&amp;ccrCnntSysDsCd=02&amp;uppAisTpCd=06&amp;aisTpCd=08&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">4개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    필수 원문의 확인이 남아 있습니다. 확인한
+                                    자료를 바탕으로 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 4개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061201&amp;ccrCnntSysDsCd=02&amp;uppAisTpCd=06&amp;aisTpCd=08&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69270206"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >결재_261030_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261030).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69270187"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >결재_261030_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261030).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69270227"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:결재_261030_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261030).pdf
+                                            /
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:결재_261030_평택시.안성시지역10년공공임대주택예비입주자모집공고문(261030).pdf
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:공고문첨부_팜플렛자료(261105공고)리츠5개지구.zip
+                                                </li>
+                                                <li>
+                                                    APPLICATION_PERIOD_MISSING
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">07</span>
+                                <h2>
+                                    &#39;26.11월 경주시, 영천시 국민임대주택
+                                    동호지정 입주자격 완화 입주자 모집(선계약
+                                    후검증)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021025&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">4개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    필수 원문의 확인이 남아 있습니다. 확인한
+                                    자료를 바탕으로 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            국민임대_공급대상_주택내역(26.11.05).pdf
+                                            <span class="muted"
+                                                >· 본문 확인 필요</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 4개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021025&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313343"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >경주시,영천시국민임대주택동호지정입주자모집(26.11.05).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >경주시,영천시국민임대주택동호지정입주자모집(26.11.05).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >본문 확인 필요</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313345"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >국민임대_공급대상_주택내역(26.11.05).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:경주시,영천시국민임대주택동호지정입주자모집(26.11.05).pdf
+                                            /
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:국민임대_공급대상_주택내역(26.11.05).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:경주시,영천시국민임대주택동호지정입주자모집(26.11.05).pdf
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:국민임대_공급대상_주택내역(26.11.05).pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">08</span>
+                                <h2>
+                                    인천논현2단지 국임임대주택 예비입주자 모집
+                                    공고
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021024&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021024&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69307482"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천논현2단지국민임대예비입주자모집공고문(2026.11.05).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69307340"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천논현2단지국민임대예비입주자모집공고문(2026.11.05).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천논현2단지국민임대예비입주자모집공고문(2026.11.05).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천논현2단지국민임대예비입주자모집공고문(2026.11.05).pdf
+                                                </li>
+                                                <li>
+                                                    SCHEDULE_AMBIGUOUS:DOCUMENTS
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">09</span>
+                                <h2>
+                                    &#39;26년 11월 인천시 남동구 국민임대주택
+                                    예비입주자 모집 공고(2026.11.05.)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020987&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">7개 중 5개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    필수 원문의 확인이 남아 있습니다. 확인한
+                                    자료를 바탕으로 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            마이마이서비스고객매뉴얼(v6).hwpx
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                        <li>
+                                            제출서류양식(현장대행).pdf
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 7개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020987&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190884"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천시남동구지역국민임대예비입주자모집(26.11.05.).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190885"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천시남동구지역국민임대예비입주자모집(26.11.05.).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190890"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >마이마이서비스고객매뉴얼(v6).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190891"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >마이마이서비스고객매뉴얼(v6).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190887"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >제출서류양식(현장대행).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190889"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >제출서류양식(현장대행).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천시남동구지역국민임대예비입주자모집(26.11.05.).pdf
+                                            /
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:마이마이서비스고객매뉴얼(v6).hwpx
+                                            /
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:제출서류양식(현장대행).hwpx
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천시남동구지역국민임대예비입주자모집(26.11.05.).pdf
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:마이마이서비스고객매뉴얼(v6).hwpx
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:제출서류양식(현장대행).hwpx
+                                                </li>
+                                                <li>
+                                                    SCHEDULE_SCOPED_PERIOD_MISSING:3순위
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">10</span>
+                                <h2>
+                                    평택시 평택송화 국민임대 예비입주자
+                                    모집공고(2026.11.05)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020973&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020973&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69320621"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정정공고(261105)평택시국민임대주택예비입주자표준모집공고문_20261030-.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69320623"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정정공고(261105)평택시국민임대주택예비입주자표준모집공고문_20261030-.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:정정공고(261105)평택시국민임대주택예비입주자표준모집공고문_20261030-.pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:정정공고(261105)평택시국민임대주택예비입주자표준모집공고문_20261030-.pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">11</span>
+                                <h2>
+                                    연천전곡1단지 국민임대주택 예비입주자
+                                    모집공고(2026.11.05.)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020996&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020996&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278300"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(26.11.05공고)국민임대예비입주자표준모집공고문(연천전곡1).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(26.11.05공고)국민임대예비입주자표준모집공고문(연천전곡1).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(26.11.05공고)국민임대예비입주자표준모집공고문(연천전곡1).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(26.11.05공고)국민임대예비입주자표준모집공고문(연천전곡1).pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">12</span>
+                                <h2>파주시 중소기업체 기관공급(행복주택)</h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021004&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=10&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">5개 중 4개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    개인의 주거 신청이 아닌 기관 공급 또는
+                                    어린이집 운영자 모집입니다. 개인용 준비
+                                    안내를 그대로 적용하기 어렵습니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            (261105)파주시_중소기업_기관공급_평면도.pdf
+                                            <span class="muted"
+                                                >· 본문 확인 필요</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 5개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021004&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=10&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69292389"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >★(261105)파주시중소기업기관공급모집공고문.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69292390"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >★(261105)파주시중소기업기관공급모집공고문.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >본문 확인 필요</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69292407"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(261105)파주시_중소기업_기관공급_평면도.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69272999"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >파주시중소기업기관공급QA.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:★(261105)파주시중소기업기관공급모집공고문.pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:★(261105)파주시중소기업기관공급모집공고문.pdf
+                                                </li>
+                                                <li>
+                                                    SCHEDULE_AMBIGUOUS:RESULT
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">13</span>
+                                <h2>
+                                    익산한스빌 국민임대주택 예비입주자 자격완화
+                                    모집 공고
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296594"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">14</span>
+                                <h2>
+                                    인천계양 A3블록 가정어린이집 운영예정자
+                                    모집공고(1회차)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021005&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=40&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">3개 중 3개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    개인의 주거 신청이 아닌 기관 공급 또는
+                                    어린이집 운영자 모집입니다. 개인용 준비
+                                    안내를 그대로 적용하기 어렵습니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021005&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=40&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69273461"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천계양A3블록가정어린이집운영예정자모집공고문.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69273486"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >인천계양A3블록가정어린이집운영예정자모집공고문.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천계양A3블록가정어린이집운영예정자모집공고문.pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:인천계양A3블록가정어린이집운영예정자모집공고문.pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">15</span>
+                                <h2>정선사북 행복주택 입주자 추가모집</h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020995&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=10&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">5개 중 5개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 5개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020995&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=10&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69219754"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정선사북행복주택_추가입주자모집_공고문(261104).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69219758"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정선사북행복주택_추가입주자모집_공고문(261104).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69220071"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정선사북행복주택_팸플릿.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69220056"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >정선사북행복주택_추가입주자모집_서류.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:정선사북행복주택_추가입주자모집_공고문(261104).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:정선사북행복주택_추가입주자모집_공고문(261104).pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">16</span>
+                                <h2>
+                                    충주연수2 영구임대주택 예비입주자 모집
+                                    공고[2026.11.04]
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=09&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">3개 중 2개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    필수 원문의 확인이 남아 있습니다. 확인한
+                                    자료를 바탕으로 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            (261104)충주시영구임대예비입주자표준모집공고문.pdf
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 3개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=09&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162254"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(261104)충주시영구임대예비입주자표준모집공고문.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >(261104)충주시영구임대예비입주자표준모집공고문.pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:(261104)충주시영구임대예비입주자표준모집공고문.hwpx
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:(261104)충주시영구임대예비입주자표준모집공고문.hwpx
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">17</span>
+                                <h2>
+                                    공주시(덕성그린시티빌,신한1차) 국민임대
+                                    자격완화 입주자 모집공고(26.11.02)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020962&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >원문 읽기 완료</strong
+                                >
+                                <p class="muted">9개 중 9개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    서로 다른 파일 형식의 공고문 내용이 같은지
+                                    대조하고, 복잡한 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+
+                                <details class="sources">
+                                    <summary>원문 9개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020962&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=07&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143262"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공주시(덕성그린시티빌,신한1)국민임대자격완화입주자모집공고(2026.11.02).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143265"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공주시(덕성그린시티빌,신한1)국민임대자격완화입주자모집공고(2026.11.02).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143293"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >[양식1-필수]개인정보수집이용및제3자제공동의서(개정).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143411"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >[양식2-필수]금융정보제공동의서.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143415"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >[양식3-필수]자산보유사실확인서.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143417"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >[양식4-필수](예비)입주자중복선정불가사항확인서.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143419"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >[양식5-해당자]예비신혼부부신청확인서및세대구성확인서.hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143429"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >[양식6-해당자만]위임장(대리인신청시).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:공주시(덕성그린시티빌,신한1)국민임대자격완화입주자모집공고(2026.11.02).pdf
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:공주시(덕성그린시티빌,신한1)국민임대자격완화입주자모집공고(2026.11.02).pdf
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / READY</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="notice-cell">
+                                <span class="ordinal">18</span>
+                                <h2>
+                                    오산세교2 7단지(A-6BL) 영구임대
+                                    입주자격완화(소득150%완화) 예비입주자
+                                    모집공고(2026.11.02)
+                                </h2>
+                                <a
+                                    class="main-link"
+                                    href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020896&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=09&amp;mi=1026"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >공식 공고 보기
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </td>
+                            <td data-label="현재 준비 안내">
+                                <span class="badge pending">추가 확인</span>
+                            </td>
+                            <td data-label="실제 원문 상태">
+                                <strong class="source-heading"
+                                    >일부 원문 확인 필요</strong
+                                >
+                                <p class="muted">5개 중 4개 읽음</p>
+                            </td>
+                            <td class="reason-cell" data-label="확인 결과">
+                                <p>
+                                    필수 원문의 확인이 남아 있습니다. 확인한
+                                    자료를 바탕으로 조건·예외와 제출서류를
+                                    정리해야 합니다.
+                                </p>
+                                <div class="unread">
+                                    <span class="small-label"
+                                        >아직 읽지 못한 자료</span
+                                    >
+                                    <ul>
+                                        <li>
+                                            마이마이서비스고객매뉴얼(V6).hwpx
+                                            <span class="muted"
+                                                >· 읽기 실패</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <details class="sources">
+                                    <summary>원문 5개와 읽기 상태</summary>
+                                    <ul class="source-list">
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020896&amp;ccrCnntSysDsCd=03&amp;uppAisTpCd=06&amp;aisTpCd=09&amp;mi=1026"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >공식 상세 본문<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203681"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >오산세교27단지(A-6BL)영구임대주택입주자격완화예비입주자모집(2026.11.02).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203687"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >오산세교27단지(A-6BL)영구임대주택입주자격완화예비입주자모집(2026.11.02).pdf<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state"
+                                                >읽기 실패</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203673"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >마이마이서비스고객매뉴얼(V6).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <span class="source-state is-read"
+                                                >읽음</span
+                                            ><a
+                                                href="https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68931436"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >제출서류양식(영구임대).hwpx<span
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗</span
+                                                ></a
+                                            >
+                                        </li>
+                                    </ul>
+                                </details>
+                                <details class="technical">
+                                    <summary>상세 검수 기록</summary>
+                                    <dl>
+                                        <dt>저장된 검수 사유</dt>
+                                        <dd>
+                                            자동 준비 안내 검수 보류 ·
+                                            DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:오산세교27단지(A-6BL)영구임대주택입주자격완화예비입주자모집(2026.11.02).pdf
+                                            /
+                                            AUTHORITATIVE_SOURCE_INCOMPLETE:마이마이서비스고객매뉴얼(V6).hwpx
+                                        </dd>
+                                        <dt>원문·일정 검사 결과</dt>
+                                        <dd>
+                                            <ul>
+                                                <li>
+                                                    DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:오산세교27단지(A-6BL)영구임대주택입주자격완화예비입주자모집(2026.11.02).pdf
+                                                </li>
+                                                <li>
+                                                    AUTHORITATIVE_SOURCE_INCOMPLETE:마이마이서비스고객매뉴얼(V6).hwpx
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                        <dt>검수 상태</dt>
+                                        <dd>HOLD / PARTIAL</dd>
+                                    </dl>
+                                </details>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>
+                <p>
+                    이 표는 표시된 확인일의 결과입니다. 이후 수집된 공고와 상태
+                    변경은 포함하지 않습니다.
+                </p>
+                <p>
+                    원문 읽기 상태는 파일 내용을 읽었는지를 나타냅니다. 내용의
+                    충돌이나 신청 자격을 확정하는 표시가 아닙니다.
+                </p>
+            </footer>
+        </main>
+    </body>
+</html>

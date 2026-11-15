@@ -1,0 +1,182 @@
+{
+  "checkedAt": "2026-11-08T16:56:34.072023+09:00",
+  "health": {
+    "status": "UP",
+    "database": "UP"
+  },
+  "rows": 4657,
+  "totalAtStart": 4657,
+  "allPagesOrderValid": true,
+  "groupCounts": {
+    "(0, 0)": 1,
+    "(1, 0)": 9,
+    "(1, 1)": 4,
+    "(2, 0)": 2,
+    "(3, 2)": 4639,
+    "(3, 3)": 2
+  },
+  "firstPage": [
+    {
+      "id": "cb715a71-3611-4d8a-a23f-573d0bae22e9",
+      "title": "2026년 청년 전세임대 1순위 입주자 수시모집",
+      "status": "OPEN",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+      "title": "[정정공고]평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "0db58df5-fe4f-4ded-a870-d1e7b14d74a8",
+      "title": "평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "d71a2dea-b39c-4930-ace3-2d417f6f9787",
+      "title": "연천전곡1단지 국민임대주택 예비입주자 모집공고(2026.11.05.)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "4e9a5c29-8b73-410b-b59f-d8f5dd4f2a38",
+      "title": "오산세교2 7단지(A-6BL) 영구임대 입주자격완화(소득150%완화) 예비입주자 모집공고(2026.11.02)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "bcef4e3d-5cba-426c-80b6-a82f4623ef25",
+      "title": "공주시(덕성그린시티빌,신한1차) 국민임대 자격완화 입주자 모집공고(26.11.02)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "3fe0dbde-d45b-42ff-bc6a-14bc2bd2c6e7",
+      "title": "[정정공고]인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "394f7a6e-1054-419c-bd27-f436d6289162",
+      "title": "남원노암 공공임대 50년 예비입주자모집",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "413075cd-2626-44f6-a020-336513fa6143",
+      "title": "평택시 평택송화 국민임대 예비입주자 모집공고(2026.11.05)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "f8563127-e307-4581-8491-7c241ebd1814",
+      "title": "정선사북 행복주택 입주자 추가모집",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "title": "'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 1
+    },
+    {
+      "id": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "title": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 2
+    },
+    {
+      "id": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "title": "익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 3
+    },
+    {
+      "id": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "title": "충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04]",
+      "status": "UPCOMING",
+      "guideState": "AVAILABLE",
+      "issues": 2
+    },
+    {
+      "id": "bc6472e5-a8de-4515-bc21-93a3f818310a",
+      "title": "[정정공고][경기남부] 26년 3차 청년 매입임대주택 예비입주자 모집공고",
+      "status": "CLOSED",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "b534ec99-2dbb-4e4f-9193-345a8f0816f1",
+      "title": "[서울지역본부] 26년 3차 청년 매입임대주택 예비입주자 모집공고",
+      "status": "CLOSED",
+      "guideState": "AVAILABLE",
+      "issues": 0
+    },
+    {
+      "id": "4d2e2916-60d2-4ffc-a63a-40d1843fd590",
+      "title": "인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "status": "UNKNOWN",
+      "guideState": "REVIEWING",
+      "issues": 0
+    },
+    {
+      "id": "3577685b-d246-4026-b381-d96077878220",
+      "title": "청주시 다자녀 매입임대주택 예비입주자 모집(261029공고)",
+      "status": "UNKNOWN",
+      "guideState": "REVIEWING",
+      "issues": 0
+    },
+    {
+      "id": "836418b5-3936-4505-bea3-c23180f29e94",
+      "title": "[부산] 2026년 2차 일반 매입임대주택 입주자 모집 공고",
+      "status": "UNKNOWN",
+      "guideState": "REVIEWING",
+      "issues": 0
+    },
+    {
+      "id": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+      "title": "경남 창원시 일반 매입임대주택 예비입주자 모집 공고",
+      "status": "UNKNOWN",
+      "guideState": "REVIEWING",
+      "issues": 0
+    }
+  ],
+  "existingPartial": [
+    {
+      "id": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "issues": 1,
+      "canStart": true
+    },
+    {
+      "id": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "issues": 2,
+      "canStart": true
+    },
+    {
+      "id": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "issues": 3,
+      "canStart": true
+    },
+    {
+      "id": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "issues": 2,
+      "canStart": true
+    }
+  ]
+}
