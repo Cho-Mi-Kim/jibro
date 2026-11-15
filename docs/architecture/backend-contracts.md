@@ -1,6 +1,6 @@
 # 백엔드 구현 계약과 운영 설정
 
-- 초기 기준일: 2026-10-30. 준비 계산 책임·공개 일정 절은 2026-11-06, 저장 계층 경계·공식 종료 상태·일회 확인·원본 응답 보관 절은 2026-11-07 코드 기준으로 갱신했다.
+- 초기 기준일: 2026-10-30. 최종 대조일: 2026-11-15. PR #24는 develop/main에 반영됐으며, 이 문서는 PR #26의 추가 구현과 develop 통합 결과를 설명한다. PR #26의 병합·운영 배포 완료를 뜻하지 않는다.
 - 기준: [프론트엔드 기능 계약](frontend-contracts.md), 구현 DTO `HousingModels`, 인증 DTO `AuthController`
 - 구현 범위: 이메일·비밀번호 로그인, Google·카카오 OAuth 연결, 공고 검색, 개인 준비 기록, 서버 준비도 계산, 관리자 검수·구조화 편집, 공식 조기 마감·취소, 저장하지 않는 일회 조건 확인, LH 목록 자동 수집·원본 JSON 기록
 
@@ -8,13 +8,15 @@
 
 회원가입은 이름 2~30자, 이메일 최대 254자, 비밀번호 10자 이상이며 BCrypt의 UTF-8 72바이트 제한을 적용한다. 이메일은 소문자로 정규화한다. 중복 이메일은 409다. 이메일 소유 확인·비밀번호 재설정·탈퇴는 [회원 기능](../contracts/member-features.md), 계정 연결·해제는 [계정 연결](../contracts/account-connections.md) 계약대로 구현했다. 실제 외부 수신·제공자 왕복 검증은 구현과 구분한다.
 
-접근 토큰은 HS256, issuer `jibro`, audience `jibro-web`, 15분 만료다. `JWT_SECRET`은 최소 32바이트이며 저장소에 넣지 않는다. 갱신 토큰은 임의 32바이트 값을 발급하고 DB에는 SHA-256 해시만 보관한다. 7일 만료, 행 잠금으로 단일 회전을 보장한다. 현재는 sid 기반 [세션 즉시 폐기](../contracts/login-sessions-and-limits.md)를 구현하여 로그아웃한 세션의 접근·갱신을 차단한다. 다른 기기의 세션과 구분한다.
+접근 토큰은 HS256, issuer `jibro`, audience `jibro-web`, 15분 만료다. `JWT_SECRET`은 최소 32바이트이며 저장소에 넣지 않는다. 갱신 토큰은 임의 32바이트 값을 발급하고 DB에는 SHA-256 해시만 보관한다. 7일 만료, 행 잠금으로 단일 회전을 보장한다. 요청마다 계정 활성 여부·체험 만료·security_version과 JWT sv를 대조하며, sid 기반 [세션 즉시 폐기](../contracts/login-sessions-and-limits.md)로 로그아웃한 세션의 접근·갱신을 차단한다. 비밀번호 변경·재설정·탈퇴에 따른 기존 세션 무효화와 다른 기기 세션의 범위를 구분한다.
 
 쿠키 `jibro_refresh`는 HttpOnly, SameSite=Lax, Path=/api/v1/auth다. Secure 기본값은 true이며 로컬 HTTP에만 `AUTH_SECURE_COOKIE=false`를 사용한다. 실제 배포는 HTTPS·동일 출처 역방향 프록시가 전제다. `GET /auth/csrf`의 마스킹된 토큰을 `X-CSRF-TOKEN` 헤더로 보낸다. JWT와 CSRF 토큰을 URL·로그·localStorage에 기록하지 않는다.
 
 소셜 로그인은 제공자별 CLIENT_ID와 CLIENT_SECRET이 모두 있을 때 활성화된다. `/auth/providers`가 활성 목록을 반환한다. 제공자+subject로 사용자를 식별하고 검증된 이메일을 사용한다. 같은 이메일의 기존 계정으로 자동 연결하지 않으며 충돌은 가입/연결 오류로 처리한다. OAuth state/OIDC 검증은 Spring Security를 사용한다. 성공 시 갱신 쿠키를 설정하고 고정된 `FRONTEND_URL/auth/callback`으로 이동한다. 접근 토큰은 URL에 포함하지 않는다.
 
-관리자 권한은 서버에서 확인한다. 일반 회원가입은 USER만 생성한다. 최초 관리자는 운영자가 가입된 계정을 확인하고 DB에서 승격한다. 공개 관리자 비밀번호나 자동 관리자 계정은 제공하지 않는다. 이메일 인증과 로그인 요청 제한은 구현되어 있으며, OAuth·SMTP 실제 설정과 운영 검증은 별도다.
+관리자 권한은 서버에서 확인한다. 일반 회원가입은 USER만 생성한다. 최초 관리자는 운영자가 가입된 계정을 확인하고 DB에서 승격한다. 공개 관리자 비밀번호나 자동 관리자 계정은 제공하지 않는다. 이메일 인증과 로그인 요청 제한은 구현되어 있으며, OAuth·SMTP 실제 설정과 운영 검증은 별도다. 메일 확인 링크의 계정·용도별 1분 발급 간격은 로그인 요청 제한과 별개이며, 가입·체험을 포함한 모든 엔드포인트가 같은 제한을 받는다고 간주하지 않는다.
+
+`local-sample`의 서버 체험은 정적 Pages 시연과 구분한다. 임시 TRIAL 계정의 만료·재사용·권한·정리 정책은 [회원 기능 계약](../contracts/member-features.md)을 따른다. 프로필 이름이 가상 공고 자동 생성을 의미하지는 않는다.
 
 ## 저장·동시 수정
 
@@ -23,6 +25,7 @@
 - 공고: 검색 필드는 관계형 컬럼과 인덱스, 가변 질문·서류·일정은 JSONB로 저장한다. Querydsl로 필터 내부 OR, 필터 사이 AND를 적용한다.
 - 준비: 사용자+공고 유일 제약, 소유자 조건 조회, 공고 당시 스냅샷과 조건부 서류 규칙을 저장한다. 다른 사용자의 ID는 404다.
 - revision: 수정 요청과 현재 revision이 다르면 409. 사용자 기록과 공고 잠금으로 검수/기록 변경의 경쟁을 막는다.
+- 보관·복원: 실제 상태 전환마다 preparation 테이블과 JSON 스냅샷의 revision을 함께 올린다. 이미 보관된 건의 재보관은 거절하고, 이미 진행 중인 건의 반복 복원은 변경하지 않는다. 세부 API는 [회원 기능 계약](../contracts/member-features.md)을 따른다.
 - 공고 내용 수정: 공고 version과 검수 revision을 올리고 기본·안내 모두 HOLD로 돌린다. 기존 준비 기록은 원래 내용을 보존하고 수정은 막는다. 현행 `POST /preparations/{id}/refresh`는 사용자 요청과 revision·새 AVAILABLE 버전을 확인한 뒤 이전 스냅샷을 이력에 보존한다. 동일한 질문 계약의 답변과 동일한 ID·제목·날짜의 일정 기록만 이어받고, 기존 완료 서류는 재확인으로 전환한다.
 - 준비도: 조건 30%, 적용 서류 50%, 일정 기록 20%. 모름·미입력·해당 여부 불명은 완료 점수를 주지 않는다. 해당 없는 서류는 분모에서 제외한다. 분모가 0인 영역은 0점이다. 정수 반올림 결과가 100이어도 미확인 답변·미완료 서류·미기록 일정이 하나라도 남으면 99%로 제한한다. 조건부 서류의 해당 여부가 바뀌면 완료 표시를 재확인으로 돌린다.
 - DB migration: 기존 테스트용 V1을 보존하고 운영 스키마는 V2부터 시작한다. 테스트 DB에는 운영 migration과 테스트용 migration을 함께 적용한다.
@@ -50,7 +53,7 @@
 
 `GET /admin/reviews/{id}/draft`로 기본 정보와 구조화 원고를 읽고 `PUT`으로 `{revision, draft}`를 저장한다. draft는 title, agency, region, type, startDate, endDate, publishedDate, content를 갖는다. 날짜가 확인되지 않으면 null이다.
 
-content는 summary, evidence, attachments, questions, documents, schedules다. 질문 inputKind는 SINGLE/MULTIPLE/NUMBER/DATE이며 제약과 허용 값은 서버에서 검증한다. 서류의 conditionQuestionId가 null이면 필수다. 연결 질문에는 conditionAnswerValues에 지정된 선택값 규칙을 적용하고, 값을 생략한 기존 계약은 YES/NO를 유지한다. UNKNOWN·미입력은 미확인이다. 숫자·날짜를 임의 자격 판정이나 조건부 서류 규칙으로 추정하지 않는다. 이 단순 규칙으로 표현할 수 없는 복잡한 자격·예외는 자동 판단하지 말고 준비 안내 HOLD 또는 UNSUPPORTED로 둔다. 질문은 이 규칙에 맞는 의미로 작성해야 한다.
+content는 summary, evidence, attachments, questions, documents, schedules다. 질문 inputKind는 SINGLE/MULTIPLE/NUMBER/DATE이며 제약과 허용 값은 서버에서 검증한다. 서류의 conditionQuestionId가 null이면 필수다. 연결 질문에는 conditionAnswerValues에 지정된 선택값 규칙을 적용하고, conditionAnswerValues를 생략한 구버전은 YES를 필요 조건으로 읽는다. UNKNOWN·미입력은 미확인이다. 숫자·날짜를 임의 자격 판정이나 조건부 서류 규칙으로 추정하지 않는다. 이 단순 규칙으로 표현할 수 없는 복잡한 자격·예외는 자동 판단하지 말고 준비 안내 HOLD 또는 UNSUPPORTED로 둔다. 질문은 이 규칙에 맞는 의미로 작성해야 한다. 선택지의 value·label·requiresFollowUp과 조건부 서류 판별·전이 상세는 [질문·서류 계약](../contracts/question-options-and-documents.md)을 따른다.
 
 2026-11-10 사용자 요청의 지원 대상·지원 방식 2~3문장 자동 요약은 [공고 지원 내용 자동 요약](../contracts/automatic-support-summary.md)을 따른다. `GuidanceReviewCompiler`가 검증된 원문을 로컬 요약기로 전달하며, 접수종료·근거 불충분·대상 충돌·수동 원고 보호와 기존 게시 경계를 유지한다.
 

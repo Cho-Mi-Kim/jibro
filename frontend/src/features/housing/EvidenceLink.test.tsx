@@ -10,7 +10,9 @@ describe('공식 근거 위치', () => {
                 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325',
                 '공고문 10–11쪽 · 제출서류',
             ),
-        ).toMatch(/^\/pdf-viewer\.html\?file=69306325&page=10&sha=[0-9a-f]{64}$/);
+        ).toMatch(
+            /^\/pdf-viewer\.html\?file=69306325&page=10&sha=[0-9a-f]{64}$/,
+        );
         expect(
             evidenceHref(
                 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69080506',
@@ -33,15 +35,36 @@ describe('공식 근거 위치', () => {
     it('새 위치 링크와 PDF의 원문 해시를 유지한다', () => {
         const sha = 'a'.repeat(64);
         const url = 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=123';
-        expect(evidenceHref(`${url}#doc2=${sha}.c2VjdGlvbg.YW5jaG9y`)).toBe(`/evidence-dynamic.html?file=123&sha=${sha}&location=c2VjdGlvbg&anchor=YW5jaG9y`);
-        expect(evidenceHref(`${url}#page=4&sha256=${sha}`)).toBe(`/pdf-viewer.html?file=123&page=4&sha=${sha}`);
+        expect(evidenceHref(`${url}#doc2=${sha}.c2VjdGlvbg.YW5jaG9y`)).toBe(
+            `/evidence-dynamic.html?file=123&sha=${sha}&location=c2VjdGlvbg&anchor=YW5jaG9y`,
+        );
+        expect(evidenceHref(`${url}#page=4&sha256=${sha}`)).toBe(
+            `/pdf-viewer.html?file=123&page=4&sha=${sha}`,
+        );
     });
     it('기존 ZIP 첨부 위임장과 HWPX 별지 위치를 연결한다', () => {
-        const zip = evidenceHref('https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775', '현재 공식 첨부 ZIP · 위임장.hwp');
-        const hwpx = evidenceHref('https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062', 'HWPX · 본문·별지7');
-        expect(zip).toMatch(/^\/evidence-dynamic\.html\?file=65499775&sha=[0-9a-f]{64}&location=/);
-        expect(hwpx).toMatch(/^\/evidence-dynamic\.html\?file=69191062&sha=[0-9a-f]{64}&location=/);
-        expect(evidenceHref('https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305', '공고문 12쪽 · 대상자 발표')).toMatch(/^\/pdf-viewer\.html\?file=69278305&page=12&sha=[0-9a-f]{64}$/);
+        const zip = evidenceHref(
+            'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775',
+            '현재 공식 첨부 ZIP · 위임장.hwp',
+        );
+        const hwpx = evidenceHref(
+            'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062',
+            'HWPX · 본문·별지7',
+        );
+        expect(zip).toMatch(
+            /^\/evidence-dynamic\.html\?file=65499775&sha=[0-9a-f]{64}&location=/,
+        );
+        expect(hwpx).toMatch(
+            /^\/evidence-dynamic\.html\?file=69191062&sha=[0-9a-f]{64}&location=/,
+        );
+        expect(
+            evidenceHref(
+                'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305',
+                '공고문 12쪽 · 대상자 발표',
+            ),
+        ).toMatch(
+            /^\/pdf-viewer\.html\?file=69278305&page=12&sha=[0-9a-f]{64}$/,
+        );
     });
     it('관련 Q&A 번호를 원문에 맞게 표시한다', () => {
         render(
@@ -55,6 +78,11 @@ describe('공식 근거 위치', () => {
         );
         expect(
             screen.getByRole('link', { name: /신청 관련 15번/ }),
-        ).toHaveAttribute('href', expect.stringMatching(/^\/pdf-viewer\.html\?file=69044666&page=5&sha=[0-9a-f]{64}$/));
+        ).toHaveAttribute(
+            'href',
+            expect.stringMatching(
+                /^\/pdf-viewer\.html\?file=69044666&page=5&sha=[0-9a-f]{64}$/,
+            ),
+        );
     });
 });

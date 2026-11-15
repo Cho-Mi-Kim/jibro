@@ -96,6 +96,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [공식 첨부 15개와 제출 양식 17개 반영](entries/2026-11-15-reviewed-notice-files.md) | 확인 필요 |
 | 확인 필요 | [상단 알림 아이콘의 읽지 않은 알림 표시](entries/2026-11-15-unread-alert-indicator.md) | 확인 필요 |
 | 2026-11-15 | [준비 기록의 중복 보관과 복원 후 오래된 저장 방지](entries/2026-11-15-archive-revision.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-15 | [PR #26의 develop 충돌 해결과 회귀 검증](entries/2026-11-15-pr26-conflict-resolution.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-12 | [접수 종료 후 28일 이내 일부 확인 필요 7건 재검토](entries/2026-11-12-closed-seven-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-12 | [검수 대기·첨부 읽기 오류 36건 원문 대조](entries/2026-11-12-guidance36-source-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-11 | [첨부 신청기간 자동 반영과 오래된 미종료 공고 보완](entries/2026-11-11-attachment-closure.md) | 근거 정리·담당자 검토 전 |
@@ -115,6 +116,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 2026-11-10 | [확정 날짜 없는 결과 발표를 개별 안내로 표시](entries/2026-11-10-individual-announcement.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [남원노암 발표일 차이 공식 자료 재대조](entries/2026-11-10-namwon-date-recheck.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [공고별 지원 대상·지원 내용을 2~3문장으로 표시](entries/2026-11-10-notice-support-summary.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [PR #24 구현 계약 대조와 병합 전 검토](entries/2026-11-10-pr24-contract-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-09 | [신규 공고의 정정·후속 공식 자료 자동 대조](entries/2026-11-09-automatic-followup-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-09 | [접수 종료 제외 후 미종료 공고 10건 준비 안내 반영](entries/2026-11-09-pending-active-guidance.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-09 | [남은 확인 항목을 정정본·후속 공식 자료로 해소](entries/2026-11-09-review-resolution.md) | 근거 정리·담당자 검토 전 |

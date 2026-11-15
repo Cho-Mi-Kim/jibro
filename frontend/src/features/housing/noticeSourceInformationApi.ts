@@ -2,10 +2,7 @@ import { call } from '../../shared/api/transport';
 import type { Evidence } from './types';
 
 export type SourceInformationArea =
-    | 'CONDITION'
-    | 'DOCUMENT'
-    | 'SCHEDULE'
-    | 'REFERENCE';
+    'CONDITION' | 'DOCUMENT' | 'SCHEDULE' | 'REFERENCE';
 
 export interface NoticeSourceInformationData {
     noticeId: string;

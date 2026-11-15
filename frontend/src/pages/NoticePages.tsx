@@ -25,7 +25,9 @@ export function NoticesPage() {
     const regions = params.getAll('region');
     if (regions.some((region) => region.endsWith(' 외'))) {
         params.delete('region');
-        for (const region of new Set(regions.map((value) => value.replace(/ 외$/, '')))) {
+        for (const region of new Set(
+            regions.map((value) => value.replace(/ 외$/, '')),
+        )) {
             params.append('region', region);
         }
     }
