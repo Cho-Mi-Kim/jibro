@@ -2,6 +2,7 @@
 
 ## 최신 코드 검증 기준 — 2026-11-15
 
+- 사용자 승인 후 PR #26을 develop `8428e78`에 병합했고 검증 커밋 `69fd749`와 파일 차이가 없음을 확인했다. 문서 전용 후속 PR은 #27이다.
 - 코드 기준은 PR #26 `69fd749`이다. [최신 CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/43724321929)의 frontend·backend·operations·project-history가 모두 통과했다. 상세 과정은 [충돌 해결·회귀 검증](history/entries/2026-11-15-pr26-conflict-resolution.md)을 따른다.
 - 로컬 프론트엔드 419건, 백엔드 단위·구조 668건·PostgreSQL 통합 358건과 빌드가 통과했다. 최초 Linux CI에서 발견한 OCR 테스트 프로세스의 종료 경합을 수정하고 관련 5건 및 최신 Linux 전체 CI로 재확인했다.
 - 이 검증은 실제 OAuth/LH/SMTP/Web Push 왕복이나 AWS 운영 배포 완료를 뜻하지 않는다. main/Pages의 PR #25 배포 기록과 구분한다. 후속 작업은 [개발 인수인계](developer-handoff.md)를 확인한다.

@@ -9,7 +9,7 @@
 | 기준 | 확인한 상태 |
 | --- | --- |
 | 코드 대조·검증 기준 | [PR #26](https://github.com/Cho-Mi-Kim/jibro/pull/26)의 `69fd7496f91e247c1facc5f42c74642a04dbc793`. PR #24 이후 추가 기능과 충돌 해결 포함 |
-| 병합 확인 | 아래 구현 표는 위 커밋의 코드 기준이다. 작업 시작 전 PR 상태와 최신 develop을 확인한다. 이 문서의 후속 PR은 PR #26 다음 순서로 병합한다. |
+| 병합 확인 | PR #26은 develop `8428e78`에 병합됐고 검증한 `69fd749`와 파일 내용이 동일하다. 문서 후속 작업은 [PR #27](https://github.com/Cho-Mi-Kim/jibro/pull/27)에서 별도로 검토한다. 새 작업 전 최신 develop을 받는다. |
 | main·공개 시연 기준 | 이번 확인 시 main은 PR #25의 `90a1535`. PR #26의 develop 반영이 main/Pages 배포를 뜻하지 않는다. |
 | 공개 화면 | [Pages 시연 사이트](https://cho-mi-kim.github.io/jibro/) — 가상 데이터, 실제 서버 저장·외부 로그인 아님 |
 | 최신 원격 검사 | [69fd749 CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/43724321929): frontend·backend·operations·project-history 모두 통과 |
