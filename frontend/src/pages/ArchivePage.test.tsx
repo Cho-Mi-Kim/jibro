@@ -3,7 +3,7 @@ import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Session } from '../app/useSession';
+import { Session } from '../features/auth/useSession';
 import { api } from '../features/housing/api';
 import type { Preparation } from '../features/housing/types';
 import { memberApi } from '../features/member/memberApi';
@@ -47,7 +47,7 @@ beforeEach(() => {
     vi.spyOn(memberApi, 'archive').mockResolvedValue([
         {
             id: 'old',
-            title: '보관 공고',
+            title: '[정정공고] 인천 매입임대주택 입주자 추가모집 공고',
             version: 1,
             progress: 40,
             note: '지난 경험',
@@ -113,6 +113,12 @@ it('공고별 메모를 보존하고 복원·경험 연결 성공으로 작성 �
     const user = userEvent.setup();
     mount();
     const note = await screen.findByRole('textbox');
+    expect((await screen.findByRole('heading', { level: 3 })).textContent).toBe(
+        '[정정] 인천 매입임대 추가모집',
+    );
+    expect(
+        await screen.findByRole('link', { name: '이전 안내와 답변' }),
+    ).toHaveAttribute('href', '/preparations/old/history');
     await user.type(note, 'A 메모');
     await selectRecord(user, 'B 공고');
     expect(note).toHaveValue('');

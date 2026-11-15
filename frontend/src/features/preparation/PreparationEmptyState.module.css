@@ -1,0 +1,75 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    text-align: center;
+}
+
+.card > span {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+}
+
+.title {
+    margin: 1rem 0 0;
+    color: var(--ink);
+    font-size: 1.125rem;
+    line-height: 1.5;
+    font-weight: 700;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.description {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.card > .browse {
+    width: 100%;
+    min-height: var(--target);
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.secondary {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.archive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: var(--target);
+    padding: 0.5rem;
+    border-radius: var(--radius-control);
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.archive svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+}
+
+.archive:hover {
+    color: var(--ink);
+    background: var(--canvas);
+}

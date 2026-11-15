@@ -1,0 +1,445 @@
+{
+  "checkedAt": "2026-11-08T09:45:49.6641073Z",
+  "latestNoticeCount": 16,
+  "providedGuidance": 14,
+  "fullGuidance": 4,
+  "partialGuidance": 10,
+  "verifiedCorrections": 2,
+  "recoveredFiles": 12,
+  "legacyFilesStillUnread": [
+    {
+      "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+      "extractionId": "a0409950-4564-4da8-944e-cacc98a8bd04",
+      "label": "(정정공고문)화성시병점복합타운A-1블럭행복주택예비입주자모집공고문(2022.08.05)",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 25,
+      "characters": 50,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+      "extractionId": "ffa8c9b4-f10e-479d-b9ab-c30f8537f0b7",
+      "label": "[정정공고]내포신도시내포스타힐스공공임대(10년)잔여세대입주자모집(2018124).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 9,
+      "characters": 18,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+      "extractionId": "eb788004-7626-4494-9507-63b388707074",
+      "label": "공주월송행복주택예비입주자고령자자격완화추가모집(20181204).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 14,
+      "characters": 28,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+      "extractionId": "21f64c9e-26eb-43a2-ac40-f54ccc221cd7",
+      "label": "별가람1-4단지평면도.hwp",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 1,
+      "characters": 32,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+      "extractionId": "bf939fb1-bf59-4b4e-a7c5-dae5c013d0ae",
+      "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 9,
+      "characters": 18,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+      "extractionId": "98f1ca24-8d9d-4f12-8c5b-6e455b2fba08",
+      "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 9,
+      "characters": 18,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+      "extractionId": "b830a8ed-3a95-442b-85bd-69368c641bc7",
+      "label": "청주,진천권국민[매입]임대주택예비입주자선착순모집공고.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 15,
+      "characters": 30,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+      "extractionId": "b9d8d270-b87b-429c-b44f-62a18d078695",
+      "label": "20160928청주,진천권국민[매입]임대주택예비입주자선착순모집공고.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 15,
+      "characters": 30,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+      "extractionId": "a1cc274c-7d6b-4f92-bc15-8c269ee77663",
+      "label": "양산신도시 LH 1,2,5단지 선착순 추가입주자 모집공고.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 12,
+      "characters": 24,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+      "extractionId": "96e5641d-65ae-4cd2-a918-81215ba436c2",
+      "label": "성남지역국민임대주택예비자모집공고문(1210).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 15,
+      "characters": 30,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+      "extractionId": "40d72c67-75a8-4df3-aa2c-380868443ab9",
+      "label": "성남지역국민임대예비자모집공고문.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 15,
+      "characters": 30,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "extractionId": "b2d9852e-143c-4dca-bd53-caf570ab44c6",
+      "label": "대전노은3 A3 잔여세대 입주자모집공고문(안).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 6,
+      "characters": 12,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "extractionId": "b2d9852e-143c-4dca-bd53-caf570ab44c6",
+      "label": "대전노은3 A3블록 잔여세대 동호배치도.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 1,
+      "characters": 2,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+      "extractionId": "82b2c907-410b-4cf6-97e6-ef7fd6405b6c",
+      "label": "익산함열휴먼시아_국민임대_입주자및예비입주자_모집_공고문(안).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 12,
+      "characters": 24,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+      "extractionId": "ed30d0e6-9849-465b-b228-adb90c81b1db",
+      "label": "img-510131359.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 8,
+      "characters": 16,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+      "extractionId": "05e9b551-84a0-4c44-a249-4b3ba0ba218a",
+      "label": "익산 한스빌 매입국민임대 선착순입주자모집(5월).pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 5,
+      "characters": 10,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+      "extractionId": "6eed32d4-7801-4533-a565-e006c88f632c",
+      "label": "군산지역 매입국민임대 예비입주자 모집.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 9,
+      "characters": 18,
+      "result": "STILL_UNREAD"
+    },
+    {
+      "noticeId": "1ecfdb35-d469-4eca-bdf4-c88dab451735",
+      "extractionId": "81461c31-ba4d-42bf-9f5f-a4c0a021a58f",
+      "label": "접수마감안내_101021.pdf",
+      "before": "EMPTY",
+      "after": "EMPTY",
+      "parts": 1,
+      "characters": 2,
+      "result": "STILL_UNREAD"
+    }
+  ],
+  "baselineApprovedNoticeCount": 18,
+  "baselineContentAndDecisionPreserved": true,
+  "baselineVersionChanges": [
+    {
+      "beforeVersion": 3,
+      "noticeId": "cb715a71-3611-4d8a-a23f-573d0bae22e9",
+      "afterVersion": 5,
+      "reason": "Proven first API binding invalidation repaired; original content and decision retained, versions not rewound"
+    }
+  ],
+  "personalPreparationPreserved": true,
+  "browserQa": {
+    "horizontalOverflow": false,
+    "sampleNotices": [
+      "창원",
+      "인천 정정본"
+    ],
+    "viewports": [
+      "393x852",
+      "360x800"
+    ],
+    "realDevice": false,
+    "consoleErrors": 0
+  },
+  "notices": [
+    {
+      "id": "3577685b-d246-4026-b381-d96077878220",
+      "title": "청주시 다자녀 매입임대주택 예비입주자 모집(261029공고)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "canStart": true,
+      "version": 3,
+      "questions": 12,
+      "documents": 19,
+      "schedules": 6,
+      "issues": 0,
+      "correction": null
+    },
+    {
+      "id": "836418b5-3936-4505-bea3-c23180f29e94",
+      "title": "[부산] 2026년 2차 일반 매입임대주택 입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "canStart": true,
+      "version": 2,
+      "questions": 13,
+      "documents": 20,
+      "schedules": 7,
+      "issues": 2,
+      "correction": null
+    },
+    {
+      "id": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+      "title": "경남 창원시 일반 매입임대주택 예비입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "canStart": true,
+      "version": 2,
+      "questions": 13,
+      "documents": 19,
+      "schedules": 2,
+      "issues": 1,
+      "correction": null
+    },
+    {
+      "id": "06462f53-d47e-419e-b458-c8a6e212b96a",
+      "title": "경남 거창군 신원면 다자녀 매입임대주택 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "canStart": true,
+      "version": 2,
+      "questions": 17,
+      "documents": 26,
+      "schedules": 3,
+      "issues": 0,
+      "correction": null
+    },
+    {
+      "id": "c717d2e8-a9e2-4b71-8ac2-023bd437135f",
+      "title": "경남 의령군 화정면 다자녀 매입임대주택 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "canStart": true,
+      "version": 2,
+      "questions": 17,
+      "documents": 25,
+      "schedules": 3,
+      "issues": 0,
+      "correction": null
+    },
+    {
+      "id": "0780bed8-fd10-4856-91d7-a774df184443",
+      "title": "[인천지역본부] 일반 매입임대주택 입주자 모집 공고(인천,부천)",
+      "guideState": "REVIEWING",
+      "status": "UNKNOWN",
+      "canStart": false,
+      "version": 1,
+      "questions": 0,
+      "documents": 0,
+      "schedules": 0,
+      "issues": 0,
+      "correction": {
+        "noticeId": "b96dad91-8d52-4270-937b-b3c864bfea29",
+        "title": "[정정공고][인천지역본부] 일반 매입임대주택 입주자 모집 공고(인천,부천)",
+        "reason": "신청자격 공지사항 내용 정정",
+        "evidence": {
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020945&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+          "checkedAt": "2026-11-08"
+        },
+        "checkedAt": "2026-11-08T09:17:09.085332Z"
+      }
+    },
+    {
+      "id": "b96dad91-8d52-4270-937b-b3c864bfea29",
+      "title": "[정정공고][인천지역본부] 일반 매입임대주택 입주자 모집 공고(인천,부천)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 11,
+      "documents": 19,
+      "schedules": 5,
+      "issues": 0,
+      "correction": null
+    },
+    {
+      "id": "ca10955f-e710-4871-975e-45585292e79b",
+      "title": "[전북지역본부]2026년 2차 군산시 분양전환형 든든전세주택 입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 19,
+      "documents": 26,
+      "schedules": 9,
+      "issues": 6,
+      "correction": null
+    },
+    {
+      "id": "82f9e714-eb15-4047-b2de-3a90aa9d6265",
+      "title": "[정정공고][경남지역본부]26년 4차 분양전환형 든든전세주택 예비입주자 모집 공고(모집권역 완화)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 23,
+      "documents": 31,
+      "schedules": 6,
+      "issues": 3,
+      "correction": null
+    },
+    {
+      "id": "935026d6-97e7-4fde-a5aa-29786f64beb1",
+      "title": "2026년 2차 대구경북지역 든든전세주택 입주자 모집공고(비분양전환형)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 20,
+      "documents": 24,
+      "schedules": 9,
+      "issues": 5,
+      "correction": null
+    },
+    {
+      "id": "96a16272-c853-4505-bdbb-d88f652d6e77",
+      "title": "[정정공고]2026년 2차 대구경북지역 든든전세주택 입주자 모집공고(분양전환형)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 23,
+      "documents": 32,
+      "schedules": 9,
+      "issues": 6,
+      "correction": null
+    },
+    {
+      "id": "920b4c38-546f-4291-8a27-069440fbcddc",
+      "title": "[정정공고][경기남부] 든든전세 매입임대주택 예비입주자 모집공고(비분양전환)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 17,
+      "documents": 19,
+      "schedules": 6,
+      "issues": 4,
+      "correction": null
+    },
+    {
+      "id": "4dca5d2d-194d-4cae-ba7e-86b6067755af",
+      "title": "[제주지역본부-제주시] 든든전세주택 (예비)입주자 모집 공고(분양전환형)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 21,
+      "documents": 23,
+      "schedules": 7,
+      "issues": 4,
+      "correction": null
+    },
+    {
+      "id": "dadf9ea6-05bd-4dd1-8171-5dd50ae0e83d",
+      "title": "[경기북부] 청년 매입임대주택 선착순 예비입주자 모집공고 (김포시, 포천시)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 18,
+      "documents": 19,
+      "schedules": 9,
+      "issues": 7,
+      "correction": null
+    },
+    {
+      "id": "487ddf0e-c889-40fd-8f1a-db38995b6320",
+      "title": "[경남지역본부]26년 4차 비분양전환형 든든전세주택 입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "canStart": false,
+      "version": 2,
+      "questions": 20,
+      "documents": 24,
+      "schedules": 6,
+      "issues": 2,
+      "correction": null
+    },
+    {
+      "id": "b165e0ef-22e1-46ac-86a3-a62aa1e7e726",
+      "title": "[경남지역본부]26년 4차 분양전환형 든든전세주택 예비입주자 모집 공고(모집권역 완화)",
+      "guideState": "REVIEWING",
+      "status": "UNKNOWN",
+      "canStart": false,
+      "version": 1,
+      "questions": 0,
+      "documents": 0,
+      "schedules": 0,
+      "issues": 0,
+      "correction": {
+        "noticeId": "82f9e714-eb15-4047-b2de-3a90aa9d6265",
+        "title": "[정정공고][경남지역본부]26년 4차 분양전환형 든든전세주택 예비입주자 모집 공고(모집권역 완화)",
+        "reason": "[공고문 1페이지 문구 추가] 1세대(세대구성원 전원) 1주택 신청, 중복신청 시 전부 무효 처리",
+        "evidence": {
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020934&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+          "checkedAt": "2026-11-08"
+        },
+        "checkedAt": "2026-11-08T09:19:07.585642Z"
+      }
+    }
+  ]
+}

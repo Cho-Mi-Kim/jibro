@@ -84,11 +84,15 @@ function FilterSheet({
                     <span aria-hidden="true">×</span>
                 </button>
             </header>
-            <fieldset>
-                <legend>여러 항목을 선택할 수 있어요</legend>
-                {choices(group, draft, setDraft)}
-                {group.options.length === 0 && <p>선택할 항목이 없습니다.</p>}
-            </fieldset>
+            <div className={styles.options}>
+                <fieldset>
+                    <legend>여러 항목을 선택할 수 있어요</legend>
+                    {choices(group, draft, setDraft)}
+                    {group.options.length === 0 && (
+                        <p>선택할 항목이 없습니다.</p>
+                    )}
+                </fieldset>
+            </div>
             <footer>
                 <Button className="secondary" onClick={() => setDraft([])}>
                     초기화

@@ -1,17 +1,20 @@
 import { Link, useLocation } from 'react-router';
-import type { Preparation, Question } from '../housing/types';
+import type { Preparation } from '../housing/types';
 import { needsFollowUp, answerLabel } from '../housing/questions';
-import { cx } from '../../shared/styles/classes';
+import { bindClasses } from '../../shared/styles/classes';
 import { Icon } from '../../shared/ui/Icon';
-import { Card, EvidenceLink, InlineExplanation } from '../../shared/ui/ui';
-import { Disc, Status, NoticeContext } from '../../shared/ui/HousingUI';
-function ConditionEvidence({ question }: { question: Question }) {
-    return (
-        <InlineExplanation label={question.title + ' 공식 근거 보기'}>
-            <EvidenceLink evidence={question.evidence} />
-        </InlineExplanation>
-    );
-}
+import { Card, InlineExplanation } from '../../shared/ui/ui';
+import { ConditionSummary } from '../housing/ConditionSummary';
+import { Disc } from '../../shared/ui/Disc';
+import { Status } from '../../shared/ui/Status';
+import { PartialGuidanceNotice, ReviewIssues } from '../housing/ReviewIssues';
+import { questionReviewIssues } from '../housing/reviewIssueSelectors';
+import { NoticeContext } from './PreparationUI';
+import questionsClasses from './Conditions.module.css';
+import { PreparationScrollSection } from './PreparationScrollSection';
+
+const cx = bindClasses(questionsClasses);
+
 export function ConditionResult({
     p,
     inTab,
@@ -31,7 +34,9 @@ export function ConditionResult({
             <div className={cx('result-context')}>
                 <NoticeContext p={p} />
             </div>
-            <section className={cx('panel result-counts explanation-card')}>
+            <PreparationScrollSection
+                className={cx('panel result-counts explanation-card')}
+            >
                 <div className={cx('row')}>
                     <div>
                         <Disc name="check" tone="green" />
@@ -54,26 +59,52 @@ export function ConditionResult({
                         않습니다.
                     </p>
                 </InlineExplanation>
-            </section>
+            </PreparationScrollSection>
             <section className={cx('result-questions')}>
+                <PartialGuidanceNotice issues={p.reviewIssues} />
+                <ReviewIssues
+                    issues={(p.reviewIssues ?? []).filter(
+                        (issue) =>
+                            issue.area === 'CONDITION' &&
+                            !issue.questionIds.length,
+                    )}
+                />
                 <h2>추가로 확인할 조건</h2>
                 {uncertain.length === 0 && (
                     <Card>추가 확인으로 남긴 조건이 없습니다.</Card>
                 )}
                 {uncertain.map((x) => (
-                    <article
-                        className={cx('panel result-question explanation-card')}
+                    <PreparationScrollSection
+                        as="article"
+                        className={cx('panel result-question')}
                         key={x.id}
                     >
                         <div className={cx('row')}>
                             <Disc name="warning" tone="amber" />
-                            <Status tone="amber">추가 확인 필요</Status>
+                            <Status tone="amber">
+                                {x.reviewRequired
+                                    ? '공식 확인 필요'
+                                    : '추가 확인 필요'}
+                            </Status>
                         </div>
-                        <h2>{x.title}</h2>
-                        <p>내 답변: {answerLabel(x, p.answers[x.id])}</p>
-                        <p className={cx('muted')}>{x.reason}</p>
-                        <ConditionEvidence question={x} />
-                        {!inTab && (
+                        <ConditionSummary
+                            question={x}
+                            issues={questionReviewIssues(p.reviewIssues, x.id)}
+                        >
+                            {(!x.reviewRequired ||
+                                p.answers[x.id] !== undefined) && (
+                                <p>
+                                    내 답변: {answerLabel(x, p.answers[x.id])}
+                                </p>
+                            )}
+                            {x.reviewRequired && (
+                                <p className={cx('muted')}>
+                                    이 항목은 답변으로 확정하지 않아요. 기존
+                                    답변은 보존됩니다.
+                                </p>
+                            )}
+                        </ConditionSummary>
+                        {!inTab && !x.reviewRequired && (
                             <Link
                                 className={cx('result-action')}
                                 state={state}
@@ -87,23 +118,25 @@ export function ConditionResult({
                                 답변 이어서 작성 <Icon name="arrow" />
                             </Link>
                         )}
-                    </article>
+                    </PreparationScrollSection>
                 ))}
-                <details className={cx('card')}>
+                <PreparationScrollSection as="details" className={cx('card')}>
                     <summary>답변 완료 {confirmed.length}개 보기</summary>
                     {confirmed.map((x) => (
-                        <div
-                            className={cx(
-                                'explanation-card confirmed-condition',
-                            )}
-                            key={x.id}
-                        >
-                            <h3>{x.title}</h3>
-                            <p>{answerLabel(x, p.answers[x.id])}</p>
-                            <ConditionEvidence question={x} />
+                        <div className={cx('confirmed-condition')} key={x.id}>
+                            <ConditionSummary
+                                question={x}
+                                issues={questionReviewIssues(
+                                    p.reviewIssues,
+                                    x.id,
+                                )}
+                                heading="h3"
+                            >
+                                <p>{answerLabel(x, p.answers[x.id])}</p>
+                            </ConditionSummary>
                         </div>
                     ))}
-                </details>
+                </PreparationScrollSection>
             </section>
             <aside
                 className={cx('panel result-documents')}

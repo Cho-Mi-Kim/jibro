@@ -15,6 +15,8 @@ import type {
 } from './types';
 import { ApiError } from '../../shared/api/client';
 import { waitForDemoResponse } from './demoDelay';
+import { documentNeedsReview } from './reviewIssueSelectors';
+import { DEFAULT_NOTICE_SORT, noticeComparator } from './noticeOrdering';
 import {
     answerDemoPreparation,
     assessDemoPreparation,
@@ -116,6 +118,56 @@ const guides: Guide[] = [
 function requireUser() {
     if (!user) throw new ApiError(401, '로그인이 필요합니다.');
 }
+function createDemoPreparation(n: Notice): Preparation {
+    return assessDemoPreparation({
+        id: crypto.randomUUID(),
+        noticeId: n.id,
+        title: n.title,
+        version: n.version,
+        revision: 1,
+        guideState: n.guideState,
+        reviewIssues: n.reviewIssues,
+        questions: n.questions,
+        answers: {},
+        documentConditions: Object.fromEntries(
+            Object.entries(documentRules).map(([id, rule]) => [
+                id,
+                rule.questionId,
+            ]),
+        ),
+        documentConditionValues: Object.fromEntries(
+            Object.entries(documentRules).map(([id, rule]) => [
+                id,
+                [...rule.answerValues],
+            ]),
+        ),
+        documents: documentTemplates.map(({ id, title }) => ({
+            id,
+            title,
+            necessity: demoDocumentNecessity(documentRules[id], {}),
+            state: 'UNCHECKED',
+            method: '실제 공고에서 발급 기준과 제출 방법을 확인하세요.',
+            issuer: '공고에서 확인',
+            issueUrl: null,
+            note: '',
+            evidence,
+        })),
+        schedules: [
+            {
+                id: 'apply',
+                title: '공식 신청 여부 확인',
+                date: n.endDate ?? '',
+                recorded: false,
+                evidence,
+            },
+        ],
+        progress: 0,
+        houseStage: 1,
+        warnings: [],
+        nextAction: { label: '', reason: '', path: '' },
+    });
+}
+
 function currentPreparation(p: Preparation): Preparation {
     const notice = notices.find((n) => n.id === p.noticeId);
     const published =
@@ -151,6 +203,44 @@ export async function demoRequest<T>(
             ),
             preparations,
         );
+    } else if (
+        parts[0] === 'notices' &&
+        parts[2] === 'check-once' &&
+        method === 'POST'
+    ) {
+        const n = notices.find(
+            (notice) =>
+                notice.id === parts[1] &&
+                reviews.find((review) => review.id === notice.id)?.basic ===
+                    'PASS',
+        );
+        if (!n) throw new ApiError(404);
+        if (
+            !n.canStart ||
+            n.guideState !== 'AVAILABLE' ||
+            n.version !== input.version
+        )
+            throw new ApiError(
+                409,
+                '공고 안내가 바뀌었습니다. 공고를 다시 확인해 주세요.',
+            );
+        const checked = assessDemoPreparation(
+            answerDemoPreparation(
+                createDemoPreparation(n),
+                input.answers as Record<string, Answer>,
+                documentRules,
+            ),
+        );
+        result = {
+            noticeId: n.id,
+            title: n.title,
+            version: n.version,
+            questions: checked.questions,
+            answers: checked.answers,
+            documents: checked.documents,
+            warnings: checked.warnings,
+            reviewIssues: checked.reviewIssues,
+        };
     } else if (parts[0] === 'notices' && parts[2] === 'versions') {
         const n = notices.find(
             (n) =>
@@ -209,37 +299,86 @@ export async function demoRequest<T>(
                 ['region', 'type', 'status'].every(
                     (key) =>
                         !q.getAll(key).length ||
+                        (key === 'region' && n.region === '전국') ||
                         q
                             .getAll(key)
                             .includes(n[key as 'region' | 'type' | 'status']),
                 ),
         );
         items.sort(
-            q.get('sort') === 'newest'
-                ? (a, b) =>
-                      (b.publishedDate ?? '').localeCompare(
-                          a.publishedDate ?? '',
-                      ) || a.id.localeCompare(b.id)
-                : (a, b) =>
-                      (a.endDate ?? '').localeCompare(b.endDate ?? '') ||
-                      a.id.localeCompare(b.id),
+            noticeComparator(
+                q.get('sort') ?? DEFAULT_NOTICE_SORT,
+                q.getAll('region'),
+            ),
         );
         const page = Math.max(0, Number(q.get('page')) || 0),
             size = 20;
         result = {
-            items: items.slice(page * size, (page + 1) * size),
+            items: items.slice(page * size, (page + 1) * size).map((n) => ({
+                id: n.id,
+                title: n.title,
+                agency: n.agency,
+                region: n.region,
+                type: n.type,
+                status: n.status,
+                lifecycle: n.lifecycle,
+                startDate: n.startDate,
+                endDate: n.endDate,
+                applicationTiming: n.applicationTiming,
+                publishedDate: n.publishedDate,
+                guideState: n.guideState,
+                collectedAt: n.collectedAt,
+                partialGuidance: !!n.reviewIssues?.length,
+            })),
             page,
             size,
             totalElements: items.length,
             totalPages: Math.ceil(items.length / size),
         };
-    } else if (parts[0] === 'guides') result = guides;
-    else if (parts[0] === 'preparations') {
+    } else if (parts[0] === 'guides') {
+        const category = url.searchParams.get('category') ?? '';
+        const terms = (url.searchParams.get('keyword') ?? '')
+            .normalize('NFC')
+            .toLocaleLowerCase()
+            .trim()
+            .split(/\s+/);
+        const page = Math.max(0, Number(url.searchParams.get('page')) || 0);
+        const matching = guides.filter(
+            (guide) =>
+                (!category || guide.category === category) &&
+                terms.every((term) =>
+                    [
+                        guide.category,
+                        guide.title,
+                        guide.body,
+                        guide.evidence.label,
+                    ]
+                        .join(' ')
+                        .normalize('NFC')
+                        .toLocaleLowerCase()
+                        .includes(term),
+                ),
+        );
+        result = {
+            items: matching.slice(page * 20, (page + 1) * 20),
+            page,
+            hasMore: matching.length > (page + 1) * 20,
+        };
+    } else if (parts[0] === 'preparations') {
         requireUser();
         if (parts.length === 1 && method === 'GET')
             result = preparations
                 .filter((p) => !isDemoArchived(p.id))
-                .map(currentPreparation);
+                .map(
+                    ({ id, noticeId, title, version, revision, progress }) => ({
+                        id,
+                        noticeId,
+                        title,
+                        version,
+                        revision,
+                        progress,
+                    }),
+                );
         else if (parts.length === 1) {
             let p = preparations.find((p) => p.noticeId === input.noticeId);
             if (p && isDemoArchived(p.id))
@@ -260,40 +399,7 @@ export async function demoRequest<T>(
                         409,
                         '준비 안내 상태가 변경되었습니다. 공고를 다시 확인하세요.',
                     );
-                p = assessDemoPreparation({
-                    id: crypto.randomUUID(),
-                    noticeId: n.id,
-                    title: n.title,
-                    version: n.version,
-                    revision: 1,
-                    guideState: n.guideState,
-                    questions: n.questions,
-                    answers: {},
-                    documents: documentTemplates.map(({ id, title }) => ({
-                        id,
-                        title,
-                        necessity: demoDocumentNecessity(documentRules[id], {}),
-                        state: 'UNCHECKED',
-                        method: '실제 공고에서 발급 기준과 제출 방법을 확인하세요.',
-                        issuer: '공고에서 확인',
-                        issueUrl: null,
-                        note: '',
-                        evidence,
-                    })),
-                    schedules: [
-                        {
-                            id: 'apply',
-                            title: '공식 신청 여부 확인',
-                            date: n.endDate ?? '',
-                            recorded: false,
-                            evidence,
-                        },
-                    ],
-                    progress: 0,
-                    houseStage: 1,
-                    warnings: [],
-                    nextAction: { label: '', reason: '', path: '' },
-                });
+                p = createDemoPreparation(n);
                 preparations.push(p);
             }
             result = currentPreparation(p);
@@ -323,6 +429,7 @@ export async function demoRequest<T>(
                     const d = p.documents.find((d) => d.id === parts[3]);
                     if (!d) throw new ApiError(404);
                     if (
+                        documentNeedsReview(d, p.reviewIssues) ||
                         d.necessity === 'UNKNOWN' ||
                         d.necessity === 'NOT_APPLICABLE'
                     )

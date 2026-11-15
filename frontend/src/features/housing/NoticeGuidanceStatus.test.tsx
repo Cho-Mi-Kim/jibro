@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { guideLabels } from '../../shared/ui/helpers';
+import { guideLabels } from './guideLabels';
 import { notices } from './demo';
 import { NoticeGuidanceStatus } from './NoticeGuidanceStatus';
 import type { Notice } from './types';
@@ -19,10 +19,13 @@ function renderStatus(overrides: Partial<Notice> = {}) {
 }
 
 describe('준비 안내 확인 현황', () => {
-    it('제목만 보이다가 펼치면 공개된 항목과 공고 기본 정보 확인일을 보여준다', async () => {
+    it('펼치면 기본 정보·준비 안내 검수·자동 수집 시각을 구별해서 보여준다', async () => {
         const user = userEvent.setup();
         const { summary, details } = renderStatus({
-            evidence: { ...publishedNotice.evidence, checkedAt: '2026-11-03' },
+            evidence: { ...publishedNotice.evidence, checkedAt: '2026-10-01' },
+            basicCheckedAt: '2026-11-03T01:02:00Z',
+            guideCheckedAt: '2026-11-04T02:03:00Z',
+            collectedAt: '2026-11-05T03:04:00Z',
         });
 
         expect(details).not.toHaveAttribute('open');
@@ -34,11 +37,28 @@ describe('준비 안내 확인 현황', () => {
         expect(details).toHaveTextContent(/서류.*제출서류 목록 2종/);
         expect(details).toHaveTextContent(/일정.*접수 기간 확인됨/);
         expect(details).toHaveTextContent(
-            /공고 기본 정보 확인일.*2026\.11\.03/,
+            /기본 정보 확인.*2026\. 11\. 03\. 10:02/,
         );
-        expect(details.textContent?.match(/2026\.11\.03/g)).toHaveLength(1);
+        expect(details).toHaveTextContent(
+            /준비 안내 검수.*2026\. 11\. 04\. 11:03/,
+        );
+        expect(details).toHaveTextContent(/자동 수집.*2026\. 11\. 05\. 12:04/);
+        expect(details).not.toHaveTextContent('2026-10-01');
         await user.click(summary);
         expect(details).not.toHaveAttribute('open');
+    });
+
+    it('검수 시각이 없으면 출처 확인일이나 자동 수집 시각으로 대신하지 않는다', async () => {
+        const { summary, details } = renderStatus({
+            basicCheckedAt: null,
+            guideCheckedAt: null,
+            collectedAt: '2026-11-05T03:04:00Z',
+            evidence: { ...publishedNotice.evidence, checkedAt: '2026-10-01' },
+        });
+        await userEvent.click(summary);
+        expect(details.textContent?.match(/확인 기록 없음/g)).toHaveLength(2);
+        expect(details).toHaveTextContent(/자동 수집.*2026\. 11\. 05\. 12:04/);
+        expect(details).not.toHaveTextContent('2026-10-01');
     });
 
     it.each(['REVIEWING', 'CHANGE_REVIEW', 'UNSUPPORTED'] as const)(

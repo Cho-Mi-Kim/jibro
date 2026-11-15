@@ -14,12 +14,11 @@ public class NoticeController {
     }
 
     @GetMapping
-    public HousingModels.Page<HousingModels.Notice> list(
+    public HousingModels.Page<NoticeListItem> list(
             @RequestParam(defaultValue = "") List<String> region, @RequestParam(defaultValue = "") List<String> type,
             @RequestParam(defaultValue = "") List<String> status, @RequestParam(defaultValue = "") String keyword,
-            @RequestParam(defaultValue = "deadline") String sort, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "20") int size,
-            @RequestParam(defaultValue = "false") boolean includeSamples) {
-        return service.search(region, type, status, keyword, sort, page, size, includeSamples);
+            @RequestParam(defaultValue = "active") String sort, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "20") int size) {
+        return service.search(region, type, status, keyword, sort, page, size);
     }
 
     @GetMapping("/filters")

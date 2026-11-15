@@ -1,8 +1,8 @@
 import { Link } from 'react-router';
 import { usePreparation } from '../features/preparation/usePreparation';
 import { journeySteps } from '../features/preparation/journey';
-import { useNotice } from '../shared/ui/housingHelpers';
-import { OfficialLink } from '../shared/ui/HousingUI';
+import { useNotice } from '../features/housing/useNotice';
+import { OfficialLink } from '../shared/ui/OfficialLink';
 import { Card, Heading, State } from '../shared/ui/ui';
 import styles from '../features/preparation/Workflow.module.css';
 export function JourneyPage() {

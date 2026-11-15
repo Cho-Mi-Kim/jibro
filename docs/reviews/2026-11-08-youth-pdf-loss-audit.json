@@ -1,0 +1,15 @@
+[ {
+  "pages" : 26,
+  "repairedSpaces" : 9,
+  "allOtherCharactersIdentical" : true,
+  "sha256" : "f2d6fd02e5a0a5cef243c853285612145172f7162a9c340e0bba2adf2e594477",
+  "file" : "68646610.pdf",
+  "characters" : 36643
+}, {
+  "pages" : 27,
+  "repairedSpaces" : 9,
+  "allOtherCharactersIdentical" : true,
+  "sha256" : "e327d37ee9cb641ede05c9387f9ddd3c2504ded8b8f603d9d1df1b548a65fecc",
+  "file" : "68441895.pdf",
+  "characters" : 36428
+} ]

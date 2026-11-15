@@ -1,12 +1,15 @@
+import { NoticeLifecycleNotice } from '../housing/NoticeLifecycleNotice';
+import { effectiveNoticeStatus } from '../housing/noticeLifecycle';
 import { Link, useNavigate } from 'react-router';
 import type { ReactNode } from 'react';
 import type { Notice } from '../housing/types';
 import { statusLabels } from '../housing/noticeLabels';
-import { startPath } from '../preparation/startIntent';
+import { preparationChoicePath } from '../preparation/oneTimeCheckApi';
 import { Button, Card } from '../../shared/ui/ui';
-import { GuideBadge, NoticeDates, Status } from '../../shared/ui/HousingUI';
+import { GuideBadge, NoticeDates } from '../housing/NoticeFacts';
+import { Status } from '../../shared/ui/Status';
 import { cx } from '../../shared/styles/classes';
-import { HomeNoticeTitle } from '../../shared/ui/HomeNoticeTitle';
+import { HomeNoticeTitle } from '../home/HomeNoticeTitle';
 import { useNoticeEntryState } from '../../shared/navigation/useNoticeEntryState';
 
 export function NoticeHomeSummary({
@@ -21,17 +24,25 @@ export function NoticeHomeSummary({
     return (
         <Card>
             <div className={cx('row')}>
-                <Status tone={notice.status === 'OPEN' ? 'green' : 'gray'}>
-                    {statusLabels[notice.status]}
+                <Status
+                    tone={
+                        effectiveNoticeStatus(notice) === 'OPEN'
+                            ? 'green'
+                            : 'gray'
+                    }
+                >
+                    {statusLabels[effectiveNoticeStatus(notice)]}
                 </Status>
-                <GuideBadge state={notice.guideState} />
+                <GuideBadge
+                    state={notice.guideState}
+                    partial={!!notice.reviewIssues?.length}
+                />
             </div>
-            <h2>
-                <HomeNoticeTitle title={notice.title} type={notice.type} />
-            </h2>
+            <HomeNoticeTitle title={notice.title} />
             <p>
                 {notice.agency} · {notice.region} · {notice.type}
             </p>
+            <NoticeLifecycleNotice notice={notice} />
             <NoticeDates notice={notice} />
             <p>
                 {notice.canStart
@@ -51,7 +62,13 @@ export function NoticeHomeSummary({
                 <Button
                     className="wide"
                     onClick={() =>
-                        navigate(startPath(notice.id, notice.version, 'home'))
+                        navigate(
+                            preparationChoicePath(
+                                notice.id,
+                                notice.version,
+                                'home',
+                            ),
+                        )
                     }
                 >
                     이 공고로 준비 시작

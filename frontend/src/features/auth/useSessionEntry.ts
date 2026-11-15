@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSession } from '../../app/useSession';
+import { useSession } from './useSession';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
 import { api } from '../housing/api';

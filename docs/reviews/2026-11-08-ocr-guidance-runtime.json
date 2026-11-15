@@ -1,0 +1,1208 @@
+{
+  "scope": "Local 5173; 18 recovered OCR attachments across 17 notices; no remote deployment",
+  "apiVerification": {
+    "checkedAt": "2026-11-08T12:37:12.084202+00:00",
+    "notices": [
+      {
+        "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "title": "[정정공고]내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 11,
+        "documents": 14,
+        "issues": 2,
+        "issueTitles": [
+          "계약금 입금 계좌 확인 필요",
+          "공식 화면과 첨부의 접수기한 확인 필요"
+        ],
+        "startDate": null,
+        "endDate": null
+      },
+      {
+        "noticeId": "1ecfdb35-d469-4eca-bdf4-c88dab451735",
+        "title": "김포마송 휴먼시아 10단지 접수마감안내(10.25 접수마감)",
+        "guideState": "UNSUPPORTED",
+        "disposition": "UNSUPPORTED",
+        "version": null,
+        "status": "UNKNOWN",
+        "canStart": false,
+        "questions": 0,
+        "documents": 0,
+        "issues": 0,
+        "issueTitles": [],
+        "startDate": null,
+        "endDate": null
+      },
+      {
+        "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+        "title": "익산함열휴먼시아 국민임대주택 예비자 및 예비입주자 모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PASS",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 18,
+        "documents": 24,
+        "issues": 0,
+        "issueTitles": [],
+        "startDate": "2013-10-23",
+        "endDate": "2013-10-23"
+      },
+      {
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "title": "청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 14,
+        "documents": 10,
+        "issues": 2,
+        "issueTitles": [
+          "전체 신청 종료일 확인 필요",
+          "결과 발표일의 적용 범위 확인 필요"
+        ],
+        "startDate": "2016-10-10",
+        "endDate": null
+      },
+      {
+        "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+        "title": "[정정공고] 대전노은3 A3블록 공공임대주택(10년, 분납) 선착순모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 11,
+        "documents": 6,
+        "issues": 3,
+        "issueTitles": [
+          "신청 마감 표기 확인 필요",
+          "계약 종료일 원문 표기 차이",
+          "최초공고 준용 사항 추가 확인"
+        ],
+        "startDate": "2013-12-11",
+        "endDate": null
+      },
+      {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "title": "[정정공고][정정공고] 성남지역 국민임대주택 예비입주자 모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 28,
+        "issues": 1,
+        "issueTitles": [
+          "최종 결과 발표 연도 원문 충돌"
+        ],
+        "startDate": "2013-12-19",
+        "endDate": "2013-12-24"
+      },
+      {
+        "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+        "title": "공주월송 행복주택 예비입주자 고령자(만65세이상) 자격완화 추가모집(20181204)",
+        "guideState": "AVAILABLE",
+        "disposition": "PASS",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 15,
+        "documents": 20,
+        "issues": 0,
+        "issueTitles": [],
+        "startDate": "2018-12-17",
+        "endDate": "2018-12-21"
+      },
+      {
+        "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "title": "성남지역 국민임대주택 예비입주자 모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 19,
+        "documents": 28,
+        "issues": 2,
+        "issueTitles": [
+          "최종 결과 발표 연도 원문 충돌",
+          "50㎡ 미만 소득 50~70% 세대 접수일 확인 필요"
+        ],
+        "startDate": "2013-12-19",
+        "endDate": null
+      },
+      {
+        "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "title": "내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 11,
+        "documents": 14,
+        "issues": 3,
+        "issueTitles": [
+          "계약금 입금 계좌 확인 필요",
+          "공식 화면과 첨부의 접수기한 확인 필요",
+          "공급 동호는 정정 공고 확인 필요"
+        ],
+        "startDate": null,
+        "endDate": null
+      },
+      {
+        "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+        "title": "양산신도시 LH 1,2,5단지 국민임대주택 선착순 추가입주자 모집 공고",
+        "guideState": "AVAILABLE",
+        "disposition": "PASS",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 15,
+        "documents": 14,
+        "issues": 0,
+        "issueTitles": [],
+        "startDate": "2015-09-09",
+        "endDate": "2015-11-06"
+      },
+      {
+        "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+        "title": "남양주 별가람마을1-4단지 10년 공공임대주택 예비입주자 모집공고",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 16,
+        "documents": 11,
+        "issues": 1,
+        "issueTitles": [
+          "재당첨 제한의 기산점 확인"
+        ],
+        "startDate": "2018-08-16",
+        "endDate": "2018-08-17"
+      },
+      {
+        "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+        "title": "[정정공고]화성시 병점 복합타운 A-1블럭 행복주택 예비입주자 모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 3,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 24,
+        "documents": 39,
+        "issues": 1,
+        "issueTitles": [
+          "서류제출 대상자 발표일 확인 필요"
+        ],
+        "startDate": "2022-08-16",
+        "endDate": "2022-08-17"
+      },
+      {
+        "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+        "title": "[정정공고]내포스타힐스(10년임대) 잔여세대 입주자 모집(20181204)",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 11,
+        "documents": 13,
+        "issues": 1,
+        "issueTitles": [
+          "공식 화면과 첨부의 접수기한 확인 필요"
+        ],
+        "startDate": null,
+        "endDate": null
+      },
+      {
+        "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+        "title": "울산화봉1 국민임대주택 예비입주자 모집공고",
+        "guideState": "AVAILABLE",
+        "disposition": "PASS",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 31,
+        "issues": 0,
+        "issueTitles": [],
+        "startDate": "2012-05-30",
+        "endDate": "2012-05-31"
+      },
+      {
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "title": "군산지역 매입 국민임대 예비입주자 모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "CLOSED",
+        "canStart": false,
+        "questions": 19,
+        "documents": 30,
+        "issues": 1,
+        "issueTitles": [
+          "직계존속 부양 사회취약계층의 소득 기준 확인"
+        ],
+        "startDate": "2012-05-24",
+        "endDate": "2012-05-24"
+      },
+      {
+        "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+        "title": "전북 익산한스빌 매입국민임대 선착순 입주자 모집",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 13,
+        "documents": 20,
+        "issues": 1,
+        "issueTitles": [
+          "신청 종료일 공식 자료 차이"
+        ],
+        "startDate": "2012-05-17",
+        "endDate": null
+      },
+      {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "guideState": "AVAILABLE",
+        "disposition": "PARTIAL",
+        "version": 2,
+        "status": "UNKNOWN",
+        "canStart": true,
+        "questions": 14,
+        "documents": 10,
+        "issues": 2,
+        "issueTitles": [
+          "전체 신청 종료일 확인 필요",
+          "결과 발표일의 적용 범위 확인 필요"
+        ],
+        "startDate": "2016-10-10",
+        "endDate": null
+      }
+    ],
+    "totals": {
+      "questions": 249,
+      "documents": 312,
+      "issues": 20
+    },
+    "dispositions": {
+      "PASS": 4,
+      "PARTIAL": 12,
+      "UNSUPPORTED": 1
+    }
+  },
+  "packageFileSha256": "3efd7587b8b56d3ddb60b5956720517417d0ce0914de1f7ed6be208c022580ea",
+  "reviewedSourceReferences": 60,
+  "sourceReviewPublication": {
+    "checkedAt": "2026-11-08T12:18:50.417350900Z",
+    "mode": "apply",
+    "notices": [
+      {
+        "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+        "packageFingerprint": "0a959fa94c703ed4813aa9ff26d2e51a0f6811c5e336a22de0fd1ec3a2f450fc",
+        "alreadyApplied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 14,
+        "issues": 2,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 당시 공고를 현재 기준과 분리해 대조한 작성 원고입니다. native HWP 전체를 읽고 PDF 1·2·6·7·8쪽를 직접 렌더 확인하여 OCR의 서류표 잡음을 정정했습니다. 유주택 계약 허용과 분양전환 시 무주택 요건, 배우자 분리·대리·거소 서류를 구분했습니다. 미해결 접수기한·입금계좌만 부분 확인 필요로 남기며 나머지 자격 준비·서류 안내를 제공합니다. 개인정보나 증빙 원본은 받지 않고 자기확인 답변만 기록합니다. 모든 source SHA는 전달된 최신 추출 스냅샷에 연결되며 DB 발행은 하지 않았습니다."
+      },
+      {
+        "noticeId": "1ecfdb35-d469-4eca-bdf4-c88dab451735",
+        "disposition": "UNSUPPORTED",
+        "title": "김포마송 휴먼시아 10단지 접수마감안내(10.25 접수마감)",
+        "packageFingerprint": "ea885d39b34dc0341bd56d5504892398cf4a7e57527fcd62cfbf50ccb3f6f915",
+        "alreadyApplied": true,
+        "verification": "PASS",
+        "questions": 0,
+        "documents": 0,
+        "issues": 0,
+        "guide_review": "UNSUPPORTED",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 공식 상세 전체와 스캔 PDF 한 장을 시각 대조했습니다. 2010.10.25 접수 종료일과 A-1블록(10단지)은 확인됐으나, 이 첨부에는 조건·서류가 없어 UNSUPPORTED로 분류합니다. 제목이 비슷한 다른 공고에서 자격·서류를 가져오지 않았습니다. 모집호수 159+76과 합계306, 접수118+123과 합계231은 원문 자체 불일치여서 계산 교정하지 않습니다."
+      },
+      {
+        "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+        "disposition": "PASS",
+        "title": "익산함열휴먼시아 국민임대주택 예비자 및 예비입주자 모집",
+        "packageFingerprint": "928fb9860f2e1611071a570a2805b35bd71768278054865508fc764aec161f5d",
+        "verifiedAt": "2026-11-08T12:18:41.595356200Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24562256": "bf798f47c8c1432d9fcacf6f874df0bcd6e637acee9130a2cdb377081eead6e8",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000003890&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "bce5f25f2a585a12dccaed7149183f9521d590039feb427eee577746d2523d2b",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24562254": "7d0657aea7d29cc37ac300eeacb29ca20dcadf5aaa82d5f643d200cf048ae7f7",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24562255": "e62f4e47212392f0176cc5cbc898576d4a4a710653715f643db7cf43d9655964"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 18,
+        "documents": 24,
+        "issues": 0,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 사용자 요청에 따른 AI 보조 원문대조 검토. PDF2·3·5·6·7쪽.2013소득70% 3,144,650/3,512,460/3,688,050,자동차2,464만원,10/23 10~16시(점심제외),12/11 16시,동의서·해당자서류를 시각대조. 공식페이지·현재첨부 전체SHA를기록하고 nativeHWP 전문의 조건·예외·서류범위를 확인했다. 당시 공고기준만 사용하며 자기확인은 최종자격판정이 아니다. 확인 범위 내 준비안내 원고이며 최종 자격심사는 운영기관에 따른다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "disposition": "PARTIAL",
+        "title": "청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "packageFingerprint": "f73a2b6c4958d8925ea84b8cbd42771b7afdaa2c146bca710588ef5596b91af9",
+        "verifiedAt": "2026-11-08T12:18:42.706062600Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437970": "d4926822070c1a28ff5a9664ac759f69edb123bc58d9f317bd877c2faeda6821",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980": "b68ce68be2c762b604600fbd3f88a1b2370aff4e55ce3e7e15ba98cc799bf79f",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000890&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "f20f9b3fff039f9f30da34a5eb9bddd981ad8b179197e9059cc8aa8fdf06a5d5"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 14,
+        "documents": 10,
+        "issues": 2,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2016년 역사 공고의 HWP 전체와 PDF 주요 표·예외·서류 및 도면을 대조했다. OCR 숫자·행 혼합을 원본 화면으로 확인했으며 2016 소득 3,371,660/3,775,200/3,832,780원, 자동차 24,650,000원을 사용했다. 14쪽은 도면이므로 개인 조건에 넣지 않았다. 단지별 접수와 전체 기간을 분리했고 최종 접수 종료 및 결과 날짜 범위만 미확정이다. 후속 dc3837d1 정정 공고가 존재한다. 원본 자체의 내용으로 작성했으며 후속 접수장소 문구를 이 원본에 소급 확정하지 않았다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+        "disposition": "PARTIAL",
+        "title": "[정정공고] 대전노은3 A3블록 공공임대주택(10년, 분납) 선착순모집",
+        "packageFingerprint": "227adf7b521ff16374998c87e7710c4793832ed4615204c0078da99cffa96adf",
+        "alreadyApplied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 6,
+        "issues": 3,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 사용자 요청에 따른 AI 보조 원문대조 검토. PDF1·4·5쪽 및 동호배치도1쪽.2013년,신청12/11~13·마지막날15시,순번발표12/13 17시,계약표12/16~18을 시각대조. PDF1쪽12/19 인쇄도 확인. 공식페이지·현재첨부 전체SHA를기록하고 nativeHWP 전문의 조건·예외·서류범위를 확인했다. 당시 공고기준만 사용하며 자기확인은 최종자격판정이 아니다. 실제 충돌/미확인 범위만 reviewIssues로 남기고 그 외 조건과 서류를 안내한다."
+      },
+      {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "disposition": "PARTIAL",
+        "title": "[정정공고][정정공고] 성남지역 국민임대주택 예비입주자 모집",
+        "packageFingerprint": "eecb899c92b8fa3fa5d38a64ec507d25fc6038824099fdf64457ba526521f9d9",
+        "verifiedAt": "2026-11-08T12:18:43.850833600Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004188&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "3919d78ed6ec11793eb6d2130cc6d0305bc7b96488cad463934e74e96ada11fc",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559691": "5cdf352b7f6aec4f0d464ca38bd87e1a787618a916054741370a610037818376",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560005": "12ebca91c907b73595364a5b946378d9bf398fadfeeccef99c6f040b5bae1337",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560006": "9d7c8561a62126d4ad8725f9d5f895c4f6d182fc304d983045061a456de9b559"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 19,
+        "documents": 28,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2013년 공고의 본문 HWP 전체·별도 동의서와 원본 PDF를 대조했다. 당시 만20세 이상 세대주 기준, 소득 50%/70% 각 표, 부동산 126,000,000원 및 자동차 24,640,000원, 면적별 순위·가점·해당자 서류를 구분했다. PDF 4쪽의 2013.3.11/2014.3.11은 원문 자체 연도 차이로 확인해 최종 발표만 미확정으로 분리했다. 동의서의 기재 개인정보를 질문 입력으로 옮기지 않았다. 정정 상세가 명시한 50㎡ 미만 소득 50~70%의 12/24 추가 접수를 정정 PDF 4쪽과 대조했다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+        "disposition": "PASS",
+        "title": "공주월송 행복주택 예비입주자 고령자(만65세이상) 자격완화 추가모집(20181204)",
+        "packageFingerprint": "ea7d9ac355a396181c2bb4f12dd348634ad83b21ed07a327345e536ba3298f00",
+        "verifiedAt": "2026-11-08T12:18:44.675480Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300003718&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026": "bdbcf88851a7f8cfb3d9bcacede4f833138996a374e840721c670035829a06f4",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34091980": "68b6e34000113b236441a86065af0263931125b3a7eed4244f0d2314387f0f8f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34091999": "672b056c1a6019a4d1f92718ddc16fabd87709d3a136561f42142d11af88a57b",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34092003": "adaf66bf14ec985f5de94d38ddaaef64206e2783368ac0de8ec7855dedf7a6a5"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 15,
+        "documents": 20,
+        "issues": 0,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 공주월송 고령자 자격완화 공고 및 첨부 서식 전체를 읽고 스캔 PDF의 주요 자격·소득·서류·일정 표를 직접 대조했습니다. 130% 완화 금액, 만65세·거주10개지역, 무주택기간 제한 없음과 무주택세대 필요의 차이, 예외 및 조건부 서류를 보존했습니다. 우선공급용 공통 서식은 일반공급 추첨에 자동 적용하지 않았습니다. 공고 간 실제 충돌이 확인되지 않아 확인된 자기확인 안내로 작성했으며 개인 최종자격이나 현재 접수 가능성을 의미하지 않습니다. DB 발행 전 현재 revision·SHA의 재검증이 필요합니다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "disposition": "PARTIAL",
+        "title": "성남지역 국민임대주택 예비입주자 모집",
+        "packageFingerprint": "1be270d36613c6393e87ae96c4053d733281db601cb65611ffa84d55fa0219af",
+        "verifiedAt": "2026-11-08T12:18:45.093410500Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560034": "f328eff1cc6e6399df60b6660920528ceb9d6ac8744242c1d7d95fc1bf1f0e9c",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559282": "5cdf352b7f6aec4f0d464ca38bd87e1a787618a916054741370a610037818376",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037": "3f25f8f00e886c350d27d5891b9e696cba3f6ce91459438d3b6a8fa1e34ac24d",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004175&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "326ff0d6bac692c5e8128924527aae5191cdbdfa4fff7e46eb4de0e6e7305e93"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 19,
+        "documents": 28,
+        "issues": 2,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2013년 공고의 본문 HWP 전체·별도 동의서와 원본 PDF를 대조했다. 당시 만20세 이상 세대주 기준, 소득 50%/70% 각 표, 부동산 126,000,000원 및 자동차 24,640,000원, 면적별 순위·가점·해당자 서류를 구분했다. PDF 4쪽의 2013.3.11/2014.3.11은 원문 자체 연도 차이로 확인해 최종 발표만 미확정으로 분리했다. 동의서의 기재 개인정보를 질문 입력으로 옮기지 않았다. 후속 633ebc13 정정은 50㎡ 미만 소득 50~70% 접수일 추가다. 이 원본에는 소급하지 않고 해당 신청기간 범위는 별도 미확정으로 남겼다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "disposition": "PARTIAL",
+        "title": "내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+        "packageFingerprint": "7811f77170beb448fd3afe9d71f33c1b294cc666ffb488ab32b161f6a2e1de2f",
+        "alreadyApplied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 14,
+        "issues": 3,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 당시 공고를 현재 기준과 분리해 대조한 작성 원고입니다. native HWP 전체를 읽고 PDF 1·2·8쪽를 직접 렌더 확인하여 OCR의 서류표 잡음을 정정했습니다. 유주택 계약 허용과 분양전환 시 무주택 요건, 배우자 분리·대리·거소 서류를 구분했습니다. 미해결 접수기한·입금계좌·정정 공급동호만 부분 확인 필요로 남기며 나머지 자격 준비·서류 안내를 제공합니다. 개인정보나 증빙 원본은 받지 않고 자기확인 답변만 기록합니다. 모든 source SHA는 전달된 최신 추출 스냅샷에 연결되며 DB 발행은 하지 않았습니다."
+      },
+      {
+        "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+        "disposition": "PASS",
+        "title": "양산신도시 LH 1,2,5단지 국민임대주택 선착순 추가입주자 모집 공고",
+        "packageFingerprint": "91dab33311403cc25f7bc73561bd097f6a9fcb0f202b5f6349764e34316cdd08",
+        "verifiedAt": "2026-11-08T12:18:45.882357600Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006686&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "bab9ac01f375188629e76f26563f9c5a2432144329aea5e7880eab8d0af10233",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24552047": "aee4a56846074e9e60463ba482bb423078921cce09f6914ec0580416d729b96f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24552048": "ded6d6a5df44676530631f6060f51393c18dd93986f304c65283a380fb17f73f"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 15,
+        "documents": 14,
+        "issues": 0,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2015.9.3 공고의 HWP 전체와 원본 PDF의 자격·소득·자산·접수·서류·계약·주택 소유 예외를 대조했다. OCR의 표 열 혼합과 숫자 오독을 렌더로 확인해 소득 3,314,220/3,657,250/3,892,010원, 차량 24,890,000원을 사용했다. 2015.9.9 이후 공고에 대한 경과 규정을 9/3 공고에 소급하지 않았다. 신청 시작·종료는 명시되어 있고 발표·계약은 개별 안내로 남겼다. 조건 확인은 개인 자격 확정이 아니다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+        "disposition": "PARTIAL",
+        "title": "남양주 별가람마을1-4단지 10년 공공임대주택 예비입주자 모집공고",
+        "packageFingerprint": "9244d3dd219296960f9391279a45b2eb8bdd1b069564b5a555737f58a3707f4d",
+        "verifiedAt": "2026-11-08T12:18:46.548196400Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32950541": "ab3763ce2a0e0d36423d68088119f69fb2790d89e30be7d33b48a924a377d903",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32950553": "a50ae24f9028fd1c381b466e4e898b0b4a80f1349f836e7bfbb638a21a77febd",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058682&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "ecbdca5ab2a9ebdbd20cd29f9bf955caef5f269dbd0deda91b618513ec2fe61d",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32951949": "95ae017a73d4cd93bbca21fc4ba7a5224219b874c0003b53a989fba07fa7dedf"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 16,
+        "documents": 11,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 공식 상세 전체, native HWP 전체, PDF 8쪽, HWP 내 평면도 5장을 대조했습니다. PDF 2·3·5·6쪽의 주택형·자격·일정·서류 표 및 도면 5종 제목을 시각 확인했습니다. 도면 주택형 오독은 본문 표와 실제 이미지로 교정하고, 도면 세대수를 모집호수로 사용하지 않았습니다. 소득·자산의 일반 양식 항목을 추가 자격으로 만들지 않았습니다. 9999.12.31 계약값은 미정 표식으로 제외했습니다. 6·7쪽의 재당첨 제한 기산점 차이만 조건 이슈로 보존합니다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]화성시 병점 복합타운 A-1블럭 행복주택 예비입주자 모집",
+        "packageFingerprint": "770b79073693af37ae94bb8db9b917e149f55a8734fbb5b1de8d677b51608987",
+        "verifiedAt": "2026-11-08T12:18:47.231777800Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300012096&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026": "cba6becb4ac54925e33fb5143b5d768cd07bec9b02a0486911c95bcf46d440cf",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691712": "91fbcf536733aa2bbec25f2642ecef6fa81b9d5f9a4de1b2be564e42d6d867f8",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698": "70ef615017d7fb2646aeaf464f322e18b77a8617a8151ef018ab8616a91485ed"
+        },
+        "previousPackageFingerprint": "e23c0ccc57bf223503710a4b379546d9336c5c79322c84273f68d134c20a60eb",
+        "amended": true,
+        "verification": "PASS",
+        "questions": 24,
+        "documents": 39,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 4,
+        "version": 3,
+        "reason": "원문 대조 검토 · 2022년 화성 병점복합타운 정정 공고의 native HWP 전체 및 공식 상세를 읽고 PDF 주요 계층·소득·서류·일정·소유 예외 표를 직접 대조했습니다. 25A 청년 정정 임대조건, 학생 본인/부모·청년 세대·가족 세대 구분, 소득과 자산 기준, 수급자 서류 면제, 조건부/입주 전 제출을 보존했습니다. 일반공급에 우선공급 배점 서류를 자동 부과하지 않았습니다. 서류대상자 발표일의 공식 본문 충돌만 SCHEDULE 확인 필요로 남깁니다. 자기확인 답변은 최종 자격이 아니며 미확인 선택을 보존합니다. DB 발행 전 현재 SHA·revision 확인이 필요합니다. 신분증은 유효한 기존 신분증으로 준비하고, 공고일 이후 발급 요건은 별도 증명서에만 적용하도록 문구 정정했습니다."
+      },
+      {
+        "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]내포스타힐스(10년임대) 잔여세대 입주자 모집(20181204)",
+        "packageFingerprint": "73d4dd1d8ae8c4145a3757fccdd8350d0d14552cb4304b532d0bdd0ee7badd24",
+        "alreadyApplied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 13,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 당시 공고를 현재 기준과 분리해 대조한 작성 원고입니다. native HWP 전체를 읽고 PDF 1~9쪽 전체를 직접 렌더 확인하여 OCR의 서류표 잡음을 정정했습니다. 유주택 계약 허용과 분양전환 시 무주택 요건, 배우자 분리·대리·거소 서류를 구분했습니다. 미해결 접수기한만 부분 확인 필요로 남기며 나머지 자격 준비·서류 안내를 제공합니다. 개인정보나 증빙 원본은 받지 않고 자기확인 답변만 기록합니다. 모든 source SHA는 전달된 최신 추출 스냅샷에 연결되며 DB 발행은 하지 않았습니다."
+      },
+      {
+        "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+        "disposition": "PASS",
+        "title": "울산화봉1 국민임대주택 예비입주자 모집공고",
+        "packageFingerprint": "4d6e119df319b9a0b597612b2c87f24c4faf9de6c22daf3fbb48ba4d7fc20807",
+        "verifiedAt": "2026-11-08T12:18:48.358022900Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24554422": "eb3d389bcfd4e52b479ef6e3f1dac5f9b933db2e6f5ed32d2be9a672c3a08bcc",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24554423": "a2cb3b16cd110817766e8303272e0e2715d2a86f47df89df77278851e317c344",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001025&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "9e09b87a61016b3a158c703161f5bb2d11e69f99d2fc45e1d2fe09f569428125"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 19,
+        "documents": 31,
+        "issues": 0,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 사용자 요청에 따른 AI 보조 원문대조 검토. PDF1~5쪽.3자녀(9자녀 OCR오류),5/31(5/91 OCR오류),2,974,030원·2,467만원,50%/70% 구간,서류·배점 및 당시 장애등급을 시각대조. 공식페이지·현재첨부 전체SHA를기록하고 nativeHWP 전문의 조건·예외·서류범위를 확인했다. 당시 공고기준만 사용하며 자기확인은 최종자격판정이 아니다. 확인 범위 내 준비안내 원고이며 최종 자격심사는 운영기관에 따른다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "disposition": "PARTIAL",
+        "title": "군산지역 매입 국민임대 예비입주자 모집",
+        "packageFingerprint": "69da65354fe2a07324193d62d240659b2d1c78c6a6d4f697950a6a22104d2a6e",
+        "verifiedAt": "2026-11-08T12:18:48.639817800Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557272": "f0a2adc18a530b7706e46d51fd059a03fe089daa3273c57568f43c458d1dd203",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557273": "050dd75d84ebf78609d3c8c1f2804f30377b28ef36b41250382a224ad0f90921",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001023&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "2a246c0bf76e07c26ba56f836f107875494779942abac2e77cca99237f48a392"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 19,
+        "documents": 30,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 사용자 요청에 따른 AI 보조 원문대조 검토. PDF2~6쪽.소득2,974,030원(2,974,090 OCR오류),자동차2,467만원,5/24 10~16시·6/14 16시,서류와배점표대조. 65세부양계층의평가액/인정액차이를 원문상확인. 공식페이지·현재첨부 전체SHA를기록하고 nativeHWP 전문의 조건·예외·서류범위를 확인했다. 당시 공고기준만 사용하며 자기확인은 최종자격판정이 아니다. 실제 충돌/미확인 범위만 reviewIssues로 남기고 그 외 조건과 서류를 안내한다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+        "disposition": "PARTIAL",
+        "title": "전북 익산한스빌 매입국민임대 선착순 입주자 모집",
+        "packageFingerprint": "85f093f5e2dea08faf09d361553f4a8e1c47219d8e9d86e7b777e2e4e45b0317",
+        "verifiedAt": "2026-11-08T12:18:49.026827300Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557306": "542aa739f8fcc7da6e046e39f572d454815f23df266b2da13c1b0d0cb6fe5cee",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557307": "736aac13053db80bef7dda85aeb5a1c4258372ce50261cccebcea0e01a72e8d5",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000001026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "dcdd53aed9db26770ff8a58198482a77d169a91f27b6db277da575efcce2e385",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557305": "33263748baa0277a227a50d51228c48a2cefade788b028ae7e9bcf6604606588"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 13,
+        "documents": 20,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 사용자 요청에 따른 AI 보조 원문대조 검토. PDF1~4쪽.최초 제한완화·만20세,소득은할증기준,2012/5/17~6/15,공통/소득/대리/계약서류·3회차갱신을 시각대조. 부속할증HWP전문과금액대조. 공식페이지·현재첨부 전체SHA를기록하고 nativeHWP 전문의 조건·예외·서류범위를 확인했다. 당시 공고기준만 사용하며 자기확인은 최종자격판정이 아니다. 실제 충돌/미확인 범위만 reviewIssues로 남기고 그 외 조건과 서류를 안내한다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      },
+      {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "packageFingerprint": "050d03a4ce73521d9e2be8c5d9faf367e1ab7841911a931642b9eb2b22869638",
+        "verifiedAt": "2026-11-08T12:18:49.342470800Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448469": "73c625940c9020591db9a10d658388b96f33c90ced3b7054383f1dba2361711f",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000903&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "f0cdb7078ff1272aa4e20ba4ffd91cb6d681613577abf3e660e736a1c8e67e4f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562": "db49725b20481aa6d00ff078f68fbafa9d4a4bf04a98ae08d7ffd4aa7d230658"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 14,
+        "documents": 10,
+        "issues": 2,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2016년 역사 공고의 HWP 전체와 PDF 주요 표·예외·서류 및 도면을 대조했다. OCR 숫자·행 혼합을 원본 화면으로 확인했으며 2016 소득 3,371,660/3,775,200/3,832,780원, 자동차 24,650,000원을 사용했다. 14쪽은 도면이므로 개인 조건에 넣지 않았다. 단지별 접수와 전체 기간을 분리했고 최종 접수 종료 및 결과 날짜 범위만 미확정이다. 공식 상세의 정정 사유(영우예인촌 미충원 익일부터 1층 접수)를 수정 원문과 대조했다. 기존 저장 문맥 뒤 추가된 접수처정보 전체를 대조했으며 신청자격·서류 원고를 바꿀 내용은 없었습니다."
+      }
+    ]
+  },
+  "initialPublication": {
+    "checkedAt": "2026-11-08T12:12:30.626860400Z",
+    "mode": "apply",
+    "notices": [
+      {
+        "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+        "packageFingerprint": "0a959fa94c703ed4813aa9ff26d2e51a0f6811c5e336a22de0fd1ec3a2f450fc",
+        "verifiedAt": "2026-11-08T12:12:22.908561100Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058683&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "26b6dedb6666cc32bfe3ed7f2b412c872ffcb61288ec942ab13897685c5a0f31",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984830": "c3aa3a1c6caa02a119fdcd0bd8b04acb32c0feedc84e349a057dec4c534d9546",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984834": "b39780b3ee91a2f760e7fdc5658824bb51b21e7e695a8cfddea180fdc5af8b07",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813": "d5fd463dae00132b674ec9ef82c10c3a1c51b3944c11ca4f504a2302b6a9fdbf"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 14,
+        "issues": 2,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 당시 공고를 현재 기준과 분리해 대조한 작성 원고입니다. native HWP 전체를 읽고 PDF 1·2·6·7·8쪽를 직접 렌더 확인하여 OCR의 서류표 잡음을 정정했습니다. 유주택 계약 허용과 분양전환 시 무주택 요건, 배우자 분리·대리·거소 서류를 구분했습니다. 미해결 접수기한·입금계좌만 부분 확인 필요로 남기며 나머지 자격 준비·서류 안내를 제공합니다. 개인정보나 증빙 원본은 받지 않고 자기확인 답변만 기록합니다. 모든 source SHA는 전달된 최신 추출 스냅샷에 연결되며 DB 발행은 하지 않았습니다."
+      },
+      {
+        "noticeId": "1ecfdb35-d469-4eca-bdf4-c88dab451735",
+        "disposition": "UNSUPPORTED",
+        "title": "김포마송 휴먼시아 10단지 접수마감안내(10.25 접수마감)",
+        "packageFingerprint": "ea885d39b34dc0341bd56d5504892398cf4a7e57527fcd62cfbf50ccb3f6f915",
+        "verifiedAt": "2026-11-08T12:12:23.723394700Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000002291&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026": "c25a0f8c9744228e75787dddaf78d0404b6e68bdddcb47bb0d96ae4890b01b11",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=10053670": "03bbfb6e109ebdde0dfbef21f731f1e308b9b3b29e820a200a7c8be398088243"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 0,
+        "documents": 0,
+        "issues": 0,
+        "guide_review": "UNSUPPORTED",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 공식 상세 전체와 스캔 PDF 한 장을 시각 대조했습니다. 2010.10.25 접수 종료일과 A-1블록(10단지)은 확인됐으나, 이 첨부에는 조건·서류가 없어 UNSUPPORTED로 분류합니다. 제목이 비슷한 다른 공고에서 자격·서류를 가져오지 않았습니다. 모집호수 159+76과 합계306, 접수118+123과 합계231은 원문 자체 불일치여서 계산 교정하지 않습니다."
+      },
+      {
+        "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+        "disposition": "PASS",
+        "title": "익산함열휴먼시아 국민임대주택 예비자 및 예비입주자 모집",
+        "packageFingerprint": "281b514561345c94e069316f8bf96d106ae1b3f977b7739da60620946b0fbec6",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:익산함열휴먼시아_국민임대_입주자및예비입주자_모집_공고문(안).pdf"
+      },
+      {
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "disposition": "PARTIAL",
+        "title": "청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "packageFingerprint": "a48b7da117ddd3755ce6d9c137ae697aff902492169699bd4627cb4377f1d5c7",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:청주,진천권국민[매입]임대주택예비입주자선착순모집공고.pdf"
+      },
+      {
+        "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+        "disposition": "PARTIAL",
+        "title": "[정정공고] 대전노은3 A3블록 공공임대주택(10년, 분납) 선착순모집",
+        "packageFingerprint": "227adf7b521ff16374998c87e7710c4793832ed4615204c0078da99cffa96adf",
+        "verifiedAt": "2026-11-08T12:12:24.613899700Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279": "abbe8d4f9f91ac90090ed5e4d79a834e22dbf1c3442fb83f2ef7d4137f2bb266",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559116": "fe88cc08c4c9dea2d888fec80cbf1756c226f35823c1447b7d87e57de37a90b9",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559123": "afa18f636752df7d057e86d41a923848a3620853bf49ae63a5f7d11cecc2a9ea",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004173&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "f48e6dc434d330d30f76bc608a432b818e7112ee51c6384502a0c950431d5f2b"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 6,
+        "issues": 3,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 사용자 요청에 따른 AI 보조 원문대조 검토. PDF1·4·5쪽 및 동호배치도1쪽.2013년,신청12/11~13·마지막날15시,순번발표12/13 17시,계약표12/16~18을 시각대조. PDF1쪽12/19 인쇄도 확인. 공식페이지·현재첨부 전체SHA를기록하고 nativeHWP 전문의 조건·예외·서류범위를 확인했다. 당시 공고기준만 사용하며 자기확인은 최종자격판정이 아니다. 실제 충돌/미확인 범위만 reviewIssues로 남기고 그 외 조건과 서류를 안내한다."
+      },
+      {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "disposition": "PARTIAL",
+        "title": "[정정공고][정정공고] 성남지역 국민임대주택 예비입주자 모집",
+        "packageFingerprint": "0ef7ae5ac4c876ef3649c0040e6ae11ed894d5d99af7cb9286dfb75a3d59766a",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:성남지역국민임대주택예비자모집공고문(1210).pdf / SCHEDULE_INVALID_TIME:SELECTION / SCHEDULE_SCOPED_PERIOD_MISSING:1,2,3순위 / SCHEDULE_SCOPED_PERIOD_MISSING:1순위 / SCHEDULE_SCOPED_PERIOD_MISSING:2순위 / SCHEDULE_SCOPED_PERIOD_MISSING:3순위"
+      },
+      {
+        "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+        "disposition": "PASS",
+        "title": "공주월송 행복주택 예비입주자 고령자(만65세이상) 자격완화 추가모집(20181204)",
+        "packageFingerprint": "a35bfb8e1f8f9aa965e94e445a3ff2389b19334077ec701c77057a00ad85f423",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · AUTHORITATIVE_SOURCE_INCOMPLETE:공주월송행복주택예비입주자고령자자격완화추가모집(20181204).pdf / SCHEDULE_INVALID_TIME:END"
+      },
+      {
+        "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "disposition": "PARTIAL",
+        "title": "성남지역 국민임대주택 예비입주자 모집",
+        "packageFingerprint": "237d72a3c39c83ad9a0678cca7343771aae62f1dac1df1747693aa6e765a67ab",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:성남지역국민임대예비자모집공고문.pdf / SCHEDULE_INVALID_TIME:SELECTION / SCHEDULE_SCOPED_PERIOD_MISSING:1순위 / SCHEDULE_SCOPED_PERIOD_MISSING:2순위 / SCHEDULE_SCOPED_PERIOD_MISSING:3순위"
+      },
+      {
+        "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "disposition": "PARTIAL",
+        "title": "내포신도시 공공임대(10년) 잔여세대 입주자모집(공고일 2018.8.9 현장접수)",
+        "packageFingerprint": "7811f77170beb448fd3afe9d71f33c1b294cc666ffb488ab32b161f6a2e1de2f",
+        "verifiedAt": "2026-11-08T12:12:27.502477400Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941549": "778e90448b018d9435aa6e0a198f4b1e891e056328dc82bfd61431adac82d3d1",
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058681&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "7a9b1b84f443bc6baf889034ff59031c0dfc61d0849108e772052fc67c62658f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538": "540dffb927714af20ea5e9462b068cb4f845229bdb0abc804dbb88c385b1b7e1",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941520": "baad810ecb8548ecca5fb20f8783adb7d05a4470f1be5735ac9e5d1f44d7bf51"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 14,
+        "issues": 3,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 당시 공고를 현재 기준과 분리해 대조한 작성 원고입니다. native HWP 전체를 읽고 PDF 1·2·8쪽를 직접 렌더 확인하여 OCR의 서류표 잡음을 정정했습니다. 유주택 계약 허용과 분양전환 시 무주택 요건, 배우자 분리·대리·거소 서류를 구분했습니다. 미해결 접수기한·입금계좌·정정 공급동호만 부분 확인 필요로 남기며 나머지 자격 준비·서류 안내를 제공합니다. 개인정보나 증빙 원본은 받지 않고 자기확인 답변만 기록합니다. 모든 source SHA는 전달된 최신 추출 스냅샷에 연결되며 DB 발행은 하지 않았습니다."
+      },
+      {
+        "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+        "disposition": "PASS",
+        "title": "양산신도시 LH 1,2,5단지 국민임대주택 선착순 추가입주자 모집 공고",
+        "packageFingerprint": "b9121cb038cfb22a42d8585222b3c49be17ddbed5fefd0b0c24d39c0e8c7f56b",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:양산신도시 LH 1,2,5단지 선착순 추가입주자 모집공고.pdf"
+      },
+      {
+        "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+        "disposition": "PARTIAL",
+        "title": "남양주 별가람마을1-4단지 10년 공공임대주택 예비입주자 모집공고",
+        "packageFingerprint": "6476f4f769931f9e3763ff3a794642b11029118816c955a4124aef139cdd8281",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(20180809)별가람1-4단지10년공공임대예비입주자모집공고문.pdf"
+      },
+      {
+        "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]화성시 병점 복합타운 A-1블럭 행복주택 예비입주자 모집",
+        "packageFingerprint": "e23c0ccc57bf223503710a4b379546d9336c5c79322c84273f68d134c20a60eb",
+        "verifiedAt": "2026-11-08T12:12:28.208730Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300012096&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026": "cba6becb4ac54925e33fb5143b5d768cd07bec9b02a0486911c95bcf46d440cf",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691712": "91fbcf536733aa2bbec25f2642ecef6fa81b9d5f9a4de1b2be564e42d6d867f8",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698": "70ef615017d7fb2646aeaf464f322e18b77a8617a8151ef018ab8616a91485ed"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 24,
+        "documents": 39,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2022년 화성 병점복합타운 정정 공고의 native HWP 전체 및 공식 상세를 읽고 PDF 주요 계층·소득·서류·일정·소유 예외 표를 직접 대조했습니다. 25A 청년 정정 임대조건, 학생 본인/부모·청년 세대·가족 세대 구분, 소득과 자산 기준, 수급자 서류 면제, 조건부/입주 전 제출을 보존했습니다. 일반공급에 우선공급 배점 서류를 자동 부과하지 않았습니다. 서류대상자 발표일의 공식 본문 충돌만 SCHEDULE 확인 필요로 남깁니다. 자기확인 답변은 최종 자격이 아니며 미확인 선택을 보존합니다. DB 발행 전 현재 SHA·revision 확인이 필요합니다."
+      },
+      {
+        "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]내포스타힐스(10년임대) 잔여세대 입주자 모집(20181204)",
+        "packageFingerprint": "73d4dd1d8ae8c4145a3757fccdd8350d0d14552cb4304b532d0bdd0ee7badd24",
+        "verifiedAt": "2026-11-08T12:12:29.429379Z",
+        "sourceDigests": {
+          "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000058858&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026": "e9f9f5548e100073720342021571d200e5f30d7ad287a7831b8d357dc1b9089f",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34132028": "1816977b0a8c62c89cfffbecdcb7a293a2868baddcd0a7214ec8bbac6ccfe644",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34131787": "7c02ed66a21aabcb3075a554507e9ee713ac76032b5c74d0ad17aa18c9723917",
+          "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34131810": "12c355a082069f13d24b9cc179e59c4b38cbb97c72b605b54abdb05fa499719d"
+        },
+        "applied": true,
+        "verification": "PASS",
+        "questions": 11,
+        "documents": 13,
+        "issues": 1,
+        "guide_review": "PASS",
+        "revision": 3,
+        "version": 2,
+        "reason": "원문 대조 검토 · 2018년 당시 공고를 현재 기준과 분리해 대조한 작성 원고입니다. native HWP 전체를 읽고 PDF 1~9쪽 전체를 직접 렌더 확인하여 OCR의 서류표 잡음을 정정했습니다. 유주택 계약 허용과 분양전환 시 무주택 요건, 배우자 분리·대리·거소 서류를 구분했습니다. 미해결 접수기한만 부분 확인 필요로 남기며 나머지 자격 준비·서류 안내를 제공합니다. 개인정보나 증빙 원본은 받지 않고 자기확인 답변만 기록합니다. 모든 source SHA는 전달된 최신 추출 스냅샷에 연결되며 DB 발행은 하지 않았습니다."
+      },
+      {
+        "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+        "disposition": "PASS",
+        "title": "울산화봉1 국민임대주택 예비입주자 모집공고",
+        "packageFingerprint": "c06af7d6be3f045ab3259ee8556cd6b143cb13d096685a1673cb83915e01ee1d",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:img-510131359.pdf / SCHEDULE_SCOPED_PERIOD_MISSING:1,2,3순위"
+      },
+      {
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "disposition": "PARTIAL",
+        "title": "군산지역 매입 국민임대 예비입주자 모집",
+        "packageFingerprint": "92defdd17860bf7daabb91a090597acc0942db898075a477c8921402a71146a3",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:군산지역 매입국민임대 예비입주자 모집.pdf"
+      },
+      {
+        "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+        "disposition": "PARTIAL",
+        "title": "전북 익산한스빌 매입국민임대 선착순 입주자 모집",
+        "packageFingerprint": "140e3eab89302dcf26f9ab8aa8b8e51e21d4883b14f84f58a58d2cd5744dea96",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:익산 한스빌 매입국민임대 선착순입주자모집(5월).pdf"
+      },
+      {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "disposition": "PARTIAL",
+        "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+        "packageFingerprint": "3b8836d0aa929dc5f1052d4bd4096fb41a414306470bd7368064d91d526d75fc",
+        "verification": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_DETAIL_CHANGED",
+        "guide_review": "HOLD",
+        "revision": 2,
+        "version": 1,
+        "reason": "자동 준비 안내 검수 보류 · OCR_SOURCE_REQUIRES_REVIEW / AUTHORITATIVE_SOURCE_INCOMPLETE:20160928청주,진천권국민[매입]임대주택예비입주자선착순모집공고.pdf"
+      }
+    ]
+  },
+  "snapshotRefresh": {
+    "notices": [
+      {
+        "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+        "revision": 2,
+        "previousExtractionId": "82b2c907-410b-4cf6-97e6-ef7fd6405b6c",
+        "newExtractionId": "637df513-f4af-41a8-867e-970704a425f5",
+        "unchangedAttachmentCount": 3,
+        "addedDetailParts": 5,
+        "amendment": false
+      },
+      {
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "revision": 2,
+        "previousExtractionId": "b830a8ed-3a95-442b-85bd-69368c641bc7",
+        "newExtractionId": "91e3b9e5-2bbf-4ea4-84f6-8a7506772cac",
+        "unchangedAttachmentCount": 2,
+        "addedDetailParts": 4,
+        "amendment": false
+      },
+      {
+        "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "revision": 2,
+        "previousExtractionId": "96e5641d-65ae-4cd2-a918-81215ba436c2",
+        "newExtractionId": "38d4b360-a172-454d-84ef-87985583c7ff",
+        "unchangedAttachmentCount": 3,
+        "addedDetailParts": 5,
+        "amendment": false
+      },
+      {
+        "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+        "revision": 2,
+        "previousExtractionId": "eb788004-7626-4494-9507-63b388707074",
+        "newExtractionId": "ce195115-664a-480f-962e-1b13d10abfd7",
+        "unchangedAttachmentCount": 3,
+        "addedDetailParts": 5,
+        "amendment": false
+      },
+      {
+        "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "revision": 2,
+        "previousExtractionId": "40d72c67-75a8-4df3-aa2c-380868443ab9",
+        "newExtractionId": "ba85f7fa-d6f7-4a1e-8490-490e4a2efd53",
+        "unchangedAttachmentCount": 3,
+        "addedDetailParts": 5,
+        "amendment": false
+      },
+      {
+        "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+        "revision": 2,
+        "previousExtractionId": "a1cc274c-7d6b-4f92-bc15-8c269ee77663",
+        "newExtractionId": "2438598a-9f64-4051-b721-01cf1c3d8d51",
+        "unchangedAttachmentCount": 2,
+        "addedDetailParts": 5,
+        "amendment": false
+      },
+      {
+        "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+        "revision": 2,
+        "previousExtractionId": "21f64c9e-26eb-43a2-ac40-f54ccc221cd7",
+        "newExtractionId": "005dccad-1b4a-49cc-8bf2-25d6e843d578",
+        "unchangedAttachmentCount": 3,
+        "addedDetailParts": 5,
+        "amendment": false
+      },
+      {
+        "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+        "revision": 3,
+        "previousExtractionId": "a0409950-4564-4da8-944e-cacc98a8bd04",
+        "newExtractionId": "25625ef7-eae8-45d6-8090-968589b20ccf",
+        "unchangedAttachmentCount": 2,
+        "addedDetailParts": 0,
+        "amendment": true
+      },
+      {
+        "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+        "revision": 2,
+        "previousExtractionId": "ed30d0e6-9849-465b-b228-adb90c81b1db",
+        "newExtractionId": "f8532ea7-f184-4cb5-9cbb-ab5daede8ab4",
+        "unchangedAttachmentCount": 2,
+        "addedDetailParts": 4,
+        "amendment": false
+      },
+      {
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "revision": 2,
+        "previousExtractionId": "6eed32d4-7801-4533-a565-e006c88f632c",
+        "newExtractionId": "d809d4d4-3df1-4842-8c85-398ba52c9dc2",
+        "unchangedAttachmentCount": 2,
+        "addedDetailParts": 4,
+        "amendment": false
+      },
+      {
+        "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+        "revision": 2,
+        "previousExtractionId": "05e9b551-84a0-4c44-a249-4b3ba0ba218a",
+        "newExtractionId": "e92e9f9f-e03d-4d70-b5bb-36d329be9d7b",
+        "unchangedAttachmentCount": 3,
+        "addedDetailParts": 4,
+        "amendment": false
+      },
+      {
+        "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "revision": 2,
+        "previousExtractionId": "b9d8d270-b87b-429c-b44f-62a18d078695",
+        "newExtractionId": "3b171d13-4e22-4b05-996d-355d7b736a57",
+        "unchangedAttachmentCount": 2,
+        "addedDetailParts": 4,
+        "amendment": false
+      }
+    ],
+    "checkedAt": "2026-11-08T12:17:55.487129800Z"
+  },
+  "correctionLinks": {
+    "pairs": [
+      {
+        "original": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "corrected": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "status": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_CORRECTION_LINK_UNVERIFIED"
+      },
+      {
+        "original": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "corrected": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "correction": {
+          "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+          "title": "[정정공고]청주,진천권 국민[매입]임대주택 예비입주자 선착순 모집공고",
+          "reason": "영우예인촌 모집일정 (접수일 미충원시 익일부터 : 1층 주거복지사업1부) 수정",
+          "evidence": {
+            "label": "LH 공식 정정 공고 · 정정사유",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300000903&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          "checkedAt": "2026-11-08T12:31:55.310718500Z"
+        },
+        "preserved": true,
+        "status": "PASS"
+      },
+      {
+        "original": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "corrected": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "correction": {
+          "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+          "title": "[정정공고][정정공고] 성남지역 국민임대주택 예비입주자 모집",
+          "reason": "50㎡미만 주택 가구원수별 가구당 월평균소득의 50%초과 70%이하인 세대 공급일정 추가\r\n-1,2,3순위: 2013.12.24",
+          "evidence": {
+            "label": "LH 공식 정정 공고 · 정정사유",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000004188&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "checkedAt": "2026-11-08"
+          },
+          "checkedAt": "2026-11-08T12:31:56.383398Z"
+        },
+        "preserved": true,
+        "status": "PASS"
+      }
+    ],
+    "checkedAt": "2026-11-08T12:31:56.713832700Z"
+  },
+  "correctionApi": {
+    "checkedAt": "2026-11-08T12:38:03.887940+00:00",
+    "results": [
+      {
+        "original": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "target": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "httpStatus": 200
+      },
+      {
+        "original": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "target": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "httpStatus": 200
+      },
+      {
+        "original": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "target": null,
+        "httpStatus": 204
+      }
+    ]
+  },
+  "initialCorrectionLinks": {
+    "pairs": [
+      {
+        "original": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+        "corrected": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "status": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_CORRECTION_LINK_UNVERIFIED"
+      },
+      {
+        "original": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "corrected": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+        "status": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_CORRECTION_LINK_UNVERIFIED"
+      },
+      {
+        "original": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+        "corrected": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+        "status": "FAILED",
+        "error": "IllegalArgumentException: OFFICIAL_CORRECTION_SOURCE_REQUIRED"
+      }
+    ],
+    "checkedAt": "2026-11-08T12:19:27.987499800Z"
+  },
+  "browserVerification": {
+    "environment": "ChatGPT in-app browser, local 5173; no physical device",
+    "viewports": [
+      {
+        "width": 393,
+        "height": 852,
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "checked": [
+          "19 condition questions",
+          "30 document entries",
+          "scoped income issue shown beside the affected question and document",
+          "fixed bottom actions and navigation do not overlap the visible content",
+          "document width equals viewport width"
+        ]
+      },
+      {
+        "width": 360,
+        "height": 800,
+        "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+        "checked": [
+          "document width equals viewport width"
+        ]
+      },
+      {
+        "width": 360,
+        "height": 800,
+        "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+        "checked": [
+          "unknown application window appears once as 확인 필요",
+          "three schedule columns retained",
+          "missing result/document dates remain blank",
+          "document width equals viewport width"
+        ]
+      },
+      {
+        "width": 360,
+        "height": 800,
+        "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+        "checked": [
+          "known start shown as 10/10 시작 and unknown end as 마감 미정",
+          "document width 360px",
+          "schedule inner clientWidth and scrollWidth both 275px",
+          "no console errors"
+        ]
+      }
+    ],
+    "correctionNavigation": {
+      "viewport": "393x852",
+      "from": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+      "to": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+      "officialCorrectionLinkVisible": true,
+      "clickedAndDestinationVerified": true,
+      "consoleErrors": 0
+    },
+    "personalStateMutation": false
+  },
+  "backendVerification": {
+    "test": {
+      "tests": 466,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integrationTest": {
+      "tests": 275,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "frontendVerification": {
+    "relatedTestFiles": 4,
+    "relatedTestsPassed": 28,
+    "typecheck": "PASS",
+    "changedFileLint": "PASS",
+    "changedFilePrettier": "PASS",
+    "build": "PASS",
+    "buildWarning": "Existing output chunk larger than 500 kB"
+  },
+  "runtimeJarSha256": "8ad0fdf3f6377db4833b78d2aaf57ad3c5bb2d4ef3a57ef1eb76928e285ab9b8",
+  "preservation": {
+    "identical": true,
+    "previouslyApprovedNotices": 32,
+    "personalPreparationRecords": 0,
+    "comparisonSha256": "3b8872646a538ed485f5e5ce1909d619ed84f607d258eea8f86d33e2418a328c"
+  },
+  "limitations": [
+    "Source conflicts are retained as 20 scoped issues across 12 PARTIAL guides.",
+    "One closing-only announcement does not contain eligibility or document requirements.",
+    "Native source text and relevant PDF pages/diagrams were reviewed; not every PDF character was visually transcribed.",
+    "Historical rules were not replaced with current-year rules; guide review does not approve personal eligibility.",
+    "Physical-device testing was not performed."
+  ]
+}

@@ -1,13 +1,17 @@
 import { ScheduleTimeline } from '../features/preparation/ScheduleTimeline';
 import { ScheduleNextCard } from '../features/preparation/ScheduleNextCard';
-import { useNotice } from '../shared/ui/housingHelpers';
-import { cx } from '../shared/styles/classes';
+import { useNotice } from '../features/housing/useNotice';
+import { bindClasses } from '../shared/styles/classes';
 import { useEffect } from 'react';
 import { State } from '../shared/ui/ui';
-import { NoticeContext } from '../shared/ui/HousingUI';
+import { NoticeContext } from '../features/preparation/PreparationUI';
 import { PreparationGuidance } from '../features/preparation/PreparationNav';
 import { usePreparation } from '../features/preparation/usePreparation';
 import { useLocation } from 'react-router';
+import scheduleClasses from '../features/preparation/Schedule.module.css';
+
+const cx = bindClasses(scheduleClasses);
+
 export function SchedulePage() {
     const q = usePreparation();
     const p = q.data;

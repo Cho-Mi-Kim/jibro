@@ -1,0 +1,9 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.schedule-grid {
+}
+.schedule-context {
+}
+.schedule-main-column {
+}
+.schedule-side-column {
+}

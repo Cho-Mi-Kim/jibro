@@ -1,0 +1,276 @@
+@value document-group, documents-layout, document-progress, document-item, document-issue-note, document-select, necessity-label, document-editor, document-facts, document-options from "./DocumentsClassNames.module.css";
+@value row, icon-disc, status-badge from "../../shared/styles/PrimitivesClassNames.module.css";
+@value evidence from "../housing/NoticeFactsClassNames.module.css";
+.document-group {
+    min-width: 0;
+}
+.document-group > h2 {
+    font-size: 1.125rem;
+    margin: 1rem 0 0.5rem;
+}
+.documents-layout {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    padding: 22px 0;
+}
+.documents-layout::before {
+    content: '';
+    position: absolute;
+    inset: 0 52% 0 0;
+    background: var(--theme-surface, white);
+    border: 1px solid var(--theme-line, #e2e4ea);
+    border-radius: 12px;
+    z-index: -1;
+}
+.document-progress,
+.document-item {
+    width: 48%;
+    padding: 0 16px;
+}
+.document-issue-note {
+    margin-block-start: 1rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+.document-issue-note p {
+    margin: 0 0 0.375rem;
+}
+.document-progress h2 {
+    font-size: 1.375rem;
+}
+.document-progress em {
+    color: var(--brand);
+    font-style: normal;
+}
+.document-progress .row {
+    flex-wrap: nowrap;
+}
+.document-progress strong {
+    font-size: 1.75rem;
+    white-space: nowrap;
+}
+.document-progress progress {
+    flex: 1;
+    margin: 0;
+    min-width: 20px;
+}
+.document-progress small {
+    margin: 12px 0 20px;
+    color: var(--theme-muted, #657084);
+}
+.document-select {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    min-height: 68px;
+    background: var(--theme-surface, white);
+    border: 1px solid var(--theme-line, #e3e4e8);
+    border-radius: 10px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+}
+.document-select strong {
+    flex: 1;
+    min-width: 0;
+}
+.document-select .icon-disc {
+    width: 44px;
+    height: 44px;
+}
+.document-select .icon-disc svg {
+    width: 24px;
+}
+.document-select .status-badge,
+.necessity-label {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+}
+.necessity-label {
+    background: var(--theme-surface-muted, #f5f3f1);
+    color: var(--theme-muted, #5a6372);
+    border-radius: 99px;
+}
+.document-editor {
+    position: absolute;
+    width: 51%;
+    right: 0;
+    top: 0;
+    padding: 30px;
+    border: 1px solid var(--theme-line, #e2e4ea);
+    border-radius: 12px;
+    background: var(--theme-surface, white);
+}
+.document-editor[hidden] {
+    display: none;
+}
+.document-editor > header {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--theme-line, #e3e5ea);
+    align-items: center;
+}
+.document-editor h2 {
+    margin-bottom: 8px;
+}
+.document-facts {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 18px;
+    margin: 24px 0;
+}
+.document-facts dt {
+    color: var(--theme-muted, #657084);
+}
+.document-facts dd {
+    margin: 0;
+}
+.document-facts dd > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+.document-facts dd > a svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+}
+.document-facts .evidence {
+    padding: 0;
+    margin: 0;
+}
+.document-options {
+    margin: 8px 0 0;
+}
+.document-options summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 44px;
+    list-style: none;
+    font-size: 0.875rem;
+    color: var(--theme-muted, #687285);
+}
+.document-options summary::-webkit-details-marker {
+    display: none;
+}
+.document-options summary svg {
+    width: 16px;
+    height: 16px;
+}
+.document-options[open] summary svg {
+    transform: rotate(180deg);
+}
+@media (max-width: 1250px) and (min-width: 1024px) {
+    .necessity-label {
+        display: none;
+    }
+    .document-select .status-badge {
+        padding: 4px 6px;
+    }
+    .document-select {
+        gap: 8px;
+    }
+}
+@media (max-width: 1023px) {
+    .documents-layout {
+        min-height: 0;
+        padding: 0;
+    }
+    .documents-layout::before {
+        display: none;
+    }
+    .document-progress,
+    .document-item {
+        width: 100%;
+        padding: 0;
+    }
+    .document-progress {
+        padding: 18px;
+        background: var(--theme-surface, white);
+        border: 1px solid var(--theme-line, #e3e4e8);
+        border-radius: 10px;
+        margin-bottom: 18px;
+    }
+    .document-progress h2 {
+        font-size: 1.125rem;
+    }
+    .document-progress small {
+        margin-bottom: 0;
+    }
+    .document-item {
+        background: var(--theme-surface, white);
+        border: 1px solid var(--theme-line, #e3e4e8);
+        border-radius: 10px;
+        margin-bottom: 8px;
+    }
+    .document-select {
+        border: 0;
+        margin: 0;
+        font-size: 0.875rem;
+        gap: 8px;
+    }
+    .document-select > .icon-disc {
+        width: 32px;
+        height: 32px;
+    }
+    .document-select > svg {
+        width: 16px;
+    }
+    .necessity-label {
+        display: none;
+    }
+    .document-select .status-badge {
+        font-size: 0.6875rem;
+        padding: 4px 8px;
+    }
+    .document-editor {
+        position: static;
+        width: 100%;
+        padding: 16px;
+        border: 0;
+    }
+    .document-editor > header {
+        display: none;
+    }
+    .document-facts {
+        grid-template-columns: 70px minmax(0, 1fr);
+        font-size: 0.875rem;
+        margin-top: 0;
+        gap: 14px;
+    }
+}
+
+.summaryCard {
+    position: relative;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    border: 1px solid var(--theme-line, #e3e4e8);
+    border-radius: 10px;
+    background: var(--theme-surface, white);
+}
+.summaryCard .document-select {
+    margin: 0;
+    border: 0;
+}
+.summaryCard .document-select::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+}
+.summaryCard > dl {
+    margin: 0 12px;
+    font-size: 0.875rem;
+}
+@media (max-width: 1023px) {
+    .summaryCard {
+        border: 0;
+        margin: 0;
+    }
+}

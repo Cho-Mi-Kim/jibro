@@ -6,27 +6,25 @@ import java.util.*;
 
 import org.jibro.global.common.ApiException;
 import org.jibro.notice.NoticeService;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.jibro.notice.GuidanceIssues;
+import org.jibro.notice.ReviewedNoticeFiles;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tools.jackson.databind.ObjectMapper;
 
 @Service
 @Transactional
 public class PreparationService {
-    private final JdbcTemplate db;
+    private final PreparationRepository repository;
     private final NoticeService notices;
-    private final ObjectMapper json;
 
-    public PreparationService(JdbcTemplate db, NoticeService notices, ObjectMapper json) {
-        this.db = db;
+    public PreparationService(PreparationRepository repository, NoticeService notices) {
+        this.repository = repository;
         this.notices = notices;
-        this.json = json;
     }
 
-    public List<Preparation> list(String user) {
-        return db.query("SELECT snapshot::text FROM preparation WHERE user_id=? AND archived_at IS NULL ORDER BY updated_at DESC,id", (rs, n) ->
-            decorate(json.readValue(rs.getString(1), Snapshot.class).preparation()), UUID.fromString(user));
+    @Transactional(readOnly = true)
+    public List<PreparationListItem> list(String user) {
+        return repository.findActive(UUID.fromString(user));
     }
 
     public Preparation get(String user, UUID id) {
@@ -35,60 +33,22 @@ public class PreparationService {
 
     public Preparation start(String user, UUID noticeId, int version) {
         // Serialize starts for one owner before checking the unique owner/notice key.
-        if (db.queryForList("SELECT id FROM app_user WHERE id=? FOR UPDATE", UUID.fromString(user)).isEmpty())
+        if (!repository.lockOwner(UUID.fromString(user)))
             throw ApiException.notFound();
-        var existing = db.queryForList("SELECT id,archived_at FROM preparation WHERE user_id=? AND notice_id=?", UUID.fromString(user), noticeId);
-        if (!existing.isEmpty()) {
-            if (existing.get(0).get("archived_at") != null)
+        var existing = repository.findByNotice(UUID.fromString(user), noticeId);
+        if (existing.isPresent()) {
+            if (existing.get().archived())
                 throw new ApiException(409, "ARCHIVED", "보관함에서 이 준비 건을 복원해 주세요.");
-            return get(user, (UUID) existing.get(0).get("id"));
+            return get(user, existing.get().id());
         }
         notices.lock(noticeId);
         Notice notice = notices.notice(noticeId);
         if (!notice.canStart() || notice.version() != version) throw ApiException.conflict();
         Content content = notices.content(noticeId);
-        Snapshot snap = fresh(notice, content);
+        Snapshot snap = PreparationSnapshots.fresh(notice, content);
         Preparation p = snap.preparation();
-        db.update("INSERT INTO preparation(id,user_id,notice_id,notice_version,snapshot) VALUES (?,?,?,?,?::jsonb)",
-            UUID.fromString(p.id), UUID.fromString(user), noticeId, version, json.writeValueAsString(snap));
+        repository.insert(UUID.fromString(user), noticeId, version, snap);
         return p;
-    }
-
-    private Snapshot fresh(Notice notice, Content content) {
-        Preparation p = new Preparation();
-        p.id = UUID.randomUUID().toString();
-        p.noticeId = notice.id();
-        p.title = notice.title();
-        p.version = notice.version();
-        p.revision = 1;
-        p.guideState = notice.guideState();
-        p.questions = content.questions();
-        Map<String, String> rules = new LinkedHashMap<>();
-        Map<String, List<String>> ruleValues = new LinkedHashMap<>();
-        for (var template : content.documents()) {
-            var d = new Document();
-            d.id = template.id();
-            d.title = template.title();
-            d.necessity = PreparationRules.necessity(template.conditionQuestionId(),
-                template.conditionAnswerValues() == null ? List.of("YES") : template.conditionAnswerValues(), p.answers);
-            d.method = template.method();
-            d.issuer = template.issuer();
-            d.issueUrl = template.issueUrl();
-            d.evidence = template.evidence();
-            p.documents.add(d);
-            if (template.conditionQuestionId() != null) rules.put(d.id, template.conditionQuestionId());
-            if (template.conditionAnswerValues() != null) ruleValues.put(d.id, template.conditionAnswerValues());
-        }
-        for (var template : content.schedules()) {
-            var s = new Schedule();
-            s.id = template.id();
-            s.title = template.title();
-            s.date = template.date();
-            s.evidence = template.evidence();
-            p.schedules.add(s);
-        }
-        applyAssessment(p);
-        return new Snapshot(p, rules, ruleValues);
     }
 
     public Preparation refresh(String user, UUID id, int revision, int version) {
@@ -100,7 +60,7 @@ public class PreparationService {
         Notice current = notices.notice(noticeId);
         if (!current.guideState().equals("AVAILABLE") || current.version() != version || old.version >= version)
             throw ApiException.conflict();
-        Snapshot next = fresh(current, notices.content(noticeId));
+        Snapshot next = PreparationSnapshots.fresh(current, notices.content(noticeId));
         Preparation p = next.preparation();
         p.id = old.id;
         p.revision = old.revision;
@@ -114,39 +74,21 @@ public class PreparationService {
                 d.note = prior.note;
                 d.state = prior.state == DocumentState.READY ? DocumentState.RECHECK : prior.state;
             });
-            d.necessity = PreparationRules.necessity(next.rules().get(d.id), next.valuesFor(d.id), p.answers);
+            d.reviewRequired = GuidanceIssues.documentRequiresReview(p.reviewIssues, d.id, next.rules().get(d.id));
+            d.necessity = d.reviewRequired ? "UNKNOWN" : PreparationRules.necessity(next.rules().get(d.id), next.valuesFor(d.id), p.answers);
         }
         for (var schedule : p.schedules)
             old.schedules.stream()
                 .filter(prior -> prior.id.equals(schedule.id) && prior.date.equals(schedule.date) && prior.title.equals(schedule.title))
                 .findFirst().ifPresent(prior -> schedule.recorded = prior.recorded);
-        db.update("INSERT INTO preparation_history(preparation_id,notice_version,snapshot) VALUES (?,?,?::jsonb)",
-            id, old.version, json.writeValueAsString(previous));
-        db.update("UPDATE preparation SET notice_version=? WHERE id=?", version, id);
+        repository.retainHistory(id, old.version, previous);
+        repository.updateNoticeVersion(id, version);
         return save(next);
     }
 
-    public Preparation answers(String user, UUID id, int revision, Map<String, String> answers) {
+    public Preparation answers(String user, UUID id, int revision, Map<String, ?> answers) {
         Snapshot snap = editable(user, id, revision);
-        Preparation p = snap.preparation();
-        Set<String> ids = new HashSet<>(p.questions.stream().map(Question::id).toList());
-        if (answers == null || !ids.containsAll(answers.keySet()) || answers.values().stream().anyMatch(Objects::isNull))
-            throw new IllegalArgumentException();
-        for (var question : p.questions) {
-            if (answers.containsKey(question.id()) && question.answerOptions().stream()
-                .noneMatch(option -> option.value().equals(answers.get(question.id()))))
-                throw new IllegalArgumentException();
-        }
-        p.answers = new LinkedHashMap<>(answers);
-        for (var d : p.documents) {
-            String question = snap.rules().get(d.id);
-            if (question == null) continue;
-            String next = PreparationRules.necessity(question, snap.valuesFor(d.id), p.answers);
-            if (!next.equals(d.necessity)) {
-                d.state = d.state == DocumentState.READY ? DocumentState.RECHECK : DocumentState.UNCHECKED;
-                d.necessity = next;
-            }
-        }
+        PreparationSnapshots.applyAnswers(snap, answers);
         return save(snap);
     }
 
@@ -154,7 +96,7 @@ public class PreparationService {
         Snapshot snap = editable(user, id, revision);
         var d = snap.preparation().documents.stream().filter(v -> v.id.equals(documentId)).findFirst().orElseThrow(ApiException::notFound);
         if (state == null || note == null || note.length() > 2000) throw new IllegalArgumentException();
-        if (List.of("UNKNOWN", "NOT_APPLICABLE").contains(d.necessity))
+        if (d.reviewRequired || List.of("UNKNOWN", "NOT_APPLICABLE").contains(d.necessity))
             throw new ApiException(409, "CONDITION_REQUIRED", "서류 해당 여부를 먼저 확인하세요.");
         d.state = state;
         d.note = note;
@@ -169,8 +111,8 @@ public class PreparationService {
     }
 
     private Snapshot load(String user, UUID id, boolean lock) {
-        return db.query("SELECT snapshot::text FROM preparation WHERE user_id=? AND id=? AND archived_at IS NULL" + (lock ? " FOR UPDATE" : ""),
-            (rs, n) -> json.readValue(rs.getString(1), Snapshot.class), UUID.fromString(user), id).stream().findFirst().orElseThrow(ApiException::notFound);
+        return (lock ? repository.lockActive(UUID.fromString(user), id) : repository.findActive(UUID.fromString(user), id))
+                .orElseThrow(ApiException::notFound);
     }
 
     private Snapshot editable(String user, UUID id, int revision) {
@@ -182,30 +124,32 @@ public class PreparationService {
     }
 
     private Preparation decorate(Preparation p) {
+        Notice current = null;
         try {
             Notice n = notices.notice(UUID.fromString(p.noticeId));
+            current = n;
+            ReviewedNoticeFiles.applyToPreparation(p, n);
             p.guideState = n.version() != p.version ? "CHANGE_REVIEW" : n.guideState();
         } catch (ApiException ex) {
             if (ex.status != 404) throw ex;
             p.guideState = "CHANGE_REVIEW";
         }
-        return applyAssessment(p);
+        PreparationSnapshots.assess(p);
+        if (current != null && current.lifecycle() != null && current.lifecycle().interrupted()) {
+            String status = current.lifecycle().state().equals("CANCELLED") ? "공고 취소" : "신청 조기 마감";
+            p.warnings = new ArrayList<>(p.warnings);
+            p.warnings.add(status + " 안내가 확인되었습니다. 기존 준비 기록은 보존됩니다.");
+            p.nextAction = new NextAction(status + " 안내 확인", current.lifecycle().reason(), "/notices/" + p.noticeId);
+        }
+        return p;
     }
 
     private Preparation save(Snapshot snap) {
         Preparation p = snap.preparation();
         p.revision++;
-        applyAssessment(p);
-        db.update("UPDATE preparation SET revision=?,snapshot=?::jsonb,updated_at=now() WHERE id=?", p.revision, json.writeValueAsString(snap), UUID.fromString(p.id));
-        return p;
+        PreparationSnapshots.assess(p);
+        repository.save(snap);
+        return decorate(p);
     }
 
-    private Preparation applyAssessment(Preparation p) {
-        var result = PreparationRules.assess(p);
-        p.progress = result.progress();
-        p.houseStage = result.houseStage();
-        p.warnings = result.warnings();
-        p.nextAction = result.nextAction();
-        return p;
-    }
 }

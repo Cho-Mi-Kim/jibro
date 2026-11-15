@@ -1,0 +1,22 @@
+.heading {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+}
+.changing {
+    display: inline-block;
+    vertical-align: bottom;
+    overflow: hidden;
+    transition: max-width var(--motion-duration, 750ms) ease;
+}
+.changing > span {
+    display: inline-block;
+    white-space: pre;
+}
+@media (prefers-reduced-motion: reduce) {
+    .changing {
+        transition: none;
+    }
+}

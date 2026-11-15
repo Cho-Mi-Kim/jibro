@@ -1,0 +1,29 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.topbar {
+}
+.brand {
+}
+.screen-title {
+}
+.desktop-nav {
+}
+.header-actions {
+}
+.avatar {
+}
+.notification {
+}
+.workspace {
+}
+.bottom-nav {
+}
+.demo-banner {
+}
+.skip-link {
+}
+.mobile-header-hidden {
+}
+.my-settings {
+}
+.notice-sticky-header {
+}

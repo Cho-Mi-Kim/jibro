@@ -1,14 +1,23 @@
 import { QuestionSteps } from '../features/preparation/QuestionSteps';
 import { ConditionResult } from '../features/preparation/ConditionResult';
-import { answerOptions } from '../features/housing/questions';
-import { cx } from '../shared/styles/classes';
-import { useRef, useState } from 'react';
+import {
+    questionKind,
+    validSubmittedAnswer,
+    answerableQuestions,
+    needsFollowUp,
+} from '../features/housing/questions';
+import { QuestionInput } from '../features/preparation/QuestionInput';
+import { bindClasses } from '../shared/styles/classes';
+import { useEffect, useRef, useState } from 'react';
 import { useUnsavedChanges } from '../shared/ui/useUnsavedChanges';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
 import type { Answer } from '../features/housing/types';
-import { Button, EvidenceLink, Heading, State } from '../shared/ui/ui';
+import { Button, Heading, State } from '../shared/ui/ui';
+import { EvidenceLink } from '../features/housing/EvidenceLink';
+import { PartialGuidanceNotice } from '../features/housing/ReviewIssues';
+import { QuestionCriteria } from '../features/preparation/QuestionCriteria';
 
 import { Icon } from '../shared/ui/Icon';
 import { GuidanceRefresh } from '../features/preparation/PreparationNav';
@@ -16,6 +25,11 @@ import {
     usePreparation,
     useSaved,
 } from '../features/preparation/usePreparation';
+import questionsClasses from '../features/preparation/Conditions.module.css';
+import { getQuestionStep } from '../features/preparation/questionNavigation';
+
+const cx = bindClasses(questionsClasses);
+
 export function ConditionsPage({
     mode,
 }: {
@@ -29,27 +43,64 @@ export function ConditionsPage({
     const navigate = useNavigate();
     const [answers, setAnswers] = useState<Record<string, Answer>>({});
     const [params, setParams] = useSearchParams();
-    const step = Math.max(
-        0,
-        p?.questions.findIndex(
-            (question) => question.id === params.get('question'),
-        ) ?? 0,
-    );
-    function goToQuestion(id: string) {
-        setParams({ question: id }, { replace: true, state });
+    const remainingMode = params.get('review') === 'remaining';
+    const [reviewSnapshot, setReviewSnapshot] = useState<{
+        id: string;
+        ids: string[];
+    } | null>(null);
+    let snapshot = reviewSnapshot;
+    if (p && remainingMode && snapshot?.id !== p.id) {
+        snapshot = {
+            id: p.id,
+            ids: answerableQuestions(p.questions)
+                .filter((item) => needsFollowUp(item, p.answers[item.id]))
+                .map((item) => item.id),
+        };
+        setReviewSnapshot(snapshot);
     }
-    const [dirty, setDirty] = useState(false);
+    const allQuestions = answerableQuestions(p?.questions ?? []);
+    const questions = remainingMode
+        ? allQuestions.filter((item) => snapshot?.ids.includes(item.id))
+        : allQuestions;
+    const step = p
+        ? getQuestionStep(
+              { questions, answers: p.answers },
+              params.get('question'),
+          )
+        : 0;
+    const question = questions[step];
+    const questionId = question?.id;
+    useEffect(() => {
+        if (!edit || !questionId || params.get('question') === questionId)
+            return;
+        // Keep the entry question stable when saved answers are refetched.
+        const next = new URLSearchParams(params);
+        next.set('question', questionId);
+        setParams(next, { replace: true, state });
+    }, [edit, questionId, params, setParams, state]);
+    function goToQuestion(id: string) {
+        const next = new URLSearchParams(params);
+        next.set('question', id);
+        setParams(next, { replace: true, state });
+    }
     const submitting = useRef(false);
-    useUnsavedChanges(dirty);
+    useUnsavedChanges(Object.keys(answers).length > 0);
     const save = useMutation({
-        mutationFn: (nextAnswers: Record<string, Answer>) =>
-            api.answers(p!.id, p!.revision, { ...p!.answers, ...nextAnswers }),
-        onSuccess: (next) => {
+        mutationFn: ({ id, value }: { id: string; value: Answer }) =>
+            api.answers(p!.id, p!.revision, { ...p!.answers, [id]: value }),
+        onSuccess: (next, { id }) => {
             saved(next);
-            setDirty(false);
-            setAnswers({});
-            if (step < next.questions.length - 1)
-                goToQuestion(next.questions[step + 1].id);
+            setAnswers((drafts) => {
+                const remaining = { ...drafts };
+                delete remaining[id];
+                return remaining;
+            });
+            const nextQuestions = answerableQuestions(next.questions).filter(
+                (item) =>
+                    !remainingMode || reviewSnapshot?.ids.includes(item.id),
+            );
+            if (step < nextQuestions.length - 1)
+                goToQuestion(nextQuestions[step + 1].id);
             else
                 navigate('/preparations/' + next.id + '/conditions/result', {
                     state,
@@ -61,10 +112,21 @@ export function ConditionsPage({
     });
     function submit(nextAnswers: Record<string, Answer>) {
         if (submitting.current || !p || p.guideState !== 'AVAILABLE') return;
+        const current = questions[step];
+        if (
+            !current ||
+            !validSubmittedAnswer(
+                current,
+                nextAnswers[current.id] ?? p.answers[current.id],
+            )
+        )
+            return;
         submitting.current = true;
-        save.mutate(nextAnswers);
+        save.mutate({
+            id: current.id,
+            value: nextAnswers[current.id] ?? p.answers[current.id],
+        });
     }
-    const question = p?.questions[step];
     return (
         <div className={cx(edit ? 'condition-page' : 'result-page')}>
             {edit && (
@@ -86,58 +148,44 @@ export function ConditionsPage({
                     onRefreshed={() => {
                         setAnswers({});
                         setParams({}, { replace: true, state });
-                        setDirty(false);
                     }}
                 />
             )}
             {p &&
                 (edit && question ? (
                     <div className={cx('condition-layout')}>
-                        <QuestionSteps questions={p.questions} step={step} />
+                        <QuestionSteps questions={questions} step={step} />
                         <section className={cx('panel question-panel')}>
+                            <PartialGuidanceNotice issues={p.reviewIssues} />
                             <fieldset key={question.id}>
                                 <legend aria-live="polite">
                                     {question.title}
                                 </legend>
-                                {answerOptions(question).map(
-                                    ({ value: a, label }) => (
-                                        <label className={cx('choice')} key={a}>
-                                            <input
-                                                type="radio"
-                                                name={question.id}
-                                                checked={
-                                                    (answers[question.id] ??
-                                                        p.answers[
-                                                            question.id
-                                                        ]) === a
-                                                }
-                                                disabled={
-                                                    save.isPending ||
-                                                    p.guideState !== 'AVAILABLE'
-                                                }
-                                                onClick={() => {
-                                                    if (
-                                                        (answers[question.id] ??
-                                                            p.answers[
-                                                                question.id
-                                                            ]) === a
-                                                    )
-                                                        submit(answers);
-                                                }}
-                                                onChange={() => {
-                                                    const nextAnswers = {
-                                                        ...answers,
-                                                        [question.id]: a,
-                                                    };
-                                                    setAnswers(nextAnswers);
-                                                    setDirty(true);
-                                                    submit(nextAnswers);
-                                                }}
-                                            />
-                                            {label}
-                                        </label>
-                                    ),
-                                )}
+                                <QuestionCriteria
+                                    question={question}
+                                    reviewIssues={p.reviewIssues}
+                                />
+                                <QuestionInput
+                                    question={question}
+                                    value={
+                                        answers[question.id] ??
+                                        p.answers[question.id]
+                                    }
+                                    disabled={
+                                        save.isPending ||
+                                        p.guideState !== 'AVAILABLE'
+                                    }
+                                    onRepeatChoice={() => submit(answers)}
+                                    onChange={(value) => {
+                                        const next = {
+                                            ...answers,
+                                            [question.id]: value,
+                                        };
+                                        setAnswers(next);
+                                        if (questionKind(question) === 'SINGLE')
+                                            submit(next);
+                                    }}
+                                />
                             </fieldset>
                             <div className={cx('question-evidence')}>
                                 <Icon name="file" />
@@ -156,7 +204,7 @@ export function ConditionsPage({
                                     className="secondary"
                                     disabled={step === 0 || save.isPending}
                                     onClick={() =>
-                                        goToQuestion(p.questions[step - 1].id)
+                                        goToQuestion(questions[step - 1].id)
                                     }
                                 >
                                     이전
@@ -164,9 +212,10 @@ export function ConditionsPage({
                                 <Button
                                     disabled={
                                         save.isPending ||
-                                        !(
+                                        !validSubmittedAnswer(
+                                            question,
                                             answers[question.id] ??
-                                            p.answers[question.id]
+                                                p.answers[question.id],
                                         ) ||
                                         p.guideState !== 'AVAILABLE'
                                     }

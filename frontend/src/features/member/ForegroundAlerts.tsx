@@ -1,7 +1,6 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { useSession } from '../../app/useSession';
-import { memberApi } from './memberApi';
+import { useSession } from '../auth/useSession';
+import type { Inbox } from './memberApi';
 import { Button } from '../../shared/ui/ui';
 import { demoMode } from '../../shared/api/transport';
 const eventName = 'jibro.reminder.preferences';
@@ -23,7 +22,7 @@ function usePreference() {
             return false;
         }
     });
-    return { key, enabled, user };
+    return { key, enabled };
 }
 export function ForegroundControl() {
     const { key, enabled } = usePreference();
@@ -59,22 +58,16 @@ export function ForegroundControl() {
         </>
     );
 }
-export function ForegroundAlerts() {
-    const { key, enabled, user } = usePreference();
+export function ForegroundAlerts({ inbox }: { inbox?: Inbox }) {
+    const { key, enabled } = usePreference();
     const active =
         enabled &&
         !demoMode &&
         'Notification' in window &&
         Notification.permission === 'granted';
-    const inbox = useQuery({
-        queryKey: ['alerts', user?.id],
-        queryFn: memberApi.inbox,
-        enabled: active,
-        refetchInterval: active ? 60000 : false,
-    });
     useEffect(() => {
-        if (!active || !inbox.data?.settings.enabled) return;
-        const unread = inbox.data.items.filter((i) => !i.read);
+        if (!active || !inbox?.settings.enabled) return;
+        const unread = inbox.items.filter((i) => !i.read);
         if (!unread.length) return;
         try {
             let history: string[] = JSON.parse(
@@ -116,6 +109,6 @@ export function ForegroundAlerts() {
         } catch {
             /* Site inbox still works when the browser blocks desktop notifications. */
         }
-    }, [active, inbox.data, key]);
+    }, [active, inbox, key]);
     return null;
 }

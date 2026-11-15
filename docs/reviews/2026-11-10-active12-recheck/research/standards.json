@@ -1,0 +1,279 @@
+{
+  "reviewedAtKst": "2026-11-10",
+  "scope": "담당 3쟁점의 현재 공식 원문 및 후속 공식 기준 대조. 접수 종료 공고 처리 제외.",
+  "mutations": {
+    "productCode": false,
+    "database": false,
+    "publication": false,
+    "candidatePackageOnly": true
+  },
+  "counts": {
+    "reviewedIssues": 3,
+    "resolvedIssues": 1,
+    "keptCheckRequiredIssues": 2
+  },
+  "currentNotices": [
+    {
+      "id": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019241&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "httpStatus": 200,
+      "status": "공고중",
+      "rawHtmlSha256": "8f856977cf0606cec8a8d4b90b5088cb7bf6da9d7e7de74c10852dd9a69c3abe",
+      "bodyTextSha256": "0603d26103f75a94dfa9551a1102f2d782d40cf75f6166e2090aae372cff9326",
+      "checkedAt": "2026-11-09T15:36:56.800230+00:00",
+      "files": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558439",
+          "label": "전주평화1,전주평화4-영구임대예비입주자표준모집공고문(260210)공고.hwp",
+          "sha256": "6707f3c979e32549f1f9dcfcd4ef460942a87d3192a898252a33939489f98f71",
+          "priorSha256": "6707f3c979e32549f1f9dcfcd4ef460942a87d3192a898252a33939489f98f71",
+          "unchanged": true,
+          "bytes": 280064,
+          "path": ".tools\\qa\\active12-recheck-20261110\\standards\\d5c5d9eb-65558439.hwp",
+          "status": 200
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441",
+          "label": "전주평화1,전주평화4-영구임대예비입주자표준모집공고문(260210)공고.pdf",
+          "sha256": "ce6b67eca6c9415402eaa4f28ec55b727a04a2bc98ab2bf0d8a768f0137ec354",
+          "priorSha256": "ce6b67eca6c9415402eaa4f28ec55b727a04a2bc98ab2bf0d8a768f0137ec354",
+          "unchanged": true,
+          "bytes": 874536,
+          "path": ".tools\\qa\\active12-recheck-20261110\\standards\\d5c5d9eb-65558441.pdf",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019307&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "httpStatus": 200,
+      "status": "공고중",
+      "rawHtmlSha256": "a8597764e72f4a34d3301e748e182d2747909791448ae491803f079c75b3e594",
+      "bodyTextSha256": "09f00626ffd969b85f08a03bf198a73928c681cdb7d1f1776d4afa294a1ab150",
+      "checkedAt": "2026-11-09T15:36:57.490163+00:00",
+      "files": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464834",
+          "label": "태백궁전국민임대입주자격완화(1단계)예비입주자상시모집(26.02.02공고).hwp",
+          "sha256": "2fa1d5ee08b10cd63bfcc8750abdb3b32361de2b1368fdb40bfbe1560ad806be",
+          "priorSha256": "2fa1d5ee08b10cd63bfcc8750abdb3b32361de2b1368fdb40bfbe1560ad806be",
+          "unchanged": true,
+          "bytes": 348160,
+          "path": ".tools\\qa\\active12-recheck-20261110\\standards\\e15cb019-65464834.hwp",
+          "status": 200
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+          "label": "태백궁전국민임대입주자격완화(1단계)예비입주자상시모집(26.02.02공고).pdf",
+          "sha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+          "priorSha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+          "unchanged": true,
+          "bytes": 932869,
+          "path": ".tools\\qa\\active12-recheck-20261110\\standards\\e15cb019-65464835.pdf",
+          "status": 200
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465001",
+          "label": "상시모집서류양식.zip",
+          "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+          "priorSha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+          "unchanged": true,
+          "bytes": 355488,
+          "path": ".tools\\qa\\active12-recheck-20261110\\standards\\e15cb019-65465001.zip",
+          "status": 200
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464893",
+          "label": "태백궁전39형평면도.png",
+          "sha256": "d980f57d368aec0e627b4790dd64cc6f6091bd71173cc858ec51130b7be5d07e",
+          "priorSha256": "d980f57d368aec0e627b4790dd64cc6f6091bd71173cc858ec51130b7be5d07e",
+          "unchanged": true,
+          "bytes": 15766,
+          "path": ".tools\\qa\\active12-recheck-20261110\\standards\\e15cb019-65464893.png",
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "issueId": "tg-rent-rate-conflict",
+      "decision": "RESOLVED",
+      "conclusion": "2026.1.1 이후 신규 납부분의 보증금 증액 전환이율은 연 6%, 감액은 연 3.5%로 안내할 수 있다. 실제 납부 시점 이후 추가 개정 여부는 다시 확인한다.",
+      "originalSource": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+        "sha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+        "pages": [
+          4,
+          14
+        ],
+        "observations": [
+          "4쪽은 2026.1.17 현재 조건과 증액 6%·감액 3.5%를 명시한다.",
+          "14쪽 공통 유의사항에는 증액 7%·감액 3.5%가 남아 있으나 변동 가능성을 명시한다."
+        ],
+        "tableCheck": "15,000,000 × 0.06 ÷ 12 = 75,000; 138,780 - 75,000 = 63,780. 6,000,000 × 0.035 ÷ 12 = 17,500; 138,780 + 17,500 = 156,280. 4쪽 표와 일치."
+      },
+      "supplementalSources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102431119&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079",
+          "title": "임대보증금 - 월 임대료 상호 전환이율 조정 안내",
+          "publishedAt": "2025-11-24",
+          "rawHtmlSha256": "d1ac07d84365de38b06167331d9685458c0a40c6ca55abed0196a71e501fac31",
+          "hashKind": "raw HTML; canonical binding belongs to root verifier"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=64452247",
+          "sha256": "ebd754a6a96e9d4216118626fdd24be0a1f7f23c8a86335a521f37cf68efdb82",
+          "page": 1,
+          "confirmedText": [
+            "보증금 증액 전환이율 7%→6%",
+            "보증금 감액 전환이율 3.5% 유지",
+            "2026.1.1 이후 신규 납부분부터 적용"
+          ],
+          "exceptions": "분양전환·토지임대부 주택의 증액 5% 예외는 태백궁전 국민임대에 적용하지 않는다."
+        }
+      ],
+      "applicability": "본사 전체 임대주택 시행 공지가 2026.02.02 해당 모집보다 앞서 적용되며 모집 4쪽의 기준일·요율·계산표도 일치한다. 따라서 14쪽의 오래된 7% 표기는 이 최신 시행 기준과 4쪽 조건으로 해소할 수 있다.",
+      "candidatePackage": "packages/e15cb019-012f-4edb-9bcd-c760885c49bf.json",
+      "bindingInputs": [
+        "supplemental-inputs.json",
+        "source-review-inputs.json"
+      ],
+      "publicationLimit": "후보만 작성. 본사 공지 canonical hash 및 supplemental binding은 루트 검증 단계에서 확정한다."
+    },
+    {
+      "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "issueId": "tg-income-addition-conflict",
+      "decision": "KEEP_CHECK_REQUIRED",
+      "conclusion": "150% 완화 기준표는 확인되지만 그 표에 1·2인 가구 및 출산 가산을 다시 더할 수 있는지의 적용 관계는 해당 공고와 후속 공식 자료에서 확정하지 못했다.",
+      "originalSource": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+        "sha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+        "page": 6,
+        "observations": [
+          "완화 기준표는 1~8인 모두 150%로 작성되어 있다.",
+          "같은 페이지 아래에는 1인 20%p·2인 10%p 및 출산자녀 10%p·20%p 가산 설명이 있다.",
+          "150% 표 수치는 가구·출산 가산을 포함한 금액이 아니다. 다만 이 사실만으로 150% 위 추가 가산의 허용 여부를 결정할 수 없다."
+        ],
+        "income150ByHouseholdSize": {
+          "1": 5397246,
+          "2": 8215505,
+          "3": 11440460,
+          "4": 12867132,
+          "5": 13546572,
+          "6": 14599629,
+          "7": 15652686,
+          "8": 16705743
+        }
+      },
+      "supplementalResearch": [
+        {
+          "url": "https://www.law.go.kr/admRulLsInfoP.do?admRulSeq=2100000287282&chrClsCd=010202",
+          "bodyUrl": "https://www.law.go.kr/admRulLsInfoR.do?admRulSeq=2100000287282&admRulId=36973&joTpYn=Y&languageType=KO&chrClsCd=010202",
+          "sha256": "9cc5484b1fe7b55623096e64a637987ce4761507849516d15126e59d3dcef926",
+          "effectiveAt": "2026-10-27",
+          "location": "공공주택 업무처리지침 제94조의3 제1항 제2호 및 제2·3항",
+          "finding": "완화 입주자의 소득 150% 기준과 사업자 별도 완화 기준 가능성은 확인되지만, 이 공고의 150% 표와 하단 가산 문구 중첩 관계는 명시하지 않는다. 이후 개정 지침을 원 모집에 임의 소급하지 않는다."
+        }
+      ],
+      "unresolvedQuestionForInstitution": "태백궁전 2026.02.02 상시모집의 소득 150% 완화 기준에 1·2인 가구 및 출산자녀 가산을 추가 적용하는지, 적용한다면 가구별 최종 한도는 얼마인지.",
+      "safeGuidance": "확인된 150% 표와 가산 문구의 존재는 제공하되, 표를 초과하여 가산에 의존하는 판단만 기관 확인 필요로 남긴다. 다른 조건·서류를 일괄 차단하지 않는다.",
+      "candidatePackageChange": false
+    },
+    {
+      "noticeId": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "issueId": "jeonju-current-monetary-standard",
+      "questionIds": [
+        "jeonju-permanent-income",
+        "jeonju-permanent-assets"
+      ],
+      "decision": "KEEP_CHECK_REQUIRED",
+      "conclusion": "2026 일반 기본값을 새 공식 자료에서 확인했으나, 전주 상시모집 신청·검증 시점과 가산별 최종 금액에 직접 적용된다는 근거가 충분하지 않아 기존 질문의 확인 필요를 유지한다.",
+      "originalSource": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441",
+        "sha256": "ce6b67eca6c9415402eaa4f28ec55b727a04a2bc98ab2bf0d8a768f0137ec354",
+        "pages": [
+          1,
+          5,
+          6,
+          28
+        ],
+        "observations": [
+          "1쪽은 공고일 이후 소득·자산보유기준 변동 시 변동된 기준으로 자격 검증한다고 명시한다.",
+          "원 공고의 소득표와 자산 2억 3,700만 원·자동차 4,563만 원은 이후 기준 변경 여부를 확인해야 한다.",
+          "소득 순위·자녀 가산·공고 준용 시점을 다른 모집의 금액으로 대체하지 않는다."
+        ]
+      },
+      "generalReferenceOnly": [
+        {
+          "url": "https://www.lh.or.kr/board.es?act=view&bid=0033&list_no=731834&mid=a10601010000&nPage=&tag=",
+          "sha256": "52d35c013c68c790e33ba4db6831039bed04f9f4854c511a2a4a559f77bf7b31",
+          "title": "LH집찾기 길라잡이 책자 안내",
+          "publishedAt": "2026-04-14"
+        },
+        {
+          "url": "https://www.lh.or.kr/boardDownload.es?bid=0033&list_no=731834&seq=1",
+          "sha256": "eb6f2be8fcedc3f390fa7cd619f640b07c1d510b898049610a8971ad33cdb8d0",
+          "pages": [
+            {
+              "pdfPage": 2,
+              "finding": "2026년 3월 기준이며 개별 공고·법령 확인이 필요함을 명시."
+            },
+            {
+              "pdfPage": 40,
+              "printedPage": 76,
+              "finding": "2026년 전년도 도시근로자 월평균소득 100% 일반표: 1인 3,813,363원, 2인 5,866,270원, 3인 8,168,429원, 4인 8,802,202원."
+            },
+            {
+              "pdfPage": 41,
+              "printedPage": 78,
+              "finding": "Q8-3 영구임대주택(고령자복지주택) 일반 기본값: 총자산 24,500만 원, 자동차 4,542만 원."
+            }
+          ],
+          "inspectionScope": "관련 표와 책자 적용 기준 페이지를 렌더하여 대조했다. 책자 전체를 통독했다는 의미는 아니다."
+        },
+        {
+          "url": "https://www.law.go.kr/admRulLsInfoP.do?admRulSeq=2100000280812&chrClsCd=010202",
+          "attachmentUrl": "https://www.law.go.kr/flDownload.do?flSeq=166074365&flNm=%5B%EB%B3%84%ED%91%9C%5D+%EA%B3%B5%EA%B3%B5%EC%A3%BC%ED%83%9D%EC%9D%98+%EC%A2%85%EB%A5%98+%EB%B0%8F+%EC%9E%90%EA%B2%A9%EB%B3%84+%EC%9E%90%EC%82%B0%EA%B8%B0%EC%A4%80&bylClsCd=200201",
+          "sha256": "fa079bc691c7a87c9c59cd7444b1fe4e22a3a8c3096816f0293ba0501250dbc0",
+          "effectiveAt": "2026-06-22",
+          "pages": [
+            4,
+            5
+          ],
+          "finding": "자산·자동차의 원 통계량, 출산 가산 비율, 반올림·절사 단계가 구분된다. 이미 반올림한 기본값에 단순히 110%·120%를 곱해 모집별 확정 한도를 만들지 않는다."
+        }
+      ],
+      "supportedPathSearch": {
+        "queries": [
+          "\"LH집찾기 길라잡이\" site:apply.lh.or.kr",
+          "\"집찾기\" site:apply.lh.or.kr",
+          "\"길라잡이\" \"2026\" site:apply.lh.or.kr"
+        ],
+        "result": "동일 책자의 apply.lh.or.kr 게시·첨부 경로를 확인하지 못했다. 경로가 없다고 단정하지 않는다.",
+        "implementationDecision": "현재 supplemental 지원 범위 밖인 www.lh.or.kr 자료는 조사 보고서에만 남기고 제품 판정에 바인딩하지 않는다."
+      },
+      "unresolvedQuestionForInstitution": "해당 상시모집의 현재 신청분에 적용할 가구원 수·순위별 소득 한도와 출산 가산별 자산·자동차 한도 및 적용 기준일.",
+      "safeGuidance": "일반 2026 기준의 참고 정보와 해당 상시모집의 확정 기준을 구분한다. 기존 소득·자산 확인 필요를 유지하고 나머지 확인된 조건·서류는 제공한다.",
+      "candidatePackageChange": false
+    }
+  ],
+  "candidateValidation": {
+    "passed": true,
+    "changed": [
+      "reviewNotes",
+      "unresolvedFindings: remove tg-rent-rate-conflict",
+      "content.reviewIssues: remove tg-rent-rate-conflict",
+      "content.questions[tg-contract]"
+    ],
+    "remainingIssueIds": [
+      "tg-history-conflict",
+      "tg-proxy-form-conflict",
+      "tg-income-addition-conflict"
+    ],
+    "questionCountPreserved": 15,
+    "otherContentPreserved": true
+  }
+}

@@ -5,15 +5,15 @@
 }
 
 .label {
-    color: #b64a32;
+    color: var(--theme-accent, #b64a32);
     font-weight: 700;
 }
 
 .card {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: #ffffff;
-    border: 1px solid #e6ddd6;
+    background: var(--theme-surface, #ffffff);
+    border: 1px solid var(--theme-line, #e6ddd6);
     border-radius: 0.75rem;
 }
 

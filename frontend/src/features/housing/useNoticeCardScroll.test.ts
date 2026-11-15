@@ -30,6 +30,7 @@ it.each([
         let controlsHeight: number = initialControlsHeight;
         let resize = () => {};
         const frames: FrameRequestCallback[] = [];
+        vi.stubGlobal('matchMedia', () => ({ matches: true }));
         vi.stubGlobal('innerHeight', 852);
         vi.spyOn(window, 'scrollY', 'get').mockImplementation(() => position);
         vi.spyOn(

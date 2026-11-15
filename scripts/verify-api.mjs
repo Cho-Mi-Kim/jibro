@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 
-// Explicit local sample verification. Creates a synthetic account and persistent record.
+// Legacy public-sample HTTP verification; the current API intentionally rejects this flow.
+// Keep the /meta guard below: it stops before creating accounts on the real local database.
+// Do not relax it or substitute an actual notice. Use the separate jibro_test integration tests.
+// Reintroducing HTTP verification requires an isolated fixture database and explicit cleanup.
 const base = process.env.VERIFY_BASE_URL ?? 'http://127.0.0.1:8080';
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(base).hostname), 'Local host required');
 const cookies = new Map();

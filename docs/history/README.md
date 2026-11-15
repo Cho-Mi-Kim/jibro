@@ -63,7 +63,83 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [마이 프로필과 준비 건수](entries/2026-11-05-my-profile-summary.md) | 확인 필요 |
 | 확인 필요 | [공고 카드 펼침과 상단 이동 (2026-11-05)](entries/2026-11-05-notice-card-expand.md) | 확인 필요 |
 | 확인 필요 | [실제 코드 기반 개념 모델 HTML](entries/2026-11-06-code-concept-model.md) | 확인 필요 |
+| 확인 필요 | [자동 검수·공개와 Gemini 연결](entries/2026-11-07-automatic-review.md) | 확인 필요 |
+| 확인 필요 | [LH 실제 수집 확인 — 2026-11-07](entries/2026-11-07-lh-live-key-verification.md) | 확인 필요 |
+| 확인 필요 | [신규 수집 공고의 부분 준비 안내와 기본 정렬](entries/2026-11-08-automatic-partial-and-sorting.md) | 확인 필요 |
+| 확인 필요 | [충돌 항목만 확인 필요로 분리한 준비 안내](entries/2026-11-08-partial-guidance.md) | 확인 필요 |
+| 확인 필요 | [개별 결과 발표 설명의 미래 자동 수집 반영](entries/2026-11-10-automatic-individual-announcements.md) | 확인 필요 |
+| 확인 필요 | [현재 수집 공고의 개별 발표 누락 점검](entries/2026-11-10-current-individual-announcement-audit.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 공고 서류마감 누락 보완](entries/2026-11-10-document-deadlines.md) | 확인 필요 |
+| 확인 필요 | [요약의 긴 행정 표현을 짧은 말로 표시](entries/2026-11-11-summary-plain-language.md) | 확인 필요 |
+| 확인 필요 | [대구경북 든든전세 분양전환형 검수 항목 재분류](entries/2026-11-12-daegu-conversion-scope.md) | 확인 필요 |
+| 확인 필요 | [공고 필터 버튼 고정](entries/2026-11-12-filter-sheet-scroll.md) | 확인 필요 |
+| 확인 필요 | [준비 안내 원형 상태 아이콘](entries/2026-11-12-guide-state-icons.md) | 확인 필요 |
+| 확인 필요 | [5173 재시작 실행 파일](entries/2026-11-12-local-restart-launcher.md) | 확인 필요 |
+| 확인 필요 | [공고 선택 자동 스크롤 속도 조정](entries/2026-11-12-notice-scroll-speed.md) | 확인 필요 |
+| 확인 필요 | [공식 PDF 근거 페이지 열기](entries/2026-11-12-official-pdf-page.md) | 확인 필요 |
+| 확인 필요 | [내 준비 세부탭 공고 제목](entries/2026-11-12-preparation-context-title.md) | 확인 필요 |
+| 확인 필요 | [과거 공고 종료 처리와 비주거 모집 서비스 제외](entries/2026-11-12-service-disposition.md) | 확인 필요 |
+| 확인 필요 | [미확인 조건 이어서 답변](entries/2026-11-12-unanswered-conditions.md) | 확인 필요 |
+| 확인 필요 | [자동 원문 위치 연결 보완 (진행 중)](entries/2026-11-13-automatic-evidence-location.md) | 확인 필요 |
+| 확인 필요 | [서류 카드와 공고문 표시 오류](entries/2026-11-13-document-viewer-fix.md) | 확인 필요 |
+| 확인 필요 | [비로그인 화면 로딩 복구](entries/2026-11-13-guest-loading-recovery.md) | 확인 필요 |
+| 확인 필요 | [홈 공고 제목 요약과 펼침](entries/2026-11-13-home-title-disclosure.md) | 확인 필요 |
+| 확인 필요 | [공고 상세 핵심 요약 스크롤](entries/2026-11-13-notice-summary-scroll.md) | 확인 필요 |
+| 확인 필요 | [거창 신원 다자녀 공고 서류 발급 안내](entries/2026-11-13-official-document-issuance.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 공고 첨부 재점검](entries/2026-11-14-active-attachment-audit.md) | 확인 필요 |
+| 확인 필요 | [기존·신규 공고의 서류 발급처 자동 연결](entries/2026-11-14-official-document-issuance.md) | 확인 필요 |
+| 확인 필요 | [접수기간 검수 저장 계층 수정과 전체 테스트 검증](entries/2026-11-15-application-period-review-boundary.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 LH 공고의 공식 첨부 자동 연결](entries/2026-11-15-automatic-notice-files.md) | 확인 필요 |
+| 확인 필요 | [공고 목록 하단에 현재·전체 페이지 표시](entries/2026-11-15-notice-pagination.md) | 확인 필요 |
+| 확인 필요 | [지역 필터의 ‘외’ 중복 선택지 통합](entries/2026-11-15-notice-region-filters.md) | 확인 필요 |
+| 확인 필요 | [LH 공식 공급 지역을 공고 검색에 연결](entries/2026-11-15-official-supply-regions.md) | 확인 필요 |
+| 확인 필요 | [공식 첨부 15개와 제출 양식 17개 반영](entries/2026-11-15-reviewed-notice-files.md) | 확인 필요 |
+| 확인 필요 | [상단 알림 아이콘의 읽지 않은 알림 표시](entries/2026-11-15-unread-alert-indicator.md) | 확인 필요 |
+| 2026-11-15 | [준비 기록의 중복 보관과 복원 후 오래된 저장 방지](entries/2026-11-15-archive-revision.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-15 | [PR #26의 develop 충돌 해결과 회귀 검증](entries/2026-11-15-pr26-conflict-resolution.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-12 | [접수 종료 후 28일 이내 일부 확인 필요 7건 재검토](entries/2026-11-12-closed-seven-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-12 | [검수 대기·첨부 읽기 오류 36건 원문 대조](entries/2026-11-12-guidance36-source-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [첨부 신청기간 자동 반영과 오래된 미종료 공고 보완](entries/2026-11-11-attachment-closure.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [신규 수집 공고의 공식 정정 관계 자동 연결](entries/2026-11-11-automatic-correction-link.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [기존 정정 공고 대조와 기본 목록 28일 범위](entries/2026-11-11-correction-backfill-list-window.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [정정 공고가 있는 원공고 목록 제외](entries/2026-11-11-correction-list.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [가이드 전체 로딩으로 인한 탭 전환 지연 수정](entries/2026-11-11-guide-loading-pagination.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [파주운정 A23·충주안림1 첨부 접수기간 반영](entries/2026-11-11-legacy-application-closure.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [구형 공식 정정 이력 6건 연결](entries/2026-11-11-legacy-six-corrections.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [공고의 LH 기관 표시를 공식 CI로 변경](entries/2026-11-11-lh-agency-ci.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [공고·내 준비 목록 로딩 데이터 경량화](entries/2026-11-11-list-loading-payloads.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-11 | [남은 구형 정정 3건의 공식 첨부 대조](entries/2026-11-11-remaining-three-corrections.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [미종료 공고의 개별 결과 안내 대조·반영](entries/2026-11-10-active-individual-announcements.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [미종료 공고 12개 쟁점 재대조와 확인 범위 축소](entries/2026-11-10-active12-recheck.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [새 수집 공고의 서류마감 자동 연결과 접수종료 제외](entries/2026-11-10-automatic-document-deadlines.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [거창 신원면 공고 서류마감 11/13 반영](entries/2026-11-10-geochang-document-deadline.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [확정 날짜 없는 결과 발표를 개별 안내로 표시](entries/2026-11-10-individual-announcement.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [남원노암 발표일 차이 공식 자료 재대조](entries/2026-11-10-namwon-date-recheck.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [공고별 지원 대상·지원 내용을 2~3문장으로 표시](entries/2026-11-10-notice-support-summary.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [PR #24 구현 계약 대조와 병합 전 검토](entries/2026-11-10-pr24-contract-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-09 | [신규 공고의 정정·후속 공식 자료 자동 대조](entries/2026-11-09-automatic-followup-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-09 | [접수 종료 제외 후 미종료 공고 10건 준비 안내 반영](entries/2026-11-09-pending-active-guidance.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-09 | [남은 확인 항목을 정정본·후속 공식 자료로 해소](entries/2026-11-09-review-resolution.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-08 | [읽기 실패 복구와 최신 공고 준비 안내 반영](entries/2026-11-08-current-guidance-reading-recovery.md) | 확인 필요 |
+| 2026-11-08 | [스캔 원문 오독 대조와 확인된 조건·서류 안내 제공](entries/2026-11-08-ocr-guidance-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-08 | [기존 보류 18건 재검수와 접수 중 우선 정렬](entries/2026-11-08-public18-review-and-notice-sort.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-08 | [공개 보류 18건의 공고별 원문 대조와 준비 안내 반영](entries/2026-11-08-public18-source-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-08 | [남은 보류 5건 최신 원문 재확인과 정정본 연결](entries/2026-11-08-remaining5-corrections.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-08 | [검수 중 공고의 공식 원문 열람](entries/2026-11-08-reviewing-source-information.md) | 근거 정리·팀 검토 전 |
+| 2026-11-08 | [스캔 PDF와 도면의 원문 판독 복구](entries/2026-11-08-scanned-source-ocr.md) | 검증 결과 기록 완료 |
+| 2026-11-08 | [익산한스빌 유형별 준비 안내 초안과 출처 검토 보완](entries/2026-11-08-typed-guidance-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [화면·기능을 보존한 구현 경계 정리](entries/2026-11-07-code-boundaries.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [라이트·다크 화면 모드](entries/2026-11-07-color-mode.md) | 확인 필요 |
+| 2026-11-07 | [진행 중인 조건 질문 이어가기](entries/2026-11-07-condition-resume.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [출시 준비: 수집·접수 시각·근거·인증·알림 연결 보완](entries/2026-11-07-launch-integrations.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [로그인 하단 체험·계정 링크 영역 정리](entries/2026-11-07-login-footer.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [로그인 입력과 보조 동작의 시각적 구분](entries/2026-11-07-login-ui.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [준비 기록 삭제 팝업 UI 정리](entries/2026-11-07-preparation-delete-dialog.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [내 준비 공고 미선택 화면 정리](entries/2026-11-07-preparation-empty-state.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-07 | [공식 종료 상태·일회 확인·수집 원본과 운영 준비](entries/2026-11-07-readiness-operations.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-06 | [공식 첨부 내용 변경 감지와 후속 결정표](entries/2026-11-06-attachment-change-detection.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-06 | [예약 수집·원문 발췌·인증과 준비 기록 보완](entries/2026-11-06-collection-security-inputs.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-06 | [이전 준비 기록·계정 연결·접근성·상세 비교 보완](entries/2026-11-06-history-connections-accessibility-comparison.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-06 | [현재 코드 기반 리팩토링 후보 검토](entries/2026-11-06-refactoring-candidates.md) | 9개 후보 구현·검증 완료. 후속 사용자 재시작 요청으로 최신 서버까지 적용 완료. |
 | 2026-11-06 | [로컬 모바일 구현을 팀 검토용 브랜치로 공유](entries/2026-11-06-team-review-upload.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-04 | [로그인 없이 신청 준비를 체험하는 로컬 세션](entries/2026-11-04-guest-trial.md) | 실행 근거 정리·담당자 검토 전 |

@@ -1,0 +1,13 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.house-row {
+}
+.house-picture {
+}
+.progress-number {
+}
+.journey {
+}
+.prep-summary {
+}
+.preparation-progress {
+}

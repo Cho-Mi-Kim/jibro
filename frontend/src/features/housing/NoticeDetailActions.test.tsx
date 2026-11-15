@@ -3,11 +3,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, useLocation } from 'react-router';
 import { NoticeDetailActions } from './NoticeDetailActions';
-import { startPath } from '../preparation/startIntent';
+import { preparationChoicePath } from '../preparation/oneTimeCheckApi';
 import type { Notice } from './types';
 
-vi.mock('../preparation/startIntent', () => ({
-    startPath: vi.fn(() => '/notices/notice/start?version=3'),
+vi.mock('../preparation/oneTimeCheckApi', () => ({
+    preparationChoicePath: vi.fn(() => '/notices/notice/check?version=3'),
 }));
 beforeEach(() => {
     vi.stubGlobal(
@@ -70,22 +70,22 @@ describe('공고 상세 주요 행동', () => {
         expect(screen.getByLabelText('현재 경로')).toHaveTextContent(
             '/preparations/my-record',
         );
-        expect(startPath).not.toHaveBeenCalled();
+        expect(preparationChoicePath).not.toHaveBeenCalled();
     });
-    it('조회나 재렌더는 시작 의도를 만들지 않고 명시적 조건 확인 클릭에만 전달한다', async () => {
+    it('조회나 재렌더는 기록을 만들지 않고 명시적 클릭으로 저장 여부 선택에 이동한다', async () => {
         const view = render(content(notice));
-        expect(startPath).not.toHaveBeenCalled();
+        expect(preparationChoicePath).not.toHaveBeenCalled();
         view.rerender(content({ ...notice, title: '수정된 공고 제목' }));
-        expect(startPath).not.toHaveBeenCalled();
+        expect(preparationChoicePath).not.toHaveBeenCalled();
         await userEvent.click(
             screen.getByRole('button', { name: '내 조건 확인하기' }),
         );
-        expect(startPath).toHaveBeenCalledExactlyOnceWith(
+        expect(preparationChoicePath).toHaveBeenCalledExactlyOnceWith(
             notice.id,
             notice.version,
         );
         expect(screen.getByLabelText('현재 경로')).toHaveTextContent(
-            '/notices/notice/start?version=3',
+            '/notices/notice/check?version=3',
         );
     });
 
@@ -99,6 +99,6 @@ describe('공고 상세 주요 행동', () => {
         expect(
             screen.getByRole('link', { name: '공고 원문 보기' }),
         ).toHaveAttribute('href', notice.evidence.url);
-        expect(startPath).not.toHaveBeenCalled();
+        expect(preparationChoicePath).not.toHaveBeenCalled();
     });
 });

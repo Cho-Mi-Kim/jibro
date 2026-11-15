@@ -11,6 +11,7 @@ import com.nimbusds.jose.jwk.*;
 import com.nimbusds.jwt.*;
 import org.jibro.global.common.ApiException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,23 +19,45 @@ public class BrowserPush {
     private final ECKey key;
     private final String publicKey;
     private final String subject;
-    private final HttpClient client = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER).build();
+    private final HttpClient client;
 
+    @Autowired
     public BrowserPush(@Value("${JIBRO_VAPID_JWK:}") String jwk, @Value("${JIBRO_PUSH_SUBJECT:}") String subject) throws Exception {
+        this(jwk, subject, HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER).build());
+    }
+
+    BrowserPush(String jwk, String subject, HttpClient client) throws Exception {
         this.subject = subject;
-        if (jwk.isBlank() || subject.isBlank()) {
+        this.client = client;
+        if (jwk.isBlank() && subject.isBlank()) {
             key = null;
             publicKey = null;
             return;
         }
-        key = ECKey.parse(jwk);
-        if (!Curve.P_256.equals(key.getCurve()) || !key.isPrivate() || !(subject.startsWith("mailto:") || subject.startsWith("https://")))
+        try {
+            key = ECKey.parse(jwk);
+        } catch (Exception error) {
+            throw new IllegalStateException("Invalid VAPID configuration");
+        }
+        if (!Curve.P_256.equals(key.getCurve()) || !key.isPrivate() || !validSubject(subject))
             throw new IllegalStateException("Invalid VAPID configuration");
         byte[] point = new byte[65];
         point[0] = 4;
         System.arraycopy(key.getX().decode(), 0, point, 1, 32);
         System.arraycopy(key.getY().decode(), 0, point, 33, 32);
         publicKey = Base64.getUrlEncoder().withoutPadding().encodeToString(point);
+    }
+
+    private static boolean validSubject(String value) {
+        try {
+            URI uri = URI.create(value);
+            if ("mailto".equals(uri.getScheme()))
+                return uri.getRawSchemeSpecificPart().matches("[^\\s?@]+@[^\\s?@]+");
+            return "https".equals(uri.getScheme()) && uri.getHost() != null
+                && uri.getUserInfo() == null && uri.getFragment() == null;
+        } catch (IllegalArgumentException error) {
+            return false;
+        }
     }
 
     public String publicKey() {

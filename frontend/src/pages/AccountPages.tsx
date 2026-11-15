@@ -1,16 +1,20 @@
 import { TrialEntry } from '../features/auth/TrialEntry';
 import { useSessionEntry } from '../features/auth/useSessionEntry';
 import { SocialLogo } from '../shared/ui/SocialLogo';
-import { cx } from '../shared/styles/classes';
+import { bindClasses } from '../shared/styles/classes';
 import { safeReturn } from '../shared/api/returnPath';
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
-import { useSession } from '../app/useSession';
+import { useSession } from '../features/auth/useSession';
 import { api } from '../features/housing/api';
 import { demoMode } from '../shared/api/transport';
 import { pagesDemo } from '../shared/api/environment';
 import { Button, Card, Heading, State } from '../shared/ui/ui';
+import authClasses from '../features/auth/Auth.module.css';
+
+const cx = bindClasses(authClasses);
+
 export function LoginPage({ signup = false }: { signup?: boolean }) {
     const providers = useQuery({
         queryKey: ['auth', 'providers'],
@@ -122,7 +126,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     {!demoMode && (
                         <div className={cx('social-login')}>
                             <p className={cx('social-divider')}>
-                                또는 다른 계정으로 계속하기
+                                또는 다른 계정으로
                             </p>
                             <div className={cx('social-buttons')}>
                                 <button
@@ -150,12 +154,10 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                                     <span>카카오로 계속하기</span>
                                 </button>
                             </div>
-                            {providers.data?.length === 0 && (
-                                <p>
-                                    현재 소셜 로그인 연결을 준비 중입니다.
-                                    이메일로 계속해 주세요.
-                                </p>
-                            )}
+                            <TrialEntry
+                                onStart={() => mutation.mutate('trial')}
+                                pending={mutation.isPending}
+                            />
                             <State
                                 error={providers.error}
                                 retry={() => void providers.refetch()}
@@ -164,10 +166,20 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     )}
                 </Card>
             )}
-            <TrialEntry
-                onStart={() => mutation.mutate('trial')}
-                pending={mutation.isPending}
-            />
+            {!pagesDemo && (
+                <div className={cx('auth-actions')}>
+                    <Link
+                        to={
+                            (signup ? '/login' : '/signup') +
+                            '?returnTo=' +
+                            encodeURIComponent(returnTo)
+                        }
+                    >
+                        {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
+                    </Link>
+                    <Link to="/recovery">비밀번호 재설정</Link>
+                </div>
+            )}
             {demoMode ? (
                 <Card>
                     <p>
@@ -205,22 +217,6 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                     </Button>
                 </Card>
             ) : null}
-            {!pagesDemo && (
-                <>
-                    <Link
-                        to={
-                            (signup ? '/login' : '/signup') +
-                            '?returnTo=' +
-                            encodeURIComponent(returnTo)
-                        }
-                    >
-                        {signup ? '이미 계정이 있어요' : '이메일로 회원가입'}
-                    </Link>
-                    <Link className={cx('text-button')} to="/recovery">
-                        비밀번호 재설정
-                    </Link>
-                </>
-            )}
         </div>
     );
 }

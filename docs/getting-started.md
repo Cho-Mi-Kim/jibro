@@ -2,7 +2,7 @@
 
 대상: Windows, 새 `jibro-housing` 저장소. 명령을 기존 `jibro-housing-prep`에서 실행하지 않습니다.
 
-최종 수정일: 2026-11-10. 이 문서는 실행 절차를 관리합니다. 작업 전 [팀 컨벤션](conventions/team-conventions.md)·[코딩 컨벤션](conventions/coding-conventions.md)을 확인하고 기능 구현에는 [기획안](planning/project-proposal.md)·[화면설계서](design/screen-spec.md)를 함께 사용합니다. [전체 문서 안내](README.md).
+최종 수정일: 2026-11-15. 이 문서는 실행 절차를 관리합니다. 작업 전 [팀 컨벤션](conventions/team-conventions.md)·[코딩 컨벤션](conventions/coding-conventions.md)을 확인하고 기능 구현에는 [기획안](planning/project-proposal.md)·[화면설계서](design/screen-spec.md)를 함께 사용합니다. [전체 문서 안내](README.md).
 
 ## 1. 사전 도구
 
@@ -170,16 +170,18 @@ GitHub Actions의 PR 검사는 작업 기록, 프론트엔드 검사·일반/Pag
 
 ## 8. 실제 전체 기능 실행
 
-백엔드는 다음처럼 샘플 프로필로 실행하고 프론트엔드는 기존 `Start-Frontend.ps1`로 실행합니다. 프론트엔드의 demo 모드는 사용하지 않습니다.
+백엔드와 프론트엔드를 다음처럼 실행합니다. 일반 로컬 실행은 실제 DB의 공식 공고를 사용하며 예시 공고를 자동으로 만들지 않습니다. 프론트엔드의 demo 모드는 사용하지 않습니다.
 
 ```powershell
 .\scripts\Initialize-Local.ps1
-.\scripts\Start-Backend.ps1 -SampleData
+.\scripts\Start-Backend.ps1
 # 별도 터미널
 .\scripts\Start-Frontend.ps1
 ```
 
-브라우저 http://127.0.0.1:5173 에서 이메일 회원가입 → 공고 선택 → 조건 확인 → 서류·일정 저장을 확인합니다. 로컬 샘플도 실제 DB에 저장되므로 새로고침 후 복원됩니다. 실제 개인정보는 테스트에 사용하지 않습니다.
+브라우저 http://127.0.0.1:5173 에서 이메일 회원가입 → 공식 공고 선택 → 조건 확인 → 서류·일정 저장을 확인합니다. 준비 안내 검수를 통과한 공고에서만 새 준비를 시작할 수 있습니다. 새 DB에 공고가 없다면 LH 수집 설정과 검수를 먼저 진행합니다. 서버에 저장한 준비 기록은 새로고침 후 복원됩니다. 실제 개인정보는 테스트에 사용하지 않습니다.
+
+가입 없이 체험하기 등 로컬 전용 인증 기능이 필요하면 기존 `-SampleData` 옵션으로 `local-sample` 프로필을 켤 수 있습니다. 옵션 이름과 달리 이 프로필만으로 가상 공고를 생성하지 않습니다. `SampleData` 생성기는 별도의 `app.sample-data.enabled=true`를 명시한 격리된 fixture 환경에서만 활성화되며, 생성된 `local-sample-*` 공고도 공개 API에 노출하지 않습니다. 일반 프론트 실행은 이전 `VITE_API_MODE=demo` 설정이나 서버 연결 실패를 이유로 예시 공고로 전환하지 않습니다.
 
 `JWT_SECRET`은 필수이며 로컬 초기화가 생성합니다. `AUTH_SECURE_COOKIE=false`는 로컬 HTTP 전용입니다. `FRONTEND_URL`은 OAuth 복귀 주소이며 기본 http://127.0.0.1:5173 입니다. Google·카카오·LH 키는 `.env.example`을 참고합니다. 키가 없으면 해당 외부 연결을 성공으로 표시하지 않습니다.
 
@@ -187,6 +189,8 @@ GitHub Actions의 PR 검사는 작업 기록, 프론트엔드 검사·일반/Pag
 
 카카오 로그인에서 토큰 교환 이후 `invalid_user_info_response`, `providerCode=-401`, `reason=ip_restricted`가 기록되면 REST API 키의 호출 허용 IP를 확인합니다. 카카오 Developers의 앱 → 플랫폼 키에서 사용하는 키의 호출 허용 IP에 **백엔드의 외부 공인 IP**를 등록합니다. 로컬 접속 주소인 `127.0.0.1`과는 다릅니다. 네트워크·VPN·배포 서버가 달라지면 외부 IP도 달라질 수 있습니다. 접근 제한을 없애거나 키를 재발급하는 대신 필요한 서버 IP를 등록하는 것을 우선합니다. [카카오 공식 설정 안내](https://developers.kakao.com/docs/ko/app-setting/app).
 
-추가 HTTP 흐름 검사: 환경 도우미를 로드한 뒤 `node scripts/verify-api.mjs`. 샘플 데이터가 있는 localhost만 허용하며 합성 테스트 계정·준비 건이 DB에 남습니다. 이 검사는 외부 OAuth 왕복이나 실제 LH 수집을 검증하지 않습니다.
+기존 `scripts/verify-api.mjs`는 예전 공개 샘플 API와 고정 질문·서류 ID를 가정하므로 현재 실행 절차에서 사용하지 않습니다. 현재 `/meta.sampleData`는 false이며 `includeSamples=true`로도 샘플을 볼 수 없어 첫 안전 검사에서 회원가입 전에 종료됩니다. 이 검사를 통과시키려고 보호 조건을 제거하거나 실제 공고를 샘플 대신 지정하지 않습니다. 합성 계정과 준비 기록이 실제 개발 DB에 남을 수 있습니다.
+
+인증·준비 저장·샘플 제외 회귀는 별도 `jibro_test`를 사용하는 `backend`의 `.\gradlew.bat test integrationTest`로 검증합니다. HTTP 스크립트를 다시 사용할 때는 실행 대상 DB를 구분하고 fixture 생성·정리를 갖춘 별도 환경으로 재설계해야 합니다. 이 검증과 실제 LH 수집·외부 OAuth 왕복 검증은 구분합니다.
 
 권한·관리자 원고·공개 상태·수집 범위·후속 작업은 [백엔드 계약](architecture/backend-contracts.md)을 참고합니다. 배포 구성·HTTPS·관리자 승격·외부 키·실제 공고 검수는 별도 단계입니다.

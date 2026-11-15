@@ -1,0 +1,266 @@
+{
+  "checkedAt": "2026-11-10T00:52:44.026025+09:00",
+  "scope": "Read-only audit of root merged candidate JSON; no DB access or writes",
+  "status": "PASS",
+  "checkCount": 62,
+  "failureCount": 0,
+  "failures": [],
+  "notes": [
+    "PreparationService.refresh requires whole-question equality: all 4 proxy questions match baseline exactly.",
+    "Only tg-contract changes; its old answer is not automatically retained when upgrading to the new notice version. This is expected because the rate issue was resolved.",
+    "All old document IDs remain; memos carry forward under the existing refresh policy. READY becomes RECHECK, new rows are UNCHECKED, and counts/progress can change.",
+    "This audit does not assert DB publication completion or browser behavior."
+  ],
+  "codeEvidence": [
+    "backend/src/main/java/org/jibro/preparation/PreparationService.java:65",
+    "backend/src/main/java/org/jibro/notice/GuidanceIssues.java:21"
+  ],
+  "notices": [
+    {
+      "noticeId": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동",
+      "packagePath": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/packages/67ba01ef-0fb8-4ac0-b855-adc061b1f8ee.json",
+      "packageSha256": "55097378b4f23d87c37feba09f430b2f7f1b31fcc6f16f91b68e753a10eacf98",
+      "questionCount": 11,
+      "documentCount": 25,
+      "issueCount": 1,
+      "changedQuestionObjects": [],
+      "changedQuestionOptions": [],
+      "removedDocumentIds": [],
+      "addedDocumentIds": [
+        "proxy_certificate",
+        "proxy_identity"
+      ],
+      "confirmedDocuments": {
+        "proxy_identity": {
+          "reviewRequired": false,
+          "title": "대리인 신분증",
+          "conditionQuestionId": "proxy",
+          "conditionAnswerValues": [
+            "SPOUSE",
+            "OTHER"
+          ]
+        },
+        "proxy_certificate": {
+          "reviewRequired": false,
+          "title": "인감증명서 또는 본인서명사실확인서",
+          "conditionQuestionId": "proxy",
+          "conditionAnswerValues": [
+            "SPOUSE",
+            "OTHER"
+          ]
+        }
+      },
+      "proxyIssueDocumentIds": [
+        "proxy_papers"
+      ],
+      "checks": {
+        "questionIdsAndOrderPreserved": true,
+        "allQuestionOptionsPreserved": true,
+        "questionObjectsOnlyExpectedDifference": true,
+        "proxyQuestionIdentical": true,
+        "proxyQuestionNotBlocked": true,
+        "allOldDocumentIdsPreserved": true,
+        "exactlyTwoNewDocuments": true,
+        "proxyIssueOnlyForm": true,
+        "confirmedDocumentsNotBlocked": true,
+        "formStillRequiresReview": true,
+        "allIssueReferencesValid": true,
+        "allQuestionFlagsMatchIssues": true,
+        "unresolvedIdsMatchIssues": true,
+        "scheduleContentUnchanged": true,
+        "allIssueIdsPreserved": true
+      },
+      "status": "PASS"
+    },
+    {
+      "noticeId": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "title": "태백장성",
+      "packagePath": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/packages/c492f779-58e0-40b9-bac4-66830c698ff5.json",
+      "packageSha256": "c751b31148db67a0aa64e7fa6772c1d7c0cdd252b3c89c95b4a6219bcf7c65bc",
+      "questionCount": 11,
+      "documentCount": 24,
+      "issueCount": 2,
+      "changedQuestionObjects": [],
+      "changedQuestionOptions": [],
+      "removedDocumentIds": [],
+      "addedDocumentIds": [
+        "proxy_certificate",
+        "proxy_identity"
+      ],
+      "confirmedDocuments": {
+        "proxy_identity": {
+          "reviewRequired": false,
+          "title": "대리인 신분증",
+          "conditionQuestionId": "proxy",
+          "conditionAnswerValues": [
+            "SPOUSE",
+            "OTHER"
+          ]
+        },
+        "proxy_certificate": {
+          "reviewRequired": false,
+          "title": "인감증명서 또는 본인서명사실확인서",
+          "conditionQuestionId": "proxy",
+          "conditionAnswerValues": [
+            "SPOUSE",
+            "OTHER"
+          ]
+        }
+      },
+      "proxyIssueDocumentIds": [
+        "proxy_papers"
+      ],
+      "checks": {
+        "questionIdsAndOrderPreserved": true,
+        "allQuestionOptionsPreserved": true,
+        "questionObjectsOnlyExpectedDifference": true,
+        "proxyQuestionIdentical": true,
+        "proxyQuestionNotBlocked": true,
+        "allOldDocumentIdsPreserved": true,
+        "exactlyTwoNewDocuments": true,
+        "proxyIssueOnlyForm": true,
+        "confirmedDocumentsNotBlocked": true,
+        "formStillRequiresReview": true,
+        "allIssueReferencesValid": true,
+        "allQuestionFlagsMatchIssues": true,
+        "unresolvedIdsMatchIssues": true,
+        "scheduleContentUnchanged": true,
+        "allIssueIdsPreserved": true
+      },
+      "status": "PASS"
+    },
+    {
+      "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "동해유성·태백철암장미",
+      "packagePath": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/packages/db9f1ec3-d6aa-4453-8436-7d9cc0855a89.json",
+      "packageSha256": "941f31237afe49e1c44db71a88095770a9cef5cd1b0c4856768249ae570c19ff",
+      "questionCount": 13,
+      "documentCount": 27,
+      "issueCount": 2,
+      "changedQuestionObjects": [],
+      "changedQuestionOptions": [],
+      "removedDocumentIds": [],
+      "addedDocumentIds": [
+        "dh-proxy-form",
+        "dh-proxy-identity"
+      ],
+      "confirmedDocuments": {
+        "dh-proxy-identity": {
+          "reviewRequired": false,
+          "title": "대리인 신분증",
+          "conditionQuestionId": "dh-proxy",
+          "conditionAnswerValues": [
+            "SEAL",
+            "SIGN"
+          ]
+        },
+        "dh-proxy-seal": {
+          "reviewRequired": false,
+          "title": "인감증명서와 인감도장",
+          "conditionQuestionId": "dh-proxy",
+          "conditionAnswerValues": [
+            "SEAL"
+          ]
+        },
+        "dh-proxy-sign": {
+          "reviewRequired": false,
+          "title": "본인서명사실확인서",
+          "conditionQuestionId": "dh-proxy",
+          "conditionAnswerValues": [
+            "SIGN"
+          ]
+        }
+      },
+      "proxyIssueDocumentIds": [
+        "dh-proxy-form"
+      ],
+      "checks": {
+        "questionIdsAndOrderPreserved": true,
+        "allQuestionOptionsPreserved": true,
+        "questionObjectsOnlyExpectedDifference": true,
+        "proxyQuestionIdentical": true,
+        "proxyQuestionNotBlocked": true,
+        "allOldDocumentIdsPreserved": true,
+        "exactlyTwoNewDocuments": true,
+        "proxyIssueOnlyForm": true,
+        "confirmedDocumentsNotBlocked": true,
+        "formStillRequiresReview": true,
+        "allIssueReferencesValid": true,
+        "allQuestionFlagsMatchIssues": true,
+        "unresolvedIdsMatchIssues": true,
+        "scheduleContentUnchanged": true,
+        "allIssueIdsPreserved": true
+      },
+      "status": "PASS"
+    },
+    {
+      "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전",
+      "packagePath": "C:/Users/Administrator/Documents/jibro/.tools/qa/active12-recheck-20261110/packages/e15cb019-012f-4edb-9bcd-c760885c49bf.json",
+      "packageSha256": "872f22ac4ebcfd5e2ae16dd8351e95f567cc188d1bd96615b956801025169486",
+      "questionCount": 15,
+      "documentCount": 27,
+      "issueCount": 3,
+      "changedQuestionObjects": [
+        "tg-contract"
+      ],
+      "changedQuestionOptions": [],
+      "removedDocumentIds": [],
+      "addedDocumentIds": [
+        "tg-proxy-form",
+        "tg-proxy-identity"
+      ],
+      "confirmedDocuments": {
+        "tg-proxy-identity": {
+          "reviewRequired": false,
+          "title": "대리인 신분증",
+          "conditionQuestionId": "tg-proxy",
+          "conditionAnswerValues": [
+            "SEAL",
+            "SIGN"
+          ]
+        },
+        "tg-proxy-seal": {
+          "reviewRequired": false,
+          "title": "인감증명서와 인감도장",
+          "conditionQuestionId": "tg-proxy",
+          "conditionAnswerValues": [
+            "SEAL"
+          ]
+        },
+        "tg-proxy-sign": {
+          "reviewRequired": false,
+          "title": "본인서명사실확인서",
+          "conditionQuestionId": "tg-proxy",
+          "conditionAnswerValues": [
+            "SIGN"
+          ]
+        }
+      },
+      "proxyIssueDocumentIds": [
+        "tg-proxy-form"
+      ],
+      "checks": {
+        "questionIdsAndOrderPreserved": true,
+        "allQuestionOptionsPreserved": true,
+        "questionObjectsOnlyExpectedDifference": true,
+        "proxyQuestionIdentical": true,
+        "proxyQuestionNotBlocked": true,
+        "allOldDocumentIdsPreserved": true,
+        "exactlyTwoNewDocuments": true,
+        "proxyIssueOnlyForm": true,
+        "confirmedDocumentsNotBlocked": true,
+        "formStillRequiresReview": true,
+        "allIssueReferencesValid": true,
+        "allQuestionFlagsMatchIssues": true,
+        "unresolvedIdsMatchIssues": true,
+        "scheduleContentUnchanged": true,
+        "onlyRentRateIssueRemoved": true,
+        "contractNowUnblocked": true,
+        "contractRate6PercentExplicit": true
+      },
+      "status": "PASS"
+    }
+  ]
+}

@@ -2,13 +2,13 @@ import { noticeHomePath } from '../shared/navigation/homeNotice';
 import { useCallback, useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Link, useLocation, useNavigate, useParams } from 'react-router';
-import { useSession } from '../app/useSession';
-import type { User } from '../features/housing/types';
+import { useSession } from '../features/auth/useSession';
+import type { User, PreparationListItem } from '../features/housing/types';
 import { api } from '../features/housing/api';
 import { takeStartIntent } from '../features/preparation/startIntent';
 import { choosePreparation } from '../features/preparation/useActivePreparation';
 import { Button, Card, Heading, State } from '../shared/ui/ui';
-import { useNotice } from '../shared/ui/housingHelpers';
+import { useNotice } from '../features/housing/useNotice';
 
 export function StartPreparationPage() {
     const { noticeId = '' } = useParams();
@@ -26,6 +26,7 @@ export function StartPreparationPage() {
         notice.data.version !== Number(requestedVersion);
     const { mutate, isPending, error } = useMutation({
         mutationFn: async (version: number) => {
+            // Starting a record is an explicit write: recheck the owner's small list first.
             const list = await api.preparations();
             const current = await api.notice(noticeId);
             if (!current.canStart || current.version !== version)
@@ -51,10 +52,19 @@ export function StartPreparationPage() {
                         ['preparation', user.id, prepared.id],
                         prepared,
                     );
-                    client.setQueryData(
+                    const { id, noticeId, title, version, revision, progress } =
+                        prepared;
+                    client.setQueryData<PreparationListItem[]>(
                         ['preparations', user.id],
                         [
-                            prepared,
+                            {
+                                id,
+                                noticeId,
+                                title,
+                                version,
+                                revision,
+                                progress,
+                            },
                             ...list.filter((item) => item.id !== prepared.id),
                         ],
                     );

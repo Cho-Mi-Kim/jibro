@@ -20,7 +20,18 @@ repositories {
 
 ext.querydslVersion = '7.7'
 
+configurations { documentParserRuntime }
+
+springBoot { mainClass = 'org.jibro.JibroApplication' }
+
 dependencies {
+    implementation 'org.apache.pdfbox:pdfbox:3.0.8'
+    implementation 'org.apache.poi:poi:6.0.0'
+    implementation 'org.apache.poi:poi-ooxml:6.0.0'
+    documentParserRuntime 'org.apache.pdfbox:pdfbox:3.0.8'
+    documentParserRuntime 'org.apache.poi:poi:6.0.0'
+    documentParserRuntime 'org.apache.poi:poi-ooxml:6.0.0'
+    implementation 'org.jsoup:jsoup:1.24.1'
     implementation "io.github.openfeign.querydsl:querydsl-jpa:${querydslVersion}"
     annotationProcessor "io.github.openfeign.querydsl:querydsl-apt:${querydslVersion}:jpa"
     testAnnotationProcessor "io.github.openfeign.querydsl:querydsl-apt:${querydslVersion}:jpa"
@@ -53,12 +64,59 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+def parserWorker = tasks.register('documentParserJar', Jar) {
+    dependsOn tasks.named('compileJava')
+    archiveFileName = 'document-parser-worker.jar'
+    destinationDirectory = layout.buildDirectory.dir('parser-worker')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest { attributes 'Main-Class': 'org.jibro.collection.extraction.DocumentParserWorker' }
+    from(sourceSets.main.output.classesDirs) {
+        include 'org/jibro/collection/extraction/DocumentParserWorker.class'
+        include 'org/jibro/collection/extraction/DocumentTextParser.class'
+        include 'org/jibro/collection/extraction/SpreadsheetTextParser*.class'
+        include 'org/jibro/collection/extraction/HwpxStructuredText*.class'
+        include 'org/jibro/collection/extraction/HwpxPackageReader*.class'
+        include 'org/jibro/collection/extraction/PdfLayoutTextStripper*.class'
+        include 'org/jibro/collection/extraction/ParserProtocol.class'
+        include 'org/jibro/collection/extraction/ParserProcesses.class'
+        include 'org/jibro/collection/extraction/OcrConfiguration.class'
+        include 'org/jibro/collection/extraction/OcrDocumentParser.class'
+        include 'org/jibro/collection/extraction/OcrProvenance.class'
+        include 'org/jibro/collection/extraction/TesseractOcr*.class'
+        include 'org/jibro/collection/extraction/ExtractionModels*.class'
+    }
+    from({ configurations.documentParserRuntime.collect { zipTree(it) } }) {
+        exclude 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA', 'module-info.class'
+    }
+}
+
+tasks.named('processResources') {
+    from('../frontend/public/evidence-manifests.json') { into 'evidence' }
+}
+
+tasks.named('bootJar') {
+    dependsOn parserWorker
+    from(parserWorker.flatMap { it.archiveFile }) { into 'BOOT-INF/classes/worker' }
+}
+
+tasks.named('bootRun') {
+    dependsOn parserWorker
+    systemProperty 'jibro.parser.worker-jar', parserWorker.get().archiveFile.get().asFile.absolutePath
+}
+
+tasks.withType(Test).configureEach {
+    dependsOn parserWorker
+    systemProperty 'jibro.parser.worker-jar', parserWorker.get().archiveFile.get().asFile.absolutePath
+    systemProperty 'jibro.parser.test-classpath', sourceSets.test.output.classesDirs.asPath + File.pathSeparator + sourceSets.main.output.classesDirs.asPath
+}
+
 tasks.register('integrationTest', Test) {
     description = 'Runs PostgreSQL integration tests against the separate jibro_test database.'
     group = 'verification'
     testClassesDirs = sourceSets.test.output.classesDirs
     classpath = sourceSets.test.runtimeClasspath
     useJUnitPlatform()
+    systemProperty 'spring.test.context.cache.maxSize', '4'
     include '**/*IntegrationTest.class'
     shouldRunAfter tasks.named('test')
 }

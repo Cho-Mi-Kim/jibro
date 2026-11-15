@@ -1,0 +1,296 @@
+{
+  "checkedAt": "2026-11-09T15:37:04.737169+00:00",
+  "notices": [
+    {
+      "id": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "title": "군산시 국민임대주택 입주자 선착순 상시 모집(경암부향 등 7개 단지)",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020453&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "f080043d2c3c1b2a5ee4def97819fa73e4c487469c45ff19597962115b5c1282",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837148",
+          "role": "MAIN_NOTICE_NATIVE",
+          "label": "군산시국민임대입주자상시모집(경암부향등7개단지).hwp",
+          "sha256": "b2f7495f5eb5dedb81d624202747c814cb80a8c0f45193dbb5f86431fe0ee7a6",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\551e2f60-fae9-4c3e-a282-76ad12ecfc72\\67837148.bin",
+          "bytes": 640000
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147",
+          "role": "MAIN_NOTICE_PDF",
+          "label": "군산시국민임대입주자상시모집(경암부향등7개단지).pdf",
+          "sha256": "2a9832524dc19f34cfc64b73a3bb7277df8187c616e7f682980c0634dabe3c39",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\551e2f60-fae9-4c3e-a282-76ad12ecfc72\\67837147.pdf",
+          "bytes": 959171
+        }
+      ]
+    },
+    {
+      "id": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020581&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "3ab1632e893edde735ddfed3f9e69a061a4a1aa67af3fa64ffbdde25d413d587",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195751",
+          "role": "MAIN_NOTICE_NATIVE",
+          "label": "삼척도계,정선신동국민임대주택예비입주자입주자격완화(2단계)상시모집공고문.hwpx",
+          "sha256": "c77a5cb59022e7746a0bd267c409149371a4e036411aff1e1ec348249017be91",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\67ba01ef-0fb8-4ac0-b855-adc061b1f8ee\\68195751.bin",
+          "bytes": 383894
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754",
+          "role": "MAIN_NOTICE_PDF",
+          "label": "삼척도계,정선신동국민임대주택예비입주자입주자격완화(2단계)상시모집공고문.pdf",
+          "sha256": "4e526aedf4d3cc7b09d3bdf9c6c2c8e949ea0240ff07a4e10ea591972b01855a",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\67ba01ef-0fb8-4ac0-b855-adc061b1f8ee\\68195754.pdf",
+          "bytes": 930097
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+          "role": "APPLICATION_FORMS",
+          "label": "상시모집서류양식.zip",
+          "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\67ba01ef-0fb8-4ac0-b855-adc061b1f8ee\\68195774.bin",
+          "bytes": 355488
+        }
+      ]
+    },
+    {
+      "id": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "title": "태백장성 국민임대주택 예비입주자 입주자격완화 상시모집",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020730&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "53b4745ad081f3e4bcb8ed12f37f3e73ab6cb9d20cb93e8ad0196380fb2e3c2f",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561928",
+          "role": "MAIN_NOTICE_NATIVE",
+          "label": "260914태백장성국민임대주택예비입주자입주자격완화(1단계)상시모집공고문.hwpx",
+          "sha256": "c33a084e87523b37361cd20e25842d818d1c51fe170b108941c20019bdbcf9a6",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\68561928.bin",
+          "bytes": 296671
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929",
+          "role": "MAIN_NOTICE_PDF",
+          "label": "260914태백장성국민임대주택예비입주자입주자격완화(1단계)상시모집공고문.pdf",
+          "sha256": "03b4529320b3ebf8563b3570c21333e24f5e7f779556e5511829135c2e100780",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\68561929.pdf",
+          "bytes": 894173
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68552636",
+          "role": "APPLICATION_FORMS",
+          "label": "상시모집서류양식.zip",
+          "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\68552636.bin",
+          "bytes": 355488
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68552395",
+          "role": "FLOOR_PLAN",
+          "label": "태백장성_29형.jpg",
+          "sha256": "4f77e91068e3b68a802b52d384d3805c68caa3fe403228e5b3f46dbae19568f1",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\c492f779-58e0-40b9-bac4-66830c698ff5\\68552395.bin",
+          "bytes": 2254551
+        }
+      ]
+    },
+    {
+      "id": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "title": "전주시(전주평화1,전주평화4) 영구임대주택 예비입주자 모집 공고(공고일:2026.02.10.)",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019241&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "9bcac8cf85670bd46b2cad5e03a1f6f439ec583488e1c7dc66b44aa54db10d1e",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558439",
+          "role": "MAIN_NOTICE",
+          "label": "전주평화1,전주평화4-영구임대예비입주자표준모집공고문(260210)공고.hwp",
+          "sha256": "6707f3c979e32549f1f9dcfcd4ef460942a87d3192a898252a33939489f98f71",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\d5c5d9eb-059d-4680-a6c3-91aa3951a8e3\\65558439.bin",
+          "bytes": 280064
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441",
+          "role": "MAIN_NOTICE",
+          "label": "전주평화1,전주평화4-영구임대예비입주자표준모집공고문(260210)공고.pdf",
+          "sha256": "ce6b67eca6c9415402eaa4f28ec55b727a04a2bc98ab2bf0d8a768f0137ec354",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\d5c5d9eb-059d-4680-a6c3-91aa3951a8e3\\65558441.pdf",
+          "bytes": 874536
+        }
+      ]
+    },
+    {
+      "id": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "[정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019312&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "f1261c711d009fda4acd4f5c4308b78f804e1e8f89835da1b734e82ae29a6092",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499514",
+          "role": "MAIN_NOTICE_HWP",
+          "label": "동해유성,태백철암장미국민임대입주자격완화(2단계)상시모집(26.02.02공고).hwp",
+          "sha256": "c5b07f0f2857bc9a1cfe682233a677582b738b1f6b25f7a64d853b10ec6895f2",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499514.bin",
+          "bytes": 439296
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745",
+          "role": "MAIN_NOTICE_PDF",
+          "label": "동해유성,태백철암장미국민임대입주자격완화(2단계)상시모집(26.02.02공고).pdf",
+          "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499745.pdf",
+          "bytes": 904951
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499758",
+          "role": "FLOOR_PLAN",
+          "label": "동해시_유성_24평면도.jpg",
+          "sha256": "18e6e39f798808a31fb9ebe696c016b8a70b6a655725bb33f4f44b57544da2a1",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499758.bin",
+          "bytes": 18794
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499761",
+          "role": "FLOOR_PLAN",
+          "label": "동해시_유성_39평면도.jpg",
+          "sha256": "62f800256ed66d2ddaf07d4c77ad24c4a00d4757e603d422b916efbe35d5bb89",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499761.bin",
+          "bytes": 22707
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775",
+          "role": "SUPPORTING_FORMS",
+          "label": "상시모집서류양식.zip",
+          "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499775.bin",
+          "bytes": 355488
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499764",
+          "role": "FLOOR_PLAN",
+          "label": "태백철암장미평면도.jpg",
+          "sha256": "44f178adebbb67684d57717cf63329f87b34a158bedc1d4bdce61238a65e9091",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\db9f1ec3-d6aa-4453-8436-7d9cc0855a89\\65499764.bin",
+          "bytes": 60361
+        }
+      ]
+    },
+    {
+      "id": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "title": "[정정공고]남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "4cda96bdd25befd348ac58d12d0d110a7c618c6065e8a5e76445199cbdbfecfc",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+          "role": "MAIN_NOTICE",
+          "label": "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).hwpx",
+          "sha256": "060b2bf5d48ac249b6e096b78db7cc8ed9b896a4315f0715db7e97d3e73f9734",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\de920f26-fdcc-4beb-b26b-6a18d4f54f46\\69191062.bin",
+          "bytes": 288578
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+          "role": "MAIN_NOTICE",
+          "label": "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).pdf",
+          "sha256": "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\de920f26-fdcc-4beb-b26b-6a18d4f54f46\\69191063.pdf",
+          "bytes": 818767
+        }
+      ]
+    },
+    {
+      "id": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019307&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "statuses": [
+        "공고상태 공고중"
+      ],
+      "proceed": true,
+      "detailSha256": "31cbca92a519c39e01ae9acaeb5325f4783598a73e97f91d201f7319352c04d5",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464834",
+          "role": "MAIN_NOTICE_HWP",
+          "label": "태백궁전국민임대입주자격완화(1단계)예비입주자상시모집(26.02.02공고).hwp",
+          "sha256": "2fa1d5ee08b10cd63bfcc8750abdb3b32361de2b1368fdb40bfbe1560ad806be",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\65464834.bin",
+          "bytes": 348160
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+          "role": "MAIN_NOTICE_PDF",
+          "label": "태백궁전국민임대입주자격완화(1단계)예비입주자상시모집(26.02.02공고).pdf",
+          "sha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\65464835.pdf",
+          "bytes": 932869
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465001",
+          "role": "SUPPORTING_FORMS",
+          "label": "상시모집서류양식.zip",
+          "sha256": "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\65465001.bin",
+          "bytes": 355488
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464893",
+          "role": "FLOOR_PLAN",
+          "label": "태백궁전39형평면도.png",
+          "sha256": "d980f57d368aec0e627b4790dd64cc6f6091bd71173cc858ec51130b7be5d07e",
+          "sameAsReviewed": true,
+          "path": "C:\\Users\\Administrator\\Documents\\jibro\\.tools\\qa\\active12-recheck-20261110\\fresh\\e15cb019-012f-4edb-9bcd-c760885c49bf\\65464893.bin",
+          "bytes": 15766
+        }
+      ]
+    }
+  ]
+}

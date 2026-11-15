@@ -1,0 +1,20 @@
+{
+  "mode" : "apply",
+  "notices" : [ {
+    "noticeId" : "06462f53-d47e-419e-b458-c8a6e212b96a",
+    "packageFingerprint" : "9519b6e891729cf0bb7fec3a303760fd8191d951214f98cb48aec8fb87d93e64",
+    "verifiedAt" : "2026-11-09T16:16:56.417659300Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69108014" : "201b398756c0c8d6070c45fb91931b6fdb90b1ade1709bf3131c1c27a783719a",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69108015" : "5f55a68c49742e8d857e626af64a1621419d4abc3df4205b530d979fc684b6c2",
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020933&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026" : "c041c2878a10238444570f8a9500556a9fb7d61c3270ed6c2e001ad42b413ccf"
+    },
+    "previousPackageFingerprint" : "43eee54fab1e72a51079e6ad7a2cfc85affa7dc27dfc39089ba9a441d8d0ed47",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 17,
+    "documents" : 26,
+    "issues" : 0
+  } ],
+  "checkedAt" : "2026-11-09T16:16:57.407244400Z"
+}

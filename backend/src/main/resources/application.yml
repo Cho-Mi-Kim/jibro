@@ -1,10 +1,17 @@
 spring:
   application:
     name: jibro-housing
+  task:
+    scheduling:
+      pool:
+        size: 3
+      thread-name-prefix: jibro-schedule-
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:15432/jibro}
     username: ${DB_USERNAME:jibro}
     password: ${DB_PASSWORD}
+    hikari:
+      connection-timeout: ${DB_CONNECTION_TIMEOUT_MS:5000}
   jpa:
     open-in-view: false
     hibernate:
@@ -29,11 +36,25 @@ spring:
 server:
   address: ${SERVER_ADDRESS:127.0.0.1}
   port: ${SERVER_PORT:8080}
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: lax
+        secure: ${AUTH_SECURE_COOKIE:true}
   error:
     include-message: never
     include-stacktrace: never
 
 app:
+  collection:
+    gemini-enabled: ${GEMINI_REVIEW_ENABLED:false}
+    automatic-followup-enabled: ${AUTOMATIC_FOLLOWUP_ENABLED:true}
+    automatic-correction-enabled: ${AUTOMATIC_CORRECTION_ENABLED:true}
+    correction-poll-ms: ${AUTOMATIC_CORRECTION_POLL_MS:30000}
+    followup-poll-ms: ${AUTOMATIC_FOLLOWUP_POLL_MS:60000}
+    category-codes: ${LH_COLLECTION_CATEGORY_CODES:06,13}
+    history-start-date: ${LH_COLLECTION_HISTORY_START_DATE:2000-01-01}
   auth:
     jwt-secret: ${JWT_SECRET}
     secure-cookie: ${AUTH_SECURE_COOKIE:true}

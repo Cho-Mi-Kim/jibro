@@ -1,6 +1,8 @@
+import { useQuery } from '@tanstack/react-query';
+import { memberApi } from '../features/member/memberApi';
 import { ForegroundAlerts } from '../features/member/ForegroundAlerts';
 import { AlertSettingsControl } from '../features/member/AlertSettingsControl';
-import { cx } from '../shared/styles/classes';
+import { bindClasses } from '../shared/styles/classes';
 import { useEffect, useRef, type ReactNode } from 'react';
 import {
     Link,
@@ -10,14 +12,16 @@ import {
     useNavigate,
     useNavigationType,
 } from 'react-router';
-import { useSession } from './useSession';
+import { useSession } from '../features/auth/useSession';
 import { demoMode } from '../shared/api/transport';
 import { Icon, type IconName } from '../shared/ui/Icon';
 import { State } from '../shared/ui/ui';
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../features/housing/api';
 import { getPreparationTab } from '../features/preparation/preparationTabRoutes';
 import { getHomeReturn } from '../shared/navigation/useNoticeEntryState';
+import shellClasses from './Shell.module.css';
+
+const cx = bindClasses(shellClasses);
+
 const tabs: [string, string, IconName][] = [
     ['/', '홈', 'home'],
     ['/notices', '공고', 'file'],
@@ -41,16 +45,18 @@ function Navigation({ desktop = false }: { desktop?: boolean }) {
     );
 }
 export function Shell({ children }: { children: ReactNode }) {
-    const meta = useQuery({
-        queryKey: ['meta'],
-        queryFn: api.meta,
-        enabled: !demoMode,
-        staleTime: Infinity,
-    });
     const location = useLocation();
     const navigate = useNavigate();
     const navigationType = useNavigationType();
     const { user } = useSession();
+    const inbox = useQuery({
+        queryKey: ['alerts', user?.id],
+        queryFn: memberApi.inbox,
+        enabled: !!user,
+        staleTime: 60_000,
+        refetchInterval: 60_000,
+    });
+    const hasUnread = !!user && inbox.data?.items.some((item) => !item.read);
     const alertsHeader = location.pathname === '/alerts' && !!user;
     const inPreparationTab = !!getPreparationTab(location);
     const focused = /\/conditions\/(?:edit|result)$/.test(location.pathname);
@@ -89,7 +95,7 @@ export function Shell({ children }: { children: ReactNode }) {
             >
                 본문으로 바로가기
             </a>
-            <ForegroundAlerts />
+            <ForegroundAlerts inbox={inbox.data} />
             <header
                 data-guide-header={location.pathname === '/guide' || undefined}
                 data-notice-header={
@@ -170,7 +176,12 @@ export function Shell({ children }: { children: ReactNode }) {
                                 <>
                                     <Link
                                         className={cx('notification')}
-                                        aria-label="알림 확인"
+                                        aria-label={
+                                            hasUnread
+                                                ? '알림 확인, 읽지 않은 알림 있음'
+                                                : '알림 확인'
+                                        }
+                                        data-unread={hasUnread || undefined}
                                         to="/alerts"
                                     >
                                         <Icon name="bell" />
@@ -209,12 +220,6 @@ export function Shell({ children }: { children: ReactNode }) {
                 <div className={cx('demo-banner')} role="status">
                     화면 테스트용 시연 · 가상 공고 · 서버 저장 없음 · 새로고침
                     시 초기화
-                </div>
-            )}
-            {!demoMode && !user?.trial && meta.data?.sampleData && (
-                <div className={cx('demo-banner')} role="status">
-                    로컬 개발 환경 · 예시 공고는 실제 신청에 사용할 수 없습니다.
-                    실제 공고는 공식 원문을 확인하세요.
                 </div>
             )}
             <div className={cx('workspace')}>

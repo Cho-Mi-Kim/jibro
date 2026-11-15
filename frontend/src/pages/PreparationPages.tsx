@@ -1,8 +1,8 @@
-import { Link, useOutletContext } from 'react-router';
+import { useOutletContext } from 'react-router';
 import { ExperienceNotes } from './ArchivePage';
-import { cx } from '../shared/styles/classes';
-import { Card, State } from '../shared/ui/ui';
+import { State } from '../shared/ui/ui';
 import type { Preparation } from '../features/housing/types';
+import { PreparationEmptyState } from '../features/preparation/PreparationEmptyState';
 import { PreparationOverview } from '../features/preparation/PreparationOverview';
 import { usePreparation } from '../features/preparation/usePreparation';
 
@@ -10,14 +10,7 @@ export function PreparationListPage() {
     const active = useOutletContext<Preparation | undefined>();
     return (
         <>
-            {!active && (
-                <Card>
-                    <h2>첫 신청 준비를 시작해 보세요</h2>
-                    <Link className={cx('link-button')} to="/notices">
-                        공고 둘러보기
-                    </Link>
-                </Card>
-            )}
+            {!active && <PreparationEmptyState />}
             {active && (
                 <PreparationOverview
                     p={active}

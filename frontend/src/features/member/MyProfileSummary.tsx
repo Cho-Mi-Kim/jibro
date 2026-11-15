@@ -26,7 +26,10 @@ export function MyProfileSummary({ user, ongoing, archived }: Props) {
                     )}
                 </span>
                 <div className={s.nameBlock}>
-                    <h2 id="my-profile-name">
+                    <h2
+                        id="my-profile-name"
+                        className={!user ? s.guestTitle : undefined}
+                    >
                         {user
                             ? user.trial
                                 ? '방문자님'
@@ -34,18 +37,12 @@ export function MyProfileSummary({ user, ongoing, archived }: Props) {
                             : '로그인하고 준비를 이어가세요'}
                     </h2>
                     {!user && (
-                        <div className={s.entryLinks}>
+                        <div className={s.entryAction}>
                             <Link
                                 className={cx('link-button')}
                                 to="/login?returnTo=%2Fmy"
                             >
                                 로그인
-                            </Link>
-                            <Link
-                                className={cx('link-button outline-button')}
-                                to="/signup?returnTo=%2Fmy"
-                            >
-                                회원가입
                             </Link>
                         </div>
                     )}

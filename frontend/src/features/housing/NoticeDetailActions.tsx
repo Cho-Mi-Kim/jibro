@@ -1,11 +1,15 @@
 import { Link, useLocation, useNavigate } from 'react-router';
-import { OfficialLink } from '../../shared/ui/HousingUI';
+import { OfficialLink } from '../../shared/ui/OfficialLink';
 import { Icon } from '../../shared/ui/Icon';
 import { Button } from '../../shared/ui/ui';
 import { safeUrl } from '../../shared/ui/helpers';
-import { startPath } from '../preparation/startIntent';
+import {
+    preparationChoicePath,
+    oneTimeCheckPath,
+} from '../preparation/oneTimeCheckApi';
 import type { Notice } from './types';
 import styles from './NoticeDetail.module.css';
+import { useNoticeDetailScroll } from './useNoticeDetailScroll';
 
 export function NoticeDetailActions({
     notice,
@@ -26,18 +30,25 @@ export function NoticeDetailActions({
                 <OfficialLink url={notice.evidence.url} showIcon={false}>
                     <Icon name="external" /> 공고 원문 보기
                 </OfficialLink>
-                {notice.canStart && (
+                {(notice.canStart || preparationId) && (
                     <Button
                         onClick={() =>
                             navigate(
                                 preparationId
                                     ? '/preparations/' + preparationId
-                                    : startPath(notice.id, notice.version),
+                                    : preparationChoicePath(
+                                          notice.id,
+                                          notice.version,
+                                      ),
                                 { state },
                             )
                         }
                     >
-                        {preparationId ? '준비 이어하기' : '내 조건 확인하기'}
+                        {preparationId
+                            ? notice.canStart
+                                ? '준비 이어하기'
+                                : '준비 기록 보기'
+                            : '내 조건 확인하기'}
                         <Icon name="arrow" />
                     </Button>
                 )}
@@ -47,13 +58,20 @@ export function NoticeDetailActions({
 }
 
 export function NoticeResources({ notice }: { notice: Notice }) {
+    const { cardRef, scrollToCard } =
+        useNoticeDetailScroll<HTMLDetailsElement>();
     return (
-        <details className={styles.resources}>
-            <summary>
+        <details ref={cardRef} className={styles.resources}>
+            <summary onClick={scrollToCard}>
                 공고 자료와 비교
                 <Icon name="down" />
             </summary>
             <nav aria-label="공고 보조 기능">
+                {notice.canStart && (
+                    <Link to={oneTimeCheckPath(notice.id, notice.version)}>
+                        저장하지 않고 이번만 확인
+                    </Link>
+                )}
                 <Link to={'/compare?a=' + notice.id}>공고 비교</Link>
                 <Link to={'/notices/' + notice.id + '/versions'}>
                     수정 전후 비교

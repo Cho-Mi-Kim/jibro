@@ -1,3 +1,4 @@
+import { animateScroll } from '../../shared/ui/animateScroll';
 import { useEffect, type RefObject } from 'react';
 
 /** Reserve only the missing scroll room, including while preview data is loading. */
@@ -13,6 +14,28 @@ export function useNoticeCardScroll(
         const header = document.querySelector('[data-notice-header]');
         const controls = document.querySelector('[data-notice-controls]');
         let frame = 0;
+        let cancelScroll = () => {};
+        const stopScroll = () => cancelScroll();
+        const alignCard = () => {
+            if (
+                window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+            ) {
+                card.scrollIntoView?.({ block: 'start', behavior: 'instant' });
+            } else {
+                cancelScroll = animateScroll(window, () => {
+                    const offset =
+                        (header?.getBoundingClientRect().height ?? 0) +
+                        (controls?.getBoundingClientRect().height ?? 0) +
+                        12;
+                    return Math.max(
+                        0,
+                        card.getBoundingClientRect().top +
+                            window.scrollY -
+                            offset,
+                    );
+                });
+            }
+        };
         let alignOnOpen = true;
         const update = () => {
             frame = 0;
@@ -49,7 +72,7 @@ export function useNoticeCardScroll(
                 `${Math.ceil(Math.max(0, target - available))}px`,
             );
             if (alignOnOpen) {
-                card.scrollIntoView?.({ block: 'start', behavior: 'instant' });
+                alignCard();
                 alignOnOpen = false;
             }
         };
@@ -61,9 +84,14 @@ export function useNoticeCardScroll(
         if (header) observer.observe(header);
         if (controls) observer.observe(controls);
         window.addEventListener('resize', schedule);
+        window.addEventListener('wheel', stopScroll, { passive: true });
+        window.addEventListener('touchstart', stopScroll, { passive: true });
         schedule();
         return () => {
             cancelAnimationFrame(frame);
+            stopScroll();
+            window.removeEventListener('wheel', stopScroll);
+            window.removeEventListener('touchstart', stopScroll);
             observer.disconnect();
             window.removeEventListener('resize', schedule);
             list.style.removeProperty('--notice-scroll-space');

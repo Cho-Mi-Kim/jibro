@@ -95,6 +95,29 @@ class MemberFeaturesIntegrationTest {
         assertFalse(reread.stream().filter(item -> item.label().equals("서류 제출 마감")).findFirst().orElseThrow().read());
     }
 
+    @Test
+    void inboxOrdersChangesAndRemindersByEventTimeEvenAfterReading() {
+        var owner = user();
+        var id = notice();
+        saved.set(owner, id, true);
+        alerts.configure(owner, new AlertService.Settings(true, 3, true));
+        notices.updateContent(id, 1, SampleData.content());
+        notices.samplePublish(id, "PASS");
+        entities.flush();
+
+        var events = alerts.inbox(owner).items();
+        var change = events.stream().filter(a -> a.date() == null).findFirst().orElseThrow();
+        var reminder = events.stream().filter(a -> a.date() != null).findFirst().orElseThrow();
+        assertNotNull(change.occurredAt());
+        assertEquals(reminder.date().minusDays(3).atStartOfDay(java.time.ZoneId.of("Asia/Seoul")).toInstant(), reminder.occurredAt());
+        assertTrue(change.occurredAt().isAfter(reminder.occurredAt()));
+        assertEquals(change, events.get(0));
+        alerts.read(owner, List.of(change.key(), reminder.key()));
+        var reread = alerts.inbox(owner).items();
+        assertEquals(events.stream().map(AlertService.Alert::occurredAt).toList(), reread.stream().map(AlertService.Alert::occurredAt).toList());
+        assertTrue(reread.get(0).read());
+    }
+
     private void assertRevision(UUID id, int expected) {
         assertEquals(expected, db.queryForObject("SELECT revision FROM preparation WHERE id=?", Integer.class, id));
         assertEquals(expected, db.queryForObject("SELECT (snapshot->'preparation'->>'revision')::int FROM preparation WHERE id=?", Integer.class, id));

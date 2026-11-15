@@ -1,0 +1,77 @@
+.section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+.section h2,
+.proof h3 {
+    margin-top: 0;
+}
+.providers {
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none;
+}
+.providers li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+}
+.providers li > div {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+}
+.providers span {
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+.providers button {
+    flex-shrink: 0;
+}
+.proof {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+.methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    border: 0;
+    padding: 0;
+    margin: 1rem 0;
+}
+.methods label {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: var(--target);
+}
+.methods input {
+    width: auto;
+    min-height: 0;
+}
+.field {
+    display: grid;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+.field input {
+    width: 100%;
+    min-width: 0;
+}
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.actions button {
+    flex: 1;
+}

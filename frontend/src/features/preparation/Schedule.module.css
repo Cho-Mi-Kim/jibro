@@ -1,0 +1,47 @@
+@value schedule-grid, schedule-context, schedule-main-column, schedule-side-column from "./ScheduleClassNames.module.css";
+@value notice-context, meta-dates from "../housing/NoticeFactsClassNames.module.css";
+.schedule-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(340px, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+.schedule-context {
+    grid-column: 1;
+}
+.schedule-context .notice-context {
+    display: block;
+}
+.schedule-context .meta-dates {
+    margin-top: 24px;
+}
+@media (max-width: 1023px) {
+    .schedule-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .schedule-grid > * {
+        width: 100%;
+        margin: 0;
+    }
+    .schedule-context {
+        order: 0;
+    }
+}
+.schedule-main-column,
+.schedule-side-column {
+    min-width: 0;
+}
+@media (max-width: 1023px) {
+    .schedule-main-column,
+    .schedule-side-column {
+        display: contents;
+    }
+    .schedule-grid {
+        align-items: stretch;
+    }
+    .schedule-main-column > *,
+    .schedule-side-column > * {
+        width: 100%;
+    }
+}

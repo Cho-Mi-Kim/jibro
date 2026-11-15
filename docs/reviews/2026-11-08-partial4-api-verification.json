@@ -1,0 +1,58 @@
+[
+  {
+    "id": "01c79a68-cc52-4c44-bec7-c142130c57af",
+    "title": "익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 16,
+    "answerableQuestions": 14,
+    "documents": 21,
+    "normalDocuments": 18,
+    "reviewRequiredDocuments": 3,
+    "reviewIssues": 3,
+    "confirmedSchedules": 3,
+    "oneTimeCheck": "PASS"
+  },
+  {
+    "id": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+    "title": "충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04]",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 23,
+    "answerableQuestions": 22,
+    "documents": 32,
+    "normalDocuments": 31,
+    "reviewRequiredDocuments": 1,
+    "reviewIssues": 2,
+    "confirmedSchedules": 3,
+    "oneTimeCheck": "PASS"
+  },
+  {
+    "id": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+    "title": "'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 20,
+    "answerableQuestions": 19,
+    "documents": 35,
+    "normalDocuments": 34,
+    "reviewRequiredDocuments": 1,
+    "reviewIssues": 1,
+    "confirmedSchedules": 9,
+    "oneTimeCheck": "PASS"
+  },
+  {
+    "id": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+    "title": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 15,
+    "answerableQuestions": 13,
+    "documents": 13,
+    "normalDocuments": 11,
+    "reviewRequiredDocuments": 2,
+    "reviewIssues": 2,
+    "confirmedSchedules": 10,
+    "oneTimeCheck": "PASS"
+  }
+]

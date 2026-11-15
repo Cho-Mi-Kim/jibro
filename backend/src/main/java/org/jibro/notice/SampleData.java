@@ -6,11 +6,13 @@ import java.time.LocalDate;
 import java.util.*;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
 @Profile("local-sample")
+@ConditionalOnProperty(name = "app.sample-data.enabled", havingValue = "true")
 public class SampleData implements CommandLineRunner {
     private final NoticeService service;
 

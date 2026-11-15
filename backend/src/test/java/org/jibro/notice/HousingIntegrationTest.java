@@ -135,16 +135,14 @@ class HousingIntegrationTest {
     }
 
     @Test
-    void publicCatalogExcludesSamplesButPreservesTheirDetailsAndPreparations() {
+    void publicCatalogExcludesSamplesAndPreventsNewSamplePreparations() {
         UUID sample = notices.insert("local-sample-" + UUID.randomUUID(), "샘플", "가상 운영기관", "샘플지역", "샘플유형",
                 LocalDate.now().minusDays(1), LocalDate.now().plusDays(30), LocalDate.now(), SampleData.content());
         notices.samplePublish(sample, "PASS");
-        var preparation = preparations.start(owner, sample, 1);
         assertEquals(0, notices.search(List.of("샘플지역"), List.of(), List.of(), "", "deadline", 0, 20).totalElements());
-        assertEquals(1, notices.search(List.of("샘플지역"), List.of(), List.of(), "", "deadline", 0, 20, true).totalElements());
         assertFalse(notices.filters().get("regions").contains("샘플지역"));
-        assertEquals(sample.toString(), notices.notice(sample).id());
-        assertEquals(preparation.id, preparations.get(owner, UUID.fromString(preparation.id)).id);
+        assertEquals(404, assertThrows(ApiException.class, () -> notices.notice(sample)).status);
+        assertEquals(404, assertThrows(ApiException.class, () -> preparations.start(owner, sample, 1)).status);
     }
 
     @Test
@@ -156,6 +154,43 @@ class HousingIntegrationTest {
         assertTrue(result.documents().isEmpty());
         assertFalse(result.canStart());
         assertEquals("REVIEWING", result.guideState());
+    }
+
+    @Test
+    void regionFilterGroupsMultiRegionLabelWithoutChangingTheNotice() {
+        var city = insert("대구광역시", "공공임대");
+        var multiple = insert("대구광역시 외", "공공임대");
+        notices.samplePublish(city, "PASS");
+        notices.samplePublish(multiple, "PASS");
+        var regions = notices.filters().get("regions");
+        assertEquals(1, regions.stream().filter("대구광역시"::equals).count());
+        assertFalse(regions.contains("대구광역시 외"));
+        for (var selection : List.of(List.of("대구광역시"), List.of("대구광역시 외"), List.of("대구광역시", "대구광역시 외"))) {
+            var page = notices.search(selection, List.of(), List.of(), "테스트 청년 공고", "active", 0, 20);
+            assertEquals(2, page.totalElements());
+            assertEquals(Set.of(city.toString(), multiple.toString()),
+                Set.copyOf(page.items().stream().map(NoticeListItem::id).toList()));
+        }
+        assertEquals("대구광역시 외", notices.notice(multiple).region());
+    }
+
+    @Test
+    void nationwideNoticeMatchesEverySelectedRegionEvenWithoutAnExtractedSupplyTable() {
+        var nationwide = insert("전국", "공공임대");
+        var local = insert("대구광역시", "공공임대");
+        notices.samplePublish(nationwide, "PASS");
+        notices.samplePublish(local, "PASS");
+        for (var selection : List.of(List.of("대구광역시"), List.of("대구광역시", "경상북도"))) {
+            var result = notices.search(selection, List.of(), List.of(), "테스트 청년 공고", "active", 0, 20);
+            assertEquals(2, result.totalElements());
+            assertEquals(List.of(local.toString(), nationwide.toString()), result.items().stream().map(NoticeListItem::id).toList());
+            var secondPage = notices.search(selection, List.of(), List.of(), "테스트 청년 공고", "deadline", 1, 1);
+            assertEquals(nationwide.toString(), secondPage.items().get(0).id());
+        }
+        for (String region : List.of("경상북도", "제주특별자치도", "전국")) {
+            var result = notices.search(List.of(region), List.of(), List.of(), "테스트 청년 공고", "active", 0, 20);
+            assertEquals(List.of(nationwide.toString()), result.items().stream().map(NoticeListItem::id).toList());
+        }
     }
 
     @Test

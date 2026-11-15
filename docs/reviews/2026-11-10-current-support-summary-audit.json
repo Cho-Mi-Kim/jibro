@@ -1,0 +1,1363 @@
+{
+  "scope": "공식 상세·모집 원문으로 접수 중·예정·상시모집을 확인한 현재 수집 공고. 접수종료 및 상태를 확인하지 못한 과거 목록 제외.",
+  "userDecision": "공식 원문으로 확인한 요약만 공개하고 나머지 준비 안내는 검수 중 유지",
+  "validation": {
+    "checkedAt": "2026-11-10T14:24:54.331339+00:00",
+    "audited": 66,
+    "summariesUpdated": 45,
+    "publicUpdates": 41,
+    "basicHoldKeptPrivate": 4,
+    "previous21Unchanged": true,
+    "otherFieldsUnchanged": true,
+    "nonTargetNoticesCompared": 18850,
+    "closed27AndPreparationPreserved": true,
+    "integrationTests": 29
+  },
+  "limitations": [
+    "공고 전체의 조건·서류 검수 완료가 아닌 요약 단독 검토",
+    "기본 검수 보류 4건은 내부 원고만 보완하고 비공개 유지",
+    "정정본과 원공고를 별도 공고로 저장한 경우 각각 계산",
+    "실제 기기 및 새 화면 레이아웃 검증은 수행하지 않음"
+  ],
+  "notices": [
+    {
+      "id": "0000e667-e82e-4db9-b3cf-947ba42146f8",
+      "title": "[정정공고]광주두암4 영구임대주택 예비입주자모집 공고(모집공고일 : 2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주두암4 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020981&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173114",
+          "sha256": "11df77ea1f568b814cf33d1b8a4b9304497133b9888c1d4c5b3918298d2c6033"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:31.879151+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "title": "익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 익산한스빌 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+          "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:31.879151+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "06462f53-d47e-419e-b458-c8a6e212b96a",
+      "title": "경남 거창군 신원면 다자녀 매입임대주택 예비입주자 모집공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하며 공고의 소득·자산 기준을 충족하는 무주택세대가 대상입니다. 거창군 신원면의 다자녀 매입임대주택을 자격에 따라 시중시세의 30~40% 수준의 임대료로 공급합니다. 예비입주자로 선정되면 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020933&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69108015",
+          "sha256": "5f55a68c49742e8d857e626af64a1621419d4abc3df4205b530d979fc684b6c2"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:31.880159+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "0db58df5-fe4f-4ded-a870-d1e7b14d74a8",
+      "title": "평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "수도권에 거주하는 성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상이며, 이번 모집은 소득·자산·청약통장 가입 여부를 제한하지 않습니다. 평택·안성 지역의 10년 공공임대주택(리츠)에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 계약은 빈집이 생겼을 때 대기순번에 따라 안내됩니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061201&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69270187",
+          "sha256": "83c84a685c45a934e43814116afdebf3cd0e23c09b05ecd2a4fd8997fab02b45"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:32.515492+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "11f5a8d1-3100-4d80-8f4b-b0ef6dc8af3c",
+      "title": "2026년 신혼·신생아 전세임대Ⅱ 입주자 수시모집 공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "신혼부부·예비신혼부부·신생아가구·한부모가족 등 공고의 소득·자산 기준을 충족하는 무주택가구가 대상입니다. 입주자로 선정되면 지원 한도 안에서 원하는 전세주택을 찾고, LH가 집주인과 계약한 뒤 다시 임대해 줍니다. Ⅱ유형의 본인 부담 보증금은 지원 한도 내 전세보증금의 20%이며, 지원금에 대한 월 임대료를 별도로 부담합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019551&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869337",
+          "sha256": "a4c7c51976edf6528dc0b645b69ea1757f4975909b923fcb2970dcc252af4440"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097010",
+          "sha256": "ceb217e9ba1962068c763d1f478d506d6047e5b1fc645745b957f64e3163d802"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:32.517492+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "19807681-f337-4116-9564-799fe5b91fa5",
+      "title": "[정정공고]'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 인천 남동구 논현3단지 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021031&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334527",
+          "sha256": "29cf628305c505052207b7edf77ee752636f6fb02155e0737dbc822e8fbeaf33"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334533",
+          "sha256": "4e790c7311d4d8782194fb2cbea586879c196281c1eec79364b74225434dd5f3"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334530",
+          "sha256": "72e8700fca2468d94bae7792e6b5ff7e35eaee6d1afc5cdaf51100f3c4c83817"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:32.553142+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "title": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+      "action": "SUMMARY_UPDATED",
+      "public": false,
+      "basicReview": "HOLD",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "공고의 무주택·자산 기준과 완화된 소득 기준을 충족하는 가구가 대상입니다. 경주·영천 국민임대주택의 잔여 주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 동호를 정해 먼저 계약한 뒤 입주자격을 검증하며, 적격자로 확인된 경우에 입주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021025&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+          "sha256": "31cbc832adad806548ac58d4e8e9eecd000601a96aba625429716265774b7511"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313345",
+          "sha256": "5f79310bdc7053e6c29a6541f2c467252dbe2221c7ed6ccb8d841fbfe10fc5aa"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:33.119315+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "1f4cb367-3df6-4f65-b352-d23102ee6c9b",
+      "title": "남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "남원시에 거주하며 공고의 입주자격을 충족하는 무주택세대구성원이 대상입니다. 남원노암 영구임대주택을 보증금과 월 임대료로 공급하며, 이번 모집은 소득·총자산 기준을 배제하지만 자동차 기준은 유지합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020649&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68365443",
+          "sha256": "39fc0742c27e87fe8fb347638f1a2b191b823b9cd36a021530f43ec54930012d"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:33.881216+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "231e9c7d-cd86-4383-8eab-e2ec4d5bd49b",
+      "title": "광주두암4 영구임대주택 예비입주자모집 공고(모집공고일 : 2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주두암4 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020967&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69147730",
+          "sha256": "571e6431a461d1d40dec867e698eb77f14e7bdaaf71ced15eb77d9a3f14f6b40"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:34.023506+00:00",
+      "scanVisualReviewPages": [
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "id": "27c472ab-be04-411f-af47-31bdb7f082c3",
+      "title": "원주시지역 영구임대주택 예비입주자 모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "원주시에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 원주지역 영구임대주택의 일반형·주거약자형을 해당 유형의 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021011&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69288832",
+          "sha256": "0ae53eda6cf07a3ba2d39fb3ba19a91f3665eee7d9c8eb5bc61a85d5db056c80"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:34.353321+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+      "title": "[정정공고]평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "수도권에 거주하는 성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상이며, 이번 모집은 소득·자산·청약통장 가입 여부를 제한하지 않습니다. 평택·안성 지역의 10년 공공임대주택(리츠)에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 계약은 빈집이 생겼을 때 대기순번에 따라 안내됩니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061206&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+          "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:34.466414+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "3577685b-d246-4026-b381-d96077878220",
+      "title": "청주시 다자녀 매입임대주택 예비입주자 모집(261029공고)",
+      "action": "SUMMARY_UPDATED",
+      "public": false,
+      "basicReview": "HOLD",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하며 공고의 소득·자산 기준을 충족하는 무주택세대가 대상입니다. LH가 매입한 청주시 주택을 자격에 따라 시중 시세의 30~40% 수준의 임대조건으로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020965&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173034",
+          "sha256": "f132b98edae1b359a9ec941e1bba0c6548776e7767794f0855aba60663c4b9f0"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:34.979932+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "394f7a6e-1054-419c-bd27-f436d6289162",
+      "title": "남원노암 공공임대 50년 예비입주자모집",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상이며, 청약저축 가입·납입 요건 등에 따라 순위가 나뉩니다. 남원노암 50년 공공임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 계약은 빈집이 생겼을 때 대기순번에 따라 안내됩니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021022&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+          "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:35.095299+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "3fe0dbde-d45b-42ff-bc6a-14bc2bd2c6e7",
+      "title": "[정정공고]인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 인천논현2단지 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69314336",
+          "sha256": "d4ec78c0e528b4a2c5cf0889cb6afe5024bbf33bbb8b69c951abdeedaf3d672b"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:35.730395+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "413075cd-2626-44f6-a020-336513fa6143",
+      "title": "평택시 평택송화 국민임대 예비입주자 모집공고(2026.11.05)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 평택송화 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020973&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69320623",
+          "sha256": "84deafc3e51542905b24f0514e483e5ae608de4d73fea864fc476fd49454c83c"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:35.790499+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "4d2e2916-60d2-4ffc-a63a-40d1843fd590",
+      "title": "인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 인천논현2단지 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021024&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69307340",
+          "sha256": "758da64ff4f4b3c6cbb831ad36789d872674b4ab6ef44117f4033d1ce5d53d5d"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:35.807530+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "4e9a5c29-8b73-410b-b59f-d8f5dd4f2a38",
+      "title": "오산세교2 7단지(A-6BL) 영구임대 입주자격완화(소득150%완화) 예비입주자 모집공고(2026.11.02)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "오산시에 거주하는 무주택세대구성원 중 완화된 소득 기준과 유형별 자산 기준 등 공고의 입주자격을 충족하는 가구가 대상입니다. 오산세교2 7단지 영구임대주택의 일반형·주거약자형을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 예비입주자로 선정되면 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020896&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203687",
+          "sha256": "72f277edbb41e30c7c2830eaa21c39670022ad162419781030333c8ba6b29b0f"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:36.367263+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "501f3fc5-a598-4699-9efa-ff4d5b244589",
+      "title": "전주1산단(전주팔복) 행복주택 입주자격완화예비입주자 모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "산업단지근로자·대학생·청년·신혼부부·한부모가족·고령자 등 공고의 완화된 주택 보유 기준과 계층별 요건을 충족하는 사람이 대상입니다. 소득·총자산 요건을 배제하되 계층별 자동차 요건은 유지하며, 전주1산단 행복주택을 보증금과 월 임대료로 공급합니다. 산업단지근로자를 우대하고, 예비입주자는 빈집이 생기면 순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020916&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825",
+          "sha256": "f5b963add2e85d3be4d300d234a4590f2a04b8bb210df1c3418fad973b59cf6f"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:36.406546+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "title": "군산시 국민임대주택 입주자 선착순 상시 모집(경암부향 등 7개 단지)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 군산 경암부향 등 7개 단지 국민임대주택을 보증금과 월 임대료로 공급합니다. 모집완료 시까지 선착순으로 동호를 정해 먼저 계약한 뒤, 자격검증에서 적격자로 확인되면 입주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020453&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147",
+          "sha256": "2a9832524dc19f34cfc64b73a3bb7277df8187c616e7f682980c0634dabe3c39"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:36.434341+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "55adc8fb-a52f-47de-93ca-916ef39f5a43",
+      "title": "광주오치1 영구임대주택 예비입주자 표준모집공고문(2026.10.27. 공고)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주오치1 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020968&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69148174",
+          "sha256": "df1240e13041eff67dcb2e1ceda6f64118e8dd3874ba8190b940e16883cf92cf"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:36.993221+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+      "title": "삼척시·정선군 국민임대 예비입주자 상시모집(26.6.10)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고의 무주택·소득·자산 등 입주자격 기준을 충족하는 가구가 대상입니다. 삼척건지·삼척원조·정선고한 국민임대주택을 보증금과 월 임대료로 공급할 예비입주자를 상시 모집합니다. 선정되면 기존 대기자의 후순위로 등록되며 빈집이 생겼을 때 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020090&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881",
+          "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:37.153374+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+      "title": "경남 창원시 일반 매입임대주택 예비입주자 모집 공고",
+      "action": "SUMMARY_UPDATED",
+      "public": false,
+      "basicReview": "HOLD",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "창원시에 주민등록이 있고 공고의 1·2순위 자격을 충족하는 무주택세대구성원이 대상입니다. LH가 매입한 창원시 주택을 시중 시세의 30% 수준의 임대조건으로 공급할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020944&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173",
+          "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:37.217460+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "6766d1f8-0a4c-462d-8d8a-b1390b15cbcf",
+      "title": "2026 다자녀 전세임대 입주자 수시모집 공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하는 무주택가구 중 공고의 수급자·차상위·한부모가족 또는 소득·자산 기준 등을 충족하는 가구가 대상입니다. 선정된 가구가 지원 한도 안에서 전세주택을 찾으면 LH가 집주인과 전세계약을 맺고 다시 임대해 줍니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019546&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379",
+          "sha256": "8a6023cb889535d1362a8b7915c80d6997281b37048f0ad77ee0af02d58f6a91"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66095416",
+          "sha256": "ceb217e9ba1962068c763d1f478d506d6047e5b1fc645745b957f64e3163d802"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:37.633130+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 삼척도계·정선신동 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 예비입주자로 선정되면 기존 대기자의 후순위로 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020581&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754",
+          "sha256": "4e526aedf4d3cc7b09d3bdf9c6c2c8e949ea0240ff07a4e10ea591972b01855a"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:37.873038+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+      "title": "과천지식정보타운 S12블록 행복주택 입주자 모집공고",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "대학생·청년·신혼부부·한부모가족·고령자·주거급여수급자 중 계층별 무주택·소득·자산 요건을 충족하는 사람이 대상입니다. 과천지식정보타운 S12블록 행복주택을 공급하며, 해당 계층과 주택형에 정해진 보증금·월 임대료로 거주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020960&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684",
+          "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178686",
+          "sha256": "dc5e8e83de0c2dd169c1d15d38c51d1f08480dc346efe5e5a37bcb14c7db16cc"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:37.906875+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "7ab36bbf-d74f-4c29-9e00-7f8b6243e466",
+      "title": "인천계양 A3블록 가정어린이집 운영예정자 모집공고(1회차)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "UNSUPPORTED",
+      "changeReview": false,
+      "summary": "가정어린이집을 설치·운영할 수 있는 원장 자격을 갖춘 운영예정자가 대상입니다. 인천계양 A3블록 단지 내 주택을 보증금과 월 임대료를 내고 가정어린이집으로 운영하도록 임대합니다. 일반 가구의 주거용 입주자 모집과는 구분되는 공고입니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021005&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=40&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69273486",
+          "sha256": "d31c55edffc981ec1a00b5501d88b7c589f9dbf977d070ca66f5680435a9a8bd"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:38.492595+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "836418b5-3936-4505-bea3-c23180f29e94",
+      "title": "[부산] 2026년 2차 일반 매입임대주택 입주자 모집 공고",
+      "action": "SUMMARY_UPDATED",
+      "public": false,
+      "basicReview": "HOLD",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "수급자·차상위계층·보호대상 한부모가족 등 공고의 순위별 자격과 소득 기준을 충족하는 무주택세대구성원이 대상입니다. LH가 매입한 부산지역 주택을 시중 시세의 30% 수준의 임대조건으로 공급합니다. 신청 순위별로 공급 주택과 접수 절차가 다릅니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020972&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69155150",
+          "sha256": "b9b2c505ed4553e72df2914921191fb205c50ca006612d55ed86670ac125449e"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:39.372800+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "843dc7ea-ec61-4c87-bbef-a76b5ae42e1e",
+      "title": "동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 동해유성·태백철암장미 국민임대주택을 보증금과 월 임대료로 공급합니다. 입주자격을 갖춘 신청자를 접수순으로 선정해 계약을 안내합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019308&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465504",
+          "sha256": "494b4f3587418c458f955acb4848740a67553083042a120b4d4e8e2657e008cf"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:40.458823+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "85f4c42d-6fdc-4fdf-bc27-5cd60b85fd6b",
+      "title": "화성시 동탄지역 행복주택 입주자 모집 공고[입주자격완화/선계약후검증]('26.10.27.)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "대학생·청년·신혼부부·한부모가족·고령자 등 단지별 공급계층과 완화된 자격 기준을 충족하는 사람이 대상입니다. 화성 동탄지역 행복주택을 계층·주택형별 보증금과 월 임대료로 공급합니다. 먼저 계약한 뒤 입주자격을 검증하며, 적격자로 확인된 경우에 입주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020958&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69163175",
+          "sha256": "45097319a89cf8853ea9d4557f2536f6e5ba2e3250bc9e89c3f6706edd150bac"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:41.102104+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "8c78deeb-d530-4395-aa8f-e2feaf621f52",
+      "title": "[정정공고]광주오치1 영구임대주택 예비입주자 표준모집공고문(2026.10.27. 공고)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주오치1 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020978&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173015",
+          "sha256": "dc65ddceb2e5bfbc047f1d746f6880f77e626f62e8e1b6e9bd4223ed82bbc1ef"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:42.480485+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "8e0362e4-0102-419d-b699-075e205ae4aa",
+      "title": "[정정공고][정정공고]'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고의 무주택·자산 기준과 완화된 소득 기준을 충족하는 가구가 대상입니다. 경주·영천 국민임대주택의 잔여 주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 동호를 정해 먼저 계약한 뒤 입주자격을 검증하며, 적격자로 확인된 경우에 입주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021030&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69355347",
+          "sha256": "020ea6f89615b24f0604af1b155f2417b01f40649a3202be6b3089e86a7c9da3"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69355348",
+          "sha256": "c3596bdba24829ea505fd47b43b17258cad4ab3e602ce0b67c56548a24f26ce5"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:43.042970+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "8e1fa2d1-5b11-44e7-a53a-4ef945d56382",
+      "title": "광주우산3 영구임대주택 예비입주자 모집 공고(모집공고일: 2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주우산3 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020966&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69147170",
+          "sha256": "c02529e1df0e932b18d223a172eecbcdc772ca5b619372e8837fb433f4d77098"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:43.152154+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "92515207-0ed2-4973-998f-407c005f60f0",
+      "title": "광주두암2 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주두암2 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020969&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69148880",
+          "sha256": "d26de7f6cfb1df8db83240c9728df8b517e452eba6401275688268c250c92466"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:43.755754+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+      "title": "울산 송정하우스디(B3블럭) 10년 공공임대리츠 예비입주자 모집공고",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "울산광역시에 거주하며 공고의 입주자격을 충족하는 성년 무주택세대구성원이 대상입니다. 울산 송정하우스디 10년 공공임대주택(리츠)에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 빈집이 생기면 대기순번에 따라 계약을 안내하며, 이번 예비입주자는 조기 분양전환 대상에서 제외됩니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061193&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320",
+          "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:44.204515+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "9d43c8c3-370f-49ce-b0b9-c3e402a8627f",
+      "title": "[정정공고] 광주하남1 영구임대주택 그린리모델링 예비입주자 모집 공고(공고일 2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주하남1 그린리모델링 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020979&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173002",
+          "sha256": "e45ec6cb0e0cfe9dee1c883fbb061a49bec1f0bb52e543056ab9fa29471d6fee"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:44.344332+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "a04b02e6-04f4-4f9a-9ed7-599d295c7412",
+      "title": "[정정공고]광주우산3 영구임대주택 예비입주자 모집 공고(모집공고일: 2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주우산3 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020976&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69172633",
+          "sha256": "7751446a7ac8a50c668af203d97663f1b29380d060ed6adc4797cd48d057fdac"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:44.366945+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+      "title": "담양삼만 통합공공임대(일자리연계형 지원주택) 입주자 추가 모집(2026.10.29. 공고)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고의 직업·신분 요건과 무주택·소득·자산 기준을 충족하는 창업인·지역전략산업 종사자·산업단지 및 중소기업 근로자 등이 대상입니다. 담양삼만 일자리연계형 통합공공임대주택을 소득구간별 보증금과 월 임대료로 공급합니다. 주거약자용 주택은 해당 자격을 추가로 충족해야 합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020905&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=48&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711",
+          "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68960596",
+          "sha256": "8b37fe434e61460d53e1d188a54bf4e8c25eaf97bfd1c5c19cad5fa7aa5c7a01"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:44.787167+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "a7d84192-a652-4c15-bb00-c57ade2b1c68",
+      "title": "익산제3일반산단 행복주택 입주자격완화 추가모집(동호지정,선계약후검증)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "대학생·청년·신혼부부·한부모가족·고령자·주거급여수급자 중 공고의 완화된 주택 보유 기준과 계층별 요건을 충족하는 사람이 대상입니다. 익산제3일반산단 행복주택을 보증금과 월 임대료로 공급하며, 소득·총자산 요건은 배제하되 자동차 요건은 별도로 확인합니다. 희망 동호를 정해 먼저 계약한 뒤 적격자로 검증되면 입주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020850&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68835600",
+          "sha256": "2e995b16fc0f4fc9d7eabb7c99a43a0b1763d94a66c8fa8bb3b9145159b26fb6"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68822905",
+          "sha256": "a4dad90c5c99240102c6c106eb92a1fc359ef75ff95c7b4642e3a17ea4e7515a"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68822904",
+          "sha256": "dcf86145d3b70651c63e7567d1e68a9cdc41fb471d7d7e3eaa83dccec7a87270"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:45.021366+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+      "title": "김제검산1단지 영구임대주택 예비입주자 모집 공고(상시모집)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "김제시에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 김제검산1 영구임대주택을 보증금과 월 임대료로 공급할 예비입주자를 상시 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019412&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106",
+          "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:45.025368+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "ab7d5629-2f4f-4f87-98cd-acce2242e437",
+      "title": "파주시 중소기업체 기관공급(행복주택)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "UNSUPPORTED",
+      "changeReview": false,
+      "summary": "내국인 근로자의 기숙사로 사용할 주택이 필요한 파주시 관내 중소 제조기업 중 파주시의 선정 요건을 충족하는 기업이 대상입니다. LH가 파주지역 행복주택의 빈집을 선정된 기업에 보증금과 월 임대료로 공급해 근로자 숙소로 사용하도록 합니다. 개인이 직접 신청하는 일반 입주자 모집과는 구분됩니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021004&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69292390",
+          "sha256": "b337e36348886d49970d07c6a1597905ab12d7bc862a269d0b2bc10020c21cab"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69292407",
+          "sha256": "5b5b3c905ded442c9f7ebb7990d9a392799bfc91b1a7cd5cbf080c2300935de9"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69272999",
+          "sha256": "084edb345899dccb2bfc9aa127635c1822c26613d122118f77f8a133b6b473e1"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:45.704412+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "ac107e42-1689-493e-887f-f12eab3ae6b8",
+      "title": "LH임대주택 기장군 중소기업 근로자 공공임대주택 기관공급 사업 대상기업 모집계획 공고",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "근로자 기숙사용 주택이 필요한 기장군 중소기업 중 부산시의 선정 요건을 충족하는 기업이 대상입니다. LH가 기장군 내 건설임대주택의 빈집을 선정된 기업에 보증금과 월 임대료로 공급해 근로자 숙소로 사용하도록 합니다. 입주 예정 근로자는 공고의 기장군 무주택 기준 등을 충족해야 합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020930&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053322",
+          "sha256": "a2374df750dba2ae992ba2b3470202e73ebe0e1017fb442b8c1316354ebf4c00"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:46.177431+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "b58945e4-8785-4937-8ad8-8d70a3fe39eb",
+      "title": "여수미평1 영구임대주택 예비입주자 모집공고(모집공고일 : 2026.10.20.)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "여수시에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 여수미평1 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020897&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68932266",
+          "sha256": "c421376227421478606e0e95278ff1fc9b8e0d8e16ffc87e500de807a6d2cc27"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:46.677199+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+      "title": "[정정공고]광주두암2 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주두암2 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020977&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003",
+          "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:46.697910+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "b775c46b-4d0f-4e48-8797-5e79d6a2f7ec",
+      "title": "제천장락1 50년공공임대주택 예비입주자 모집 공고[2026.11.09]",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고에서 정한 제천시·충청북도 거주 요건과 입주자격을 충족하는 무주택세대구성원이 대상입니다. 제천장락1단지 50년 공공임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020975&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231",
+          "sha256": "817c583179aa35dd21d766d86af84e953a891933556a213674b59f6aabeb5b4b"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:47.371748+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "bcef4e3d-5cba-426c-80b6-a82f4623ef25",
+      "title": "공주시(덕성그린시티빌,신한1차) 국민임대 자격완화 입주자 모집공고(26.11.02)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "무주택세대구성원 중 공고의 자동차·세대 등 입주자격 기준을 충족하는 가구가 대상이며, 일반 입주자격에는 소득·총자산 기준을 적용하지 않습니다. 공주 덕성그린시티빌·신한1차 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020962&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143265",
+          "sha256": "9164abc5a7008dd7fc221b011eb459501ed564fcd0457b154d5e4d7594c86f98"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:47.414305+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "be67bef1-3158-4349-a06d-6216ca595861",
+      "title": "도청이전신도시 RH10-2BL 국민임대주택 자격완화 추가모집(2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "공고의 무주택·자산 기준과 완화된 소득 기준을 충족하는 가구가 대상입니다. 도청이전신도시 RH10-2BL 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 완화된 소득 기준으로 입주한 경우 재계약 조건이 다르므로 해당 기준을 함께 확인해야 합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020932&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69069693",
+          "sha256": "0ddd68aefb587d7c15b4679c966a47cd4c59068b78258009eb0e9c6892aacc5c"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69070494",
+          "sha256": "b192533deed45241bf8303c9676538f7abb07748ad55cc8b8a7340d706f571c0"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:47.973778+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "c31f14c0-be44-485b-b1ca-a2dfe6fa4b38",
+      "title": "광주하남1 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주하남1 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020970&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69149805",
+          "sha256": "82bff1fe9eec5b40f75d0db20a861343dab3eb0e6417fc491362f06da2038de0"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:48.003866+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "title": "태백장성 국민임대주택 예비입주자 입주자격완화 상시모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "65세 이상 무주택세대구성원 중 공고의 완화된 소득 기준과 총자산·자동차 기준을 충족하는 사람이 대상입니다. 태백장성의 29㎡ 주거약자용 국민임대주택을 보증금과 월 임대료로 공급할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020730&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929",
+          "sha256": "03b4529320b3ebf8563b3570c21333e24f5e7f779556e5511829135c2e100780"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:48.387160+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "c4d5dcea-265f-48cb-8fff-c11f9bded820",
+      "title": "포항블루밸리 행복주택 입주자모집(3개월분 임대료 면제, 선착순 동호지정)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "청년·신혼부부·한부모가족·고령자·산업단지근로자와 통합공공임대 일반공급 대상자 중 공고의 계층별 자격을 충족하는 사람이 대상입니다. 포항블루밸리 행복주택을 보증금과 월 임대료로 공급하며, 공고의 적용 조건에 따라 3개월분 임대료 면제를 제공합니다. 선착순으로 동호를 정해 먼저 계약한 뒤 적격자로 검증되면 입주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020963&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143584",
+          "sha256": "f5a88f267a5931d8423e14d62f35ee6cff02ac19e8bbf2404e05c48542567a19"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143616",
+          "sha256": "3739fcb83a272b8c0aac82eb425403e328b73d0a9eec6511cb7cb702aba0cf38"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143449",
+          "sha256": "93a3cf8049c2898beab1a169bdc6e843fa09df8c5544fb27b573d8b2010e7eb0"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:48.621980+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "c717d2e8-a9e2-4b71-8ac2-023bd437135f",
+      "title": "경남 의령군 화정면 다자녀 매입임대주택 예비입주자 모집공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "미성년 직계비속(태아 포함) 2명 이상을 양육하며 공고의 소득·자산 기준을 충족하는 무주택세대가 대상입니다. 의령군 화정면의 다자녀 매입임대주택을 자격에 따라 시중시세의 30~40% 수준의 임대료로 공급합니다. 예비입주자로 선정되면 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020928&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107811",
+          "sha256": "76d9cfeaef8acf3c55413818d595086ba6649b5adb1721157f7252c56086ac3b"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:48.930076+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "ca822507-04dd-4432-85a4-80f100e69089",
+      "title": " 광주하남1 영구임대주택 그린리모델링 예비입주자 모집 공고(공고일 2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주하남1 그린리모델링 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020971&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69149849",
+          "sha256": "541fa1f683fca1a45899ba30c14744839402f7e35fda1468f60b983eaf01349a"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:49.648871+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "cb2ba5d3-53bb-4d7a-a8d1-d526f95a89d7",
+      "title": "2026년 신혼·신생아 전세임대 I 입주자 수시모집 공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "신혼부부·예비신혼부부·신생아가구·한부모가족 등 공고의 소득·자산 기준을 충족하는 무주택가구가 대상입니다. 입주자로 선정되면 지원 한도 안에서 원하는 전세주택을 찾고, LH가 집주인과 계약한 뒤 다시 임대해 줍니다. Ⅰ유형의 본인 부담 보증금은 지원 한도 내 전세보증금의 5%이며, 지원금에 대한 월 임대료를 별도로 부담합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019550&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868733",
+          "sha256": "6f0296b0b3c67b7bc0ae4a1b2d4ee7260145196e7126248719fb9971e5c05cd1"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096108",
+          "sha256": "ceb217e9ba1962068c763d1f478d506d6047e5b1fc645745b957f64e3163d802"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:49.671622+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "cb715a71-3611-4d8a-a23f-573d0bae22e9",
+      "title": "2026년 청년 전세임대 1순위 입주자 수시모집",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고의 청년·대학생·취업준비생 요건과 수급자·차상위·보호대상 한부모가족 등 1순위 기준을 충족하는 무주택 미혼 청년이 대상입니다. 입주자로 선정되면 지원 한도 안에서 원하는 전세주택을 찾고, LH가 집주인과 전세계약을 맺어 다시 임대해 줍니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019376&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869885",
+          "sha256": "dddfd576015ad86f9d7855010aa1d613e0c0c80b258409973937247f5eca61bb"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:49.947013+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "title": "충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04]",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "충주시에 거주하는 성년 무주택세대구성원 중 공고의 자격 유형과 소득·자산 기준을 충족하는 가구가 대상입니다. 충주연수2 영구임대주택의 전용 31.32㎡ 주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258",
+          "sha256": "72212e521e6cecc95f8f0c00852f9a8ed7d204b95a6e581b0b419e8779d3783d"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:50.221147+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "title": "전주시(전주평화1,전주평화4) 영구임대주택 예비입주자 모집 공고(공고일:2026.02.10.)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "전주시에 거주하며 공고의 자격 유형과 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 전주평화1·4 영구임대주택의 26.37㎡ 주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 모집 완료 시까지 예비입주자를 모집하며, 빈집이 생기면 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019241&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441",
+          "sha256": "ce6b67eca6c9415402eaa4f28ec55b727a04a2bc98ab2bf0d8a768f0137ec354"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:51.005815+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "d71a2dea-b39c-4930-ace3-2d417f6f9787",
+      "title": "연천전곡1단지 국민임대주택 예비입주자 모집공고(2026.11.05.)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고의 소득·자산 등 입주자격 기준을 충족하는 무주택세대구성원이 대상입니다. 연천전곡1단지 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020996&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305",
+          "sha256": "b334a6dbea7146bcb9dbb939ff71b82a6dabe69d763a4c9c129166480f0dee14"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:51.480918+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "[정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 동해유성·태백철암장미 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 입주자격을 갖춘 신청자를 접수순으로 선정해 계약을 안내합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019312&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745",
+          "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:51.514463+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "title": "[정정공고]남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "남원시에 거주하는 성년 무주택세대구성원 중 공고의 입주자격을 충족하는 가구가 대상입니다. 남원노암 영구임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급하며, 이번 모집은 소득·총자산 기준을 배제하지만 자동차 기준은 유지합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+          "sha256": "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:51.988016+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "공고의 무주택·자산 기준과 완화된 소득 기준을 충족하는 가구가 대상입니다. 태백궁전 39형 국민임대주택을 보증금과 월 임대료를 내고 거주할 수 있도록 공급합니다. 입주자격을 갖춘 신청자를 접수순으로 선정해 계약을 안내합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019307&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835",
+          "sha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:52.152906+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "e91cd733-2195-41df-91e9-954dacff6993",
+      "title": "평창장평 통합공공임대주택(고령자복지형) 입주자 모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "65세 이상으로 공고의 무주택·소득·자산 기준을 충족하는 사람이 대상이며, 혼인 중이 아닌 단독세대주에게는 별도의 주택소유 확인 범위를 적용합니다. 평창장평 고령자복지형 통합공공임대주택을 소득구간별 보증금과 월 임대료로 공급합니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020993&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=48&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69204385",
+          "sha256": "7d2e18b7f69b1f25e91f3ad3c1e47ada33f66d73e1af697a9221877b581272d5"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69204387",
+          "sha256": "81b0a31baa1adad02e2123f733c668b971a9125b4da999e21cf15954fbbc9a57"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:52.252195+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "ef03d490-e2d2-4247-9df9-65d53d10f043",
+      "title": "완주삼례A-1 행복주택 입주자격완화 예비입주자 모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "대학생·청년·고령자·주거급여수급자 중 공고의 완화된 주택 보유 기준과 계층별 요건을 충족하는 사람이 대상입니다. 소득·총자산 요건을 배제하되 계층별 자동차 요건은 유지하며, 완주삼례A-1 행복주택을 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020917&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510",
+          "sha256": "f8c62f3c12da21d2364142ae9a429303bdf30e369b1b1bcdc006d82aa303396e"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:52.558936+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "efbd1503-652d-41f2-8985-648d9b61a2a2",
+      "title": "[정정공고]광주하남1 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "광산구·동구·서구·남구·북구에 거주하며 공고의 자격 유형과 소득·자산 기준을 충족하는 무주택세대구성원이 대상입니다. 광주하남1 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020980&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173028",
+          "sha256": "3c04ce564947e16097c4b8b6c543de59a2c5e6fc1192f44801972ea3dbed8add"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:52.768046+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "f8326f14-9a64-4252-aaec-a3cd506e6c17",
+      "title": "평창장평 통합공공임대주택(일반형) 입주자 모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "공고의 무주택·소득·자산 기준과 공급계층별 자격을 충족하는 사람이 대상입니다. 평창장평 일반형 통합공공임대주택을 공급하며, 가구의 소득구간과 주택형에 따라 정해진 보증금·월 임대료로 거주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020992&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=48&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203782",
+          "sha256": "3c261a133465796ff66317213805e909849d07e71dba25f1d81e4ceb9d95ce72"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203797",
+          "sha256": "81b0a31baa1adad02e2123f733c668b971a9125b4da999e21cf15954fbbc9a57"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:53.326299+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "f8563127-e307-4581-8491-7c241ebd1814",
+      "title": "정선사북 행복주택 입주자 추가모집",
+      "action": "EXISTING_SUMMARY_CONFIRMED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "PASS",
+      "changeReview": false,
+      "summary": "대학생·취업준비생·청년·신혼부부·한부모가족 등 계층별 무주택·소득·자산 기준을 충족하는 사람이 대상입니다. 정선사북 행복주택을 공급하며, 해당 계층과 주택형에 정해진 보증금·월 임대료로 거주할 수 있습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020995&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69219758",
+          "sha256": "b018eb68486db16d663d007af1dde4fcd0372e5a1748ae9f93260a9e0294c893"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69220071",
+          "sha256": "7ad419221603f8a4a7c748cf6a21478446a62f8a943b52de0fe0030ad81704cf"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:53.382752+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "fac8abd0-a316-4caa-b87b-0c8ecb2d8acb",
+      "title": "광주선운 3블록 10년 공공임대주택 리츠 예비입주자 모집 공고",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": true,
+      "summary": "공고에서 정한 광주·전남지역 거주 요건과 입주자격을 충족하는 성년 무주택세대구성원이 대상입니다. 광주선운3블록 10년 공공임대주택(리츠)에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=0000061188&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69135849",
+          "sha256": "6ef3eed8fafeefe166c24c1ac832cae1e3d06e3446ebab77df4131ca2d830af3"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69135856",
+          "sha256": "c3083ce6d52a8d9738008096ea7c5b2d9a67ac11da76d25457760f934adef4b8"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:53.897959+00:00",
+      "scanVisualReviewPages": []
+    },
+    {
+      "id": "fc62724b-b583-47df-91f9-530dc78faad3",
+      "title": "김제검산 영구임대주택 입주자격완화 예비입주자 모집",
+      "action": "SUMMARY_UPDATED",
+      "public": true,
+      "basicReview": "PASS",
+      "guideReview": "HOLD",
+      "changeReview": false,
+      "summary": "김제시에 거주하며 공고의 완화된 소득 기준과 자산 등 입주자격을 충족하는 무주택세대구성원이 대상입니다. 김제검산 영구임대주택을 자격 유형별 보증금과 월 임대료로 공급합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+      "officialDetailUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020959&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "documents": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165378",
+          "sha256": "364dea3662ddc11dbbe339c1b2bfc77c52f1b01051a145f0cc33ef6832bdbd80"
+        }
+      ],
+      "checkedAt": "2026-11-10T14:10:54.505503+00:00",
+      "scanVisualReviewPages": []
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router';
-import { useSession } from '../../app/useSession';
-import { useNotice } from '../../shared/ui/housingHelpers';
+import { useSession } from '../auth/useSession';
+import { useNotice } from '../housing/useNotice';
+import { usePreparationRecord } from '../preparation/usePreparationRecord';
 import {
     useActivePreparation,
     choosePreparation,
@@ -25,6 +26,7 @@ export function useHomeNotice() {
             ? current
             : preparations.query.data?.find((p) => p.noticeId === noticeId);
     const notice = useNotice(noticeId ?? undefined);
+    const preparation = usePreparationRecord(active?.id);
 
     useEffect(() => {
         if (!requested || session.loading || session.error) return;
@@ -52,7 +54,9 @@ export function useHomeNotice() {
 
     return {
         preparations: preparations.query,
-        active,
+        active: preparation.isSuccess ? preparation.data : undefined,
+        preparation,
+        hasPreparation: !!active,
         noticeId,
         notice,
         selectNotice,
