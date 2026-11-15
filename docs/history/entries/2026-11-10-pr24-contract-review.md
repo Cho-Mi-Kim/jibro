@@ -2,7 +2,7 @@
 
 - 기록일: 2026-11-10 (Asia/Seoul)
 - 기록 상태: 근거 정리·담당자 검토 전
-- 작업 상태: R1·R2 수정 및 검증 완료 / 실행 모드 문서 보완 / 사용자 재요청에 따른 develop 병합 전 검사
+- 작업 상태: R1·R2 수정·실행 안내 완료 / develop·main 병합 완료 / Pages 배포 및 공개 시연 진입 검증 완료
 - 유형: 문서·코드 검토·오류 수정
 - 담당·검토: 사용자 요청에 따라 Codex가 현재 원격 코드·계약·CI를 대조하고 로컬 검사를 실행했다. 팀원의 승인 검토는 미확인이다.
 - 관련 PR: [PR #24](https://github.com/Cho-Mi-Kim/jibro/pull/24), 검토한 제품 코드 `e288a993a9a828a798d44eea165c0f276ab34a60`
@@ -65,6 +65,16 @@
 
 ## 검증·결과
 
+### 병합·Pages 배포 사후 확인 (2026-11-10)
+
+- PR #24 최신 문서 커밋 `9b1155d`의 [CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/42766581963) 세 작업이 통과하여 develop에 merge commit `06ccac3`으로 병합했다. 병합 결과의 파일이 검증한 head와 동일함을 확인했다.
+- 사용자가 main 반영과 GitHub Pages 확인을 추가 요청했다. develop → main [PR #25](https://github.com/Cho-Mi-Kim/jibro/pull/25)를 생성하고 [CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/42767253943) 세 작업 통과·충돌 없음을 확인한 뒤 main에 `90a1535`로 병합했다. 작업 브랜치는 보존했고 로컬 작업 브랜치를 임의 전환하지 않았다.
+- main `90a153522ff0f195c0345ab419d48e25209d4726` 대상 [Pages 배포](https://github.com/Cho-Mi-Kim/jibro/actions/runs/42767523116)의 build·deploy가 모두 성공했다. main과 develop의 파일 차이가 없음을 확인했다.
+- 공개 URL `https://cho-mi-kim.github.io/jibro/`, 배포 JS `index-CrfwLxm4.js`, CSS `index-fa4_AhKh.css`가 각각 HTTP 200을 반환했다.
+- 공개 사이트의 실제 브라우저에서 공고 4건 목록 → 시연 공고 미리보기·상세 → 내 조건 확인하기 → 시연 사용자로 보기 → 조건 확인 첫 질문 화면까지 정상 이동했다. 시연 안내와 실제 소셜 로그인 대신 시연 진입 화면이 표시됨을 확인했다. 모든 질문 저장·서류·일정의 공개 사이트 전체 회귀 검사는 이번에 반복하지 않았다.
+- 배포된 것은 가상 데이터 프론트엔드 시연이다. 실제 백엔드·AWS·운영 DB를 배포하거나 외부 OAuth·메일·푸시를 새로 검증하지 않았다. GitHub Actions의 Node 20 기반 액션 실행 환경 전환 안내는 비차단 경고였으며 build·deploy 결과는 성공이었다.
+- 이 사후 확인 문서는 배포 완료 후 로컬에서 갱신했으며 배포 커밋에 포함된 기록과 구분한다.
+
 ### 수정 후 로컬 검증
 
 - `npm --prefix frontend run ci`: 포맷·ESLint·타입 검사, Vitest 21개 파일·134건 및 일반 빌드 모두 통과.
@@ -91,9 +101,9 @@ AI가 코드 대조·계약 문서 작성·검증을 보조했다. PR의 기존 
 
 ## 후속 작업
 
-- 실행 안내 수정 커밋을 PR #24에 푸시하고 최신 head의 CI와 변경을 확인해 PR 코멘트에 결과를 남긴 뒤, 문제가 없으면 사용자 요청에 따라 develop에 병합한다. 실제 결과는 PR의 CI·병합 기록으로 확인한다.
-- SMTP·Web Push·실기기 확대 및 운영 환경 검증은 별도로 진행한다. main 반영과 운영 배포는 이번 요청 범위가 아니다.
-- 인수인계 문서는 사용자가 재개를 요청할 때 작성한다.
+- PR #24·#25 병합과 Pages 배포 확인은 완료했다. 사후 검증 기록의 커밋·공유는 다음 문서 정리 시 반영한다.
+- SMTP·Web Push·실기기 확대 및 운영 환경 검증은 별도로 진행한다. 실제 API 서버 운영 배포는 수행하지 않았다.
+- 이후 재개한 [인수인계 문서](../../developer-handoff.md)는 최신 PR #26 기준으로 갱신한다. 본 기록은 PR #24·#25 당시 검증을 보존한다.
 
 ## 변경 파일
 
