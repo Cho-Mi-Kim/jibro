@@ -95,20 +95,20 @@
     padding-block-end: 0.25rem;
     font-size: 0.875rem;
 }
-.guidanceBody dl {
+.guidanceFacts {
     display: grid;
     gap: 0.375rem;
     margin: 0;
 }
-.guidanceBody dl > div {
+.guidanceFacts > div {
     display: grid;
     grid-template-columns: 2.5em 1fr;
     gap: 0.5rem;
 }
-.guidanceBody dt {
+.guidanceFacts dt {
     font-weight: 650;
 }
-.guidanceBody dd {
+.guidanceFacts dd {
     margin: 0;
     overflow-wrap: anywhere;
 }
@@ -224,7 +224,7 @@
 .dates dd > .period {
     display: flex;
     justify-content: center;
-    font-size: calc(var(--date-value-size) + 2px);
+    font-size: calc(var(--date-value-size) + 0.125rem);
     flex-wrap: nowrap;
     column-gap: 0.0625rem;
 }
@@ -332,7 +332,7 @@
     margin: 0;
 }
 .summaryCard p,
-.summaryDetails summary > span {
+.conditionText p {
     display: block;
     font-size: 1rem;
     line-height: 1.5;
@@ -340,26 +340,30 @@
     margin: 0.375rem 0 0;
     font-weight: 400;
 }
-.summaryDetails summary {
-    position: relative;
-    list-style: none;
-    padding: 0 1.5rem 0 0;
+.conditionDetails > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
     min-height: var(--target);
+    color: var(--brand);
+    font-size: 0.875rem;
+    cursor: pointer;
 }
-.summaryDetails summary::-webkit-details-marker,
+.conditionDetails > summary svg {
+    width: 1rem;
+    transition: transform var(--motion-duration);
+}
+.conditionDetails[open] > summary svg {
+    transform: rotate(180deg);
+}
+.conditionDetails > p {
+    white-space: pre-line;
+}
+.contentCard .conditionText p {
+    margin-bottom: 0;
+}
 .resources summary::-webkit-details-marker {
     display: none;
-}
-.summaryDetails summary > svg {
-    position: absolute;
-    inset-block-start: 0.25rem;
-    inset-inline-end: 0;
-    width: 1rem;
-    height: 1rem;
-    color: var(--brand);
-}
-.summaryDetails[open] summary > svg {
-    transform: rotate(180deg);
 }
 .cardAction {
     background: transparent;
@@ -408,6 +412,22 @@
 }
 .page .evidence > a {
     align-items: flex-start;
+}
+.page .compactSummaryEvidence {
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+.page .compactSummaryEvidence > span:first-child {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 0.25rem;
+}
+.page .compactSummaryEvidence a {
+    display: inline-flex;
+    min-height: var(--target);
+    margin: 0;
 }
 .contentCard a,
 .resources a {
@@ -466,6 +486,7 @@
     display: grid;
     gap: inherit;
     min-width: 0;
+    padding-bottom: var(--summary-scroll-space, 0px);
 }
 .actions {
     display: grid;
@@ -491,11 +512,15 @@
     align-items: center;
     justify-content: center;
     gap: 0.375rem;
+    min-width: 0;
+    height: auto;
     min-height: 2.875rem;
     padding: 0.5rem;
     border-radius: var(--radius-control);
     font-size: 1rem;
     font-weight: 650;
+    white-space: normal;
+    word-break: keep-all;
 }
 .actionButtons > a {
     border: 1px solid var(--brand);
@@ -520,7 +545,7 @@
         flex: 1;
         overflow-y: auto;
         gap: 1rem;
-        padding-block: 1rem 0.5rem;
+        padding-block: 1rem calc(0.5rem + var(--summary-scroll-space, 0px));
     }
 }
 .resources {

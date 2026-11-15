@@ -1,10 +1,13 @@
 import { PreparationIdentity } from './PreparationIdentity';
 import type { Notice, Preparation } from '../housing/types';
-import { House } from '../../shared/ui/ui';
-import { cx } from '../../shared/styles/classes';
-import { PreparationDates } from '../../shared/ui/HousingUI';
+import { House } from './PreparationProgress';
+import { bindClasses } from '../../shared/styles/classes';
+import { PreparationDates } from './PreparationUI';
 
 import styles from './PreparationOverviewSummary.module.css';
+import preparationClasses from './PreparationUI.module.css';
+
+const cx = bindClasses(preparationClasses);
 
 export function PreparationOverviewSummary({
     preparation: p,

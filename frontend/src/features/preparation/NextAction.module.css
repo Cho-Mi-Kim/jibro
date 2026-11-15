@@ -5,9 +5,9 @@
     min-width: 0;
     margin: 0;
     padding: 26px;
-    border: 1px solid #ffe8cf;
+    border: 1px solid var(--theme-line, #ffe8cf);
     border-radius: var(--radius-card);
-    background: #fff6e9;
+    background: var(--theme-warning-soft, #fff6e9);
 }
 .icon {
     grid-column: 1;
@@ -18,7 +18,7 @@
     grid-row: 1;
     align-self: center;
     margin: 0;
-    color: #a96905;
+    color: var(--theme-warning, #a96905);
     font-weight: 700;
 }
 .card h2 {

@@ -6,7 +6,7 @@
 }
 .brick,
 .structure {
-    transition: opacity 180ms ease-out;
+    transition: opacity var(--motion-duration, 750ms) ease-out;
 }
 @media (prefers-reduced-motion: reduce) {
     .brick,

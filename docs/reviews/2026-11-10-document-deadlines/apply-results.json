@@ -1,0 +1,187 @@
+{
+  "notices" : [ {
+    "noticeId" : "01c79a68-cc52-4c44-bec7-c142130c57af",
+    "packageFingerprint" : "c2c53d5522d082cf087e281f478624471a1da19c26e20271c9f7d5569e526179",
+    "verifiedAt" : "2026-11-10T04:38:52.826257400Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296594" : "c5f74bd04de6b63020f86f5b86ac000ca7286a4361403935f959afd5dd3e175f",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595" : "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee",
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026" : "e737d90273def5d32d206bd8e9c52877bdc22b9335dd166ed6b69230d18ddd03"
+    },
+    "previousPackageFingerprint" : "da9fd3522641e88f0527343b72c12245be23c300fde542450aac7f14a697fd69",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 16,
+    "documents" : 21,
+    "issues" : 3
+  }, {
+    "noticeId" : "11f5a8d1-3100-4d80-8f4b-b0ef6dc8af3c",
+    "packageFingerprint" : "98456d8d79306dd2a8759ae2620f904aeec8cbdf1ecdd1437e080a94dee42cc0",
+    "verifiedAt" : "2026-11-10T04:38:54.587154Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019551&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026" : "e3418d61d36322f9203e026c5bdaa8e475dc35b1477ad029f11947a1f1093d5d",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869333" : "45c9af2dc307106101655c526922c1f19013cf3d83e40519508dd131e344b54f",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097008" : "a9068a4d5d332fc78bd82852e932d148599ff08cc692f85515db819b38ad04d2",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097009" : "70e76281d23e4ee4f81792acbd590aa2344341a51941ed2aaea811ac64b6e6f3",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097010" : "ceb217e9ba1962068c763d1f478d506d6047e5b1fc645745b957f64e3163d802",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869337" : "a4c7c51976edf6528dc0b645b69ea1757f4975909b923fcb2970dcc252af4440",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097011" : "b72a7290a388865c8b90e9135a6f4becaef8555e4e25832d6f3d094c7a40b695",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68824815" : "746100789cb4814b6ebdaad3ad11b306a55680b7d79ea6569af680134ddd0c95",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097013" : "cbea4fd7ab910a3ffa78d5ce3d2d9ecf6e02024acc1d265e878426ee8a674e99",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097014" : "83b91fba37f3918ec8a82233f35fd9abd32f7fb0d8ed16cdebdc25ee1f864582",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097015" : "3eb35b9bf1ffde0631332bfc114cbe2afb3e8ae9103c27a396263b550e40b8e7",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66097016" : "9d4e6ffc757a5037f6c9c8f1fca393f9098de479a9663f73e54ca57f470ccd83"
+    },
+    "previousPackageFingerprint" : "f685fd28a934f9901b5e671c729b25719759c99711fab4ca3892acad597ff0ec",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 17,
+    "documents" : 29,
+    "issues" : 0
+  }, {
+    "noticeId" : "6766d1f8-0a4c-462d-8d8a-b1390b15cbcf",
+    "packageFingerprint" : "4b6419875e12e21bce171ad54d3d4a181e5004831704056478e2b2a94fe0d29b",
+    "verifiedAt" : "2026-11-10T04:38:57.736743200Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379" : "8a6023cb889535d1362a8b7915c80d6997281b37048f0ad77ee0af02d58f6a91",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66095415" : "a52e716035e324bfa9fa544ee0458968634ba6d00bbcebb969c5bc7a90962842",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66095416" : "ceb217e9ba1962068c763d1f478d506d6047e5b1fc645745b957f64e3163d802",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66095417" : "bfe89d3f73817e88dd4fd1d88fa542407f380d0da8ef5c59f638a79a37e69d41",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868375" : "fdcf3e1dfa45adc2cbe0e49e8bec20982036eea7c4287daebbd3aea3e0043bc0",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68824694" : "746100789cb4814b6ebdaad3ad11b306a55680b7d79ea6569af680134ddd0c95",
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019546&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026" : "95ad29048a99a865de293d87b599b37c5d2d4bb3c7143133581cde6a0803dafd",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66095414" : "9cdac216c59f61bf46378d38318947178eb171d83f60abb1f963f2bade507d75"
+    },
+    "previousPackageFingerprint" : "f9ed0a1f9be3101ce083718c416eb722147617950b856e9479e7eefc95fe2039",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 15,
+    "documents" : 23,
+    "issues" : 0
+  }, {
+    "noticeId" : "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+    "packageFingerprint" : "e87e98b7b6ed951a6f87c180a736ca0fa642ca4c5cbca147936b384ee3ef67b9",
+    "verifiedAt" : "2026-11-10T04:39:00.121428400Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774" : "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754" : "4e526aedf4d3cc7b09d3bdf9c6c2c8e949ea0240ff07a4e10ea591972b01855a",
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020581&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026" : "0a0643dfb80df213bba8eae2285f01e66cf444a4cba3b5eef7ebbd30fd894b30",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195751" : "c77a5cb59022e7746a0bd267c409149371a4e036411aff1e1ec348249017be91"
+    },
+    "previousPackageFingerprint" : "0de95ff581118725f02c9b89c5955d0c8e00c976ae4b1a46e0c58e858d537cdc",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 11,
+    "documents" : 25,
+    "issues" : 1
+  }, {
+    "noticeId" : "c717d2e8-a9e2-4b71-8ac2-023bd437135f",
+    "packageFingerprint" : "60dccb15561beb0f5a879a7ce1b5703a891bc258a47682e65357fd88f49f614e",
+    "verifiedAt" : "2026-11-10T04:39:01.162430200Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020928&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026" : "b38c63655e78453b54aa9a6194caa7ac187a07a4e743089e235d2066073d0354",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107810" : "4c68411dbc7223905373281bedcbf232db02f11e9587ff34d490c1a32887f527",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107811" : "76d9cfeaef8acf3c55413818d595086ba6649b5adb1721157f7252c56086ac3b"
+    },
+    "previousPackageFingerprint" : "4d69ffb51ace516a7c6f6b337b50bbfd1a667e23eb9389dd0ce0a2eae8d6f9eb",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 17,
+    "documents" : 25,
+    "issues" : 0
+  }, {
+    "noticeId" : "cb2ba5d3-53bb-4d7a-a8d1-d526f95a89d7",
+    "packageFingerprint" : "36e92afb34fae06d5fd9e97c2f8fe5c1437a1c058ac3fc867499a7aebe76de4a",
+    "verifiedAt" : "2026-11-10T04:39:02.674423100Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096111" : "cbea4fd7ab910a3ffa78d5ce3d2d9ecf6e02024acc1d265e878426ee8a674e99",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096112" : "83b91fba37f3918ec8a82233f35fd9abd32f7fb0d8ed16cdebdc25ee1f864582",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096113" : "3eb35b9bf1ffde0631332bfc114cbe2afb3e8ae9103c27a396263b550e40b8e7",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096114" : "9d4e6ffc757a5037f6c9c8f1fca393f9098de479a9663f73e54ca57f470ccd83",
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019550&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=17&mi=1026" : "b90cf5a64a5cb68b181107e36960e255a2f9a22308cca65c5f6afd76ca7ceb00",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68824797" : "746100789cb4814b6ebdaad3ad11b306a55680b7d79ea6569af680134ddd0c95",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096106" : "a9068a4d5d332fc78bd82852e932d148599ff08cc692f85515db819b38ad04d2",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868726" : "ec73613cc6e0565577977b849766fcd19342271869307dec467f437384871115",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096107" : "70e76281d23e4ee4f81792acbd590aa2344341a51941ed2aaea811ac64b6e6f3",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096108" : "ceb217e9ba1962068c763d1f478d506d6047e5b1fc645745b957f64e3163d802",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=66096109" : "b72a7290a388865c8b90e9135a6f4becaef8555e4e25832d6f3d094c7a40b695",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868733" : "6f0296b0b3c67b7bc0ae4a1b2d4ee7260145196e7126248719fb9971e5c05cd1"
+    },
+    "previousPackageFingerprint" : "418c025ea6c06a4b213909f0c9a33936c7d861d121c329cbd25ee4cec5bcbf5a",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 17,
+    "documents" : 29,
+    "issues" : 0
+  }, {
+    "noticeId" : "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+    "packageFingerprint" : "006eaec1098d9e40e1415391eb3734dacca3b52a777e253ed31b631ebddfa22c",
+    "verifiedAt" : "2026-11-10T04:39:05.131588800Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026" : "a338f9cb553bd0579ab2597b806be92516b770f8d27141f36ae2176c9a1a47b7",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258" : "72212e521e6cecc95f8f0c00852f9a8ed7d204b95a6e581b0b419e8779d3783d",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162254" : "9dd51ba13b3137dd54d42471ba0ba691b85ffa385ec5ce77df21cb1e066920e8"
+    },
+    "previousPackageFingerprint" : "1a16a38ba8473210a1047f8f9f0c476a6e931852e147670e0f4688341c458cc5",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 23,
+    "documents" : 32,
+    "issues" : 2
+  }, {
+    "noticeId" : "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+    "packageFingerprint" : "674d3d14116f11203dddd921ba794516ecb2075c594f58609dcac9b54b3c8ac9",
+    "verifiedAt" : "2026-11-10T04:39:05.928174800Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019312&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026" : "08e7127fd70b8f72af8b4d4e4bdd14f38de4ecfc44f6988ba54daf8e4785ba40",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499514" : "c5b07f0f2857bc9a1cfe682233a677582b738b1f6b25f7a64d853b10ec6895f2",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745" : "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499761" : "62f800256ed66d2ddaf07d4c77ad24c4a00d4757e603d422b916efbe35d5bb89",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499764" : "44f178adebbb67684d57717cf63329f87b34a158bedc1d4bdce61238a65e9091",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499758" : "18e6e39f798808a31fb9ebe696c016b8a70b6a655725bb33f4f44b57544da2a1",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775" : "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b"
+    },
+    "previousPackageFingerprint" : "3e6c468132d11d5d8f5505037f11df95f9a5d28a16b48bd0286dac54d0cd3f4f",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 13,
+    "documents" : 27,
+    "issues" : 2
+  }, {
+    "noticeId" : "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+    "packageFingerprint" : "f836c66d29e79b25428ce24e4b607daed21b1d5bf21db476bdc197ff2aa50469",
+    "verifiedAt" : "2026-11-10T04:39:06.930332300Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026" : "fef9082356c3ce3553891c35312ea1501852f705ac3429ed75de502af12a1c77",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062" : "060b2bf5d48ac249b6e096b78db7cc8ed9b896a4315f0715db7e97d3e73f9734",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063" : "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6"
+    },
+    "previousPackageFingerprint" : "533bf0c3f571c7082d6ab093e35b091bad2522d7ebe67529a9ee1fdaa4289487",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 13,
+    "documents" : 28,
+    "issues" : 1
+  }, {
+    "noticeId" : "e15cb019-012f-4edb-9bcd-c760885c49bf",
+    "packageFingerprint" : "5c9f7e213893367a73b544351469d6e002428b0480f2418270d24a867092d285",
+    "verifiedAt" : "2026-11-10T04:39:07.669933300Z",
+    "sourceDigests" : {
+      "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300019307&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026" : "b9a3ee6e0a02eed76c80be8a337471546294995027b5c7d8243a6a689045ae9c",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=64452247" : "ebd754a6a96e9d4216118626fdd24be0a1f7f23c8a86335a521f37cf68efdb82",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465001" : "e9073c647ae8d9ef554fc03a4b6b220a48a6c650e6e5ecf0b6e4e721062b296b",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464834" : "2fa1d5ee08b10cd63bfcc8750abdb3b32361de2b1368fdb40bfbe1560ad806be",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835" : "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+      "https://apply.lh.or.kr/lhapply/apply/noti/an/view.do?bbsSn=9102431119&ccrCnntSysDsCd=02&slBbsKdCd=03&mi=1079" : "3da3b8fffc3e0080aeb926a99314924e8b23644ed7c5bacfd6cdbb15d574d285",
+      "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464893" : "d980f57d368aec0e627b4790dd64cc6f6091bd71173cc858ec51130b7be5d07e"
+    },
+    "previousPackageFingerprint" : "4d2ff1e40649c176235e1dec50ceffa49ddbf52f28c5e629c6bffc65aca13c50",
+    "amended" : true,
+    "result" : "PASS",
+    "questions" : 15,
+    "documents" : 27,
+    "issues" : 3
+  } ],
+  "checkedAt" : "2026-11-10T04:39:08.482337400Z",
+  "mode" : "apply"
+}

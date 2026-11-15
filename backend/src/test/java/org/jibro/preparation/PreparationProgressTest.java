@@ -9,6 +9,31 @@ import org.junit.jupiter.api.Test;
 
 class PreparationProgressTest {
     @Test
+    void unresolvedOfficialSchedulePreventsCompleteEvenWhenAllPersonalTasksAreDone() {
+        var p = new Preparation();
+        p.id = "preparation";
+        p.noticeId = "notice";
+        p.guideState = "AVAILABLE";
+        p.questions.add(new Question("known", "조건", "근거", null));
+        p.answers.put("known", "YES");
+        var document = new Document();
+        document.necessity = "REQUIRED";
+        document.state = DocumentState.READY;
+        p.documents.add(document);
+        var schedule = new Schedule();
+        schedule.recorded = true;
+        p.schedules.add(schedule);
+        p.reviewIssues.add(new ReviewIssue("date", "SCHEDULE", "결과 발표일 확인 필요", "공식 자료 간 날짜가 다릅니다.",
+            List.of(), List.of(), List.of(new Evidence("일정 원문", null, "2026-11-01"))));
+
+        var result = PreparationRules.assess(p);
+        assertEquals(99, result.progress());
+        assertEquals(4, result.houseStage());
+        assertEquals("/notices/notice", result.nextAction().path());
+        assertEquals(List.of("공식 확인 필요 · 결과 발표일 확인 필요"), result.warnings());
+    }
+
+    @Test
     void unfinishedQuestionCannotRoundUpToCompleteHouse() {
         Preparation p = new Preparation();
         p.id = "test";

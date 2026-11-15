@@ -97,7 +97,7 @@
 }
 [aria-selected='true'] > .check {
     background: var(--ink);
-    color: #fff;
+    color: var(--theme-surface, #fff);
 }
 .check > svg {
     width: 14px;

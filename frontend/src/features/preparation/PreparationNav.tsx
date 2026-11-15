@@ -1,4 +1,6 @@
-import { useNotice } from '../../shared/ui/housingHelpers';
+import { NoticeLifecycleNotice } from '../housing/NoticeLifecycleNotice';
+import { PartialGuidanceNotice } from '../housing/ReviewIssues';
+import { useNotice } from '../housing/useNotice';
 import { cx } from '../../shared/styles/classes';
 import { Link, NavLink } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
@@ -54,9 +56,14 @@ export function GuidanceRefresh({
     );
 }
 export function PreparationGuidance({ p }: { p: Preparation }) {
+    const notice = useNotice(p.noticeId);
     return (
         <>
+            <NoticeLifecycleNotice notice={notice.data} preparation />
             <GuidanceRefresh p={p} />
+            {p.guideState === 'AVAILABLE' && (
+                <PartialGuidanceNotice issues={p.reviewIssues} />
+            )}
             {p.guideState !== 'AVAILABLE' && (
                 <p className={cx('callout')}>
                     현재 기록과 최신 안내가 다르거나 안내 검수 중입니다. 기존

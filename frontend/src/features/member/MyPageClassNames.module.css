@@ -1,0 +1,13 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.my-footer {
+}
+.my-grid {
+}
+.my-menu {
+}
+.my-alert-settings {
+}
+.my-disclaimer {
+}
+.my-logout {
+}

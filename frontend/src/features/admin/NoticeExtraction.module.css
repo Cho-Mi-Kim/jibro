@@ -1,0 +1,46 @@
+.panel {
+    margin-block: 20px;
+    padding: 16px;
+    border: 1px solid var(--theme-line, var(--border, #ddd));
+    border-radius: 12px;
+}
+.panel h3 {
+    margin-block: 0 8px;
+}
+.panel p,
+.panel small {
+    overflow-wrap: anywhere;
+}
+.panel small {
+    display: block;
+    margin-top: 16px;
+}
+.source {
+    margin-block: 12px;
+    border-top: 1px solid var(--theme-line, var(--border, #ddd));
+    padding-top: 12px;
+}
+.source summary {
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+.source > a {
+    display: inline-block;
+    margin: 8px 12px 8px 0;
+}
+.excerpts {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+}
+.excerpts li {
+    min-width: 0;
+}
+.excerpts blockquote {
+    margin: 8px 0;
+    padding-left: 12px;
+    border-left: 2px solid var(--theme-line, #bbb);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}

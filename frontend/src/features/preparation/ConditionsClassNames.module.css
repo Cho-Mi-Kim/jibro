@@ -1,0 +1,31 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.step-number {
+}
+.condition-page {
+}
+.condition-layout {
+}
+.question-panel {
+}
+.question-evidence {
+}
+.question-buttons {
+}
+.result-grid {
+}
+.result-context {
+}
+.result-counts {
+}
+.result-questions {
+}
+.result-documents {
+}
+.result-question {
+}
+.confirmed-condition {
+}
+.result-action {
+}
+.result-edit {
+}

@@ -1,0 +1,85 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.page-heading {
+}
+.muted {
+}
+.eyebrow {
+}
+.card {
+}
+.panel {
+}
+.card-title {
+}
+.row {
+}
+.badge {
+}
+.status-badge {
+}
+.primary-button {
+}
+.link-button {
+}
+.secondary {
+}
+.outline-button {
+}
+.text-button {
+}
+.wide {
+}
+.tabs {
+}
+.callout {
+}
+.info-note {
+}
+.explanation-card {
+}
+.progress-explanation {
+}
+.choice {
+}
+.state {
+}
+.split {
+}
+.stack {
+}
+.icon-disc {
+}
+.metrics {
+}
+.metric {
+}
+.breadcrumb {
+}
+.inline-heading {
+}
+.intro-grid {
+}
+.mobile-only {
+}
+.divider {
+}
+.two-metrics {
+}
+.desktop-only {
+}
+.search {
+}
+.info-line {
+}
+.pagination {
+}
+.detail-tools {
+}
+.focus-header {
+}
+.heading-title {
+}
+.mobile-back {
+}
+.visually-hidden {
+}

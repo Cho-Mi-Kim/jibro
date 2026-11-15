@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-08",
+  "basisPackage": "docs/reviews/2026-11-08-public18.json",
+  "freshSourceInvestigations": [
+    ".tools/qa/remaining5/iksan-chungju.json",
+    ".tools/qa/remaining5/gyeongju-namdong.json"
+  ],
+  "policy": "정상 조건·서류·일정 부분 제공. 공식 충돌은 미해결로 유지하며 정해지지 않은 일정은 schedules에 넣지 않는다. 입력답변이나 서류준비 완료가 공식 충돌 해소가 아님.",
+  "notices": [
+    {
+      "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "candidateSource": "docs/reviews/2026-11-08-public18.json#01c79a68-cc52-4c44-bec7-c142130c57af",
+      "baselineCounts": {
+        "questions": 14,
+        "documents": 19,
+        "schedules": 3
+      },
+      "newCounts": {
+        "questions": 16,
+        "documents": 21,
+        "schedules": 3,
+        "reviewIssues": 3
+      },
+      "questionIdsRequiringOfficialConfirmation": [
+        "nr-income-proof-applicability",
+        "nr-scoring-applicability"
+      ],
+      "documentIdsRequiringOfficialConfirmation": [
+        "nr-doc-income-pregnancy-adoption",
+        "nr-doc-score-family",
+        "nr-doc-waiver"
+      ],
+      "unaffectedQuestionIds": [
+        "nr-adult",
+        "nr-nationality",
+        "nr-household",
+        "nr-housing",
+        "nr-vehicle",
+        "nr-sublease",
+        "nr-duplicate",
+        "nr-engaged",
+        "nr-separate-spouse",
+        "nr-separate-head",
+        "nr-family-certificate",
+        "nr-foreign-spouse",
+        "nr-visit",
+        "nr-passport"
+      ],
+      "unaffectedDocumentIds": [
+        "nr-doc-application",
+        "nr-doc-privacy",
+        "nr-doc-duplicate",
+        "nr-doc-registry",
+        "nr-doc-finance",
+        "nr-doc-minor-proof",
+        "nr-doc-household-proof",
+        "nr-doc-fiance-registry",
+        "nr-doc-fiance-forms",
+        "nr-doc-spouse-registry",
+        "nr-doc-head-registry",
+        "nr-doc-family",
+        "nr-doc-foreign",
+        "nr-doc-self-visit",
+        "nr-doc-spouse-visit",
+        "nr-doc-seal-visit",
+        "nr-doc-signature-visit",
+        "nr-doc-passport-proof"
+      ],
+      "confirmedScheduleIds": [
+        "auto-application-start",
+        "auto-application-end",
+        "auto-result"
+      ],
+      "issues": [
+        {
+          "id": "IKSAN_WAIVER_FORM_NOTICE_DATE",
+          "area": "DOCUMENT",
+          "title": "완화 확인서의 공고일 확인 필요",
+          "detail": "현재 모집 공고일은 2026.11.04인데 첨부 확약서 32쪽은 2026.10.08 모집을 적고 있습니다. 사용할 확인서·확약서와 재계약 조항 적용 범위를 기관에서 확인해야 합니다. 일반 신청서·동의서·등본과 정상 접수일정은 계속 준비할 수 있습니다.",
+          "questionIds": [],
+          "documentIds": [
+            "nr-doc-waiver"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 1쪽·11쪽·32쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        },
+        {
+          "id": "IKSAN_SCORING_DOCUMENT_SCOPE",
+          "area": "DOCUMENT",
+          "title": "가산점 목적 가족관계 증빙 확인 필요",
+          "detail": "선착순·자격완화 모집과 함께 표준 서류표의 육아지원 및 직계존속 부양 가산점 증빙 안내가 남아 있습니다. 가산점 적용 및 해당 추가 증빙 범위만 미확정이며 기본 가족관계 증빙은 제공합니다.",
+          "questionIds": [
+            "nr-scoring-applicability"
+          ],
+          "documentIds": [
+            "nr-doc-score-family"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 3~4쪽·11~12쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        },
+        {
+          "id": "IKSAN_INCOME_HOUSEHOLD_PROOF_SCOPE",
+          "area": "DOCUMENT",
+          "title": "임신·입양 소득가구원 증빙 확인 필요",
+          "detail": "소득·총자산 배제 조건과 서류표의 소득가구원 산정용 임신·입양 증빙 제출 범위가 일치하지 않습니다. 이 목적의 증빙만 기관 확인 대상으로 두며 금융정보 동의서와 세대구성 범위를 면제하지 않습니다.",
+          "questionIds": [
+            "nr-income-proof-applicability"
+          ],
+          "documentIds": [
+            "nr-doc-income-pregnancy-adoption"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 3~4쪽·12쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        }
+      ],
+      "missingBaselineContent": "기존 원고 보존. 혼합 항목을 기본 내용과 충돌 적용 범위로 분리하고 누락된 충돌용 항목을 추가."
+    },
+    {
+      "noticeId": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "candidateSource": "docs/reviews/2026-11-08-public18.json#d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "baselineCounts": {
+        "questions": 0,
+        "documents": 0,
+        "schedules": 0
+      },
+      "newCounts": {
+        "questions": 23,
+        "documents": 32,
+        "schedules": 3,
+        "reviewIssues": 2
+      },
+      "questionIdsRequiringOfficialConfirmation": [
+        "cj-residence-score-region"
+      ],
+      "documentIdsRequiringOfficialConfirmation": [
+        "cj-score-residence-proof"
+      ],
+      "unaffectedQuestionIds": [
+        "cj-residence",
+        "cj-adult",
+        "cj-nationality",
+        "cj-household",
+        "cj-housing",
+        "cj-restrictions",
+        "cj-category",
+        "cj-income",
+        "cj-assets",
+        "cj-child",
+        "cj-registry",
+        "cj-spouse",
+        "cj-foreign-family",
+        "cj-family-proof",
+        "cj-household-exclusion",
+        "cj-engaged",
+        "cj-newlywed-proof",
+        "cj-score",
+        "cj-extra-score-proof",
+        "cj-asset-proof",
+        "cj-visit",
+        "cj-submission"
+      ],
+      "unaffectedDocumentIds": [
+        "cj-application",
+        "cj-privacy",
+        "cj-financial",
+        "cj-asset-statement",
+        "cj-duplicate-ack",
+        "cj-register",
+        "cj-resident-history",
+        "cj-spouse-register",
+        "cj-foreign-proof",
+        "cj-family-certificate",
+        "cj-household-exclusion-proof",
+        "cj-minor-proof",
+        "cj-housing-exception-proof",
+        "cj-birth-proof",
+        "cj-pregnancy-proof",
+        "cj-adoption-proof",
+        "cj-engaged-forms",
+        "cj-newlywed-proof",
+        "cj-benefit-proof",
+        "cj-veteran-proof",
+        "cj-comfort-proof",
+        "cj-single-parent-proof",
+        "cj-defector-proof",
+        "cj-disability-proof",
+        "cj-elder-support-proof",
+        "cj-care-leaver-proof",
+        "cj-approved-proof",
+        "cj-extra-score-proof",
+        "cj-assets-proof",
+        "cj-delegate-proof",
+        "cj-onsite-id"
+      ],
+      "confirmedScheduleIds": [
+        "cj-publication",
+        "cj-application-start",
+        "cj-application-end"
+      ],
+      "issues": [
+        {
+          "id": "CHUNGJU_RESULT_YEAR_CONFLICT",
+          "area": "SCHEDULE",
+          "title": "예비입주자 발표 연도 확인 필요",
+          "detail": "공식 상세의 접수처 안내에는 2026.07.06, 같은 상세의 공급일정과 PDF/HWPX 10·13쪽에는 2027.07.06 10시 이후로 적혀 있습니다. 연도를 임의 선택하지 않으며 확인 전 발표일을 일정·캘린더·알림에 확정 등록하지 않습니다. 신청기간과 다른 준비는 계속 진행할 수 있습니다.",
+          "questionIds": [],
+          "documentIds": [],
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020974&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+              "label": "LH 공식 상세 · 공급일정·접수처 안내",
+              "checkedAt": "2026-11-08"
+            },
+            {
+              "label": "공식 모집공고문 10쪽·13쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        },
+        {
+          "id": "CHUNGJU_RESIDENCE_SCORE_REGION_MISSING",
+          "area": "CONDITION",
+          "title": "계속거주 배점 지역 확인 필요",
+          "detail": "공식 공고 9쪽 배점표의 지역명이 “000 거주기간”으로 비어 있습니다. 대상 지역과 배점용 증빙 범위를 기관에 확인하며 임의로 충주시로 치환하지 않습니다. 신청자격의 충주시 거주 조건과 일반 등본·주소변동 초본 안내는 제공합니다.",
+          "questionIds": [
+            "cj-residence-score-region"
+          ],
+          "documentIds": [
+            "cj-score-residence-proof"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 2쪽·9쪽·11~12쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69162258",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        }
+      ],
+      "missingBaselineContent": "기존 조건·서류·일정이 모두 비어 있어 공식 PDF 1~35쪽을 새로 검토하여 작성. 거주배점 지역명 000도 추가 발견해 국소 미확정으로 분리."
+    },
+    {
+      "noticeId": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "candidateSource": "docs/reviews/2026-11-08-public18.json#c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "baselineCounts": {
+        "questions": 19,
+        "documents": 34,
+        "schedules": 9
+      },
+      "newCounts": {
+        "questions": 20,
+        "documents": 35,
+        "schedules": 9,
+        "reviewIssues": 1
+      },
+      "questionIdsRequiringOfficialConfirmation": [
+        "residence-score-region"
+      ],
+      "documentIdsRequiringOfficialConfirmation": [
+        "resident_score_history"
+      ],
+      "unaffectedQuestionIds": [
+        "adult",
+        "household",
+        "housing",
+        "restrictions",
+        "family",
+        "registry",
+        "spouse",
+        "route",
+        "additional",
+        "income",
+        "assets",
+        "rank",
+        "children",
+        "family_score",
+        "subscription",
+        "social",
+        "past_contract",
+        "unreported_assets",
+        "mymy"
+      ],
+      "unaffectedDocumentIds": [
+        "application",
+        "privacy",
+        "financial",
+        "asset_statement",
+        "duplicate_ack",
+        "resident_register",
+        "family_certificate",
+        "resident_history",
+        "spouse_register",
+        "foreign_certificate",
+        "household_exclusion",
+        "minor_proof",
+        "onsite_id",
+        "additional_proof",
+        "pregnancy",
+        "adoption",
+        "birth",
+        "marriage",
+        "proposed_marriage",
+        "subscription_proof",
+        "penalty_exception",
+        "asset_proof",
+        "mymy_request",
+        "social_benefit",
+        "social_veteran",
+        "social_comfort",
+        "social_single_parent",
+        "social_defector",
+        "social_elder_support",
+        "social_care_leaver",
+        "social_elder_low",
+        "social_approved",
+        "social_near_poor",
+        "social_permanent"
+      ],
+      "confirmedScheduleIds": [
+        "application_first",
+        "application_other",
+        "screening",
+        "documents_start",
+        "documents_end",
+        "documents_onsite",
+        "result",
+        "application_window_start",
+        "application_window_end"
+      ],
+      "issues": [
+        {
+          "id": "NAMDONG_RESIDENCE_SCORE_REGION",
+          "area": "CONDITION",
+          "title": "계속거주 배점·초본 지역 확인 필요",
+          "detail": "모집과 신청순위는 인천 남동구 기준이지만 배점표 및 해당 초본 제출 안내에는 김포시가 적혀 있습니다. 계속거주 배점과 이를 증명할 초본 범위만 기관 확인이 필요하며 주소변동 초본·일반 순위·다른 조건과 서류는 준비할 수 있습니다.",
+          "questionIds": [
+            "residence-score-region"
+          ],
+          "documentIds": [
+            "resident_score_history"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 인쇄 9쪽·18쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69190885",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        }
+      ],
+      "missingBaselineContent": "기존 원고 보존. 혼합 항목을 기본 내용과 충돌 적용 범위로 분리하고 누락된 충돌용 항목을 추가."
+    },
+    {
+      "noticeId": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "candidateSource": "docs/reviews/2026-11-08-public18.json#19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "baselineCounts": {
+        "questions": 15,
+        "documents": 12,
+        "schedules": 10
+      },
+      "newCounts": {
+        "questions": 15,
+        "documents": 13,
+        "schedules": 10,
+        "reviewIssues": 2
+      },
+      "questionIdsRequiringOfficialConfirmation": [
+        "basis-conflict",
+        "housing"
+      ],
+      "documentIdsRequiringOfficialConfirmation": [
+        "contract-payment-confirmation",
+        "housing-exception"
+      ],
+      "unaffectedQuestionIds": [
+        "adult",
+        "household",
+        "household-extra",
+        "foreign",
+        "income",
+        "child-increase",
+        "assets",
+        "asset-evidence",
+        "duplicate-restriction",
+        "unit-schedule",
+        "precontract",
+        "submission",
+        "delegate"
+      ],
+      "unaffectedDocumentIds": [
+        "privacy-consent",
+        "finance-consent",
+        "asset-statement",
+        "resident-register",
+        "relationship-extra",
+        "child-proof",
+        "asset-proof",
+        "minor-proof",
+        "precontract-pledge",
+        "contract-id-payment",
+        "delegate-proof"
+      ],
+      "confirmedScheduleIds": [
+        "publication",
+        "apply-start",
+        "apply-end",
+        "unit-order",
+        "geoncheon",
+        "angang",
+        "oedong",
+        "mangjeong",
+        "remaining-publish",
+        "remaining-start"
+      ],
+      "issues": [
+        {
+          "id": "GYEONGJU_ELIGIBILITY_REFERENCE_DATE",
+          "area": "CONDITION",
+          "title": "자격 판단 기준일 확인 필요",
+          "detail": "주 공고문은 공고일 2026.11.05를, 별도 공급대상 주택 안내는 접수일 현재를 자격 판단 기준으로 적고 있습니다. 무주택 등 자격의 기준 시점은 기관 확인이 필요합니다. 세대 범위·소득/자산 기준 설명 및 제출서류 준비 안내는 제공하지만 입력 답변만으로 자격을 확정하지 않습니다.",
+          "questionIds": [
+            "basis-conflict",
+            "housing"
+          ],
+          "documentIds": [
+            "housing-exception"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 인쇄 1쪽·자격 기준",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+              "checkedAt": "2026-11-08"
+            },
+            {
+              "label": "공식 모집공고문 공급대상 주택 안내 1쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313345",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        },
+        {
+          "id": "GYEONGJU_DEPOSIT_PAYMENT_CUTOFF",
+          "area": "SCHEDULE",
+          "title": "동호지정 당일 계약금 마감 시각 확인 필요",
+          "detail": "주 공고문 인쇄 17쪽은 계약금 당일 16시까지, 18쪽은 당일 오후 5시까지 미입금 시 취소로 안내합니다. 어느 시각도 일정에 등록하지 않으며 실제 입금 마감과 지연 시 취소 기준을 기관에서 확인해야 합니다. 단지별 동호지정 시작일·신청 접수기간은 정상 안내합니다.",
+          "questionIds": [],
+          "documentIds": [
+            "contract-payment-confirmation"
+          ],
+          "evidence": [
+            {
+              "label": "공식 모집공고문 인쇄 17~18쪽",
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69313344",
+              "checkedAt": "2026-11-08"
+            }
+          ]
+        }
+      ],
+      "missingBaselineContent": "기존 원고 보존. 혼합 항목을 기본 내용과 충돌 적용 범위로 분리하고 누락된 충돌용 항목을 추가."
+    }
+  ]
+}

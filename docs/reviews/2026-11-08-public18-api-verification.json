@@ -1,0 +1,243 @@
+[
+  {
+    "id": "394f7a6e-1054-419c-bd27-f436d6289162",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 12,
+    "applicationTiming": {
+      "startsAt": "2026-11-24T01:00:00Z",
+      "endsAt": "2026-11-25T07:00:00Z",
+      "nextChangeAt": "2026-11-24T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 12,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "4d2e2916-60d2-4ffc-a63a-40d1843fd590",
+    "guideState": "REVIEWING",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "3fe0dbde-d45b-42ff-bc6a-14bc2bd2c6e7",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 19,
+    "applicationTiming": {
+      "startsAt": "2026-11-18T01:00:00Z",
+      "endsAt": "2026-11-20T07:00:00Z",
+      "nextChangeAt": "2026-11-18T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 34,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+    "guideState": "REVIEWING",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "413075cd-2626-44f6-a020-336513fa6143",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 19,
+    "applicationTiming": {
+      "startsAt": "2026-11-24T21:00:00Z",
+      "endsAt": "2026-11-27T07:00:00Z",
+      "nextChangeAt": "2026-11-24T21:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 34,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "d71a2dea-b39c-4930-ace3-2d417f6f9787",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 19,
+    "applicationTiming": {
+      "startsAt": "2026-11-16T01:00:00Z",
+      "endsAt": "2026-11-17T07:00:00Z",
+      "nextChangeAt": "2026-11-16T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 34,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "bcef4e3d-5cba-426c-80b6-a82f4623ef25",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 19,
+    "applicationTiming": {
+      "startsAt": "2026-11-16T01:00:00Z",
+      "endsAt": "2026-11-18T07:00:00Z",
+      "nextChangeAt": "2026-11-16T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 34,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "f8563127-e307-4581-8491-7c241ebd1814",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 15,
+    "applicationTiming": {
+      "startsAt": "2026-11-23T01:00:00Z",
+      "endsAt": "2026-11-27T08:00:00Z",
+      "nextChangeAt": "2026-11-23T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 32,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "4e9a5c29-8b73-410b-b59f-d8f5dd4f2a38",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 19,
+    "applicationTiming": {
+      "startsAt": "2026-11-16T01:00:00Z",
+      "endsAt": "2026-11-18T07:00:00Z",
+      "nextChangeAt": "2026-11-16T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 35,
+    "mixedNoneRejected": true
+  },
+  {
+    "id": "b534ec99-2dbb-4e4f-9193-345a8f0816f1",
+    "guideState": "AVAILABLE",
+    "status": "CLOSED",
+    "canStart": false,
+    "questions": 21,
+    "applicationTiming": {
+      "startsAt": "2026-09-28T01:00:00Z",
+      "endsAt": "2026-09-30T07:00:00Z",
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "bc6472e5-a8de-4515-bc21-93a3f818310a",
+    "guideState": "AVAILABLE",
+    "status": "CLOSED",
+    "canStart": false,
+    "questions": 21,
+    "applicationTiming": {
+      "startsAt": "2026-09-07T01:00:00Z",
+      "endsAt": "2026-09-09T07:00:00Z",
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "ab7d5629-2f4f-4f87-98cd-acce2242e437",
+    "guideState": "UNSUPPORTED",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "7ab36bbf-d74f-4c29-9e00-7f8b6243e466",
+    "guideState": "UNSUPPORTED",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "0db58df5-fe4f-4ded-a870-d1e7b14d74a8",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 16,
+    "applicationTiming": {
+      "startsAt": "2026-11-16T01:00:00Z",
+      "endsAt": "2026-11-16T08:00:00Z",
+      "nextChangeAt": "2026-11-16T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 11
+  },
+  {
+    "id": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+    "guideState": "AVAILABLE",
+    "status": "UPCOMING",
+    "canStart": true,
+    "questions": 16,
+    "applicationTiming": {
+      "startsAt": "2026-11-16T01:00:00Z",
+      "endsAt": "2026-11-16T08:00:00Z",
+      "nextChangeAt": "2026-11-16T01:00:00Z"
+    },
+    "oneTimeCheck": "PASS",
+    "documents": 11
+  },
+  {
+    "id": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+    "guideState": "REVIEWING",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "01c79a68-cc52-4c44-bec7-c142130c57af",
+    "guideState": "REVIEWING",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  },
+  {
+    "id": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+    "guideState": "REVIEWING",
+    "status": "UNKNOWN",
+    "canStart": false,
+    "questions": 0,
+    "applicationTiming": {
+      "startsAt": null,
+      "endsAt": null,
+      "nextChangeAt": null
+    }
+  }
+]

@@ -1,0 +1,495 @@
+[
+  {
+    "id": "b58945e4-8785-4937-8ad8-8d70a3fe39eb",
+    "title": "여수미평1 영구임대주택 예비입주자 모집공고(모집공고일 : 2026.10.20.)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "0000e667-e82e-4db9-b3cf-947ba42146f8",
+    "title": "[정정공고]광주두암4 영구임대주택 예비입주자모집 공고(모집공고일 : 2026.10.27)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "8c78deeb-d530-4395-aa8f-e2feaf621f52",
+    "title": "[정정공고]광주오치1 영구임대주택 예비입주자 표준모집공고문(2026.10.27. 공고)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "9d43c8c3-370f-49ce-b0b9-c3e402a8627f",
+    "title": "[정정공고] 광주하남1 영구임대주택 그린리모델링 예비입주자 모집 공고(공고일 2026.10.27)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "a04b02e6-04f4-4f9a-9ed7-599d295c7412",
+    "title": "[정정공고]광주우산3 영구임대주택 예비입주자 모집 공고(모집공고일: 2026.10.27)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+    "title": "[정정공고]광주두암2 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "efbd1503-652d-41f2-8985-648d9b61a2a2",
+    "title": "[정정공고]광주하남1 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "ac107e42-1689-493e-887f-f12eab3ae6b8",
+    "title": "LH임대주택 기장군 중소기업 근로자 공공임대주택 기관공급 사업 대상기업 모집계획 공고",
+    "disposition": "UNSUPPORTED",
+    "guideState": "UNSUPPORTED",
+    "canStart": false,
+    "questions": 0,
+    "documents": 0,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "ef03d490-e2d2-4247-9df9-65d53d10f043",
+    "title": "완주삼례A-1 행복주택 입주자격완화 예비입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 15,
+    "documents": 13,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "27c472ab-be04-411f-af47-31bdb7f082c3",
+    "title": "원주시지역 영구임대주택 예비입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 11,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "07b2fef1-44c1-45ab-a8d9-2e408f2e073c",
+    "title": "수원시 영구임대주택 예비입주자 모집공고(2026.11.11.)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "0e185218-45e5-462d-8026-821bbf2528ee",
+    "title": "대구신서13,14, 경산삼주봉황1,2 국민임대주택 입주자격완화 선계약 후검증 동호지정 입주자 모집",
+    "disposition": "PARTIAL",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 11,
+    "reviewIssues": [
+      {
+        "id": "application-period-conflict",
+        "area": "SCHEDULE",
+        "title": "신청 접수기간 기관 확인 필요",
+        "detail": "공식 상세와 공고문 9쪽은 2026.12.1~12.2, 공고문 11쪽 온라인 신청 안내는 2026.11.30~12.1입니다. PDF와 HWPX 모두 같은 차이가 있어 어느 기간도 확정하지 않았습니다. LH 대구동부권주거복지지사에 확인하거나 정정 안내를 확인하세요.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 9쪽 · 모집일정",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=9",
+            "checkedAt": "2026-11-12"
+          },
+          {
+            "label": "공고문 11쪽 · 온라인 청약 안내",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=11",
+            "checkedAt": "2026-11-12"
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "id": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+    "title": "[전남광주통합특별시 북구] 기존주택 등 매입임대주택 예비입주자 모집 공고",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 11,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+    "title": "인천산곡 A1블록 행복주택(산곡솔마루아파트) 예비입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 14,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+    "title": "인제서화 고령자복지주택(국민임대) 추가 입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 11,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "fcd76f82-00d8-4661-aae3-d75b04cdba10",
+    "title": "인제서화 고령자복지주택(영구임대) 추가 입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 11,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "80ff86e3-9585-453e-be3b-1cd6f0d7b120",
+    "title": "[정정공고]익산제3일반산단 행복주택 입주자격완화 추가모집(동호지정,선계약후검증)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 15,
+    "documents": 16,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "8e0362e4-0102-419d-b699-075e205ae4aa",
+    "title": "[정정공고][정정공고]'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 12,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "19807681-f337-4116-9564-799fe5b91fa5",
+    "title": "[정정공고]'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 14,
+    "documents": 14,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "b775c46b-4d0f-4e48-8797-5e79d6a2f7ec",
+    "title": "제천장락1 50년공공임대주택 예비입주자 모집 공고[2026.11.09]",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 11,
+    "documents": 9,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "4d2e2916-60d2-4ffc-a63a-40d1843fd590",
+    "title": "인천논현2단지 국임임대주택 예비입주자 모집 공고",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 14,
+    "documents": 14,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "e91cd733-2195-41df-91e9-954dacff6993",
+    "title": "평창장평 통합공공임대주택(고령자복지형) 입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 13,
+    "documents": 12,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "f8326f14-9a64-4252-aaec-a3cd506e6c17",
+    "title": "평창장평 통합공공임대주택(일반형) 입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 15,
+    "documents": 14,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+    "title": "울산 송정하우스디(B3블럭) 10년 공공임대리츠 예비입주자 모집공고",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 8,
+    "documents": 7,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+    "title": "담양삼만 통합공공임대(일자리연계형 지원주택) 입주자 추가 모집(2026.10.29. 공고)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 15,
+    "documents": 15,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+    "title": "과천지식정보타운 S12블록 행복주택 입주자 모집공고",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 18,
+    "documents": 16,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "c4d5dcea-265f-48cb-8fff-c11f9bded820",
+    "title": "포항블루밸리 행복주택 입주자모집(3개월분 임대료 면제, 선착순 동호지정)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 15,
+    "documents": 14,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "85f4c42d-6fdc-4fdf-bc27-5cd60b85fd6b",
+    "title": "화성시 동탄지역 행복주택 입주자 모집 공고[입주자격완화/선계약후검증]('26.10.27.)",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 16,
+    "documents": 17,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "fc62724b-b583-47df-91f9-530dc78faad3",
+    "title": "김제검산 영구임대주택 입주자격완화 예비입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 13,
+    "documents": 13,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "501f3fc5-a598-4699-9efa-ff4d5b244589",
+    "title": "전주1산단(전주팔복) 행복주택 입주자격완화예비입주자 모집",
+    "disposition": "PASS",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 17,
+    "documents": 15,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+    "title": "삼척시·정선군 국민임대 예비입주자 상시모집(26.6.10)",
+    "disposition": "PARTIAL",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 9,
+    "documents": 12,
+    "reviewIssues": [
+      {
+        "id": "first-day-time",
+        "area": "SCHEDULE",
+        "title": "삼척원조 최초 접수시각 표기 차이",
+        "detail": "지난 6/24 최초 접수시각이 공고문 1쪽은 14:00, 5쪽 표는 13:30으로 다릅니다. 현재 상시접수는 평일 10~15시(점심 제외), 12/30 마감으로 일치합니다. 과거 최초 접수순번에 관한 문의에만 기관 확인이 필요합니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 1쪽 · 최초 접수 안내",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=1",
+            "checkedAt": "2026-11-12"
+          },
+          {
+            "label": "공고문 5쪽 · 단지별 일정",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=5",
+            "checkedAt": "2026-11-12"
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "id": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+    "title": "김제검산1단지 영구임대주택 예비입주자 모집 공고(상시모집)",
+    "disposition": "PARTIAL",
+    "guideState": "AVAILABLE",
+    "canStart": true,
+    "questions": 10,
+    "documents": 10,
+    "reviewIssues": [
+      {
+        "id": "reference-conflict",
+        "area": "CONDITION",
+        "title": "자격 판단 기준일 확인 필요",
+        "detail": "1쪽은 2025.12.1. 공고일, 2쪽은 신청일 현재를 자격 판단 기준으로 적고 있어 기관 확인이 필요합니다.",
+        "questionIds": [
+          "reference"
+        ],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 1쪽 · 자격 판단 기준일 확인 필요",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=1",
+            "checkedAt": "2026-11-12"
+          },
+          {
+            "label": "공고문 2쪽 · 자격 판단 기준일 확인 필요",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=2",
+            "checkedAt": "2026-11-12"
+          }
+        ]
+      },
+      {
+        "id": "rank-place",
+        "area": "CONDITION",
+        "title": "거주기간 배점 적용 지역 확인 필요",
+        "detail": "9쪽 배점표에 거주 지역명이 000으로 남아 있고 지자체 자체기준 확인이라고 기재되어 있습니다.",
+        "questionIds": [
+          "rank"
+        ],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 9쪽 · 거주기간 배점 적용 지역 확인 필요",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=9",
+            "checkedAt": "2026-11-12"
+          }
+        ]
+      },
+      {
+        "id": "open-period",
+        "area": "SCHEDULE",
+        "title": "현재 모집완료 여부·접수기간 확인 필요",
+        "detail": "10쪽은 모집 완료시까지로 기재하며 확정 시작·마감일은 없습니다. 과거 공고를 현재 접수 가능으로 확정하지 않았습니다.",
+        "questionIds": [],
+        "documentIds": [],
+        "evidence": [
+          {
+            "label": "공고문 10쪽 · 현재 모집완료 여부·접수기간 확인 필요",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=10",
+            "checkedAt": "2026-11-12"
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "id": "e458eb8f-56f0-47a2-8406-e187d0c7e949",
+    "title": "[정정공고] [정정공고]강원혁신 B-2블록 10년 공공임대 입주자 추가모집 공고",
+    "disposition": "HOLD",
+    "guideState": "REVIEWING",
+    "canStart": false,
+    "questions": 0,
+    "documents": 0,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "3b88774b-0f9b-4730-8619-8852e887d791",
+    "title": "[정정공고] 평택소사벌 B-5블록 10년공공임대주택 잔여세대 입주자모집 공고",
+    "disposition": "HOLD",
+    "guideState": "REVIEWING",
+    "canStart": false,
+    "questions": 0,
+    "documents": 0,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "2a89466d-aaf5-481a-bc5f-a979c6208cd7",
+    "title": "[정정공고] [정정공고]충북혁신 B-7블록 10년 공공임대 입주자모집재공고 (2014.11.21) (임대조건완화)",
+    "disposition": "HOLD",
+    "guideState": "REVIEWING",
+    "canStart": false,
+    "questions": 0,
+    "documents": 0,
+    "reviewIssues": [],
+    "errors": []
+  },
+  {
+    "id": "0cfa6d56-eec6-44f9-b7cb-bbb56174bdf0",
+    "title": "논산내동2 A1블록 10년 공공임대주택 잔여세대 공급공고(계약금인하)",
+    "disposition": "HOLD",
+    "guideState": "REVIEWING",
+    "canStart": false,
+    "questions": 0,
+    "documents": 0,
+    "reviewIssues": [],
+    "errors": []
+  }
+]

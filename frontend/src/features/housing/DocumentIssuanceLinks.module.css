@@ -1,0 +1,18 @@
+.link {
+    margin: 0.25rem 0 0.5rem;
+    font-size: 0.875rem;
+}
+.link a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--target);
+    gap: 0.25rem;
+}
+.link small {
+    display: block;
+    color: var(--muted);
+}
+.link svg {
+    width: 1rem;
+    height: 1rem;
+}

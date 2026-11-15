@@ -1,0 +1,42 @@
+{
+  "checks": "unique IDs; field lengths; options/conditional references; issue dependencies; current revision/extraction; exact all-source SHA; canonical application boundaries",
+  "results": [
+    {
+      "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "status": "PASS_STATIC_DATA_CONTRACT",
+      "questions": 16,
+      "documents": 21,
+      "schedules": 3,
+      "issues": 3,
+      "sourceCount": 3
+    },
+    {
+      "noticeId": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "status": "PASS_STATIC_DATA_CONTRACT",
+      "questions": 23,
+      "documents": 32,
+      "schedules": 3,
+      "issues": 2,
+      "sourceCount": 3
+    },
+    {
+      "noticeId": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "status": "PASS_STATIC_DATA_CONTRACT",
+      "questions": 20,
+      "documents": 35,
+      "schedules": 9,
+      "issues": 1,
+      "sourceCount": 7
+    },
+    {
+      "noticeId": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "status": "PASS_STATIC_DATA_CONTRACT",
+      "questions": 15,
+      "documents": 13,
+      "schedules": 10,
+      "issues": 2,
+      "sourceCount": 4
+    }
+  ],
+  "limitations": "Static content contract validation only. Publication/fresh remote verification/runtime checks performed by parent task."
+}

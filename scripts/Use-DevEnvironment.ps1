@@ -28,3 +28,11 @@ $databaseName = if ($env:POSTGRES_DB) { $env:POSTGRES_DB } else { 'jibro' }
 # Ignore another project's inherited generic DB_URL unless this project's .env explicitly sets it.
 $env:DB_URL = if ($projectVariables.ContainsKey('DB_URL')) { $projectVariables['DB_URL'] } else { "jdbc:postgresql://localhost:$databasePort/$databaseName" }
 $env:TEST_DB_URL = if ($projectVariables.ContainsKey('TEST_DB_URL')) { $projectVariables['TEST_DB_URL'] } else { "jdbc:postgresql://localhost:$databasePort/jibro_test" }
+# OCR remains optional and local. Explicit project settings take precedence over a detected installation.
+if (-not $env:JIBRO_OCR_EXECUTABLE -and (Test-Path -LiteralPath 'C:/Program Files/Tesseract-OCR/tesseract.exe')) {
+    $env:JIBRO_OCR_EXECUTABLE = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+}
+$ocrData = Join-Path $projectRoot '.tools/tessdata-fast'
+if (-not $env:JIBRO_OCR_DATA_PATH -and (Test-Path -LiteralPath (Join-Path $ocrData 'kor.traineddata')) -and (Test-Path -LiteralPath (Join-Path $ocrData 'eng.traineddata')) -and (Test-Path -LiteralPath (Join-Path $ocrData 'osd.traineddata'))) {
+    $env:JIBRO_OCR_DATA_PATH = $ocrData
+}

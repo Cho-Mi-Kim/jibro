@@ -8,45 +8,83 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.*;
 
 @Component
 public class LhNoticeClient {
     public record Item(String key, String title, String region, String type, String url, LocalDate published,
-                       String fingerprint) {
+                       String fingerprint, boolean officiallyClosed) {
+        public Item(String key, String title, String region, String type, String url, LocalDate published, String fingerprint) {
+            this(key, title, region, type, url, published, fingerprint, false);
+        }
     }
 
-    public record Batch(List<Item> items, int total) {
+    public record Batch(List<Item> items, int total, SourceResponse response) {
+        public Batch(List<Item> items, int total) {
+            this(items, total, null);
+        }
     }
 
     private final String key;
     private final ObjectMapper json;
-    private final HttpClient http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER).build();
+    private final HttpClient http;
 
+    @Autowired
     public LhNoticeClient(@Value("${LH_SERVICE_KEY:}") String key, ObjectMapper json) {
+        this(key, json, HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER).build());
+    }
+
+    LhNoticeClient(String key, ObjectMapper json, HttpClient http) {
         this.key = key;
         this.json = json;
+        this.http = http;
     }
 
     public boolean configured() {
         return !key.isBlank();
     }
 
-    public Batch fetch(int page) throws Exception {
-        var request = HttpRequest.newBuilder(requestUri(page, LocalDate.now(ZoneId.of("Asia/Seoul"))))
-                .timeout(Duration.ofSeconds(20)).header("Accept", "application/json").GET().build();
-        var response = http.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        if (response.statusCode() != 200 || response.body().length() > 5_000_000)
-            throw new IllegalStateException("SOURCE_RESPONSE_INVALID");
-        return parse(response.body());
+    public Batch fetch(int page, CollectionQueryPlan.Query query) throws Exception {
+        var request = HttpRequest.newBuilder(requestUri(page, query))
+            .timeout(Duration.ofSeconds(20)).header("Accept", "application/json").GET().build();
+        var status = new java.util.concurrent.atomic.AtomicInteger(200);
+        HttpResponse<byte[]> response;
+        try {
+            response = http.send(request, info -> {
+                status.set(info.statusCode());
+                return new LimitedJsonSubscriber();
+            });
+        } catch (java.io.IOException failure) {
+            for (Throwable cause = failure; cause != null; cause = cause.getCause()) {
+                if (cause instanceof LimitedJsonSubscriber.TooLarge)
+                    throw new SourceResponse.Rejected(new SourceResponse(status.get(), Instant.now(), "TOO_LARGE", null, null, false), new IllegalArgumentException("SOURCE_RESPONSE_TOO_LARGE"));
+            }
+            throw failure;
+        }
+        return accept(response.statusCode(), new String(response.body(), StandardCharsets.UTF_8), response.headers().firstValue("Retry-After").orElse(null), Instant.now());
     }
 
-    URI requestUri(int page, LocalDate today) {
+    Batch accept(int status, String body, String retryAfter, Instant received) throws SourceResponse.Rejected {
+        var snapshot = new SourceResponseSanitizer(json, key).snapshot(status, body, received);
+        try {
+            if (status != 200) throw CollectionFailure.http(status, retryAfter, received);
+            if (!snapshot.bodyStatus().equals("JSON")) throw new IllegalArgumentException("SOURCE_RESPONSE_INVALID");
+            var result = parse(body);
+            return new Batch(result.items(), result.total(), snapshot);
+        } catch (Exception failure) {
+            throw new SourceResponse.Rejected(snapshot, failure);
+        }
+    }
+
+    URI requestUri(int page, CollectionQueryPlan.Query scope) {
+        if (page < 1 || page > CollectionQueryPlan.MAX_PAGE)
+            throw new IllegalArgumentException("COLLECTION_PAGE_INVALID");
         // PAN_NT_ST_DT and CLSG_DT are response fields, not the publication-date search range.
-        String query = "ServiceKey=" + URLEncoder.encode(key, StandardCharsets.UTF_8) + "&PG_SZ=100&PAGE=" + page + "&UPP_AIS_TP_CD=06"
-                + "&PAN_ST_DT=" + today.minusMonths(3).format(DateTimeFormatter.BASIC_ISO_DATE)
-                + "&PAN_ED_DT=" + today.format(DateTimeFormatter.BASIC_ISO_DATE);
+        String query = "ServiceKey=" + URLEncoder.encode(key, StandardCharsets.UTF_8) + "&PG_SZ=100&PAGE=" + page + "&UPP_AIS_TP_CD=" + scope.categoryCode()
+            + "&PAN_ST_DT=" + scope.publishedFrom().format(DateTimeFormatter.BASIC_ISO_DATE)
+            + "&PAN_ED_DT=" + scope.publishedThrough().format(DateTimeFormatter.BASIC_ISO_DATE);
         return URI.create("https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1?" + query);
     }
 
@@ -59,16 +97,20 @@ public class LhNoticeClient {
         List<Item> items = new ArrayList<>();
         int total = 0;
         for (JsonNode n : objects) {
-            total = Math.max(total, n.path("ALL_CNT").asInt(0));
+            if (n.has("ALL_CNT")) {
+                String value = n.path("ALL_CNT").asText();
+                if (!value.matches("[0-9]{1,10}")) throw new IllegalArgumentException("SOURCE_TOTAL_INVALID");
+                total = Math.max(total, Integer.parseInt(value));
+            }
             if (!n.has("PAN_NM")) continue;
             String title = n.path("PAN_NM").asText();
             String url = n.path("DTL_URL").asText();
             URI uri = URI.create(url);
             if (!"https".equals(uri.getScheme()) || !"apply.lh.or.kr".equals(uri.getHost()) || uri.getUserInfo() != null
-                    || title.isBlank() || title.length() > 300 || url.length() > 2000)
+                || title.isBlank() || title.length() > 300 || url.length() > 2000)
                 throw new IllegalArgumentException("SOURCE_ITEM_INVALID");
             // URL is the official stable detail identifier; never construct a guessed detail link.
-            String sourceKey = "LH:" + UUID.nameUUIDFromBytes(url.getBytes(StandardCharsets.UTF_8));
+            String sourceKey = sourceKey(url);
             String region = n.path("CNP_CD_NM").asText("확인 필요");
             String type = n.path("AIS_TP_CD_NM").asText("임대주택");
             if (region.length() > 100 || type.length() > 100) throw new IllegalArgumentException("SOURCE_ITEM_INVALID");
@@ -83,9 +125,18 @@ public class LhNoticeClient {
             } catch (java.security.NoSuchAlgorithmException ex) {
                 throw new IllegalStateException(ex);
             }
-            items.add(new Item(sourceKey, title, region, type, url, date(n.path("PAN_NT_ST_DT").asText()), fingerprint));
+            // PAN_SS is an explicit status, whereas CLSG_DT is not a verified application deadline.
+            boolean closed = Set.of("접수마감", "접수종료", "공고종료").contains(n.path("PAN_SS").asText().strip());
+            items.add(new Item(sourceKey, title, region, type, url, date(n.path("PAN_NT_ST_DT").asText()), fingerprint, closed));
         }
         return new Batch(items, total);
+    }
+
+    /**
+     * Stable identity of the exact detail URL supplied by the official listing.
+     */
+    public static String sourceKey(String url) {
+        return "LH:" + UUID.nameUUIDFromBytes(url.getBytes(StandardCharsets.UTF_8));
     }
 
     private LocalDate date(String value) {

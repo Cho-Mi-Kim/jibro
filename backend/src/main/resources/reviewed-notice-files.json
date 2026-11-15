@@ -1,0 +1,273 @@
+[
+  {
+    "noticeId": "cb715a71-3611-4d8a-a23f-573d0bae22e9",
+    "version": 8,
+    "attachments": [
+      {
+        "label": "[공고문]2026년청년전세임대1순위입주자수시모집(수정).hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869881",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+    "version": 3,
+    "attachments": [],
+    "forms": [
+      {
+        "documentId": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181892",
+        "label": "상시모집서류양식.zip",
+        "member": "[양식2]개인정보 수집이용 및 제3자 제공 동의서(입주신청및자격검증용).hwp"
+      },
+      {
+        "documentId": "assets",
+        "title": "자산 보유 사실확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181892",
+        "label": "상시모집서류양식.zip",
+        "member": "[양식3]자산보유사실확인서.hwp"
+      }
+    ]
+  },
+  {
+    "noticeId": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+    "version": 5,
+    "attachments": [],
+    "forms": [
+      {
+        "documentId": "personal_consent",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+        "label": "상시모집서류양식.zip",
+        "member": "[양식2]개인정보 수집이용 및 제3자 제공 동의서(입주신청및자격검증용).hwp"
+      },
+      {
+        "documentId": "asset_form",
+        "title": "자산 보유 사실확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+        "label": "상시모집서류양식.zip",
+        "member": "[양식3]자산보유사실확인서.hwp"
+      },
+      {
+        "documentId": "premarriage",
+        "title": "예비신혼부부 신청·세대구성 확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+        "label": "상시모집서류양식.zip",
+        "member": "[양식5]예비신혼부부신청,세대구성확인서.hwp"
+      },
+      {
+        "documentId": "relaxation_form",
+        "title": "입주자격완화 각서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+        "label": "상시모집서류양식.zip",
+        "member": "[양식6] 입주자격완화 각서.hwp"
+      }
+    ]
+  },
+  {
+    "noticeId": "bcef4e3d-5cba-426c-80b6-a82f4623ef25",
+    "version": 3,
+    "attachments": [],
+    "forms": [
+      {
+        "documentId": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143293",
+        "label": "[양식1-필수]개인정보수집이용및제3자제공동의서(개정).hwpx",
+        "member": null
+      },
+      {
+        "documentId": "asset_statement",
+        "title": "자산 보유 사실확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143415",
+        "label": "[양식3-필수]자산보유사실확인서.hwpx",
+        "member": null
+      },
+      {
+        "documentId": "duplicate_ack",
+        "title": "예비입주자 중복선정 불가사항 확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143417",
+        "label": "[양식4-필수](예비)입주자중복선정불가사항확인서.hwpx",
+        "member": null
+      }
+    ]
+  },
+  {
+    "noticeId": "8e0362e4-0102-419d-b699-075e205ae4aa",
+    "version": 3,
+    "attachments": [],
+    "forms": [
+      {
+        "documentId": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69355350",
+        "label": "신청접수(양식).zip",
+        "member": "1. 개인정보 수집 이용 및 제3자 제공 동의서.hwp"
+      },
+      {
+        "documentId": "assets",
+        "title": "자산 보유 사실확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69355350",
+        "label": "신청접수(양식).zip",
+        "member": "3. 자산 보유 사실 확인서.hwp"
+      }
+    ]
+  },
+  {
+    "noticeId": "e91cd733-2195-41df-91e9-954dacff6993",
+    "version": 3,
+    "attachments": [],
+    "forms": [
+      {
+        "documentId": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69204392",
+        "label": "[양식1-필수]개인정보수집이용및제3자제공동의서.hwpx",
+        "member": null
+      },
+      {
+        "documentId": "finance",
+        "title": "금융정보 등 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69204396",
+        "label": "[양식2-필수]금융정보등제공동의서.hwpx",
+        "member": null
+      },
+      {
+        "documentId": "duplicate",
+        "title": "예비입주자 중복선정 불가사항 확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69204399",
+        "label": "[양식4-필수]예비입주자중복선정불가사항확인서.hwpx",
+        "member": null
+      }
+    ]
+  },
+  {
+    "noticeId": "f8326f14-9a64-4252-aaec-a3cd506e6c17",
+    "version": 3,
+    "attachments": [],
+    "forms": [
+      {
+        "documentId": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203982",
+        "label": "[양식1-필수]개인정보수집이용및제3자제공동의서.hwpx",
+        "member": null
+      },
+      {
+        "documentId": "finance",
+        "title": "금융정보 등 제공 동의서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203983",
+        "label": "[양식2-필수]금융정보등제공동의서.hwpx",
+        "member": null
+      },
+      {
+        "documentId": "duplicate",
+        "title": "예비입주자 중복선정 불가사항 확인서",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69203985",
+        "label": "[양식4-필수]예비입주자중복선정불가사항확인서.hwpx",
+        "member": null
+      }
+    ]
+  },
+  {
+    "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+    "version": 2,
+    "attachments": [
+      {
+        "label": "(공고)울산다운2A-6블록행복주택입주자추가모집(입주자격완화,선계약후검증)_261112.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389515",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(공고)울산다운2A-6블록행복주택입주자추가모집(입주자격완화,선계약후검증)_261112.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "★울산다운2a-6행복주택팜플렛(최종).pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389536",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)본인행정정보제공요구서.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389550",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)서류제출등작성서류(금융정보,자산보유등)_울산다운2A-6블록.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389555",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)입주자격완화확약서및선계약후검증확약서(울산다운2).hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389567",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)위임장_울산다운2A-6블록.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389608",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "noticeId": "787ae41c-78bc-4d0f-8385-b90ed054e7a8",
+    "version": 2,
+    "attachments": [
+      {
+        "label": "(261112)원주명륜2영구임대예비입주자모집공고문.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69382725",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(261112)원주명륜2영구임대예비입주자모집공고문.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69382729",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+    "version": 2,
+    "attachments": [
+      {
+        "label": "20261112밀양시영구임대주택예비입주자모집공고.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363674",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "20261112밀양시영구임대주택예비입주자모집공고.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+    "version": 2,
+    "attachments": [
+      {
+        "label": "서류제출양식.zip",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69381974",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(261112)춘천시철원군지역행복주택예비입주자모집공고.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384291",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(261112)춘천시철원군지역행복주택예비입주자모집공고.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "forms": []
+  }
+]

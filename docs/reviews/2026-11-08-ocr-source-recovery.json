@@ -1,0 +1,583 @@
+{
+  "checkedAt": "2026-11-08T11:39:06.961891+00:00",
+  "scope": "18 previously unread official attachments; source-reading recovery, not eligibility approval",
+  "files": [
+    {
+      "noticeId": "b9cf7e29-5f27-46ef-b64f-2420e21b59db",
+      "label": "(정정공고문)화성시병점복합타운A-1블럭행복주택예비입주자모집공고문(2022.08.05)",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698",
+      "sha256": "70ef615017d7fb2646aeaf464f322e18b77a8617a8151ef018ab8616a91485ed",
+      "pageOrImageCount": 25,
+      "ocrReadings": 50,
+      "characters": 121768,
+      "publishedOcrSections": 5,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "ba358186-b6e4-4dd8-8792-9725ca346586",
+      "label": "[정정공고]내포신도시내포스타힐스공공임대(10년)잔여세대입주자모집(2018124).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34132028",
+      "sha256": "1816977b0a8c62c89cfffbecdcb7a293a2868baddcd0a7214ec8bbac6ccfe644",
+      "pageOrImageCount": 9,
+      "ocrReadings": 18,
+      "characters": 25075,
+      "publishedOcrSections": 7,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "8f18d77a-3382-4955-9b4a-94ca609e6c65",
+      "label": "공주월송행복주택예비입주자고령자자격완화추가모집(20181204).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34091980",
+      "sha256": "68b6e34000113b236441a86065af0263931125b3a7eed4244f0d2314387f0f8f",
+      "pageOrImageCount": 14,
+      "ocrReadings": 28,
+      "characters": 48106,
+      "publishedOcrSections": 5,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "ae736091-8e03-4583-92d7-7c14acd978bc",
+      "label": "별가람1-4단지평면도.hwp",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32951949",
+      "sha256": "95ae017a73d4cd93bbca21fc4ba7a5224219b874c0003b53a989fba07fa7dedf",
+      "pageOrImageCount": 5,
+      "ocrReadings": 10,
+      "characters": 11209,
+      "publishedOcrSections": 10,
+      "referenceSections": 10,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "035f9dc6-5b68-46ee-a763-5f36d92a5790",
+      "label": "정정공고문내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813",
+      "sha256": "d5fd463dae00132b674ec9ef82c10c3a1c51b3944c11ca4f504a2302b6a9fdbf",
+      "pageOrImageCount": 9,
+      "ocrReadings": 18,
+      "characters": 22170,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "9a8f0666-9d01-4807-b2f0-e153b979f087",
+      "label": "내포스타힐스잔여세대입주자모집공고(공고일18.8.9).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538",
+      "sha256": "540dffb927714af20ea5e9462b068cb4f845229bdb0abc804dbb88c385b1b7e1",
+      "pageOrImageCount": 9,
+      "ocrReadings": 18,
+      "characters": 21943,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "36c61d71-0881-415a-8be3-6e7bc4830be0",
+      "label": "청주,진천권국민[매입]임대주택예비입주자선착순모집공고.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980",
+      "sha256": "b68ce68be2c762b604600fbd3f88a1b2370aff4e55ce3e7e15ba98cc799bf79f",
+      "pageOrImageCount": 15,
+      "ocrReadings": 29,
+      "characters": 58566,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "dc3837d1-d296-4c6e-95cc-e09d05922593",
+      "label": "20160928청주,진천권국민[매입]임대주택예비입주자선착순모집공고.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562",
+      "sha256": "db49725b20481aa6d00ff078f68fbafa9d4a4bf04a98ae08d7ffd4aa7d230658",
+      "pageOrImageCount": 15,
+      "ocrReadings": 29,
+      "characters": 56248,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "a70de18c-8a8e-4e6d-98b3-e8a5f4b32df3",
+      "label": "양산신도시 LH 1,2,5단지 선착순 추가입주자 모집공고.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24552048",
+      "sha256": "ded6d6a5df44676530631f6060f51393c18dd93986f304c65283a380fb17f73f",
+      "pageOrImageCount": 12,
+      "ocrReadings": 24,
+      "characters": 45976,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "633ebc13-d903-4662-a1e4-dd75c77daec4",
+      "label": "성남지역국민임대주택예비자모집공고문(1210).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560006",
+      "sha256": "9d7c8561a62126d4ad8725f9d5f895c4f6d182fc304d983045061a456de9b559",
+      "pageOrImageCount": 15,
+      "ocrReadings": 30,
+      "characters": 65381,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "91afa2d6-c0e5-4958-8dcd-91223d8fe203",
+      "label": "성남지역국민임대예비자모집공고문.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037",
+      "sha256": "3f25f8f00e886c350d27d5891b9e696cba3f6ce91459438d3b6a8fa1e34ac24d",
+      "pageOrImageCount": 15,
+      "ocrReadings": 30,
+      "characters": 65361,
+      "publishedOcrSections": 5,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "label": "대전노은3 A3 잔여세대 입주자모집공고문(안).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279",
+      "sha256": "abbe8d4f9f91ac90090ed5e4d79a834e22dbf1c3442fb83f2ef7d4137f2bb266",
+      "pageOrImageCount": 6,
+      "ocrReadings": 12,
+      "characters": 37236,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "4014bafd-a3d0-45cf-9923-16edb5ee462e",
+      "label": "대전노은3 A3블록 잔여세대 동호배치도.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559116",
+      "sha256": "fe88cc08c4c9dea2d888fec80cbf1756c226f35823c1447b7d87e57de37a90b9",
+      "pageOrImageCount": 1,
+      "ocrReadings": 2,
+      "characters": 7499,
+      "publishedOcrSections": 2,
+      "referenceSections": 2,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "2c688b72-2cba-4b8a-9d74-fcafc16eaeb8",
+      "label": "익산함열휴먼시아_국민임대_입주자및예비입주자_모집_공고문(안).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24562255",
+      "sha256": "e62f4e47212392f0176cc5cbc898576d4a4a710653715f643db7cf43d9655964",
+      "pageOrImageCount": 12,
+      "ocrReadings": 24,
+      "characters": 40790,
+      "publishedOcrSections": 7,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "ca8b1313-cc7c-4176-aa99-b2e52bbfffb5",
+      "label": "img-510131359.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24554423",
+      "sha256": "a2cb3b16cd110817766e8303272e0e2715d2a86f47df89df77278851e317c344",
+      "pageOrImageCount": 8,
+      "ocrReadings": 16,
+      "characters": 27639,
+      "publishedOcrSections": 7,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "dbdfa0d0-b4f0-476b-a2b2-d6350de8fc49",
+      "label": "익산 한스빌 매입국민임대 선착순입주자모집(5월).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557306",
+      "sha256": "542aa739f8fcc7da6e046e39f572d454815f23df266b2da13c1b0d0cb6fe5cee",
+      "pageOrImageCount": 5,
+      "ocrReadings": 10,
+      "characters": 16462,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "d3079df9-9a9a-449f-ac2e-da3c455bb337",
+      "label": "군산지역 매입국민임대 예비입주자 모집.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557273",
+      "sha256": "050dd75d84ebf78609d3c8c1f2804f30377b28ef36b41250382a224ad0f90921",
+      "pageOrImageCount": 9,
+      "ocrReadings": 18,
+      "characters": 30605,
+      "publishedOcrSections": 6,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    },
+    {
+      "noticeId": "1ecfdb35-d469-4eca-bdf4-c88dab451735",
+      "label": "접수마감안내_101021.pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=10053670",
+      "sha256": "03bbfb6e109ebdde0dfbef21f731f1e308b9b3b29e820a200a7c8be398088243",
+      "pageOrImageCount": 1,
+      "ocrReadings": 2,
+      "characters": 729,
+      "publishedOcrSections": 1,
+      "referenceSections": 0,
+      "storedExactly": true,
+      "guideReview": "HOLD",
+      "preparationStartAllowed": false
+    }
+  ],
+  "attachmentCount": 18,
+  "noticeCount": 17,
+  "pdfPages": 180,
+  "hwpImages": 5,
+  "ocrReadings": 368,
+  "approvedGuidanceAndPersonalRecordsPreserved": true,
+  "model": {
+    "repository": "https://github.com/tesseract-ocr/tessdata_fast",
+    "revision": "87416418657359cb625c412a48b6e1d6d41c29bd",
+    "models": [
+      {
+        "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+        "name": "eng.traineddata"
+      },
+      {
+        "sha256": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2",
+        "name": "kor.traineddata"
+      },
+      {
+        "sha256": "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff",
+        "name": "osd.traineddata"
+      }
+    ]
+  },
+  "independentQuality": {
+    "summary": {
+      "targetSources": 18,
+      "expectedPdfPages": 180,
+      "expectedHwpImages": 5,
+      "pdfPagesWithAnyNonemptyOcrMode": 180,
+      "hwpImagesWithAnyNonemptyOcrMode": 5,
+      "resultsAvailable": 18,
+      "extracted": 18,
+      "empty": 0,
+      "sourcesWithFailureMarkers": 0,
+      "nativeComparisonCandidates": 15,
+      "shortOcrParts": 6,
+      "sparseKoreanProseParts": 35,
+      "pdfPagesAllVariantsSparse": 3
+    },
+    "visualReviewScope": {
+      "uniquePdfPagesVisuallyInspected": 5,
+      "pdfPages": [
+        "Daejeon unit arrangement page1",
+        "Gimpo deadline page1",
+        "Naepo December document table page8",
+        "Hwaseong document table page14",
+        "Cheongju original floor plan page14"
+      ],
+      "hwpFullImagesVisuallyInspected": 5,
+      "all185ImagesVisuallyProofread": false,
+      "separateChecks": "Opening/representative condition, document and schedule OCR text compared against saved official native HWP candidates as noted per file. No full-source semantic equivalence asserted."
+    },
+    "observations": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=49691698",
+        "notes": [
+          {
+            "checkedOutput": "results-v2 best-model partial run, not the later fast run",
+            "severity": "INCOMPLETE_RUN",
+            "scope": "page1/9/13/14",
+            "finding": "Best model reaches page14 first mode at296.8s; pages15–25 absent. First-page groups/date, page9 schedule and page13 common documents recover substantially; page14 first mode is gibberish and second mode is cut off by deadline. Explicit incomplete marker correctly retained."
+          },
+          {
+            "checkedOutput": "Representative model comparison at actual source resolution1654x2340",
+            "severity": "OCR_WORD_CORRUPTION",
+            "scope": "schedule/body page9 and document table page14",
+            "finding": "Fast PSM6 retains main dates and most document rows at ~2.3–2.4x speed. Page14 fast misreads 주민등록표초본 as 주민등록표조몬 and 건강보험 as 건강보혐; best also corrupts other words. Neither model is a certified transcription or sufficient for automatic rule approval.",
+            "timings": "model-comparison-native/timings.json",
+            "visual": "hwaseong-page14-native-pdfbox.png"
+          },
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "b0ccf3f27f9ece21bd04c2f5d121009faabf7284fb91ad0f8233344fed637d29",
+            "scope": "Representative reading plus all-page metadata/lexical checks; not complete proofread",
+            "finding": "Fast final result contains all25 page identities and50 OCR parts, no incomplete marker. Compared opening, schedule page9, common documents13, conditional/additional documents14–15 and closing25 against native HWP. Main dates and all sampled category/doc terms survive across modes. Base mode has several segmentation-noise pages; PSM6 supplies prose. Word corruption and table associations still require source verification."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34132028",
+        "notes": [
+          {
+            "checkedOutput": "Initial recovery output with PSM3 base and only page9 PSM6 supplement",
+            "severity": "HIGH",
+            "scope": "first page, condition page2/page6, schedule page6, documents page8",
+            "finding": "Condition age19 and non-homeowner restrictions exception are recognizable on page2/page6; page6 schedule retains 2018.12.13 11:00–16:00 application, 12.14 16:00 ranking, 12.17 11:00–16:00 contract. First-page title is corrupted. Page8 entire document table becomes mostly isolated-letter noise despite 1427 non-whitespace characters.",
+            "nativeComparison": "Official native HWP file34131787 includes 신분증/주민등록표등본/가족관계증명서/위임장/인감증명서/본인서명사실확인서 and spouse/third-party distinctions. These cannot be recovered safely from initial OCR page8.",
+            "visualVerification": "Poppler120dpi and production-equivalent PDFBoxGRAY 300dpi/10MP-limited render show a normal upright, readable document table. PDFBox rendered2479x3504 rotation0.",
+            "images": [
+              "naepo-documents-page8.png",
+              "naepo-documents-page8-pdfbox.png"
+            ],
+            "remediationProbe": "Exact PDFBox output reproduces PSM3 gibberish, but PSM6 restores key document terms and spouse/third-party distinctions. PDF rendering is correct; failure is segmentation. Fast model PSM6 takes4.062s vs best9.297s and retains most table content, with some additional word corruption."
+          },
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "75a685f0ee9a8d2923d1287195fa9fcc95654349d9835c2cf0e13726a34312b9",
+            "scope": "Representative reading plus all-page metadata/lexical checks; not complete proofread",
+            "finding": "Fast final result contains all9 pages and18 OCR parts, no incomplete marker. Opening, age19/no housing-region-account restriction, schedule dates12/13,12/14,12/17 and document table8 compared with native HWP. Previously missing document table is restored by PSM6, including spouse and third-party distinctions. 제출서류 is OCR 제줄서류; literal missing-keyword flag is a spelling error, not whole section absence."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=34091980",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "980fdcca160e0dc6c5c99bd2537d620bf16aad434a64e8209a252fe919902c9c",
+            "scope": "Representative reading plus all-page metadata/lexical checks; not complete proofread",
+            "finding": "Fast result contains all14 pages. Opening PSM1 is segmentation noise but first-page PSM6 restores elderly65 target, 6,503,367 income-relaxation line, relaxed region/no-homeless-duration line, 12/17–12/21 10:30–16:00 and2/13 16:00 schedule. Document page5 retains consent/financial consent/asset declaration/registry/family terms. Source template also contains student/youth clauses despite elderly-specific notice; do not infer new target groups from those generic clauses. Exact 수급자 not found is lexical review flag only."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32951949",
+        "notes": [
+          {
+            "severity": "HIGH_IF_USED_FOR_INFERENCE",
+            "scope": "all five full-size embedded floor-plan images",
+            "finding": "Already manually inspected all five images. Base PSM3 and supplemental PSM11 preserve many notes and unit counts but miss large type headings. Dimensions and room/table relationships are incomplete.",
+            "reference": "representative-quality-report.json",
+            "safeUse": "Reference-only image OCR, not an eligibility/document/schedule source; total478 complex homes must not be confused with recruitment50."
+          },
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "31be96f54780cded29a6204ad49140e996d2729b70079a91785b746b5181b158",
+            "scope": "Representative reading plus all-page metadata/lexical checks; not complete proofread",
+            "finding": "Fast final result contains both modes for five embedded full images. Earlier visual comparison remains applicable: some caution prose and unit-count tokens recover, but type headings/room dimensions/spatial relationships remain unreliable. Reference-only classification is appropriate."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32984813",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "35f021135fc69cdd44a0d7a9a01334a936d8f96976f9fc5b5401aeb4887c1c05",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All9 pages represented. Opening is partially corrupted but public notice identity remains separately known. Condition page2 keeps age19 and no household-head/household-ownership/account/region restrictions. First-page schedule retains8/27–8/29 10:30–16:00. Page8 spouse/separate-registry/family/third-party documents retained; sampled native terms all found across modes. Not whole-document equivalence."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32941538",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "e6aa1244c4280df6c39353100795aaba6030794b40ed3d135cdf54739464b9f9",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All9 pages represented. First-page title corrupted; age19 and exception scope retained page2. Schedule8/27–8/29 10:30–16:00 and early-arrival lottery explanation survive. Page8 document table largely restored by PSM6. Earlier page5 segmentation failure has usable alternate content. Literal 구비서류 mismatch remains heading recognition, not proof the table is missing."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27437980",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "ee967e4b2044062049197314a8f3e03be0fa29baa00740d5bc3ee4d7be12b7e7",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All15 PDF pages have at least one nonempty OCR variant. Opening needs PSM6. Page3 retains2016.9.28 no-home household-member condition; page5 multi-complex dates and10:00–16:00/lunch12:00–13:00; page7 registry/family/representative documents sampled. Page14 basic OCR is empty and alternate short: visual review confirms a single 진천산내들45형 floor plan, not missing rule/document prose. Dimensions are largely unread; keep reference-only."
+          },
+          {
+            "checkedOutput": "results-fast after empty-variant retry",
+            "resultSha256": "2c5ad26b82b3d669fa1342a2d7ac65fee08aa9de9cfee3c399e835895d50e77a",
+            "scope": "Exact before/after saved-result comparison",
+            "finding": "All nonempty context parts and source SHA are identical to previously sampled result. Exactly one empty primary OCR part was removed; same-page nonempty supplemental floor-plan title remains. No new text/semantic correction or approval."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=27448562",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "f1fb48c6f00a757cc5b479d277dbeed6be5d1f22cc5fc01e6bcce62680965b49",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All15 PDF pages have at least one nonempty OCR variant. Opening needs PSM6. Page3 condition and page7 family/registry/representative documents retained. Page5 schedule table has broken alignment; dates10/10–10/14 and10/17 appear but assignment to housing complex must use original/native text. Page14 same short floor-plan-title pattern as original; reference-only, not fully transcribed."
+          },
+          {
+            "checkedOutput": "results-fast after empty-variant retry",
+            "resultSha256": "0ad39f86769dedc56d59b2f662b9b9e58cb66725a18ef63a4b054f59b3ddfe1d",
+            "scope": "Exact before/after saved-result comparison",
+            "finding": "All nonempty context parts and source SHA are identical to previously sampled result. Exactly one empty primary OCR part was removed; same-page nonempty supplemental floor-plan title remains. No new text/semantic correction or approval."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24552048",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "7ba57b89099138825ddd627d6078117f1422511264b696dd9050f9afabd3a518",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All12 pages have OCR; no whole-page missing marker. Opening retains2015.09.03 basis and existing-applicant same-complex/same-type restriction with different-complex/type exception. Page4 retains9/9–11/6 10:00–17:00, native family/registry/consent and minor-signature clauses. Heading 공급일정 is corrupted, but schedule table is present; table values and row associations still require source check."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560006",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "d3961cb27d402fabc48abf2b0b7190d5ab8a06fa34900d66b86f77618eebd887",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All15 pages have OCR. Opening internet-application principle, page3 no-home household-head/income/assets, page4 ranked schedule and page7 application documents compared with native HWP. Native terms all found across modes. Source-level caution: normalized native HWP itself contains2013.3.11 once and2014.3.11 twice, matching mixed-year OCR schedule. Do not silently repair the year as OCR error. Table columns remain vulnerable to OCR realignment."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24560037",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "0391a6ae97f9a4b04491439440112d105dc27422d9a858c8600c09ba73e1e07c",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All15 pages represented. Opening internet-application principle and2014.1.10 document-target announcement survive. Page3 no-home household-head/income/assets, page4 ranked12/19–24 and1/14–15 documents, page7 document issuance after2013.12.10 sampled against native text. All tracked native terms found across modes; this does not certify all values/table rows."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559279",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "1d2d7a93d299ddb8e33bd67b675fb012dd46768d21f20e467fed4eef01fed622",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All6 pages represented. Opening identifies no-home-public rental687 complex/262 remaining homes, date2013.12.9; page4 age19/no-home household head and page5 representative documents are readable. Major OCR value risk: schedule page5 turns2013 into2019/2018 and mangles closing dates, and family document is 가족관계중명서. Both modes retain the section but must not drive automatic guidance dates or document names. HWP native text provides readable comparison, not a silent substitution."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24559116",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "9b4df3148516694b3a5822d14f9c85e242a81ba60bfefc24ea140c77c91e33f8",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "Single layout page represented by both modes. First-page type/building/unit IDs survive partly; all-mode sparse-language flag is expected for this numeric drawing. Earlier direct image QA confirms spatial/color mappings and unit/type numbers are not reliably transcribed. Reference-only display, not an availability or eligibility inference source."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24562255",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "3d9b6eb3dd97625f7c4c120530d3353dfc09b9f8fb70ef2f9a6e69bcf808779b",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All12 pages represented. PSM1 opening is poor, PSM6 retains complex identity and one-household/one-home restriction. Page2 date2013.10.11 and no-home/income/assets; page3 application10/23 10:00–16:00 with12–13 exclusion and12/11 16:00 result; page5–6 consent/registry/family conditions sampled. Values/table association and headings still corrupted; native terms all occur somewhere but this is not complete verification."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24554423",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "d69e3926e3dad010e345b054845e9c682dcdd200ceb41de0082cb9b590ad117c",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All8 pages represented. Opening2012.05.17 and no-home household condition, page2 ranked schedule, page4 registry/family/health-insurance documents sampled. Material OCR errors remain: native 미성년자녀3명이상 becomes9명이상;5/31 is2012.05.91. Dates and thresholds must not be inferred automatically despite whole-page coverage."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557306",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "75f8ce09b93a2d3b354f4c4ce5bcd7922d34f17d452d7c0a554d933c0f2a9e75",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All5 pages represented. Opening explicitly no income/home/assets/region restriction and age20 household-head; page2 keeps5/17–6/15 10:00–16:00; page3 registry/family/health/income and contract documents retained. Distinguish eligibility-relaxation statement from later income-dependent rental conditions; presence of income-table terms alone is not an eligibility rule."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=24557273",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "1d42fe661e309d636cb45b62acbb30ff2ee15162eb6289c38d1f1162908f305e",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "All9 pages represented. Opening one-household/one-home/non-conversion notice, page2 date2012.05.16/no-home/income, page3 5/24 application and6/14 result, page5 registry/family/health documents sampled. Material numeric OCR risk: native2,974,030 becomes2,974,090. Existing original-reference guard is necessary; no rule approval based on OCR."
+          }
+        ]
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=10053670",
+        "notes": [
+          {
+            "checkedOutput": "results-fast",
+            "resultSha256": "077d2e02623a04f9ba88c8dc53158109e334b8d728972fb6b2f75f694757e957",
+            "scope": "Opening and representative condition/schedule/document sections; all-page indicators",
+            "finding": "Single page represented by both modes. Fast PSM6 body clearly retains2010.10.25 closure and later reannouncement plan. Table51-square-metre row remains omitted, while original visual inspection already established inconsistent printed totals. Do not reconstruct or correct table values from the OCR. No corresponding native full-text HWP exists."
+          }
+        ]
+      }
+    ]
+  },
+  "runtimeJarSha256": "92f1d46cc2a9fa9cf561ebaf0316dd871ad0c186713aba3a2ff0616c31086804",
+  "validation": {
+    "backendUnitTests": 441,
+    "backendIntegrationTests": 265,
+    "parserFocusedTests": 34,
+    "frontendFocusedTests": 18,
+    "integrationScope": "265 integration tests passed before the final parser-only empty-reading handling change; DB code unchanged.",
+    "frontendLint": true,
+    "frontendBuild": true,
+    "runtimeRestarted": true,
+    "mobileBrowserWidths": [
+      393,
+      360
+    ],
+    "browserHorizontalOverflow": false,
+    "browserConsoleErrors": 0,
+    "actualDeviceTested": false
+  },
+  "limitations": [
+    "OCR text is reading assistance; not a verified transcript.",
+    "Floor-plan dimensions, geometry, and spatial associations require the official drawing.",
+    "Printed table inconsistencies and OCR typos are not silently corrected.",
+    "The UI shows bounded relevant excerpts; original attachments remain linked.",
+    "No OCR engine/models are bundled in the deployment container."
+  ]
+}

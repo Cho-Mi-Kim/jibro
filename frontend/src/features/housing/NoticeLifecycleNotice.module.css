@@ -1,0 +1,15 @@
+.notice {
+    border-inline-start: 3px solid var(--brand);
+    padding: 8px 12px;
+    margin-block: 12px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+.notice strong {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.notice p {
+    margin-block: 6px;
+}

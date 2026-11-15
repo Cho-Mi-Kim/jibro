@@ -1,0 +1,28 @@
+{
+  "chungjuPdf" : {
+    "allOtherCharactersIdentical" : true,
+    "repairedSpaces" : 20,
+    "pages" : 35
+  },
+  "hwpx" : [ {
+    "originalNonWhitespaceCharacters" : 33246,
+    "fileId" : "69162254",
+    "sections" : 4,
+    "allTextInOrderPreserved" : true
+  }, {
+    "originalNonWhitespaceCharacters" : 4983,
+    "fileId" : "69190890",
+    "sections" : 1,
+    "allTextInOrderPreserved" : true
+  }, {
+    "originalNonWhitespaceCharacters" : 4983,
+    "fileId" : "69203673",
+    "sections" : 1,
+    "allTextInOrderPreserved" : true
+  }, {
+    "originalNonWhitespaceCharacters" : 8862,
+    "fileId" : "69190887",
+    "sections" : 2,
+    "allTextInOrderPreserved" : true
+  } ]
+}

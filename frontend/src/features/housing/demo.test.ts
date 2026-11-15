@@ -1,8 +1,54 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { demoRequest as call, resetDemo } from './demo';
 import type { Notice, Page, Preparation, Review } from './types';
+import type { Experience } from '../member/memberApi';
 beforeEach(resetDemo);
 describe('계약 시연 어댑터', () => {
+    it('같은 변경 번호의 두 번째 보관은 첫 메모를 덮어쓰지 않는다', async () => {
+        await call('/auth/login', 'POST', { email: 'demo' });
+        const p = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        const path = '/member/archive/' + p.id;
+        await call(path, 'PUT', { revision: p.revision, note: '첫 메모' });
+        for (const revision of [p.revision, p.revision + 1]) {
+            await expect(
+                call(path, 'PUT', { revision, note: '덮어쓰기' }),
+            ).rejects.toMatchObject({ status: 409 });
+        }
+        const archived = await call<Experience[]>('/member/archive', 'GET');
+        expect(archived[0].note).toBe('첫 메모');
+    });
+    it('보관과 복원 후 오래된 저장은 거절하고 최신 기록은 수정할 수 있다', async () => {
+        await call('/auth/login', 'POST', { email: 'demo' });
+        const p = await call<Preparation>('/preparations', 'POST', {
+            noticeId: '1',
+            version: 1,
+        });
+        const path = '/member/archive/' + p.id;
+        await call(path, 'PUT', { revision: p.revision, note: '메모' });
+        await call(path, 'DELETE');
+        await call(path, 'DELETE');
+        const restored = await call<Preparation>(
+            '/preparations/' + p.id,
+            'GET',
+        );
+        expect(restored.revision).toBe(p.revision + 2);
+        await expect(
+            call(path, 'PUT', { revision: p.revision, note: '오래된 요청' }),
+        ).rejects.toMatchObject({ status: 409 });
+        const answersPath = '/preparations/' + p.id + '/answers';
+        await expect(
+            call(answersPath, 'PUT', { revision: p.revision, answers: {} }),
+        ).rejects.toMatchObject({ status: 409 });
+        const updated = await call<Preparation>(answersPath, 'PUT', {
+            revision: restored.revision,
+            answers: { residence: 'YES' },
+        });
+        expect(updated.revision).toBe(restored.revision + 1);
+        expect(updated.answers).toEqual({ residence: 'YES' });
+    });
     it('비회원 저장은 차단하고 같은 공고 시작은 중복 생성하지 않는다', async () => {
         await expect(
             call('/preparations', 'POST', { noticeId: '1', version: 1 }),

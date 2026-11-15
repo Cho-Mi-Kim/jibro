@@ -1,92 +1,14 @@
 import { ForegroundControl } from './ForegroundAlerts';
-import { useEffect, useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'react-router';
-import { useSession } from '../../app/useSession';
-import { call, demoMode } from '../../shared/api/transport';
+import { demoMode } from '../../shared/api/transport';
 import { Button, State } from '../../shared/ui/ui';
+import { useDeliveryChannels } from './useDeliveryChannels';
 import s from './Controls.module.css';
-interface Channels {
-    emailEnabled: boolean;
-    emailVerified: boolean;
-    mailMode: string;
-    publicKey: string | null;
-}
+
 export function DeliveryChannels() {
-    const { user } = useSession(),
-        client = useQueryClient(),
-        key = ['channels', user?.id];
-    const channels = useQuery({
-        queryKey: key,
-        queryFn: () => call<Channels>('/member/channels'),
-        enabled: !demoMode,
-    });
-    const [device, setDevice] = useState<PushSubscription | null>(null);
-    const supported =
-        'serviceWorker' in navigator &&
-        'PushManager' in window &&
-        'Notification' in window;
-    useEffect(() => {
-        let active = true;
-        if (supported)
-            void navigator.serviceWorker
-                .getRegistration()
-                .then((reg) => reg?.pushManager.getSubscription())
-                .then(async (sub) => {
-                    const owned =
-                        sub &&
-                        (await call<boolean>(
-                            '/member/channels/push/status',
-                            'POST',
-                            { endpoint: sub.endpoint },
-                        ));
-                    if (active) setDevice(owned ? sub : null);
-                })
-                .catch(() => {});
-        return () => {
-            active = false;
-        };
-    }, [supported, user?.id]);
-    const change = useMutation({
-        mutationFn: async (action: 'email' | 'subscribe' | 'remove') => {
-            if (action === 'email') {
-                await call('/member/channels/email', 'PUT', {
-                    enabled: !channels.data?.emailEnabled,
-                });
-                return;
-            }
-            if (action === 'remove' && device) {
-                await call('/member/channels/push/remove', 'POST', {
-                    endpoint: device.endpoint,
-                });
-                await device.unsubscribe();
-                setDevice(null);
-                return;
-            }
-            if (!channels.data?.publicKey || !supported)
-                throw new Error('브라우저 푸시를 사용할 수 없습니다.');
-            if ((await Notification.requestPermission()) !== 'granted')
-                throw new Error('브라우저 알림 권한을 허용해야 합니다.');
-            await navigator.serviceWorker.register('/reminder-worker.js');
-            const reg = await navigator.serviceWorker.ready;
-            const base = channels.data.publicKey
-                .replaceAll('-', '+')
-                .replaceAll('_', '/');
-            const bytes = Uint8Array.from(atob(base), (c) => c.charCodeAt(0));
-            const sub =
-                (await reg.pushManager.getSubscription()) ??
-                (await reg.pushManager.subscribe({
-                    userVisibleOnly: true,
-                    applicationServerKey: bytes,
-                }));
-            await call('/member/channels/push', 'PUT', {
-                endpoint: sub.endpoint,
-            });
-            setDevice(sub);
-        },
-        onSuccess: () => client.invalidateQueries({ queryKey: key }),
-    });
-    if (demoMode) return null;
+    const { channels, device, change, supported, enabled } =
+        useDeliveryChannels();
+    if (demoMode || !enabled) return null;
     return (
         <section className={s.section}>
             <h2>알림 수신 방법</h2>
@@ -139,18 +61,25 @@ export function DeliveryChannels() {
                         className="secondary"
                         disabled={
                             change.isPending ||
-                            (!device &&
+                            (supported && device.isPending) ||
+                            (!device.data &&
                                 (!supported || !channels.data.publicKey))
                         }
                         onClick={() =>
-                            change.mutate(device ? 'remove' : 'subscribe')
+                            change.mutate(device.data ? 'remove' : 'subscribe')
                         }
                     >
-                        {device
+                        {device.data
                             ? '이 기기 알림 구독 해제'
                             : '이 기기 푸시 구독'}
                     </Button>
                 </>
+            )}
+            {device.error && (
+                <State
+                    error={device.error}
+                    retry={() => void device.refetch()}
+                />
             )}
             {change.error && <p role="alert">{change.error.message}</p>}
             {change.isSuccess && <p role="status">수신 방법을 반영했습니다.</p>}

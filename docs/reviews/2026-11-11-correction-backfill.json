@@ -1,0 +1,304 @@
+{
+  "checkedAt": "2026-11-11T20:56:37.0493177+09:00",
+  "correctionCandidates": 3362,
+  "freshOfficialClosedExcluded": 624,
+  "archivedOfficialClosedExcluded": 2716,
+  "linkedCheckResults": 13,
+  "newlyRetainedLinks": [
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020980&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300020980&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020970&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020980&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalPanId": "2015122300020970",
+        "correctedPanId": "2015122300020980",
+        "historyHtmlSha256": "096e699eaa54c2383b37a9a8c6d8693923f286171966a69b46de165be141e6b6",
+        "originalHtmlSha256": "845c1d25b0bf12fe1fff4c9264a6a23e2c46d2150f05d2937bff70261014eb1d",
+        "correctedHtmlSha256": "1ceb2594d725d3d9d233535d0775ce34cbae0b92fd29bba2eba97ba31834233b"
+      },
+      "originalId": "c31f14c0-be44-485b-b1ca-a2dfe6fa4b38",
+      "verifiedAt": "2026-11-11T20:42:32.180566+09:00",
+      "correctedId": "efbd1503-652d-41f2-8985-648d9b61a2a2",
+      "originalTitle": "광주하남1 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "correctedTitle": "[정정공고]광주하남1 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020977&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300020977&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020969&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020977&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalPanId": "2015122300020969",
+        "correctedPanId": "2015122300020977",
+        "historyHtmlSha256": "0547a9869caa3ff1fe988969821da63611b8c56986abf79cb02b50eb5f38ec80",
+        "originalHtmlSha256": "85b6f260cf8437edf3396b58dadda2b6b78d18c50844add973f0bc05e0aa7e2d",
+        "correctedHtmlSha256": "d41fa3bd2ff3734cb0c4b1a3da37f48e1a6d119f861c34a2fecb3d2b0d11d312"
+      },
+      "originalId": "92515207-0ed2-4973-998f-407c005f60f0",
+      "verifiedAt": "2026-11-11T20:42:31.70055+09:00",
+      "correctedId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+      "originalTitle": "광주두암2 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "correctedTitle": "[정정공고]광주두암2 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021031&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300021031&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020987&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021031&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "originalPanId": "2015122300020987",
+        "correctedPanId": "2015122300021031",
+        "historyHtmlSha256": "1815fb835d3fb5fd11849f776146b10ace170468557f04e5b27cb3d6df9ed21b",
+        "originalHtmlSha256": "6a1960d8f0623310f33dd48bc5e2c02b110e24d505ff52fffa9c1b880ec3d2a0",
+        "correctedHtmlSha256": "b575866b2a4cad8200b3b0797358b9c7b1c0ca3fa461358a6da0423eb0af4ff7"
+      },
+      "originalId": "c6b7edfa-4ccd-422f-8323-ada0b586c83f",
+      "verifiedAt": "2026-11-11T20:42:29.60729+09:00",
+      "correctedId": "19807681-f337-4116-9564-799fe5b91fa5",
+      "originalTitle": "'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+      "correctedTitle": "[정정공고]'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020976&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300020976&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020966&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020976&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalPanId": "2015122300020966",
+        "correctedPanId": "2015122300020976",
+        "historyHtmlSha256": "c9f04e6f3b0514f735a2c7bede720c10977cc1b8b70e639dbb22b1ca7caa9480",
+        "originalHtmlSha256": "64ed3f0c3540ccc1cee1bda25d6074f1d6938e5448bdfbfc89b64a2813899ff1",
+        "correctedHtmlSha256": "b0b559d665fd7e0ff2d6a78cbfc9b8ba8ba27d66ae676b60f5001cd3e758a9bf"
+      },
+      "originalId": "8e1fa2d1-5b11-44e7-a53a-4ef945d56382",
+      "verifiedAt": "2026-11-11T20:42:31.528632+09:00",
+      "correctedId": "a04b02e6-04f4-4f9a-9ed7-599d295c7412",
+      "originalTitle": "광주우산3 영구임대주택 예비입주자 모집 공고(모집공고일: 2026.10.27)",
+      "correctedTitle": "[정정공고]광주우산3 영구임대주택 예비입주자 모집 공고(모집공고일: 2026.10.27)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020978&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300020978&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020968&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020978&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalPanId": "2015122300020968",
+        "correctedPanId": "2015122300020978",
+        "historyHtmlSha256": "553e6efb559039ff62fed87a1a20d730815963dc16ad05220657f3913b408f47",
+        "originalHtmlSha256": "041401eb92019a1c272ef1735c774b60f4d32a233fe8a7ecb32e50b537b73a04",
+        "correctedHtmlSha256": "5d049873162e83f37b9e30e6951803e4b50f0cde8802daa1577c04b995eb60fa"
+      },
+      "originalId": "55adc8fb-a52f-47de-93ca-916ef39f5a43",
+      "verifiedAt": "2026-11-11T20:42:30.846255+09:00",
+      "correctedId": "8c78deeb-d530-4395-aa8f-e2feaf621f52",
+      "originalTitle": "광주오치1 영구임대주택 예비입주자 표준모집공고문(2026.10.27. 공고)",
+      "correctedTitle": "[정정공고]광주오치1 영구임대주택 예비입주자 표준모집공고문(2026.10.27. 공고)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021045&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300021045&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020850&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021045&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+        "originalPanId": "2015122300020850",
+        "correctedPanId": "2015122300021045",
+        "historyHtmlSha256": "8b8f315925e2c706130e6046fa3379b6e2c8dade0a76e19f2304552a0d29ac29",
+        "originalHtmlSha256": "b727c36a19d83148dd52eeeb4656685bb2bf6866bfdb1ed608b9f476ab5a9e52",
+        "correctedHtmlSha256": "430c3a681705506f78687b9217d786de4c7c848f6d7465bf1774c2de10dcb217"
+      },
+      "originalId": "a7d84192-a652-4c15-bb00-c57ade2b1c68",
+      "verifiedAt": "2026-11-11T20:42:28.081029+09:00",
+      "correctedId": "80ff86e3-9585-453e-be3b-1cd6f0d7b120",
+      "originalTitle": "익산제3일반산단 행복주택 입주자격완화 추가모집(동호지정,선계약후검증)",
+      "correctedTitle": "[정정공고]익산제3일반산단 행복주택 입주자격완화 추가모집(동호지정,선계약후검증)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020981&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300020981&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020967&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020981&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalPanId": "2015122300020967",
+        "correctedPanId": "2015122300020981",
+        "historyHtmlSha256": "00a558545cbc8380ca67c3b43bae07c4ece71cd0106c35dd865095b52f815942",
+        "originalHtmlSha256": "8fcd4c5c6ca8d04c77345f80620d8f5d379fba091d1457758363bea2cb693602",
+        "correctedHtmlSha256": "4a313348acfa7789906309b81d2681623465cddfca50c3e14421e3ba8e6d54e5"
+      },
+      "originalId": "231e9c7d-cd86-4383-8eab-e2ec4d5bd49b",
+      "verifiedAt": "2026-11-11T20:42:30.396381+09:00",
+      "correctedId": "0000e667-e82e-4db9-b3cf-947ba42146f8",
+      "originalTitle": "광주두암4 영구임대주택 예비입주자모집 공고(모집공고일 : 2026.10.27)",
+      "correctedTitle": "[정정공고]광주두암4 영구임대주택 예비입주자모집 공고(모집공고일 : 2026.10.27)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020979&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300020979&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020971&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020979&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+        "originalPanId": "2015122300020971",
+        "correctedPanId": "2015122300020979",
+        "historyHtmlSha256": "d9b552ce2bf6efd6136113dce9fd488ac5c191a8bbf567951c6fb0d93bd40b58",
+        "originalHtmlSha256": "0e5775161ffb5ed9e4dabd6bf80bf7f5ec9bc813dcb654e39157f7c0a37ec557",
+        "correctedHtmlSha256": "8e945cf1daff804c8ae0118dee41917d2c1b3aad5d3b6279d00d83b6a3e86bd7"
+      },
+      "originalId": "ca822507-04dd-4432-85a4-80f100e69089",
+      "verifiedAt": "2026-11-11T20:42:31.075538+09:00",
+      "correctedId": "9d43c8c3-370f-49ce-b0b9-c3e402a8627f",
+      "originalTitle": " 광주하남1 영구임대주택 그린리모델링 예비입주자 모집 공고(공고일 2026.10.27)",
+      "correctedTitle": "[정정공고] 광주하남1 영구임대주택 그린리모델링 예비입주자 모집 공고(공고일 2026.10.27)"
+    },
+    {
+      "evidence": {
+        "source": {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021030&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "label": "LH 공식 정정 공고 · 정정사유",
+          "checkedAt": "2026-11-11"
+        },
+        "historyUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=2015122300021030&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "originalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021025&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "correctedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021030&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "originalPanId": "2015122300021025",
+        "correctedPanId": "2015122300021030",
+        "historyHtmlSha256": "2bdda4949805b58d52c45ec0ce4ad8f00e2822c455a43e7ca7cbc0138a7869fa",
+        "originalHtmlSha256": "635412faae374300626e5fa1cca5023a2fc41eea618bd28eac235d5c3e80dce6",
+        "correctedHtmlSha256": "de0278ac82c3d1466ed21e401ac87853821a8219784d5b65945d931606352097"
+      },
+      "originalId": "19f6be66-7f6f-4017-919c-c82fac7090b2",
+      "verifiedAt": "2026-11-11T20:42:28.081029+09:00",
+      "correctedId": "8e0362e4-0102-419d-b699-075e205ae4aa",
+      "originalTitle": "'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+      "correctedTitle": "[정정공고][정정공고]'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)"
+    }
+  ],
+  "restoredClosedPair": "085a9290-cef2-4fc5-919b-be53a2c2e24b",
+  "unresolved": [
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 서울등촌6 50년 공공임대주택 예비입주자 모집",
+      "id": "484d210f-3487-47c8-b708-a9a1cd0ed5f0",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_LINK_UNVERIFIED",
+      "at": "2026-11-11T11:45:43.516358500Z",
+      "diagnosis": "Official history explicitly lists the original, but original detail metadata still points to itself as a normal notice. Current verifier requires the original to point to the latest correction, so verification stops. This is a legacy-format compatibility limitation, not absence of the official history link."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] [정정공고]강원혁신 B-2블록 10년 공공임대 입주자 추가모집 공고",
+      "id": "e458eb8f-56f0-47a2-8406-e187d0c7e949",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_LINK_UNVERIFIED",
+      "at": "2026-11-11T11:45:43.5499Z",
+      "diagnosis": "Official history explicitly lists the original, but original detail metadata still points to itself as a normal notice. Current verifier requires the original to point to the latest correction, so verification stops. This is a legacy-format compatibility limitation, not absence of the official history link."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 파주운정 A23블럭 공공임대 예비입주자 모집공고",
+      "id": "cfcd17e9-cb27-4baa-8e4e-38cd833357c1",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_HISTORY_UNVERIFIED",
+      "at": "2026-11-11T11:45:43.978028100Z",
+      "diagnosis": "Official history contains only one correction row and no original entry; navigation also has no original ID."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 평택소사벌 B-2블록 10년공공임대주택리츠 추가입주자 모집공고",
+      "id": "f72fb6e4-2306-4d4a-9587-e0be646a5516",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_LINK_UNVERIFIED",
+      "at": "2026-11-11T11:45:44.144714600Z",
+      "diagnosis": "Official history explicitly lists the original, but original detail metadata still points to itself as a normal notice. Current verifier requires the original to point to the latest correction, so verification stops. This is a legacy-format compatibility limitation, not absence of the official history link."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 충주안림 LH천년나무1단지 10년공공임대아파트 잔여세대 추가입주자모집",
+      "id": "5f0555e4-f4d6-456f-a1ad-d7726e44667d",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_HISTORY_UNVERIFIED",
+      "at": "2026-11-11T11:45:44.518144Z",
+      "diagnosis": "Official history contains only one correction row and no original entry; navigation also has no original ID."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 평택소사벌 B-5블록 10년공공임대주택 잔여세대 입주자모집 공고",
+      "id": "3b88774b-0f9b-4730-8619-8852e887d791",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_LINK_UNVERIFIED",
+      "at": "2026-11-11T11:45:44.519144Z",
+      "diagnosis": "Official history explicitly lists the original, but original detail metadata still points to itself as a normal notice. Current verifier requires the original to point to the latest correction, so verification stops. This is a legacy-format compatibility limitation, not absence of the official history link."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] [정정공고]충북혁신 B-7블록 10년 공공임대 입주자모집재공고 (2014.11.21) (임대조건완화)",
+      "id": "2a89466d-aaf5-481a-bc5f-a979c6208cd7",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_LINK_UNVERIFIED",
+      "at": "2026-11-11T11:45:45.202426500Z",
+      "diagnosis": "Official history explicitly lists the original, but original detail metadata still points to itself as a normal notice. Current verifier requires the original to point to the latest correction, so verification stops. This is a legacy-format compatibility limitation, not absence of the official history link."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 평택소사벌 B-5블록 10년공공임대주택 잔여세대 추가입주자 모집 공고",
+      "id": "982d3a99-8afd-4400-a62d-00f49a97d5d1",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_LINK_UNVERIFIED",
+      "at": "2026-11-11T11:45:45.206426Z",
+      "diagnosis": "Official history explicitly lists the original, but original detail metadata still points to itself as a normal notice. Current verifier requires the original to point to the latest correction, so verification stops. This is a legacy-format compatibility limitation, not absence of the official history link."
+    },
+    {
+      "result": "OFFICIAL_RELATION_UNVERIFIED",
+      "title": "[정정공고] 대구혁신 B-3블록 10년 공공임대주택 추가 입주자 모집",
+      "id": "fae762c2-2969-4769-86ed-3e84870be4d1",
+      "error": "IllegalArgumentException:OFFICIAL_CORRECTION_HISTORY_UNVERIFIED",
+      "at": "2026-11-11T11:45:45.600878400Z",
+      "diagnosis": "Official history contains only one correction row and no original entry; navigation also has no original ID."
+    }
+  ],
+  "officialStatusBackfill": {
+    "total": 19329,
+    "matched": 19329,
+    "closed": 19240,
+    "changed": 19240,
+    "unmatched": 0
+  },
+  "defaultScopeCounts": {
+    "CLOSED": 9,
+    "OPEN": 10,
+    "UPCOMING": 9,
+    "total": 83,
+    "UNKNOWN": 55
+  },
+  "limitation": "9 legacy notices still state 공고중 without deadlines on official pages; correction relationship proof remains unverified. No title-only merge. One newly linked closed pair was restored to its pre-task absence after exact current-fingerprint API status audit.",
+  "diagnosisCheckedAt": "2026-11-11T21:02:05.1539968+09:00",
+  "followup": {
+    "remaining": 3,
+    "report": "2026-11-11-legacy-six-corrections.json",
+    "note": "Historical unresolved array preserved; six were resolved by subsequent explicit request.",
+    "resolved": 6
+  }
+}

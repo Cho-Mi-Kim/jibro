@@ -1,14 +1,16 @@
+import { activeSchedules } from '../housing/noticeLifecycle';
 import { Link } from 'react-router';
 import type { Notice, Preparation } from '../housing/types';
 import { currentPreparationSchedules } from '../housing/schedules';
 import {
     daysLeft,
     displayDate,
-    nextSchedule,
-} from '../../shared/ui/housingHelpers';
+    nextNoticeSchedule,
+} from '../housing/noticeDisplay';
 import { Icon } from '../../shared/ui/Icon';
 import { CalendarExport } from './CalendarExport';
 import styles from './ScheduleNextCard.module.css';
+import { PreparationScrollSection } from './PreparationScrollSection';
 
 export function ScheduleNextCard({
     notice,
@@ -17,13 +19,20 @@ export function ScheduleNextCard({
     notice?: Notice;
     preparation: Preparation;
 }) {
-    const next = nextSchedule(
-        currentPreparationSchedules(preparation, notice),
-        notice?.endDate,
+    const next = nextNoticeSchedule(
+        notice,
+        activeSchedules(
+            notice,
+            currentPreparationSchedules(preparation, notice),
+        ),
     );
     const titleParts = next?.title.match(/^(.*?)\s*\(([^()]*)\)\s*$/);
     return (
-        <aside className={styles.card} aria-label="다음 중요한 일정">
+        <PreparationScrollSection
+            as="aside"
+            className={styles.card}
+            aria-label="다음 중요한 일정"
+        >
             <h3>다음 중요한 일정</h3>
             {next ? (
                 <>
@@ -60,6 +69,6 @@ export function ScheduleNextCard({
                     />
                 )}
             </div>
-        </aside>
+        </PreparationScrollSection>
     );
 }

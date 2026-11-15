@@ -1,12 +1,14 @@
+import { Collapse } from '../shared/ui/Collapse';
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useSession } from '../app/useSession';
+import { useSession } from '../features/auth/useSession';
 import { clearToken, demoMode } from '../shared/api/transport';
 import { memberApi, type Profile } from '../features/member/memberApi';
 import { Button, Heading, State } from '../shared/ui/ui';
 import s from '../features/member/Controls.module.css';
 import { mailHint } from '../features/member/mailHint';
+import { AccountConnections } from '../features/auth/AccountConnections';
 function ProfileEditor({
     profile,
     onSave,
@@ -116,6 +118,7 @@ export function AccountSettingsPage() {
                             });
                         }}
                     />
+                    <AccountConnections />
                     {!user?.trial && (
                         <section className={s.section}>
                             <h2>이메일</h2>
@@ -191,25 +194,23 @@ export function AccountSettingsPage() {
                             >
                                 회원 탈퇴 안내
                             </button>
-                            {showClosure && (
-                                <>
-                                    <p>
-                                        탈퇴하면 준비 기록과 계정 정보가
-                                        삭제됩니다. 이메일로 받은 링크에서 다시
-                                        확인해야 탈퇴가 완료됩니다.
-                                    </p>
-                                    <Button
-                                        className="secondary"
-                                        disabled={
-                                            mail.isPending ||
-                                            q.data.mailMode === 'unavailable'
-                                        }
-                                        onClick={() => mail.mutate('delete')}
-                                    >
-                                        탈퇴 확인 링크 요청
-                                    </Button>
-                                </>
-                            )}
+                            <Collapse open={showClosure}>
+                                <p>
+                                    탈퇴하면 준비 기록과 계정 정보가 삭제됩니다.
+                                    이메일로 받은 링크에서 다시 확인해야 탈퇴가
+                                    완료됩니다.
+                                </p>
+                                <Button
+                                    className="secondary"
+                                    disabled={
+                                        mail.isPending ||
+                                        q.data.mailMode === 'unavailable'
+                                    }
+                                    onClick={() => mail.mutate('delete')}
+                                >
+                                    탈퇴 확인 링크 요청
+                                </Button>
+                            </Collapse>
                         </section>
                     )}
                     {mail.isSuccess && (

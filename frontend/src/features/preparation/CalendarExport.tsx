@@ -1,9 +1,10 @@
+import { applicationInterrupted } from '../housing/noticeLifecycle';
 import { useRef, useState } from 'react';
 import { Button } from '../../shared/ui/ui';
 import { Icon } from '../../shared/ui/Icon';
 import type { Notice, Preparation } from '../housing/types';
 import { calendarFile, calendarItems } from './calendar';
-import { displayDate } from '../../shared/ui/housingHelpers';
+import { displayDate } from '../housing/noticeDisplay';
 import s from '../member/Controls.module.css';
 export function CalendarExport({
     notice,
@@ -44,6 +45,12 @@ export function CalendarExport({
                 선택한 공식 일정을 복사합니다. 공고 변경 시 다시 가져와야 하며
                 개인 답변은 포함되지 않습니다.
             </p>
+            {applicationInterrupted(notice) && (
+                <p>
+                    공식 상태에 따라 중지된 일정은 제외했습니다. 이미 가져온
+                    캘린더 일정은 직접 정리해 주세요.
+                </p>
+            )}
             {!items.length && (
                 <p>공식 근거와 날짜가 함께 확인된 일정이 없습니다.</p>
             )}

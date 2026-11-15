@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-11-10T00:48:47.197160+09:00",
+  "result": "NO_CONFIRMED_BLOCKING_DEFECT",
+  "scope": "Only conversion-rate resolution; no approval of other renewal issues",
+  "package": ".tools\\qa\\active12-recheck-20261110\\standards\\packages\\e15cb019-012f-4edb-9bcd-c760885c49bf.json",
+  "packageSha256": "6d39494cce1638ead14311c6a4366430278a410995cd74dbdbc164ae1d4f5b67",
+  "officialPolicyPdfSha256": "ebd754a6a96e9d4216118626fdd24be0a1f7f23c8a86335a521f37cf68efdb82",
+  "officialPolicyHtmlSha256": "d1ac07d84365de38b06167331d9685458c0a40c6ca55abed0196a71e501fac31",
+  "recruitmentPdfSha256": "5f8812f2e157454137558fd2490887d0c8c9b74607a25bb4a2b806d4636acca4",
+  "boundaries": [
+    "2026-01-01 onward new payments only",
+    "No retrospective application to existing payments",
+    "Future rate change caveat retained",
+    "National rental is not sale-conversion/land-lease exception",
+    "Other unresolved issues retained"
+  ],
+  "mutation": "No existing package/code/database writes"
+}

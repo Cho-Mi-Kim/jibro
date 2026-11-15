@@ -1,0 +1,22 @@
+.collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-rows var(--motion-duration, 750ms) ease,
+        opacity var(--motion-duration, 750ms) ease;
+}
+.collapse[data-open='true'] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+.content {
+    min-height: 0;
+    overflow: hidden;
+}
+@starting-style {
+    .collapse[data-open='true'] {
+        grid-template-rows: 0fr;
+        opacity: 0;
+    }
+}

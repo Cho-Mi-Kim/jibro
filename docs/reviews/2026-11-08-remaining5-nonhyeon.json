@@ -1,0 +1,154 @@
+{
+  "checkedAt": "2026-11-08T06:44:26.392331+00:00",
+  "scope": "공식 HTML·목록·첨부 재조회, 코드 읽기 조사; DB 변경 없음",
+  "originalNoticeId": "4d2e2916-60d2-4ffc-a63a-40d1843fd590",
+  "correctedNoticeId": "3fe0dbde-d45b-42ff-bc6a-14bc2bd2c6e7",
+  "officialUrls": {
+    "original": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021024&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+    "corrected": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021026&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026"
+  },
+  "htmlSnapshots": {
+    "original": {
+      "file": ".tools\\qa\\remaining5\\nonhyeon-original.html",
+      "sha256": "b16f4a4e2357c236c79b78c860c42f5fda3fe209d251a1dbb36f2f4cd5c0c31b",
+      "bytes": 203730,
+      "title": "웹접근성 및 표준 준수 지침"
+    },
+    "corrected": {
+      "file": ".tools\\qa\\remaining5\\nonhyeon-corrected.html",
+      "sha256": "5e2c50133e5b7578521b1c51992c3142bdd065c607dfeb4714eadd34c20f2cd3",
+      "bytes": 203976,
+      "title": "웹접근성 및 표준 준수 지침"
+    },
+    "search": {
+      "file": ".tools\\qa\\remaining5\\nonhyeon-search.html",
+      "sha256": "752833b0ebf56d615ff62cc8f6e1babd2584f7e0ae97d9ac53509f2ac0fb991e",
+      "bytes": 116736,
+      "title": "웹접근성 및 표준 준수 지침"
+    }
+  },
+  "officialSearch": {
+    "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancList.do?mi=1026&viewType=srch&panNm=%EC%9D%B8%EC%B2%9C%EB%85%BC%ED%98%842%EB%8B%A8%EC%A7%80",
+    "rows": [
+      {
+        "panId": "2015122300021026",
+        "text": "2 국민임대 [정정공고]인천논현2단지 국임임대주택 예비입주자 모집 공고 1일전 인천광역시 첨부파일 있음 2026.11.05 2026.11.20 공고중 11,959"
+      },
+      {
+        "panId": "2015122300021024",
+        "text": "1 국민임대 인천논현2단지 국임임대주택 예비입주자 모집 공고 1일전 인천광역시 첨부파일 있음 2026.11.05 2026.11.20 정정공고중 4,296"
+      }
+    ],
+    "resultCount": 2
+  },
+  "explicitRelation": {
+    "originalPage": {
+      "panId": "2015122300021024",
+      "currPanId": "2015122300021026",
+      "panKdCd": "01",
+      "currPanKdCd": "02",
+      "GoCrc.panId": "2015122300021026"
+    },
+    "correctedPage": {
+      "panId": "2015122300021026",
+      "currPanId": "2015122300021026",
+      "panKdCd": "02",
+      "currPanKdCd": "02",
+      "GoCrc.sOtxtPanId": "2015122300021024"
+    },
+    "reason": "10P. 현장신청 및 서류제출 장소 : 관리사무소 -> 210동 회의실(구 탁구장) 변경",
+    "conclusion": "CONFIRMED_OFFICIAL_RECIPROCAL_CORRECTION_IDS",
+    "titleMatchingUsed": false
+  },
+  "newerCorrection": {
+    "found": false,
+    "basis": "정정 페이지 currPanId가 자기 자신이며 공식 제목 검색은 원본·정정 2건만 반환. 해당 확인 시각/검색 범위의 결론이며 미래 정정 부재를 보증하지 않음"
+  },
+  "attachments": [
+    {
+      "fileId": "69307482",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69307482",
+      "status": 200,
+      "bytes": 1097614,
+      "sha256": "7e10e04fd9d2be240f994bd31b124532fdc85f02a62d83fa04d13b3435126321",
+      "checkedAt": "2026-11-08T06:42:06.454974+00:00"
+    },
+    {
+      "fileId": "69307340",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69307340",
+      "status": 200,
+      "bytes": 1322779,
+      "sha256": "758da64ff4f4b3c6cbb831ad36789d872674b4ab6ef44117f4033d1ce5d53d5d",
+      "checkedAt": "2026-11-08T06:42:06.471008+00:00"
+    },
+    {
+      "fileId": "69314329",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69314329",
+      "status": 200,
+      "bytes": 1097270,
+      "sha256": "86ff811b2a581b22808eadf686612340f6044958b172e870126ea2ab68cbb84d",
+      "checkedAt": "2026-11-08T06:42:06.657315+00:00"
+    },
+    {
+      "fileId": "69314336",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69314336",
+      "status": 200,
+      "bytes": 1322834,
+      "sha256": "d4ec78c0e528b4a2c5cf0889cb6afe5024bbf33bbb8b69c951abdeedaf3d672b",
+      "checkedAt": "2026-11-08T06:42:06.683648+00:00"
+    }
+  ],
+  "attachmentComparison": {
+    "allFourMatchPreviouslyReviewedBytes": true,
+    "priorDiffFiles": [
+      ".tools/qa/resolve18/group-a/nonhyeon-version-diff-1.txt",
+      ".tools/qa/resolve18/group-a/nonhyeon-version-diff-2.txt"
+    ],
+    "change": "원문 10쪽 장소 관리사무소 → 210동 회의실(구 탁구장); PDF 표 배치와 줄 순서는 변경에 따라 이동"
+  },
+  "existingCode": {
+    "sourceIdentity": "LhNoticeClient SHA-derived source_key uses official URL; different panId creates separate notices",
+    "versionTracking": "Notice.version/revision + published_notice_version only within same notice_id",
+    "lifecycle": "NORMAL/EARLY_CLOSED/CANCELLED only; correction is not cancellation",
+    "officialParser": "OfficialDetailParser removes script blocks before extraction; current reciprocal IDs not preserved",
+    "crossNoticeCorrectionModel": false
+  },
+  "recommendation": {
+    "disposition": "LINK_ORIGINAL_TO_REVIEWED_CORRECTION",
+    "preserve": [
+      "원본 출처·공개 이력",
+      "기존 개인 준비 스냅샷",
+      "정정 원고의 독립 검수"
+    ],
+    "avoid": [
+      "제목 유사도로 자동 합치기",
+      "원본을 취소로 오표시",
+      "기존 개인 답변을 정정으로 자동 이동"
+    ],
+    "implementation": "V28 notice_correction and explicit verified link service; official reciprocal panId + both revisions + target PASS/NORMAL required; stale links hidden; no public write endpoint"
+  },
+  "limitations": [
+    "공식 전화 확인 미실시",
+    "이 에이전트는 DB 적용/Gradle을 실행하지 않음. root가 검증·적용 담당",
+    "원본 HOLD와 개인 기록은 변경하지 않음; 유효 정정 연결이 있어도 별도 조회 정책 없이는 대기열 count에 남음"
+  ],
+  "implementationStatus": {
+    "status": "CODE_READY_ROOT_GRADLE_PENDING",
+    "files": [
+      "backend/src/main/resources/db/migration/V28__notice_correction_links.sql",
+      "backend/src/main/java/org/jibro/notice/OfficialCorrectionLink.java",
+      "backend/src/main/java/org/jibro/notice/NoticeCorrectionRepository.java",
+      "backend/src/main/java/org/jibro/notice/NoticeCorrectionService.java",
+      "backend/src/main/java/org/jibro/notice/NoticeCorrectionController.java",
+      "backend/src/main/java/org/jibro/collection/LhNoticeClient.java"
+    ],
+    "testsAdded": {
+      "OfficialCorrectionLinkTest": 6,
+      "NoticeCorrectionIntegrationTest": 8
+    },
+    "actualHtmlProbe": "PASS: fresh original/corrected HTML parsed without executing JavaScript; reciprocal 21024→21026 and reverse original ID verified",
+    "databaseChangesPerformedByThisAgent": false,
+    "gradleExecutedByThisAgent": false,
+    "sourceIdentityFix": "대표 근거가 PDF로 변경된 실제 적용 실패를 보완: notice_extraction에서 해당 공고의 공식 상세 URL 후보를 읽고 LhNoticeClient.sourceKey(URL)와 notice.source_key가 일치하는 URL만 사용. fresh HTML 양방향 검증·revision 잠금은 유지."
+  }
+}

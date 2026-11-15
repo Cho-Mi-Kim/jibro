@@ -1,0 +1,1515 @@
+{
+  "content": {
+    "summary": "2026.10.06 기준 대구·경북 거주 무주택세대구성원을 위한 든든전세주택 모집입니다. 정정된 공급주택목록은 282호이며 정정 내용은 확장면적 오입력 수정입니다. 입주 자격과 우선분양전환용 소득·자산 검증은 다르며, 소득·자산 초과를 입주 신청 불가로 표시하지 않습니다. 온라인 신청은 2026-10-19 10:00~2026-10-21 16:00, 서류대상자는 2026-10-23 17:00 이후, 대상자 서류제출은 2026-10-26 10:00~2026-10-28 16:00, 당첨·예비순번은 2026.12.03 17:00 이후입니다. 발표·검증 일정은 변경될 수 있어 공식 결과를 다시 확인하세요. 가점순 선정·동점 추첨·동호 추첨을 구분하고 미성년 예외는 공고문 기준으로 안내합니다. 개인정보 필수·선택 동의와 금융정보 제공·미통보 선택을 구분하며, 온라인 일반 입력정보 수정 범위만 추가 확인이 필요합니다. 지역·무주택 범위·확인된 가족 서류 등 독립 항목의 준비는 이어갈 수 있습니다. 공통 서류는 공고일 이후 발급하며, 제출 방식은 서류대상자 발표의 별도 안내를 확인합니다. 예비 지위는 순번 발표일부터 90일, 입주는 원칙적으로 계약 후 90일 이내이며 계약·주택개방 날짜는 개별 안내입니다. 일부 100세대 이상 주택의 입주지정기간은 계약 1개월 뒤 부여될 수 있다는 예외를 확인하세요. 최종 입주·가점·분양 여부는 운영기관 심사와 공식 안내로 결정됩니다.",
+    "evidence": {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020929&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "label": "LH청약플러스 공식 모집공고",
+      "checkedAt": "2026-11-08"
+    },
+    "documents": [
+      {
+        "id": "resident_register",
+        "title": "주민등록표등본",
+        "issuer": "행정복지센터",
+        "method": "2026.10.06 이후 발급분을 준비합니다. 공고상 공식 제출용은 주민등록번호 전체 표기 등 요구 항목을 확인하되 집으로에는 원본·번호를 입력하거나 올리지 않습니다. 신청자 본인 등본에 세대주 관계·전입/변동 사유·세대구성·이름·번호 등 전체 항목이 표시되도록 발급합니다. MyMy 가능 여부와 연계 성공을 확인하세요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=8",
+          "label": "공고문 8쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "resident_history",
+        "title": "주민등록표초본",
+        "issuer": "행정복지센터",
+        "method": "2026.10.06 이후 발급분을 준비합니다. 공고상 공식 제출용은 주민등록번호 전체 표기 등 요구 항목을 확인하되 집으로에는 원본·번호를 입력하거나 올리지 않습니다. 신청자 본인의 과거 주소변동 이력을 반드시 포함합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=8",
+          "label": "공고문 8쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "family_certificate",
+        "title": "가족관계증명서(상세)",
+        "issuer": "행정복지센터",
+        "method": "2026.10.06 이후 발급분을 준비합니다. 공고상 공식 제출용은 주민등록번호 전체 표기 등 요구 항목을 확인하되 집으로에는 원본·번호를 입력하거나 올리지 않습니다. 본인 기준 상세 증명서를 준비합니다. MyMy 이용 시 추가정보 입력 오류로 연계되지 않으면 직접 제출합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=8",
+          "label": "공고문 8쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "issuer": "LH 공고 첨부 양식",
+        "method": "필수: 개인정보 수집·이용과 제3자 제공 동의 및 대상 세대원의 서명입니다. 14세 이상은 본인, 14세 미만은 법정대리인이 서명합니다. 선택: 장애 관련 민감정보 동의와 공공주택 정보제공·홍보 동의입니다. 민감정보 미동의 시 양식에 적힌 장애 관련 우선공급·배점 적용에서 제외될 수 있습니다. 홍보 미동의는 청약서비스 이용을 제한하지 않고 관련 메시지·전화만 받지 않는 것입니다. 이 공고에 없는 장애인 가점을 새로 적용한다는 뜻은 아닙니다.",
+        "evidence": {
+          "label": "공고문 23~24쪽 · 필수·선택 동의",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=23",
+          "checkedAt": "2026-11-12"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "minor_proof",
+        "title": "미성년 세대주·대리 신청 증빙",
+        "issuer": "행정복지센터·관할기관",
+        "method": "자녀가 동일 등본에 등재된 세대주 또는 외국인 부모가 내국인 미성년 자녀를 대리하는 유형임을 확인하는 가족관계·등본 및 법정대리인 관련 증빙을 담당기관에 확인합니다. 세부 양식은 임의로 정하지 않습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "label": "공고문 4쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "age",
+        "conditionAnswerValues": [
+          "CHILD_HEAD",
+          "FOREIGN_PARENT"
+        ]
+      },
+      {
+        "id": "minor_sibling_proof",
+        "title": "형제자매 부양 미성년 세대주 증빙",
+        "issuer": "관할기관",
+        "method": "형제자매가 함께 등재된 주민등록표등본과 직계존속의 사망·실종선고·행방불명 등 해당 사유의 증빙을 준비합니다. 행방불명은 공고에 명시된 신고접수증으로 증빙합니다. Q&A 목록 누락을 이유로 예외 적용을 보류하지 않습니다.",
+        "evidence": {
+          "label": "공고문 4쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "checkedAt": "2026-11-12"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "minor_sibling",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "household_exclusion",
+        "title": "세대원 제외 사유 입증자료",
+        "issuer": "법원·경찰서·관할기관",
+        "method": "실종선고 절차, 행방불명 신고·확인 또는 생계·주거 분리 관할기관 확인 등 선택한 사유에 해당하는 입증 자료를 준비합니다. 단순 별거 주장만으로 제외하지 않습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "label": "공고문 4쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "household_exclusions",
+        "conditionAnswerValues": [
+          "COURT",
+          "MISSING",
+          "SEPARATE"
+        ]
+      },
+      {
+        "id": "spouse_register",
+        "title": "분리 배우자 주민등록표등본",
+        "issuer": "행정복지센터·출입국 관서",
+        "method": "배우자 주민등록표가 분리된 경우 배우자 등본의 전체 항목을 포함해 준비합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family_documents",
+        "conditionAnswerValues": [
+          "SEPARATED_SPOUSE"
+        ]
+      },
+      {
+        "id": "new_member_history",
+        "title": "공고 후 전입 세대원 주민등록표초본",
+        "issuer": "행정복지센터·출입국 관서",
+        "method": "공고일 이후 전입 세대원의 과거 주소변동 이력을 포함합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family_documents",
+        "conditionAnswerValues": [
+          "NEW_MEMBER"
+        ]
+      },
+      {
+        "id": "fiance_register",
+        "title": "예비 배우자 주민등록표등본",
+        "issuer": "행정복지센터·출입국 관서",
+        "method": "예비신혼부부는 예비 배우자 등본도 추가 제출합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family_documents",
+        "conditionAnswerValues": [
+          "ENGAGED"
+        ]
+      },
+      {
+        "id": "family_plan",
+        "title": "예비신혼부부 세대구성 확인서",
+        "issuer": "LH 양식",
+        "method": "혼인으로 구성할 세대원을 작성하고 신청자·예비배우자가 서명 또는 날인합니다. 이 예정 세대를 기준으로 주택 보유 등을 확인합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family_documents",
+        "conditionAnswerValues": [
+          "ENGAGED"
+        ]
+      },
+      {
+        "id": "marriage_proof",
+        "title": "입주 전 혼인관계증명서",
+        "issuer": "행정복지센터·출입국 관서",
+        "method": "예비신혼부부는 계약 후 해당 주택 입주일 전일까지 혼인관계증명서를 직접 제출합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family_documents",
+        "conditionAnswerValues": [
+          "ENGAGED"
+        ]
+      },
+      {
+        "id": "foreign_family",
+        "title": "외국인등록증 사본 또는 국내거소신고증",
+        "issuer": "행정복지센터·출입국 관서",
+        "method": "외국인 가족을 가구원으로 포함할 때 등록·거소신고 자료를 준비하고 가족관계와 주소 요건을 함께 확인합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family_documents",
+        "conditionAnswerValues": [
+          "FOREIGN_FAMILY"
+        ]
+      },
+      {
+        "id": "adoption",
+        "title": "입양관계증명서",
+        "issuer": "행정복지센터",
+        "method": "입양 자녀가 있으면 입양신고일 확인용 증명서를 직접 제출합니다. MyMy 불가 항목입니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "child_documents",
+        "conditionAnswerValues": [
+          "ADOPTED"
+        ]
+      },
+      {
+        "id": "pregnancy",
+        "title": "임신진단서 또는 임신확인서",
+        "issuer": "병원",
+        "method": "2026.10.06 이후 발급하고 병원 직인이 날인된 임신진단서 또는 임신확인서를 직접 제출합니다. 태아 수가 가구원·자녀 수에 포함됩니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "child_documents",
+        "conditionAnswerValues": [
+          "PREGNANT"
+        ]
+      },
+      {
+        "id": "newborn_birth",
+        "title": "신생아 출생증명 또는 가족관계증명",
+        "issuer": "병원·행정복지센터",
+        "method": "2024.10.06 이후 출생 자녀 등 신생아가구 기준에 해당하면 출생증명서를 준비합니다. 출생신고 후에는 가족관계증명서로 대체할 수 있습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "child_documents",
+        "conditionAnswerValues": [
+          "NEWBORN"
+        ]
+      },
+      {
+        "id": "newborn_register",
+        "title": "신생아가 등재된 부모 주민등록표등본",
+        "issuer": "행정복지센터",
+        "method": "해당 자녀가 등재된 신청자 또는 배우자의 등본을 준비합니다. 기존 공통 등본으로 충족되는지 확인하고 같은 서류를 불필요하게 중복 발급하지 않습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "child_documents",
+        "conditionAnswerValues": [
+          "NEWBORN"
+        ]
+      },
+      {
+        "id": "child_followup",
+        "title": "계약·입주 시 자녀 추가 증빙",
+        "issuer": "병원·행정복지센터",
+        "method": "신생아가구 자격요건으로 인정받은 경우 출산은 계약일에 출생증명(유산·낙태 등은 관련 진단서)과 자녀 등본, 입양은 잔금지급일/입주신청 시 가족관계·입양관계증명, 임신 중이면 해당 시점 임신확인 서류를 직접 제출합니다. MyMy로 대신하지 않으며 신청 당시 구분과 계약 안내에 맞춰 확인하세요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "child_documents",
+        "conditionAnswerValues": [
+          "NEWBORN",
+          "ADOPTED",
+          "PREGNANT"
+        ]
+      },
+      {
+        "id": "mymy_request",
+        "title": "본인 행정정보 제공요구서",
+        "issuer": "LH 공고 첨부 양식",
+        "method": "MyMy를 이용하려는 경우에만 제출합니다. 세대원 전원 제공요구 및 연계 가능 서류를 확인하고 만14세 미만 관련 이용 제한은 기관에 확인하세요. 미동의해도 필요한 서류를 직접 제출할 수 있습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=29",
+          "label": "공고문 29쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "mymy",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "proxy_spouse",
+        "title": "배우자 대리 제출 서류",
+        "issuer": "신청자·행정복지센터",
+        "method": "방문 제출이 허용되는 경우 신청자와 배우자의 신분증(주민등록증·운전면허증·여권), 신청자 도장, 관계 입증자료를 준비합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+          "label": "첨부 Q&A · 배우자 대리 제출",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "proxy",
+        "conditionAnswerValues": [
+          "SPOUSE"
+        ]
+      },
+      {
+        "id": "proxy_other",
+        "title": "기타 대리인 제출 서류",
+        "issuer": "신청자·행정복지센터",
+        "method": "방문 제출이 허용되는 경우 신청자·대리인 신분증과 위임 자료를 준비합니다. 인감 방식은 본인발급 인감증명서·인감도장·동일 인감 위임장, 본인서명 방식은 본인서명사실확인서·본인 자필 위임장·수임인 성명 표시를 확인합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+          "label": "첨부 Q&A · 기타 대리인 제출",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "proxy",
+        "conditionAnswerValues": [
+          "OTHER"
+        ]
+      },
+      {
+        "id": "loan_proof",
+        "title": "주택도시기금 대출 처리 증빙",
+        "issuer": "대출 취급 은행",
+        "method": "입주 전 기금 대출 상환 증빙 또는 은행의 목적물 변경 승인에 따른 처리 방법을 확인합니다. 은행이 변경 승인하면 상환 예외가 있다는 본문 안내를 함께 확인하세요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=13",
+          "label": "공고문 13쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "fund_loan",
+        "conditionAnswerValues": [
+          "LOAN",
+          "APPROVED"
+        ]
+      },
+      {
+        "id": "finance",
+        "title": "금융정보 등 제공 동의서",
+        "issuer": "LH 공고 첨부 양식",
+        "method": "금융정보 등 제공 동의서는 공통 제출 서류이며, 분양전환 대상 검증을 위한 정보 제공 동의를 준비합니다. 제공 사실을 통보받지 않는 데 대한 동의는 별도 선택입니다. 미통보에 동의하지 않으면 금융기관이 제공 사실을 본인에게 우편 또는 문자로 통보합니다. 두 서명란을 구분하고 미통보 미동의만으로 정보 제공 동의서가 미완료이거나 신청 불가라고 판단하지 않습니다. 서명 대상과 14세 미만 법정대리인 서명은 공고 안내를 따릅니다.",
+        "evidence": {
+          "label": "공고문 25쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=25",
+          "checkedAt": "2026-11-12"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "asset_statement",
+        "title": "자산 보유사실 확인서",
+        "issuer": "LH 공고 첨부 양식",
+        "method": "분양전환 대상 검증을 위한 공통 서식입니다. 미보유도 사실대로 표시합니다. 자산 보유자는 수기 작성·서명 및 해당 증빙 제출, 미보유자만 전자서명 가능하다는 안내를 확인합니다. 집으로에는 금액·증빙 원본을 저장하지 않습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "lease_contract",
+        "title": "임차보증금 임대차계약서",
+        "issuer": "계약 상대방·해당 금융기관",
+        "method": "확정일자가 표시된 주택·상가 임대차계약서 사본을 준비합니다. LH 공사 임대주택의 임차보증금은 제출 불필요라고 명시합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "asset_proofs",
+        "conditionAnswerValues": [
+          "LEASE"
+        ]
+      },
+      {
+        "id": "right_contract",
+        "title": "분양계약서·대금 납부확인원",
+        "issuer": "계약 상대방·해당 금융기관",
+        "method": "분양계약서 사본과 제출일 현재까지의 대금 납부확인원을 준비합니다. 대출을 포함한 납부 금액 범위를 확인하고 주택 보유 판정도 별도로 확인합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "asset_proofs",
+        "conditionAnswerValues": [
+          "RIGHT"
+        ]
+      },
+      {
+        "id": "share_proof",
+        "title": "비상장주식 증빙",
+        "issuer": "계약 상대방·해당 금융기관",
+        "method": "증권사 조회내역·주식보관증 등 종목·수량·가액을 증명하는 자료를 준비합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "asset_proofs",
+        "conditionAnswerValues": [
+          "SHARES"
+        ]
+      },
+      {
+        "id": "equity_proof",
+        "title": "출자증서 사본",
+        "issuer": "계약 상대방·해당 금융기관",
+        "method": "보유 출자금·출자지분에 관한 출자증서 사본을 준비합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "asset_proofs",
+        "conditionAnswerValues": [
+          "EQUITY"
+        ]
+      },
+      {
+        "id": "rental_deposit",
+        "title": "임대보증금 임대차계약서",
+        "issuer": "계약 상대방·해당 금융기관",
+        "method": "임대인으로 받은 보증금은 확정일자 표시 임대차계약서 사본을 준비합니다. 인정 부채 범위는 공고 산정표를 확인합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "asset_proofs",
+        "conditionAnswerValues": [
+          "DEPOSIT"
+        ]
+      },
+      {
+        "id": "card_loan",
+        "title": "장기카드대출 증빙",
+        "issuer": "계약 상대방·해당 금융기관",
+        "method": "신용카드사가 발급한 장기카드대출 증빙을 준비합니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "asset_proofs",
+        "conditionAnswerValues": [
+          "CARD_LOAN"
+        ]
+      },
+      {
+        "id": "housing_exception_proof",
+        "title": "주택 소유 예외·소명 자료",
+        "issuer": "관할 지자체·등기기관 등",
+        "method": "공고문 16쪽 주택 소유 판정기준의 해당 예외를 운영기관에 확인하고 그 사실을 입증하는 서류를 준비합니다. 상속 지분 처분일, 건축물의 용도·면적·사용승인, 분양권 취득 경위·사업 승인일 등 필요한 자료는 사례별로 다릅니다. 적법한 무허가 건물 예외는 관할 지자체 민원 회신문을 제출하도록 안내합니다. 소명 기한은 개별 통보를 따르며 모든 소유 사례에 동일한 예외를 적용하지 않습니다.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=16",
+          "label": "공고문 16쪽 · 주택 소유 판정기준",
+          "checkedAt": "2026-11-08"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "household_housing",
+        "conditionAnswerValues": [
+          "EXCEPTION"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "nationality_registration",
+        "title": "신청자는 내국인이며 주민등록이 정상 등록되어 있나요?",
+        "reason": "2026.10.06 기준 신청자 본인의 주민등록이 거주불명·말소 상태이거나 신청자가 외국인이면 신청할 수 없습니다. 외국인 가족의 세대 포함 여부와 외국인 부모가 내국인 미성년 세대주를 대리하는 예외는 신청자 국적과 구분합니다.",
+        "options": [
+          {
+            "label": "내국인이며 정상 등록되어 있어요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "국적 또는 주민등록 상태 확인이 필요해요",
+            "value": "NO",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=13",
+          "label": "공고문 13쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "age",
+        "title": "신청자의 연령과 세대주 유형을 확인했나요?",
+        "reason": "공고문 4쪽 기준으로 원칙적으로 19세 이상 신청합니다. 미성년자는 같은 등본의 자녀를 둔 세대주, 직계존속의 사망·실종선고·행방불명 등으로 같은 등본의 형제자매를 부양하는 세대주, 외국인 한부모가족의 내국인 미성년 세대주 예외가 있습니다. 마지막 유형은 외국인 부모가 대리 신청합니다. 형제자매 부양 여부는 다음 질문에서 확인합니다.",
+        "options": [
+          {
+            "label": "19세 이상이에요",
+            "value": "ADULT",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "미성년 세대주이며 같은 등본의 자녀가 있어요",
+            "value": "CHILD_HEAD",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "외국인 한부모가족의 내국인 미성년 세대주예요",
+            "value": "FOREIGN_PARENT",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "직계존속의 사망·실종 등으로 같은 등본의 형제자매를 부양하는 미성년 세대주예요",
+            "value": "SIBLING_HEAD",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "그 외 미성년 유형이에요",
+            "value": "OTHER_MINOR",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 4쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "minor_sibling",
+        "title": "공고문의 형제자매 부양 미성년 세대주 예외에 해당하나요?",
+        "reason": "공고문 4쪽은 직계존속의 사망·실종선고·행방불명 등으로 형제자매를 부양해야 하는 미성년 세대주를 신청 예외로 명시합니다. 형제자매가 같은 주민등록표등본에 등재되어 있어야 하며, 행방불명은 신고접수증으로 증빙합니다. Q&A에 해당 사례가 생략되어 있어도 공고문의 명시 기준을 적용합니다.",
+        "options": [
+          {
+            "label": "공고문의 예외 요건에 해당해요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "해당 예외가 필요하지 않아요",
+            "value": "NO",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 4쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "region",
+        "title": "2026.10.06 주민등록상 거주지가 대구 또는 경북인가요?",
+        "reason": "이 공고는 주민등록표등본상 거주 모집권역 안에서만 신청할 수 있습니다. 대구·경북은 하나의 권역이며 다른 권역으로 신청하면 무효 처리합니다. 공급 주택의 시·군·구와 거주 권역을 혼동하지 마세요.",
+        "options": [
+          {
+            "label": "대구광역시예요",
+            "value": "DAEGU",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "경상북도예요",
+            "value": "GYEONGBUK",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "다른 모집권역이에요",
+            "value": "OTHER",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=3",
+          "label": "공고문 3쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "household_housing",
+        "title": "확인 대상 세대원 전원이 무주택인가요?",
+        "reason": "본인·배우자(분리 세대 포함), 본인 또는 분리 배우자 등본에 등재된 본인·배우자의 직계존속과 본인의 직계비속 및 그 배우자를 확인합니다. 배우자의 직계비속 및 그 배우자는 신청자 등본에 등재된 경우입니다. 외국인 가족은 가족관계등록·외국인등록 또는 거소신고 및 주소 요건을 확인하고, 미등록 외국인 또는 국내 미거주 재외국민 배우자에 관한 제한도 확인하세요. 예비신혼부부는 혼인으로 구성할 세대로 검증합니다. 주택 지분·분양권·입주권과 별첨의 무주택 인정 예외를 포함해 확인하고 입주까지 자격을 유지해야 합니다. 주택 소유 예외는 상속 공유지분의 통보 후 3개월 내 처분, 일정한 비도시·면지역 단독주택, 20㎡ 이하 1호·1세대, 공부 정리·적법 무허가 입증, 선착순 공급받은 분양권(매수자 제외), 상속·증여 분양권, 2018.12.11 전 사업승인 신청, 2024년에 생애 최초 취득한 기존 거주 임차주택 등의 세부 요건이 있으므로 한 요건만으로 무주택이라고 판단하지 않습니다.",
+        "options": [
+          {
+            "label": "확인 대상 전원이 주택·권리를 소유하지 않아요",
+            "value": "NO_HOUSE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "주택·권리가 있거나 무주택 예외 검토가 필요해요",
+            "value": "EXCEPTION",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "확인 대상 세대원에게 주택 등이 있어요",
+            "value": "HOUSE",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "label": "공고문 4쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "household_exclusions",
+        "title": "세대원 제외 사유에 해당하는 사람이 있나요?",
+        "reason": "실종선고 절차 진행, 가출·행방불명 신고 후 1개월 경과 또는 관할기관 확인, 생계·주거를 달리한다는 관할기관 확인 등 원문의 제외 사유는 신청자가 입증해야 합니다. 단순 별거만으로 임의 제외하지 마세요.",
+        "options": [
+          {
+            "label": "실종선고 절차가 진행 중이에요",
+            "value": "COURT",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "행방불명 신고·확인에 해당해요",
+            "value": "MISSING",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "관할기관이 생계·주거 분리를 확인했어요",
+            "value": "SEPARATE",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "해당하지 않아요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=4",
+          "label": "공고문 4쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "MULTIPLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "duplicate",
+        "title": "다른 든든전세 신청이나 기존 계약이 있나요?",
+        "reason": "하나의 모집단위를 선택합니다. 동일 유형 공고에 신청하고 서류제출까지 완료하면 예비순번 발표 전 다른 동일 유형 신청이 제한됩니다. 선정자는 계약 또는 예비 지위 종료 뒤, 미선정자는 발표 뒤 신청합니다. 든든(공공)전세 기계약자와 배우자는 같은 시·군·구 중복 신청이 제한됩니다. Q&A는 동일 부모와 사는 형제자매의 각각 신청을 중복으로 보지 않는다고 명시하므로 관계에 맞는 세대 범위를 확인하세요. 접수 취소·수정의 처리 가능 기간은 별도 확인 항목을 참고하세요.",
+        "options": [
+          {
+            "label": "다른 신청·기존 계약이 없어요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "다른 공고 신청·서류제출 또는 예비 지위가 있어요",
+            "value": "OTHER_NOTICE",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "본인 또는 배우자의 든든전세 계약이 있어요",
+            "value": "EXISTING",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "같은 부모와 사는 형제자매가 각각 신청해요",
+            "value": "SIBLINGS",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=1",
+          "label": "공고문 1쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "family_documents",
+        "title": "가족관계 추가 서류가 필요한 상황을 모두 골라 주세요.",
+        "reason": "배우자 분리 등본, 2026.10.06 이후 전입한 세대원, 예비신혼부부, 외국인 가족에 해당하면 추가 서류가 있습니다. 외국인 가족은 세대 포함 요건을 먼저 확인합니다. 예비신혼부부는 예정 세대원의 주택 보유 여부를 확인하고 입주 전일까지 혼인 증빙을 제출해야 합니다.",
+        "options": [
+          {
+            "label": "배우자의 주민등록표가 분리되어 있어요",
+            "value": "SEPARATED_SPOUSE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "공고일 이후 전입한 세대원이 있어요",
+            "value": "NEW_MEMBER",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "예비신혼부부예요",
+            "value": "ENGAGED",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "외국인 배우자·직계존비속을 포함해요",
+            "value": "FOREIGN_FAMILY",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "해당하는 항목이 없어요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "MULTIPLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "child_documents",
+        "title": "자녀·태아 관련 증빙이 필요한 항목을 골라 주세요.",
+        "reason": "공고문은 2024.10.06 이후 출생·입양한 자녀와 태아를 신생아가구 가점 대상으로 안내합니다. 미성년 자녀 수에는 태아와 재혼 전 배우자와의 미성년 자녀도 포함합니다. 적용할 가점과 증빙은 구분해 준비하세요. 출산·입양·임신 구분에 따라 제출 시점과 입주 때 추가 서류가 다릅니다.",
+        "options": [
+          {
+            "label": "공고의 신생아 기준에 해당하는 출생 자녀가 있어요",
+            "value": "NEWBORN",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "입양한 자녀가 있어요",
+            "value": "ADOPTED",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "태아가 있어요",
+            "value": "PREGNANT",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "그 외 미성년 자녀가 있어요",
+            "value": "MINOR_CHILDREN",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "해당하지 않아요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=9",
+          "label": "공고문 9쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "MULTIPLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "selection",
+        "title": "가점순 선정과 추첨 단계를 확인했나요?",
+        "reason": "신생아 가구 2점과 미성년 자녀 수 점수(1명 1점·2명 2점·3명 이상 3점)를 합산해 높은 점수 순으로 입주대상자를 선정합니다. 동점자는 추첨으로 우선순위를 정하고, 선정된 당첨자의 주택 동·호는 별도로 무작위 추첨합니다. 예비자는 순번에 따라 미계약 잔여 주택의 동·호를 지정합니다. 공고 1·3쪽 선정기준과 5·13쪽 계약·배정 절차를 구분한 안내입니다.",
+        "options": [
+          {
+            "label": "가점순 선정·동점 추첨·동호 추첨을 확인했어요",
+            "value": "DONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "선정 순서를 더 확인할게요",
+            "value": "CHECK",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 3쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=3",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "application_change",
+        "title": "신청 내용 수정 또는 취소가 필요한가요?",
+        "reason": "모집단위 변경은 불가합니다(Q&A 3번). 온라인 일반 입력내용은 12쪽에서 접수기간 중 수정·삭제 가능, 마감 후 불가로 안내하지만 1·5쪽의 변경 불가 문구와 달라 이 범위만 추가 확인이 필요합니다. 다른 동일 유형 공고에 신청하기 위한 접수 취소는 1쪽과 Q&A 6번에 따라 서류제출기간 종료 전까지 가능하고 이후에는 불가합니다. 이미 제출한 서류의 내용 변경은 불가합니다(Q&A 4번).",
+        "options": [
+          {
+            "label": "온라인 일반 입력내용을 수정하려고 해요",
+            "value": "YES",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "모집단위는 변경할 수 없음을 확인했어요",
+            "value": "UNIT",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "다른 공고 신청을 위한 취소 기한을 확인했어요",
+            "value": "CANCEL",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "수정·취소가 필요하지 않아요",
+            "value": "NO",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 12쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=12",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": true
+      },
+      {
+        "id": "application_channel",
+        "title": "온라인 신청 경로를 확인했나요?",
+        "reason": "이 서비스는 이 공고의 PC·LH청약플러스 앱 신청 경로를 안내합니다. LH청약플러스 → 청약 → 임대주택 → 청약신청 → 매입임대/전세임대에서 해당 공고와 모집단위를 선택합니다. 온라인 신청기간은 2026.10.19 10시부터 10.21 16시까지이며 마감시간까지 접수를 완료해야 합니다.",
+        "options": [
+          {
+            "label": "PC·모바일 온라인 신청 경로를 확인했어요",
+            "value": "ONLINE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=6",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "privacy_consent",
+        "title": "개인정보 동의서의 필수·선택 항목을 구분했나요?",
+        "reason": "필수: 개인정보 수집·이용과 제3자 제공 동의 및 대상 세대원의 서명입니다. 14세 이상은 본인, 14세 미만은 법정대리인이 서명합니다. 선택: 장애 관련 민감정보 동의와 공공주택 정보제공·홍보 동의입니다. 민감정보 미동의 시 양식에 적힌 장애 관련 우선공급·배점 적용에서 제외될 수 있습니다. 홍보 미동의는 청약서비스 이용을 제한하지 않고 관련 메시지·전화만 받지 않는 것입니다. 이 공고에 없는 장애인 가점을 새로 적용한다는 뜻은 아닙니다.",
+        "options": [
+          {
+            "label": "필수 동의와 선택 동의의 차이를 확인했어요",
+            "value": "DONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "동의서 작성 내용을 확인할게요",
+            "value": "CHECK",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 23~24쪽 · 필수·선택 동의",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=23",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "mymy",
+        "title": "MyMy서비스로 서류를 제출할 예정인가요?",
+        "reason": "MyMy는 선택 서비스이며 미사용 시 필요한 서류를 직접 제출합니다. 세대원 전원의 제공요구가 필요하고, 만 14세 미만은 본인 행정정보 제공요구를 할 수 없으므로 해당 세대의 이용 방법을 LH에 확인하세요. O 표시 서류만 연계하며 X 서류, 입주 시 추가 서류, 연계 실패 서류는 직접 제출합니다. 가족관계 추가정보 입력과 현장접수의 수기서명 제한도 확인하세요.",
+        "options": [
+          {
+            "label": "이용 요건을 확인해 MyMy를 이용할게요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "필요한 서류를 직접 제출할게요",
+            "value": "NO",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "만 14세 미만 세대원 등 이용 방법 확인이 필요해요",
+            "value": "MINOR",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=7",
+          "label": "공고문 7쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "proxy",
+        "title": "방문 서류제출을 대리인에게 맡길 예정인가요?",
+        "reason": "대리 제출은 방문 제출을 허용하는 경우에만 가능합니다. 지역본부가 발표하는 제출 방식을 먼저 확인하세요. 배우자 대리와 기타 대리인의 준비 서류가 다르며 기타 대리는 인감 방식과 본인서명사실확인 방식 중 해당 방식을 준비합니다.",
+        "options": [
+          {
+            "label": "직접 제출해요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "배우자가 방문 대리 제출해요",
+            "value": "SPOUSE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "그 외 대리인이 방문 제출해요",
+            "value": "OTHER",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+          "label": "첨부 Q&A · 대리인 서류제출",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "existing_housing",
+        "title": "현재 다른 공공임대주택에 거주하나요?",
+        "reason": "공공임대 계약자는 신규 주택 입주 전 기존 주택을 명도하고 전입해야 하며, 계약자의 세대원으로 거주한 경우 입주 때 세대분리 후 전입해야 합니다. 기존 든든전세의 같은 시·군·구 중복신청 제한은 별도로 확인하세요.",
+        "options": [
+          {
+            "label": "공공임대에 거주하지 않아요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "공공임대 계약자로 거주해요",
+            "value": "TENANT",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "공공임대 계약자의 세대원이에요",
+            "value": "MEMBER",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+          "label": "첨부 Q&A · 현재 공공임대 거주자",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "fund_loan",
+        "title": "주택도시기금 대출이 있나요?",
+        "reason": "기금 대출이 있으면 입주 전 상환 및 증빙 제출을 확인합니다. 해당 은행이 이 매입임대주택으로 대출 목적물 변경을 승인하면 상환이 필요하지 않다는 예외가 있으므로 은행에 사전 상담하세요.",
+        "options": [
+          {
+            "label": "해당 대출이 없어요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "상환 또는 목적물 변경 상담이 필요해요",
+            "value": "LOAN",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "은행이 목적물 변경을 승인했어요",
+            "value": "APPROVED",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=13",
+          "label": "공고문 13쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "restrictions",
+        "title": "최근 4년 내 불법 양도·전대 적발 제한에 해당하나요?",
+        "reason": "세대구성원 중 과거 공공임대 임차인으로서 불법 양도·전대가 적발된 뒤 4년이 지나지 않은 사람이 있으면 입주자로 선정될 수 없다고 안내합니다.",
+        "options": [
+          {
+            "label": "해당하지 않아요",
+            "value": "NO",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "해당하거나 공식 확인이 필요해요",
+            "value": "YES",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=14",
+          "label": "공고문 14쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "supply_unit",
+        "title": "공급주택목록에서 한 개 모집단위와 공급형을 확인했나요?",
+        "reason": "공급형은 실사용면적 기준이며 전용면적과 다를 수 있습니다. 모집단위·동호·주택 유형·보증금을 첨부 공급표에서 확인하세요. 정정 안내는 공급표의 확장면적 오입력 수정이며, 현재 첨부 표는 282호·4개 모집단위입니다. 분양시점은 표에 2032.09 이후로 적혀 있지만 확정 계약일이 아닙니다.",
+        "options": [
+          {
+            "label": "모집단위와 공급형을 확인했어요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "공급표를 더 확인해야 해요",
+            "value": "NO",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053360",
+          "label": "공급주택목록 · 모집단위·면적·임대조건",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "conversion_scope",
+        "title": "입주 자격과 분양전환 자격의 차이를 확인했나요?",
+        "reason": "무주택세대구성원은 소득·자산 수준과 관계없이 입주 신청할 수 있고, 소득·자산 검증은 우선분양전환 대상 확인을 위한 것입니다. 모집 당시 기준을 충족하고 분양전환 때까지 계속 거주한 무주택세대구성원을 확인합니다. 최초 임대개시일부터 6년 이후 분양전환 여부·시기·절차는 추후 안내하며 분양전환 비대상자도 재계약 자격 유지 시 최장 8년 거주 안내가 있습니다. 분양전환에 별도 청약통장은 필요하지 않습니다.",
+        "options": [
+          {
+            "label": "두 심사를 구분했어요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "분양전환 조건을 더 확인할게요",
+            "value": "NO",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=11",
+          "label": "공고문 11쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "conversion_finance",
+        "title": "분양전환용 소득·자산 기준표를 확인했나요?",
+        "reason": "2026 기준 일반 월소득 한도는 1~6인 순서로 5,720,045 / 8,212,778 / 10,618,958 / 11,442,863 / 12,125,081 / 12,878,142원입니다. 본인·배우자 모두 소득이 있는 표는 8,389,399 / 12,319,167 / 16,336,858 / 17,604,404 / 18,653,970 / 19,812,526원입니다. 1·2인 가산을 포함한 금액이며, 7인 이상 등 표 밖 범위는 임의 계산하지 마세요. 총자산은 362,000,000원 이하이며, 2023.3.28 이후 출생·입양 자녀와 공고일 태아 등 원문 요건에 해당하면 1인 396,000,000원·2인 이상 431,000,000원 기준을 확인합니다. 기준일 이후 자녀가 있으면 그 이전 출생 미성년 자녀도 최대2명까지 포함하고 신청자 또는 배우자 등본의 등재 요건을 확인합니다. 2025년 3.54억원은 과거연도 참고값입니다. 근로·사업·재산·기타소득과 부동산·모든 자동차·금융·기타자산·인정 부채 및 제외 항목은 17~20쪽 산정표로 확인합니다. 여기서는 금액을 입력받거나 입주·분양전환 적격 여부를 확정하지 않습니다.",
+        "options": [
+          {
+            "label": "해당 가구의 공식 기준을 확인했어요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "가구 범위나 산정 방식 확인이 필요해요",
+            "value": "NO",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=11",
+          "label": "공고문 11쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "finance_consent",
+        "title": "금융정보 제공 동의와 통보 선택을 구분했나요?",
+        "reason": "금융정보 등 제공 동의서는 공통 제출 서류이며, 분양전환 대상 검증을 위한 정보 제공 동의를 준비합니다. 제공 사실을 통보받지 않는 데 대한 동의는 별도 선택입니다. 미통보에 동의하지 않으면 금융기관이 제공 사실을 본인에게 우편 또는 문자로 통보합니다. 두 서명란을 구분하고 미통보 미동의만으로 정보 제공 동의서가 미완료이거나 신청 불가라고 판단하지 않습니다.",
+        "options": [
+          {
+            "label": "정보 제공 동의와 미통보 선택을 구분했어요",
+            "value": "DONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "동의서 작성 내용을 확인할게요",
+            "value": "CHECK",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 25쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=25",
+          "checkedAt": "2026-11-12"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "asset_proofs",
+        "title": "자산 보유사실 확인서에 첨부할 항목을 모두 골라 주세요.",
+        "reason": "분양전환용 자산 조회를 위해 공적자료로 확인하기 어려운 자산·부채를 신고합니다. 서식에 임차보증금·분양권·비상장주식·출자금/지분·임대보증금·장기카드대출이 열거되어 있습니다. 공사 임대주택 임차보증금의 계약서 사본은 제출 불필요라고 명시합니다. 자산 미보유자만 전자서명 가능하고 보유자는 수기 작성·증빙 제출합니다.",
+        "options": [
+          {
+            "label": "공사 임대주택 외 임차보증금이 있어요",
+            "value": "LEASE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "분양권이 있어요",
+            "value": "RIGHT",
+            "requiresFollowUp": true
+          },
+          {
+            "label": "비상장주식이 있어요",
+            "value": "SHARES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "출자금·출자지분이 있어요",
+            "value": "EQUITY",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "임대인으로 받은 보증금이 있어요",
+            "value": "DEPOSIT",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "장기카드대출이 있어요",
+            "value": "CARD_LOAN",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "추가 증빙 대상이 없어요",
+            "value": "NONE",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=27",
+          "label": "공고문 27쪽",
+          "checkedAt": "2026-11-08"
+        },
+        "inputKind": "MULTIPLE",
+        "constraints": null,
+        "reviewRequired": false
+      }
+    ],
+    "schedules": [
+      {
+        "id": "publication",
+        "date": "2026-10-06",
+        "title": "공고 게시",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=1",
+          "label": "공고문 1쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "application_start",
+        "date": "2026-10-19T10:00:00+09:00",
+        "title": "신청 접수 시작 (온라인 10:00)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "label": "공고문 5쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "application_end",
+        "date": "2026-10-21T16:00:00+09:00",
+        "title": "신청 접수 마감 (온라인 16:00)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "label": "공고문 5쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "document_candidates",
+        "date": "2026-10-23T17:00:00+09:00",
+        "title": "서류 제출 대상자 발표 (17:00 이후)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "label": "공고문 5쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "documents_start",
+        "date": "2026-10-26T10:00:00+09:00",
+        "title": "대상자 서류 제출 시작 (10:00)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "label": "공고문 5쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "documents_end",
+        "date": "2026-10-28T16:00:00+09:00",
+        "title": "대상자 서류 제출 마감 (16:00)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "label": "공고문 5쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "verification_start",
+        "date": "2026-10-29",
+        "title": "자격 검증 시작 (예정)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=2",
+          "label": "공고문 2쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "verification_end",
+        "date": "2026-12-02",
+        "title": "자격 검증 종료 (예정)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=2",
+          "label": "공고문 2쪽",
+          "checkedAt": "2026-11-08"
+        }
+      },
+      {
+        "id": "results",
+        "date": "2026-12-03T17:00:00+09:00",
+        "title": "당첨자·예비입주자 순번 발표 (17:00 이후)",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+          "label": "공고문 5쪽",
+          "checkedAt": "2026-11-08"
+        }
+      }
+    ],
+    "attachments": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053358",
+        "label": "2026년2차대구경북지역든든전세주택입주자모집공고문(분양전환형).hwpx",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359",
+        "label": "2026년2차대구경북지역든든전세주택입주자모집공고문(분양전환형).pdf",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053360",
+        "label": "2026년2차대구경북지역든든전세주택주택목록(분양전환형).xlsx",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+        "label": "2026년분양전환형든든전세주택_QnA.hwpx",
+        "checkedAt": "2026-11-08"
+      }
+    ],
+    "reviewIssues": [
+      {
+        "id": "application_change_scope",
+        "area": "CONDITION",
+        "title": "온라인 일반 입력내용 수정 가능 범위 확인",
+        "detail": "모집단위 변경 불가와 다른 공고 신청을 위한 서류제출기간 종료 전 취소 가능은 구분하여 안내합니다. 일반 입력정보 수정은 공고 1·5쪽의 신청 후 변경 불가와 12쪽 온라인 신청 항목의 접수기간 중 수정 가능 문구가 직접 달라, 이 범위만 LH 확인 대상으로 남깁니다. 이미 제출한 서류 내용 변경 불가와도 구분합니다.",
+        "evidence": [
+          {
+            "label": "공고문 1쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=1",
+            "checkedAt": "2026-11-12"
+          },
+          {
+            "label": "공고문 5쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=5",
+            "checkedAt": "2026-11-12"
+          },
+          {
+            "label": "공고문 12쪽",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359#page=12",
+            "checkedAt": "2026-11-12"
+          },
+          {
+            "label": "첨부 Q&A 3·4·6번 · 변경과 취소 구분",
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+            "checkedAt": "2026-11-12"
+          }
+        ],
+        "documentIds": [],
+        "questionIds": [
+          "application_change"
+        ]
+      }
+    ]
+  },
+  "endDate": "2026-10-21",
+  "noticeId": "96a16272-c853-4505-bdbb-d88f652d6e77",
+  "revision": 3,
+  "packageId": "daegu-conversion-scope-20261112-v2",
+  "startDate": "2026-10-19",
+  "disposition": "PARTIAL",
+  "reviewNotes": "2026-11-12 사용자 명시 요청으로 종료된 분양전환형 1건만 재검토했습니다. 공고 PDF 1·3·4·5·6·8·12·13·21·23~25쪽과 Q&A 3·4·6·12번을 다시 읽었습니다. 미성년 형제부양은 본문 기준 적용. 입주자 선정은 가점순/동점 추첨, 동호배정은 당첨자 별도 추첨으로 단계 구분. 모집단위 변경 금지와 타 공고 신청용 취소 기한을 분리했으나 일반 입력 수정은 1·5쪽과 12쪽이 달라 한 항목 보류. 사용자 UI 범위 요청으로 우편 최초신청 선택지·전용 서류를 제거했으며 공식 우편제도를 폐지하거나 날짜 충돌을 해소했다고 주장하지 않습니다. 서류대상자 후속 제출 경로와 원문은 보존. 서식의 필수/선택 동의 및 금융정보 제공/미통보를 구분하고 공통 동의서는 항상 준비 대상으로 유지합니다. 기존 준비기록은 덮어쓰지 않습니다.",
+  "extractionId": "f2570f1f-1961-4b77-9615-7082bc0cfbf7",
+  "sourceReviews": [
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020929&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+      "role": "OFFICIAL_DETAIL",
+      "label": "공식 상세 본문",
+      "sha256": "e5e5f129e15c0af6393ae25f58bd7bb46e6882eaff49e793486f00df7479d104",
+      "reviewNotes": "공식 상세의 공고일·서류대상/제출/결과 일정과 현재 첨부 4건을 대조했다. 정정 안내는 주택목록 확장면적 오입력 수정이며 일반 입주자격 변경으로 확대하지 않았다."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053358",
+      "role": "MAIN_NOTICE_VARIANT",
+      "label": "2026년2차대구경북지역든든전세주택입주자모집공고문(분양전환형).hwpx",
+      "sha256": "8b4be95e35ab04e57f8550a0ccbaf7005db26b61352b8ab786dbeaeb17af6d85",
+      "reviewNotes": "HWPX 전체 본문·표·서식을 PDF 전 페이지와 대조했다. 표의 셀 읽기 순서 차이는 별도 근거로 재확인했다. 분양전환 전용 소득·자산 산정과 서류를 입주 자격과 분리했다."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053359",
+      "role": "MAIN_NOTICE",
+      "label": "2026년2차대구경북지역든든전세주택입주자모집공고문(분양전환형).pdf",
+      "sha256": "8356902e92b698c3a954bd3e9a365d030e97fe6691669dddf5b5ffa15fe152a5",
+      "reviewNotes": "PDF 전체 34쪽과 공급일정·제출서류·동의서·판정기준·첨부 서식을 검토했다. 우편 신청 도착일 오기/일정 차이, 수정 범위, 미성년 예외, 선정 단계, 선택 동의만 쟁점으로 기록했다. 2025년 3.54억원 참고와 2026년 3.62억원, 출산 자산가산은 연도·용도를 구분했다. PDF 렌더로 5~6쪽 신청·서류 일정과 우편 도착일, 11~12쪽 소득·자산 표의 행열 및 연도 구분도 확인했다. 2026-11-12 해당 예외·선정·수정취소·동의 문구 재대조."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053360",
+      "role": "SUPPLY_LIST",
+      "label": "2026년2차대구경북지역든든전세주택주택목록(분양전환형).xlsx",
+      "sha256": "10d51446e29440317779443070d30ccd50ee8b2686d3477fb3cdcf7af7cc38ec",
+      "reviewNotes": "현재 공급표 전체 282개 호의 모집단위·지역·공급형·면적·보증금·주택유형과 필수열 누락 여부를 대조했다. 4개 모집단위, 분양전환 표기 2032.09 이후를 확인하되 확정 일정을 만들어 넣지 않았다."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69053361",
+      "role": "GENERAL_QA",
+      "label": "2026년분양전환형든든전세주택_QnA.hwpx",
+      "sha256": "2073131a9b17b2b330e1091d0adf1585d5ea7143e76929a01528d7b5431a2471",
+      "reviewNotes": "첨부 Q&A 전체의 세대 범위·미성년 예외·대리 제출·형제자매 신청·예비신혼·임대 재계약을 대조했다. 분양전환 Q&A 전체 소득·자산·가격·시점·비대상자 거주 안내를 확인했다. 2026-11-12 해당 예외·선정·수정취소·동의 문구 재대조."
+    }
+  ],
+  "unresolvedFindings": [
+    "application_change_scope"
+  ]
+}

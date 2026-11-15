@@ -1,7 +1,8 @@
 import { useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import { Link, useLocation } from 'react-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useSession } from '../../app/useSession';
+import { useSession } from '../auth/useSession';
 import { Icon } from '../../shared/ui/Icon';
 import { Button, State } from '../../shared/ui/ui';
 import { DeliveryChannels } from './DeliveryChannels';
@@ -12,6 +13,9 @@ export function AlertSettingsControl({
     children,
     className,
 }: { children?: ReactNode; className?: string } = {}) {
+    const { user, loading } = useSession();
+    const location = useLocation();
+    const returnTo = location.pathname + location.search + location.hash;
     const dialog = useRef<HTMLDialogElement>(null);
     const [open, setOpen] = useState(false);
     return (
@@ -45,7 +49,26 @@ export function AlertSettingsControl({
                             ×
                         </button>
                     </header>
-                    {open && <SettingsContent />}
+                    {open &&
+                        (loading ? (
+                            <State loading />
+                        ) : user ? (
+                            <SettingsContent />
+                        ) : (
+                            <>
+                                <p>로그인이 필요합니다.</p>
+                                <Link
+                                    className={`${s.link} ${s.loginLink}`}
+                                    to={
+                                        '/login?returnTo=' +
+                                        encodeURIComponent(returnTo)
+                                    }
+                                    onClick={() => dialog.current?.close()}
+                                >
+                                    로그인
+                                </Link>
+                            </>
+                        ))}
                 </dialog>,
                 document.body,
             )}

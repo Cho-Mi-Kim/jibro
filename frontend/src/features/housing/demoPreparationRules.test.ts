@@ -47,4 +47,27 @@ describe('실제 서버와 시연 준비 정책의 공통 계약', () => {
         complete.answers.q99 = 'YES';
         expect(assessDemoPreparation(complete).progress).toBe(100);
     });
+
+    it('일정 확인 대기만 남아도 완료율 100%로 확정하지 않는다', () => {
+        const preparation = structuredClone(
+            cases.find((c) => c.name === 'complete-with-excluded-document')!
+                .preparation,
+        );
+        preparation.reviewIssues = [
+            {
+                id: 'time',
+                area: 'SCHEDULE',
+                title: '납부 시각',
+                detail: '공식 자료의 시각 확인 필요',
+                questionIds: [],
+                documentIds: [],
+                evidence: [],
+            },
+        ];
+        const assessed = assessDemoPreparation(preparation);
+        expect(assessed.progress).toBe(99);
+        expect(assessed.nextAction.path).toBe(
+            '/notices/' + preparation.noticeId,
+        );
+    });
 });

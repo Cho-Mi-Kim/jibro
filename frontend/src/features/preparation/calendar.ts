@@ -1,7 +1,9 @@
+import { scheduleIsActive } from '../housing/noticeLifecycle';
 import type { Evidence, Notice, Preparation } from '../housing/types';
 import { safeUrl } from '../../shared/ui/helpers';
 import {
     currentPreparationSchedules,
+    applicationDate,
     dateWithScheduleTime,
     isBasicScheduleAlias,
     selectSchedule,
@@ -15,7 +17,12 @@ export interface CalendarItem {
 export function calendarItems(n: Notice, p?: Preparation) {
     const items: CalendarItem[] = [];
     function add(id: string, title: string, date: string | null, ev: Evidence) {
-        if (date && safeUrl(ev.url) && eventDate(date))
+        if (
+            scheduleIsActive(n, title) &&
+            date &&
+            safeUrl(ev.url) &&
+            eventDate(date)
+        )
             items.push({ id, title, date, source: ev.url! });
     }
     const schedules = p
@@ -32,8 +39,8 @@ export function calendarItems(n: Notice, p?: Preparation) {
             event && safeUrl(event.evidence.url) ? event.evidence : n.evidence;
         add(
             kind,
-            event?.title ?? title,
-            dateWithScheduleTime(date, event),
+            n.applicationTiming ? title : (event?.title ?? title),
+            applicationDate(n, kind),
             evidence,
         );
         if (event)

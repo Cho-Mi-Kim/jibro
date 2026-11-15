@@ -1,0 +1,37 @@
+{
+    "attempts": [
+        {
+            "state": "REVIEW_REQUIRED",
+            "title": "[인천지역본부] 일반 매입임대주택 입주자 모집 공고(인천,부천)",
+            "reason": "공식 후속 자료 변경 · 재검토 대기 · DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(261022)(인천본부)일반매입임대주택입주자모집공고문.pdf / FOLLOWUP_CLAUSE_UNSUPPORTED / FOLLOWUP_CHANGE_NOT_IDENTIFIED / APPLICATION_PERIOD_MISSING",
+            "noticeId": "0780bed8-fd10-4856-91d7-a774df184443",
+            "createdAt": "2026-11-08T17:49:34.856975+00:00",
+            "finishedAt": "2026-11-08T17:49:51.122134+00:00",
+            "resolutions": 0,
+            "invalidations": 1,
+            "relatedSources": 1,
+            "resultRevision": 3,
+            "sourceRevision": 2,
+            "previousDocumentCount": 0,
+            "previousQuestionCount": 0
+        },
+        {
+            "state": "REVIEW_REQUIRED",
+            "title": "[경남지역본부]26년 4차 분양전환형 든든전세주택 예비입주자 모집 공고(모집권역 완화)",
+            "reason": "공식 후속 자료 변경 · 재검토 대기 · DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:(경남지역본부)26년4차분양전환형든든전세주택예비입주자모집공고문(모집권역제한완화).pdf / FOLLOWUP_CLAUSE_UNSUPPORTED / FOLLOWUP_CHANGE_NOT_IDENTIFIED / APPLICATION_PERIOD_MISSING",
+            "noticeId": "b165e0ef-22e1-46ac-86a3-a62aa1e7e726",
+            "createdAt": "2026-11-08T17:50:51.158996+00:00",
+            "finishedAt": "2026-11-08T17:52:02.756061+00:00",
+            "resolutions": 0,
+            "invalidations": 3,
+            "relatedSources": 1,
+            "resultRevision": 3,
+            "sourceRevision": 2,
+            "previousDocumentCount": 0,
+            "previousQuestionCount": 0
+        }
+    ],
+    "checkedAt": "2026-11-08T17:52:47.866621+00:00",
+    "migration": "33",
+    "queueCount": 100
+}

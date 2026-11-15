@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-11-09T15:52:58.176775+00:00",
+  "result": "PASS",
+  "amendments": 4,
+  "untouchedReviewedPublications": 3,
+  "databasePreparationRowsUnchanged": true,
+  "publicNotices": [
+    {
+      "id": "11f5a8d1-3100-4d80-8f4b-b0ef6dc8af3c",
+      "title": "2026년 신혼·신생아 전세임대Ⅱ 입주자 수시모집 공고",
+      "status": "OPEN",
+      "version": 2,
+      "canStart": true,
+      "issues": 0,
+      "questions": 17,
+      "documents": 29,
+      "schedules": 2
+    },
+    {
+      "id": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "title": "군산시 국민임대주택 입주자 선착순 상시 모집(경암부향 등 7개 단지)",
+      "status": "UNKNOWN",
+      "version": 2,
+      "canStart": true,
+      "issues": 1,
+      "questions": 11,
+      "documents": 23,
+      "schedules": 1
+    },
+    {
+      "id": "6766d1f8-0a4c-462d-8d8a-b1390b15cbcf",
+      "title": "2026 다자녀 전세임대 입주자 수시모집 공고",
+      "status": "OPEN",
+      "version": 2,
+      "canStart": true,
+      "issues": 0,
+      "questions": 15,
+      "documents": 23,
+      "schedules": 2
+    },
+    {
+      "id": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고",
+      "status": "OPEN",
+      "version": 3,
+      "canStart": true,
+      "issues": 1,
+      "questions": 11,
+      "documents": 25,
+      "schedules": 3
+    },
+    {
+      "id": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "title": "태백장성 국민임대주택 예비입주자 입주자격완화 상시모집",
+      "status": "UNKNOWN",
+      "version": 3,
+      "canStart": true,
+      "issues": 2,
+      "questions": 11,
+      "documents": 24,
+      "schedules": 1
+    },
+    {
+      "id": "cb2ba5d3-53bb-4d7a-a8d1-d526f95a89d7",
+      "title": "2026년 신혼·신생아 전세임대 I 입주자 수시모집 공고",
+      "status": "OPEN",
+      "version": 2,
+      "canStart": true,
+      "issues": 0,
+      "questions": 17,
+      "documents": 29,
+      "schedules": 2
+    },
+    {
+      "id": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "title": "전주시(전주평화1,전주평화4) 영구임대주택 예비입주자 모집 공고(공고일:2026.02.10.)",
+      "status": "UNKNOWN",
+      "version": 2,
+      "canStart": true,
+      "issues": 1,
+      "questions": 18,
+      "documents": 51,
+      "schedules": 1
+    },
+    {
+      "id": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "[정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "status": "OPEN",
+      "version": 3,
+      "canStart": true,
+      "issues": 2,
+      "questions": 13,
+      "documents": 27,
+      "schedules": 3
+    },
+    {
+      "id": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "title": "[정정공고]남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "status": "OPEN",
+      "version": 2,
+      "canStart": true,
+      "issues": 1,
+      "questions": 13,
+      "documents": 28,
+      "schedules": 3
+    },
+    {
+      "id": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "status": "OPEN",
+      "version": 3,
+      "canStart": true,
+      "issues": 3,
+      "questions": 15,
+      "documents": 27,
+      "schedules": 3
+    }
+  ],
+  "corrections": [
+    {
+      "original": "843dc7ea-ec61-4c87-bbef-a76b5ae42e1e",
+      "corrected": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "http": 200
+    },
+    {
+      "original": "1f4cb367-3df6-4f65-b352-d23102ee6c9b",
+      "corrected": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "http": 200
+    }
+  ],
+  "frontendHttp": 200,
+  "actualMobileDevice": "NOT_RUN; no frontend changes"
+}

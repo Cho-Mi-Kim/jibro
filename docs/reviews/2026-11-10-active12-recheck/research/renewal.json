@@ -1,0 +1,322 @@
+{
+  "checkedAt": "2026-11-10T00:47:29.413082+09:00",
+  "scope": "2026-11-10 접수 종료 제외, 군산·남원 2개 재계약 쟁점 읽기전용 재검토",
+  "summary": {
+    "reviewed": 2,
+    "resolved": 0,
+    "retainedItemConflicts": 2,
+    "freshAttachments": 4,
+    "unchangedAttachments": 4,
+    "databaseWrites": 0,
+    "publishedPackageWrites": 0
+  },
+  "decisions": [
+    {
+      "noticeId": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "issueId": "renewal_acquisition_date",
+      "decision": "KEEP_ITEM_CONFIRMATION_REQUIRED",
+      "resolved": false,
+      "title": "군산: 보유주택 취득 기준일의 1회 재계약 적용 범위",
+      "currentStatus": "공고중",
+      "applicationWindow": "2026-08-12부터 선착순 상시 모집; 충원 종료 가능. 오늘 공식 상태 공고중.",
+      "evidence": [
+        {
+          "source": "2.pdf",
+          "physicalPage": 3,
+          "printedPage": 3,
+          "finding": "주택요건 완화 설명은 입주자모집공고 전 취득 주택 보유자에 한해 1회차 재계약을 허용."
+        },
+        {
+          "source": "2.pdf",
+          "physicalPage": 6,
+          "printedPage": 6,
+          "finding": "동일한 주택완화 자격의 무주택 항목은 최초 계약 전 취득 주택에 한해 1회차 재계약을 허용. 최초 신청 기준일만을 설명하는 문장이 아님."
+        },
+        {
+          "source": "2.pdf",
+          "physicalPage": 27,
+          "printedPage": 27,
+          "finding": "확약서 제3항은 공고 전 취득으로 기재. 상단에서 임대차계약서 계약조건 제16조에 따른 특약임을 명시하지만 6쪽과의 불일치를 정정한다는 설명은 없음."
+        }
+      ],
+      "officialHistory": {
+        "historyRows": [
+          "일반공고 / 2026-07-30 / 현재 공고"
+        ],
+        "laterCorrectionFound": false,
+        "searchLimit": "조회 시점의 해당 공고 공식 이력과 공개 검색 결과 기준. 존재하지 않는다고 단정하지 않음."
+      },
+      "lawApplicability": [
+        "공고는 부도 공공건설임대주택 매입에 따른 국민임대 모집. 업무처리지침 제94조의3 제3항은 부도·미분양 매입 국민임대의 미임대시 사업자 별도 완화기준을 허용하지만 취득 기준일을 직접 정하지 않음.",
+        "제94조 일반 재계약 요건 또는 제94조의5 완화기준으로 공고 전과 최초 계약 전 중 하나를 선택할 수 없음. 2026-07-08 및 2026-10-27 관련 조문 동일.",
+        "특약을 포함한 현 공고 3·27쪽과 6쪽이 같은 1회차 갱신을 달리 기술하므로 다수 쪽수, 특약이라는 명칭, 더 엄격한 요건이라는 이유만으로 자동 종결하지 않음."
+      ],
+      "safeGuidance": [
+        "주택 면적·가격·지역 등 공고의 다른 완화요건은 현재 확인된 안내 유지.",
+        "공고 전 취득과 최초 계약 전 취득은 같은 기준이 아님. 충돌 범위를 공고 후부터 최초 계약 전까지 취득한 주택 보유자의 1회차 재계약 허용 여부로 한정.",
+        "공고 전 취득 주택 보유자의 1회 재계약 가능 문구와 2회차에도 종전 주택을 계속 보유하거나 새로 취득하면 재계약 거절 문구는 공통 확인 가능. 이것을 실제 개인의 갱신 보장으로 표현하지 않음."
+      ],
+      "neededEvidence": "해당 2026-07-30 공고의 6쪽 또는 3·27쪽을 정정하는 공식 게시물, 또는 공고 후·최초계약 전 취득 주택의 갱신 처리기준을 명시하는 운영기관 공식 답변.",
+      "suggestedQuestionForAgency": "2026.07.30 군산 경암부향 등 7개 단지 상시모집에서 공고 후~최초 계약 전 취득한 완화 대상 주택을 보유하면 첫 재계약이 가능한가요? 공고문 3·27쪽은 공고 전, 6쪽은 최초 계약 전으로 서로 다릅니다.",
+      "doNotChange": [
+        "신규 신청 전체 자격을 보류하지 않음",
+        "접수 종료 공고를 재검토·발췌·게시하지 않음",
+        "기존 패키지·DB 변경 없음"
+      ]
+    },
+    {
+      "noticeId": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "issueId": "renewal-surcharge",
+      "decision": "KEEP_ITEM_CONFIRMATION_REQUIRED",
+      "resolved": false,
+      "title": "남원: 1·2회 소득·자산 초과 재계약의 임대조건 할증 여부",
+      "currentStatus": "공고중",
+      "applicationWindow": "2026-09-21부터 2026-12-31까지 현장접수. 오늘 공식 상태 공고중.",
+      "evidence": [
+        {
+          "source": "2.pdf",
+          "physicalPage": 1,
+          "column": "left",
+          "printedPage": 1,
+          "finding": "이번 모집은 소득·총자산 배제라고 명시하며, 재계약 안내를 8.유의사항으로 직접 연결함."
+        },
+        {
+          "source": "2.pdf",
+          "physicalPage": 7,
+          "column": "left",
+          "printedPage": 13,
+          "finding": "8.유의사항 임대 대상 및 조건: 소득기준 150% 초과자는 1회 임대조건 할증 후 재계약, 2회는 예비자가 없는 경우 할증 후 재계약 가능."
+        },
+        {
+          "source": "2.pdf",
+          "physicalPage": 18,
+          "column": "right",
+          "printedPage": 36,
+          "finding": "별지7 확약서는 2026.09.07 공고에 따른 남원노암 완화 입주자를 명시하고 임대차계약서 제16조 특약이라고 규정. 표는 소득·총자산 미충족 1회 재계약 및 예비자 없는 2회 재계약에 할증×로 기재."
+        }
+      ],
+      "officialHistory": {
+        "historyRows": [
+          "정정공고 / 2026-09-07 / 2015122300020988",
+          "일반공고 / 2026-09-07 / 2015122300020649"
+        ],
+        "currentCorrectionReason": "모집공고문 내 배점기준 수정",
+        "laterCorrectionFound": false,
+        "searchLimit": "조회 시점의 해당 공고 공식 이력과 공개 검색 결과 기준. 별도 기관 회신은 확인하지 못함."
+      },
+      "lawApplicability": [
+        "공고 당시 시행 업무처리지침은 2026-07-08 제1967호. 현재 2026-10-27 제2000호의 제93조~제94조의5와 관련 조문 동일.",
+        "제93조 제3항은 소득·총자산 요건 미충족의 1회 및 예비자 없는 추가 1회 재계약을 규정. 제93조의2는 일반 소득완화 150%와 사업자 별도 완화기준, 제94조의5는 영구·국민 입주자격 완화 재계약을 각각 규정함.",
+        "국토교통부고시 2025-151호 제3호바목은 업무처리지침 제93조제3·4항에 따른 재계약시 할증을 규정하고, 부칙 제2조는 시행일 이후 재계약부터 적용한다고 명시. 그러나 공고에 적힌 별도 완화·소득총자산 배제의 특약을 취소하거나 이 공고가 어느 적용경로에 해당하는지 직접 특정하지 않음.",
+        "13쪽의 소득150%와 별지의 소득총자산배제는 다른 완화유형일 가능성이 있으나, 1쪽이 이번 배제모집의 재계약을 8.유의사항에 직접 연결함. 13쪽을 단순 타유형 잔여 문구라고 확정할 공식 설명이 없으므로 무할증·할증 어느 한쪽으로 확정하지 않음."
+      ],
+      "safeGuidance": [
+        "입주 시 소득·총자산 배제와 자동차가액 요건 등 다른 확인된 신청 조건·서류 안내는 유지.",
+        "소득·총자산 미충족 1회 재계약과 예비자 없는 경우 추가 1회 재계약을 검토할 수 있다는 공통 범위는 유지하고, 그때 임대조건 할증 여부만 확인 필요로 한정.",
+        "3회 이상은 원칙 퇴거, 높은 공가율로 추가 재계약이 필요하고 관련 요건을 충족하면 완화 전 기준으로 할증하여 검토 가능하다는 별지 문구를 일반적인 계속거주 보장으로 바꾸지 않음."
+      ],
+      "neededEvidence": "이 공고의 본문13쪽과 별지7 36쪽 중 어느 임대조건을 적용하는지 밝힌 공식 정정본·추가 안내 또는 운영기관의 공식 확인.",
+      "suggestedQuestionForAgency": "2026.09.07 남원노암 소득·총자산 배제 모집의 소득·자산 미충족 1회차 및 예비자가 없는 2회차 재계약에 임대조건 할증이 있나요? 본문13쪽은 할증, 별지7 36쪽은 할증×이며 별지는 제16조 특약이라고 명시되어 있습니다.",
+      "doNotChange": [
+        "소득·총자산 최초신청 면제를 보류하지 않음",
+        "별지 특약이라는 이유만으로 본문 모순 삭제하지 않음",
+        "기존 패키지·DB 변경 없음"
+      ]
+    }
+  ],
+  "laws": [
+    {
+      "title": "공공주택 업무처리지침 / 국토교통부훈령 제1854호",
+      "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do?admRulSeq=2100000257092&chrClsCd=010202",
+      "effectiveDate": "2025-03-31",
+      "sha256": "d05feb84ad7863f4795307882ce045a4db9b1273954af1abf62314d4c491a455",
+      "bytes": 504445,
+      "capturedAt": "2026-11-10T00:38:43.009591+09:00",
+      "path": "law\\20250331-body.html"
+    },
+    {
+      "title": "공공주택 업무처리지침 / 국토교통부훈령 제1967호",
+      "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do?admRulSeq=2100000282274&chrClsCd=010202",
+      "effectiveDate": "2026-07-08",
+      "sha256": "9a68805e7af4fbeb4027312a55bd8cb4e612597dc8fd5950a92642e0359fbdab",
+      "bytes": 520188,
+      "capturedAt": "2026-11-10T00:38:41.963949+09:00",
+      "path": "law\\20260708-body.html"
+    },
+    {
+      "title": "공공주택 업무처리지침 / 국토교통부훈령 제2000호",
+      "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do?admRulSeq=2100000287282&chrClsCd=010202",
+      "effectiveDate": "2026-10-27",
+      "sha256": "9cc5484b1fe7b55623096e64a637987ce4761507849516d15126e59d3dcef926",
+      "bytes": 641076,
+      "capturedAt": "2026-11-10T00:38:42.435447+09:00",
+      "path": "law\\20261027-body.html"
+    },
+    {
+      "title": "영구임대주택의 표준임대보증금 및 표준임대료 산정기준 / 국토교통부고시 제2025-151호",
+      "url": "https://www.law.go.kr/LSW/admRulLsInfoR.do?admRulSeq=2100000257098&chrClsCd=010202",
+      "effectiveDate": "2025-03-31",
+      "sha256": "010ca39f9c10e51549570b5fa3da7c9a5caf16440cc9e5459661490a809729c1",
+      "bytes": 31504,
+      "capturedAt": "2026-11-10T00:39:29.538381+09:00",
+      "path": "law\\rent-permanent-20250331.html"
+    }
+  ],
+  "lawComparison": {
+    "fromEffectiveDate": "2026-07-08",
+    "toEffectiveDate": "2026-10-27",
+    "range": "제93조부터 제94조의5까지",
+    "normalizedTextIdentical": true,
+    "application": "두 공고 게시 당시 시행본과 현재 시행본을 모두 비교. 새 시행일만으로 공고의 충돌 문구를 대체하지 않음."
+  },
+  "noticeManifests": [
+    {
+      "noticeId": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "status": "공고중",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020453&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "resolvedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020453&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+          "sha256": "a3288e04faf374d2ac60b3f6e712e4c738c06b518c7519f84e04b2601c45bf0a",
+          "bytes": 278758,
+          "mediaType": "text/html; charset=UTF-8",
+          "checkedAt": "2026-11-10T00:37:22.092137+09:00",
+          "path": ".tools\\qa\\active12-recheck-20261110\\renewal\\551e2f60-fae9-4c3e-a282-76ad12ecfc72\\detail.html",
+          "status": "공고중",
+          "previousSha256": "5236bf97cd6f8366d94e2cd983f032f0db5307fe6a9f6a16256a9cd7b36c2451"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837148",
+          "resolvedUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837148",
+          "sha256": "b2f7495f5eb5dedb81d624202747c814cb80a8c0f45193dbb5f86431fe0ee7a6",
+          "bytes": 640000,
+          "mediaType": "application/octet-stream;charset=utf-8",
+          "checkedAt": "2026-11-10T00:37:22.514237+09:00",
+          "path": ".tools\\qa\\active12-recheck-20261110\\renewal\\551e2f60-fae9-4c3e-a282-76ad12ecfc72\\1.hwp",
+          "label": "군산시국민임대입주자상시모집(경암부향등7개단지).hwp",
+          "previousSha256": "b2f7495f5eb5dedb81d624202747c814cb80a8c0f45193dbb5f86431fe0ee7a6",
+          "unchanged": true
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147",
+          "resolvedUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147",
+          "sha256": "2a9832524dc19f34cfc64b73a3bb7277df8187c616e7f682980c0634dabe3c39",
+          "bytes": 959171,
+          "mediaType": "application/octet-stream;charset=utf-8",
+          "checkedAt": "2026-11-10T00:37:22.737036+09:00",
+          "path": ".tools\\qa\\active12-recheck-20261110\\renewal\\551e2f60-fae9-4c3e-a282-76ad12ecfc72\\2.pdf",
+          "label": "군산시국민임대입주자상시모집(경암부향등7개단지).pdf",
+          "previousSha256": "2a9832524dc19f34cfc64b73a3bb7277df8187c616e7f682980c0634dabe3c39",
+          "unchanged": true
+        }
+      ],
+      "currentTitle": "군산시 국민임대주택 입주자 선착순 상시 모집(경암부향 등 7개 단지)",
+      "documentLinks": [
+        {
+          "text": "정정공고 바로가기",
+          "href": "javascript:GoCrc('');",
+          "onclick": null
+        },
+        {
+          "text": "원본공고 바로가기",
+          "href": "javascript:GoCrc('otxt');",
+          "onclick": null
+        },
+        {
+          "text": "공고이력조회",
+          "href": "javascript:GoHistory();",
+          "onclick": null
+        }
+      ]
+    },
+    {
+      "noticeId": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "status": "공고중",
+      "sources": [
+        {
+          "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "resolvedUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020988&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+          "sha256": "760d57f5cbab0815c38f2a59c245eec2cc45e4d9f7d5c2e78ee21106391231f8",
+          "bytes": 209155,
+          "mediaType": "text/html; charset=UTF-8",
+          "checkedAt": "2026-11-10T00:37:21.925176+09:00",
+          "path": ".tools\\qa\\active12-recheck-20261110\\renewal\\de920f26-fdcc-4beb-b26b-6a18d4f54f46\\detail.html",
+          "status": "공고중",
+          "previousSha256": "b0b561616b73c1329f40993bdac459d6afbea208467c701dfffab6c56632724e"
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+          "resolvedUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+          "sha256": "060b2bf5d48ac249b6e096b78db7cc8ed9b896a4315f0715db7e97d3e73f9734",
+          "bytes": 288578,
+          "mediaType": "application/octet-stream;charset=utf-8",
+          "checkedAt": "2026-11-10T00:37:22.284342+09:00",
+          "path": ".tools\\qa\\active12-recheck-20261110\\renewal\\de920f26-fdcc-4beb-b26b-6a18d4f54f46\\1.hwpx",
+          "label": "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).hwpx",
+          "previousSha256": "060b2bf5d48ac249b6e096b78db7cc8ed9b896a4315f0715db7e97d3e73f9734",
+          "unchanged": true
+        },
+        {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+          "resolvedUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063",
+          "sha256": "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6",
+          "bytes": 818767,
+          "mediaType": "application/octet-stream;charset=utf-8",
+          "checkedAt": "2026-11-10T00:37:22.456618+09:00",
+          "path": ".tools\\qa\\active12-recheck-20261110\\renewal\\de920f26-fdcc-4beb-b26b-6a18d4f54f46\\2.pdf",
+          "label": "남원노암영구임대주택입주자격완화예비입주자모집공고문(26.09.07.).pdf",
+          "previousSha256": "22fbcec462111dc091667cc5792572b562eec9153ce2985cd173580887db83b6",
+          "unchanged": true
+        }
+      ],
+      "currentTitle": "[정정공고]남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "documentLinks": [
+        {
+          "text": "정정공고 바로가기",
+          "href": "javascript:GoCrc('');",
+          "onclick": null
+        },
+        {
+          "text": "원본공고 바로가기",
+          "href": "javascript:GoCrc('otxt');",
+          "onclick": null
+        },
+        {
+          "text": "공고이력조회",
+          "href": "javascript:GoHistory();",
+          "onclick": null
+        }
+      ]
+    }
+  ],
+  "historyManifests": [
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?mi=1026&listCo=&aisTpCd=07&srchAisTpCd=&srchUppAisTpCd=&uppAisTpCd=06&startDt=&endDt=&currPage=&panNm=&mvinQf=&schTy=&cnpCd=&panSs=&panId=2015122300020453&ccrCnntSysDsCd=03",
+      "sha256": "249bc956bcb510f1efb7a6a149647080510e38b0f6c2fec07a723e83e7c568e9",
+      "checkedAt": "2026-11-10T00:40:37.378092+09:00"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?mi=1026&listCo=&aisTpCd=09&srchAisTpCd=&srchUppAisTpCd=&uppAisTpCd=06&startDt=&endDt=&currPage=&panNm=&mvinQf=&schTy=&cnpCd=&panSs=&panId=2015122300020988&ccrCnntSysDsCd=03",
+      "sha256": "0b224d69477e398b99c426b3a85b6854eb96b742b3d1afdd224d98ad87debe61",
+      "checkedAt": "2026-11-10T00:40:37.587649+09:00"
+    }
+  ],
+  "searchAssessment": {
+    "sourcesUsed": "LH청약플러스 현 상세페이지·공고이력·첨부, 국가법령정보센터 해당 시행본",
+    "queries": [
+      "\"남원노암\" \"할증\" \"2026\"",
+      "\"남원노암\" \"정정\" site:namwon.go.kr",
+      "\"군산시 국민임대주택\" \"2026.07.30\" \"정정\"",
+      "\"입주자격 완화\" \"특약\" \"할증\" site:lh.or.kr",
+      "\"소득·총자산\" \"할증\" \"적용배제\" site:lh.or.kr",
+      "\"입주자격\" \"무주택 요건\" \"취득\" site:molit.go.kr 국민임대 완화",
+      "\"남원노암\" \"2026.09.07\" site:apply.lh.or.kr",
+      "\"경암부향\" \"최초\" \"2026\" site:apply.lh.or.kr"
+    ],
+    "notEvidence": [
+      "민간 재가공 공고·블로그의 해석은 결정 근거에서 제외",
+      "별도 2026.07.15 군산 예비자 공고의 정정은 다른 단지·다른 모집이며 이미 마감된 검색결과여서 해당 첨부 열람·처리 제외"
+    ],
+    "limitation": "공개 검색에서 후속 정정 또는 이 두 충돌의 적용관계를 명시한 별도 공식 답변을 찾지 못함. 공개되지 않은 기관 자료까지 부재라고 단정하지 않음."
+  }
+}

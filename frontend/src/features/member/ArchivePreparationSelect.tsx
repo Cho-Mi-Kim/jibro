@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Icon } from '../../shared/ui/Icon';
+import { noticeListTitle } from '../housing/noticeDisplay';
 import styles from './ArchivePreparationSelect.module.css';
 
 export function ArchivePreparationSelect({
@@ -22,6 +23,7 @@ export function ArchivePreparationSelect({
         0,
         items.findIndex((item) => item.id === value),
     );
+    const selected = items[selectedIndex];
 
     useEffect(() => {
         if (!open) return;
@@ -87,7 +89,9 @@ export function ArchivePreparationSelect({
                     }
                 }}
             >
-                <span>{items[selectedIndex]?.title}</span>
+                <span title={selected?.title}>
+                    {selected && noticeListTitle(selected.title)}
+                </span>
                 <Icon name="down" />
             </button>
             {open && (
@@ -132,10 +136,12 @@ export function ArchivePreparationSelect({
                                         : '') + event.key.toLocaleLowerCase(),
                                 time: now,
                             };
-                            const index = items.findIndex((item) =>
-                                item.title
-                                    .toLocaleLowerCase()
-                                    .startsWith(search.current.text),
+                            const index = items.findIndex(({ title }) =>
+                                [noticeListTitle(title), title].some((name) =>
+                                    name
+                                        .toLocaleLowerCase()
+                                        .startsWith(search.current.text),
+                                ),
                             );
                             if (index >= 0) setFocused(index);
                         }
@@ -149,6 +155,8 @@ export function ArchivePreparationSelect({
                             }}
                             type="button"
                             role="option"
+                            aria-label={item.title}
+                            title={item.title}
                             aria-selected={item.id === value}
                             tabIndex={index === focused ? 0 : -1}
                             className={styles.option}
@@ -158,7 +166,7 @@ export function ArchivePreparationSelect({
                                 close();
                             }}
                         >
-                            <span>{item.title}</span>
+                            <span>{noticeListTitle(item.title)}</span>
                             <span className={styles.check} aria-hidden="true">
                                 {item.id === value && <Icon name="check" />}
                             </span>

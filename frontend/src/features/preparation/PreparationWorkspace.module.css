@@ -1,0 +1,65 @@
+@value preparation-tabs, preparation-select, preparation-heading, official-application from "./PreparationWorkspaceClassNames.module.css";
+@value page-heading, link-button, icon-disc from "../../shared/styles/PrimitivesClassNames.module.css";
+.preparation-tabs {
+    border: 1px solid var(--theme-line, #e2e4e9);
+    background: var(--theme-surface, white);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.preparation-tabs :global(.active) {
+    background: var(--theme-accent-soft, #fcf0ea);
+}
+.preparation-select {
+    margin: 0;
+    max-width: 480px;
+}
+.preparation-select > span {
+    font-size: 0.75rem;
+    color: var(--theme-muted, #657084);
+}
+.preparation-heading {
+    justify-content: start;
+}
+.preparation-heading .page-heading {
+    margin: 0;
+}
+.official-application {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 16px;
+    margin: 0;
+}
+.official-application h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+.official-application .link-button {
+    font-size: 0.875rem;
+    flex: 1;
+}
+@media (max-width: 1023px) {
+    .preparation-heading {
+        display: block;
+    }
+    .preparation-select {
+        margin-top: 12px;
+        max-width: none;
+    }
+    .official-application .icon-disc {
+        width: 38px;
+        height: 38px;
+    }
+    .official-application h2 {
+        flex: 1;
+    }
+    .official-application .link-button {
+        flex-basis: calc(50% - 12px);
+        font-size: 0.75rem;
+        padding-inline: 8px;
+    }
+    .official-application {
+        order: 6;
+    }
+}

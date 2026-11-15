@@ -1,0 +1,136 @@
+.panel {
+    min-width: 0;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    color: var(--ink);
+}
+.panel h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.panel p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+}
+.heading {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.375rem 0.75rem;
+}
+.status {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+.description {
+    margin: 0.5rem 0 0.875rem;
+    color: var(--muted);
+}
+.pending {
+    margin: -0.375rem 0 0.875rem;
+    color: var(--muted);
+}
+.sections {
+    display: grid;
+    gap: 0.625rem;
+}
+.section {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+}
+.section summary {
+    min-height: var(--target);
+    padding: 0.75rem;
+    cursor: pointer;
+    list-style: none;
+}
+.section summary::-webkit-details-marker {
+    display: none;
+}
+.sectionHeading {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.sectionHeading svg {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.125rem;
+}
+.area {
+    color: var(--muted);
+}
+.preview {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.65;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+.section[open] .preview {
+    display: none;
+}
+.section[open] summary svg {
+    transform: rotate(180deg);
+}
+.body {
+    padding: 0 0.75rem 0.875rem;
+}
+.body .text {
+    margin: 0 0 0.75rem;
+    font-weight: 400;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+.source {
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.source a {
+    color: var(--brand);
+    text-underline-offset: 0.2em;
+}
+.source svg {
+    display: inline;
+    width: 1rem;
+    height: 1rem;
+    margin-inline-start: 0.25rem;
+    vertical-align: text-bottom;
+}
+.source > span {
+    color: var(--muted);
+}
+.actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+.actions button {
+    min-height: var(--target);
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+}

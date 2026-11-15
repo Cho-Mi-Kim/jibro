@@ -23,6 +23,9 @@ public class ChannelController {
     public record Device(@NotBlank @Size(max = 2000) String endpoint) {
     }
 
+    public record Subscription(@NotBlank @Size(max = 2000) String endpoint, @NotNull UUID expectedUserId) {
+    }
+
     @GetMapping
     ReminderDelivery.Channels get(@AuthenticationPrincipal Jwt jwt) {
         return delivery.channels(UUID.fromString(jwt.getSubject()));
@@ -34,8 +37,8 @@ public class ChannelController {
     }
 
     @PutMapping("/push")
-    void push(@AuthenticationPrincipal Jwt jwt, @Valid @RequestBody Device body) {
-        delivery.subscribe(UUID.fromString(jwt.getSubject()), body.endpoint());
+    void push(@AuthenticationPrincipal Jwt jwt, @Valid @RequestBody Subscription body) {
+        delivery.subscribe(UUID.fromString(jwt.getSubject()), body.expectedUserId(), body.endpoint());
     }
 
     @PostMapping("/push/status")

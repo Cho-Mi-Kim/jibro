@@ -1,0 +1,44 @@
+:root[data-text-size='large'] {
+    font-size: 112.5%;
+}
+:root[data-text-size='extra'] {
+    font-size: 125%;
+}
+:root[data-high-contrast='true'] {
+    --ink: #111;
+    --canvas: #fff;
+    --surface: #fff;
+    --line: #595959;
+    --muted: #333;
+    --brand: #8f2d1d;
+    --soft: #f8eee8;
+    --positive: #00513b;
+    --positive-soft: #f0f8f4;
+    --warning: #573d00;
+    --warning-soft: #fff5d6;
+}
+:root[data-high-contrast='true']
+    :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+    border-color: var(--line);
+}
+:root[data-high-contrast='true']
+    :is(button, a, input, select, textarea, summary):focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 4px;
+}
+:root[data-reduce-motion='true'] *,
+:root[data-reduce-motion='true'] *::before,
+:root[data-reduce-motion='true'] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

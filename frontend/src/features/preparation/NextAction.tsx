@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import type { Preparation } from '../housing/types';
-import { Disc } from '../../shared/ui/HousingUI';
+import { Disc } from '../../shared/ui/Disc';
 import { cx } from '../../shared/styles/classes';
 import { useNoticeEntryState } from '../../shared/navigation/useNoticeEntryState';
 import styles from './NextAction.module.css';
@@ -17,10 +17,14 @@ export function NextAction({ p }: { p: Preparation }) {
             <p className={styles.reason}>{p.nextAction.reason}</p>
             <Link
                 className={`${cx('link-button wide')} ${styles.action}`}
-                to={p.nextAction.path}
+                to={
+                    p.nextAction.label === '확인하지 못한 조건 살펴보기'
+                        ? `${p.nextAction.path}?review=remaining`
+                        : p.nextAction.path
+                }
                 state={entryState}
             >
-                준비 방법 보기
+                준비 이어하기
             </Link>
         </section>
     );

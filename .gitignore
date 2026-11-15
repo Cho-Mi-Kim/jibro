@@ -17,3 +17,6 @@
 *.log
 .DS_Store
 Thumbs.db
+deploy/runtime.env
+deploy/*.pem
+deploy/*.key

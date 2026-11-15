@@ -1,0 +1,197 @@
+.dialog {
+    width: min(28rem, calc(100% - 2rem));
+    max-width: calc(100% - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+    margin: auto;
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    color: var(--ink);
+}
+.dialog::backdrop {
+    background: rgb(0 0 0 / 40%);
+}
+.dialog > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+.dialog h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.dialog .close {
+    border: 0;
+    background: transparent;
+    font-size: 1.5rem;
+    min-width: var(--target);
+    width: var(--target);
+    flex-shrink: 0;
+    color: var(--muted);
+    padding: 0;
+    margin-right: -0.5rem;
+}
+.record {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--canvas);
+}
+.record > svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+    color: var(--muted);
+}
+.record > div {
+    min-width: 0;
+}
+.recordLabel {
+    margin: 0 0 0.25rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+.title {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 650;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.description {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+.warning {
+    display: grid;
+    gap: 0.5rem;
+    margin-block: 1rem 1.25rem;
+}
+.warningTitle {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.375rem;
+    margin: 0;
+    color: var(--theme-danger, #b43e25);
+    font-weight: 650;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+.warningTitle svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+.authentication {
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+.field {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+.field label {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+}
+.field input {
+    width: 100%;
+    min-width: 0;
+    min-height: var(--target);
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.field input::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+.method {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: var(--target);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+}
+.method input {
+    accent-color: var(--theme-ink, #262626);
+}
+.dialog button {
+    min-height: var(--target);
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+}
+.dialog footer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 1.25rem;
+}
+.dialog .danger {
+    background: var(--action-brand, var(--brand));
+    border-color: var(--action-brand, var(--brand));
+    color: white;
+}
+.dialog .danger:disabled {
+    background: var(--canvas);
+    border-color: var(--line);
+    color: var(--muted);
+    opacity: 1;
+    cursor: not-allowed;
+}
+.feedback,
+.error {
+    margin: 0.75rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+.feedback {
+    color: var(--muted);
+}
+.error {
+    color: var(--theme-danger, #b43e25);
+}
+.trigger {
+    color: var(--muted);
+    border: 0;
+    background: transparent;
+    min-height: var(--target);
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+    text-decoration: underline;
+}

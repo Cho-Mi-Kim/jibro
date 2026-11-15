@@ -53,7 +53,7 @@ describe('준비 보관함 공고 선택', () => {
         const user = userEvent.setup();
         const { onChange, trigger } = mount();
 
-        expect(trigger).toHaveTextContent(items[1].title);
+        expect(trigger.textContent).toBe('서울 청년 전세임대');
         expect(trigger).toHaveAttribute('aria-expanded', 'false');
         expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
         expect(onChange).not.toHaveBeenCalled();
@@ -63,6 +63,9 @@ describe('준비 보관함 공고 선택', () => {
         expect(trigger).toHaveAttribute('aria-expanded', 'true');
         const list = within(screen.getByRole('listbox'));
         expect(list.getAllByRole('option')).toHaveLength(items.length);
+        expect(
+            list.getByRole('option', { name: items[0].title }).textContent,
+        ).toBe('청년 매입임대');
         for (const item of items) {
             expect(
                 list.getByRole('option', { name: item.title }),

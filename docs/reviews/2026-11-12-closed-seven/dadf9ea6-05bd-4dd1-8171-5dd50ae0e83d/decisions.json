@@ -1,0 +1,131 @@
+[
+  {
+    "issueId": "income_scope_conflict",
+    "title": "소득·자산·부모 소득 적용 범위 확인",
+    "resolution": "이번 선착순 공고는 자산 및 부모 소득 기준을 적용하지 않습니다. 수급자·지원대상 한부모가족·차상위계층은 본문 4쪽의 해당 자격을 확인하고, 그 외 신청자는 본인 월평균소득 4,576,036원 이하 기준을 적용합니다. 일반 Q&A의 순위별 부모 소득·총자산·자동차 기준을 이번 공고에 추가하지 않습니다. 소득 산정 항목은 본문 12쪽을 따릅니다.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=4",
+        "label": "모집공고문 4쪽 · 이번 선착순 공고 소득 기준",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68993551",
+        "label": "청년 매입임대 Q&A · Ⅱ-3 소득·총자산·자동차 검증",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  },
+  {
+    "issueId": "selection_scope_conflict",
+    "title": "선착순 순번과 순위·배점 안내의 적용 범위 확인",
+    "resolution": "서류가 모두 갖춰진 현장 접수 시점이 빠른 순서로 예비 순번을 부여합니다. 미비서류가 있으면 보완 완료 시점이 접수 기준입니다. 매일 오전 10시 전 대기자가 2명 이상이면 그 대기자끼리 추첨해 순서를 정합니다. 일반 Q&A의 1·2·3순위나 가점 합산을 이번 선착순 공고에 적용하지 않습니다. 자격검증을 통과한 뒤 순번에 따라 계약하며 앞 순번에서 물량이 소진될 수 있습니다.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=2",
+        "label": "모집공고문 2쪽 · 현장 접수와 순번",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68993551",
+        "label": "청년 매입임대 Q&A · Ⅰ-15 및 Ⅲ 순위·배점",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  },
+  {
+    "issueId": "duplicate_scope_conflict",
+    "title": "다른 공고 중복 신청·취소 가능 시점 확인",
+    "resolution": "본문 1쪽의 1인 1주택, 같은 공고일의 타 지역 청년 공고 중복 신청 금지, 청년 매입임대 기계약자의 동일 시·군·구 중복 신청 금지를 적용합니다. Q&A는 서류제출 완료 후 예비순번 발표 전까지 다른 청년 매입임대 신청을 제한하고, 선정자는 계약 또는 예비 지위 종료 후, 미선정자는 발표 후 신청 가능하다고 추가 안내합니다. 서류제출기간 종료 전에는 접수 취소 후 다른 공고를 신청할 수 있고 이후에는 취소할 수 없습니다. 이번 공고는 현장 신청과 서류제출이 동시에 진행됩니다. 공고일 제한과 진행 단계 제한은 서로 다른 기준으로 함께 확인합니다.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=1",
+        "label": "모집공고문 1쪽 · 중복 신청 제한",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68993551",
+        "label": "청년 매입임대 Q&A · Ⅰ-6 다른 공고 신청·취소",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  },
+  {
+    "issueId": "housing_scope_conflict",
+    "title": "무주택 조회 대상과 예외 적용 확인",
+    "resolution": "이번 공고는 신청자 본인의 무주택 여부를 확인하며 부모가 주택을 소유해도 신청할 수 있습니다. 본문 4쪽과 Q&A의 명시 기준을 적용하고 일반 판정기준 표의 세대구성원 문구로 부모까지 무주택이어야 한다는 조건을 추가하지 않습니다. 본인의 공유지분·분양권·입주권 및 상속 등 무주택 인정 예외는 본문 11쪽 기준과 증빙을 확인합니다.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=4",
+        "label": "모집공고문 4쪽 · 신청자 무주택·부모 주택 허용",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=11",
+        "label": "모집공고문 11쪽 · 일반 주택 소유 판정기준",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68993551",
+        "label": "청년 매입임대 Q&A · Ⅰ-4 부모 주택 소유",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  },
+  {
+    "issueId": "parent_docs_scope_conflict",
+    "title": "부모 추가서류가 필요한 대상 범위 확인",
+    "resolution": "본문 6쪽의 부모 추가서류는 세대분리된 부모의 수급·차상위 증명서를 제출하는 경우에 준비합니다. 분리된 부모 등본, 부모가 이혼한 경우 부 또는 모의 혼인관계증명서(상세), 이혼한 부모 모두 본인 등본에 없으면 본인·부모 모두의 초본이 필요합니다. 부모 증명을 사용하지 않는 신청자에게 일반 Q&A만으로 이 추가서류를 일괄 요구하지 않습니다.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=6",
+        "label": "모집공고문 6쪽 · 조건부 부모 추가서류",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68993551",
+        "label": "청년 매입임대 Q&A · Ⅱ-6 부모 이혼 시 서류",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  },
+  {
+    "issueId": "privacy_optional_scope_conflict",
+    "title": "동의서 필수·선택 항목 범위 확인",
+    "resolution": "개인정보 수집·이용과 제3자 제공 동의는 필수이고, 장애 관련 민감정보 및 공공주택 정보제공·홍보 동의는 선택입니다. 민감정보에 동의하지 않으면 양식에 명시된 장애 관련 우선공급·배점에서 제외될 수 있으며, 이 공고에 없는 가점을 새로 부여한다는 뜻은 아닙니다. 홍보에 동의하지 않아도 청약서비스 이용에는 제한이 없고 관련 메시지·전화만 받지 않습니다. 동의서 제출·대상자 서명과 선택 항목에 대한 동의 여부를 구분합니다. 부모 수급·차상위 증명을 제출하면 본인과 부모 모두 서명합니다.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=5",
+        "label": "모집공고문 5쪽 · 동의서 제출 안내",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=14",
+        "label": "모집공고문 14쪽 · 동의서 필수·선택 항목",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=15",
+        "label": "모집공고문 15쪽 · 선택 동의와 미동의 안내",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  },
+  {
+    "issueId": "contract_schedule_scope_conflict",
+    "title": "계약 일정은 개별 안내 확인",
+    "resolution": "본문의 개인별 계약일은 순번 도래 시 개별 안내. 상세 페이지의 운영기간과 개인 계약일은 다른 정보이므로 충돌로 취급하지 않음.",
+    "evidence": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020900&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026",
+        "label": "공식 상세 · 계약기간",
+        "checkedAt": "2026-11-08"
+      },
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69008404#page=2",
+        "label": "모집공고문 2쪽 · 계약체결은 순번 도래 시 별도 안내",
+        "checkedAt": "2026-11-08"
+      }
+    ]
+  }
+]

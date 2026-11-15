@@ -6,6 +6,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App } from './App';
 import { demoRequest, resetDemo, notices } from '../features/housing/demo';
 import { api } from '../features/housing/api';
+import { memberApi } from '../features/member/memberApi';
+// Exercise the real demo contract without accumulating artificial presentation delays.
+vi.mock('../features/housing/demoDelay', () => ({
+    waitForDemoResponse: async () => {},
+}));
 vi.mock('../shared/api/transport', () => ({
     demoMode: true,
     call: (path: string, method = 'GET', body?: unknown) =>
@@ -84,6 +89,186 @@ beforeEach(() => {
     );
 });
 describe('사용자 준비 흐름', () => {
+    it('공고 미리보기는 목록 데이터로 열고 상세 화면에 들어갈 때만 전체 자료를 요청한다', async () => {
+        const detail = vi.spyOn(api, 'notice');
+        try {
+            mount('/notices');
+            await userEvent.click(
+                await screen.findByRole('button', { name: notices[0].title }),
+            );
+            const link = await screen.findByRole('link', {
+                name: '공고 자세히 보기',
+            });
+            expect(detail).not.toHaveBeenCalled();
+            await userEvent.click(link);
+            await screen.findByRole('tab', { name: '핵심 요약' });
+            expect(detail).toHaveBeenCalledTimes(1);
+        } finally {
+            detail.mockRestore();
+        }
+    });
+    it('내 준비의 세부 탭은 선택한 준비 건을 공유하고 같은 상세를 반복 요청하지 않는다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        const detail = vi.spyOn(api, 'preparation');
+        try {
+            mount('/preparations');
+            await screen.findByRole('heading', { name: p.title });
+            for (const name of ['조건', '서류', '일정', '개요']) {
+                const nav = screen.getByRole('navigation', {
+                    name: '개인 준비',
+                });
+                await userEvent.click(within(nav).getByRole('link', { name }));
+                await waitFor(() =>
+                    expect(
+                        within(
+                            screen.getByRole('navigation', {
+                                name: '개인 준비',
+                            }),
+                        ).getByRole('link', { name }),
+                    ).toHaveAttribute('aria-current', 'page'),
+                );
+            }
+            expect(detail.mock.calls.map(([id]) => id)).toEqual([p.id]);
+        } finally {
+            detail.mockRestore();
+        }
+    });
+
+    it.each(['/notices', '/notices?sort='])(
+        '%s 기본 정렬은 접수·준비 안내 순이고 명시적 마감순으로 전환할 수 있다',
+        async (path) => {
+            mount(path);
+            const results = screen.getByRole('region', {
+                name: '공고 검색 결과',
+            });
+            await within(results).findByRole('button', {
+                name: notices[0].title,
+            });
+            const titles = () =>
+                within(results)
+                    .getAllByRole('heading', { level: 3 })
+                    .map((heading) => heading.textContent);
+            expect(titles()).toEqual([
+                notices[0].title,
+                notices[1].title,
+                notices[3].title,
+                notices[2].title,
+            ]);
+            await userEvent.click(screen.getByLabelText('공고 정렬'));
+            expect(
+                screen.getByRole('button', { name: /접수·준비 안내 순/ }),
+            ).toHaveAttribute('aria-pressed', 'true');
+            await userEvent.click(
+                screen.getByRole('button', { name: /마감 가까운 순/ }),
+            );
+            await waitFor(() => expect(titles()[0]).toBe(notices[2].title));
+            await userEvent.click(screen.getByLabelText('공고 정렬'));
+            expect(
+                screen.getByRole('button', { name: /마감 가까운 순/ }),
+            ).toHaveAttribute('aria-pressed', 'true');
+            await userEvent.click(
+                screen.getByRole('button', { name: /접수·준비 안내 순/ }),
+            );
+            await waitFor(() => expect(titles().at(-1)).toBe(notices[2].title));
+        },
+    );
+    it('읽지 않은 알림을 종에 표시하고 모두 읽은 후 표시를 지운다', async () => {
+        vi.useFakeTimers({ toFake: ['Date'] });
+        try {
+            vi.setSystemTime(new Date(notices[0].endDate + 'T00:00:00+09:00'));
+            await api.login('demo@example.invalid', 'demo');
+            await memberApi.configure({
+                enabled: true,
+                leadDays: 3,
+                includeSaved: true,
+            });
+            await memberApi.save(notices[0].id, true);
+            mount('/notices');
+            const link = await screen.findByRole('link', {
+                name: '알림 확인, 읽지 않은 알림 있음',
+            });
+            expect(link).toHaveAttribute('data-unread', 'true');
+            await userEvent.click(link);
+            await userEvent.click(
+                await screen.findByRole('button', { name: '모두 읽음' }),
+            );
+            await screen.findByRole('heading', {
+                name: '공고 소식 · 읽지 않음 0건',
+            });
+            await userEvent.click(
+                screen.getByRole('button', { name: '이전 화면으로' }),
+            );
+            expect(
+                await screen.findByRole('link', { name: '알림 확인' }),
+            ).not.toHaveAttribute('data-unread');
+        } finally {
+            vi.useRealTimers();
+        }
+    });
+    it('알림을 열면 연결된 공고로 이동하고 해당 알림만 읽음 처리한다', async () => {
+        vi.useFakeTimers({ toFake: ['Date'] });
+        try {
+            vi.setSystemTime(new Date(notices[0].endDate + 'T00:00:00+09:00'));
+            await api.login('demo@example.invalid', 'demo');
+            await memberApi.configure({
+                enabled: true,
+                leadDays: 3,
+                includeSaved: true,
+            });
+            const targets = notices.slice(0, 2);
+            for (const notice of targets) await memberApi.save(notice.id, true);
+            mount('/alerts');
+            await screen.findByRole('heading', {
+                name: '공고 소식 · 읽지 않음 2건',
+            });
+
+            for (const [index, notice] of targets.entries()) {
+                const row = (await screen.findByText(notice.title)).closest(
+                    'li',
+                )!;
+                expect(
+                    within(row).getByRole('img', { name: '읽지 않음' }),
+                ).toBeInTheDocument();
+                expect(within(row).getByRole('link')).toHaveAttribute(
+                    'href',
+                    '/notices/' + notice.id,
+                );
+                await userEvent.click(within(row).getByText(/신청 접수 마감/));
+                await screen.findByRole('tab', { name: '핵심 요약' });
+                const bell = await screen.findByRole('link', {
+                    name:
+                        index === 0
+                            ? '알림 확인, 읽지 않은 알림 있음'
+                            : '알림 확인',
+                });
+                await userEvent.click(bell);
+                await screen.findByRole('heading', {
+                    name: `공고 소식 · 읽지 않음 ${1 - index}건`,
+                });
+                expect(
+                    screen.queryAllByRole('img', { name: '읽지 않음' }),
+                ).toHaveLength(1 - index);
+                const list = screen.getByText(notice.title).closest('ul')!;
+                const expectedOrder =
+                    index === 0 ? [targets[1], targets[0]] : targets;
+                expect(
+                    within(list)
+                        .getAllByRole('link')
+                        .map((link) => link.getAttribute('href')),
+                ).toEqual(
+                    expectedOrder.map((target) => '/notices/' + target.id),
+                );
+                expect(
+                    within(
+                        screen.getByText(notice.title).closest('li')!,
+                    ).queryByText('읽음'),
+                ).not.toBeInTheDocument();
+            }
+        } finally {
+            vi.useRealTimers();
+        }
+    });
     it('알림에서 이전을 누르면 검색어가 있는 공고 목록으로 돌아간다', async () => {
         await api.login('demo@example.invalid', 'demo');
         mount('/notices?keyword=청년&sort=newest');
@@ -189,7 +374,8 @@ describe('사용자 준비 흐름', () => {
     });
     it('조건 결과 안내는 처음에 접히고 버튼을 다시 누르면 원래대로 접힌다', async () => {
         await api.login('demo@example.invalid', 'demo');
-        await api.start('1', 1);
+        const p = await api.start('1', 1);
+        await api.answers(p.id, p.revision, { [p.questions[0].id]: 'YES' });
         mount('/preparations');
         const nav = await screen.findByRole('navigation', {
             name: '개인 준비',
@@ -205,6 +391,17 @@ describe('사용자 준비 흐름', () => {
         const source = screen.getAllByLabelText(/공식 근거 보기/)[0];
         const detail = source.closest('details')!;
         expect(detail).not.toHaveAttribute('open');
+        expect(
+            screen.getByRole('heading', {
+                name: '본인에게 적용되는 무주택 기준',
+            }),
+        ).toBeVisible();
+        await userEvent.click(screen.getByText('답변 완료 1개 보기'));
+        expect(
+            screen.getByRole('heading', { name: '공고 기준일의 거주 조건' }),
+        ).toBeVisible();
+        expect(screen.getByText(p.questions[0].reason)).toBeVisible();
+        expect(screen.getByText('확인했어요')).toBeVisible();
         await userEvent.click(source);
         expect(detail).toHaveAttribute('open');
         expect(screen.queryByText('답변 이어서 작성')).not.toBeInTheDocument();
@@ -213,7 +410,7 @@ describe('사용자 준비 흐름', () => {
         await userEvent.click(resume);
         expect(
             await screen.findByRole('group', {
-                name: notices[0].questions[0].title,
+                name: p.questions[1].title,
             }),
         ).toBeVisible();
     });
@@ -223,7 +420,9 @@ describe('사용자 준비 흐름', () => {
         const target = preparation.questions[1];
         mount('/preparations/' + preparation.id + '/conditions/result');
         const card = (
-            await screen.findByRole('heading', { name: target.title })
+            await screen.findByRole('heading', {
+                name: '본인에게 적용되는 무주택 기준',
+            })
         ).closest('article');
         expect(card).not.toBeNull();
         await userEvent.click(
@@ -279,7 +478,7 @@ describe('사용자 준비 흐름', () => {
         const p = await api.start('1', 1);
         mount('/?notice=1');
         await userEvent.click(
-            await screen.findByRole('link', { name: '준비 방법 보기' }),
+            await screen.findByRole('link', { name: '준비 이어하기' }),
         );
         await userEvent.click(
             await screen.findByRole('radio', { name: '확인했어요' }),
@@ -328,7 +527,67 @@ describe('사용자 준비 흐름', () => {
             save.mockRestore();
         }
     });
+    it.each(['YES', 'UNKNOWN'])(
+        '지금 할 일에서 미응답 질문을 열고 기존 %s 응답의 확인 상태에 따라 이전 질문을 표시한다',
+        async (answer) => {
+            await api.login('demo@example.invalid', 'demo');
+            const p = await api.start('1', 1);
+            await api.answers(p.id, p.revision, {
+                [p.questions[0].id]: answer,
+            });
+            mount('/preparations');
+            await userEvent.click(
+                await screen.findByRole('link', { name: /^지금 할 일/ }),
+            );
+            expect(
+                await screen.findByRole('group', {
+                    name: p.questions[1].title,
+                }),
+            ).toBeVisible();
+            const previous = screen.getByRole('button', { name: '이전' });
+            if (answer === 'UNKNOWN') {
+                await userEvent.click(previous);
+                expect(screen.getByRole('group')).toHaveAccessibleName(
+                    p.questions[0].title,
+                );
+                expect(
+                    screen.getByRole('radio', { name: '잘 모르겠어요' }),
+                ).toBeChecked();
+            } else {
+                expect(previous).toBeDisabled();
+                await userEvent.click(
+                    screen.getByRole('radio', { name: '확인했어요' }),
+                );
+                expect(
+                    await screen.findByRole('heading', {
+                        name: '내 조건 확인 결과',
+                    }),
+                ).toBeVisible();
+            }
+        },
+    );
+    it('모두 응답한 뒤에는 추가 확인으로 남긴 질문을 이어간다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        await api.answers(p.id, p.revision, {
+            [p.questions[0].id]: 'YES',
+            [p.questions[1].id]: 'UNKNOWN',
+        });
+        mount('/preparations');
+        await userEvent.click(
+            await screen.findByRole('link', { name: /^지금 할 일/ }),
+        );
+        expect(
+            await screen.findByRole('group', { name: p.questions[1].title }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('radio', { name: '잘 모르겠어요' }),
+        ).toBeChecked();
+    });
     it('질문별 선택지를 자동 저장하고 다음 질문과 결과로 이동한다', async () => {
+        const reason =
+            '주민등록상 거주 기간은 2년 이상입니다. 공고일 기준입니다. 예외는 공고문에서 확인합니다.';
+        notices[0].questions[0].reason = reason;
         notices[0].questions[0].options = [
             { value: 'SEOUL', label: '서울특별시에 거주해요' },
             { value: 'GYEONGGI', label: '경기도에 거주해요' },
@@ -337,9 +596,23 @@ describe('사용자 준비 흐름', () => {
         await api.login('demo@example.invalid', 'demo');
         const p = await api.start('1', 1);
         mount('/preparations/' + p.id + '/conditions/edit');
+        const first = within(
+            await screen.findByRole('group', { name: p.questions[0].title }),
+        );
+        expect(
+            first.getByText('주민등록상 거주 기간은 2년 이상'),
+        ).toBeVisible();
+        expect(first.getByText(reason)).not.toBeVisible();
+        await userEvent.click(first.getByText('전체 조건 보기'));
+        expect(first.getByText(reason)).toBeVisible();
         await userEvent.click(
             await screen.findByRole('radio', { name: '경기도에 거주해요' }),
         );
+        const second = within(
+            await screen.findByRole('group', { name: p.questions[1].title }),
+        );
+        expect(second.getByText(p.questions[1].reason)).toBeVisible();
+        expect(second.queryByText(reason)).not.toBeInTheDocument();
         await userEvent.click(
             await screen.findByRole('radio', { name: '해당하지 않아요' }),
         );
@@ -420,6 +693,9 @@ describe('사용자 준비 흐름', () => {
             screen.queryByRole('button', { name: /조건별 확인 서류/ }),
         ).not.toBeInTheDocument();
         expect(
+            screen.getByText(/해당 여부 추가 확인 · .*무주택 기준/),
+        ).toBeVisible();
+        expect(
             screen.getByRole('heading', { name: '해당 여부 추가 확인 1개' }),
         ).toBeVisible();
         expect(
@@ -486,8 +762,20 @@ describe('사용자 준비 흐름', () => {
         ).not.toBeInTheDocument();
         await userEvent.click(screen.getByRole('tab', { name: '조건' }));
         expect(
-            screen.getByText(/검수되지 않은 개인별 안내/),
+            screen.getByText(/표시할 조건 원문은 아직 확인 중이에요/),
         ).toBeInTheDocument();
+        expect(
+            within(screen.getByRole('tabpanel', { name: '조건' })).getByText(
+                '공식 링크 확인 필요',
+            ),
+        ).toBeInTheDocument();
+        expect(screen.queryByRole('radio')).not.toBeInTheDocument();
+        expect(
+            screen.queryByRole('button', { name: '내 조건 확인하기' }),
+        ).not.toBeInTheDocument();
+        for (const question of notices.find((notice) => notice.id === '2')!
+            .questions)
+            expect(screen.queryByText(question.title)).not.toBeInTheDocument();
     });
     it('개인 기록을 읽지 못하면 현재 건과 저장을 유지하고 명시적 재시도 때만 전환한다', async () => {
         const user = await api.login('demo@example.invalid', 'demo');
@@ -506,6 +794,11 @@ describe('사용자 준비 흐름', () => {
             mount('/notices/1');
             await userEvent.click(
                 await screen.findByRole('button', { name: '내 조건 확인하기' }),
+            );
+            await userEvent.click(
+                await screen.findByRole('button', {
+                    name: '저장하고 이어하기',
+                }),
             );
             expect(await screen.findByRole('alert')).toHaveTextContent(
                 '노트 조회 실패',
@@ -585,15 +878,21 @@ describe('사용자 준비 흐름', () => {
                     name: '이 공고로 준비 시작',
                 }),
             );
+            await userEvent.click(
+                await screen.findByRole('button', {
+                    name: '저장하고 이어하기',
+                }),
+            );
             expect(
-                await screen.findByRole('link', { name: '준비 방법 보기' }),
+                await screen.findByRole('link', { name: '준비 이어하기' }),
             ).toBeVisible();
             const records = await api.preparations();
             expect(records.map((p) => p.noticeId)).toEqual(['1']);
             expect(
-                screen
-                    .getByRole('heading', { name: records[0].title })
-                    .closest('a'),
+                screen.getByRole('heading', { name: records[0].title }),
+            ).toBeVisible();
+            expect(
+                await screen.findByRole('link', { name: /안내 v1/ }),
             ).toHaveAttribute('href', '/notices/' + records[0].noticeId);
             expect(
                 screen.getByRole('link', { name: /질문 응답/ }),
@@ -705,7 +1004,8 @@ describe('사용자 준비 흐름', () => {
             progress: 25,
             houseStage: 2,
             nextAction: {
-                ...original.nextAction,
+                label: '서류 다시 확인하기',
+                reason: '조건 변경으로 재확인이 필요한 서류가 있어요.',
                 path: '/preparations/' + original.id + '/documents',
             },
         };
@@ -716,13 +1016,28 @@ describe('사용자 준비 흐름', () => {
             progress: 80,
             houseStage: 4,
             nextAction: {
-                ...first.nextAction,
+                label: '신청 일정 확인하기',
+                reason: '공식 절차와 일정을 확인하세요.',
                 path: '/preparations/another-preparation/schedule',
             },
         };
-        const read = vi
-            .spyOn(api, 'preparations')
-            .mockResolvedValue([first, second]);
+        const read = vi.spyOn(api, 'preparations').mockResolvedValue(
+            [first, second].map(
+                ({ id, noticeId, title, version, revision, progress }) => ({
+                    id,
+                    noticeId,
+                    title,
+                    version,
+                    revision,
+                    progress,
+                }),
+            ),
+        );
+        const detail = vi
+            .spyOn(api, 'preparation')
+            .mockImplementation(async (id) =>
+                id === first.id ? first : second,
+            );
         try {
             localStorage.setItem('jibro.active.' + user.id, first.id);
             mount('/preparations');
@@ -763,10 +1078,14 @@ describe('사용자 준비 흐름', () => {
                     dialog.getByRole('button', { name: '닫기' }),
                 );
                 expect(
-                    screen.getByRole('link', { name: /준비 계속하기/ }),
+                    screen.getByRole('link', { name: /^지금 할 일/ }),
                 ).toHaveAttribute('href', record.nextAction.path);
+                expect(
+                    screen.getByRole('link', { name: '이전 준비 기록 보기' }),
+                ).toHaveAttribute('href', `/preparations/${record.id}/history`);
             }
             await expectSelected(first);
+            expect(detail.mock.calls.map(([id]) => id)).toEqual([first.id]);
             await userEvent.click(
                 screen.getByText(/진행 중/).closest('summary')!,
             );
@@ -778,6 +1097,10 @@ describe('사용자 준비 흐름', () => {
                 await screen.findByRole('heading', { name: second.title }),
             ).toBeVisible();
             await expectSelected(second);
+            expect(detail.mock.calls.map(([id]) => id)).toEqual([
+                first.id,
+                second.id,
+            ]);
             expect(localStorage.getItem('jibro.active.' + user.id)).toBe(
                 second.id,
             );
@@ -792,8 +1115,10 @@ describe('사용자 준비 흐름', () => {
                 await screen.findByRole('heading', { name: first.title }),
             ).toBeVisible();
             await expectSelected(first);
+            expect(detail).toHaveBeenCalledTimes(2);
         } finally {
             read.mockRestore();
+            detail.mockRestore();
             localStorage.clear();
         }
     });
@@ -805,9 +1130,23 @@ describe('사용자 준비 흐름', () => {
             id: 'another-record',
             title: '두 번째 준비 건',
         };
-        const read = vi
-            .spyOn(api, 'preparations')
-            .mockResolvedValue([first, second]);
+        const read = vi.spyOn(api, 'preparations').mockResolvedValue(
+            [first, second].map(
+                ({ id, noticeId, title, version, revision, progress }) => ({
+                    id,
+                    noticeId,
+                    title,
+                    version,
+                    revision,
+                    progress,
+                }),
+            ),
+        );
+        const detail = vi
+            .spyOn(api, 'preparation')
+            .mockImplementation(async (id) =>
+                id === first.id ? first : second,
+            );
         try {
             localStorage.setItem('jibro.active.' + user.id, second.id);
             mount('/');
@@ -853,6 +1192,7 @@ describe('사용자 준비 흐름', () => {
             ).toBeVisible();
         } finally {
             read.mockRestore();
+            detail.mockRestore();
             localStorage.clear();
         }
     });
@@ -860,6 +1200,9 @@ describe('사용자 준비 흐름', () => {
         mount('/notices/1');
         await userEvent.click(
             await screen.findByRole('button', { name: '내 조건 확인하기' }),
+        );
+        await userEvent.click(
+            await screen.findByRole('button', { name: '저장하고 이어하기' }),
         );
         await userEvent.click(
             await screen.findByRole('button', { name: '시연 사용자로 보기' }),
@@ -936,7 +1279,7 @@ describe('사용자 준비 흐름', () => {
         const lastParams = () =>
             new URLSearchParams(read.mock.calls.at(-1)?.[0]);
         try {
-            mount('/notices?region=서울&sort=newest&page=2');
+            mount('/notices?region=서울+외&region=서울&sort=newest&page=2');
             await screen.findByText('조건에 맞는 공고가 없어요');
             await userEvent.click(screen.getByRole('button', { name: /지역/ }));
             let dialog = within(
@@ -1007,6 +1350,20 @@ describe('사용자 준비 흐름', () => {
         } finally {
             read.mockRestore();
         }
+    });
+    it('서류 카드 본문으로 펼치고 접을 수 있다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        mount('/preparations/' + p.id + '/documents');
+        const title = p.documents[0].title;
+        const toggle = await screen.findByRole('button', {
+            name: new RegExp(title),
+        });
+        expect(toggle).toHaveAttribute('aria-expanded', 'true');
+        await userEvent.click(screen.getByText(title, { selector: 'strong' }));
+        expect(toggle).toHaveAttribute('aria-expanded', 'false');
+        await userEvent.click(screen.getByText(title, { selector: 'strong' }));
+        expect(toggle).toHaveAttribute('aria-expanded', 'true');
     });
     it('서류 완료를 먼저 표시하고 접힌 메뉴에서 상태를 다시 변경할 수 있다', async () => {
         await api.login('demo@example.invalid', 'demo');

@@ -1,7 +1,11 @@
+import { scheduleIsActive, lifecycleLabel } from '../housing/noticeLifecycle';
 import type { Evidence, Notice, Preparation, Schedule } from '../housing/types';
-import { daysLeft } from '../../shared/ui/housingHelpers';
+import { individualAnnouncement } from '../housing/schedules';
+import { daysLeft } from '../housing/noticeDisplay';
 import {
     currentPreparationSchedules,
+    applicationDate,
+    dateWithScheduleTime,
     scheduleDay,
     scheduleTime,
     selectSchedule,
@@ -9,6 +13,7 @@ import {
 
 type TimelineId = 'published' | 'start' | 'end' | 'result' | 'documents';
 export interface TimelineRow {
+    announcementExplanation?: Schedule;
     id: TimelineId;
     title: string;
     date: string | null;
@@ -61,27 +66,51 @@ export function buildScheduleTimeline(
         start: notice?.startDate,
         end: notice?.endDate,
     };
+    const resultExplanation = individualAnnouncement(details);
     const rows = (Object.keys(titles) as TimelineId[]).map(
         (id): TimelineRow => {
             const basicDate = validDate(basic[id]);
             const event = selectSchedule(details, id, basicDate);
-            const date = basicDate ?? validDate(event?.date);
+            const date = validDate(
+                notice?.applicationTiming && (id === 'start' || id === 'end')
+                    ? applicationDate(notice, id)
+                    : (basicDate ?? event?.date),
+            );
             if (!date)
                 return {
+                    announcementExplanation:
+                        id === 'result' ? resultExplanation : undefined,
                     id,
-                    title: titles[id],
+                    title:
+                        id === 'result' && resultExplanation
+                            ? '결과 발표'
+                            : titles[id],
                     date: null,
                     dateLabel: '—',
                     weekday: '',
                     time: '',
-                    status: '확인 필요',
+                    status:
+                        id === 'result' && resultExplanation
+                            ? '개별 안내'
+                            : '확인 필요',
                     tone: 'unknown',
                 };
             const day = scheduleDay(date)!;
             const time =
-                scheduleTime({ date, title: event?.title ?? '' }) ||
-                (event ? scheduleTime(event) : '');
-            const left = daysLeft(date, now);
+                notice?.applicationTiming && (id === 'start' || id === 'end')
+                    ? scheduleTime({ date, title: '' })
+                    : scheduleTime({ date, title: event?.title ?? '' }) ||
+                      (event ? scheduleTime(event) : '');
+            const left =
+                id === 'end' && notice?.status === 'CLOSED'
+                    ? '일정 경과'
+                    : daysLeft(
+                          notice?.applicationTiming &&
+                              (id === 'start' || id === 'end')
+                              ? date
+                              : dateWithScheduleTime(date, event),
+                          now,
+                      );
             const past = left === '일정 경과';
             const status =
                 id === 'published'
@@ -102,6 +131,8 @@ export function buildScheduleTimeline(
                             ? '오늘'
                             : '예정';
             return {
+                announcementExplanation:
+                    id === 'result' ? resultExplanation : undefined,
                 id,
                 title: titles[id],
                 date,
@@ -122,12 +153,15 @@ export function buildScheduleTimeline(
     const end = rows[2];
     if (
         start.date &&
-        daysLeft(start.date, now) !== '일정 확인' &&
-        (daysLeft(start.date, now) === '일정 경과' ||
-            daysLeft(start.date, now) === 'D-Day')
+        (notice
+            ? notice.status === 'OPEN' || notice.status === 'CLOSED'
+            : daysLeft(start.date, now) === '일정 경과' ||
+              daysLeft(start.date, now) === 'D-Day')
     ) {
         if (end.date) {
-            const closed = daysLeft(end.date, now) === '일정 경과';
+            const closed =
+                notice?.status === 'CLOSED' ||
+                daysLeft(end.date, now) === '일정 경과';
             start.status = closed ? '접수 종료' : '접수 중';
             start.tone = closed ? 'done' : 'active';
         }
@@ -135,6 +169,12 @@ export function buildScheduleTimeline(
     if (!rows.some((row) => row.tone === 'active')) {
         const upcoming = rows.find((row) => row.tone === 'pending');
         if (upcoming) upcoming.tone = 'active';
+    }
+    for (const row of rows) {
+        if (row.id !== 'published' && !scheduleIsActive(notice, row.title)) {
+            row.status = lifecycleLabel(notice);
+            row.tone = 'unknown';
+        }
     }
     const evidence = notice?.evidence ?? details[0]?.evidence;
     return { rows, details, checkedAt: evidence?.checkedAt, evidence };

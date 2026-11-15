@@ -1,3 +1,5 @@
+import { Collapse } from '../../shared/ui/Collapse';
+import { effectiveNoticeStatus } from './noticeLifecycle';
 import { useRef } from 'react';
 
 import { Bookmark } from '../member/SavedNotices';
@@ -6,17 +8,20 @@ import card from './NoticeCard.module.css';
 import { NoticeCardDeadline } from './NoticeCardDeadline';
 
 import { useLocation } from 'react-router';
-import { GuideBadge, Status } from '../../shared/ui/HousingUI';
+import { GuideBadge } from './NoticeFacts';
+import { Status } from '../../shared/ui/Status';
 
-import type { Notice } from './types';
+import type { NoticeListItem } from './types';
 import { statusLabels } from './noticeLabels';
 import { useNoticeCardScroll } from './useNoticeCardScroll';
+import { AgencyMark } from './AgencyMark';
+import { noticeListTitle } from './noticeDisplay';
 export function NoticeCard({
     notice: n,
     expanded,
     toggle,
 }: {
-    notice: Notice;
+    notice: NoticeListItem;
     expanded: boolean;
     toggle: () => void;
 }) {
@@ -30,11 +35,16 @@ export function NoticeCard({
             className={card.card}
             data-expanded={expanded}
         >
+            <div className={card.agency}>
+                <AgencyMark agency={n.agency} />
+            </div>
             <div className={card.badges}>
-                <Status tone={n.status === 'OPEN' ? 'red' : 'gray'}>
-                    {statusLabels[n.status]}
+                <Status
+                    tone={effectiveNoticeStatus(n) === 'OPEN' ? 'red' : 'gray'}
+                >
+                    {statusLabels[effectiveNoticeStatus(n)]}
                 </Status>
-                <GuideBadge state={n.guideState} />
+                <GuideBadge state={n.guideState} partial={n.partialGuidance} />
             </div>
             <div className={card.main}>
                 <h3 className={card.title}>
@@ -47,11 +57,10 @@ export function NoticeCard({
                         }
                         onClick={toggle}
                     >
-                        <span>{n.title}</span>
+                        <span>{noticeListTitle(n.title)}</span>
                     </button>
                 </h3>
                 <p className={card.metadata}>
-                    <span>{n.agency}</span>
                     <span>{n.region}</span>
                     <span>{n.type}</span>
                 </p>
@@ -59,8 +68,10 @@ export function NoticeCard({
                     <Bookmark id={n.id} />
                 </div>
             </div>
-            {expanded && <NoticeCardDeadline notice={n} />}
-            {expanded && <NoticePreview id={n.id} search={search} />}
+            <Collapse open={expanded} className={card.previewMotion}>
+                <NoticeCardDeadline notice={n} />
+                <NoticePreview notice={n} search={search} />
+            </Collapse>
         </article>
     );
 }

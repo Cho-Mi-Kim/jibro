@@ -1,0 +1,361 @@
+{
+  "checkedDate": "2026-11-10",
+  "timezone": "Asia/Seoul",
+  "scope": "7 already open notices / 12 scoped issues; closed notices excluded",
+  "result": {
+    "reviewedIssues": 12,
+    "resolvedIssues": 1,
+    "narrowedIssues": 4,
+    "unchangedIssues": 7,
+    "remainingIssues": 11,
+    "amendedNotices": 4,
+    "availableGuidesInPriorScope": 10,
+    "questions": 141,
+    "documentTemplates": 286,
+    "schedules": 21
+  },
+  "resolvedIssue": {
+    "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+    "id": "tg-rent-rate-conflict",
+    "officialSource": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=64452247",
+    "applicationScope": "2026.1.1 이후 신규 납부분; 증액6%, 감액3.5%"
+  },
+  "preservation": {
+    "existingQuestionIds": true,
+    "existingQuestionOptions": true,
+    "allExistingDocumentIds": true,
+    "unchangedProxyQuestions": true,
+    "personalPreparationRowsUnchanged": true,
+    "changedQuestion": "tg-contract; refresh requires answer recheck"
+  },
+  "validation": {
+    "sourceReviewAmendments": "4/4 applied with fresh source receipt",
+    "independentContentChecks": 62,
+    "failures": 0,
+    "publicApi": "10/10 PASS",
+    "correctionApi": "2/2 PASS",
+    "frontendHttp": 200,
+    "newFullTests": "NOT_RUN; no product code changes",
+    "actualMobileDevice": "NOT_RUN"
+  },
+  "remaining": [
+    {
+      "noticeId": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "issues": [
+        {
+          "id": "renewal_acquisition_date",
+          "area": "CONDITION",
+          "title": "보유주택 취득시점별 갱신 기준 확인",
+          "detail": "공고 PDF 3쪽 및 확약서27쪽은 공고 전 취득 주택에 한해 1회 갱신을 허용하지만 6쪽은 최초 계약 전 취득 주택으로 기재합니다. 공고일부터 최초 계약 사이 취득한 주택의 갱신 가능 여부만 기관 확인이 필요합니다. 현재 신청의 지역·소형저가 완화 기준과 자동차·서류·상시접수는 확인된 안내를 제공합니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147#page=3",
+              "label": "공고 PDF 3쪽 · 갱신 기준",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147#page=6",
+              "label": "공고 PDF 6쪽 · 보유주택 완화 표",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67837147#page=27",
+              "label": "공고 PDF 27쪽 · 완화 확약서",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [],
+          "questionIds": [
+            "renewal"
+          ]
+        }
+      ]
+    },
+    {
+      "noticeId": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "issues": [
+        {
+          "id": "proxy_form_method",
+          "area": "DOCUMENT",
+          "title": "대리신청 위임장 적용·작성 방법 확인",
+          "detail": "본문의 인감증명·본인서명 두 증명 방식 및 신청자·대리인 신분증은 확인되어 준비 안내를 제공합니다. 본문은 대리발급 인감증명서도 허용하지만 첨부 위임장은 본인발급분을 요구하고 배우자 이외 신청으로 표시합니다. 대리발급 인감증명서 사용, 배우자에 대한 위임장 적용, 본인서명 방식의 서식 작성 방법만 접수기관 확인 대상으로 남깁니다. 발급기관에서 대리발급이 가능하다는 일반 안내만으로 이 모집의 서식 상충을 해소하지 않습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195754#page=7",
+              "label": "공고문 13쪽(PDF 7쪽) · 현장 대리신청 구비서류",
+              "checkedAt": "2026-11-10"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68195774",
+              "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+              "checkedAt": "2026-11-10"
+            }
+          ],
+          "documentIds": [
+            "proxy_papers"
+          ],
+          "questionIds": []
+        }
+      ]
+    },
+    {
+      "noticeId": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "issues": [
+        {
+          "id": "proxy_form_method",
+          "area": "DOCUMENT",
+          "title": "대리신청 위임장 적용·작성 방법 확인",
+          "detail": "본문의 인감증명·본인서명 두 증명 방식 및 신청자·대리인 신분증은 확인되어 준비 안내를 제공합니다. 본문은 대리발급 인감증명서도 허용하지만 첨부 위임장은 본인발급분을 요구하고 배우자 이외 신청으로 표시합니다. 대리발급 인감증명서 사용, 배우자에 대한 위임장 적용, 본인서명 방식의 서식 작성 방법만 접수기관 확인 대상으로 남깁니다. 발급기관에서 대리발급이 가능하다는 일반 안내만으로 이 모집의 서식 상충을 해소하지 않습니다. 같은 위임장 문구는 ZIP뿐 아니라 공고문 부록33쪽에도 있어 본문 안내와 함께 대조했습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929#page=6",
+              "label": "공고문 12쪽(PDF 6쪽) · 현장 대리신청 구비서류",
+              "checkedAt": "2026-11-10"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68552636",
+              "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+              "checkedAt": "2026-11-10"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929#page=17",
+              "label": "공고문 부록 33쪽(PDF 17쪽) · 위임장 본인발급분·배우자 이외 문구",
+              "checkedAt": "2026-11-10"
+            }
+          ],
+          "documentIds": [
+            "proxy_papers"
+          ],
+          "questionIds": []
+        },
+        {
+          "id": "closing_date_conflict",
+          "area": "SCHEDULE",
+          "title": "신청 마감일 12월30일/31일 확인",
+          "detail": "공식 상세의 접수기간 항목은 2026.09.28~12.31이며 첨부 PDF 물리5쪽(인쇄9쪽) 및 동일 HWPX 모집일정은 12.30 15시까지입니다. 둘 다 실제 접수기간으로 표시되어 확정 마감일은 기관 확인이 필요합니다. 첫날9.28 13:30~15시, 이후10~15시(점심12~13시·주말·공휴일 제외) 현장접수와 조기마감 가능성은 확인되었습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020730&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+              "label": "공식 상세 · 접수기간 항목",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68561929#page=5",
+              "label": "공고 PDF 5쪽(인쇄9쪽) · 모집일정",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [],
+          "questionIds": []
+        }
+      ]
+    },
+    {
+      "noticeId": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "issues": [
+        {
+          "id": "jeonju-current-monetary-standard",
+          "area": "CONDITION",
+          "title": "현재 적용 소득·자산 금액 확인",
+          "detail": "공고1쪽은 상시모집 중 소득·자산 기준이 변경되면 변경된 기준으로 검증한다고 명시합니다. 첨부5~6쪽·28쪽은 종전 소득표와 총자산2억3,700만원·자동차4,563만원을 표기하고 있어 현재 적용 금액·시행일을 확정할 동일 모집의 후속 근거가 필요합니다. 다른 모집 공고의2026 금액은 이 공고에 임의 적용하지 않습니다. 전주시 거주지 관할 행정복지센터 또는 LH에 적용기준을 확인하세요. 신분별 자격·가구범위·준비 서류에는 확인된 원문을 제공합니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441#page=1",
+              "label": "공고문 1쪽 · 상시모집 변경기준 적용",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441#page=5",
+              "label": "공고문 5쪽 · 소득·자산 기준",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65558441#page=6",
+              "label": "공고문 6쪽 · 2024년도 소득표",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [],
+          "questionIds": [
+            "jeonju-permanent-income",
+            "jeonju-permanent-assets"
+          ]
+        }
+      ]
+    },
+    {
+      "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "issues": [
+        {
+          "id": "dh-history-conflict",
+          "area": "CONDITION",
+          "title": "주택 소유 이력의 적용 시작일 확인 필요",
+          "detail": "공고2·4쪽은 신청접수일을 자격판단·무주택 유지의 시작으로 안내하지만14쪽과 붙임은 공고일부터 무주택이어야 한다고 기재합니다. 정정으로 명시된 1호 무주택 완화 범위 자체는 안내하며, 공고일~신청일 사이 취득·처분 이력에 어느 시점을 적용하는지만 LH에 확인해야 합니다.현재 확인 가능한 조건·서류와 접수일정은 계속 제공합니다. 이 이력 항목만 자동 충족으로 판단하지 않습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=1",
+              "label": "공고문 2쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=2",
+              "label": "공고문 4쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+              "label": "공고문 14쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=8",
+              "label": "공고문 16쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [],
+          "questionIds": [
+            "dh-history"
+          ]
+        },
+        {
+          "id": "dh-proxy-form-conflict",
+          "area": "DOCUMENT",
+          "title": "대리신청 위임장 적용·작성 방법 확인",
+          "detail": "본문은 인감증명 방식과 본인서명 방식을 모두 명시하고 배우자도 대리신청에 포함합니다. 두 방식 중 하나의 증명서와 공통 신분증 준비는 확인되어 안내합니다. 현재 ZIP 위임장은 배우자 이외 신청으로 표시하고 인감증명서 본인발급분·인감 날인란만 제공합니다. 배우자에 대한 서식 적용과 본인서명 방식의 위임장 작성 방법만 접수기관 확인 대상으로 남깁니다. 법령의 서명 대체효력만으로 이 모집의 서식 작성 방식을 임의 확정하지 않습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+              "label": "공고문 12쪽(PDF 6쪽) · 현장 대리신청 구비서류",
+              "checkedAt": "2026-11-10"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775",
+              "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+              "checkedAt": "2026-11-10"
+            }
+          ],
+          "documentIds": [
+            "dh-proxy-form"
+          ],
+          "questionIds": []
+        }
+      ]
+    },
+    {
+      "noticeId": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "issues": [
+        {
+          "id": "renewal-surcharge",
+          "area": "CONDITION",
+          "title": "재계약 임대조건 할증은 기관 확인이 필요해요",
+          "detail": "본문13쪽은 소득기준 초과1·2회에 할증 후 재계약을, 별지7(36쪽)은1·2회 소득·총자산 초과에 할증 없음을 기재합니다. 별지7의 3회 이상 초과자는 원칙상 퇴거 대상이며, 높은 공가율로 추가 재계약이 필요하고 기존 입주자 재계약 요건을 충족할 때에만 재계약 검토 및 일반 할증이 가능합니다. PDF와 HWPX 모두 같아 적용조건을 확정하지 않습니다. 남원노암관리소063-625-1939에 확인하세요. 이번 입주자격의 소득·총자산 배제, 자동차 심사, 신청서류·기간 안내는 계속 이용할 수 있습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=7",
+              "label": "정정 공고문 인쇄 13쪽 · 재계약 할증 설명",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191063#page=18",
+              "label": "정정 공고문 인쇄 36쪽 · 별지7 재계약 요건",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062",
+              "label": "HWPX · 본문·별지7",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [
+            "relaxation-pledge"
+          ],
+          "questionIds": [
+            "renewal"
+          ]
+        }
+      ]
+    },
+    {
+      "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "issues": [
+        {
+          "id": "tg-history-conflict",
+          "area": "CONDITION",
+          "title": "주택 소유 이력의 적용 시작일 확인 필요",
+          "detail": "공고2·4쪽은 신청접수일을 자격판단·무주택 유지의 시작으로 안내하지만14쪽과 붙임은 공고일부터 무주택이어야 한다고 기재합니다. 6쪽의 주택·소득·자산 산정시점도 공고일로 표기되어 있어 공고일~신청일 사이 변동 이력의 적용시점을 LH에 확인해야 합니다.현재 확인 가능한 조건·서류와 접수일정은 계속 제공합니다. 이 이력 항목만 자동 충족으로 판단하지 않습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=2",
+              "label": "공고문 2쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=4",
+              "label": "공고문 4쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=14",
+              "label": "공고문 14쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=16",
+              "label": "공고문 16쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [],
+          "questionIds": [
+            "tg-history"
+          ]
+        },
+        {
+          "id": "tg-proxy-form-conflict",
+          "area": "DOCUMENT",
+          "title": "대리신청 위임장 적용·작성 방법 확인",
+          "detail": "본문은 인감증명 방식과 본인서명 방식을 모두 명시하고 배우자도 대리신청에 포함합니다. 두 방식 중 하나의 증명서와 공통 신분증 준비는 확인되어 안내합니다. 현재 ZIP 위임장은 배우자 이외 신청으로 표시하고 인감증명서 본인발급분·인감 날인란만 제공합니다. 배우자에 대한 서식 적용과 본인서명 방식의 위임장 작성 방법만 접수기관 확인 대상으로 남깁니다. 법령의 서명 대체효력만으로 이 모집의 서식 작성 방식을 임의 확정하지 않습니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=12",
+              "label": "공고문 12쪽(PDF 12쪽) · 현장 대리신청 구비서류",
+              "checkedAt": "2026-11-10"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65465001",
+              "label": "현재 공식 첨부 ZIP · 위임장.hwp",
+              "checkedAt": "2026-11-10"
+            }
+          ],
+          "documentIds": [
+            "tg-proxy-form"
+          ],
+          "questionIds": []
+        },
+        {
+          "id": "tg-income-addition-conflict",
+          "area": "CONDITION",
+          "title": "완화 소득표와 추가 가산의 적용관계 확인 필요",
+          "detail": "6쪽은 모든 가구원수에150% 완화 금액을 명시하면서 아래에는1인20%·2인10% 및 출산자녀10%/20% 가산을 함께 적었습니다. 150%표에 이 가산이 포함되는지·추가되는지 명확하지 않습니다. 표 자체와 기본 안내는 제공하고 가산이 있어야 표 상한을 충족하는 경우의 최종 상한만 LH 확인 대상으로 남깁니다.",
+          "evidence": [
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=1",
+              "label": "공고문 1쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            },
+            {
+              "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65464835#page=6",
+              "label": "공고문 6쪽 · 상호 대조",
+              "checkedAt": "2026-11-09"
+            }
+          ],
+          "documentIds": [],
+          "questionIds": [
+            "tg-income-addition"
+          ]
+        }
+      ]
+    }
+  ]
+}

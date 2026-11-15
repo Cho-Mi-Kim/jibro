@@ -1,0 +1,70 @@
+.page {
+    display: grid;
+    gap: 1rem;
+    max-width: 42rem;
+}
+.description {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 1rem;
+    min-width: 0;
+}
+.group {
+    margin: 0 0 1rem;
+}
+.group:first-child {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    min-height: var(--target);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    cursor: pointer;
+}
+.option:has(:checked) {
+    border-color: var(--ink);
+}
+.option input,
+.toggle input {
+    accent-color: var(--ink);
+}
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin: 0;
+    border-top: 1px solid var(--line);
+    cursor: pointer;
+    min-height: var(--target);
+}
+.toggle:last-child {
+    padding-bottom: 0;
+}
+.toggle strong {
+    display: block;
+    font-size: 1rem;
+}
+.toggle small {
+    color: var(--muted);
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+}

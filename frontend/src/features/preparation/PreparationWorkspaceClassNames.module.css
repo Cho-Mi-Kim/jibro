@@ -1,0 +1,9 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.preparation-tabs {
+}
+.preparation-select {
+}
+.preparation-heading {
+}
+.official-application {
+}

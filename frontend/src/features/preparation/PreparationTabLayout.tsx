@@ -1,6 +1,7 @@
 import { Link, Outlet, useLocation, useNavigate } from 'react-router';
-import { needsFollowUp } from '../housing/questions';
+import { getQuestionStep } from './questionNavigation';
 import { usePreparation } from './usePreparation';
+import { usePreparationRecord } from './usePreparationRecord';
 import { State } from '../../shared/ui/ui';
 import { allowRecordChange } from '../../shared/ui/useUnsavedChanges';
 import { PreparationHeader } from './PreparationHeader';
@@ -22,9 +23,7 @@ function ConditionContinue() {
         !record.questions.length
     )
         return null;
-    const next =
-        record.questions.find((q) => needsFollowUp(q, record.answers[q.id])) ??
-        record.questions[0];
+    const next = record.questions[getQuestionStep(record)];
     return (
         <footer className={styles.conditionFooter}>
             <Link
@@ -49,6 +48,7 @@ function Workspace({
     const { query, active, select } = useActivePreparation();
     const navigate = useNavigate();
     const id = tab.preparationId ?? active?.id;
+    const detail = usePreparationRecord(tab.preparationId ? undefined : id);
     function switchRecord(nextId: string) {
         if (nextId === id || !allowRecordChange()) return;
         select(nextId);
@@ -75,12 +75,19 @@ function Workspace({
                 aria-label="선택한 준비 탭 내용"
             >
                 <State
-                    loading={query.isPending && !tab.preparationId}
-                    error={query.error}
-                    retry={() => void query.refetch()}
+                    loading={
+                        !tab.preparationId &&
+                        (query.isPending || (!!id && detail.isPending))
+                    }
+                    error={query.error ?? detail.error}
+                    retry={() => {
+                        void query.refetch();
+                        if (id && !tab.preparationId) void detail.refetch();
+                    }}
                 />
-                {(tab.preparationId || query.isSuccess) && (
-                    <Outlet context={active} />
+                {(tab.preparationId ||
+                    (query.isSuccess && (!id || detail.isSuccess))) && (
+                    <Outlet context={detail.data} />
                 )}
             </div>
             {tab.section === 'conditions' && <ConditionContinue />}

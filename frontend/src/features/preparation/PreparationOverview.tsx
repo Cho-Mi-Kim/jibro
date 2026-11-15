@@ -1,13 +1,17 @@
+import { applicationInterrupted } from '../housing/noticeLifecycle';
 import { type ReactNode, useId } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import type { Preparation } from '../housing/types';
-import { useNotice } from '../../shared/ui/housingHelpers';
-import { Disc, Journey, OfficialLink } from '../../shared/ui/HousingUI';
+import { useNotice } from '../housing/useNotice';
+import { Disc } from '../../shared/ui/Disc';
+import { Journey } from './PreparationUI';
+import { OfficialLink } from '../../shared/ui/OfficialLink';
 import { Icon } from '../../shared/ui/Icon';
 import { State } from '../../shared/ui/ui';
 import { PreparationGuidance } from './PreparationNav';
 import { PreparationOverviewSummary } from './PreparationOverviewSummary';
 import { ApplicationRecordDialog } from './ApplicationRecordDialog';
+import { PreparationDeleteDialog } from './PreparationDeleteDialog';
 import styles from './Overview.module.css';
 
 export function PreparationOverview({
@@ -42,7 +46,11 @@ export function PreparationOverview({
                 </div>
                 <Link
                     className={styles.next}
-                    to={p.nextAction.path}
+                    to={
+                        p.nextAction.label === '확인하지 못한 조건 살펴보기'
+                            ? `${p.nextAction.path}?review=remaining`
+                            : p.nextAction.path
+                    }
                     aria-describedby={reasonId}
                 >
                     <Disc name="warning" tone="amber" />
@@ -68,7 +76,9 @@ export function PreparationOverview({
                             {notice.data?.agency
                                 ? notice.data.agency + ' '
                                 : ''}
-                            공식 신청
+                            {applicationInterrupted(notice.data)
+                                ? '공식 안내'
+                                : '공식 신청'}
                         </OfficialLink>
                         <ApplicationRecordDialog
                             key={p.id}
@@ -79,10 +89,16 @@ export function PreparationOverview({
                     </div>
                 </section>
                 <aside className={styles.resume}>
+                    <div className={styles.recordActions}>
+                        <Link to={`/preparations/${p.id}/history`}>
+                            이전 준비 기록 보기
+                        </Link>
+                        <PreparationDeleteDialog
+                            id={p.id}
+                            afterDeleteTo="/preparations"
+                        />
+                    </div>
                     {notes}
-                    <Link to={p.nextAction.path} className={styles.continue}>
-                        준비 계속하기 <Icon name="arrow" />
-                    </Link>
                 </aside>
             </div>
         </>

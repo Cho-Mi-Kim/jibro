@@ -12,6 +12,43 @@ export type ScheduleKind =
 export interface DatedSchedule {
     title: string;
     date: string;
+    timingDescription?: string | null;
+}
+
+export function individualAnnouncement<T extends DatedSchedule>(
+    schedules: readonly T[],
+) {
+    return schedules.find(
+        (event) =>
+            scheduleKind(event.title) === 'result' &&
+            event.title.endsWith(' · 개별 안내') &&
+            event.date === '' &&
+            !!event.timingDescription,
+    );
+}
+
+// The server resolves the reviewed application boundary; this only formats it.
+export function applicationDate(
+    notice: Pick<
+        Notice,
+        'startDate' | 'endDate' | 'applicationTiming' | 'schedules'
+    >,
+    kind: 'start' | 'end',
+) {
+    const day = kind === 'start' ? notice.startDate : notice.endDate;
+    if (notice.applicationTiming) {
+        return (
+            (kind === 'start'
+                ? notice.applicationTiming.startsAt
+                : notice.applicationTiming.endsAt) ?? day
+        );
+    }
+    return day
+        ? dateWithScheduleTime(
+              day,
+              selectSchedule(notice.schedules ?? [], kind, day),
+          )
+        : day;
 }
 
 export function scheduleDay(value: string) {

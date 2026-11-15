@@ -1,3 +1,4 @@
+import type { NoticeLifecycle } from '../housing/types';
 import { call } from '../../shared/api/transport';
 export interface SavedNotice {
     id: string;
@@ -18,6 +19,7 @@ export interface AlertItem {
     label: string;
     date: string | null;
     read: boolean;
+    occurredAt: string | null;
 }
 export interface Inbox {
     settings: Settings;
@@ -42,7 +44,7 @@ export interface Profile {
 export interface Edition {
     version: number;
     revision: number;
-    facts: Record<string, string | string[] | null>;
+    facts: Record<string, string | string[] | NoticeLifecycle | null>;
 }
 const member = '/member';
 export const memberApi = {

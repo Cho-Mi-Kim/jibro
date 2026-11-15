@@ -1,0 +1,21 @@
+/* Shared selector names only: importing these must not reapply style rules. */
+.document-group {
+}
+.documents-layout {
+}
+.document-progress {
+}
+.document-item {
+}
+.document-issue-note {
+}
+.document-select {
+}
+.necessity-label {
+}
+.document-editor {
+}
+.document-facts {
+}
+.document-options {
+}

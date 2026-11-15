@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-08T08:21:17.035175+00:00",
+  "notices": [
+    {
+      "noticeId": "4d2e2916-60d2-4ffc-a63a-40d1843fd590",
+      "title": "인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "guideState": "REVIEWING",
+      "canStart": false,
+      "sourceState": "AVAILABLE",
+      "counts": {
+        "CONDITION": 3,
+        "DOCUMENT": 3,
+        "SCHEDULE": 3
+      },
+      "sourceStatuses": {
+        "EXTRACTED": 3
+      },
+      "fullOriginalTextMatch": true,
+      "noticeUnchanged": true,
+      "noStore": true
+    },
+    {
+      "noticeId": "3b352caa-5325-4e09-9dbb-9a42ebecb3f2",
+      "title": "구미시 다세대주택 아름들이 입주자모집",
+      "guideState": "REVIEWING",
+      "canStart": false,
+      "sourceState": "AVAILABLE",
+      "counts": {
+        "CONDITION": 3,
+        "DOCUMENT": 3,
+        "SCHEDULE": 3
+      },
+      "sourceStatuses": {
+        "EXTRACTED": 3,
+        "EMPTY": 1
+      },
+      "fullOriginalTextMatch": true,
+      "noticeUnchanged": true,
+      "noStore": true
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "relationsBefore": 879,
+  "noticeContentUnchanged": true,
+  "results": [
+    {
+      "links": [
+        {
+          "original_notice_id": "8020f6c5-9592-466a-b1ed-95f1b302ecc6",
+          "corrected_notice_id": "484d210f-3487-47c8-b708-a9a1cd0ed5f0",
+          "reason": "수정정보 : 주택관리번호 변경",
+          "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000007043&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"historyUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=000000000000000000000000007043&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000007027&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000007043&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000007027\", \"correctedPanId\": \"000000000000000000000000007043\", \"historyHtmlSha256\": \"0c694de204eb9c05acd749be7db853b53e8bacf3d419cbff4d1d5ad8ab6227e3\", \"originalHtmlSha256\": \"e8e2f723e7fee85f302987126d04daee740229b5a8e2101b79eee5f8fea2b550\", \"correctedHtmlSha256\": \"a40a0b8a36bcb89516579374453a7c985ee14c31c3e0d780b5dc7ccb0edb419c\"}",
+          "checked_at": "2026-11-11 21:22:59.583129+09"
+        }
+      ],
+      "result": "LINKED",
+      "requestedOriginalId": "8020f6c5-9592-466a-b1ed-95f1b302ecc6",
+      "originalClosed": false,
+      "id": "484d210f-3487-47c8-b708-a9a1cd0ed5f0",
+      "originalContentAndStatusUnchanged": true
+    },
+    {
+      "links": [
+        {
+          "original_notice_id": "1feb7f60-3c5f-4515-9d50-7d36da20825e",
+          "corrected_notice_id": "e458eb8f-56f0-47a2-8406-e187d0c7e949",
+          "reason": "수정정보 : 아래사항 추가\r\n\r\n강원혁신 B-2블록 기계약자 및 기계약자의 세대원은 신청 및 계약이 불가하며, 금회 신청시 무효처리 됩니다.",
+          "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006899&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"historyUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=000000000000000000000000006899&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006874&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006899&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000006874\", \"correctedPanId\": \"000000000000000000000000006899\", \"historyHtmlSha256\": \"d9aa847c6615ac941c731b2df63514982dd1debd2cd31460420b8bf1db76e1c1\", \"originalHtmlSha256\": \"326d67c0b4b7bd349c9de2de38ed8525be00ba209285a1a3889d87e3eba5428a\", \"correctedHtmlSha256\": \"bb8fed31df05fb37b801847b626be83b48d3124279c09561d81de67c54cad197\"}",
+          "checked_at": "2026-11-11 21:26:23.717005+09"
+        }
+      ],
+      "result": "LINKED",
+      "requestedOriginalId": "1feb7f60-3c5f-4515-9d50-7d36da20825e",
+      "originalClosed": true,
+      "id": "e458eb8f-56f0-47a2-8406-e187d0c7e949",
+      "originalContentAndStatusUnchanged": true
+    },
+    {
+      "links": [
+        {
+          "original_notice_id": "735eb85b-79b8-49f1-ac1d-2cdb6d3b469c",
+          "corrected_notice_id": "f72fb6e4-2306-4d4a-9587-e0be646a5516",
+          "reason": "수정정보 : ㅇ 주택소유여부 확인방법 및 판정기준 변경안내(4페이지)\r\n   - 60세이상의 직계존속이 주택을 소유하고 있는 경우 (삭제)",
+          "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006854&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"historyUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=000000000000000000000000006854&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006809&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000006854&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000006809\", \"correctedPanId\": \"000000000000000000000000006854\", \"historyHtmlSha256\": \"9853396b6813124728858ec9dbfb59296b667ff9eec698a65041235e1c535ad7\", \"originalHtmlSha256\": \"9818700798f14bee4b2ad3416d20cd39b0bca97ece597b9177823b3512b63377\", \"correctedHtmlSha256\": \"eb4e4971c9d3ed9d940dd6a015a13c4ac8c3cb273d59bc8f24b9543900e959bf\"}",
+          "checked_at": "2026-11-11 21:26:24.249218+09"
+        }
+      ],
+      "result": "LINKED",
+      "requestedOriginalId": "735eb85b-79b8-49f1-ac1d-2cdb6d3b469c",
+      "originalClosed": true,
+      "id": "f72fb6e4-2306-4d4a-9587-e0be646a5516",
+      "originalContentAndStatusUnchanged": true
+    },
+    {
+      "links": [
+        {
+          "original_notice_id": "0e733b72-7371-4a8b-9e45-479bedf92638",
+          "corrected_notice_id": "3b88774b-0f9b-4730-8619-8852e887d791",
+          "reason": "수정정보 : * 위약금 면제 기한 명시\r\n  - 기간 : '14.12.31일 계약분에 한하여 위약금 면제('15.1.1일부터 위약금 부과)\r\n\r\n* 분양홍보관 잠정 운영중단 안내('14.12.1부터)",
+          "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005726&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"historyUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=000000000000000000000000005726&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005447&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005726&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000005447\", \"correctedPanId\": \"000000000000000000000000005726\", \"historyHtmlSha256\": \"ba94617b290fc7364b06e60b47cf9360645b70be578a5e64bd45ef3b8c9ba3f4\", \"originalHtmlSha256\": \"c6713b5b91ca4db8c1ad7d1017a00aaeb1d5b82e6f1d944118bb2cd77e84b887\", \"correctedHtmlSha256\": \"2da3061e741d68ae5e9ac397cd1274bb790129e8700bd23c1b6b7e91a2fd7f05\"}",
+          "checked_at": "2026-11-11 21:26:24.701074+09"
+        }
+      ],
+      "result": "LINKED",
+      "requestedOriginalId": "0e733b72-7371-4a8b-9e45-479bedf92638",
+      "originalClosed": true,
+      "id": "3b88774b-0f9b-4730-8619-8852e887d791",
+      "originalContentAndStatusUnchanged": true
+    },
+    {
+      "links": [
+        {
+          "original_notice_id": "114e81c9-39d1-4a36-a1eb-54ef43365ce4",
+          "corrected_notice_id": "2a89466d-aaf5-481a-bc5f-a979c6208cd7",
+          "reason": "수정정보 : 공고문 3페이지  \"전환보증금 안내\" 2번째 표 \r\n최대전환임대조건(전환이율 6%적용시) 임대보증금(원) \r\n\r\n(수정전)\r\n084.5300A, 084.8600B : 84,200,000원\r\n\r\n(수정후)\r\n084.5300A, 084.8600B : 82,200,000원",
+          "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005651&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"historyUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=000000000000000000000000005651&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005644&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005651&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000005644\", \"correctedPanId\": \"000000000000000000000000005651\", \"historyHtmlSha256\": \"86dea99b5b912b7e71740d3e6f804fa3270cb4087d2a28fb5887241c95541bad\", \"originalHtmlSha256\": \"bddd83acef2d4345e561ad958ed9e9017282a3da84d462f0cef02d55ba4be69b\", \"correctedHtmlSha256\": \"1c4dde9a61f5e16cac5459a27ebaafd53701dcc23f7129910db15898ba159dbc\"}",
+          "checked_at": "2026-11-11 21:26:25.208922+09"
+        }
+      ],
+      "result": "LINKED",
+      "requestedOriginalId": "114e81c9-39d1-4a36-a1eb-54ef43365ce4",
+      "originalClosed": true,
+      "id": "2a89466d-aaf5-481a-bc5f-a979c6208cd7",
+      "originalContentAndStatusUnchanged": true
+    },
+    {
+      "links": [
+        {
+          "original_notice_id": "7d7bb4ee-e04a-495b-86e4-941ceab8d2f5",
+          "corrected_notice_id": "982d3a99-8afd-4400-a62d-00f49a97d5d1",
+          "reason": "수정정보 : 계약체결 일정(시간) 변경\r\n- 기존 : 7.29(화)∼31(목) 10:00∼17:00\r\n- 변경 : 7.29(화)∼31(목) 10:00∼16:00",
+          "evidence": "{\"source\": {\"url\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005017&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"label\": \"LH 공식 정정 공고 · 정정사유\", \"checkedAt\": \"2026-11-11\"}, \"historyUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=000000000000000000000000005017&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005007&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"correctedUrl\": \"https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=000000000000000000000000005017&ccrCnntSysDsCd=02&uppAisTpCd=06&aisTpCd=08&mi=1026\", \"originalPanId\": \"000000000000000000000000005007\", \"correctedPanId\": \"000000000000000000000000005017\", \"historyHtmlSha256\": \"fff532a4a96484ccbbd9f5f74a0ed18ec9a24ac60e4ffd65ec2d5063c7892be0\", \"originalHtmlSha256\": \"008861d2c3cdf62de109688adafe17d4ff10de4dbeae1f3286d905454dd10c0d\", \"correctedHtmlSha256\": \"a5e5a663f2b7b128fa7fbc6c910cb1321ea4cb298ad3216729ba49c881919f33\"}",
+          "checked_at": "2026-11-11 21:26:25.71366+09"
+        }
+      ],
+      "result": "LINKED",
+      "requestedOriginalId": "7d7bb4ee-e04a-495b-86e4-941ceab8d2f5",
+      "originalClosed": true,
+      "id": "982d3a99-8afd-4400-a62d-00f49a97d5d1",
+      "originalContentAndStatusUnchanged": true
+    }
+  ],
+  "checkedAt": "2026-11-11T12:26:26.142045700Z",
+  "relationsAfter": 884,
+  "overallRelationsBefore": 878,
+  "explicitScope": "User explicitly requested these six official legacy corrections. Five original notices were closed; only their identity relationships were repaired through a non-scheduled exact-root command. Automatic collection continues to exclude closed originals and targets.",
+  "apiVerification": {
+    "changedDefaultIds": [
+      "8020f6c5-9592-466a-b1ed-95f1b302ecc6"
+    ],
+    "latestSixVisible": true,
+    "originalsSixHidden": true,
+    "defaultCount": 82,
+    "originalsSixDetailAccessible": true
+  }
+}
