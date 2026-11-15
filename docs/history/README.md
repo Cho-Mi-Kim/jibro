@@ -95,6 +95,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [LH 공식 공급 지역을 공고 검색에 연결](entries/2026-11-15-official-supply-regions.md) | 확인 필요 |
 | 확인 필요 | [공식 첨부 15개와 제출 양식 17개 반영](entries/2026-11-15-reviewed-notice-files.md) | 확인 필요 |
 | 확인 필요 | [상단 알림 아이콘의 읽지 않은 알림 표시](entries/2026-11-15-unread-alert-indicator.md) | 확인 필요 |
+| 2026-11-16 | [main 반영 검증에서 발견한 UTC·한국 날짜 경계 수정](entries/2026-11-16-main-pages-release.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [준비 기록의 중복 보관과 복원 후 오래된 저장 방지](entries/2026-11-15-archive-revision.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [미커밋 인수인계 문서 검토와 최신 구현 반영](entries/2026-11-15-handoff-docs-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [PR #26의 develop 충돌 해결과 회귀 검증](entries/2026-11-15-pr26-conflict-resolution.md) | 근거 정리·담당자 검토 전 |
