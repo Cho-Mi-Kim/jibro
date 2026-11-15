@@ -39,7 +39,15 @@ PR #26이 PR #24 최종 보완 이전 이력에서 이어져 보관 보호·테�
 
 ## 기여·한계
 
+### 원격 CI의 Linux 전용 테스트 경합 후속 수정
+
+첫 push `dbecf44`의 [CI](https://github.com/Cho-Mi-Kim/jibro/actions/runs/43723686327)에서 frontend·operations·project-history는 통과했으나 backend의 `TesseractOcrTest.watchdogAwaitsDescendantTerminationWhenTheOwningApplicationIsGone` 한 건이 실패했다. 보고서는 IOException을 기대했으나 예외가 없었다고 기록했다.
+
+테스트용 OcrTestWorker가 watchdog 시작 후 child.waitFor()에서 대기하는 구조였다. Linux에서 watchdog이 자식을 종료하면 main이 먼저 반환하여 JVM이 0으로 종료될 수 있고, daemon watchdog의 halt(3)가 뒤따르기 전에 프로세스가 끝나는 경합이 있었다. watchdog 테스트 모드에서 main을 별도로 유지하도록 수정해 종료를 watchdog이 담당하게 했다. 제품 프로세스 정리 코드나 테스트의 예외·자손 종료 단정은 변경하지 않았다. Windows 로컬 전체 검증 통과가 Linux CI 통과를 보장하지 않음을 구분한다.
+
 AI 보조로 텍스트 충돌과 자동 병합의 중복 메서드를 조사·수정했다. 전체 PR의 기능 정책 재심사, 실제 OAuth·LH·메일·푸시 제공자 왕복, 운영 배포 검증은 이번 범위에 포함하지 않는다. PR을 develop/main에 병합하지 않는다.
+
+후속 수정 후 Java 17에서 `test --tests org.jibro.collection.extraction.TesseractOcrTest`를 재실행해 5건 모두 통과했다(실패·오류·건너뜀 0). Linux 검증은 후속 push의 원격 CI 결과로 별도 확인한다.
 
 ## 발표·포트폴리오 메모
 

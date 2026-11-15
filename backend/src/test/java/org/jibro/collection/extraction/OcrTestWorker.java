@@ -20,7 +20,13 @@ public final class OcrTestWorker {
                     "-cp", System.getProperty("java.class.path"), OcrTestWorker.class.getName(), "hang", pid + ".child").start();
                 long deadline = System.nanoTime() + Duration.ofSeconds(5).toNanos();
                 while (!Files.exists(Path.of(pid + ".child")) && System.nanoTime() < deadline) Thread.sleep(10);
-                if (args[0].equals("watchdog")) DocumentParserWorker.startWatchdog(Long.MAX_VALUE, Duration.ofSeconds(1));
+                if (args[0].equals("watchdog")) {
+                    DocumentParserWorker.startWatchdog(Long.MAX_VALUE, Duration.ofSeconds(1));
+                    // The watchdog kills the child before halting this JVM. Do not let main return
+                    // with exit 0 when child.waitFor() wakes before the daemon calls halt(3).
+                    Thread.sleep(60_000);
+                    throw new IllegalStateException("Watchdog did not terminate the test worker");
+                }
                 child.waitFor();
             }
             default -> throw new IllegalArgumentException();
