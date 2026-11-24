@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.jibro.collection.LhNoticeClient;
+import org.jibro.notice.ApplicationPeriod;
 import org.jibro.notice.HousingModels.Content;
 import org.jibro.notice.HousingModels.DocumentTemplate;
 import org.jibro.notice.NoticeService;
@@ -40,9 +41,12 @@ class OfficialFileCollectionIntegrationTest {
 
     @Test
     void collectedNoticeBecomesEligibleAfterDateReviewAndLinksARealMemberNameAcrossViews() throws Exception {
+        // CI's PostgreSQL runs in UTC, while application periods use Korean dates.
+        db.execute("SET LOCAL TIME ZONE 'UTC'");
+        LocalDate today = LocalDate.now(ApplicationPeriod.SEOUL);
         String url = "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=876543210&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07";
         var item = new LhNoticeClient.Item(LhNoticeClient.sourceKey(url), "서류 양식 검증", "전국", "임대",
-                url, LocalDate.now(), "8".repeat(64));
+                url, today, "8".repeat(64));
         UUID id = notices.importSource(item);
         em.flush();
         var http = mock(AttachmentFingerprintClient.class);
@@ -55,9 +59,9 @@ class OfficialFileCollectionIntegrationTest {
         var doc = new DocumentTemplate("file", "자산 보유 사실확인서", null, "작성", "LH", null, sample.evidence());
         var content = new Content(sample.summary(), sample.evidence(), List.of(), List.of(), List.of(doc), List.of());
         db.update("""
-                UPDATE notice SET basic_review='PASS',guide_review='PASS',start_date=current_date+1,end_date=current_date+3,
+                UPDATE notice SET basic_review='PASS',guide_review='PASS',start_date=?,end_date=?,
                     content=cast(? as jsonb) WHERE id=?
-                """, json.writeValueAsString(content), id);
+                """, today.plusDays(2), today.plusDays(4), json.writeValueAsString(content), id);
         em.clear();
         var job = inventory.claim().orElseThrow();
         assertEquals(id, job.id());

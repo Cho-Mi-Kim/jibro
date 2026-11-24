@@ -133,6 +133,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [사이트 기본 운영 항목 점검](entries/2026-11-24-site-basics-audit.md) | 확인 필요 |
 | 확인 필요 | [첫 접속 Cloudflare 사람 확인](entries/2026-11-24-visitor-verification.md) | 확인 필요 |
 | 2026-11-24 | [Iron Laws 실제 실행과 상위 지적 대조](entries/2026-11-24-iron-laws-audit.md) | 검토 완료 |
+| 2026-11-24 | [PR #31의 지역 약칭·테스트·문서 충돌 정리](entries/2026-11-24-pr31-conflict-resolution.md) | 근거 정리·팀 검토 전 |
 | 2026-11-24 | [리팩토링 지적 14건의 책임 통합과 실패 처리 보완](entries/2026-11-24-refactoring-findings-fixed.md) | 완료 |
 | 2026-11-24 | [리팩토링 수정 운영 배포](entries/2026-11-24-refactoring-production-deploy.md) | 완료 |
 | 2026-11-24 | [첨부 원칙에 따른 리팩토링 점검](entries/2026-11-24-refactoring-review.md) | 검토 완료 |
@@ -170,12 +171,16 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 2026-11-16 | [수집 공고의 상시 마감과 날짜 미확정 접수 시각](entries/2026-11-16-automatic-rolling-intake.md) | 확인 필요 |
 | 2026-11-16 | [기존 수집 공고의 접수 시각·회차 재점검](entries/2026-11-16-current-intake-backfill.md) | 검증 완료 |
 | 2026-11-16 | [Windows 개발 환경의 Java 서식 검사](entries/2026-11-16-java-formatter-local.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-16 | [main 반영 검증에서 발견한 UTC·한국 날짜 경계 수정](entries/2026-11-16-main-pages-release.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-16 | [관심 공고에서 저장한 두 공고 비교](entries/2026-11-16-saved-notice-comparison.md) | 확인 필요 |
 | 2026-11-16 | [관심 공고 카드 미리보기](entries/2026-11-16-saved-notice-preview.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [접수 중·예정 공고의 조건과 정정 근거 재검토](entries/2026-11-15-active-conditions-review.md) | 확인 필요 |
 | 2026-11-15 | [준비 기록의 중복 보관과 복원 후 오래된 저장 방지](entries/2026-11-15-archive-revision.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [신규 모집의 정정 대조와 조건 요약](entries/2026-11-15-automatic-conditions-review.md) | 확인 필요 |
+| 2026-11-15 | [미커밋 인수인계 문서 검토와 최신 구현 반영](entries/2026-11-15-handoff-docs-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [공고 상세 조건 카드의 기본 요약 축소](entries/2026-11-15-notice-condition-preview.md) | 확인 필요 |
+| 2026-11-15 | [PR #26의 develop 충돌 해결과 회귀 검증](entries/2026-11-15-pr26-conflict-resolution.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-15 | [PR #26 충돌 조사와 해결 방향](entries/2026-11-15-pr26-conflict-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-12 | [접수 종료 후 28일 이내 일부 확인 필요 7건 재검토](entries/2026-11-12-closed-seven-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-12 | [검수 대기·첨부 읽기 오류 36건 원문 대조](entries/2026-11-12-guidance36-source-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-11 | [첨부 신청기간 자동 반영과 오래된 미종료 공고 보완](entries/2026-11-11-attachment-closure.md) | 근거 정리·담당자 검토 전 |
@@ -191,10 +196,12 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 2026-11-10 | [미종료 공고의 개별 결과 안내 대조·반영](entries/2026-11-10-active-individual-announcements.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [미종료 공고 12개 쟁점 재대조와 확인 범위 축소](entries/2026-11-10-active12-recheck.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [새 수집 공고의 서류마감 자동 연결과 접수종료 제외](entries/2026-11-10-automatic-document-deadlines.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [main 배포 이후 개발 인수인계 정리](entries/2026-11-10-developer-handoff.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [거창 신원면 공고 서류마감 11/13 반영](entries/2026-11-10-geochang-document-deadline.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [확정 날짜 없는 결과 발표를 개별 안내로 표시](entries/2026-11-10-individual-announcement.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [남원노암 발표일 차이 공식 자료 재대조](entries/2026-11-10-namwon-date-recheck.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-10 | [공고별 지원 대상·지원 내용을 2~3문장으로 표시](entries/2026-11-10-notice-support-summary.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-10 | [PR #24 구현 계약 대조와 병합 전 검토](entries/2026-11-10-pr24-contract-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-09 | [신규 공고의 정정·후속 공식 자료 자동 대조](entries/2026-11-09-automatic-followup-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-09 | [접수 종료 제외 후 미종료 공고 10건 준비 안내 반영](entries/2026-11-09-pending-active-guidance.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-09 | [남은 확인 항목을 정정본·후속 공식 자료로 해소](entries/2026-11-09-review-resolution.md) | 근거 정리·담당자 검토 전 |
