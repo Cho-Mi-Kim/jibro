@@ -1,0 +1,391 @@
+{
+    "entries": [
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "reference",
+            "sourceTitle": "거주·자격 판단 기준일을 확인했나요?",
+            "sourceReason": "김제시 거주 성년 무주택세대구성원이 대상이지만 1쪽은 공고일, 2쪽은 신청일 기준으로 적혀 있습니다. 해당 기준일은 기관 확인이 필요합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=2",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "어느 날짜를 기준으로 심사하나요?",
+            "preview": "김제 거주 · 공고일/신청일 차이는 기관 확인",
+            "sections": [
+                {
+                    "text": "• 김제시 거주 성년 무주택세대구성원이 대상이지만 1쪽은 공고일, 2쪽은 신청일 기준으로 적혀 있어요.\n• 해당 기준일은 기관 확인이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "household",
+            "sourceTitle": "무주택 세대 범위와 제한을 확인했나요?",
+            "sourceReason": "분리 배우자·분양권·외국인 가족 등 세대 범위, 미성년 세대주 예외와 중복입주·불법전대 제한을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=3",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "주소가 다른 배우자 포함 · 가족별 등본·등록 조건 확인",
+            "sections": [
+                {
+                    "text": "분리 배우자·분양권·외국인 가족 등 세대 범위, 미성년 세대주 예외와 중복입주·불법전대 제한을 확인해 주세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "income-assets",
+            "sourceTitle": "자격 유형별 소득·자산 기준을 확인했나요?",
+            "sourceReason": "수급자·유공자·장애인·일반 등 자격별 기준이 다릅니다. 가구원수·출생자녀 가산과 총자산·자동차 예외는 공고문 표를 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=4",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "유형별 소득·자산 한도는 얼마인가요?",
+            "preview": "자격별 소득·자산 심사 · 자녀1명 자동차 한도는 확인 필요",
+            "sections": [
+                {
+                    "text": "• 공고표의 소득은 일반2순위50%, 유공자·북한이탈·시설퇴소·1순위장애인 등70%,2순위장애인100% 이하예요.1인20%p·2인10%p 가산을 적용해요.\n• 수급자 등 자격증명 대상은 공고의 조회 생략 범위를 확인해요.\n• 이 공고의 기본 자산표는 총자산2억3,700만 원·자동차4,563만 원이에요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 출생자녀1명 표는2억6,100만 원·5,020만 원,2명 이상은2억8,500만 원·5,476만 원이에요.\n• 다만5쪽의 자녀1명 자동차 예문은4,183만 원으로 표와 달라 해당 한도는 기관 확인이 필요해요.\n• 임의로 최신 연도 기준이나 예문 금액을 대신 적용하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "공고표의 소득은 일반2순위50%, 유공자·북한이탈·시설퇴소·1순위장애인 등70%,2순위장애인100% 이하예요.1인20%p·2인10%p 가산을 적용해요. 수급자 등 자격증명 대상은 공고의 조회 생략 범위를 확인해요. 이 공고의 기본 자산표는 총자산2억3,700만 원·자동차4,563만 원이에요. 출생자녀1명 표는2억6,100만 원·5,020만 원,2명 이상은2억8,500만 원·5,476만 원이에요. 다만5쪽의 자녀1명 자동차 예문은4,183만 원으로 표와 달라 해당 한도는 기관 확인이 필요해요. 임의로 최신 연도 기준이나 예문 금액을 대신 적용하지 않아요."
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "rank",
+            "sourceTitle": "해당 순위와 지자체 배점기준을 확인했나요?",
+            "sourceReason": "1·2순위별 자격은 공고문 8쪽을 확인하세요. 9쪽 거주기간 배점에 지역명이 000으로 남아 있어 적용 지역·최종 배점표는 기관 확인이 필요합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=9",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "어떤 순서로 뽑나요?",
+            "preview": "자격별1·2순위 · 지역명이 빠진 배점표는 기관 확인",
+            "sections": [
+                {
+                    "text": "1·2순위별 자격은 공고문 8쪽을 확인해 주세요. 9쪽 거주기간 배점에 지역명이 000으로 남아 있어 적용 지역·최종 배점표는 기관 확인이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "method",
+            "sourceTitle": "현장 접수 및 월별 검증 절차를 확인했나요?",
+            "sourceReason": "거주지 관할 읍면동 주민센터에서 평일 09:30~17:30에 접수합니다(점심 12~13시 제외). 월별 신청 건을 검증하며 계약까지 약 3개월이 소요되고 적격자에게 개별 안내합니다. 모집완료 여부는 방문 전 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=10",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "언제, 어떻게 신청하나요?",
+            "preview": "주민센터 평일9:30~17:30 · 점심12~13시 제외",
+            "sections": [
+                {
+                    "text": "• 거주지 관할 읍면동 주민센터에서 평일 09:30~17:30에 접수해요(점심 12~13시 제외).\n• 월별 신청 건을 검증하며 계약까지 약 3개월이 소요되고 적격자에게 개별 안내해요.\n• 모집완료 여부는 방문 전 확인해 주세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "공고일 이후 주소·세대주 변동 또는 지역 거주기간 증명이 필요한가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "주소·세대주 변동이나 거주기간 증명이 필요할 때 제출",
+            "sections": [
+                {
+                    "text": "공고일 이후 주소·세대주 변동 또는 지역 거주기간 증명이 필요한가요?",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법"],
+                        "rows": [
+                            [
+                                "주민등록표초본",
+                                "공고의 해당자 제출 대상과 발급 기준에 맞춰 준비하세요."
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서 제출 대상인가요?",
+            "sourceReason": "배우자·자녀·부양 직계존속·예비신혼부부 관계 등의 증빙이 필요한가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본으로 가족관계가 확인되지 않을 때 등 해당자 제출",
+            "sections": [
+                {
+                    "text": "배우자·자녀·부양 부모·조부모 등 윗세대 가족·예비신혼부부 관계 등의 증빙이 필요한가요?",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법"],
+                        "rows": [
+                            [
+                                "가족관계증명서",
+                                "공고의 해당자 제출 대상과 발급 기준에 맞춰 준비하세요."
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "applies-child",
+            "sourceTitle": "임신진단서·입양관계증명서 제출 대상인가요?",
+            "sourceReason": "태아·입양 자녀로 가산을 적용하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "태아·입양은 어떤 서류로 증명하나요?",
+            "preview": "태아·입양 자녀를 인정받을 때 증빙 제출",
+            "sections": [
+                {
+                    "text": "태아·입양 자녀로 가산을 적용하나요?",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법"],
+                        "rows": [
+                            [
+                                "임신진단서·입양관계증명서",
+                                "공고의 해당자 제출 대상과 발급 기준에 맞춰 준비하세요."
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "외국인 가족은 어떤 서류를 내나요?",
+            "preview": "심사에 포함되는 외국인 가족의 등록·거소 증명",
+            "sections": [
+                {
+                    "text": "배우자가 외국인인가요?",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법"],
+                        "rows": [
+                            [
+                                "외국인등록사실증명서",
+                                "공고의 해당자 제출 대상과 발급 기준에 맞춰 준비하세요."
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "applies-proof",
+            "sourceTitle": "신청자격·우선공급 증명서 제출 대상인가요?",
+            "sourceReason": "수급자·장애인·유공자·한부모·신혼부부 등 해당 자격의 증빙 제출 대상인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "신청 자격·가점은 어떤 서류로 증명하나요?",
+            "preview": "선택한 자격·가점에 해당하는 증빙만 제출",
+            "sections": [
+                {
+                    "text": "수급자·장애인·유공자·한부모·신혼부부 등 해당 자격의 증빙 제출 대상인가요?",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법"],
+                        "rows": [
+                            [
+                                "신청자격·우선공급 증명서",
+                                "공고의 해당자 제출 대상과 발급 기준에 맞춰 준비하세요."
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+            "questionId": "child-car-conflict",
+            "sourceTitle": "자녀1명 자동차 한도는 얼마인가요?",
+            "sourceReason": "공고4~5쪽 표에는 출생자녀1명의 자동차 한도가5,020만 원이지만5쪽 예문에는4,183만 원으로 적혀 있어요. 해당 가산을 적용할 때는 LH가 어느 금액을 적용하는지 확인해야 해요. 자녀 가산이 없는 기본4,563만 원과2명 이상 표5,476만 원은 별도로 확인할 수 있어요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=5",
+                "sha256": "ea8fd1ae5403bfb74a065ffe94acc5342f5ab4bc69e61a65ece66cb83732be0f"
+            },
+            "heading": "자녀1명 자동차 한도는 얼마인가요?",
+            "preview": "자녀1명 표5,020만 원·예문4,183만 원 · 기관 확인 필요",
+            "sections": [
+                {
+                    "text": "• 공고4~5쪽 표에는 출생자녀1명의 자동차 한도가5,020만 원이지만5쪽 예문에는4,183만 원으로 적혀 있어요.\n• 해당 가산을 적용할 때는 LH가 어느 금액을 적용하는지 확인해야 해요.\n• 자녀 가산이 없는 기본4,563만 원과2명 이상 표5,476만 원은 별도로 확인할 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65965106#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "REVIEW",
+                        "label": "기관의 적용 기준을 확인할게요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

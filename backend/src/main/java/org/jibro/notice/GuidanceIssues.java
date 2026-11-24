@@ -1,11 +1,15 @@
 package org.jibro.notice;
 
 import static org.jibro.notice.HousingModels.*;
+
 import java.util.*;
 
-/** Scope of unresolved official material, separate from the applicant's own answers. */
+/**
+ * Scope of unresolved official material, separate from the applicant's own answers.
+ */
 public final class GuidanceIssues {
-    private GuidanceIssues() {}
+    private GuidanceIssues() {
+    }
 
     public static List<ReviewIssue> safe(List<ReviewIssue> issues) {
         return issues == null ? List.of() : issues;
@@ -14,25 +18,45 @@ public final class GuidanceIssues {
     public static Set<String> questionIds(List<ReviewIssue> issues) {
         var result = new HashSet<String>();
         safe(issues).stream().filter(Objects::nonNull).filter(i -> i.questionIds() != null)
-            .forEach(i -> result.addAll(i.questionIds()));
+                .forEach(i -> result.addAll(i.questionIds()));
         return result;
     }
 
     public static boolean documentRequiresReview(List<ReviewIssue> issues, String documentId, String questionId) {
         return questionId != null && questionIds(issues).contains(questionId)
-            || safe(issues).stream().filter(Objects::nonNull)
+                || safe(issues).stream().filter(Objects::nonNull)
                 .anyMatch(i -> i.documentIds() != null && i.documentIds().contains(documentId));
     }
 
-    static List<ReviewIssue> withDependentDocuments(List<ReviewIssue> issues, List<DocumentTemplate> documents) {
+    static List<ReviewIssue> withDependentDocuments(List<ReviewIssue> issues, List<DocumentTemplate> documents, List<Question> questions) {
         return issues.stream().map(issue -> {
             if (issue == null || issue.questionIds() == null || issue.documentIds() == null) return issue;
             var ids = new ArrayList<>(issue.documentIds());
+            var questionIds = new LinkedHashSet<>(issue.questionIds());
+            boolean changed;
+            do {
+                changed = false;
+                for (var question : questions == null ? List.<Question>of() : questions) {
+                    if (question == null) continue;
+                    if (question.applicability() != null && questionIds.contains(question.applicability().questionId()))
+                        changed |= questionIds.add(question.id());
+                    for (var dependency : question.answerDependencies()) {
+                        if (dependency == null) continue;
+                        if (questionIds.contains(dependency.questionId())) changed |= questionIds.add(question.id());
+                        if (questionIds.contains(question.id()) && dependency.requiredDocumentIds() != null)
+                            dependency.requiredDocumentIds().forEach(id -> {
+                                if (!ids.contains(id)) ids.add(id);
+                            });
+                    }
+                }
+            } while (changed);
             documents.stream().filter(Objects::nonNull)
-                .filter(d -> d.conditionQuestionId() != null && issue.questionIds().contains(d.conditionQuestionId()))
-                .forEach(d -> { if (!ids.contains(d.id())) ids.add(d.id()); });
-            return new ReviewIssue(issue.id(), issue.area(), issue.title(), issue.detail(), issue.questionIds(),
-                Collections.unmodifiableList(new ArrayList<>(ids)), issue.evidence());
+                    .filter(d -> d.conditionQuestionId() != null && questionIds.contains(d.conditionQuestionId()))
+                    .forEach(d -> {
+                        if (!ids.contains(d.id())) ids.add(d.id());
+                    });
+            return new ReviewIssue(issue.id(), issue.area(), issue.title(), issue.detail(), Collections.unmodifiableList(new ArrayList<>(questionIds)),
+                    Collections.unmodifiableList(new ArrayList<>(ids)), issue.evidence());
         }).toList();
     }
 
@@ -44,12 +68,12 @@ public final class GuidanceIssues {
         var documents = new HashSet<>(content.documents().stream().map(DocumentTemplate::id).toList());
         for (var issue : issues) {
             if (issue == null || !id(issue.id()) || !ids.add(issue.id())
-                || issue.area() == null || !Set.of("CONDITION", "DOCUMENT", "SCHEDULE").contains(issue.area())
-                || !text(issue.title(), 300) || !text(issue.detail(), 3000)
-                || !references(issue.questionIds(), questions) || !references(issue.documentIds(), documents)
-                || issue.area().equals("CONDITION") && issue.questionIds().isEmpty()
-                || issue.area().equals("DOCUMENT") && issue.documentIds().isEmpty()
-                || issue.evidence() == null || issue.evidence().isEmpty() || issue.evidence().size() > 10)
+                    || issue.area() == null || !Set.of("CONDITION", "DOCUMENT", "SCHEDULE").contains(issue.area())
+                    || !text(issue.title(), 300) || !text(issue.detail(), 3000)
+                    || !references(issue.questionIds(), questions) || !references(issue.documentIds(), documents)
+                    || issue.area().equals("CONDITION") && issue.questionIds().isEmpty()
+                    || issue.area().equals("DOCUMENT") && issue.documentIds().isEmpty()
+                    || issue.evidence() == null || issue.evidence().isEmpty() || issue.evidence().size() > 10)
                 throw invalid();
             issue.evidence().forEach(EvidenceValidation::validate);
         }
@@ -60,7 +84,7 @@ public final class GuidanceIssues {
 
     private static boolean references(List<String> ids, Set<String> known) {
         return ids != null && ids.size() <= 100 && new HashSet<>(ids).size() == ids.size()
-            && ids.stream().allMatch(GuidanceIssues::id) && known.containsAll(ids);
+                && ids.stream().allMatch(GuidanceIssues::id) && known.containsAll(ids);
     }
 
     private static boolean id(String value) {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { guideLabels } from './guideLabels';
+import { guidanceStatus } from './noticeLabels';
 import { notices } from './demo';
 import { NoticeGuidanceStatus } from './NoticeGuidanceStatus';
 import type { Notice } from './types';
@@ -19,6 +19,22 @@ function renderStatus(overrides: Partial<Notice> = {}) {
 }
 
 describe('준비 안내 확인 현황', () => {
+    it('제목 옆 상태 버튼과 현황을 각각 펼칠 수 있다', async () => {
+        const user = userEvent.setup();
+        const { summary, details } = renderStatus();
+        const badge = screen.getByRole('button', {
+            name: guidanceStatus(publishedNotice).label,
+        });
+        await user.click(badge);
+        expect(badge).toHaveAttribute('aria-expanded', 'true');
+        expect(details).not.toHaveAttribute('open');
+        await user.click(summary);
+        expect(details).toHaveAttribute('open');
+        expect(badge).toHaveAttribute('aria-expanded', 'false');
+        await user.click(badge);
+        expect(details).toHaveAttribute('open');
+        expect(badge).toHaveAttribute('aria-expanded', 'true');
+    });
     it('펼치면 기본 정보·준비 안내 검수·자동 수집 시각을 구별해서 보여준다', async () => {
         const user = userEvent.setup();
         const { summary, details } = renderStatus({
@@ -66,7 +82,9 @@ describe('준비 안내 확인 현황', () => {
         async (guideState) => {
             const { summary, details } = renderStatus({ guideState });
             await userEvent.click(summary);
-            expect(details).toHaveTextContent(guideLabels[guideState]);
+            expect(details).toHaveTextContent(
+                guidanceStatus({ guideState }).label,
+            );
             expect(details).not.toHaveTextContent(
                 /확인 질문 \d+개|제출서류 목록 \d+종/,
             );

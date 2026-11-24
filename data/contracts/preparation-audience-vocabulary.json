@@ -1,0 +1,106 @@
+{
+    "types": {
+        "YOUTH": ["청년"],
+        "EARLY_CAREER": ["사회초년생"],
+        "NEWLYWED": ["신혼부부", "신혼"],
+        "PREMARITAL": ["예비신혼부부", "예비신혼"],
+        "SINGLE_PARENT": ["한부모가족", "한부모"],
+        "ELDER": ["고령자"],
+        "INDUSTRIAL": ["산업단지 근로자", "산단근로자"],
+        "INTEGRATED": ["통합공공임대"],
+        "GENERAL": ["일반공급"],
+        "VULNERABLE": ["주거약자형", "주거약자"],
+        "STUDENT": ["대학생"],
+        "JOBSEEKER": ["취업준비생"],
+        "LIVELIHOOD_MEDICAL_BENEFIT": ["생계·의료급여 수급자"],
+        "VETERAN": ["국가유공자 등"],
+        "REGISTERED_VICTIM": ["등록 일본군위안부 피해자"],
+        "DEFECTOR": ["북한이탈주민"],
+        "DISABLED": ["장애인"],
+        "SUPPORT_ELDER": ["고령 직계존속 부양자"],
+        "CARE_LEAVER": ["아동복지시설 퇴소자"],
+        "ELDER_BENEFIT": ["고령 수급권자·차상위계층"],
+        "HOUSING_BENEFIT": [
+            "주거급여 수급자",
+            "주거급여수급자",
+            "주거급여 유형"
+        ]
+    },
+    "channels": {
+        "ONLINE": ["온라인", "인터넷", "모바일"],
+        "VISIT": ["현장", "방문"],
+        "POSTAL": ["우편"]
+    },
+    "documentGuidance": [
+        {
+            "title": "금융정보 동의서는 누가 내나요?",
+            "documents": ["금융정보 등 제공 동의서"]
+        },
+        {
+            "title": "자산 확인서는 어떻게 준비하나요?",
+            "documents": ["자산 보유 사실확인서"]
+        },
+        {
+            "title": "청년·사회초년생은 어떤 서류를 내나요?",
+            "documents": ["청년·사회초년생 증빙"]
+        },
+        {
+            "title": "신혼·예비신혼부부는 어떤 서류를 내나요?",
+            "documents": [
+                "혼인관계증명서(상세)",
+                "예비신혼부부 신청·세대구성 서류"
+            ]
+        },
+        {
+            "title": "산업단지 근로자는 어떤 서류를 내나요?",
+            "documents": ["산업단지 근로자 증빙"]
+        },
+        {
+            "title": "청약통장은 언제 내나요?",
+            "documents": ["주택청약종합저축 통장 사본"]
+        }
+    ],
+    "channelValues": {
+        "ONLINE": "ONLINE",
+        "INTERNET": "ONLINE",
+        "MOBILE": "ONLINE",
+        "OFFLINE": "VISIT",
+        "VISIT": "VISIT",
+        "ONSITE": "VISIT",
+        "POSTAL": "POSTAL",
+        "MAIL": "POSTAL"
+    },
+    "typeOptionRules": [
+        {
+            "type": "STUDENT",
+            "values": [
+                "STUDENT",
+                "ADMISSION",
+                "RETURN",
+                "INCOMING",
+                "RETURNING"
+            ],
+            "label": "대학|재학|입학|복학"
+        },
+        {
+            "type": "JOBSEEKER",
+            "values": ["JOBSEEKER", "JOB_SEEKER"],
+            "label": "졸업|중퇴|취업준비"
+        },
+        {
+            "type": "EARLY_CAREER",
+            "values": ["WORKER", "NEW_WORKER", "RETIRED", "ARTIST"],
+            "label": "소득\\s*활동.*(?:근무|취업|예술)|퇴직.*구직급여"
+        },
+        {
+            "type": "NEWLYWED",
+            "values": ["NEWLYWED", "MARRIED"],
+            "label": "혼인.*(?:이내|이하).*부부"
+        }
+    ],
+    "typeOverlaps": {
+        "NEWLYWED": ["PREMARITAL"],
+        "YOUTH": ["EARLY_CAREER"],
+        "STUDENT": ["JOBSEEKER"]
+    }
+}

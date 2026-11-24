@@ -3,11 +3,14 @@ package org.jibro.notice;
 import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
+
 import org.jibro.global.common.ApiException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Internal operator decisions; never presented as an official closure or an invented deadline. */
+/**
+ * Internal operator decisions; never presented as an official closure or an invented deadline.
+ */
 @Service
 public class NoticeDispositionService {
     private final NoticeRepository notices;

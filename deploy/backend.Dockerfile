@@ -1,9 +1,11 @@
 ARG JAVA_BASE=eclipse-temurin:17-jre-jammy
 FROM ${JAVA_BASE}
-RUN apt-get update && apt-get install -y --no-install-recommends curl \
+RUN apt-get update && apt-get install -y --no-install-recommends curl tesseract-ocr tesseract-ocr-kor tesseract-ocr-eng tesseract-ocr-osd \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd --gid 10001 jibro && useradd --uid 10001 --gid jibro --no-create-home jibro
 WORKDIR /opt/jibro
+ENV JIBRO_OCR_EXECUTABLE=/usr/bin/tesseract \
+    JIBRO_OCR_DATA_PATH=/usr/share/tesseract-ocr/4.00/tessdata
 COPY --chown=10001:10001 backend/app.jar ./app.jar
 USER 10001:10001
 EXPOSE 8080

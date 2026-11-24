@@ -54,7 +54,7 @@ public class BrowserPush {
             if ("mailto".equals(uri.getScheme()))
                 return uri.getRawSchemeSpecificPart().matches("[^\\s?@]+@[^\\s?@]+");
             return "https".equals(uri.getScheme()) && uri.getHost() != null
-                && uri.getUserInfo() == null && uri.getFragment() == null;
+                    && uri.getUserInfo() == null && uri.getFragment() == null;
         } catch (IllegalArgumentException error) {
             return false;
         }
@@ -92,7 +92,7 @@ public class BrowserPush {
         token.sign(new ECDSASigner(key));
         // A payload-free push keeps the notice, account and deadline out of the provider and lock screen.
         var request = HttpRequest.newBuilder(uri).timeout(Duration.ofSeconds(8)).header("TTL", "3600").header("Authorization", "vapid t=" + token.serialize() + ", k=" + publicKey)
-            .POST(HttpRequest.BodyPublishers.noBody()).build();
+                .POST(HttpRequest.BodyPublishers.noBody()).build();
         return client.send(request, HttpResponse.BodyHandlers.discarding()).statusCode();
     }
 }

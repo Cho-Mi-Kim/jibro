@@ -1,15 +1,15 @@
+import { pendingAnswersLabel } from './conditionAnswerPresentation';
+import { useNoticeDetailReturn } from '../housing/NoticeListVisit';
 import { activeSchedules } from '../housing/noticeLifecycle';
 import { NoticeLifecycleNotice } from '../housing/NoticeLifecycleNotice';
-import dateStyles from './PreparationDates.module.css';
-import { Link } from 'react-router';
-import { journeySteps } from './journey';
-import { needsFollowUp } from '../housing/questions';
-import { currentPreparationSchedules } from '../housing/schedules';
+import { Link, useLocation } from 'react-router';
+import { journeySteps, journeyStage } from './journey';
+import { applicantQuestions, needsFollowUp } from '../housing/questions';
 import {
-    nextNoticeSchedule,
-    homeScheduleSummary,
-    noticeListTitle,
-} from '../housing/noticeDisplay';
+    currentPreparationSchedules,
+    currentPreparationScheduleSource,
+} from '../housing/schedules';
+import { nextNoticeSchedule, noticeListTitle } from '../housing/noticeDisplay';
 import { useNotice } from '../housing/useNotice';
 import { useNoticeEntryState } from '../../shared/navigation/useNoticeEntryState';
 import type { Notice, Preparation } from '../housing/types';
@@ -17,34 +17,49 @@ import { bindClasses } from '../../shared/styles/classes';
 import { Icon } from '../../shared/ui/Icon';
 import { Disc } from '../../shared/ui/Disc';
 import { InlineExplanation } from '../../shared/ui/ui';
+import { ApplicationBadge } from '../housing/NoticeStatusBadges';
+import { AgencyHousingSummary } from '../housing/AgencyMark';
+import { UpcomingScheduleCard } from '../housing/ScheduleCard';
 import { NoticeDates } from '../housing/NoticeFacts';
 import { House } from './PreparationProgress';
 import { PreparationScrollSection } from './PreparationScrollSection';
 import housingClasses from '../housing/NoticeFacts.module.css';
 import preparationClasses from './PreparationUI.module.css';
+import {
+    visiblePreparationQuestions,
+    visiblePreparationDocuments,
+} from '../housing/preparationApplicability';
 
 const cx = bindClasses(housingClasses, preparationClasses);
 
 export function Journey({ p }: { p: Preparation }) {
     const entryState = useNoticeEntryState();
-    const conditions =
-        p.questions.length > 0 &&
-        p.questions.every((q) => !needsFollowUp(q, p.answers[q.id]));
-    const docs = p.documents.filter((d) => d.necessity !== 'NOT_APPLICABLE');
-    const ready =
-        docs.length > 0 &&
-        docs.every((d) => d.necessity !== 'UNKNOWN' && d.state === 'READY');
+    const detailReturn = useNoticeDetailReturn(p.noticeId);
+    const { state } = useLocation();
     const steps = journeySteps(p);
-    const current = !conditions ? 1 : !ready ? 2 : 3;
+    const current = journeyStage(p);
     return (
-        <ol className={cx('journey')} aria-label="준비 단계">
+        <ol
+            className={cx('journey')}
+            aria-label="준비 단계"
+            data-completed={current === steps.length}
+        >
             {steps.map(({ label, path }, i) => (
                 <li
                     key={label}
                     data-done={i < current}
                     aria-current={i === current ? 'step' : undefined}
                 >
-                    <Link to={path} state={entryState}>
+                    <Link
+                        to={i === 0 && detailReturn ? detailReturn.to : path}
+                        state={
+                            detailReturn
+                                ? i === 0
+                                    ? detailReturn.state
+                                    : state
+                                : entryState
+                        }
+                    >
                         <span>
                             {i < current ? (
                                 <Icon name="check" />
@@ -53,6 +68,7 @@ export function Journey({ p }: { p: Preparation }) {
                             ) : null}
                         </span>
                         {label}
+                        {i === 4 && current === 4 && <small>진행 중</small>}
                     </Link>
                 </li>
             ))}
@@ -67,20 +83,19 @@ export function Metrics({
     schedule?: boolean;
 }) {
     const notice = useNotice(p.noticeId);
+    const source = currentPreparationScheduleSource(p, notice.data);
+    const schedules = source?.schedules ?? currentPreparationSchedules(p);
     const next = schedule
-        ? nextNoticeSchedule(
-              notice.data,
-              activeSchedules(
-                  notice.data,
-                  currentPreparationSchedules(p, notice.data),
-              ),
-          )
+        ? nextNoticeSchedule(source, activeSchedules(source, schedules))
         : undefined;
-    const answered = p.questions.filter(
+    const questions = applicantQuestions(
+        visiblePreparationQuestions(p),
+        Object.values(p.documentConditions ?? {}),
+    );
+    const answered = questions.filter(
         (q) => p.answers[q.id] !== undefined,
     ).length;
-    const nextSummary = next ? homeScheduleSummary(next) : undefined;
-    const docs = p.documents.filter(
+    const docs = visiblePreparationDocuments(p).filter(
         (d) => d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL',
     );
     return (
@@ -93,13 +108,18 @@ export function Metrics({
                 <div>
                     질문 응답
                     <strong>
-                        {answered} / {p.questions.length}
+                        {answered} / {questions.length}
                     </strong>
                     <small>
-                        추가 확인{' '}
+                        {pendingAnswersLabel}{' '}
                         {
-                            p.questions.filter((q) =>
-                                needsFollowUp(q, p.answers[q.id]),
+                            questions.filter((q) =>
+                                needsFollowUp(
+                                    q,
+                                    p.answers[q.id],
+                                    p.answers,
+                                    p.questions,
+                                ),
                             ).length
                         }
                         개
@@ -130,12 +150,14 @@ export function Metrics({
                     <Disc name="calendar" />
                     <div>
                         다음 일정
-                        <small>
-                            {nextSummary?.title ?? '예정된 일정 없음'}
-                        </small>
-                        <strong className={cx('date-value')}>
-                            {nextSummary?.date ?? '일정 보기'}
-                        </strong>
+                        {next ? (
+                            <UpcomingScheduleCard event={next} compact />
+                        ) : (
+                            <>
+                                <small>예정된 일정 없음</small>
+                                <strong>일정 보기</strong>
+                            </>
+                        )}
                     </div>
                     <Icon name="arrow" />
                 </Link>
@@ -175,11 +197,7 @@ export function PreparationDates({
     preparation: Preparation;
 }) {
     return (
-        <NoticeDates
-            notice={notice}
-            preparation={preparation}
-            className={dateStyles.dates}
-        />
+        <NoticeDates notice={notice} preparation={preparation} layout="grid" />
     );
 }
 export function NoticeContext({ p }: { p: Preparation }) {
@@ -190,10 +208,13 @@ export function NoticeContext({ p }: { p: Preparation }) {
         >
             <div className={cx('row')}>
                 <div>
+                    {n.data && <ApplicationBadge notice={n.data} />}
                     <h2>{noticeListTitle(p.title)}</h2>
-                    <p className={cx('muted')}>
-                        {n.data?.agency} · {n.data?.region} · 안내 v{p.version}
-                    </p>
+                    {n.data && (
+                        <p className={cx('muted')}>
+                            <AgencyHousingSummary notice={n.data} />
+                        </p>
+                    )}
                 </div>
             </div>
             <InlineExplanation label="공고 일정">

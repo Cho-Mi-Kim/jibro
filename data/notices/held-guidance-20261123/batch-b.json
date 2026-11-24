@@ -1,0 +1,1477 @@
+[
+  {
+    "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+    "baselineVersion": 5,
+    "questionPatches": [
+      {
+        "id": "family-register-situation",
+        "title": "등본에서 배우자를 확인할 수 없거나, 신청자가 세대주가 아닌가요?",
+        "reason": "등본에서 배우자가 확인되지 않으면 상세 가족관계증명서를 내요. 미혼·이혼·사별·배우자와 세대 분리도 포함해요. 신청자가 세대주가 아닌 경우 등 심사할 가족을 확인해야 할 때도 내요. 배우자가 외국인이면 외국인등록증 등 사본을 추가해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "등본에 배우자가 없거나, 세대주가 아니어서 가족 확인이 필요해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "등본에서 배우자가 확인되고, 세대주이며 추가 가족 확인이 필요하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "PDF 11쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "separate-register-situation",
+            "answerValues": [
+              "SEPARATE_SPOUSE",
+              "BOTH"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "family",
+              "spouse"
+            ],
+            "message": "배우자와 등본이 다르다고 답했어요. 상세 가족관계증명서와 배우자 등본을 함께 확인해 주세요."
+          },
+          {
+            "questionId": "foreign-family-situation",
+            "answerValues": [
+              "SPOUSE",
+              "BOTH"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "family",
+              "foreign"
+            ],
+            "message": "배우자가 외국인이라고 답했어요. 상세 가족관계증명서와 외국인 배우자 증빙을 함께 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "address-head-change",
+        "title": "2026년 11월 11일 이후 주소나 세대주가 바뀐 가족이 있나요?",
+        "reason": "신청자를 포함해 함께 심사받는 세대원 중 공고일(2026.11.11.) 이후 주소나 세대주가 바뀐 사람의 초본을 내요. 과거 주소변동, 세대주 이름과 관계를 모두 표시하고 인제군 거주기간이 전체 나오도록 발급해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "신청자 또는 함께 심사받는 세대원의 주소·세대주가 바뀌었어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "공고일 이후 주소·세대주가 바뀐 세대원이 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "PDF 11쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "separate-register-situation",
+        "title": "배우자와 등본이 다르거나, 공고일 당시 세대주와 분리됐나요?",
+        "reason": "배우자와 등본이 다르면 배우자 등본을 내요. 공고일(2026.11.11.) 이후 당시 세대주와 등본이 분리된 신청자는 당시 세대주의 등본을 추가해요. 두 경우가 겹치면 각각 준비해요. 세대 구성·관계·전입변동을 전부 표시해요.",
+        "options": [
+          {
+            "value": "SEPARATE_SPOUSE",
+            "label": "배우자와 등본이 달라요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "FORMER_HEAD",
+            "label": "공고일 이후 당시 세대주와 등본이 분리됐어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "BOTH",
+            "label": "두 가지 모두 해당해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "둘 다 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "PDF 11쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "priority-evidence-situation",
+        "title": "어떤 순위·가점 자격을 증명하나요?",
+        "reason": "신청하는 순위·가점 중 아래 증명에 해당하는 항목을 골라요. 서로 겹치면 해당 항목을 모두 선택해요.\n수급자는 수급자증명서, 차상위는 차상위계층 확인서를 준비해요. 국가유공자·보훈보상·5·18민주유공자·특수임무유공자·참전유공자와 해당 유족은 본인의 보훈 유형에 맞는 확인원을 내요. 장기요양 점수는 장기요양인정서로 확인해요.\n생계·의료급여 선정기준 소득인정액 이하임을 증명하는 경우에는 사회보장급여결정통지서의 소득인정액 산정내역을 내요. 사전에 급여를 신청해 결정 통지서를 받아야 해요. 일반 소득 50%(1인 70%, 2인 60%) 이하 여부는 사회보장정보시스템 자료로 확인해요. 순위별 소득·자산 기준은 공통 기준에서 따로 확인해요.",
+        "options": [
+          {
+            "value": "RECIPIENT",
+            "label": "수급자 자격을 증명해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "LOW_INCOME",
+            "label": "차상위계층 자격을 증명해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "VETERAN",
+            "label": "국가유공자·보훈대상자 등 해당 자격을 증명해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "LONG_TERM_CARE",
+            "label": "장기요양등급으로 점수를 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "INCOME_RECOGNITION",
+            "label": "급여 선정기준 이하 소득인정액을 결정통지서로 증명해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "위 증명에 해당하는 순위·가점을 신청하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+          "label": "공고문 12쪽 · 순위·가점 증빙 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "MULTIPLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "visit-submitter",
+        "title": "현장에서는 누가 신청 서류를 내나요?",
+        "reason": "직접 가면 본인 신분증·도장(서명 가능)을 챙겨요. 배우자가 가면 양쪽 신분증·신청자 도장·관계 입증서류가 필요해요. 그 밖의 대리인은 신청자 본인 발급 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비해요. 양쪽 신분증도 필요하고 2020년 12월 21일 이후 여권은 여권정보증명서를 함께 내요. 현장에 가지 않고 온라인으로 신청하면 이 현장 본인·대리인 확인서류는 해당하지 않아요. 공통 신청서류와 온라인 서류제출 대상자의 제출 절차는 별도로 확인해요.",
+        "options": [
+          {
+            "value": "SELF",
+            "label": "신청자 본인이 직접 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "SPOUSE",
+            "label": "배우자가 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER",
+            "label": "배우자 외 다른 사람이 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "ONLINE",
+            "label": "현장에 가지 않고 온라인으로 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+          "label": "PDF 12쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "foreign-family-situation",
+        "title": "함께 심사받는 가족 중 외국인이 있나요?",
+        "reason": "외국인 배우자가 있으면 공고문 11쪽에 따라 배우자의 외국인등록증 등 사본을 추가해요.\n공고문 4쪽은 가족관계등록부에 올라 있고 외국인등록 또는 국내거소신고를 한 배우자를 주소가 달라도 심사에 포함해요. 외국인 부모·조부모·자녀·손주 등은 등록 요건과 신청자 또는 분리배우자의 등본·등록 거주지 요건도 확인해요.\n배우자 외 외국인 가족에게 필요한 구체 증빙은 이 제출서류 표에 정해져 있지 않으므로 기관에 확인해요. 외국인등록·거소신고를 하지 않은 배우자 등 신청 제한은 공통 가족 기준에서도 확인해요.",
+        "options": [
+          {
+            "value": "SPOUSE",
+            "label": "배우자가 외국인이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER_FAMILY",
+            "label": "배우자 외에 심사에 포함되는 외국인 가족이 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "BOTH",
+            "label": "배우자와 다른 심사 대상 가족이 외국인이에요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "NONE",
+            "label": "심사에 포함되는 외국인 가족이 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "공고문 11쪽 · 외국인 가족 증빙 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      }
+    ],
+    "removedQuestionIds": [
+      "applies-family",
+      "applies-history",
+      "applies-spouse",
+      "applies-proof",
+      "applies-proxy",
+      "applies-foreign"
+    ],
+    "documentPatches": [
+      {
+        "id": "family",
+        "title": "가족관계증명서(상세)",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자가 등본에 없으면 미혼·이혼·사별·세대 분리 여부에 맞춰 상세 가족관계증명서를 내요. 신청자가 세대주가 아니어서 심사할 가족을 확인해야 하는 경우도 해당해요. 외국인 배우자는 등록증 등 사본을 추가해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "PDF 11쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family-register-situation",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "history",
+        "title": "주민등록표초본",
+        "issuer": "공고문 기재 발급처",
+        "method": "공고일 이후 주소나 세대주가 바뀐 세대원은 과거 주소변동·세대주 이름과 관계를 모두 표시한 초본을 내요. 인제군 거주기간도 전체가 표시되도록 발급해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "PDF 11쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "address-head-change",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "spouse",
+        "title": "분리 배우자·종전 세대주 등본",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자와 등본이 다르면 배우자 등본을 추가해요. 공고일 이후 당시 세대주와 등본이 갈라진 신청자는 당시 세대주의 등본도 추가해요. 세대 구성·관계·전입변동을 전부 표시해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "PDF 11쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "separate-register-situation",
+        "conditionAnswerValues": [
+          "SEPARATE_SPOUSE",
+          "FORMER_HEAD",
+          "BOTH"
+        ]
+      },
+      {
+        "id": "proof",
+        "title": "순위·가점에 해당하는 증명서",
+        "issuer": "공고문 기재 발급처",
+        "method": "신청하는 항목의 증명서만 준비해요. 수급자·차상위는 해당 자격증명, 국가유공자 등은 보훈 유형에 맞는 확인서, 장기요양 점수는 장기요양인정서로 확인해요. 생계·의료급여 선정기준 소득인정액을 증명해야 하면 사회보장급여 통지서·소득인정액 산정결과도 확인해요. 모든 증명서를 한꺼번에 내는 것은 아니에요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+          "label": "PDF 12쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "priority-evidence-situation",
+        "conditionAnswerValues": [
+          "RECIPIENT",
+          "LOW_INCOME",
+          "VETERAN",
+          "LONG_TERM_CARE",
+          "INCOME_RECOGNITION"
+        ]
+      },
+      {
+        "id": "proxy",
+        "title": "현장 본인·대리인 확인서류",
+        "issuer": "공고문 기재 발급처",
+        "method": "직접 가면 본인 신분증·도장(서명 가능)을 챙겨요. 배우자가 가면 양쪽 신분증·신청자 도장·관계 입증서류가 필요해요. 그 밖의 대리인은 신청자 본인 발급 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비해요. 양쪽 신분증도 필요하고 2020년 12월 21일 이후 여권은 여권정보증명서를 함께 내요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+          "label": "PDF 12쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "visit-submitter",
+        "conditionAnswerValues": [
+          "SELF",
+          "SPOUSE",
+          "OTHER"
+        ]
+      },
+      {
+        "id": "foreign",
+        "title": "외국인 가족 증빙",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자가 외국인이면 배우자의 외국인등록증 등 사본을 추가해요(공고문 11쪽). 배우자 외 외국인 가족의 구체 증빙은 접수처에 확인해요. 가족관계등록·외국인등록/국내거소신고와 등본·등록 거주지에 따른 심사 범위는 공고문 4쪽을 함께 확인해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+          "label": "공고문 11쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "foreign-family-situation",
+        "conditionAnswerValues": [
+          "SPOUSE",
+          "BOTH"
+        ]
+      }
+    ],
+    "notes": "현재 공식 공고·PDF69338139 4·11·12쪽 대조. 단일 65세 이상 모집의 첫 사실 질문과 기존 자격·예외·일정·공통서류는 보존. 제출 대상 자기판단 6개를 실제 가족·주소변동·순위증빙·현장제출자 사실 질문으로 교체하고 기존 document ID를 새 질문에 연결. 구체 외국인가족 증빙 미확정은 추가확인 유지. 의미가 달라진 입력은 새 ID로 기존 자기판단 답변을 재사용하지 않음."
+  },
+  {
+    "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+    "baselineVersion": 7,
+    "questionPatches": [
+      {
+        "id": "contract-selection-fact",
+        "title": "동·호 지정 대상자로 선정됐나요?",
+        "reason": "동·호 지정 대상자가 계약할 때 입주자격 완화 확약서와 선계약 후검증 확약서 두 장에 각각 서명하거나 도장을 찍어요. 선계약 후검증 확약서에는 신분증과 신청자 명의 통장 사본을 붙여요. 통장 사본은 이름·은행명·계좌번호가 나온 모바일 화면도 가능해요.",
+        "options": [
+          {
+            "value": "SELECTED",
+            "label": "동·호 지정 대상자로 선정됐어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "PENDING",
+            "label": "아직 선정 결과를 기다리고 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "NOT_SELECTED",
+            "label": "선정되지 않았어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+          "label": "공고문 12쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "family-relationship-fact",
+        "title": "어떤 가족관계 상황에 해당하나요?",
+        "reason": "등본에서 배우자가 확인되지 않으면 상세 가족관계증명서를 내요(세대분리·미혼·이혼·사별 등). 배우자가 외국인인 경우도 해당해요. 예비신혼부부는 결혼 후 세대에 두 사람 외 가족을 포함하면 그 관계가 나오는 신청자 또는 예비배우자의 상세 가족관계증명서를 내요. 일반·특정 증명서는 안 되고 상세로 발급해요.",
+        "options": [
+          {
+            "value": "MISSING_SPOUSE",
+            "label": "예비신혼 신청이 아니며, 등본에서 배우자가 확인되지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "FOREIGN_SPOUSE",
+            "label": "배우자가 외국인이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "PREMARITAL_EXTRA",
+            "label": "예비신혼이며 결혼 후 두 사람 외 가족과 함께 살아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "PREMARITAL_TWO",
+            "label": "예비신혼이며 결혼 후 두 사람만 살아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "위 상황에 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+          "label": "공고문 12쪽 · 가족관계증명서(상세) 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "foreign-spouse-fact",
+            "answerValues": [
+              "YES"
+            ],
+            "conflictingValues": [
+              "NONE",
+              "PREMARITAL_TWO"
+            ],
+            "requiredDocumentIds": [
+              "family",
+              "foreign"
+            ],
+            "message": "배우자가 외국인이라고 답했어요. 가족관계증명서와 외국인 배우자 증빙 대상을 다시 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "history-fact",
+        "title": "주소·세대주가 바뀌었거나, 예비신혼부부 대표 신청자인가요?",
+        "reason": "공고일 이후 주소·세대주가 바뀐 세대원은 상세 초본을 내요. 예비신혼부부는 대표 신청자 초본을 내요. 과거 주소, 세대주 이름과 관계를 모두 표시해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "두 상황 중 하나 이상 해당해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "둘 다 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "message": "예비신혼부부 대표 신청자는 주민등록초본이 필요해요. 신청 유형과 초본 대상 답변을 다시 확인해 주세요.",
+            "questionId": "premarital-fact",
+            "answerValues": [
+              "YES"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "history"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "premarital-fact",
+        "title": "예비신혼부부로 신청하나요?",
+        "reason": "예비신혼부부는 LH 신청확인서와 세대구성 확인서를 내요. 입주 전에는 신청 때 적은 예비배우자와 혼인했는지 상세 혼인관계증명서로 확인해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "예비신혼부부로 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "예비신혼부부로 신청하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "family-relationship-fact",
+            "answerValues": [
+              "PREMARITAL_EXTRA",
+              "PREMARITAL_TWO"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "newlywed",
+              "history"
+            ],
+            "message": "가족관계에서 예비신혼부부라고 답했어요. 예비신혼 신청 서류와 대표 신청자의 초본이 빠지지 않도록 두 답변을 다시 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "foreign-spouse-fact",
+        "title": "배우자가 외국인인가요?",
+        "reason": "배우자가 외국인이면 외국인등록사실증명서를 내요. 출입국·외국인청에서 발급해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "배우자가 외국인이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "외국인 배우자가 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 · 외국인등록사실증명서 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "family-relationship-fact",
+            "answerValues": [
+              "FOREIGN_SPOUSE"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "foreign",
+              "family"
+            ],
+            "message": "가족관계에서 배우자가 외국인이라고 답했어요. 상세 가족관계증명서와 외국인 배우자 증빙을 함께 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "visit-submitter",
+        "title": "현장에서는 누가 신청하나요?",
+        "reason": "본인은 신분증과 도장(서명 가능), 배우자 대리는 두 사람의 신분증·신청자 도장·관계 입증서류를 준비해요. 다른 대리인은 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비하고, 두 사람의 신분증도 지참해요. 위임장의 수임인 서명란에는 대리인 이름을 적어요. 2020.12.21. 이후 발급 여권에는 여권정보증명서를 함께 준비해요. 온라인 신청자는 이 현장 확인서류에 해당하지 않아요.",
+        "options": [
+          {
+            "value": "SELF",
+            "label": "신청자 본인이 직접 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "SPOUSE",
+            "label": "배우자가 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER",
+            "label": "배우자 외 다른 사람이 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "ONLINE",
+            "label": "현장에 가지 않고 온라인으로 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 · 현장·대리신청 확인서류 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": []
+      }
+    ],
+    "removedQuestionIds": [
+      "applies-application",
+      "applies-pledges",
+      "applies-family",
+      "applies-history",
+      "applies-newlywed",
+      "applies-foreign",
+      "applies-identity"
+    ],
+    "documentPatches": [
+      {
+        "id": "application",
+        "title": "국민임대주택 공급신청서",
+        "issuer": "공고문 기재 발급처",
+        "method": "현장 청약자는 공고 양식의 공급신청서를 작성해 접수할 때 내요. 인터넷·모바일 신청자는 온라인 신청 내용으로 접수해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+          "label": "공고문 12쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "visit-submitter",
+        "conditionAnswerValues": [
+          "SELF",
+          "SPOUSE",
+          "OTHER"
+        ]
+      },
+      {
+        "id": "pledges",
+        "title": "입주자격 완화·선계약 후검증 확약서",
+        "issuer": "공고문 기재 발급처",
+        "method": "동·호 지정 대상자가 계약할 때 입주자격 완화 확약서와 선계약 후검증 확약서 두 장에 각각 서명하거나 도장을 찍어요. 선계약 후검증 확약서에는 신분증과 신청자 명의 통장 사본을 붙여요. 통장 사본은 이름·은행명·계좌번호가 나온 모바일 화면도 가능해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+          "label": "공고문 12쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "contract-selection-fact",
+        "conditionAnswerValues": [
+          "SELECTED"
+        ]
+      },
+      {
+        "id": "family",
+        "title": "가족관계증명서(상세)",
+        "issuer": "공고문 기재 발급처",
+        "method": "등본에서 배우자가 확인되지 않으면 상세 가족관계증명서를 내요(세대분리·미혼·이혼·사별 등). 배우자가 외국인인 경우도 해당해요. 예비신혼부부는 결혼 후 세대에 두 사람 외 가족을 포함하면 그 관계가 나오는 신청자 또는 예비배우자의 상세 가족관계증명서를 내요. 일반·특정 증명서는 안 되고 상세로 발급해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+          "label": "공고문 12쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family-relationship-fact",
+        "conditionAnswerValues": [
+          "MISSING_SPOUSE",
+          "FOREIGN_SPOUSE",
+          "PREMARITAL_EXTRA"
+        ]
+      },
+      {
+        "id": "history",
+        "title": "주민등록표초본(상세)",
+        "issuer": "공고문 기재 발급처",
+        "method": "공고일 이후 주소·세대주가 바뀐 세대원은 상세 초본을 내요. 예비신혼부부는 대표 신청자 초본을 내요. 과거 주소, 세대주 이름과 관계를 모두 표시해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "history-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "newlywed",
+        "title": "예비신혼부부 신청·세대구성 확인서",
+        "issuer": "공고문 기재 발급처",
+        "method": "예비신혼부부는 LH 신청확인서와 세대구성 확인서를 내요. 입주 전에는 신청 때 적은 예비배우자와 혼인했는지 상세 혼인관계증명서로 확인해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 보기",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "premarital-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "foreign",
+        "title": "외국인등록사실증명서",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자가 외국인이면 외국인등록사실증명서를 내요. 출입국·외국인청에서 발급해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "foreign-spouse-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "identity",
+        "title": "현장·대리신청 확인서류",
+        "issuer": "공고문 기재 발급처",
+        "method": "본인은 신분증과 도장(서명 가능), 배우자 대리는 두 사람의 신분증·신청자 도장·관계 입증서류를 준비해요. 다른 대리인은 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비하고, 두 사람의 신분증도 지참해요. 위임장의 수임인 서명란에는 대리인 이름을 적어요. 2020.12.21. 이후 발급 여권에는 여권정보증명서를 함께 준비해요. 온라인 신청자는 이 현장 확인서류에 해당하지 않아요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+          "label": "공고문 13쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "visit-submitter",
+        "conditionAnswerValues": [
+          "SELF",
+          "SPOUSE",
+          "OTHER"
+        ]
+      }
+    ],
+    "notes": "공식 PDF69334954 12·13쪽을 실제 표로 대조. 제출 대상 자가판단 7항을 6개 사실입력으로 통합하여 신청방법·동호선정·가족·주소변동·예비신혼·외국인배우자·현장제출자 사실 질문으로 교체. 공급신청서와 현장확인서류는 같은 현장제출자 답변 하나를 사용. 기존 초본/예비신혼 모순보호를 새 질문ID로 유지. 일정 불일치 이슈와 모든 기존 공통기준·문서는 보존."
+  },
+  {
+    "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+    "baselineVersion": 11,
+    "questionPatches": [
+      {
+        "id": "family-relationship-fact",
+        "title": "어떤 가족관계 상황에 해당하나요?",
+        "reason": "등본에서 배우자가 확인되지 않으면 상세 가족관계증명서를 내요(세대분리·미혼·이혼·사별 등). 배우자가 외국인인 경우도 해당해요. 예비신혼부부는 결혼 후 세대에 두 사람 외 가족을 포함하면 그 관계가 나오는 신청자 또는 예비배우자의 상세 가족관계증명서를 내요.",
+        "options": [
+          {
+            "value": "MISSING_SPOUSE",
+            "label": "예비신혼 신청이 아니며, 등본에서 배우자가 확인되지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "FOREIGN_SPOUSE",
+            "label": "배우자가 외국인이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "PREMARITAL_EXTRA",
+            "label": "예비신혼이며 결혼 후 두 사람 외 가족과 함께 살아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "PREMARITAL_TWO",
+            "label": "예비신혼이며 결혼 후 두 사람만 살아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "위 상황에 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 가족관계증명서(상세) 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "foreign-spouse-fact",
+            "answerValues": [
+              "YES"
+            ],
+            "conflictingValues": [
+              "NONE",
+              "PREMARITAL_TWO"
+            ],
+            "requiredDocumentIds": [
+              "family",
+              "foreign"
+            ],
+            "message": "배우자가 외국인이라고 답했어요. 가족관계와 외국인 배우자 증빙 대상을 다시 확인해 주세요."
+          },
+          {
+            "questionId": "separate-spouse-fact",
+            "answerValues": [
+              "YES"
+            ],
+            "conflictingValues": [
+              "NONE",
+              "PREMARITAL_TWO"
+            ],
+            "requiredDocumentIds": [
+              "family",
+              "spouse"
+            ],
+            "message": "배우자와 등본이 다르다고 답했어요. 가족관계증명서와 배우자 등본을 함께 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "separate-spouse-fact",
+        "title": "배우자와 주민등록등본이 다른가요?",
+        "reason": "배우자와 등본이 다르면 배우자의 등본을 추가로 내요. 세대원 이름·주민등록번호, 세대주와의 관계, 전입·변동일 사유 등을 모두 표시해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "배우자와 등본이 달라요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "배우자와 같은 등본이거나 배우자가 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 배우자 주민등록표등본 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "child-evidence-fact",
+        "title": "태아·입양 자녀를 가구원 수나 소득·자산 가산에 포함하나요?",
+        "reason": "태아 또는 입양 자녀를 월평균소득 기준의 가구원 수에 넣거나 소득·자산 한도를 높여 인정받으려면 증빙을 내요. 태아는 신청접수일 이후 의료기관에서 발급한 임신진단서 또는 임신확인서, 입양 자녀는 행정복지센터에서 발급한 입양관계증명서로 확인해요.",
+        "options": [
+          {
+            "value": "PREGNANT",
+            "label": "태아를 포함해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "ADOPTED",
+            "label": "입양 자녀를 포함해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "BOTH",
+            "label": "태아와 입양 자녀를 모두 포함해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "둘 다 포함하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "foreign-spouse-fact",
+        "title": "배우자가 외국인인가요?",
+        "reason": "배우자가 외국인이면 외국인등록사실증명서를 내요. 출입국관리사무소에서 발급해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "배우자가 외국인이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "외국인 배우자가 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 외국인등록사실증명서 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "family-relationship-fact",
+            "answerValues": [
+              "FOREIGN_SPOUSE"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "foreign",
+              "family"
+            ],
+            "message": "가족관계에서 배우자가 외국인이라고 답했어요. 상세 가족관계증명서와 외국인 배우자 증빙을 함께 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "proxy-fact",
+        "title": "현장에 신청자 대신 다른 사람이 가나요?",
+        "reason": "이 공고는 현장접수만 받아요. 직접 가면 본인 신분증과 도장(서명 가능)을 준비해요. 대신 가는 사람은 신청자 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비하고 두 사람의 신분증도 지참해요. 대리 발급한 신청자 인감증명서도 가능해요. 위임장 수임인 서명란에 대리인 이름을 적어요. 2020.12.21. 이후 발급 여권에는 여권정보증명서를 함께 준비해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "배우자 등을 포함한 대리인이 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "신청자 본인이 직접 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 위임장·대리신청 확인서류 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      }
+    ],
+    "removedQuestionIds": [
+      "applies-family",
+      "applies-spouse",
+      "applies-child",
+      "applies-foreign",
+      "applies-proxy"
+    ],
+    "documentPatches": [
+      {
+        "id": "family",
+        "title": "가족관계증명서(상세)",
+        "issuer": "공고문 기재 발급처",
+        "method": "등본에서 배우자가 확인되지 않으면 상세 가족관계증명서를 내요(세대분리·미혼·이혼·사별 등). 배우자가 외국인인 경우도 해당해요. 예비신혼부부는 결혼 후 세대에 두 사람 외 가족을 포함하면 그 관계가 나오는 신청자 또는 예비배우자의 상세 가족관계증명서를 내요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family-relationship-fact",
+        "conditionAnswerValues": [
+          "MISSING_SPOUSE",
+          "FOREIGN_SPOUSE",
+          "PREMARITAL_EXTRA"
+        ]
+      },
+      {
+        "id": "spouse",
+        "title": "배우자 주민등록표등본",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자와 등본이 다르면 배우자의 등본을 추가로 내요. 세대원 이름·주민등록번호, 세대주와의 관계, 전입·변동일 사유 등을 모두 표시해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "separate-spouse-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "child",
+        "title": "임신진단서·입양관계증명서",
+        "issuer": "공고문 기재 발급처",
+        "method": "태아 또는 입양 자녀를 월평균소득 기준의 가구원 수에 넣거나 소득·자산 한도를 높여 인정받으려면 증빙을 내요. 태아는 신청접수일 이후 의료기관에서 발급한 임신진단서 또는 임신확인서, 입양 자녀는 행정복지센터에서 발급한 입양관계증명서로 확인해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "child-evidence-fact",
+        "conditionAnswerValues": [
+          "PREGNANT",
+          "ADOPTED",
+          "BOTH"
+        ]
+      },
+      {
+        "id": "foreign",
+        "title": "외국인등록사실증명서",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자가 외국인이면 외국인등록사실증명서를 내요. 출입국관리사무소에서 발급해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "foreign-spouse-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "proxy",
+        "title": "위임장·대리신청 확인서류",
+        "issuer": "공고문 기재 발급처",
+        "method": "이 공고는 현장접수만 받아요. 직접 가면 본인 신분증과 도장(서명 가능)을 준비해요. 대신 가는 사람은 신청자 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비하고 두 사람의 신분증도 지참해요. 대리 발급한 신청자 인감증명서도 가능해요. 위임장 수임인 서명란에 대리인 이름을 적어요. 2020.12.21. 이후 발급 여권에는 여권정보증명서를 함께 준비해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+          "label": "공고문 6쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "proxy-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      }
+    ],
+    "notes": "공식 PDF67181881 물리6쪽(인쇄11·12쪽)의 전체 서류표와 대리서류를 시각대조. 5개 자가판단을 가족관계·분리배우자·태아입양포함·외국인배우자·대리신청 사실로 교체. 배우자 대리의 별도 간소화가 없는 이 공고 규칙을 보존. 접수첫날시간 이슈와 모든 공통 기준 보존."
+  },
+  {
+    "noticeId": "b775c46b-4d0f-4e48-8797-5e79d6a2f7ec",
+    "baselineVersion": 9,
+    "questionPatches": [
+      {
+        "id": "visit-submitter",
+        "title": "현장에서는 누가 신청하나요?",
+        "reason": "본인이 가면 신분증·도장(서명 가능)을 준비해요. 배우자 대리는 두 사람의 신분증·신청자 도장·관계 입증서류를 챙겨요. 그 밖의 대리인은 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비하고 두 사람의 신분증도 지참해요. 수임인 서명란에 대리인 이름을 적어요.",
+        "options": [
+          {
+            "value": "SELF",
+            "label": "신청자 본인이 직접 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "SPOUSE",
+            "label": "배우자가 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER",
+            "label": "배우자 외 다른 사람이 대신 가요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "ONLINE",
+            "label": "현장에 가지 않고 온라인으로 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 현장신청·대리신청 구비서류 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        },
+        "reviewRequired": false
+      },
+      {
+        "id": "history-fact",
+        "title": "제천 거주기간이 등본에 없거나, 공고일 이후 주소·세대주가 바뀌었나요?",
+        "reason": "공고일(2026.11.09.) 현재 제천에 살면서 등본에 제천 거주기간이 나오지 않으면 신청자의 초본을 내요. 공고일 이후 주소·세대주가 바뀐 세대원(신청자 포함)도 해당해요. 과거 주소변동과 세대주 이름·관계를 모두 표시해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "두 상황 중 하나 이상 해당해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "둘 다 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 주민등록표초본 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        },
+        "reviewRequired": false
+      },
+      {
+        "id": "separate-spouse-fact",
+        "title": "배우자와 주민등록등본이 다른가요?",
+        "reason": "배우자와 등본이 다르면 배우자의 등본을 추가로 내요. 세대원 이름·주민등록번호, 세대주와의 관계, 전입·변동일 사유 등을 모두 표시해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "배우자와 등본이 달라요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "배우자와 같은 등본이거나 배우자가 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 배우자 주민등록표등본 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        },
+        "reviewRequired": false
+      },
+      {
+        "id": "family-relationship-fact",
+        "title": "등본에서 확인되지 않는 가족이나 외국인 배우자가 있나요?",
+        "reason": "배우자가 등본에서 확인되지 않거나(세대분리·미혼·이혼·사별 등), 미성년 자녀가 등본에서 확인되지 않으면 가족관계증명서를 내요. 배우자가 외국인이면 가족관계증명서와 배우자 외국인등록증 사본을 내요. 만 65세 이상 부모·조부모 등(배우자의 부모·조부모 포함) 부양 가점을 신청하면서 부양받는 분의 배우자가 등본에서 확인되지 않으면 그 부양받는 분의 가족관계증명서를 준비해요.",
+        "options": [
+          {
+            "value": "SPOUSE",
+            "label": "등본에서 배우자가 확인되지 않아요(미혼·이혼·사별 포함)",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "FOREIGN",
+            "label": "배우자가 외국인이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "CHILD",
+            "label": "등본에서 미성년 자녀가 확인되지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "ELDER",
+            "label": "65세 이상 윗세대 가족 부양 가점을 신청하며 그분의 배우자가 등본에 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "위 상황에 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 가족관계증명서·외국인 배우자 증빙 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "MULTIPLE",
+        "constraints": null,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        },
+        "reviewRequired": false,
+        "answerDependencies": [
+          {
+            "questionId": "separate-spouse-fact",
+            "answerValues": [
+              "YES"
+            ],
+            "conflictingValues": [
+              "NONE"
+            ],
+            "requiredDocumentIds": [
+              "family",
+              "spouse"
+            ],
+            "message": "배우자와 등본이 다르다고 답했어요. 가족관계증명서와 배우자 등본을 함께 확인해 주세요."
+          }
+        ]
+      },
+      {
+        "id": "marriage-date-fact",
+        "title": "만 30세가 되기 전에 혼인신고를 했나요?",
+        "reason": "혼인관계증명서상 혼인신고일이 신청자가 만 30세가 되기 전이면 혼인관계증명서를 내요. 무주택기간을 계산할 때 사용하는 기준이며, 다른 무주택·선정 기준은 공통 안내에서 따로 확인해요.",
+        "options": [
+          {
+            "value": "YES",
+            "label": "만 30세 이전에 혼인신고를 했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "만 30세 이전 혼인신고가 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 혼인관계증명서 제출 대상인가요?",
+          "checkedAt": "2026-11-23"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        },
+        "reviewRequired": false
+      }
+    ],
+    "removedQuestionIds": [
+      "applies-visit",
+      "applies-subscription",
+      "applies-history",
+      "applies-spouse",
+      "applies-family",
+      "applies-marriage"
+    ],
+    "documentPatches": [
+      {
+        "id": "visit",
+        "title": "현장신청·대리신청 구비서류",
+        "issuer": "공고문 기재 발급처",
+        "method": "본인이 가면 신분증·도장(서명 가능)을 준비해요. 배우자 대리는 두 사람의 신분증·신청자 도장·관계 입증서류를 챙겨요. 그 밖의 대리인은 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비하고 두 사람의 신분증도 지참해요. 수임인 서명란에 대리인 이름을 적어요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "visit-submitter",
+        "conditionAnswerValues": [
+          "SELF",
+          "SPOUSE",
+          "OTHER"
+        ]
+      },
+      {
+        "id": "subscription",
+        "title": "청약통장 순위확인서·통장사본",
+        "issuer": "공고문 기재 발급처",
+        "method": "현장방문 신청자는 청약통장 증빙을 내요. 인정 납입 6회 이상은 청약순위확인서, 6회 미만은 주택청약종합저축 통장사본으로 확인해요(공고문 7쪽). 순위확인서는 공고일 다음날부터 가입은행 또는 청약홈에서 발급해요. 주택관리번호는 2026-000551이에요. 통장의 납입횟수가 아닌 순위확인서의 인정회차로 확인해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=8",
+          "label": "공고문 8쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "visit-submitter",
+        "conditionAnswerValues": [
+          "SELF",
+          "SPOUSE",
+          "OTHER"
+        ]
+      },
+      {
+        "id": "history",
+        "title": "주민등록표초본",
+        "issuer": "공고문 기재 발급처",
+        "method": "공고일(2026.11.09.) 현재 제천에 살면서 등본에 제천 거주기간이 나오지 않으면 신청자의 초본을 내요. 공고일 이후 주소·세대주가 바뀐 세대원(신청자 포함)도 해당해요. 과거 주소변동과 세대주 이름·관계를 모두 표시해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "history-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "spouse",
+        "title": "배우자 주민등록표등본",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자와 등본이 다르면 배우자의 등본을 추가로 내요. 세대원 이름·주민등록번호, 세대주와의 관계, 전입·변동일 사유 등을 모두 표시해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "separate-spouse-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "family",
+        "title": "가족관계증명서·외국인 배우자 증빙",
+        "issuer": "공고문 기재 발급처",
+        "method": "배우자가 등본에서 확인되지 않거나(세대분리·미혼·이혼·사별 등), 미성년 자녀가 등본에서 확인되지 않으면 가족관계증명서를 내요. 배우자가 외국인이면 가족관계증명서와 배우자 외국인등록증 사본을 내요. 만 65세 이상 부모·조부모 등(배우자의 부모·조부모 포함) 부양 가점을 신청하면서 부양받는 분의 배우자가 등본에서 확인되지 않으면 그 부양받는 분의 가족관계증명서를 준비해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family-relationship-fact",
+        "conditionAnswerValues": [
+          "SPOUSE",
+          "FOREIGN",
+          "CHILD",
+          "ELDER"
+        ]
+      },
+      {
+        "id": "marriage",
+        "title": "혼인관계증명서",
+        "issuer": "공고문 기재 발급처",
+        "method": "혼인관계증명서상 혼인신고일이 신청자가 만 30세가 되기 전이면 혼인관계증명서를 내요. 무주택기간을 계산할 때 사용하는 기준이며, 다른 무주택·선정 기준은 공통 안내에서 따로 확인해요.",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69165231#page=9",
+          "label": "공고문 9쪽 · 제출서류",
+          "checkedAt": "2026-11-23"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "marriage-date-fact",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      }
+    ],
+    "notes": "공식 PDF69165231 7·8·9쪽의 납입6회/제출방법/가족범위 대조. 현장여부를 두 번 묻던 입력은 현장제출자 사실 질문 하나로 합치고 청약통장·현장확인서류가 같이 연결되도록 함. 가족·거주변동·혼인시점은 고정 사실질문으로 교체. 기존 성년예외 applicability 및 모든 공통 기준·문서ID 보존."
+  }
+]

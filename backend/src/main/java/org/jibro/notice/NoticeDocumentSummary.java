@@ -1,20 +1,33 @@
 package org.jibro.notice;
 
 import static org.jibro.notice.HousingModels.*;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-/** A short view of the reviewed document catalog, not a personal document requirement decision. */
+/**
+ * A short view of the reviewed document catalog, not a personal document requirement decision.
+ */
 public final class NoticeDocumentSummary {
-    private NoticeDocumentSummary() {}
+    private NoticeDocumentSummary() {
+    }
 
     private static final int PREVIEW_LIMIT = 3;
 
-    public record Item(String id, String title, Evidence evidence) {}
-    public record Group(List<Item> items, int remainingCount) {}
-    public record Overview(Group common, Group conditional, int reviewRequiredCount) {}
+    public record Item(String id, String title, Evidence evidence) {
+    }
+
+    public record Group(List<Item> items, List<String> remainingIds) {
+        @com.fasterxml.jackson.annotation.JsonProperty("remainingCount")
+        public int remainingCount() {
+            return remainingIds.size();
+        }
+    }
+
+    public record Overview(Group common, Group conditional, int reviewRequiredCount) {
+    }
 
     public static Overview from(Content content) {
         var common = new ArrayList<DocumentTemplate>();
@@ -26,7 +39,7 @@ public final class NoticeDocumentSummary {
             if (document == null || document.title() == null || document.title().isBlank()) continue;
             var condition = document.conditionQuestionId();
             boolean unclearCondition = condition != null && questions.stream().noneMatch(q ->
-                q != null && Objects.equals(q.id(), condition) && !Boolean.TRUE.equals(q.reviewRequired()));
+                    q != null && Objects.equals(q.id(), condition) && !Boolean.TRUE.equals(q.reviewRequired()));
             if (unclearCondition || GuidanceIssues.documentRequiresReview(content.reviewIssues(), document.id(), condition)
                     || document.evidence() == null || document.evidence().url() == null
                     || document.evidence().url().isBlank()) {
@@ -41,9 +54,10 @@ public final class NoticeDocumentSummary {
     private static Group preview(List<DocumentTemplate> documents) {
         // Prefer core identity/family and application forms to exceptional supporting material.
         // Stable sorting retains the reviewed order within each category; nothing is removed from the catalog.
-        var items = documents.stream().sorted(Comparator.comparingInt(NoticeDocumentSummary::priority))
-            .limit(PREVIEW_LIMIT).map(d -> new Item(d.id(), shortTitle(d.title()), d.evidence())).toList();
-        return new Group(items, Math.max(0, documents.size() - items.size()));
+        var ordered = documents.stream().sorted(Comparator.comparingInt(NoticeDocumentSummary::priority)).toList();
+        var items = ordered.stream().limit(PREVIEW_LIMIT)
+                .map(d -> new Item(d.id(), shortTitle(d.title()), d.evidence())).toList();
+        return new Group(items, ordered.stream().skip(PREVIEW_LIMIT).map(DocumentTemplate::id).toList());
     }
 
     private static int priority(DocumentTemplate document) {
@@ -60,6 +74,6 @@ public final class NoticeDocumentSummary {
 
     private static String shortTitle(String title) {
         return title.strip().replace("개인정보 수집·이용 및 제3자 제공 동의서", "개인정보 동의서")
-            .replace("주민등록표등본", "주민등록등본").replace("주민등록표초본", "주민등록초본");
+                .replace("주민등록표등본", "주민등록등본").replace("주민등록표초본", "주민등록초본");
     }
 }

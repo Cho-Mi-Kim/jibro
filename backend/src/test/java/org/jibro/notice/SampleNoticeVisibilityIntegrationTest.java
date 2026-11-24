@@ -2,6 +2,7 @@ package org.jibro.notice;
 
 import java.time.LocalDate;
 import java.util.UUID;
+
 import jakarta.persistence.EntityManager;
 import org.jibro.auth.AuthService;
 import org.jibro.member.AlertRepository;
@@ -16,6 +17,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,46 +27,59 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @Transactional
 class SampleNoticeVisibilityIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired GuideService guides;
-    @Autowired GuideRepository guideRepository;
-    @Autowired PreparationService preparationService;
-    @Autowired PreparationRepository preparations;
-    @Autowired SavedNoticeRepository saved;
-    @Autowired AlertRepository alerts;
-    @Autowired AuthService auth;
-    @Autowired JdbcTemplate db;
-    @Autowired EntityManager entities;
-    @Autowired MockMvc mvc;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    GuideService guides;
+    @Autowired
+    GuideRepository guideRepository;
+    @Autowired
+    PreparationService preparationService;
+    @Autowired
+    PreparationRepository preparations;
+    @Autowired
+    SavedNoticeRepository saved;
+    @Autowired
+    AlertRepository alerts;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    EntityManager entities;
+    @Autowired
+    MockMvc mvc;
 
     UUID notice(String key, String title) {
         UUID id = notices.insert(key, title, "LH", "서울", "임대", LocalDate.now().minusDays(1),
-                LocalDate.now().plusDays(30), LocalDate.now(), SampleData.content());
+            LocalDate.now().plusDays(30), LocalDate.now(), SampleData.content());
         notices.samplePublish(id, "PASS");
         entities.flush();
         return id;
     }
 
-    @Test void samplesCannotReappearThroughIncludeSamplesOrDirectLinks() throws Exception {
+    @Test
+    void samplesCannotReappearThroughIncludeSamplesOrDirectLinks() throws Exception {
         String title = "sample-visibility-" + UUID.randomUUID();
         UUID sample = notice("local-sample-" + UUID.randomUUID(), title);
         UUID real = notice("LH:" + UUID.randomUUID(), title);
         mvc.perform(get("/api/v1/notices").param("keyword", title).param("includeSamples", "true"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.totalElements").value(1))
-                .andExpect(jsonPath("$.items[0].id").value(real.toString()));
+            .andExpect(status().isOk()).andExpect(jsonPath("$.totalElements").value(1))
+            .andExpect(jsonPath("$.items[0].id").value(real.toString()));
         mvc.perform(get("/api/v1/notices/" + sample)).andExpect(status().isNotFound());
         mvc.perform(get("/api/v1/notices/" + sample + "/comparison")).andExpect(status().isNotFound());
         assertFalse(notices.reviews().stream().anyMatch(item -> item.id().equals(sample.toString())));
         assertEquals(false, guides.meta().get("sampleData"));
         var page = guides.guides("", title, 0);
-        assertTrue(page.items().stream().anyMatch(item -> item.id().startsWith(real.toString())));
-        assertFalse(page.items().stream().anyMatch(item -> item.id().startsWith(sample.toString()) || item.id().equals("sample-process")));
+        assertTrue(page.items().isEmpty(), "일반 가이드는 실제 공고와 예시 공고 어느 쪽에서도 FAQ를 복제하지 않는다.");
         mvc.perform(get("/api/v1/guides").param("keyword", title))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.page").value(0))
-                .andExpect(jsonPath("$.hasMore").value(false));
+            .andExpect(status().isOk()).andExpect(jsonPath("$.page").value(0))
+            .andExpect(jsonPath("$.items").isEmpty())
+            .andExpect(jsonPath("$.hasMore").value(false));
     }
 
-    @Test void trialRecommendationUsesRealGuidanceAndOldSampleRecordsArePreservedButHidden() {
+    @Test
+    void trialRecommendationUsesRealGuidanceAndOldSampleRecordsArePreservedButHidden() {
         UUID old = notice("LH:" + UUID.randomUUID(), "이전 준비");
         String email = UUID.randomUUID() + "@example.invalid";
         auth.signup("테스트", email, "test-password-123");

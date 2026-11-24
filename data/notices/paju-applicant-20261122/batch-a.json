@@ -1,0 +1,581 @@
+[
+  {
+    "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+    "baselineVersion": 6,
+    "questionPatches": [
+      {
+        "id": "applicant-situation",
+        "title": "공고일 기준 내 상황은 무엇인가요?",
+        "reason": "2026년 11월 16일 기준으로 골라요. 수도권은 서울·경기·인천이에요.\n신청자는 한국 국적이어야 해요. 외국인 본인은 신청할 수 없어요. 성년자는 수도권에 사는 무주택 세대의 만 19세 이상인 사람이에요. 미성년자는 아래 예외 중 하나에 해당하는 세대주여야 하고, 수도권 거주·무주택 기준도 함께 확인해요.\n무주택은 신청자만이 아니라 배우자와 공고에서 함께 심사하는 가족을 확인해요. 분양권·입주권과 공고의 주택 인정 예외도 포함해요.\n무주택 세대 기준은 모집공고일부터 분양전환 시까지 계속 유지해야 해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "ADULT",
+            "label": "수도권에 사는 무주택 세대의 만 19세 이상 한국 국적 성년자예요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "MINOR_CHILD",
+            "label": "미성년 세대주로, 같은 등본의 자녀를 부양해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "MINOR_SIBLINGS",
+            "label": "미성년 세대주로, 부모·조부모 등의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "MINOR_FOREIGN_PARENT",
+            "label": "외국인 부모와 사는 한부모가족의 한국 국적 미성년 세대주예요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NONE",
+            "label": "위 상황에 해당하지 않아요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "minor-residence-housing",
+        "title": "수도권에 살고, 함께 심사하는 가족 모두 무주택인가요?",
+        "reason": "미성년 세대주 예외도 공고일인 2026년 11월 16일에 서울·경기·인천에 살고 있어야 해요. 신청자·배우자와 공고에서 함께 심사하는 가족 모두 무주택이어야 하며 분양전환 시까지 계속 유지해요.\n주소가 다른 배우자도 포함해요. 주택뿐 아니라 분양권·입주권, 공고의 무주택 인정 예외도 확인해요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "수도권에 살고, 심사 대상 가족 모두 무주택이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "거주지나 무주택 기준에 맞지 않는 부분이 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "minor-sibling-cause",
+        "title": "어떤 사유로 형제자매를 부양하나요?",
+        "reason": "미성년 세대주가 부모·조부모 등 윗세대 가족의 사망·실종·행방불명 등으로 형제자매를 부양하는 경우예요. 형제자매는 신청자와 같은 등본에 있어야 해요.\n행방불명은 신고접수증으로 증명해야 해요. 공고에 별도 서류명이 정해지지 않은 사망·실종 사유의 증빙은 LH에 확인해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "DEATH",
+            "label": "부모·조부모 등이 사망했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "MISSING_DECLARATION",
+            "label": "부모·조부모 등이 실종됐어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "MISSING_REPORT",
+            "label": "부모·조부모 등이 행방불명 상태예요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER",
+            "label": "다른 사유로 부양하고 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "MINOR_SIBLINGS"
+          ]
+        }
+      },
+      {
+        "id": "minor-parent-application",
+        "title": "외국인 부모가 대신 신청하나요?",
+        "reason": "외국인 부모와 한국 국적의 미성년 세대주로 구성된 한부모가족은 외국인 부모가 대신 신청해야 해요.\n이 공고는 인터넷·모바일 청약만 받아요. 대리 신청을 현장 접수로 바꾸지 말고, 외국인 부모의 온라인 대리 신청 절차는 LH에 확인해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "PARENT",
+            "label": "외국인 부모가 대신 신청할 예정이에요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER",
+            "label": "다른 사람이 신청할 예정이에요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "eligibility-recheck",
+        "title": "어떤 기준을 다시 확인해야 하나요?",
+        "reason": "앞의 상황 중 해당하는 것을 고르기 어렵다면, 어떤 기준을 확인해야 하는지 골라요. 맞지 않거나 판단하기 어려운 부분은 LH에 확인해요.\n이 선택만으로 신청 가능 여부를 확정하지 않아요. 미성년 예외도 수도권 거주와 무주택 기준을 충족해야 해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "RESIDENCE",
+            "label": "서울·경기·인천에 살고 있지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "HOUSING",
+            "label": "심사 대상 가족에게 집·분양권·입주권이 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "AGE_EXCEPTION",
+            "label": "미성년 세대주 예외에 해당하지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "NATIONALITY",
+            "label": "신청자 본인이 외국인이에요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "NONE"
+          ]
+        }
+      },
+      {
+        "id": "family-register",
+        "title": "배우자와 등본은 어떤 상황인가요?",
+        "reason": "배우자가 없거나 내 등본에 배우자가 없으면 상세 가족관계증명서를 내요. 배우자가 다른 등본에 있으면 배우자의 등본도 필요해요.\n배우자가 외국인·재외국민이면 공고의 등록·거주 기준과 증명서도 확인해요. 배우자가 국내에 살지 않는 재외국민이거나 미등록 외국인이면 신청이 제한돼요. 외국인 배우자의 등록번호를 자격 조회 전 제출할 수 있으면 공고의 예외를 확인해요.\n함께 심사하는 가족\n- 신청자와 배우자: 주소가 달라도 포함해요.\n- 신청자 또는 배우자와 같은 등본의 부모·조부모(배우자의 부모·조부모 포함), 신청자의 자녀·손주와 그 배우자도 포함해요.\n- 배우자의 자녀·손주는 신청자와 같은 등본에 있으면 포함해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "NO_SPOUSE",
+            "label": "배우자가 없어요 · 미혼·이혼·사별",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "SAME_REGISTER",
+            "label": "한국 국적 배우자가 같은 등본에 있어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "SEPARATE_SPOUSE",
+            "label": "한국 국적 배우자가 다른 등본에 있어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "FOREIGN_SAME",
+            "label": "외국인 배우자가 같은 등본에 있어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "FOREIGN_SEPARATE",
+            "label": "외국인 배우자가 내 등본에 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OVERSEAS_SAME",
+            "label": "재외국민 배우자가 같은 등본에 있어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OVERSEAS_SEPARATE",
+            "label": "재외국민 배우자가 내 등본에 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "household-application",
+        "title": "같은 세대에서 또 신청하는 사람이 있나요?",
+        "reason": "한 세대는 한 주택만 신청하는 것이 원칙이에요. 당첨자 발표일이 같은 공고에 배우자와 각각 신청해 모두 당첨되면 먼저 접수한 사람의 당첨만 인정해요. 접수 시간이 분 단위까지 같으면 나이가 많은 사람의 당첨을 인정해요.\n배우자 외 다른 세대원의 중복 신청까지 허용하는 예외는 아니에요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "ONLY_ME",
+            "label": "저만 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "SPOUSE",
+            "label": "배우자도 신청해요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "OTHER_MEMBER",
+            "label": "배우자 외 다른 세대원도 신청해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "existing-contract",
+        "title": "이 단지에 이미 계약한 세대원이 있거나 재당첨 제한 중인가요?",
+        "reason": "이 단지에 이미 계약한 사람과 그 세대원은 신청할 수 없어요. 재당첨 제한 기간 중인 세대원도 공고의 계약 제한을 확인해야 해요.\n이번 모집은 청약저축 가입 여부와 소득·자산 기준을 보지 않으며, 예비입주 순번은 전산 무작위 추첨으로 정해요.",
+        "evidence": {
+          "label": "공고문 1쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "NONE",
+            "label": "기계약자가 없고, 재당첨 제한 중인 세대원도 없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "CONTRACT",
+            "label": "이 단지에 이미 계약한 세대원이 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "RESTRICTED",
+            "label": "재당첨 제한 중인 세대원이 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "sublet-history",
+        "title": "본인이 최근 4년 안에 공공임대 불법 양도·전대로 적발된 적이 있나요?",
+        "reason": "공공임대 임차인으로서 불법 양도·전대로 적발된 뒤 4년이 지나지 않았다면 입주자로 선정될 수 없어요. 가족의 이력만으로 신청자 본인이 같은 제한에 해당한다고 단정하지 않고, 적용 여부가 불명확하면 LH에 확인해요.",
+        "evidence": {
+          "label": "공고문 11쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "NO",
+            "label": "없어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "YES",
+            "label": "있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "review-register-changed",
+        "title": "공고일 이후 등본의 세대 구성이 바뀌었나요?",
+        "reason": "공고일인 2026년 11월 16일 이후 세대가 바뀌었다면 당시 세대를 확인할 등본·초본·가족관계증명서를 추가해요. 세대주·세대원 관계, 주소 이동과 변경일이 보이게 발급해요.",
+        "options": [
+          {
+            "label": "세대가 바뀌었어요",
+            "value": "YES",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "변경이 없어요",
+            "value": "NO",
+            "requiresFollowUp": false
+          },
+          {
+            "label": "잘 모르겠어요",
+            "value": "UNKNOWN",
+            "requiresFollowUp": true
+          }
+        ],
+        "evidence": {
+          "label": "공고문 1쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+          "checkedAt": "2026-11-22"
+        },
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "applicant-situation",
+          "answerValues": [
+            "ADULT",
+            "MINOR_CHILD",
+            "MINOR_SIBLINGS",
+            "MINOR_FOREIGN_PARENT"
+          ]
+        }
+      }
+    ],
+    "removedQuestionIds": [
+      "s1-eligibility",
+      "s1-age",
+      "s1-household",
+      "s1-duplicate",
+      "s1-selection",
+      "s1-sublet",
+      "s1-docs-1",
+      "review-register-changed"
+    ],
+    "documentPatches": [
+      {
+        "id": "s1-file-38-1-0",
+        "title": "개인정보수집·이용 및 제3자 제공 동의서",
+        "issuer": "공식 모집공고 제출서류 표",
+        "method": "• 신청자(세대주) 및 세대원 전원 ( 주민등록표등본 상 분리된 배우자 및 그 세대원 포함) • 만14세 이상의 세대원은 본인 직접서명, 만14세 미만의 세대원은 보호자(법정대리인)가 서명 ※ 동의서를 제출하지 않는 경우 임대주택 입주자 신청, 접수 불가",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+          "label": "공식 모집공고문 11쪽 · 제출 대상·서류",
+          "checkedAt": "2026-11-17"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "s1-file-38-2-0",
+        "title": "주민등록표등본",
+        "issuer": "행정복지센터 등 공고 지정 발급처",
+        "method": "• 주민등록번호(세대원 포함), 세대구성사유 및 일자, 세대주 및 세대주와의 관계, 전입일/변동일/변동사유등이 표기되도록 발급",
+        "evidence": {
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+          "label": "공식 모집공고문 11쪽 · 제출 대상·서류",
+          "checkedAt": "2026-11-17"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null
+      },
+      {
+        "id": "s1-file-38-3-0",
+        "title": "가족관계증명서(상세)",
+        "issuer": "행정복지센터 등 공고 지정 발급처",
+        "method": "배우자가 없거나 신청자 등본에서 배우자를 확인할 수 없으면 신청자 기준 상세 가족관계증명서를 내요.",
+        "evidence": {
+          "label": "공고문 11쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+          "checkedAt": "2026-11-22"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family-register",
+        "conditionAnswerValues": [
+          "NO_SPOUSE",
+          "SEPARATE_SPOUSE",
+          "FOREIGN_SEPARATE",
+          "OVERSEAS_SEPARATE"
+        ]
+      },
+      {
+        "id": "s1-file-38-4-0",
+        "title": "배우자 주민등록표등본",
+        "issuer": "행정복지센터 등 공고 지정 발급처",
+        "method": "한국 국적 배우자가 다른 등본에 있거나 배우자가 재외국민이면 배우자의 주민등록표등본을 내요. 재외동포의 거소 확인이 필요한 경우 국내거소신고증 또는 국내거소사실증명서를 함께 확인해요.",
+        "evidence": {
+          "label": "공고문 11쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+          "checkedAt": "2026-11-22"
+        },
+        "issueUrl": null,
+        "conditionQuestionId": "family-register",
+        "conditionAnswerValues": [
+          "SEPARATE_SPOUSE",
+          "OVERSEAS_SAME",
+          "OVERSEAS_SEPARATE"
+        ]
+      },
+      {
+        "id": "review-register-history",
+        "title": "공고일 당시 세대 확인 등본·초본·가족관계증명서",
+        "issuer": "행정복지센터·정부24",
+        "method": "공고일 이후 세대 구성이 바뀐 신청자는 공고일 당시 세대를 확인할 등본·초본·가족관계증명서를 추가해요. 세대주 관계·주소 이동·변경일을 모두 표시해요.",
+        "evidence": {
+          "label": "공고문 1쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+          "checkedAt": "2026-11-22"
+        },
+        "issueUrl": "https://www.gov.kr/portal/service/serviceInfo/13100000015",
+        "conditionQuestionId": "review-register-changed",
+        "conditionAnswerValues": [
+          "YES"
+        ]
+      },
+      {
+        "id": "minor-missing-report",
+        "title": "행방불명 신고접수증",
+        "conditionQuestionId": "minor-sibling-cause",
+        "conditionAnswerValues": [
+          "MISSING_REPORT"
+        ],
+        "method": "부모·조부모 등 윗세대 가족의 행방불명으로 같은 등본의 형제자매를 부양하는 미성년 세대주는 행방불명 신고접수증을 내요.",
+        "issuer": "행방불명 신고 접수기관",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "foreign-spouse-registration",
+        "title": "외국인 배우자 등록·거소 확인 서류",
+        "conditionQuestionId": "family-register",
+        "conditionAnswerValues": [
+          "FOREIGN_SAME",
+          "FOREIGN_SEPARATE"
+        ],
+        "method": "외국인 배우자는 외국인등록증 또는 외국인등록사실증명서 등 공고에서 정한 등록·거소 확인 서류를 내요. 자격 조회 전 등록번호 제출이 가능한지 확인해요.",
+        "issuer": "출입국·외국인관서",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 11쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "notes": [
+      "공식 모집공고문 1·2·5·6·11쪽 대조: 상황 먼저 선택, 미성년 예외별 필요한 후속 질문과 서류 연결.",
+      "NONE은 열거한 상황에 해당하지 않는다는 사실이며 별도 확인 질문으로 후속 확인 유지; UNKNOWN은 미확정 질문 보존.",
+      "기존 혼합 자격·나이·서류명 선택 질문 제거, 기존 기록은 사용자 새 안내 적용 시에만 변경. 모집상태·날짜·핵심요약·개인 기록은 보존.",
+      "1·5·6쪽 한국 국적 제한·분양전환까지 무주택 유지·등본별 심사 가족, 1·5쪽 세대변경 증빙을 보존. 11쪽 불법양도·전대는 적발 당사자 기준으로 질문."
+    ]
+  }
+]

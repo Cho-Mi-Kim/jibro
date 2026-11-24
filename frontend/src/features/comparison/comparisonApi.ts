@@ -1,4 +1,5 @@
 import { api } from '../housing/api';
+import { withReviewedConditions } from '../housing/reviewedConditionPresentation';
 import type { Evidence, Notice } from '../housing/types';
 import { call, demoMode } from '../../shared/api/transport';
 
@@ -24,8 +25,10 @@ export const comparisonApi = {
     notice: async (id: string): Promise<NoticeComparison> => {
         if (demoMode)
             return { notice: await api.notice(id), documentRequirements: null };
-        return call<NoticeComparison>(
+        const result = await call<NoticeComparison>(
             '/notices/' + encodeURIComponent(id) + '/comparison',
         );
+        await withReviewedConditions(result.notice);
+        return result;
     },
 };

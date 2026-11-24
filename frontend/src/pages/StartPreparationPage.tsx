@@ -1,3 +1,4 @@
+import { noticeListTitle } from '../features/housing/noticeDisplay';
 import { noticeHomePath } from '../shared/navigation/homeNotice';
 import { useCallback, useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -93,7 +94,7 @@ export function StartPreparationPage() {
     return (
         <>
             <Heading title="공고 준비 시작" backTo={'/notices/' + noticeId}>
-                {notice.data?.title}
+                {notice.data && noticeListTitle(notice.data.title)}
             </Heading>
             <State
                 loading={notice.isPending}
@@ -119,8 +120,8 @@ export function StartPreparationPage() {
                     )}
                     {changed && (
                         <p role="alert">
-                            선택한 뒤 공고 안내가 변경되었습니다. 상세에서 최신
-                            버전을 확인하고 다시 시작해 주세요.
+                            선택한 뒤 공고 안내가 변경되었습니다. 상세에서 변경
+                            내용을 확인하고 다시 시작해 주세요.
                         </p>
                     )}
                     {notice.data.canStart && !changed && (

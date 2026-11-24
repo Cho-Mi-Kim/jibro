@@ -92,15 +92,15 @@ class ReminderSecurityIntegrationTest {
         UUID signedIn = UUID.randomUUID();
         String endpoint = "https://fcm.googleapis.com/fcm/send/" + UUID.randomUUID();
         assertEquals(409, assertThrows(ApiException.class,
-            () -> delivery.subscribe(signedIn, initiator, endpoint)).status);
+                () -> delivery.subscribe(signedIn, initiator, endpoint)).status);
         mvc.perform(put("/api/v1/member/channels/push").with(csrf())
-                .with(jwt().jwt(token -> token.subject(signedIn.toString())).authorities(new SimpleGrantedAuthority("ROLE_USER")))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"endpoint\":\"" + endpoint + "\",\"expectedUserId\":\"" + initiator + "\"}"))
-            .andExpect(status().isConflict());
+                        .with(jwt().jwt(token -> token.subject(signedIn.toString())).authorities(new SimpleGrantedAuthority("ROLE_USER")))
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"endpoint\":\"" + endpoint + "\",\"expectedUserId\":\"" + initiator + "\"}"))
+                .andExpect(status().isConflict());
         mvc.perform(put("/api/v1/member/channels/push").with(csrf())
-                .with(jwt().jwt(token -> token.subject(signedIn.toString())).authorities(new SimpleGrantedAuthority("ROLE_USER")))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"endpoint\":\"" + endpoint + "\"}"))
-            .andExpect(status().isBadRequest());
+                        .with(jwt().jwt(token -> token.subject(signedIn.toString())).authorities(new SimpleGrantedAuthority("ROLE_USER")))
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"endpoint\":\"" + endpoint + "\"}"))
+                .andExpect(status().isBadRequest());
         assertFalse(reminders.subscribed(signedIn, endpoint));
         assertFalse(reminders.subscribed(initiator, endpoint));
     }

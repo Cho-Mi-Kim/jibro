@@ -1,7 +1,9 @@
 package org.jibro.preparation;
 
 import static org.jibro.notice.HousingModels.*;
+
 import java.util.*;
+
 import org.jibro.global.common.ApiException;
 import org.jibro.notice.NoticeService;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,8 @@ public class OneTimeCheckService {
 
     public record Result(String noticeId, String title, int version, List<Question> questions,
                          Map<String, Object> answers, List<Document> documents, List<String> warnings,
-                         List<ReviewIssue> reviewIssues) {}
+                         List<ReviewIssue> reviewIssues) {
+    }
 
     // A consistent public version is read without locking/writing personal records.
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)

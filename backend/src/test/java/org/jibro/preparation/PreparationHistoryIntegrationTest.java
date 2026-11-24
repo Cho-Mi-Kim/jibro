@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import org.jibro.auth.AuthService;
 import org.jibro.notice.NoticeService;
 import org.jibro.notice.SampleData;
@@ -28,13 +29,20 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Transactional
 class PreparationHistoryIntegrationTest {
-    @Autowired MockMvc mvc;
-    @Autowired AuthService auth;
-    @Autowired NoticeService notices;
-    @Autowired PreparationService preparations;
-    @Autowired PreparationHistoryService history;
-    @Autowired JdbcTemplate db;
-    @Autowired ObjectMapper json;
+    @Autowired
+    MockMvc mvc;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    PreparationService preparations;
+    @Autowired
+    PreparationHistoryService history;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    ObjectMapper json;
     String owner, access, otherAccess;
     UUID notice, preparationId;
     Preparation current;

@@ -1,6 +1,7 @@
 package org.jibro.notice;
 
 import java.util.UUID;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Repository;
 public class NoticeLifecycleRepository {
     private final JdbcTemplate db;
 
-    public NoticeLifecycleRepository(JdbcTemplate db) { this.db = db; }
+    public NoticeLifecycleRepository(JdbcTemplate db) {
+        this.db = db;
+    }
 
     public void record(UUID notice, UUID actor, int revision, int lifecycleRevision, String previousState,
                        String state, String reason, String evidence) {

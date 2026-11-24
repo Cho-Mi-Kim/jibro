@@ -161,9 +161,9 @@ def production_errors(values, deployment):
     if not db.startswith("jdbc:postgresql://") or not re.search(r"[?&]sslmode=verify-full(?:&|$)", db) or "sslrootcert=/run/rds-ca/global-bundle.pem" not in db:
         errors.append("DB_URL must use verified TLS with the mounted RDS CA")
     for name in ("BACKEND_IMAGE", "WEB_IMAGE"):
-        if not re.fullmatch(r"[^\s]+@sha256:[0-9a-f]{64}", deployment.get(name, "")):
+        if not re.fullmatch(r"(?:[^\s]+@)?sha256:[0-9a-f]{64}", deployment.get(name, "")):
             errors.append(name + " must use an immutable image digest")
-    for name in ("TLS_DIRECTORY", "RDS_CA_FILE"):
+    for name in ("TLS_DIRECTORY", "RDS_CA_FILE", "ACME_DIRECTORY"):
         if not deployment.get(name, "").startswith("/"):
             errors.append(name + " must be an absolute server path")
     if values.get("AUTH_SECURE_COOKIE", "true").lower() != "true":

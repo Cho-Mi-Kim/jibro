@@ -61,7 +61,7 @@ class AutomaticCorrectionIntegrationTest {
 
     static String page(String id, String latest) {
         return OfficialCorrectionTemplateTest.page(id, latest, id.equals(A) ? "" : A, id.equals(A) ? "01" : "02")
-            + "<div class='bbs_ViewA'><h3>" + title(id) + "</h3></div>";
+                + "<div class='bbs_ViewA'><h3>" + title(id) + "</h3></div>";
     }
 
     static String history(String latest) {
@@ -70,7 +70,7 @@ class AutomaticCorrectionIntegrationTest {
         for (int i = 0; i < all.size(); i++) {
             String id = all.get(i), kind = id.equals(A) ? "일반공고" : "정정공고";
             html.append("<tr><th>").append(kind).append("</th><td>2026-11-0").append(9 - i)
-                .append("</td><td>").append(title(id)).append("</td><td>");
+                    .append("</td><td>").append(title(id)).append("</td><td>");
             if (i > 0) html.append("<a href=\"javascript:goUrl('").append(id).append("','03')\">바로가기</a>");
             html.append("</td></tr>");
         }
@@ -86,7 +86,7 @@ class AutomaticCorrectionIntegrationTest {
         UUID n = notices.importSource(item);
         ids.add(n);
         db.update("UPDATE notice SET basic_review='PASS',end_date=?,start_date=? WHERE id=?",
-            LocalDate.now().plusDays(20), LocalDate.now().minusDays(1), n);
+                LocalDate.now().plusDays(20), LocalDate.now().minusDays(1), n);
         worker.process(n, item);
         return n;
     }
@@ -211,7 +211,7 @@ class AutomaticCorrectionIntegrationTest {
         assertEquals("SOURCE_CHANGED", linker.reconcile(job));
         assertTrue(relations.find(a).isEmpty());
         assertThrows(IllegalArgumentException.class, () -> worker.process(a,
-            new LhNoticeClient.Item("LH:wrong", title(A), "서울", "국민임대", url(A), LocalDate.now(), "a".repeat(64))));
+                new LhNoticeClient.Item("LH:wrong", title(A), "서울", "국민임대", url(A), LocalDate.now(), "a".repeat(64))));
         db.update("UPDATE notice SET source_fingerprint=? WHERE id=?", "a".repeat(64), b);
         db.update("UPDATE notice_correction_check SET lease_until=now()-interval '1 second' WHERE notice_id=?", b);
         var recovered = queue.claim().orElseThrow();
@@ -227,7 +227,7 @@ class AutomaticCorrectionIntegrationTest {
         UUID a = collect(A), b = collect(B);
         db.update("UPDATE notice SET start_date=NULL,end_date=NULL WHERE id=?", b);
         when(http.html(url(B))).thenReturn(page(B, B) + "<div class='bbs_ViewA'><ul class='bbsV_data'>"
-            + "<li><strong>공고상태</strong><span>접수마감</span></li></ul></div>");
+                + "<li><strong>공고상태</strong><span>접수마감</span></li></ul></div>");
         var job = queue.claim(b).orElseThrow();
         assertEquals("CLOSED_EXCLUDED", linker.reconcile(job));
         assertTrue(relations.find(a).isEmpty());
@@ -238,9 +238,9 @@ class AutomaticCorrectionIntegrationTest {
     void reviewedFullAttachmentsRepairOnlyTheRequestedPairAndPreserveContent() throws Exception {
         var review = ReviewedLegacyCorrectionTest.review();
         var oldItem = new LhNoticeClient.Item(LhNoticeClient.sourceKey(review.originalUrl()), review.title(), "대구", "공공임대",
-            review.originalUrl(), LocalDate.now(), "a".repeat(64));
+                review.originalUrl(), LocalDate.now(), "a".repeat(64));
         var nextItem = new LhNoticeClient.Item(LhNoticeClient.sourceKey(review.correctedUrl()), "[정정공고] " + review.title(), "대구", "공공임대",
-            review.correctedUrl(), LocalDate.now(), "b".repeat(64));
+                review.correctedUrl(), LocalDate.now(), "b".repeat(64));
         UUID old = notices.importSource(oldItem), next = notices.importSource(nextItem);
         ids.addAll(List.of(old, next));
         notices.samplePublish(old, "HOLD");
@@ -269,16 +269,16 @@ class AutomaticCorrectionIntegrationTest {
     @Test
     void legacyHistoryLinksOnlyItsExplicitOriginalAndKeepsSeparateRecruitmentVisible() throws Exception {
         var oldItem = new LhNoticeClient.Item(LhNoticeClient.sourceKey(LegacyCorrectionHistoryTest.url(LegacyCorrectionHistoryTest.OLD)),
-            "원공고 제목", "서울", "공공임대", LegacyCorrectionHistoryTest.url(LegacyCorrectionHistoryTest.OLD), LocalDate.now(), "a".repeat(64));
+                "원공고 제목", "서울", "공공임대", LegacyCorrectionHistoryTest.url(LegacyCorrectionHistoryTest.OLD), LocalDate.now(), "a".repeat(64));
         var nextItem = new LhNoticeClient.Item(LhNoticeClient.sourceKey(LegacyCorrectionHistoryTest.url(LegacyCorrectionHistoryTest.NEXT)),
-            "정정 제목", "서울", "공공임대", LegacyCorrectionHistoryTest.url(LegacyCorrectionHistoryTest.NEXT), LocalDate.now(), "b".repeat(64));
+                "정정 제목", "서울", "공공임대", LegacyCorrectionHistoryTest.url(LegacyCorrectionHistoryTest.NEXT), LocalDate.now(), "b".repeat(64));
         UUID old = notices.importSource(oldItem), next = notices.importSource(nextItem);
         ids.add(old);
         ids.add(next);
         notices.samplePublish(old, "HOLD");
         notices.samplePublish(next, "HOLD");
         var separateItem = new LhNoticeClient.Item(LhNoticeClient.sourceKey(LegacyCorrectionHistoryTest.url("888880001")),
-            "원공고 제목 잔여세대 추가모집", "서울", "공공임대", LegacyCorrectionHistoryTest.url("888880001"), LocalDate.now(), "c".repeat(64));
+                "원공고 제목 잔여세대 추가모집", "서울", "공공임대", LegacyCorrectionHistoryTest.url("888880001"), LocalDate.now(), "c".repeat(64));
         UUID separate = notices.importSource(separateItem);
         ids.add(separate);
         notices.samplePublish(separate, "HOLD");

@@ -1,0 +1,985 @@
+{
+  "date": "2026-11-21",
+  "environment": "local 5173 + PostgreSQL + Edge",
+  "baseline": {
+    "checkedAt": "2026-11-21T13:33:00.356195600Z",
+    "capture": {
+      "sourcesChecked": 37,
+      "sourceFailures": 0,
+      "confirmed": 36,
+      "updated": 0,
+      "pending": 0,
+      "busy": false
+    },
+    "unchangedRun": {
+      "sourcesChecked": 0,
+      "sourceFailures": 0,
+      "confirmed": 0,
+      "updated": 0,
+      "pending": 0,
+      "busy": false
+    },
+    "currentGuides": 36,
+    "guideAttempts": 0,
+    "globalAiAttemptsDuringCapture": 0,
+    "sources": [
+      {
+        "status": "AVAILABLE",
+        "count": 37
+      }
+    ],
+    "nextCheckKst": "2026-11-22 06:00:00"
+  },
+  "worker": {
+    "lastCompletedAt": "2026-11-21T13:41:17.274477+00:00",
+    "result": {
+      "busy": false,
+      "pending": 0,
+      "updated": 0,
+      "confirmed": 0,
+      "sourceFailures": 0,
+      "sourcesChecked": 0
+    },
+    "running": false
+  },
+  "providerSmoke": {
+    "guide": "guide-contact-lh",
+    "status": "DEFERRED",
+    "code": "GUIDE_AI_DAILY_LIMIT",
+    "globalAttemptsAdded": 0,
+    "published": false,
+    "checkedAt": "2026-11-21T13:38:48.981624900Z"
+  },
+  "officialSources": [
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=07&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020656&uppAisTpCd=06",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=07&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020656&uppAisTpCd=06",
+      "title": "[정정공고]고령디오팰리스 국민임대주택 입주자격완화 예비입주자 모집",
+      "characters": 28668,
+      "hash": "c8f6b813db573ce029d1b3e0d831c6810cfc4447e705975eba912a8af8549678"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020476&uppAisTpCd=06",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020476&uppAisTpCd=06",
+      "title": "대구연경1 및 대구도남1·2 행복주택 입주자격 완화 예비입주자 모집",
+      "characters": 56294,
+      "hash": "296354c8a093e8f45664fb351fa17cef90a4bf33e77ed0db0194a1a5d2e8c9a8"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06",
+      "title": "[정정공고]남양주 장현5 2BL 행복주택 예비입주자 입주자격완화 모집(2026.08.05.공고)",
+      "characters": 55411,
+      "hash": "8b55d76cccdcb105398cd8efde3a12da4ef791bddfd2c5187f5a10c5e5bb250e"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+      "title": "소개 < 국민임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 558,
+      "hash": "688615dcdaad7fe3a72cbc12953279df43ac8a2e76ba8e5d716705436f275696"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+      "title": "입주자격 < 국민임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 9395,
+      "hash": "20ae8b8b0fc6f777d64a130d376701d0c3b7519c14985081c6b9c69bdd545584"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1026&mi=1223",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1026&mi=1223",
+      "title": "소개 < 공공임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 984,
+      "hash": "69bd352a5cfe0fe1a05e4e48118e4a44ab754160bbf43fd20ddd9d68e4206a18"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1029&mi=1150",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1029&mi=1150",
+      "title": "매입임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 884,
+      "hash": "f38c0c24b6da5be7350a4c2f17c86687712cfb1cea9fee43a510ab4b10ff7b3e"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+      "title": "전세임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 1796,
+      "hash": "b2fd2db6f84c3606a213e6991a849137574929aff96e8e45651c4c90aa629563"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1048&mi=1178",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1048&mi=1178",
+      "title": "소개 < 공공분양 < 분양가이드 < 분양주택 < 청약 < LH청약플러스",
+      "characters": 426,
+      "hash": "28a5a018735d96bd1261d7517ef87884f3d1dcb32ce57b729154e21fafc19215"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1110&mi=1222",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1110&mi=1222",
+      "title": "임대절차 < 공공임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 547,
+      "hash": "03a75c5515f19af7dce514151a38e6ee578aa8db8878c712f2bef8df8403c5ea"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224",
+      "title": "입주자격 < 공공임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 3276,
+      "hash": "05061ce4d372f03509097af111741169b3f3a05f7e6499b47bba68ef6f288a8f"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226",
+      "title": "제출서류 < 공공임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 24119,
+      "hash": "e196e5abb93122b16a05e64b0af2b5f02f737fa7281166525a9af8ca3c78b3e2"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+      "title": "입주자격 < 영구임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 1840,
+      "hash": "b5402479edd517c115f7c30506067479aadb1e94b32b89fe6a32f8fe7e8032ab"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1139&mi=1229",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1139&mi=1229",
+      "title": "임대절차 < 영구임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 743,
+      "hash": "1c2ad57fa9c414712210e4aa447bcda23734f13b423219561d78563cc501601e"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583",
+      "title": "소개 < 통합공공임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 961,
+      "hash": "da61ce1f1be47f9e8ef745017cd4e8a1a2db02a1ab163c4533fc021e4b571b22"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584",
+      "title": "임대절차 < 통합공공임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 773,
+      "hash": "fabcaa657e00ffd1dce1a56bba2a450f0364e76ea866954bb833d5d997f287e2"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662",
+      "title": "소개 < 행복주택 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 807,
+      "hash": "cc28b84c84056c94b3baa182f9ebe4dc95c40376fd42d9ef7c49eadb4999b957"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+      "title": "입주자격 < 행복주택 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 3125,
+      "hash": "f9a6f0cfcc5ca610002f73cd8c57222a1b16266967f1a7283b84bf27f12b98db"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201453&mi=1240",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201453&mi=1240",
+      "title": "전세임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 327,
+      "hash": "ea8c38dd99ad2a4e2ecc4a5849b637197cf57a8611faf19d3f8d2d029630c70c"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1230&mi=1302",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1230&mi=1302",
+      "title": "청약연습하기 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 823,
+      "hash": "e422ba56f2a0f274f67333480d0610bd8b7fc86533657ba1afbd865a4369afb8"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303",
+      "title": "청약연습하기 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 1759,
+      "hash": "0d0f3b863cfe37387ff82e213d931123c749224326ea20dcc35e880a4f5f05fc"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201251&mi=1150",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201251&mi=1150",
+      "title": "매입임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 384,
+      "hash": "4f568c012c15bc7037cb24c1b6cf85e73cda7145dae5f3fbbcf927c29b24f8f5"
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201254&mi=1150",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201254&mi=1150",
+      "title": "매입임대 < 임대가이드 < 임대주택 < 청약 < LH청약플러스",
+      "characters": 450,
+      "hash": "23ff392ca5ec15a27a22f8c782aa748e7e9004476ab82f02493d79ce3dc6bddc"
+    },
+    {
+      "url": "https://apply.lh.or.kr/upload/cntntsFile/apple/doc_b3e410f5-6dfa-4f0d-a31d-105ae40b832c1742799126676.pdf",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://apply.lh.or.kr/upload/cntntsFile/apple/doc_b3e410f5-6dfa-4f0d-a31d-105ae40b832c1742799126676.pdf",
+      "title": "공식 PDF 자료",
+      "characters": 3501,
+      "hash": "d7802a96a110044dd8f5ef317e7af5cb73eb4898b100866b8ad57bd061337684"
+    },
+    {
+      "url": "https://efamily.scourt.go.kr/index.jsp",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://efamily.scourt.go.kr/index.jsp",
+      "title": "대한민국 법원 전자가족관계등록시스템",
+      "characters": 862,
+      "hash": "5ee73914d219bd9479d10749c749e6171fb13d7fffee1f5da671e53ebdad34c6"
+    },
+    {
+      "url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003201",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003201",
+      "title": "주거급여(맞춤형 급여)",
+      "characters": 2734,
+      "hash": "bfdd0159471d1edd030eed2794ff1d7100c36944dc9b93229d465ba348b9e137"
+    },
+    {
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=10601000001&tp_seq=01",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=10601000001&tp_seq=01",
+      "title": "한부모가족 증명서 발급",
+      "characters": 1246,
+      "hash": "f4b4ad1bd59150bf33d96e8a4e278c4bcf03ae092fb9d0ea3c18da9f7adb9eed"
+    },
+    {
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000021&HighCtgCD=-",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000021&HighCtgCD=-",
+      "title": "소득금액증명 발급",
+      "characters": 1679,
+      "hash": "156a1595bb9965b9aa5f275e1c3480452294334f181e93bfbf26324dd53e6ab0"
+    },
+    {
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027",
+      "title": "외국인등록 사실증명",
+      "characters": 2596,
+      "hash": "638ff238d2f09582c0b7661f7884db49fcef1399faec3ee1ec6b74cb2bc6c5d7"
+    },
+    {
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+      "title": "주민등록표 등본(초본) 발급",
+      "characters": 3500,
+      "hash": "c469b5c6f8ac0f60bc9e0e1c06166ad1ef53eadfff526fb4a3e1371a9f6f42f7"
+    },
+    {
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=14600000280",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=14600000280",
+      "title": "국민기초생활수급자 증명서 발급",
+      "characters": 1245,
+      "hash": "e36a553bf8373784ab5a7f07db4f20f7a9a5996ae9d8309f606ad4820575d814"
+    },
+    {
+      "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004&HighCtgCD=A01008&Mcode=10020",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004&HighCtgCD=A01008&Mcode=10020",
+      "title": "가족관계등록부등의 증명서 발급",
+      "characters": 1606,
+      "hash": "d860eef0b5fcee8e5a6feebb970835cf4340316dbf611b9448135b42414f3c03"
+    },
+    {
+      "url": "https://www.kohom.or.kr/web/mainComm/HM002003.do?mode=list&schBcode=CD004001004",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.kohom.or.kr/web/mainComm/HM002003.do?mode=list&schBcode=CD004001004",
+      "title": "고객광장 > 자주하는질문 > 유주택 | 주택관리공단",
+      "characters": 3018,
+      "hash": "d5e1a9d18ab5beac5dfb02ee5e74a558f62c5b52b0d88f9b98ee8fbeb56bb29c"
+    },
+    {
+      "url": "https://www.lh.or.kr/boardDownload.es?bid=0033&list_no=644985&seq=3",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.lh.or.kr/boardDownload.es?bid=0033&list_no=644985&seq=3",
+      "title": "공식 PDF 자료",
+      "characters": 30679,
+      "hash": "7439e83356990402e3c23e8896de646189d021b721b392a0db2f3bbc788747cd"
+    },
+    {
+      "url": "https://www.lh.or.kr/menu.es?mid=a10310000000",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.lh.or.kr/menu.es?mid=a10310000000",
+      "title": "콜센터 | 소통ㆍ신고 : 한국토지주택공사",
+      "characters": 6970,
+      "hash": "512e425c7a00b650ec4f5dadb6e3ba9c21ce5db5a80419e6a50e9fce496c343b"
+    },
+    {
+      "url": "https://www.mohw.go.kr/menu.es?mid=a10710010900",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.mohw.go.kr/menu.es?mid=a10710010900",
+      "title": "장애인등록/장애정도 심사제도 < 장애인정책 < 장애인 < 정책 : 힘이 되는 평생 친구, 보건복지부",
+      "characters": 5696,
+      "hash": "abd7332c8193a969f44a6ffaa64c0232030e2185419056f2f8b0077b4278fd65"
+    },
+    {
+      "url": "https://www.seoulhousing.kr/html/0601001.do",
+      "status": "AVAILABLE",
+      "code": "OK",
+      "finalUrl": "https://www.seoulhousing.kr/html/0601001.do",
+      "title": "서울주거상담",
+      "characters": 117,
+      "hash": "70965e602c8dec9ef7828171a0caafd6b34c27dac71c0d3a86e520a28c3bb302"
+    }
+  ],
+  "packetAudit": [
+    {
+      "guide": "guide-rental-or-sale",
+      "sources": 3,
+      "sourceCharacters": [
+        426,
+        558,
+        984
+      ],
+      "status": "READY",
+      "packetCharacters": 2867
+    },
+    {
+      "guide": "guide-happy-housing",
+      "sources": 1,
+      "sourceCharacters": [
+        807
+      ],
+      "status": "READY",
+      "packetCharacters": 1435
+    },
+    {
+      "guide": "guide-national-permanent",
+      "sources": 3,
+      "sourceCharacters": [
+        558,
+        1840,
+        743
+      ],
+      "status": "READY",
+      "packetCharacters": 4017
+    },
+    {
+      "guide": "guide-purchased-housing",
+      "sources": 2,
+      "sourceCharacters": [
+        884,
+        1796
+      ],
+      "status": "READY",
+      "packetCharacters": 2240
+    },
+    {
+      "guide": "guide-leased-housing",
+      "sources": 2,
+      "sourceCharacters": [
+        1796,
+        327
+      ],
+      "status": "READY",
+      "packetCharacters": 2180
+    },
+    {
+      "guide": "guide-integrated-rental",
+      "sources": 1,
+      "sourceCharacters": [
+        961
+      ],
+      "status": "READY",
+      "packetCharacters": 1126
+    },
+    {
+      "guide": "guide-young-family-type",
+      "sources": 4,
+      "sourceCharacters": [
+        384,
+        450,
+        807,
+        1796
+      ],
+      "status": "READY",
+      "packetCharacters": 3446
+    },
+    {
+      "guide": "guide-eligibility-ranking",
+      "sources": 1,
+      "sourceCharacters": [
+        9395
+      ],
+      "status": "READY",
+      "packetCharacters": 1657
+    },
+    {
+      "guide": "guide-reference-date",
+      "sources": 2,
+      "sourceCharacters": [
+        55411,
+        3125
+      ],
+      "status": "READY",
+      "packetCharacters": 2858
+    },
+    {
+      "guide": "guide-household-scope",
+      "sources": 2,
+      "sourceCharacters": [
+        1840,
+        3125
+      ],
+      "status": "READY",
+      "packetCharacters": 3485
+    },
+    {
+      "guide": "guide-home-ownership",
+      "sources": 1,
+      "sourceCharacters": [
+        3018
+      ],
+      "status": "READY",
+      "packetCharacters": 2178
+    },
+    {
+      "guide": "guide-income-assets",
+      "sources": 2,
+      "sourceCharacters": [
+        3125,
+        961
+      ],
+      "status": "READY",
+      "packetCharacters": 2835
+    },
+    {
+      "guide": "guide-reserve-tenant",
+      "sources": 1,
+      "sourceCharacters": [
+        56294
+      ],
+      "status": "READY",
+      "packetCharacters": 2550
+    },
+    {
+      "guide": "guide-relaxed-criteria",
+      "sources": 1,
+      "sourceCharacters": [
+        28668
+      ],
+      "status": "READY",
+      "packetCharacters": 2195
+    },
+    {
+      "guide": "guide-priority-supply",
+      "sources": 2,
+      "sourceCharacters": [
+        3276,
+        9395
+      ],
+      "status": "READY",
+      "packetCharacters": 2982
+    },
+    {
+      "guide": "guide-corrected-notice",
+      "sources": 1,
+      "sourceCharacters": [
+        55411
+      ],
+      "status": "READY",
+      "packetCharacters": 1513
+    },
+    {
+      "guide": "guide-subscription-account",
+      "sources": 2,
+      "sourceCharacters": [
+        9395,
+        3276
+      ],
+      "status": "READY",
+      "packetCharacters": 2882
+    },
+    {
+      "guide": "guide-document-checklist",
+      "sources": 1,
+      "sourceCharacters": [
+        24119
+      ],
+      "status": "READY",
+      "packetCharacters": 1645
+    },
+    {
+      "guide": "guide-resident-certificates",
+      "sources": 1,
+      "sourceCharacters": [
+        3500
+      ],
+      "status": "READY",
+      "packetCharacters": 1574
+    },
+    {
+      "guide": "guide-family-marriage-certificates",
+      "sources": 3,
+      "sourceCharacters": [
+        1606,
+        862,
+        24119
+      ],
+      "status": "READY",
+      "packetCharacters": 3624
+    },
+    {
+      "guide": "guide-consent-forms",
+      "sources": 1,
+      "sourceCharacters": [
+        3501
+      ],
+      "status": "READY",
+      "packetCharacters": 1729
+    },
+    {
+      "guide": "guide-income-asset-documents",
+      "sources": 3,
+      "sourceCharacters": [
+        1679,
+        30679,
+        773
+      ],
+      "status": "READY",
+      "packetCharacters": 3205
+    },
+    {
+      "guide": "guide-welfare-certificates",
+      "sources": 3,
+      "sourceCharacters": [
+        1245,
+        1246,
+        5696
+      ],
+      "status": "READY",
+      "packetCharacters": 2920
+    },
+    {
+      "guide": "guide-foreign-family-documents",
+      "sources": 1,
+      "sourceCharacters": [
+        2596
+      ],
+      "status": "READY",
+      "packetCharacters": 1520
+    },
+    {
+      "guide": "guide-pregnancy-adoption-documents",
+      "sources": 2,
+      "sourceCharacters": [
+        24119,
+        1606
+      ],
+      "status": "READY",
+      "packetCharacters": 3357
+    },
+    {
+      "guide": "guide-certificate-proxy",
+      "sources": 3,
+      "sourceCharacters": [
+        3500,
+        2596,
+        862
+      ],
+      "status": "READY",
+      "packetCharacters": 2713
+    },
+    {
+      "guide": "guide-official-application",
+      "sources": 2,
+      "sourceCharacters": [
+        1759,
+        823
+      ],
+      "status": "READY",
+      "packetCharacters": 1915
+    },
+    {
+      "guide": "guide-application-changes",
+      "sources": 1,
+      "sourceCharacters": [
+        1759
+      ],
+      "status": "READY",
+      "packetCharacters": 1147
+    },
+    {
+      "guide": "guide-document-selection",
+      "sources": 1,
+      "sourceCharacters": [
+        773
+      ],
+      "status": "READY",
+      "packetCharacters": 1217
+    },
+    {
+      "guide": "guide-document-submission",
+      "sources": 1,
+      "sourceCharacters": [
+        1759
+      ],
+      "status": "READY",
+      "packetCharacters": 1292
+    },
+    {
+      "guide": "guide-supplement-explanation",
+      "sources": 1,
+      "sourceCharacters": [
+        773
+      ],
+      "status": "READY",
+      "packetCharacters": 1222
+    },
+    {
+      "guide": "guide-results-contract",
+      "sources": 1,
+      "sourceCharacters": [
+        547
+      ],
+      "status": "READY",
+      "packetCharacters": 1244
+    },
+    {
+      "guide": "guide-contact-lh",
+      "sources": 1,
+      "sourceCharacters": [
+        6970
+      ],
+      "status": "READY",
+      "packetCharacters": 1396
+    },
+    {
+      "guide": "guide-contact-sh-local",
+      "sources": 1,
+      "sourceCharacters": [
+        117
+      ],
+      "status": "READY",
+      "packetCharacters": 787
+    },
+    {
+      "guide": "guide-contact-benefit",
+      "sources": 1,
+      "sourceCharacters": [
+        2734
+      ],
+      "status": "READY",
+      "packetCharacters": 1656
+    },
+    {
+      "guide": "guide-contact-certificate",
+      "sources": 2,
+      "sourceCharacters": [
+        3500,
+        862
+      ],
+      "status": "READY",
+      "packetCharacters": 1963
+    }
+  ],
+  "liveUiAndApi": {
+    "checkedAt": "2026-11-21T13:43:07.892Z",
+    "status": "PASS",
+    "api": [
+      {
+        "id": "guide-rental-or-sale",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-happy-housing",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-national-permanent",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-purchased-housing",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-leased-housing",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-integrated-rental",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-young-family-type",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-eligibility-ranking",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-reference-date",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-household-scope",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-home-ownership",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-income-assets",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-reserve-tenant",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-relaxed-criteria",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-priority-supply",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-corrected-notice",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-subscription-account",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-document-checklist",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-resident-certificates",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-family-marriage-certificates",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-consent-forms",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-income-asset-documents",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-welfare-certificates",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-foreign-family-documents",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-pregnancy-adoption-documents",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-certificate-proxy",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-official-application",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-application-changes",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-document-selection",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-document-submission",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-supplement-explanation",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-results-contract",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-contact-lh",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-contact-sh-local",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-contact-benefit",
+        "status": "CURRENT"
+      },
+      {
+        "id": "guide-contact-certificate",
+        "status": "CURRENT"
+      }
+    ],
+    "ui": [
+      {
+        "width": 360,
+        "scale": 1,
+        "status": "CURRENT",
+        "result": "PASS"
+      },
+      {
+        "width": 360,
+        "scale": 1,
+        "status": "RECHECK",
+        "result": "PASS"
+      },
+      {
+        "width": 360,
+        "scale": 1,
+        "status": "UNREACHABLE",
+        "result": "PASS"
+      },
+      {
+        "width": 390,
+        "scale": 1,
+        "status": "CURRENT",
+        "result": "PASS"
+      },
+      {
+        "width": 390,
+        "scale": 1,
+        "status": "RECHECK",
+        "result": "PASS"
+      },
+      {
+        "width": 390,
+        "scale": 1,
+        "status": "UNREACHABLE",
+        "result": "PASS"
+      },
+      {
+        "width": 768,
+        "scale": 1,
+        "status": "CURRENT",
+        "result": "PASS"
+      },
+      {
+        "width": 768,
+        "scale": 1,
+        "status": "RECHECK",
+        "result": "PASS"
+      },
+      {
+        "width": 768,
+        "scale": 1,
+        "status": "UNREACHABLE",
+        "result": "PASS"
+      },
+      {
+        "width": 360,
+        "scale": 1.25,
+        "status": "CURRENT",
+        "result": "PASS"
+      },
+      {
+        "width": 360,
+        "scale": 1.25,
+        "status": "RECHECK",
+        "result": "PASS"
+      },
+      {
+        "width": 360,
+        "scale": 1.25,
+        "status": "UNREACHABLE",
+        "result": "PASS"
+      }
+    ],
+    "errors": []
+  },
+  "javaFormatting": {
+    "mismatches": [],
+    "files": 26,
+    "exitCode": 0
+  },
+  "checks": {
+    "frontendTests": 646,
+    "frontendFiles": 84,
+    "frontendBoundaryTests": 10,
+    "backendUnitPassed": 836,
+    "backendUnitOptInLiveSkipped": 1,
+    "backendIntegrationPassed": 22,
+    "guideRefreshIntegrationPassed": 18,
+    "build": "PASS"
+  },
+  "limitations": [
+    "Provider response not exercised: existing global daily quota exhausted; zero extra calls.",
+    "Changed documents, failures and UI warnings tested with isolated fixtures, not changes to official websites.",
+    "Browser viewport QA; not a physical-device test.",
+    "Server must run for scheduled checks."
+  ]
+}

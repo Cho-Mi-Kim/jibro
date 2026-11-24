@@ -93,7 +93,7 @@ public class ReminderDelivery {
         for (var alert : alerts.inbox(user).items()) {
             if (alert.read()) continue;
             if (c.emailEnabled() && c.emailVerified() && !c.mailMode().equals("unavailable") && repository.claimDelivery(user, alert.key(), "email")
-                && repository.deliveryAllowed(user, "email")) {
+                    && repository.deliveryAllowed(user, "email")) {
                 try {
                     var email = repository.verifiedEmail(user);
                     mail.send(email, "집으로 · 공고 알림", alert.label() + "\n" + alert.title() + "\n" + (alert.date() == null ? "" : alert.date()) + "\n" + frontend + "/alerts");

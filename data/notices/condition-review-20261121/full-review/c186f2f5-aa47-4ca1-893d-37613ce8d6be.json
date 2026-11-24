@@ -1,0 +1,909 @@
+{
+    "noticeId": "c186f2f5-aa47-4ca1-893d-37613ce8d6be",
+    "baselineVersion": 8,
+    "content": {
+        "summary": "지원 대상: 무주택세대구성원으로 공고의 소득·자산 기준을 충족하는 가구가 신청해요.\n지원 내용: 정읍상동2·3 국민임대의 예비입주자를 모집해요.",
+        "evidence": {
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021003&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+            "label": "LH 공식 공고 원문",
+            "checkedAt": "2026-11-16"
+        },
+        "documents": [
+            {
+                "id": "s1-file-50-1-0",
+                "title": "국민임대주택 공급신청서",
+                "issuer": "관할 사무소 또는 LH 청약 센터",
+                "method": "• (제출대상) 현장방문 신청자 • (제출시점) 청약신청 시 제출 1순위는 11월 30일, 2·3순위는 후순위 접수를 받는 경우에만 12월 1일 10~17시에 신청해요. 후순위 접수 여부는 11월 30일 18시 이후 주택관리공단에서 확인해요.",
+                "evidence": {
+                    "label": "공식 모집공고문 17쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=17",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D1"]
+            },
+            {
+                "id": "s1-file-50-2-0",
+                "title": "개인정보수집 ·이용 및 제3자 제공 동의서",
+                "issuer": "관할 사무소 또는 LH 청약 센터",
+                "method": "• (제출대상) 모든 신청자 • (작성방법) 공고 시에 첨부된 동의서에 세대구성원 전원(예비신혼부부의 경우 혼인으로 구성될 세대의 세대원)이 서명 * 14세 미만의 세대구성원은 보호자(법정대리인)가 서명 • (제출시점) - 현장방문 신청자 : 접수시점에 제출 - 인터넷‧모바일 신청자 : 서류제출대상자로 확정된 후 서류 제출시점에 제출 ※ (주의) 동의서를 제출하지 않는 경우 임대주택 입주자 신청접수가 거부됨 인터넷·모바일 신청자는 12월 18일 14시 이후 서류제출 대상 여부를 확인해요. 대상자는 순위·배점에 따라 통상 모집인원의 1.5~2배수이며 최종 당첨이 아니에요. 대상자는 12월 21~25일에 서류를 내요. 방문은 10~17시, 공휴일·점심 12~13시 제외예요. 12월 25일은 공휴일이라 방문 제출은 받지 않으며 등기는 12월 25일 우체국 소인까지예요.",
+                "evidence": {
+                    "label": "공식 모집공고문 17쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=17",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=40",
+                "conditionQuestionId": null,
+                "conditionAnswerValues": null
+            },
+            {
+                "id": "s1-file-50-3-0",
+                "title": "금융정보 등 (금융·신용·보험정보) 제공 동의서",
+                "issuer": "관할 사무소 또는 LH 청약 센터",
+                "method": "• (제출대상) 모든 신청자 • (작성방법) 공고 시에 첨부된 동의서에 세대구성원 전원(예비신혼부부의 경우 혼인으로 구성될 세대의 세대원)이 서명 * 14세 미만의 세대구성원은 보호자(법정대리인)가 서명 • (제출시점) - 현장방문 신청자 : 접수시점에 제출 - 인터넷‧모바일 신청자 : 서류제출대상자로 확정된 후 서류 제출시점에 제출 ※ (주의) 동의서를 제출하지 않는 경우 임대주택 입주자 신청접수가 거부됨",
+                "evidence": {
+                    "label": "공식 모집공고문 17쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=17",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=42",
+                "conditionQuestionId": null,
+                "conditionAnswerValues": null
+            },
+            {
+                "id": "s1-file-50-4-0",
+                "title": "자산 보유 사실확인서",
+                "issuer": "관할 사무소 또는 LH 청약 센터",
+                "method": "• (제출대상) 모든 신청자 • (작성방법) 공적자료로 확인이 불가한 임차보증금, 분양권, 임대보증금 내역을 기재하고 신청자가 서명하여 관련 증빙을 첨부하여 제출함 - 임차보증금 및 임대보증금 : 임대차계약서 사본(확정일자가 표시되어야 함) (공사(LH) 임대주택의 임차보증금일 경우 제출 불필요) - 분양권 : 분양계약서 사본 및 분양대금 납부확인원 - 비상장주식 : 증권사 조회내역, 주식보관증 등 종목, 수량 및 가액을 증명 할 수 있는 자료 - 출자금/출자지분 : 출자증서 사본 ※ 신고 누락된 자산이 추후 확인되어 자산 보유 기준을 충족하지 않은 경우 계약 해지 처리될 수 있음",
+                "evidence": {
+                    "label": "공식 모집공고문 17쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=17",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=44",
+                "conditionQuestionId": null,
+                "conditionAnswerValues": null
+            },
+            {
+                "id": "s1-file-50-5-0",
+                "title": "예비입주자 중복선정 불가사항확인서",
+                "issuer": "관할 사무소 또는 LH 청약 센터",
+                "method": "• (제출대상) 모든 신청자 • (작성방법) LH 홈페이지에서 확인서를 내려받은 후, 내용을 확인하고 신청자가 서명 또는 날인 (예비신혼부부의 경우 대표신청자) ※ (주의) 동의서를 제출하지 않을 경우 입주자 모집 신청･접수가 거부됨",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=45",
+                "conditionQuestionId": null,
+                "conditionAnswerValues": null
+            },
+            {
+                "id": "s1-file-50-6-0",
+                "title": "[선택] 본인 행정정보 제공요구서",
+                "issuer": "관할 사무소 또는 LH 청약 센터",
+                "method": "• (제출대상) 공공 마이데이터를 활용하여 서류를 제출을 희망하는 자 • (제출방법) 온라인(청약플러스) / 오프라인 두가지 방식 모두 가능 ※ (주의) 세대원은 전원이 본인정보 제3자 제공 요구서를 제출하는 경우(=공공마이데이터 활용 동의) 에만 공공 마이데이터를 활용할 수 있습니다.",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=36",
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D2"]
+            },
+            {
+                "id": "s1-file-50-7-0",
+                "title": "주민등록표등본 (전부표기)",
+                "issuer": "행정복지센터",
+                "method": "• (제출대상) 모든 신청자 • (발급방법) 세대구성원과 세대주와의 관계, 세대구성원의 전입일/변동일 사유, 세대구성 사유, 세대주 및 세대구성원 전원의 주민등록번호, 세대구성원 이름 등이 전부 표기되도록 발급 * 입주자 모집공고일 이후 ‘입주자 모집공고일 현재의 세대주’와 주민등록표등본이 분리된 공급신청자는 ‘입주자 모집공고일 현재의 세대주'의 주민등록표등본 1통 추가 제출 * 예비신혼부부의 경우 신청자 및 예비배우자 2인 모두 각각 제출",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": null,
+                "conditionAnswerValues": null
+            },
+            {
+                "id": "s1-file-50-8-0",
+                "title": "가족관계증명서 (상세)",
+                "issuer": "행정복지센터",
+                "method": "• (제출대상) 아래 해당자 - 주민등록표등본에서 배우자 확인이 불가한 경우(예. 세대분리, 미혼, 이혼, 사별 등) - 배우자가 외국인인 경우 - 부모·자녀간 육아지원세대 배점을 받고자 할 경우 - 65세 이상 직계존속(배우자의 직계존속 포함) 부양으로 사회취약계층 가산점을 받고자 하는 신청자 중 주민등록표등본상 피부양자의 배우자를 확인할 수 없는 경우에는 “피부양자의 가족관계증명서\" 제출 - 예비신혼부부 신청자 중 혼인으로 구성될 세대에 신청자와 예비배우자 외의 사람을 포함하는 경우 해당 세대원과의 관계를 확인할 수 있는 “신청자 또는 예비배우자의 가족관계증명서” 제출 이 공고에 제출할 때는 주민등록번호 13자리가 모두 보이게 발급받으세요.",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D3"]
+            },
+            {
+                "id": "s1-file-50-9-0",
+                "title": "신청자의 주민등록표초본 (전부표기)",
+                "issuer": "행정복지센터",
+                "method": "• (제출대상) 아래 해당자 - 입주자 모집공고일 이후 주소 또는 세대주 변동이 있는 세대구성원(신청자 포함) - 입주자 모집공고일 현재 정읍시 거주자로서 주민등록표등본상 정읍시에서의 거주기간이 확인되지 않는 자 • (발급방법) 과거 주소변동사항, 세대주 성명 및 관계 등이 전부 표기되도록 발급 * 예비신혼부부의 경우 대표 신청자의 초본",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D4"]
+            },
+            {
+                "id": "s1-file-50-10-0",
+                "title": "(신청자의 배우자) 주민등록표등본",
+                "issuer": "행정복지센터",
+                "method": "• (제출대상) 신청자와 주민등록표가 분리된 신청자의 배우자 • (발급방법) 세대구성원과 세대주와의 관계, 세대구성원의 전입일/변동일 사유, 세대구성 사유, 세대주 및 세대구성원 전원의 주민등록번호, 세대구성원의 이름 등이 전부 표기되도록 발급 이 공고에 제출할 때는 주민등록번호 13자리가 모두 보이게 발급받으세요.",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D5"]
+            },
+            {
+                "id": "s1-file-50-11-0",
+                "title": "임신진단서 /입양관계증명서",
+                "issuer": "의료법에 의한 의료기관 /행정복지센터",
+                "method": "• (제출대상) 태아 또는 양자를 월평균소득기준의 가구원수, 배점의 부양가족수(주거약자용), 미성년자녀수에 포함하려는 자 • (발급방법) - 임신진단서(임신확인서) : 입주자모집공고일 이후 의료법에 의한 의료기관에서 발급 - 입양관계증명서 : 행정복지센터에서 발급 • 태아 또는 입양자가 있어 소득·자산기준을 상향하여 인정 받으려는 경우",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D6"]
+            },
+            {
+                "id": "s1-file-50-12-0",
+                "title": "혼인관계서류",
+                "issuer": "행정복지센터 /관할 사무소, LH 청약 센터",
+                "method": "• (제출대상) 신혼부부 또는 부모·자녀간 육아지원 신혼부부세대 배점을 받으려는 자 • (발급방법) - 신혼부부 또는 육아지원 신혼부부세대 : 혼인관계증명서(상세)\n- 예비신혼부부 : 예비신혼부부용 신청확인서 및 세대구성확인서(공사양식),대표신청자의 예비배우자 신분증 사본 예비신혼부부는 공고문 46쪽 신청확인서와 47쪽 세대구성 확인서를 사용하고 예비배우자 신분증 사본도 준비해요.",
+                "evidence": {
+                    "label": "공식 모집공고문 18쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=18",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=46",
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D7"],
+                "issueLabel": "예비신혼 공식 양식 46~47쪽"
+            },
+            {
+                "id": "s1-file-50-14-0",
+                "title": "감점 적용 배제 관련 서류",
+                "issuer": "행정복지센터",
+                "method": "<아래 해당자만 제출> 입주자가 출산, 노부모부양, 사망 등의 사유로 가구원 수가 변동되어 다른 면적으로 재신청하는 경우\n• 출산 : 기본증명서 등 세대구성원의 출생사실을 확인할 수 있는 서류\n• 사망 : 기본증명서 등 세대구성원의 사망사실을 확인할 수 있는 서류\n• 노부모부양 : 주민등록표등본",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D8"]
+            },
+            {
+                "id": "s1-file-50-18-0",
+                "title": "외국인등록사실 증명서",
+                "issuer": "출입국 관리 사무소",
+                "method": "< 해당자만 제출 > • 배우자가 외국인인 경우",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D9"]
+            },
+            {
+                "id": "s1-file-50-19-0",
+                "title": "청약순위확인서",
+                "issuer": "한국 부동산원",
+                "method": "청약 납입 횟수로 배점을 받으려면 주택관리번호 2026-000548로 청약순위확인서를 확인하세요.",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D10"]
+            },
+            {
+                "id": "s1-file-51-1-0",
+                "title": "국민기초생활수급자 증명서",
+                "issuer": "행정복지센터",
+                "method": "생계·의료급여 수급자(세대원 포함)에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 국민기초생활수급자 증명서",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D11"]
+            },
+            {
+                "id": "s1-file-51-2-0",
+                "title": "국가유공자 등 확인서",
+                "issuer": "지방보훈청",
+                "method": "국가유공자(보훈보상대상자, 5.18민주유공자, 특수임무유공자, 국가유공자에 준하는 군경 등 포함) 또는 그 유족 및 참전유공자로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 국가유공자 등 확인서",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D12"]
+            },
+            {
+                "id": "s1-file-51-3-0",
+                "title": "영구임대아파트 지원대상자 증명서",
+                "issuer": "지방보훈청",
+                "method": "국가유공자(보훈보상대상자, 5.18민주유공자, 특수임무유공자, 국가유공자에 준하는 군경 등 포함) 또는 그 유족 및 참전유공자로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 영구임대아파트 지원대상자 증명서",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D12"]
+            },
+            {
+                "id": "s1-file-51-4-0",
+                "title": "국가유공자에 준하는 군경 등(유족 또는 가족)확인서",
+                "issuer": "지방보훈청",
+                "method": "국가유공자(보훈보상대상자, 5.18민주유공자, 특수임무유공자, 국가유공자에 준하는 군경 등 포함) 또는 그 유족 및 참전유공자로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 국가유공자에 준하는 군경 등(유족 또는 가족)확인서",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D12"]
+            },
+            {
+                "id": "s1-file-51-5-0",
+                "title": "일본군위안부 결정통지서 사본",
+                "issuer": "여성가족부",
+                "method": "일본군위안부 피해자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 일본군위안부 결정통지서 사본",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D13"]
+            },
+            {
+                "id": "s1-file-51-6-0",
+                "title": "한부모가족 증명서",
+                "issuer": "행정복지센터",
+                "method": "지원대상 한부모가족에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 한부모가족 증명서",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D14"]
+            },
+            {
+                "id": "s1-file-51-7-0",
+                "title": "북한이탈주민등록확인서",
+                "issuer": "시·군·구청",
+                "method": "북한이탈주민으로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 북한이탈주민등록확인서",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-1",
+                "conditionAnswerValues": ["D15"]
+            },
+            {
+                "id": "s1-file-51-8-0",
+                "title": "사회보장급여통지서에 첨부된 “소득인정액 산정결과서”(수급자 신청 후 사회보장급여통지서를 수령하는데 시간이 통상 2달이 소요되므로 미리 발급신청 요망)",
+                "issuer": "행정복지센터",
+                "method": "65세 이상의 직계존속(배우자의 직계존속을 포함) 부양자 중 생계·의료급여 수급자 선정기준 소득인정액 이하인 자 (피부양자의 배우자도 무주택자이어야 함)에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 사회보장급여통지서에 첨부된 “소득인정액 산정결과서”(수급자 신청 후 사회보장급여통지서를 수령하는데 시간이 통상 2달이 소요되므로 미리 발급신청 요망)",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D1"]
+            },
+            {
+                "id": "s1-file-51-9-0",
+                "title": "추천서, 아동복지시설신고증 사본",
+                "issuer": "아동복지시설",
+                "method": "아동복지시설에서 퇴소하는 자 중 아동복지시설의 장이 추천하는 자로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 추천서, 아동복지시설신고증 사본",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D2"]
+            },
+            {
+                "id": "s1-file-51-10-0",
+                "title": "국민기초생활수급자 증명서, 차상위계층임을 입증하는 서류",
+                "issuer": "행정복지센터",
+                "method": "65세 이상인 사람으로서 「국민기초생활 보장법」 제2조제1호에 따른 수급권자 또는 같은 조 제10호에 따른 차상위계층에 해당하는 사람에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 국민기초생활수급자 증명서, 차상위계층임을 입증하는 서류",
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D3"]
+            },
+            {
+                "id": "s1-file-51-11-0",
+                "title": "해당증빙서류",
+                "issuer": "관련기관",
+                "method": "국토교통부장관 또는 시·도지사가 영구임대주택의 입주가 필요하다고 인정하는 자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 해당증빙서류",
+                "evidence": {
+                    "label": "공식 모집공고문 10쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=10",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D4"]
+            },
+            {
+                "id": "s1-file-51-12-0",
+                "title": "차상위계층 증빙(해당 서류)",
+                "issuer": "건강보험공단/ 행정복지센터",
+                "method": "차상위계층임을 확인할 수 있는 본인 해당 증빙을 준비해요. 아래 서류를 모두 준비하는 것이 아니에요.\n- 복지대상급여(변경)신청결과 통보서\n- 차상위 본인부담 경감 대상자 증명서\n- 자활급여대상자 증명서(자활근로자 확인서)\n- 장애수당 대상자 확인서\n- 장애아동수당 대상자 확인서\n- 장애인연금 대상자 확인서(차상위초과부가급여 제외)\n- 한부모가족 증명서\n- 차상위계층확인서(중위소득 50%이하자로서 신청후 발급에 60일 소요되므로 미리 확인 요망) 등 차상위계층임을 확인할 수 있는 서류\n- 국민기초생활수급자 증명서\n차상위계층 확인서는 발급에 시간이 걸릴 수 있으므로 미리 신청해요.",
+                "evidence": {
+                    "label": "공식 모집공고문 20쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=20",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D5"]
+            },
+            {
+                "id": "s1-file-51-21-0",
+                "title": "임대차계약서 사본 또는 계약사실확인원, 청약통장1면 사본",
+                "issuer": "공식 모집공고 제출서류 표",
+                "method": "영구임대주택에 거주하는 자(계약자에 한함) 중 청약저축가입자에 해당할 때 공고에 열거된 증빙을 준비합니다. 제출서류: 임대차계약서 사본 또는 계약사실확인원, 청약통장1면 사본",
+                "evidence": {
+                    "label": "공식 모집공고문 20쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=20",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D6"]
+            },
+            {
+                "id": "s1-file-52-1-0",
+                "title": "본인 직접 신청할 때 · 현장 지참 서류",
+                "issuer": "신청자 준비",
+                "method": "① 본인 신분증(주민등록증, 운전면허증, 여권만 인정) ② 본인 도장(서명으로 대체 가능)",
+                "evidence": {
+                    "label": "공식 모집공고문 20쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=20",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D7"]
+            },
+            {
+                "id": "s1-file-52-2-0",
+                "title": "배우자가 대리 신청할 때 · 현장 지참 서류",
+                "issuer": "신청자 준비",
+                "method": "① 본인(신청자) 및 배우자의 신분증(주민등록증, 운전면허증, 여권만 인정) ② 본인(신청자) 도장 ③ 본인(신청자)과의 관계 입증서류(주민등록표등본 등)",
+                "evidence": {
+                    "label": "공식 모집공고문 20쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=20",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": null,
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D8"]
+            },
+            {
+                "id": "s1-file-52-3-0",
+                "title": "기타 대리인이 대리 신청할 때 · 현장 지참 서류",
+                "issuer": "신청자 준비",
+                "method": "① (인감증명방식) 본인(신청자)의 인감증명서, 위임장(인감증명서상의 도장일 것), 본인(신청자)의 인감도장 ② (본인서명방식) 본인(신청자)의 본인서명사실확인서, 본인(신청자)이 자필 서명한 위임장(본인서명사실확인서상의 서명일 것), * 수임인 서명란에 대리인 성명을 반드시 명기 ③ 공통 : 본인(신청자) 및 대리인의 신분증(주민등록증, 운전면허증, 여권만 인정)",
+                "evidence": {
+                    "label": "공식 모집공고문 20쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=20",
+                    "checkedAt": "2026-11-21"
+                },
+                "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=48",
+                "conditionQuestionId": "s1-docs-2",
+                "conditionAnswerValues": ["D9"]
+            }
+        ],
+        "questions": [
+            {
+                "id": "s1-eligibility",
+                "title": "누가 신청할 수 있나요?",
+                "reason": "공고일 기준 세대원 모두가 무주택이고, 가구의 소득·자산 기준을 충족해야 합니다.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 4쪽 · 신청 자격·선정 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=4",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-age",
+                "title": "나이 기준과 미성년 예외",
+                "reason": "원칙은 만 19세 이상입니다. 같은 등본의 자녀를 부양하거나 부모 등의 사망·실종으로 형제자매를 부양하는 미성년 세대주는 예외가 있습니다. 외국인 부모와 사는 내국인 미성년 세대주의 한부모가족도 예외에 포함됩니다. 미성년자는 법정대리인의 동의나 대리 신청이 필요해요. 외국인 부모가 있는 한부모 예외는 부모가 대신 신청해요.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 4쪽 · 신청 자격·선정 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=4",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-household",
+                "title": "함께 심사받는 가족",
+                "reason": "신청자와 배우자는 주소가 달라도 함께 심사합니다. 부모·조부모, 자녀·손자녀 등은 누구의 등본에 올라 있는지에 따라 심사 범위가 달라집니다. 예외와 가족별 범위는 연결된 세대구성원 표에서 확인하세요.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 5쪽 · 신청 자격·선정 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=5",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-duplicate",
+                "title": "한 세대의 중복 신청",
+                "reason": "한 세대는 한 주택만 신청할 수 있어요. 중복 신청은 모두 무효예요. 새 국민임대 예비자로 선정되면 기존 국민임대 대기 자격을 잃고, 장기 공공임대에 입주하면 모든 건설형 공공임대 대기 명부에서 빠져요.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 공고문 1쪽 · 중복 신청·대기 자격",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=1",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-income-0",
+                "title": "가구원 수에 따른 소득 기준",
+                "reason": "가구원 수에 따라 기준이 다릅니다. 월평균 세전 소득을 공고의 비율별 금액(원)과 비교하세요.\n1인 · 70% 2,669,354원, 80% 3,050,690원, 90% 3,432,027원\n2인 · 70% 4,106,389원, 80% 4,693,016원, 90% 5,279,643원\n3인 · 70% 5,717,900원, 80% 6,534,743원, 90% 7,351,586원\n4인 · 70% 6,161,541원, 80% 7,041,762원, 90% 7,921,982원\n5인 · 70% 6,528,890원, 80% 7,461,588원, 90% 8,394,287원\n6인 · 70% 6,934,384원, 80% 7,925,010원, 90% 8,915,637원\n7인 · 70% 7,339,879원, 80% 8,388,433원, 90% 9,436,987원\n8인 · 70% 7,745,373원, 80% 8,851,855원, 90% 9,958,337원\n기본 70%에 1인 가구는 20%p, 2인 가구는 10%p를 가산합니다. 출산자녀 가산의 중복 적용 한도와 기준일은 원문 기준입니다.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 6쪽 · 가구원 수에 따른 소득 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=6",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-assets-0",
+                "title": "총자산과 자동차 기준",
+                "reason": "0명(기준) · 총자산 34,500만 원, 자동차 4,542만 원 이하\n1명 · 총자산 37,900만 원, 자동차 4,996만 원 이하\n2명 · 총자산 41,300만 원, 자동차 5,451만 원 이하\n2023년 3월 28일 이후 출생한 미성년 자녀가 있어야 자녀 가산을 받아요. 입양 자녀와 태아도 포함해요. 이 조건에 해당하면 그 전에 태어난 미성년 자녀도 함께 세되, 최대 2자녀까지 인정해요. 자녀는 신청자 또는 배우자와 같은 등본에 있어야 해요.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 6쪽 · 총자산과 자동차 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=6",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-rank25-0",
+                "title": "전용 50㎡ 미만 · 거주지 등 신청 순위",
+                "reason": "1. 신청자가 모집할 예비입주자 수를 초과하여 경쟁이 있을 경우 아래 순위에 따라 선정 ① 1순위 : 모집공고일 현재 주민등록표등본상의 주소지 ▸전북 정읍시에 거주하는 자 ② 2순위 : 모집공고일 현재 주민등록표등본상의 주소지 ▸전북 김제시, 완주군, 임실군, 순창군, 고창군, 부안군, 전남 장성군에 거주하는 자 ③ 3순위 : 제1순위 및 제2순위에 해당되지 아니하는 자 2. 위 순위 내에서 경쟁이 있을 경우 배점이 높은 순으로 선정 3. 경쟁 발생 시 추첨으로 선정",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 9쪽 · 전용 50㎡ 미만 · 거주지 등 신청 순위",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=9",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-rank27-0",
+                "title": "선정 순위와 배점",
+                "reason": "① 당해 주택건설지역 계속거주기간 (정읍시에 계속 거주한 기간) / 가. 1년 이상 3년 미만 : 1점 나. 3년 이상 5년 미만 : 2점 다. 5년 이상 : 3점\n② 청약저축(주택청약종합저축) 납입횟수 / 가. 6회 이상 12회 이하 : 1점 / 나. 13회 이상 24회 이하 : 2점 다. 25회 이상 36회 이하 : 3점 / 라. 37회 이상 48회 이하 : 4점 마. 49회 이상 60회 이하 : 5점 / 바. 61회 이상 : 6점\n③ 미성년자녀수(태아 및 배우자의 전혼자녀, 조부모와 손자녀로만 구성된 세대의 손자녀 포함) * 19세미만(2007.11.16 이후 출생자녀) / 가. 2자녀 : 2점 / 나. 3자녀 이상 : 3점\n④ 신혼부부, 예비신혼부부, 한부모가족, 유자녀혼인가구 * 중복 대상은 하나만 인정 / 가. 신혼부부（혼인중인 사람으로서 혼인기간이 7년 이내인 사람） : 3점 * 전 배우자였던 사람과 재혼하는 경우에는 이전 혼인기간 포함 나. 예비신혼부부（혼인을 계획 중이며 해당 주택의 입주 전까지 혼인사실을 증명할 수 있는 사람）: 3점 * 예비신혼부부의 경우 입주 전에 혼인관계증명서, 계약자의 세대별 주민등록표 등본(배우자가 세대 분리된 경우 배우자의 세대별 주민등록표 등본 및 계약자의 가족관계증명서 추가 제출)을 제출하여야 하고, 미제출하거나 ‘혼인한 배우자’가 ‘신청 시 기재한 배우자’와 불일치 시 계약 해제 가능 다. 한부모가족(6세 이하의 자녀를 둔 경우, 태아포함) : 3점 라. 유자녀혼인가구(6세 이하의 자녀를 둔 혼인가구, 태아포함) : 3점\n⑤ 부모·자녀간 육아 지원세대 (동일단지에 한함) / 혼인기간이 7년 이내이고, 미성년자녀(임신중이거나 입양한자, 전혼자녀 포함)가 있는 신혼부부세대 및 부모세대가 신청자인 경우 : 각 3점 ※ 전 배우자였던 사람과 재혼하는 경우에는 이전 혼인기간 포함 ※ 배우자의 부모 포함 ※ 부모(자녀)가 기거주중인 국민임대단지로 자녀(부모)가 이전을 원하는 경우, 부모세대 자녀세대가 별개 세대로 한 단지를 각각 신청하는 경우, 한단지내에서 부모 자녀가 같이 거주하다 이중 한세대가 동일 단지를 신청하고 입주 시 세대 분리하는 경우 포함 ※ 가산점 부여는 신청한 2세대가 모두 당첨 시에만 부여하며 한 세대라도 당첨이 되지 않는 경우는 가산점 미부여",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 9쪽 · 선정 순위와 배점",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=9",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-rank27-1",
+                "title": "선정 순위와 배점 (2)",
+                "reason": "⑥ 사회취약계층 * 중복 대상은 하나만 인정 / ·「공공주택 특별법 시행규칙」 별표3 제1호 가목부터 마목까지, 사목, 아목, 자목, 카목에 해당하는 자※ : 3점 ※ 가. 생계·의료급여 수급자(가구원 포함) 나. 국가유공자(보훈보상대상자, 5.18민주유공자, 특수임무유공자, 국가유공자에 준하는 군경 포함) 또는 그 유족 및 참전유공자로서 도시근로자 가구원수별 가구당 월평균소득 70%((1인가구는 90%, 2인가구는 80%)이하이고 영구임대주택 자산요건을 충족하는 자 다. 일본군위안부피해자 라. 지원대상 한부모가족 마. 북한이탈주민으로서 도시근로자 가구원수별 가구당 월평균소득 70%이하(1인가구는 90%, 2인가구는 80%)이고 영구임대주택 자산요건을 충족하는 자 사. 65세이상의 직계존속(배우자 직계존속 포함)을 부양하는 자(피부양자의 배우자도 무주택자이어야 함)로서 생계·의료급여수급자 선정기준의 소득인정액 이하인 자 아. 아동복지시설에서 퇴소하는 자로서 아동복지시설의 장이 추천하고 도시근로자 가구원수별 가구당 월평균소득 70%(1인가구는 90%, 2인가구는 80%)이하이며 영구임대주택자산요건을 충족하는 자 자. 65세 이상인 사람으로서 국민기초생활보장법상 수급권자 또는 차상위계층에 해당하는 자 카. 기타 국토교통부장관, 시∙도지사가 영구임대주택의 입주가 필요하다고 인정하는 자\n⑥ 사회취약계층 * 중복 대상은 하나만 인정 / ·「국민기초생활 보장법」 제2조제10호에 따른 차상위계층에 속한 사람(생계‧의료급여 이외의 수급자 및 그 가구원 포함) : 3점\n⑥ 사회취약계층 * 중복 대상은 하나만 인정 / ·영구임대주택에 거주하는 자(계약자에 한함)중 주택청약종합저축(종전 청약저축 포함) 가입자 : 3점\n⑦ 공사 국민임대주택에 과거 계약사실이 있는 경우 감점 산정기준 가. 최근 1년 이내에 계약한 사실이 있는 경우 : -5점 나. 최근 3년 이내에 계약한 사실이 있는 경우 : -3점 * (기간산정) 과거 공사 국민임대주택 계약일로부터 당해 공급하는 국민임대주택의 예비입주자 모집공고일 * 다수의 국민임대주택에 계약한 사실이 있는 경우에는 가장 최근 계약일 적용(갱신계약은 제외) * 명의변경이 이루어진 후 양도인 또는 양수인이 국민임대 신청시 명의변경 대상 임대주택의 최초계약일이 감점 산정기준일(예를 들면 ‘22.5.1. 국민임대 최초계약 후 입주, ’23.3.1. 명의변경, ‘23.4.1. 국민임대 재신청시 양도인 양수인 모두 1년 이내이므로 –5점, 만약 ’23.5.3. 신청한다면 1년 초과하였으므로 –3점) ※ 단, 입주자가 출산, 노부모부양, 사망 등의 사유로 가구원 수가 변동되어 다른 면적으로 재신청하는 경우 감점 적용을 배제",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 10쪽 · 선정 순위와 배점",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=10",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-sublet",
+                "title": "공공임대 불법 양도·전대 이력",
+                "reason": "신청자나 함께 심사받는 세대원이 공공임대주택을 불법으로 양도·전대하다 적발된 뒤 4년이 지나지 않았다면 선정될 수 없습니다.",
+                "options": null,
+                "evidence": {
+                    "label": "공식 모집공고문 6쪽 · 신청 자격·선정 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=6",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-docs-1",
+                "title": "신청 방식·가족 상황에 따라 준비할 서류 (1)",
+                "reason": "해당하는 상황이나 신청하려는 배점·자격 증빙을 고르세요. 정확한 제출 대상과 발급 방법은 각 서류에 표시됩니다.",
+                "options": [
+                    {
+                        "label": "현장 방문 신청",
+                        "value": "D1",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "[선택] 본인 행정정보 제공요구서",
+                        "value": "D2",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "가족관계증명서 (상세)",
+                        "value": "D3",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "신청자의 주민등록표초본 (전부표기)",
+                        "value": "D4",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "(신청자의 배우자) 주민등록표등본",
+                        "value": "D5",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "임신진단서 /입양관계증명서",
+                        "value": "D6",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "혼인관계서류",
+                        "value": "D7",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "감점 적용 배제 관련 서류",
+                        "value": "D8",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "외국인등록사실 증명서",
+                        "value": "D9",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "청약순위확인서",
+                        "value": "D10",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "생계·의료급여 수급자(세대원 포함)",
+                        "value": "D11",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "국가유공자(보훈보상대상자, 5.18민주유공자, 특수임무유공자, 국가유공자에 준하는 군경 등 포함) 또는 그 유족 및 참전유공자로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자",
+                        "value": "D12",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "일본군위안부 피해자",
+                        "value": "D13",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "지원대상 한부모가족",
+                        "value": "D14",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "북한이탈주민으로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자",
+                        "value": "D15",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "해당 사항 없음",
+                        "value": "NONE",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "잘 모르겠어요",
+                        "value": "UNKNOWN",
+                        "requiresFollowUp": false
+                    }
+                ],
+                "evidence": {
+                    "label": "공식 모집공고문 17쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=17",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "MULTIPLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-docs-2",
+                "title": "해당되는 추가 증빙 (2)",
+                "reason": "해당하는 상황이나 신청하려는 배점·자격 증빙을 고르세요. 정확한 제출 대상과 발급 방법은 각 서류에 표시됩니다.",
+                "options": [
+                    {
+                        "label": "65세 이상의 직계존속(배우자의 직계존속을 포함) 부양자 중 생계·의료급여 수급자 선정기준 소득인정액 이하인 자 (피부양자의 배우자도 무주택자이어야 함)",
+                        "value": "D1",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "아동복지시설에서 퇴소하는 자 중 아동복지시설의 장이 추천하는 자로서 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 70퍼센트(1인가구 90%, 2인가구 80%) 이하이고 영구임대주택의 자산요건을 충족한 자",
+                        "value": "D2",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "65세 이상인 사람으로서 「국민기초생활 보장법」 제2조제1호에 따른 수급권자 또는 같은 조 제10호에 따른 차상위계층에 해당하는 사람",
+                        "value": "D3",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "국토교통부장관 또는 시·도지사가 영구임대주택의 입주가 필요하다고 인정하는 자",
+                        "value": "D4",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "「국민기초생활 보장법」 제2조제10호에 따른 차상위계층에 속한 사람(「국민기초생활 보장법」 제2조제2호에 따른 수급자로서 같은 법 제7조제1항제1호에 따른 생계급여 수급자 또는 같은 항 제3호에 따른 의료급여수급자가 아닌 자와 그 가구원을 포함한다)",
+                        "value": "D5",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "영구임대주택에 거주하는 자(계약자에 한함) 중 청약저축가입자",
+                        "value": "D6",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "본인 직접 신청할 때",
+                        "value": "D7",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "배우자가 대리 신청할 때",
+                        "value": "D8",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "기타 대리인이 대리 신청할 때",
+                        "value": "D9",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "해당 사항 없음",
+                        "value": "NONE",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "잘 모르겠어요",
+                        "value": "UNKNOWN",
+                        "requiresFollowUp": false
+                    }
+                ],
+                "evidence": {
+                    "label": "공식 모집공고문 19쪽 · 제출 대상·서류",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=19",
+                    "checkedAt": "2026-11-21"
+                },
+                "inputKind": "MULTIPLE",
+                "constraints": null,
+                "reviewRequired": false
+            },
+            {
+                "id": "s1-newborn-priority",
+                "title": "어린 자녀가 있으면 먼저 뽑나요?",
+                "reason": "공고일 현재 2세 미만 자녀가 있는 세대는 공급형별 모집호수의 30% 범위에서 먼저 뽑아요. 태아도 포함해요. 우선배정 안에서도 경쟁하면 공고의 선정 순서를 적용해요. 여기서 떨어져도 남은 물량에서 다른 신청자와 다시 경쟁해요. 자녀가 없다는 이유로 신청 자격이 없어지는 것은 아니에요. 소득·자산의 자녀 가산과는 별도예요.",
+                "evidence": {
+                    "label": "공고문 3쪽 보기",
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=3",
+                    "checkedAt": "2026-11-21"
+                },
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "확인했어요"
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "더 확인할게요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "inputKind": "SINGLE",
+                "constraints": null,
+                "reviewRequired": false
+            }
+        ],
+        "schedules": [
+            {
+                "id": "application-session-1",
+                "title": "접수 회차 · 39·46형 1순위 10:00~17:00",
+                "date": "2026-11-30",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "application-session-2",
+                "title": "접수 회차 · 39·46형 2·3순위 10:00~17:00 (후순위 접수 시)",
+                "date": "2026-12-01",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-window-start",
+                "title": "신청 접수 시작",
+                "date": "2026-11-30T10:00",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-window-end",
+                "title": "신청 접수 마감",
+                "date": "2026-12-01T17:00",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-document-selection",
+                "title": "서류제출 대상자 발표",
+                "date": "2026-12-18T14:00",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-documents-start",
+                "title": "서류 제출 시작",
+                "date": "2026-12-21",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-documents-end",
+                "title": "서류 제출 마감 (등기 12/25 소인 · 방문 공휴일 제외)",
+                "date": "2026-12-25",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-result",
+                "title": "예비입주자 결과 발표",
+                "date": "2027-03-04T14:00",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 모집 일정",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": null
+            },
+            {
+                "id": "verified-visit-note",
+                "title": "접수 회차 · 방문 접수 안내",
+                "date": "",
+                "evidence": {
+                    "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893#page=11",
+                    "label": "공고문 11쪽 보기 · 기준·예외",
+                    "checkedAt": "2026-11-21"
+                },
+                "timingDescription": "1순위는 11/30 10~17시, 2·3순위는 후순위 접수를 받는 경우에만 12/1 10~17시예요. 후순위 접수 여부는 11/30 18시 이후 주택관리공단에서 확인해요. 서류 방문 제출은 12/21~25 중 공휴일·점심 12~13시를 제외한 10~17시예요."
+            }
+        ],
+        "attachments": [],
+        "reviewIssues": [],
+        "applicationClosure": null
+    },
+    "startDate": "2026-11-30",
+    "endDate": "2026-12-01",
+    "verifiedSources": [
+        {
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482893",
+            "sha256": "72d8abbd6f0cf96978145a2de956ef9a6b6f50fb5e45dae4a6c975d7c94e9e3f"
+        },
+        {
+            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69482890",
+            "sha256": "613634c9190d8192d3eaa3484976b65ee87e20da3c925fbdf5e115030bcd4fd7"
+        }
+    ],
+    "notes": [
+        "Batch B 최신 자격·서류 검토 원고를 재사용하고 현재 PDF 69482893(48쪽)·HWPX 69482890의 SHA와 전체 일정·양식 페이지를 추가 대조함.",
+        "현재 DB evidence와 attachments([])를 그대로 유지함. 구 첨부 69388609 대신 최신 첨부 근거로만 질문·서류·일정을 안내함.",
+        "1순위11/30·2/3순위12/1 10~17시, 서류대상12/18 14시, 서류12/21~25, 결과2027/3/4 14시. 후순위접수조건·방문공휴일/점심제외·등기소인 조건을 분리함.",
+        "최신 PDF에서 등기 소인 오기(구 2025.10.24)가 2026.12.25로 수정됨. 12/25 공휴일에는 방문제출 불가라는 원문 조건을 유지하며 임의 연장하지 않음.",
+        "추가된 행정정보 목록 한쪽 때문에 이동한 개인정보40·금융42·자산44·중복선정45·위임장48쪽을 실제 파일 제목과 대조해 연결함. 행정정보36쪽은 그대로임.",
+        "예비신혼 양식46·47쪽, 대표신청자·예비배우자 신분증 요건을 해당 서류 설명에 같이 표시함. Batch B 차상위 대체서류9→1 통합과 각 대상 예외를 보존함."
+    ]
+}

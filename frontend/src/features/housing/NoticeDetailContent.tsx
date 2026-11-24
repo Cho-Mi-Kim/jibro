@@ -1,31 +1,43 @@
-import { IndividualAnnouncement } from './IndividualAnnouncement';
+import { ScheduleSummary, ScheduleCard } from './ScheduleCard';
 import { CalendarExport } from '../preparation/CalendarExport';
-import { applicationDeadline, noticeDetailDates } from './noticeDetailDates';
-import { Icon } from '../../shared/ui/Icon';
-import { displayDate } from './noticeDisplay';
-import { DocumentIssuanceLinks } from './DocumentIssuanceLinks';
-import { DocumentSummaryFacts } from './DocumentSummaryFacts';
-import { documentSummary } from './documentSummary';
-import { onlineIssuanceLinks } from './onlineIssuance';
+import { noticeDetailDates } from './noticeDetailDates';
+import { DocumentCard } from './DocumentCard';
+import { documentSummary, listedDocument } from './documentSummary';
 import { EvidenceLink } from './EvidenceLink';
 import { NoticeSourceInformation } from './NoticeSourceInformation';
 import { NoticeSupportSummary } from './NoticeSupportSummary';
 import { NoticeQualificationSummary } from './NoticeQualificationSummary';
 import { ConditionSummary } from './ConditionSummary';
+import { noticeConditionQuestions } from './conditionOverview';
 import { NoticeDocumentSummary } from './NoticeDocumentSummary';
-import { NoticeDetailScrollSection } from './NoticeDetailScrollArea';
+import {
+    NoticeDetailScrollSection,
+    NoticeDetailScrollDetails,
+} from './NoticeDetailScrollArea';
 import type { NoticeSourceInformationState } from './useNoticeSourceInformation';
 import { InlineExplanation } from '../../shared/ui/ui';
-import { ReviewIssues } from './ReviewIssues';
-import {
-    questionReviewIssues,
-    scheduleReviewIssues,
-} from './reviewIssueSelectors';
+import { AreaReviewIssues } from './ReviewIssues';
+import { questionReviewIssues } from './reviewIssueSelectors';
 import { cx } from '../../shared/styles/classes';
-import type { Notice } from './types';
+import { useNoticeDetailSelection } from './useNoticeDetailSelection';
+import type { Notice, Schedule } from './types';
 import styles from './NoticeDetail.module.css';
 import type { NoticeDetailTab } from './noticeDetailTabs';
 export type { NoticeDetailTab } from './noticeDetailTabs';
+
+function NoticeScheduleEvent({ event }: { event: Omit<Schedule, 'recorded'> }) {
+    const { cardRef, onClick } = useNoticeDetailSelection<HTMLDetailsElement>();
+    return (
+        <div className={styles.source}>
+            <ScheduleCard
+                event={event}
+                heading="h3"
+                evidence={event.evidence}
+                detailsProps={{ ref: cardRef, onClick }}
+            />
+        </div>
+    );
+}
 
 export function NoticeDetailContent({
     notice,
@@ -63,38 +75,7 @@ export function NoticeDetailContent({
         );
     }
     if (tab === 'schedule') {
-        const deadline = applicationDeadline(notice);
-        const { start, end, announcement, documents, announcementExplanation } =
-            noticeDetailDates(notice);
-        const deadlineNote = [
-            end.time,
-            /조기\s*중단\s*가능/.test(deadline?.title ?? '') && '조기중단 가능',
-        ]
-            .filter(Boolean)
-            .join(' ');
-        const dateRows = [
-            ['공고일', displayDate(notice.publishedDate)],
-            [
-                '접수기간',
-                notice.startDate ? `${start.date} ~ ${end.date}` : '확인 필요',
-            ],
-            [
-                '결과 발표',
-                [announcement.date, announcement.time]
-                    .filter(Boolean)
-                    .join(' '),
-            ],
-            [
-                '서류 마감',
-                [documents.date, documents.time].filter(Boolean).join(' '),
-            ],
-            [
-                '접수 마감',
-                notice.endDate
-                    ? end.date + (deadlineNote ? `(${deadlineNote})` : '')
-                    : '',
-            ],
-        ];
+        const { closing: deadline } = noticeDetailDates(notice);
         const calendar = <CalendarExport notice={notice} inline />;
         return (
             <>
@@ -102,60 +83,26 @@ export function NoticeDetailContent({
                     className={`${styles.contentCard} ${cx('explanation-card')}`}
                 >
                     <h2 className={styles.disclosureTitle}>공식 접수 일정</h2>
-                    <dl className={styles.scheduleDates}>
-                        {dateRows.map(([label, date]) => (
-                            <div key={label}>
-                                <dt>{label}</dt>
-                                <dd
-                                    aria-label={
-                                        label === '결과 발표' &&
-                                        announcementExplanation
-                                            ? `${date} 개별 안내`.trim()
-                                            : date || '날짜 정보 없음'
-                                    }
-                                >
-                                    {label === '결과 발표' &&
-                                    announcementExplanation ? (
-                                        <>
-                                            {date}
-                                            <IndividualAnnouncement
-                                                event={announcementExplanation}
-                                            />
-                                        </>
-                                    ) : (
-                                        date
-                                    )}
-                                </dd>
-                            </div>
-                        ))}
-                    </dl>
+                    <ScheduleSummary
+                        source={notice}
+                        showPublished
+                        showClosing
+                    />
                     {calendar}
-                    <ReviewIssues
-                        issues={scheduleReviewIssues(notice.reviewIssues)}
+                    <AreaReviewIssues
+                        area="SCHEDULE"
+                        issues={notice.reviewIssues}
                     />
                     {notice.schedules
                         ?.filter((event) => event !== deadline)
                         .map((event) => (
-                            <div key={event.id} className={styles.source}>
-                                <h3>{event.title}</h3>
-                                <p>
-                                    {event.timingDescription ||
-                                        displayDate(event.date)}
-                                </p>
-                            </div>
+                            <NoticeScheduleEvent key={event.id} event={event} />
                         ))}
                     <InlineExplanation label="일정 공식 근거 보기">
-                        {notice.schedules?.map((event) => (
-                            <EvidenceLink
-                                key={event.id}
-                                className={styles.evidence}
-                                evidence={event.evidence}
-                            />
-                        ))}
-                        <EvidenceLink
-                            className={styles.evidence}
-                            evidence={notice.evidence}
-                        />
+                        {deadline && (
+                            <EvidenceLink evidence={deadline.evidence} />
+                        )}
+                        <EvidenceLink evidence={notice.evidence} />
                     </InlineExplanation>
                 </NoticeDetailScrollSection>
                 {notice.guideState !== 'AVAILABLE' &&
@@ -181,7 +128,11 @@ export function NoticeDetailContent({
     if (tab === 'conditions')
         return (
             <>
-                {notice.questions.map((question) => (
+                <AreaReviewIssues
+                    issues={notice.reviewIssues}
+                    area="CONDITION"
+                />
+                {noticeConditionQuestions(notice.questions).map((question) => (
                     <NoticeDetailScrollSection
                         className={styles.contentCard}
                         key={question.id}
@@ -197,52 +148,37 @@ export function NoticeDetailContent({
                 ))}
             </>
         );
-    const documents = notice.documentTemplates?.length
-        ? notice.documentTemplates.map((doc) => ({
-              id: doc.id,
-              title: doc.title,
-              ...documentSummary(doc, notice),
-          }))
-        : notice.documents.map((title) => {
-              const links = onlineIssuanceLinks({ title, issuer: '' });
-              return {
-                  id: title,
-                  title,
-                  audience: '공식 공고에서 제출 대상 확인',
-                  method: links[0]?.label ?? '공식 공고의 발급 안내 확인',
-                  criteria: [],
-                  issues: [],
-                  links,
-              };
-          });
+    const sources = notice.documentTemplates?.length
+        ? notice.documentTemplates
+        : notice.documents.map((title) => listedDocument(title, notice));
+    const documents = sources.map((doc) => ({
+        id: doc.id,
+        title: doc.title,
+        ...documentSummary(doc, notice),
+    }));
     return (
         <NoticeDetailScrollSection
             className={`${styles.contentCard} ${cx('explanation-card')}`}
         >
             <h2 className={styles.disclosureTitle}>제출서류</h2>
+            <AreaReviewIssues issues={notice.reviewIssues} area="DOCUMENT" />
             <ul className={styles.documents}>
                 {documents.map((document) => (
                     <li key={document.id}>
-                        <Icon name="file" />
-                        <div>
-                            <strong>{document.title}</strong>
-                            <DocumentSummaryFacts summary={document} />
+                        <DocumentCard
+                            disclosure={NoticeDetailScrollDetails}
+                            title={document.title}
+                            summary={document}
+                        >
                             {document.criteria.length > 2 && (
-                                <InlineExplanation label="제출 대상 전체 보기">
-                                    <p>{document.criteria.join(' 또는 ')}</p>
-                                </InlineExplanation>
+                                <p>{document.criteria.join(' 또는 ')}</p>
                             )}
-                            <DocumentIssuanceLinks links={document.links} />
-                            <ReviewIssues issues={document.issues} />
-                        </div>
+                        </DocumentCard>
                     </li>
                 ))}
             </ul>
             <InlineExplanation label="제출서류 공식 근거 보기">
-                <EvidenceLink
-                    className={styles.evidence}
-                    evidence={notice.evidence}
-                />
+                <EvidenceLink evidence={notice.evidence} />
             </InlineExplanation>
         </NoticeDetailScrollSection>
     );

@@ -10,8 +10,11 @@ function isControlInteraction(target: EventTarget | null) {
 }
 
 /** Follow the user's scroll direction, never the card's automatic scroll. */
-export function useNoticeToolbarReveal(expansion: object | null) {
-    const [revealed, setRevealed] = useState<object | null>(null);
+export function useNoticeToolbarReveal(
+    expansion: object | null,
+    initiallyRevealed: object | null = null,
+) {
+    const [revealed, setRevealed] = useState<object | null>(initiallyRevealed);
     const collapsed = expansion !== null && revealed !== expansion;
 
     useEffect(() => {

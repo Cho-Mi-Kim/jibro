@@ -2,10 +2,11 @@ package org.jibro.notice;
 
 import static org.jibro.notice.HousingModels.*;
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.IntStream;
+
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,38 +18,61 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class GuidePaginationIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired GuideService guides;
-    @Autowired EntityManager entities;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    GuideService guides;
+    @Autowired
+    GuideCatalog catalog;
+    @Autowired
+    EntityManager entities;
 
-    @Test void databaseFilteringPreservesAllPagesAndNeverPublishesUnreviewedQuestions() {
+    @Test
+    void noticePublicationCannotReplaceGeneralFaqWithLocalOrUnreviewedCriteria() {
+        var before = guides.guides("", "", 0);
         String title = "guide-pages-" + UUID.randomUUID();
-        var e = new Evidence("공식 원문", "https://apply.lh.or.kr/test", "2030-01-01");
-        var questions = IntStream.range(0, 25).mapToObj(i -> new Question("q" + i, "가구 기준 " + i, "확인된 설명", e)).toList();
-        var content = new Content("확인된 대상", e, List.of(), questions, List.of(), List.of());
-        UUID reviewed = notices.insert("guide-test-" + UUID.randomUUID(), title, "LH", "서울", "임대",
-            null, null, LocalDate.now(), content);
-        notices.samplePublish(reviewed, "PASS");
-        UUID held = notices.insert("guide-test-" + UUID.randomUUID(), title, "LH", "서울", "임대",
-            null, null, LocalDate.now().minusDays(1), content);
-        notices.samplePublish(held, "HOLD");
+        var evidence = new Evidence("개별 공고 원문", "https://apply.lh.or.kr/test", "2020-01-01");
+        var content = new Content("특정 지역의 과거 소득 기준", evidence, List.of(),
+            List.of(new Question("q", "공고 한정 기준", "미확정 또는 과거 기준", evidence)),
+            List.of(), List.of());
+        for (String review : List.of("PASS", "HOLD")) {
+            UUID id = notices.insert("guide-test-" + UUID.randomUUID(), title, "LH", "서울", "임대",
+                null, null, LocalDate.of(2020, 1, 1), content);
+            notices.samplePublish(id, review);
+        }
         UUID sample = notices.insert("local-sample-" + UUID.randomUUID(), title, "LH", "서울", "임대",
             null, null, LocalDate.now(), content);
         notices.samplePublish(sample, "PASS");
         entities.flush();
-        var first = guides.guides("", title, 0);
-        var second = guides.guides("", title, 1);
-        assertEquals(20, first.items().size());
-        assertTrue(first.hasMore());
-        assertEquals(9, second.items().size());
-        assertFalse(second.hasMore());
-        var all = java.util.stream.Stream.concat(first.items().stream(), second.items().stream()).toList();
-        assertEquals(29, all.stream().map(Guide::id).distinct().count());
-        assertFalse(all.stream().anyMatch(g -> g.id().startsWith(sample.toString())));
-        assertEquals(2, all.stream().filter(g -> g.id().startsWith(held.toString())).count());
-        assertEquals(5, guides.guides("조건과 용어", title, 1).items().size());
-        assertEquals(1, guides.guides("조건과 용어", title + " 가구 24", 0).items().size());
-        assertEquals(2, guides.guides("공식 문의처", title + " 문의 경로", 0).items().size());
-        assertTrue(guides.guides("", title + " zzz-no-result", 0).items().isEmpty());
+        assertEquals(before, guides.guides("", "", 0));
+        assertTrue(guides.guides("", title, 0).items().isEmpty());
+        assertTrue(guides.guides("", "미확정 또는 과거 기준", 0).items().isEmpty());
+    }
+
+    @Test
+    void packagedCatalogueIsCompleteAcrossPagesAndEveryTopicHasReviewedSources() {
+        var all = new java.util.ArrayList<Guide>();
+        for (int index = 0; ; index++) {
+            var page = guides.guides("", "", index);
+            assertTrue(page.items().size() <= 20);
+            assertEquals((catalog.items().size() + 19) / 20, page.totalPages());
+            all.addAll(page.items());
+            if (!page.hasMore()) break;
+        }
+        assertEquals(catalog.items(), all);
+        assertEquals(all.size(), all.stream().map(Guide::id).distinct().count());
+        for (String category : GuideCatalog.CATEGORIES) {
+            var page = guides.guides(category, "", 0);
+            assertFalse(page.items().isEmpty(), category);
+            long matching = catalog.items().stream().filter(guide -> guide.category().equals(category)).count();
+            assertEquals((matching + 19) / 20, page.totalPages());
+            assertTrue(page.items().stream().allMatch(guide -> guide.category().equals(category)
+                && guide.scope() != null && !guide.scope().isBlank()
+                && guide.evidence() != null && guide.evidence().checkedAt() != null));
+        }
+        var empty = guides.guides("", "없는검색어987654321", 0);
+        assertTrue(empty.items().isEmpty());
+        assertEquals(0, empty.totalPages());
+        assertFalse(empty.hasMore());
     }
 }

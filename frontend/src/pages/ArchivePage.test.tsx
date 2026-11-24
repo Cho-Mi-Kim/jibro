@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -50,6 +50,7 @@ beforeEach(() => {
             title: '[정정공고] 인천 매입임대주택 입주자 추가모집 공고',
             version: 1,
             progress: 40,
+            houseStage: 3,
             note: '지난 경험',
             archivedAt: '2026-01-01',
         },
@@ -101,6 +102,35 @@ function mount() {
         </QueryClientProvider>,
     );
 }
+it('보관 당시의 신청 기록만 표시하고 신청 일정이 없으면 상태를 생략한다', async () => {
+    const [base] = await memberApi.archive();
+    const closing = { title: '접수 마감', date: '2026-11-10', recorded: true };
+    const documents = { ...closing, title: '서류 제출 마감' };
+    const application = {
+        ...closing,
+        title: '공식 신청 여부 확인',
+        recorded: false,
+    };
+    vi.mocked(memberApi.archive).mockResolvedValue([
+        { ...base, id: 'done', title: '첫째', schedules: [closing] },
+        {
+            ...base,
+            id: 'open',
+            title: '둘째',
+            schedules: [closing, application],
+        },
+        { ...base, id: 'docs', title: '셋째', schedules: [documents] },
+        { ...base, id: 'legacy', title: '넷째' },
+    ]);
+    mount();
+    const cards = await screen.findAllByRole('listitem');
+    expect(within(cards[0]).getByText('신청 완료로 기록함')).toBeVisible();
+    expect(within(cards[1]).getByText('신청 완료 기록 없음')).toBeVisible();
+    for (const card of cards.slice(2)) {
+        expect(within(card).queryByText(/신청 완료/)).toBeNull();
+    }
+});
+
 async function selectRecord(
     user: ReturnType<typeof userEvent.setup>,
     name: string,
@@ -119,6 +149,12 @@ it('공고별 메모를 보존하고 복원·경험 연결 성공으로 작성 �
     expect(
         await screen.findByRole('link', { name: '이전 안내와 답변' }),
     ).toHaveAttribute('href', '/preparations/old/history');
+    expect(
+        screen.getByRole('progressbar', { name: '당시 준비도' }),
+    ).toHaveAttribute('value', '40');
+    expect(
+        screen.getByRole('img', { name: '준비도 40% · 벽돌이 쌓이는 집' }),
+    ).toBeVisible();
     await user.type(note, 'A 메모');
     await selectRecord(user, 'B 공고');
     expect(note).toHaveValue('');

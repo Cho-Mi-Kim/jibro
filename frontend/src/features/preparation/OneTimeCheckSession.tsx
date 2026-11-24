@@ -1,3 +1,4 @@
+import { showQuestionEvidence } from '../housing/conditionOverview';
 import { useEffect, useRef, useState } from 'react';
 import type { Answer, Notice } from '../housing/types';
 import {
@@ -8,8 +9,9 @@ import {
 import { PartialGuidanceNotice } from '../housing/ReviewIssues';
 import { EvidenceLink } from '../housing/EvidenceLink';
 import { Button, Card } from '../../shared/ui/ui';
+import { handleDisclosureCardClick } from '../../shared/ui/handleDisclosureCardClick';
 import { QuestionInput } from './QuestionInput';
-import { QuestionCriteria } from './QuestionCriteria';
+import { QuestionPrompt } from './QuestionPrompt';
 import { QuestionSteps } from './QuestionSteps';
 import {
     oneTimeCheckApi,
@@ -17,11 +19,30 @@ import {
 } from './oneTimeCheckApi';
 import { OneTimeCheckResult } from './OneTimeCheckResult';
 import styles from './OneTimeCheck.module.css';
+import { answerConflictMessages } from '../housing/answerDependencies';
+import { getQuestionStep } from './questionNavigation';
+import { updateApplicantAnswer } from './applicantQuestion';
+import { applicantInputQuestions } from '../housing/preparationApplicability';
 
 export function OneTimeCheckSession({ notice }: { notice: Notice }) {
-    const questions = answerableQuestions(notice.questions);
     const [answers, setAnswers] = useState<Record<string, Answer>>({});
-    const [step, setStep] = useState(0);
+    const [questionId, setQuestionId] = useState<string | null>(null);
+    function questionsFor(nextAnswers: Record<string, Answer>) {
+        return answerableQuestions(
+            applicantInputQuestions({ ...notice, answers: nextAnswers }),
+            (notice.documentTemplates ?? []).flatMap((document) =>
+                document.conditionQuestionId
+                    ? [document.conditionQuestionId]
+                    : [],
+            ),
+        );
+    }
+    const questions = questionsFor(answers);
+    const step = getQuestionStep(
+        { questions, answers },
+        questionId ?? questions[0]?.id,
+        notice.questions,
+    );
     const [result, setResult] = useState<Result | null>(null);
     const [pending, setPending] = useState(false);
     const [error, setError] = useState('');
@@ -32,7 +53,7 @@ export function OneTimeCheckSession({ notice }: { notice: Notice }) {
         busy.current = false;
         setAnswers({});
         setResult(null);
-        setStep(0);
+        setQuestionId(null);
         setError('');
         setPending(false);
     }
@@ -44,7 +65,7 @@ export function OneTimeCheckSession({ notice }: { notice: Notice }) {
             busy.current = false;
             setAnswers({});
             setResult(null);
-            setStep(0);
+            setQuestionId(null);
             setError('');
             setPending(false);
         }
@@ -59,15 +80,30 @@ export function OneTimeCheckSession({ notice }: { notice: Notice }) {
             window.removeEventListener('pageshow', restore);
         };
     }, []);
-    async function advance(next: Record<string, Answer>) {
+    async function advance(next: Record<string, Answer>, automatic = false) {
         const question = questions[step];
         if (
             busy.current ||
             (question && !validSubmittedAnswer(question, next[question.id]))
         )
             return;
-        if (step < questions.length - 1) {
-            setStep(step + 1);
+        if (
+            automatic &&
+            question &&
+            answerConflictMessages(
+                question,
+                next[question.id],
+                next,
+                notice.questions,
+            ).length
+        )
+            return;
+        const nextQuestions = questionsFor(next);
+        const currentIndex = nextQuestions.findIndex(
+            (item) => item.id === question?.id,
+        );
+        if (currentIndex < nextQuestions.length - 1) {
+            setQuestionId(nextQuestions[currentIndex + 1].id);
             return;
         }
         busy.current = true;
@@ -98,7 +134,10 @@ export function OneTimeCheckSession({ notice }: { notice: Notice }) {
     }
     const question = questions[step];
     return (
-        <div className={styles.content}>
+        <div className={styles.content} data-question-page>
+            {!result && (
+                <p>내 상황을 알려주시면 필요한 서류와 신청 준비를 안내해요.</p>
+            )}
             <p className={styles.privacy}>
                 계정에 저장하지 않아요. 확인을 위해 서버에서 잠시 처리하며,
                 화면을 나가거나 새로고침하면 답변과 결과가 사라집니다.
@@ -107,44 +146,75 @@ export function OneTimeCheckSession({ notice }: { notice: Notice }) {
                 <OneTimeCheckResult
                     result={result}
                     templates={notice.documentTemplates}
-                    onEdit={() => setResult(null)}
+                    schedules={notice.schedules}
+                    guideState={notice.guideState}
+                    onEdit={() => {
+                        setQuestionId(
+                            questions[
+                                getQuestionStep(
+                                    { questions, answers },
+                                    undefined,
+                                    notice.questions,
+                                )
+                            ]?.id ?? null,
+                        );
+                        setResult(null);
+                    }}
                     onClear={clear}
                 />
             ) : (
                 <>
                     <PartialGuidanceNotice issues={notice.reviewIssues} />
                     {question && (
-                        <QuestionSteps questions={questions} step={step} />
+                        <QuestionSteps
+                            questions={questions}
+                            step={step}
+                            answers={answers}
+                            dependencyQuestions={notice.questions}
+                        />
                     )}
-                    <Card>
+                    <Card
+                        onClick={
+                            question ? handleDisclosureCardClick : undefined
+                        }
+                    >
                         {question ? (
                             <fieldset
                                 className={styles.questions}
                                 key={question.id}
                             >
-                                <legend aria-live="polite">
-                                    {question.title}
-                                </legend>
-                                <QuestionCriteria
+                                <QuestionPrompt
                                     question={question}
                                     reviewIssues={notice.reviewIssues}
+                                    answers={answers}
+                                    questions={notice.questions}
                                 />
                                 <QuestionInput
                                     question={question}
+                                    answers={answers}
+                                    questions={notice.questions}
                                     value={answers[question.id]}
                                     disabled={pending}
-                                    onRepeatChoice={() => void advance(answers)}
+                                    onRepeatChoice={() =>
+                                        void advance(answers, true)
+                                    }
                                     onChange={(value) => {
-                                        const next = {
-                                            ...answers,
-                                            [question.id]: value,
-                                        };
+                                        const next = updateApplicantAnswer(
+                                            notice.questions,
+                                            answers,
+                                            question.id,
+                                            value,
+                                        );
                                         setAnswers(next);
                                         if (questionKind(question) === 'SINGLE')
-                                            void advance(next);
+                                            void advance(next, true);
                                     }}
                                 />
-                                <EvidenceLink evidence={question.evidence} />
+                                {showQuestionEvidence(question) && (
+                                    <EvidenceLink
+                                        evidence={question.evidence}
+                                    />
+                                )}
                             </fieldset>
                         ) : (
                             <p>이 공고의 공통 서류 안내를 확인할 수 있어요.</p>
@@ -154,7 +224,9 @@ export function OneTimeCheckSession({ notice }: { notice: Notice }) {
                             <Button
                                 className="secondary"
                                 disabled={!step || pending}
-                                onClick={() => setStep(step - 1)}
+                                onClick={() =>
+                                    setQuestionId(questions[step - 1].id)
+                                }
                             >
                                 이전
                             </Button>

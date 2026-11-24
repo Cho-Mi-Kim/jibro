@@ -1,10 +1,63 @@
 import { afterEach, expect, it } from 'vitest';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import {
+    cleanup,
+    fireEvent,
+    render,
+    screen,
+    within,
+} from '@testing-library/react';
 import { IndividualAnnouncement } from './IndividualAnnouncement';
 import { NoticeDates } from './NoticeFacts';
 import { individualAnnouncement, selectSchedule } from './schedules';
 import { calendarItems } from '../preparation/calendar';
-import type { Notice } from './types';
+import type { Notice, Preparation } from './types';
+import { TimelineScheduleCard } from './ScheduleCard';
+import { buildScheduleTimeline } from '../preparation/scheduleTimelineModel';
+import { comparisonSchedules } from '../comparison/comparisonModel';
+
+it('선착순 모집은 날짜·개별 안내 대신 발표와 서류 마감에 선착순을 표시한다', () => {
+    const source = {
+        title: '행복주택 선착순 동호지정',
+        schedules: [
+            {
+                ...event,
+                id: 'result',
+                title: '서류 제출 대상자 발표',
+                date: '2026-11-25T16:00:00+09:00',
+            },
+            {
+                ...event,
+                id: 'documents',
+                title: '서류 제출 마감',
+                date: '2026-11-26',
+            },
+        ],
+    } as Notice;
+    const original = structuredClone(source);
+    const view = render(<NoticeDates notice={source} />);
+    expect(screen.getAllByText('선착순')).toHaveLength(2);
+    expect(screen.queryByText('2026.11.25')).toBeNull();
+    expect(screen.queryByText('16:00')).toBeNull();
+    view.unmount();
+    const preparation = {
+        version: source.version,
+        title: source.title,
+        schedules: [],
+    } as unknown as Preparation;
+    const rows = buildScheduleTimeline(source, preparation).rows.filter(
+        (row) => row.id === 'result' || row.id === 'documents',
+    );
+    render(
+        <>
+            {rows.map((row) => (
+                <TimelineScheduleCard key={row.id} row={row} />
+            ))}
+        </>,
+    );
+    expect(screen.getAllByText('선착순')).toHaveLength(2);
+    expect(screen.queryByLabelText('날짜 확인 필요')).toBeNull();
+    expect(source).toEqual(original);
+});
 
 const event = {
     id: 'result-individual',
@@ -102,3 +155,78 @@ it('개별 안내와 날짜가 있는 발표를 분리해 보존하고 안내를
     } as unknown as Notice;
     expect(calendarItems(notice)).toEqual([]);
 });
+
+it.each(['공고 요약', '내 준비 전체 일정'])(
+    '%s에서 순위별 두 발표일과 근거를 대상별 안내로 연다',
+    (view) => {
+        Object.defineProperty(HTMLDialogElement.prototype, 'showModal', {
+            configurable: true,
+            value: function (this: HTMLDialogElement) {
+                this.setAttribute('open', '');
+            },
+        });
+        const events = [
+            {
+                ...event,
+                id: 'priority-result',
+                title: '1순위 우선 결과 발표 (17:00 이후)',
+                date: '2026-12-22T17:00',
+                timingDescription: null,
+            },
+            {
+                ...event,
+                id: 'general-result',
+                title: '1순위 일반·2순위 결과 발표 (17:00 이후)',
+                date: '2027-01-27T17:00',
+                timingDescription: null,
+            },
+        ];
+        const notice = {
+            version: 1,
+            guideState: 'AVAILABLE',
+            questions: [],
+            schedules: events,
+            evidence: event.evidence,
+        } as unknown as Notice;
+        const preparation = {
+            version: 1,
+            guideState: 'AVAILABLE',
+            questions: [],
+            answers: {},
+            documents: [],
+            schedules: events.map((item) => ({ ...item, recorded: false })),
+        } as unknown as Preparation;
+        if (view === '공고 요약') render(<NoticeDates notice={notice} />);
+        else {
+            const row = buildScheduleTimeline(notice, preparation).rows.find(
+                (item) => item.id === 'result',
+            )!;
+            expect(row.date).toBeNull();
+            render(<TimelineScheduleCard row={row} />);
+        }
+        fireEvent.click(
+            screen.getByRole('button', { name: '결과 발표 대상별 안내' }),
+        );
+        const dialog = screen.getByRole('dialog', { name: '대상별 결과 발표' });
+        expect(
+            within(dialog).getByText('1순위 우선 결과 발표 (17:00 이후)'),
+        ).toBeVisible();
+        expect(within(dialog).getByText('2026.12.22 17:00')).toBeVisible();
+        expect(
+            within(dialog).getByText('1순위 일반·2순위 결과 발표 (17:00 이후)'),
+        ).toBeVisible();
+        expect(within(dialog).getByText('2027.01.27 17:00')).toBeVisible();
+        expect(
+            within(dialog).getAllByRole('link', { name: /공고문 4쪽/ }),
+        ).toHaveLength(2);
+        expect(calendarItems(notice).map((item) => item.date)).toEqual([
+            '2026-12-22T17:00',
+            '2027-01-27T17:00',
+        ]);
+        expect(
+            comparisonSchedules(notice)
+                .filter((item) => item.title.includes('결과 발표'))
+                .map((item) => item.date),
+        ).toEqual(['2026-12-22T17:00', '2027-01-27T17:00']);
+    },
+);

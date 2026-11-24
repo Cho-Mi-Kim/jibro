@@ -19,6 +19,7 @@ import { State } from '../shared/ui/ui';
 import { getPreparationTab } from '../features/preparation/preparationTabRoutes';
 import { getHomeReturn } from '../shared/navigation/useNoticeEntryState';
 import shellClasses from './Shell.module.css';
+import { SiteFooter } from '../features/site/SiteFooter';
 
 const cx = bindClasses(shellClasses);
 
@@ -74,12 +75,15 @@ export function Shell({ children }: { children: ReactNode }) {
             return;
         const returningFromAlerts =
             previousPath.current === '/alerts' && navigationType === 'POP';
+        const restoringList = main.current?.querySelector(
+            '[data-restored-list]',
+        );
         previousPath.current = location.pathname;
         const switchingTabs = previousTab.current && inPreparationTab;
         previousTab.current = inPreparationTab;
         if (switchingTabs && main.current?.contains(document.activeElement))
             return;
-        if (!returningFromAlerts) window.scrollTo(0, 0);
+        if (!returningFromAlerts && !restoringList) window.scrollTo(0, 0);
         main.current?.focus({ preventScroll: true });
     }, [location.pathname, inPreparationTab, navigationType]);
     return (
@@ -227,6 +231,9 @@ export function Shell({ children }: { children: ReactNode }) {
                     {children}
                 </main>
             </div>
+            {!focused && !location.pathname.startsWith('/admin') && (
+                <SiteFooter />
+            )}
             {!focused && !location.pathname.startsWith('/admin') && (
                 <Navigation />
             )}

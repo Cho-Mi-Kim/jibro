@@ -5,13 +5,17 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class PreparationDeletionRepository {
-    public record Owner(String email, String password, int version, boolean trial) {}
-    public record Preparation(int revision, String title) {}
+    public record Owner(String email, String password, int version, boolean trial) {
+    }
+
+    public record Preparation(int revision, String title) {
+    }
 
     private final JdbcTemplate db;
 
@@ -62,27 +66,12 @@ public class PreparationDeletionRepository {
         return db.update("DELETE FROM preparation WHERE id=? AND user_id=? AND revision=?", preparation, user, revision) == 1;
     }
 
-    public boolean isBlocked(UUID user) {
-        return Boolean.TRUE.equals(db.queryForObject("SELECT EXISTS(SELECT 1 FROM preparation_deletion_attempt WHERE user_id=? AND blocked_until>now())", Boolean.class, user));
-    }
-
-    public void removeExpiredAttempts(UUID user) {
-        db.update("DELETE FROM preparation_deletion_attempt WHERE user_id=? AND (blocked_until<=now() OR (blocked_until IS NULL AND started_at<=now()-interval '15 minutes'))", user);
-    }
-
     public List<String> findValidProofHashes(UUID user, UUID preparation, int revision, int securityVersion) {
         return db.queryForList("SELECT token_hash FROM preparation_deletion_proof WHERE user_id=? AND preparation_id=? AND revision=? AND security_version=? AND expires_at>now()", String.class, user, preparation, revision, securityVersion);
-    }
-
-    public void clearAttempts(UUID user) {
-        db.update("DELETE FROM preparation_deletion_attempt WHERE user_id=?", user);
     }
 
     public void removeProof(UUID preparation) {
         db.update("DELETE FROM preparation_deletion_proof WHERE preparation_id=?", preparation);
     }
 
-    public void recordFailedAttempt(UUID user) {
-        db.update("INSERT INTO preparation_deletion_attempt(user_id,failures) VALUES(?,1) ON CONFLICT(user_id) DO UPDATE SET failures=preparation_deletion_attempt.failures+1,blocked_until=CASE WHEN preparation_deletion_attempt.failures>=4 THEN now()+interval '15 minutes' ELSE NULL END", user);
-    }
 }

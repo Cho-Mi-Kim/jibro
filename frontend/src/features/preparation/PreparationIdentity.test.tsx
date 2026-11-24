@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
 import type { Preparation } from '../housing/types';
-import { HomeNoticeTitle } from '../home/HomeNoticeTitle';
+import { NoticeTitle } from '../housing/NoticeTitle';
 import { PreparationIdentity } from './PreparationIdentity';
 
 const preparation: Preparation = {
@@ -28,10 +28,11 @@ describe('준비 공고 제목', () => {
             <MemoryRouter>
                 <PreparationIdentity
                     preparation={preparation}
-                    titleContent={<HomeNoticeTitle title={preparation.title} />}
+                    titleContent={<NoticeTitle title={preparation.title} />}
                 />
             </MemoryRouter>,
         );
+        expect(screen.queryByText('신청 준비 중')).not.toBeInTheDocument();
         expect(
             screen.getByRole('heading', { name: '청년 전세임대 1순위' }),
         ).toBeVisible();
@@ -39,14 +40,25 @@ describe('준비 공고 제목', () => {
             screen.getByRole('link', { name: /공고 정보 확인 중/ }),
         ).toHaveAttribute('href', '/notices/notice-1');
     });
-    it('내 준비에서는 기존 원래 제목 링크를 유지한다', () => {
+    it('내 준비에서도 요약 제목으로 공고 상세에 연결한다', () => {
         render(
             <MemoryRouter>
                 <PreparationIdentity preparation={preparation} />
             </MemoryRouter>,
         );
+        expect(screen.queryByText('신청 준비 중')).not.toBeInTheDocument();
         expect(
-            screen.getByRole('link', { name: /2026년 청년 전세임대/ }),
+            screen.getByRole('link', { name: /^청년 전세임대 1순위 / }),
         ).toHaveAttribute('href', '/notices/notice-1');
+    });
+    it('준비가 끝나도 개인 준비 상태 배지를 생략한다', () => {
+        render(
+            <MemoryRouter>
+                <PreparationIdentity
+                    preparation={{ ...preparation, progress: 100 }}
+                />
+            </MemoryRouter>,
+        );
+        expect(screen.queryByText('준비 기록 완료')).not.toBeInTheDocument();
     });
 });

@@ -1,4 +1,29 @@
 import type { Preparation } from '../housing/types';
+import { showFollowUp } from '../housing/followUp';
+import { needsFollowUp, applicantQuestions } from '../housing/questions';
+import {
+    visiblePreparationQuestions,
+    visiblePreparationDocuments,
+} from '../housing/preparationApplicability';
+
+export function journeyStage(p: Preparation) {
+    if (showFollowUp(p))
+        return p.followUp && p.followUp.result !== 'WAITING' ? 5 : 4;
+    const questions = applicantQuestions(
+        visiblePreparationQuestions(p),
+        Object.values(p.documentConditions ?? {}),
+    );
+    const conditions =
+        p.questions.length > 0 &&
+        questions.every(
+            (q) => !needsFollowUp(q, p.answers[q.id], p.answers, p.questions),
+        );
+    const docs = visiblePreparationDocuments(p);
+    const ready =
+        docs.length > 0 &&
+        docs.every((d) => d.necessity !== 'UNKNOWN' && d.state === 'READY');
+    return !conditions ? 1 : !ready ? 2 : 3;
+}
 export function journeySteps(p: Preparation) {
     const base = '/preparations/' + p.id;
     return [
@@ -25,8 +50,10 @@ export function journeySteps(p: Preparation) {
         },
         {
             label: '후속 절차',
-            path: base + '/schedule#timeline',
-            description: '공고에서 확인된 일정과 공식 근거를 살펴보세요.',
+            path: showFollowUp(p)
+                ? base + '/follow-up'
+                : base + '?application=record',
+            description: '결과·서류 제출·계약·입주 상황을 기록하세요.',
         },
     ];
 }

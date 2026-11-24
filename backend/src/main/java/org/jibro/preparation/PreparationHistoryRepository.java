@@ -3,6 +3,7 @@ package org.jibro.preparation;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 import org.jibro.notice.HousingModels.Snapshot;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -10,9 +11,14 @@ import tools.jackson.databind.ObjectMapper;
 
 @Repository
 public class PreparationHistoryRepository {
-    public record Owner(String title, boolean archived) {}
-    public record Entry(int version, String savedAt) {}
-    public record Detail(int version, String savedAt, Snapshot snapshot) {}
+    public record Owner(String title, boolean archived) {
+    }
+
+    public record Entry(int version, String savedAt) {
+    }
+
+    public record Detail(int version, String savedAt, Snapshot snapshot) {
+    }
 
     private final JdbcTemplate db;
     private final ObjectMapper json;
@@ -24,9 +30,9 @@ public class PreparationHistoryRepository {
 
     public Optional<Owner> findOwner(UUID user, UUID preparationId) {
         return db.query("""
-                SELECT snapshot->'preparation'->>'title' AS title, archived_at IS NOT NULL AS archived
-                FROM preparation WHERE id=? AND user_id=?
-                """, (rs, row) -> new Owner(rs.getString("title"), rs.getBoolean("archived")),
+                        SELECT snapshot->'preparation'->>'title' AS title, archived_at IS NOT NULL AS archived
+                        FROM preparation WHERE id=? AND user_id=?
+                        """, (rs, row) -> new Owner(rs.getString("title"), rs.getBoolean("archived")),
                 preparationId, user).stream().findFirst();
     }
 

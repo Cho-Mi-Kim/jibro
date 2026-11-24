@@ -1,0 +1,319 @@
+{
+    "entries": [
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "age",
+            "sourceTitle": "공고일 기준 만 65세 이상인가요?",
+            "sourceReason": "2026.11.11. 기준 만 65세 이상인 고령자복지주택 대상자입니다. 일반 국민임대의 청년·성년 기준으로 판단하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=4",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "공고일 기준 만 65세 이상인가요?",
+            "preview": "2026년 11월 11일 기준 만 65세 이상이어야 해요.",
+            "sections": [
+                {
+                    "text": "- 2026.11.11.\n- 기준 만 65세 이상인 고령자복지주택 대상자이에요.\n- 일반 국민임대의 청년·성년 기준으로 판단하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "household",
+            "sourceTitle": "무주택 세대 범위와 중복신청 제한을 확인했나요?",
+            "sourceReason": "분리 배우자·외국인 가족·분양권 등 공고의 세대와 주택소유 판단 기준을 확인하세요. 1세대 1주택 신청이며 중복신청은 무효입니다. 불법양도·전대 적발 후 4년 제한도 적용됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=4",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "배우자는 주소가 달라도 포함해요. 부모·자녀 등은 등본과 가족관계에 따라 확인해요.",
+            "sections": [
+                {
+                    "text": "- 주소가 다른 배우자·외국인 가족·분양권 등 공고의 세대와 주택소유 판단 기준을 확인하세요.\n- 1세대 1주택 신청이며 중복신청은 무효예요.\n- 불법양도·전대 적발 후 4년 제한도 적용돼요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "rank",
+            "sourceTitle": "본인의 공급 순위와 소득·자산 기준을 확인했나요?",
+            "sourceReason": "1순위 생계·의료급여 수급자, 2순위 공고에 열거한 국가유공자 등, 3순위 저소득 일반 대상자입니다. 2순위 소득 70%, 3순위 50%에 1·2인가구 가산을 적용합니다. 공고의 영구임대 자산 기준과 수급자 검증 생략 범위를 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=5",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "본인의 공급 순위와 소득·자산 기준을 확인했나요?",
+            "preview": "수급자 1순위·보훈 2순위·일반 저소득 3순위예요. 소득·영구임대 자산 기준을 함께 봐요.",
+            "sections": [
+                {
+                    "text": "1순위는 생계·의료급여 수급자, 2순위는 공고의 국가유공자 등, 3순위는 일반 저소득 가구예요. 2순위는 소득 70%, 3순위는 50% 이하가 기본이고 1인은 20%p·2인은 10%p를 더해요. 영구임대 자산 기준인 총자산 2억 4,500만 원·자동차 4,542만 원을 적용해요. 출생자녀 가산과 수급자 심사 생략은 해당 증빙으로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "공급 순위",
+                        "headers": ["순위", "대상", "기본 소득 기준"],
+                        "rows": [
+                            ["1순위", "생계·의료급여 수급자", "수급자 증명"],
+                            ["2순위", "공고의 국가유공자 등", "70% 이하"],
+                            ["3순위", "일반 저소득 가구", "50% 이하"]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "1순위는 생계·의료급여 수급자, 2순위는 공고의 국가유공자 등, 3순위는 일반 저소득 가구예요. 2순위는 소득 70%, 3순위는 50% 이하가 기본이고 1인은 20%p·2인은 10%p를 더해요. 영구임대 자산 기준인 총자산 2억 4,500만 원·자동차 4,542만 원을 적용해요. 출생자녀 가산과 수급자 심사 생략은 해당 증빙으로 확인해요."
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "points",
+            "sourceTitle": "동일 순위 내 배점과 우선 기준을 확인했나요?",
+            "sourceReason": "장기요양등급·단독세대주·연령·인제군 연속거주·사회취약계층 배점을 합산합니다. 동점 시 건설지역 전입일, 추첨 순입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=8",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "동일 순위 내 배점과 우선 기준을 확인했나요?",
+            "preview": "장기요양·단독세대주·나이·인제 거주·취약계층 점수를 더해요. 동점은 전입일 → 추첨이에요.",
+            "sections": [
+                {
+                    "text": "같은 순위에서는 아래 점수를 합산해요. 점수가 같으면 인제군 전입일이 빠른 사람, 추첨 순으로 정해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "인제서화 배점",
+                        "headers": ["항목", "기준", "점수"],
+                        "rows": [
+                            [
+                                "장기요양",
+                                "3등급 / 4등급 / 5등급 / 인지지원",
+                                "4 / 3 / 2 / 1"
+                            ],
+                            [
+                                "단독세대주",
+                                "등본에 배우자·부모·조부모·자녀·손자녀가 없음",
+                                "3"
+                            ],
+                            [
+                                "나이",
+                                "75세 이상 / 70~75세 미만 / 65~70세 미만",
+                                "3 / 2 / 1"
+                            ],
+                            [
+                                "인제 연속 거주",
+                                "5년 이상 / 3~5년 미만 / 1~3년 미만",
+                                "3 / 2 / 1"
+                            ],
+                            ["수급·차상위", "여러 자격이어도 한 번만", "1"]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "method",
+            "sourceTitle": "신청 방법별 날짜와 서류 제출 방법을 확인했나요?",
+            "sourceReason": "온라인은 11/30~12/4, 현장은 12/1~12/3 10:30~15:30(점심 12~13시 제외)입니다. 온라인 서류제출 대상자는 12/14~12/16 온라인 또는 등기우편으로 제출하며 우편은 12/16 소인까지입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=3",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "신청 방법별 날짜와 서류 제출 방법을 확인했나요?",
+            "preview": "온라인은 11/30~12/4, 현장은 12/1~12/3 10:30~15:30(점심 12~13시 제외)이에요.",
+            "sections": [
+                {
+                    "text": "- 온라인은 11/30~12/4, 현장은 12/1~12/3 10:30~15:30(점심 12~13시 제외)이에요.\n- 온라인 서류제출 대상자는 12/14~12/16 온라인 또는 등기우편으로 제출하며 우편은 12/16 소인까지이에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서(상세) 제출 대상인가요?",
+            "sourceReason": "등본에서 배우자를 확인할 수 없거나 신청자가 세대주가 아니어서 세대 범위 확인이 필요한가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본에서 배우자가 확인되지 않거나 세대 범위를 더 확인해야 하면 상세 가족관계증명서를 내요.",
+            "sections": [
+                {
+                    "text": "배우자가 등본에 없으면 미혼·이혼·사별·세대 분리 여부에 맞춰 상세 가족관계증명서를 내요. 신청자가 세대주가 아니어서 심사할 가족을 확인해야 하는 경우도 해당해요. 외국인 배우자는 등록증 등 사본을 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "배우자가 등본에 없으면 미혼·이혼·사별·세대 분리 여부에 맞춰 상세 가족관계증명서를 내요. 신청자가 세대주가 아니어서 심사할 가족을 확인해야 하는 경우도 해당해요. 외국인 배우자는 등록증 등 사본을 추가해요."
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "거주기간 증명 또는 공고일 이후 주소·세대주 변동이 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "인제 거주기간을 증명하거나 공고일 이후 주소·세대주가 바뀌었다면 초본을 내요.",
+            "sections": [
+                {
+                    "text": "공고일 이후 주소나 세대주가 바뀐 세대원은 과거 주소변동·세대주 이름과 관계를 모두 표시한 초본을 내요. 인제군 거주기간도 전체가 표시되도록 발급해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "공고일 이후 주소나 세대주가 바뀐 세대원은 과거 주소변동·세대주 이름과 관계를 모두 표시한 초본을 내요. 인제군 거주기간도 전체가 표시되도록 발급해요."
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "applies-spouse",
+            "sourceTitle": "분리 배우자·종전 세대주 등본 제출 대상인가요?",
+            "sourceReason": "배우자가 세대 분리되었거나 공고일 이후 세대주와 분리되었나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "배우자·종전 세대주의 등본도 필요한가요?",
+            "preview": "따로 사는 배우자나 공고일 이후 분리된 종전 세대주의 등본을 추가해요.",
+            "sections": [
+                {
+                    "text": "배우자와 등본이 다르면 배우자 등본을 추가해요. 공고일 이후 당시 세대주와 등본이 갈라진 신청자는 당시 세대주의 등본도 추가해요. 세대 구성·관계·전입변동을 전부 표시해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "배우자와 등본이 다르면 배우자 등본을 추가해요. 공고일 이후 당시 세대주와 등본이 갈라진 신청자는 당시 세대주의 등본도 추가해요. 세대 구성·관계·전입변동을 전부 표시해요."
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "applies-proof",
+            "sourceTitle": "순위·가점 증빙 제출 대상인가요?",
+            "sourceReason": "수급자·차상위·국가유공자·장기요양등급 등의 순위나 가점을 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "순위·가점 증빙 누가 내나요?",
+            "preview": "수급·차상위·보훈·장기요양 중 신청할 순위·가점에 맞는 증명서만 준비해요.",
+            "sections": [
+                {
+                    "text": "순위·가점 증빙\n해당되는 경우 공고의 증명서 종류와 발급·제출 기준을 확인해 준비하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "applies-proxy",
+            "sourceTitle": "현장 본인·대리인 확인서류 제출 대상인가요?",
+            "sourceReason": "현장 신청이나 대리 제출을 하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "직접 가거나 대신 신청할 때 무엇을 챙기나요?",
+            "preview": "현장에 오는 본인·배우자·그 밖의 대리인에 맞는 신분증·위임 서류를 준비해요.",
+            "sections": [
+                {
+                    "text": "직접 가면 본인 신분증·도장(서명 가능)을 챙겨요. 배우자가 가면 양쪽 신분증·신청자 도장·관계 입증서류가 필요해요. 그 밖의 대리인은 신청자 본인 발급 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비해요. 양쪽 신분증도 필요하고 2020년 12월 21일 이후 여권은 여권정보증명서를 함께 내요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "직접 가면 본인 신분증·도장(서명 가능)을 챙겨요. 배우자가 가면 양쪽 신분증·신청자 도장·관계 입증서류가 필요해요. 그 밖의 대리인은 신청자 본인 발급 인감증명서·인감도장·위임장 또는 본인서명사실확인서·자필 위임장 중 한 방식을 준비해요. 양쪽 신분증도 필요하고 2020년 12월 21일 이후 여권은 여권정보증명서를 함께 내요."
+            ]
+        },
+        {
+            "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인 가족 증빙 제출 대상인가요?",
+            "sourceReason": "공고에서 자격검증에 포함하는 외국인 가족이 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                "sha256": "1d594409d63f59d15609c0c883dbebc31781f682382e7db66856c9777f8736b1"
+            },
+            "heading": "외국인 가족은 어떤 서류로 확인하나요?",
+            "preview": "함께 심사하는 외국인 가족은 등록·거소 사실을 확인할 증명서를 준비해요.",
+            "sections": [
+                {
+                    "text": "외국인 가족 증빙\n해당되는 경우 공고의 증명서 종류와 발급·제출 기준을 확인해 준비하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69338139#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

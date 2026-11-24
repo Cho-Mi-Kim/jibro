@@ -98,27 +98,6 @@
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
-.source {
-    display: grid;
-    gap: 0.25rem;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-.source a {
-    color: var(--brand);
-    text-underline-offset: 0.2em;
-}
-.source svg {
-    display: inline;
-    width: 1rem;
-    height: 1rem;
-    margin-inline-start: 0.25rem;
-    vertical-align: text-bottom;
-}
-.source > span {
-    color: var(--muted);
-}
 .actions {
     display: flex;
     align-items: center;

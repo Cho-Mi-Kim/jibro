@@ -3,7 +3,7 @@ import {
     documentNeedsReview,
     documentReviewIssues,
     questionReviewIssues,
-    scheduleReviewIssues,
+    areaReviewIssues,
 } from './reviewIssueSelectors';
 import type { DocumentItem, ReviewIssue } from './types';
 
@@ -44,6 +44,14 @@ describe('부분 준비 안내의 확인 대상', () => {
             documentReviewIssues([issue], 'dependent-doc', 'family'),
         ).toEqual([issue]);
         expect(documentReviewIssues(undefined, 'old-doc')).toEqual([]);
-        expect(scheduleReviewIssues([issue])).toEqual([]);
+        expect(areaReviewIssues([issue], 'SCHEDULE')).toEqual([]);
+        const unlinked = { ...issue, questionIds: [], documentIds: [] };
+        expect(areaReviewIssues([issue, unlinked], 'CONDITION')).toEqual([
+            unlinked,
+        ]);
+        const schedule = { ...issue, area: 'SCHEDULE' as const };
+        expect(areaReviewIssues([issue, schedule], 'SCHEDULE')).toEqual([
+            schedule,
+        ]);
     });
 });

@@ -1,21 +1,22 @@
 import { NoticeLifecycleNotice } from '../housing/NoticeLifecycleNotice';
-import { PartialGuidanceNotice } from '../housing/ReviewIssues';
 import { useNotice } from '../housing/useNotice';
-import { cx } from '../../shared/styles/classes';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
 import { api } from '../housing/api';
 import type { Preparation } from '../housing/types';
-import { Button, Card } from '../../shared/ui/ui';
+import { Button } from '../../shared/ui/ui';
+import { Icon } from '../../shared/ui/Icon';
 import { preparationTabPath, preparationTabs } from './preparationTabRoutes';
 import styles from './PreparationHeader.module.css';
 import { useSaved } from './usePreparation';
 export function GuidanceRefresh({
     p,
     onRefreshed,
+    showUnavailable = false,
 }: {
     p: Preparation;
     onRefreshed?: () => void;
+    showUnavailable?: boolean;
 }) {
     const notice = useNotice(p.noticeId);
     const saved = useSaved();
@@ -31,28 +32,53 @@ export function GuidanceRefresh({
         !notice.data ||
         notice.data.guideState !== 'AVAILABLE' ||
         notice.data.version <= p.version
-    )
-        return null;
+    ) {
+        if (!showUnavailable || p.guideState === 'AVAILABLE') return null;
+        return (
+            <aside className={styles.guidanceCard}>
+                <h2>
+                    <Icon name="info" />
+                    기록을 조회할 수 있어요
+                </h2>
+                <p>
+                    기존 기록은 보관돼요. 새 준비 안내가 제공되면 다시 저장할 수
+                    있어요.
+                </p>
+            </aside>
+        );
+    }
     return (
-        <Card>
-            <h2>새로운 질문과 준비 안내가 있어요</h2>
-            <p>
-                기존 답변은 이전 기록으로 보관하고, 바뀐 질문은 다시 답변합니다.
-                서류 메모는 유지하며 완료한 서류는 재확인이 필요합니다.
-            </p>
-            <Link to={'/notices/' + p.noticeId + '/versions'}>
-                수정 전후 비교
-            </Link>
-            <Button
-                disabled={refresh.isPending}
-                onClick={() => refresh.mutate()}
-            >
-                {refresh.isPending
-                    ? '불러오는 중…'
-                    : '새 안내로 질문 다시 확인하기'}
-            </Button>
+        <section className={styles.guidanceCard}>
+            <h2>
+                <Icon name="file" />
+                준비 안내가 바뀌었어요
+            </h2>
+            {p.guideState !== 'AVAILABLE' && (
+                <p>새 안내를 적용하면 다시 저장할 수 있어요.</p>
+            )}
+            <dl className={styles.guidanceFacts}>
+                <div>
+                    <dt>조건</dt>
+                    <dd>이전 답변은 보관돼요. 바뀐 질문에 다시 답해 주세요.</dd>
+                </div>
+                <div>
+                    <dt>서류</dt>
+                    <dd>메모는 유지돼요. 완료한 서류는 다시 확인해 주세요.</dd>
+                </div>
+            </dl>
+            <div className={styles.guidanceActions}>
+                <Link to={'/notices/' + p.noticeId + '/versions'}>
+                    수정 전후 비교
+                </Link>
+                <Button
+                    disabled={refresh.isPending}
+                    onClick={() => refresh.mutate()}
+                >
+                    {refresh.isPending ? '적용 중…' : '새 안내 적용하기'}
+                </Button>
+            </div>
             {refresh.error && <p role="alert">{refresh.error.message}</p>}
-        </Card>
+        </section>
     );
 }
 export function PreparationGuidance({ p }: { p: Preparation }) {
@@ -60,16 +86,7 @@ export function PreparationGuidance({ p }: { p: Preparation }) {
     return (
         <>
             <NoticeLifecycleNotice notice={notice.data} preparation />
-            <GuidanceRefresh p={p} />
-            {p.guideState === 'AVAILABLE' && (
-                <PartialGuidanceNotice issues={p.reviewIssues} />
-            )}
-            {p.guideState !== 'AVAILABLE' && (
-                <p className={cx('callout')}>
-                    현재 기록과 최신 안내가 다르거나 안내 검수 중입니다. 기존
-                    기록은 보존되며 새 안내 확인 전에는 저장할 수 없습니다.
-                </p>
-            )}
+            <GuidanceRefresh p={p} showUnavailable />
         </>
     );
 }
@@ -77,25 +94,33 @@ export function PreparationGuidance({ p }: { p: Preparation }) {
 export function PreparationNav({
     id,
     overviewIsList,
+    followUpVisible = false,
 }: {
     id: string;
     overviewIsList: boolean;
+    followUpVisible?: boolean;
 }) {
+    const { state } = useLocation();
     return (
         <nav className={styles.tabs} aria-label="개인 준비">
-            {preparationTabs.map(([section, label]) => (
-                <NavLink
-                    key={section}
-                    to={
-                        !section && overviewIsList
-                            ? '/preparations'
-                            : preparationTabPath(id, section)
-                    }
-                    end
-                >
-                    {label}
-                </NavLink>
-            ))}
+            {preparationTabs
+                .filter(
+                    ([section]) => section !== 'follow-up' || followUpVisible,
+                )
+                .map(([section, label]) => (
+                    <NavLink
+                        key={section}
+                        to={
+                            !section && overviewIsList
+                                ? '/preparations'
+                                : preparationTabPath(id, section)
+                        }
+                        state={state?.detailReturn ? state : undefined}
+                        end
+                    >
+                        {label}
+                    </NavLink>
+                ))}
         </nav>
     );
 }

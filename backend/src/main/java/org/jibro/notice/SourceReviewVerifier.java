@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.time.Clock;
 import java.util.*;
 import java.util.stream.Stream;
+
 import org.jibro.collection.LhNoticeClient;
 import org.jibro.collection.attachments.AttachmentFingerprintClient;
 import org.jibro.collection.extraction.ExtractionModels.Source;
@@ -14,9 +15,12 @@ import org.jibro.collection.extraction.OfficialDetailParser;
 import org.jibro.global.common.ApiException;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.ObjectMapper;
+
 import static org.jibro.notice.SourceReviewModels.*;
 
-/** Re-fetches reviewed evidence before an explicitly requested editorial application. No scheduler uses this path. */
+/**
+ * Re-fetches reviewed evidence before an explicitly requested editorial application. No scheduler uses this path.
+ */
 @Component
 public class SourceReviewVerifier {
     private final AutomaticReviewRepository extractions;
@@ -25,41 +29,95 @@ public class SourceReviewVerifier {
     private final ObjectMapper json;
     private final Clock clock;
     private final SupplementalSourceVerifier supplemental;
-    /** Cannot be constructed by a caller; only successful live verification issues a receipt. */
+
+    /**
+     * Cannot be constructed by a caller; only successful live verification issues a receipt.
+     */
     public static final class Verification {
         private final String packageFingerprint, extractionFingerprint, detailUrl;
         private final Instant checkedAt;
         private final Map<String, String> freshDigests;
-        private Verification(String packageFingerprint, String extractionFingerprint, String detailUrl, Instant checkedAt, Map<String, String> freshDigests) {
-            this.packageFingerprint=packageFingerprint; this.extractionFingerprint=extractionFingerprint;
-            this.detailUrl=detailUrl; this.checkedAt=checkedAt; this.freshDigests=Map.copyOf(freshDigests);
+        private final boolean conditionsOnly;
+        private final Set<String> retainedEvidence;
+
+        private Verification(String packageFingerprint, String extractionFingerprint, String detailUrl, Instant checkedAt, Map<String, String> freshDigests,
+                             boolean conditionsOnly, Set<String> retainedEvidence) {
+            this.packageFingerprint = packageFingerprint;
+            this.extractionFingerprint = extractionFingerprint;
+            this.detailUrl = detailUrl;
+            this.checkedAt = checkedAt;
+            this.freshDigests = Map.copyOf(freshDigests);
+            this.conditionsOnly = conditionsOnly;
+            this.retainedEvidence = Set.copyOf(retainedEvidence);
         }
-        public String packageFingerprint() { return packageFingerprint; }
-        public String extractionFingerprint() { return extractionFingerprint; }
-        public Instant checkedAt() { return checkedAt; }
-        public String detailUrl() { return detailUrl; }
-        public Map<String,String> freshDigests() { return freshDigests; }
+
+        public String packageFingerprint() {
+            return packageFingerprint;
+        }
+
+        public String extractionFingerprint() {
+            return extractionFingerprint;
+        }
+
+        public Instant checkedAt() {
+            return checkedAt;
+        }
+
+        public String detailUrl() {
+            return detailUrl;
+        }
+
+        public Map<String, String> freshDigests() {
+            return freshDigests;
+        }
+
+        public boolean conditionsOnly() {
+            return conditionsOnly;
+        }
+
+        public Set<String> retainedEvidence() {
+            return retainedEvidence;
+        }
     }
+
     @org.springframework.beans.factory.annotation.Autowired
     public SourceReviewVerifier(AutomaticReviewRepository extractions, NoticeService notices,
                                 AttachmentFingerprintClient http, ObjectMapper json, SupplementalSourceVerifier supplemental) {
         this(extractions, notices, http, json, Clock.systemUTC(), supplemental);
     }
+
     public SourceReviewVerifier(AutomaticReviewRepository extractions, NoticeService notices,
                                 AttachmentFingerprintClient http, ObjectMapper json) {
         this(extractions, notices, http, json, Clock.systemUTC());
     }
+
     SourceReviewVerifier(AutomaticReviewRepository extractions, NoticeService notices,
-                                AttachmentFingerprintClient http, ObjectMapper json, Clock clock) {
+                         AttachmentFingerprintClient http, ObjectMapper json, Clock clock) {
         this(extractions, notices, http, json, clock, new SupplementalSourceVerifier(http));
     }
+
     SourceReviewVerifier(AutomaticReviewRepository extractions, NoticeService notices,
-                                AttachmentFingerprintClient http, ObjectMapper json, Clock clock, SupplementalSourceVerifier supplemental) {
-        this.extractions = extractions; this.notices = notices; this.http = http; this.json = json; this.clock = clock;
+                         AttachmentFingerprintClient http, ObjectMapper json, Clock clock, SupplementalSourceVerifier supplemental) {
+        this.extractions = extractions;
+        this.notices = notices;
+        this.http = http;
+        this.json = json;
+        this.clock = clock;
         this.supplemental = supplemental;
     }
 
     public Verification verify(SourceReviewModels.Package p) throws Exception {
+        return verify(p, false);
+    }
+
+    /**
+     * Only unchanged prior schedules/issues may retain their already published ancillary evidence.
+     */
+    public Verification verifyConditions(SourceReviewModels.Package p) throws Exception {
+        return verify(p, true);
+    }
+
+    private Verification verify(SourceReviewModels.Package p, boolean conditionsOnly) throws Exception {
         Instant verificationStartedAt = clock.instant();
         validate(p);
         var snapshot = extractions.snapshot(p.extractionId());
@@ -72,7 +130,8 @@ public class SourceReviewVerifier {
         var storedDetail = detailSource(p.noticeId(), original.content().evidence().url(), draft.sources());
         var detailUrl = storedDetail.url();
         var detail = OfficialDetailParser.parse(http.html(detailUrl), detailUrl);
-        if (!detail.parts().equals(storedDetail.context())) throw new IllegalArgumentException("OFFICIAL_DETAIL_CHANGED");
+        if (!detail.parts().equals(storedDetail.context()))
+            throw new IllegalArgumentException("OFFICIAL_DETAIL_CHANGED");
         Set<String> currentFiles = new HashSet<>();
         detail.attachments().forEach(s -> currentFiles.add(s.url()));
         Map<String, SourceReview> reviewed = new LinkedHashMap<>();
@@ -87,12 +146,14 @@ public class SourceReviewVerifier {
         Map<String, String> digests = new LinkedHashMap<>();
         for (var source : p.sourceReviews()) {
             if (source.url().equals(detailUrl)) {
-                if (!Objects.equals(source.sha256(), storedDetail.sha256())) throw new IllegalArgumentException("REVIEWED_DETAIL_SNAPSHOT_CHANGED");
+                if (!Objects.equals(source.sha256(), storedDetail.sha256()))
+                    throw new IllegalArgumentException("REVIEWED_DETAIL_SNAPSHOT_CHANGED");
                 digests.put(source.url(), hash(json.writeValueAsString(detail.parts())));
                 continue;
             }
             if (!currentFiles.contains(source.url())) {
-                if (!additional.containsKey(source.url())) throw new IllegalArgumentException("NOT_A_CURRENT_OFFICIAL_ATTACHMENT");
+                if (!additional.containsKey(source.url()))
+                    throw new IllegalArgumentException("NOT_A_CURRENT_OFFICIAL_ATTACHMENT");
                 digests.put(source.url(), additional.get(source.url()));
                 continue;
             }
@@ -104,12 +165,22 @@ public class SourceReviewVerifier {
             if (!source.sha256().equals(digest.sha256())) throw new IllegalArgumentException("REVIEWED_FILE_CHANGED");
             digests.put(source.url(), digest.sha256());
         }
+        Set<String> retained = new HashSet<>();
         if (complete && p.content() != null) {
             var c = p.content();
             Stream<HousingModels.Evidence> evidence = Stream.concat(Stream.of(c.evidence()), Stream.concat(c.attachments().stream(),
                 Stream.concat(c.questions().stream().map(HousingModels.Question::evidence),
-                    Stream.concat(c.documents().stream().map(HousingModels.DocumentTemplate::evidence), c.schedules().stream().map(HousingModels.ScheduleTemplate::evidence)))));
-            evidence = Stream.concat(evidence, c.reviewIssues().stream().flatMap(issue -> issue.evidence().stream()));
+                    c.documents().stream().map(HousingModels.DocumentTemplate::evidence))));
+            for (var schedule : c.schedules()) {
+                if (conditionsOnly && original.content().schedules().contains(schedule))
+                    retained.add(withoutFragment(schedule.evidence().url()));
+                else evidence = Stream.concat(evidence, Stream.of(schedule.evidence()));
+            }
+            for (var issue : c.reviewIssues()) {
+                if (conditionsOnly && original.content().reviewIssues().contains(issue))
+                    issue.evidence().forEach(e -> retained.add(withoutFragment(e.url())));
+                else evidence = Stream.concat(evidence, issue.evidence().stream());
+            }
             if (p.confirmedOpenEndedPeriod() != null)
                 evidence = Stream.concat(evidence, Stream.of(p.confirmedOpenEndedPeriod().evidence()));
             if (c.applicationClosure() != null)
@@ -117,7 +188,8 @@ public class SourceReviewVerifier {
             if (evidence.anyMatch(e -> !reviewed.containsKey(withoutFragment(e.url()))))
                 throw new IllegalArgumentException("CONTENT_HAS_UNREVIEWED_EVIDENCE");
         }
-        return new Verification(hash(json.writeValueAsString(p)), snapshot.fingerprint(), detailUrl, verificationStartedAt, digests);
+        retained.removeAll(reviewed.keySet());
+        return new Verification(hash(json.writeValueAsString(p)), snapshot.fingerprint(), detailUrl, verificationStartedAt, digests, conditionsOnly, retained);
     }
 
     private Source detailSource(UUID noticeId, String evidenceUrl, List<Source> sources) {
@@ -132,8 +204,11 @@ public class SourceReviewVerifier {
         var sourceKey = notices.entity(noticeId).sourceKey;
         var candidates = sources.stream().filter(source -> "EXTRACTED".equals(source.status()))
             .filter(source -> {
-                try { OfficialCorrectionLink.identity(source.url()); }
-                catch (IllegalArgumentException unsupported) { return false; }
+                try {
+                    OfficialCorrectionLink.identity(source.url());
+                } catch (IllegalArgumentException unsupported) {
+                    return false;
+                }
                 return LhNoticeClient.sourceKey(source.url()).equals(sourceKey);
             }).toList();
         if (candidates.size() != 1) throw new IllegalArgumentException("OFFICIAL_DETAIL_SOURCE_REQUIRED");
@@ -174,13 +249,21 @@ public class SourceReviewVerifier {
         Set<String> additional = new HashSet<>();
         for (var reference : p.supplementalReferences()) {
             SupplementalSourceVerifier.validate(reference);
-            if (!additional.add(reference.url())) throw new IllegalArgumentException("DUPLICATE_SUPPLEMENTAL_REFERENCE");
+            if (!additional.add(reference.url()))
+                throw new IllegalArgumentException("DUPLICATE_SUPPLEMENTAL_REFERENCE");
         }
         if (p.confirmedOpenEndedPeriod() != null) EvidenceValidation.validate(p.confirmedOpenEndedPeriod().evidence());
     }
-    static String withoutFragment(String url) { return url.split("#", 2)[0]; }
+
+    static String withoutFragment(String url) {
+        return url.split("#", 2)[0];
+    }
+
     static String hash(String text) {
-        try { return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8))); }
-        catch (java.security.NoSuchAlgorithmException impossible) { throw new IllegalStateException(impossible); }
+        try {
+            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(text.getBytes(StandardCharsets.UTF_8)));
+        } catch (java.security.NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException(impossible);
+        }
     }
 }

@@ -5,12 +5,15 @@ import static org.jibro.notice.HousingModels.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import jakarta.persistence.EntityManager;
+
 import java.time.*;
 import java.util.*;
+
 import org.jibro.auth.AuthService;
 import org.jibro.collection.LhNoticeClient;
 import org.jibro.collection.extraction.ExtractionModels.*;
 import org.jibro.collection.extraction.ExtractionStore;
+import org.jibro.collection.review.PairedPreparationItems;
 import org.jibro.preparation.PreparationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,194 +28,454 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Transactional
 class AutomaticFollowupPublicationIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired AutomaticPublicationService automatic;
-    @Autowired AutomaticFollowupPublicationService publication;
-    @Autowired FollowupReviewRepository queue;
-    @Autowired AutomaticReviewRepository evidence;
-    @Autowired ExtractionStore extraction;
-    @Autowired AuthService auth;
-    @Autowired PreparationService preparations;
-    @Autowired JdbcTemplate db;
-    @Autowired EntityManager entities;
-    @Autowired ObjectMapper json;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    AutomaticPublicationService automatic;
+    @Autowired
+    AutomaticFollowupPublicationService publication;
+    @Autowired
+    FollowupReviewRepository queue;
+    @Autowired
+    AutomaticReviewRepository evidence;
+    @Autowired
+    ExtractionStore extraction;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    PreparationService preparations;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    EntityManager entities;
+    @Autowired
+    ObjectMapper json;
     UUID id, extractionId;
     String url;
     Content content;
     LocalDate start, end;
 
-    @BeforeEach void setup() {
+    @BeforeEach
+    void setup() {
         url = "https://apply.lh.or.kr/detail.do?id=" + UUID.randomUUID();
         id = notices.importSource(new LhNoticeClient.Item(LhNoticeClient.sourceKey(url), "자동 후속 검토 테스트",
-            "서울", "청년 매입임대", url, LocalDate.now().minusDays(1), "a".repeat(64)));
+                "서울", "청년 매입임대", url, LocalDate.now().minusDays(1), "a".repeat(64)));
         assertTrue(automatic.basic(id));
         entities.flush();
         var draft = extraction.enqueue(id, false);
         extractionId = UUID.fromString(draft.id());
         extraction.finish(extraction.claim(id), List.of(source("원문 전체 자격과 서류 및 일정")), "READY", "완료");
-        start = LocalDate.now().minusDays(1); end = LocalDate.now().plusDays(30);
+        start = LocalDate.now().minusDays(1);
+        end = LocalDate.now().plusDays(30);
         var e = new Evidence("공식 모집 공고 1쪽", url, LocalDate.now().toString());
         content = new Content("공식 자료의 자격·서류·일정을 확인했습니다.", e, List.of(),
-            List.of(new Question("housing", "무주택 기준을 확인했나요?", "가구원 범위를 확인해 주세요.", e),
-                new Question("income", "소득 기준을 확인했나요?", "소득 산정 범위를 확인해 주세요.", e)),
-            List.of(new DocumentTemplate("registry", "주민등록등본", null, "공식 발급처 확인", "정부24", url, e),
-                new DocumentTemplate("income-proof", "소득 증빙", "income", "공식 원문 확인", "LH", url, e)),
-            List.of(new ScheduleTemplate("start", "신청 접수 시작", start.toString(), e),
-                new ScheduleTemplate("end", "신청 접수 마감", end.toString(), e)));
+                List.of(new Question("housing", "무주택 기준을 확인했나요?", "가구원 범위를 확인해 주세요.", e),
+                        new Question("income", "소득 기준을 확인했나요?", "소득 산정 범위를 확인해 주세요.", e)),
+                List.of(new DocumentTemplate("registry", "주민등록등본", null, "공식 발급처 확인", "정부24", url, e),
+                        new DocumentTemplate("income-proof", "소득 증빙", "income", "공식 원문 확인", "LH", url, e)),
+                List.of(new ScheduleTemplate("start", "신청 접수 시작", start.toString(), e),
+                        new ScheduleTemplate("end", "신청 접수 마감", end.toString(), e)));
     }
 
     Source source(String text) {
         return new Source("공식 상세 본문", url, "b".repeat(64), "EXTRACTED", "", List.of(), List.of(new Part("본문", text)));
     }
-    Job claim() { return queue.claim(id).orElseThrow(); }
+
+    @Test
+    void correctionFindsOnlyLinkedApprovedGuideAndRetainsStructuredSnapshot() {
+        assertEquals("PASS", publish().state());
+        assertEquals(2, db.queryForObject("SELECT jsonb_array_length(preparation->'questions') FROM published_notice_version WHERE notice_id=? ORDER BY revision DESC LIMIT 1", Integer.class, id));
+        String linked = "https://apply.lh.or.kr/detail.do?id=" + UUID.randomUUID();
+        var newer = notices.importSource(new LhNoticeClient.Item(LhNoticeClient.sourceKey(linked), "정정공고", "서울", "청년 매입임대", linked, LocalDate.now(), "d".repeat(64)));
+        entities.flush();
+        assertTrue(queue.priorGuides(newer).isEmpty());
+        db.update("INSERT INTO notice_correction(original_notice_id,corrected_notice_id,original_revision,corrected_revision,reason,evidence,checked_at) VALUES(?,?,1,1,'공식 정정 이력','{}',now())", id, newer);
+        var prior = queue.priorGuides(newer);
+        assertEquals(1, prior.size());
+        assertEquals(content.questions(), prior.get(0).guide().questions());
+        assertEquals(content.documents(), prior.get(0).guide().documents());
+        assertTrue(evidence.requiresFollowupComparison(newer));
+        assertTrue(queue.verifiedPrior(prior.get(0)).isEmpty(), "an additional governing source cannot be reconstructed from the old primary alone");
+    }
+
+    @Test
+    void newOfficialLinkBetweenComparisonAndPublicationSupersedesReceipt() {
+        var job = claim();
+        var staged = queue.stage(job, queue.primary(job).orElseThrow(), "e".repeat(64), Instant.now(),
+                "{\"priorGuideToken\":\"\"}", Decision.ready(content, start, end));
+        String original = "https://apply.lh.or.kr/detail.do?id=" + UUID.randomUUID();
+        var older = notices.importSource(new LhNoticeClient.Item(LhNoticeClient.sourceKey(original), "원공고", "서울", "청년 매입임대", original, LocalDate.now(), "e".repeat(64)));
+        entities.flush();
+        db.update("UPDATE notice SET basic_review='PASS',guide_review='PASS',change_review=false,content=?::jsonb WHERE id=?", json.writeValueAsString(content), older);
+        db.update("INSERT INTO notice_correction(original_notice_id,corrected_notice_id,original_revision,corrected_revision,reason,evidence,checked_at) VALUES(?,?,1,1,'공식 정정 이력','{}',now())", older, id);
+        assertFalse(queue.priorGuides(id).isEmpty());
+        assertEquals("SUPERSEDED", publication.publish(staged).state());
+        assertTrue(notices.content(id).questions().isEmpty());
+    }
+
+    @Test
+    void invalidScopedIntakeLeavesAnApprovedGuideIntact() {
+        assertEquals("PASS", publish().state());
+        due();
+        var job = claim();
+        var empty = new Content("접수 일정", content.evidence(), List.of(), List.of(), List.of(), List.of());
+        var receipt = queue.stage(job, queue.primary(job).orElseThrow(), "f".repeat(64), Instant.now(),
+                "{\"scopedCorrection\":true,\"confirmedItems\":[{}]}", new Decision("INTAKE", empty, end, start, List.of()));
+        assertEquals("SUPERSEDED", publication.publish(receipt).state());
+        clear();
+        assertEquals(content, notices.content(id));
+    }
+
+    Job claim() {
+        return queue.claim(id).orElseThrow();
+    }
+
     Receipt stage(Job job, String hash, Decision decision) {
         return queue.stage(job, queue.primary(job).orElseThrow(), hash.repeat(64), Instant.now(),
-            "{\"discovery\":{\"related\":[{\"url\":\"https://apply.lh.or.kr/followup.pdf\"}]}}", decision);
+                "{\"discovery\":{\"related\":[{\"url\":\"https://apply.lh.or.kr/followup.pdf\"}]}}", decision);
     }
-    Outcome publish() { return publication.publish(stage(claim(), "c", Decision.ready(content, start, end))); }
-    void due() { db.update("UPDATE notice_followup_queue SET next_check_at=clock_timestamp()-interval '1 second' WHERE notice_id=?", id); }
-    String state(UUID run) { return db.queryForObject("SELECT state FROM automatic_followup_review WHERE id=?", String.class, run); }
-    String storedContent() { return db.queryForObject("SELECT content::text FROM notice WHERE id=?", String.class, id); }
-    void clear() { entities.flush(); entities.clear(); }
 
-    @Test void closedNoticeIsNeitherClaimedNorPublishedWhenItClosesDuringVerification() {
+    Outcome publish() {
+        return publication.publish(stage(claim(), "c", Decision.ready(content, start, end)));
+    }
+
+    void due() {
+        db.update("UPDATE notice_followup_queue SET next_check_at=clock_timestamp()-interval '1 second' WHERE notice_id=?", id);
+    }
+
+    String state(UUID run) {
+        return db.queryForObject("SELECT state FROM automatic_followup_review WHERE id=?", String.class, run);
+    }
+
+    String storedContent() {
+        return db.queryForObject("SELECT content::text FROM notice WHERE id=?", String.class, id);
+    }
+
+    @Autowired
+    org.jibro.notice.source.NoticeSourceInformationService information;
+
+    @Test
+    void certifiedItemsArePublicOnlyForCurrentEvidenceAndDisappearAtClosure() {
+        var notice = notices.entity(id);
+        notice.startDate = start;
+        notice.endDate = end;
+        clear();
+        String documentText = "6. 제출서류\n• 배우자가 등본에 없는 신청자는 가족관계증명서를 제출합니다.\n7. 계약안내";
+        var fresh = extraction.enqueue(id, true);
+        // Both extractions belong to this transaction, so give the replacement an explicit order.
+        db.update("UPDATE notice_extraction SET created_at=clock_timestamp()+interval '1 second' WHERE id=?", UUID.fromString(fresh.id()));
+        extraction.finish(extraction.claim(id), List.of(source("공식 모집 공고"),
+                new Source("모집공고.hwpx", "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=123", "c".repeat(64), "EXTRACTED", "", List.of(), List.of(new Part("한글 원문", documentText))),
+                new Source("모집공고.pdf", "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=124", "d".repeat(64), "EXTRACTED", "", List.of(), List.of(new Part("공고문 4쪽", documentText)))), "READY", "완료");
+        var job = claim();
+        var primary = queue.primary(job).orElseThrow();
+        var sections = PairedPreparationItems.read(primary.snapshot().draft(), primary.originalContent().evidence().url());
+        assertEquals(1, sections.size());
+        assertEquals("배우자가 등본에 없는 신청자는 가족관계증명서를 제출합니다.", sections.get(0).text());
+        assertEquals("https://apply.lh.or.kr/lhapply/lhFile.do?fileid=124#page=4&sha256=" + "d".repeat(64), sections.get(0).evidence().url());
+        var receipt = queue.stage(job, primary, "c".repeat(64), Instant.now(),
+                json.writeValueAsString(Map.of("confirmedItems", sections)), new Decision("ITEMS", null, null, null, List.of()));
+        assertEquals("ITEMS", publication.publish(receipt).state());
+        assertEquals(sections, information.get(id).confirmedItems());
+        assertTrue(notices.content(id).questions().isEmpty());
+        assertFalse(notices.notice(id).canStart());
+        due();
+        assertEquals("UNCHANGED", publication.publish(stage(claim(), "c", Decision.unchanged())).state());
+        assertEquals(sections, information.get(id).confirmedItems());
+        var preview = queue.completedPreview(id, UUID.fromString(primary.snapshot().draft().id()), primary.snapshot().fingerprint()).orElseThrow();
+        assertEquals("ITEMS", preview.state());
+        assertFalse(preview.ready());
+        assertEquals(sections, preview.confirmedItems());
+        notices.entity(id).applicationEndAt = Instant.now().minusSeconds(10);
+        clear();
+        assertTrue(information.get(id).confirmedItems().isEmpty());
+        assertTrue(queue.claim(id).isEmpty());
+    }
+
+    @Test
+    void intakeDecisionChangesOnlySchedulesAndRejectsAlreadyEndedResults() {
+        assertTrue(publish().changed());
+        due();
+        var later = end.plusDays(1);
+        var schedule = new ScheduleTemplate("auto-application-end", "신청 접수 마감", later + "T15:00", content.evidence());
+        var update = new Content("일정", content.evidence(), List.of(), List.of(), List.of(), List.of(schedule));
+        assertTrue(publication.publish(stage(claim(), "e", new Decision("INTAKE", update, null, later, List.of()))).changed());
+        clear();
+        assertEquals(content.documents(), notices.content(id).documents());
+        assertEquals(content.questions(), notices.content(id).questions());
+        assertEquals(later, notices.notice(id).endDate());
+        due();
+        var past = LocalDate.now().minusDays(1);
+        var ended = stage(claim(), "f", new Decision("INTAKE", update, null, past, List.of()));
+        assertFalse(publication.publish(ended).changed());
+        assertEquals(later, notices.notice(id).endDate());
+    }
+
+    @Test
+    void scheduleReviewIsRemovedOnConfirmationAndOtherIssuesSurvive() {
+        var unrelated = new ReviewIssue("document-date", "SCHEDULE", "서류 마감 확인", "서류 마감은 별도 확인합니다.",
+                List.of(), List.of(), List.of(content.evidence()));
+        content = new Content(content.summary(), content.evidence(), content.attachments(), content.questions(),
+                content.documents(), content.schedules(), List.of(unrelated));
+        assertTrue(publish().changed());
+        due();
+        var clock = new ReviewIssue("intake-review-auto-scoped-1-start", "SCHEDULE", "현장 접수 시작 시각 확인 필요",
+                "공식 자료의 시각이 다릅니다.", List.of(), List.of(), List.of(content.evidence()));
+        var interim = new Content("일정", content.evidence(), List.of(), List.of(), List.of(), content.schedules(), List.of(clock));
+        assertTrue(publication.publish(stage(claim(), "d", new Decision("INTAKE", interim, start, end, List.of()))).changed());
+        clear();
+        assertEquals(List.of(unrelated, clock), notices.content(id).reviewIssues());
+        due();
+        var verified = new Content("일정", content.evidence(), List.of(), List.of(), List.of(), content.schedules());
+        assertTrue(publication.publish(stage(claim(), "e", new Decision("INTAKE", verified, start, end, List.of()))).changed());
+        clear();
+        assertEquals(List.of(unrelated), notices.content(id).reviewIssues());
+        assertEquals(content.documents(), notices.content(id).documents());
+    }
+
+    void clear() {
+        entities.flush();
+        entities.clear();
+    }
+
+    @Test
+    void keepsVerifiedAmendedIntakeTimesVisibleWhileOtherGuidanceIsUnderReview() {
+        var corrected = new Content("공식 정정 접수 기간", content.evidence(), List.of(), List.of(), List.of(),
+                List.of(new ScheduleTemplate("auto-application-start", "신청 접수 시작", start + "T10:00", content.evidence()),
+                        new ScheduleTemplate("auto-application-end", "신청 접수 마감", end + "T18:00", content.evidence())));
+        var receipt = stage(claim(), "d", new Decision("REVIEW_REQUIRED", corrected, start, end, List.of("QUALIFICATION_UNRESOLVED")));
+        assertTrue(publication.publish(receipt).changed());
+        clear();
+        var saved = notices.entity(id);
+        assertEquals("HOLD", saved.guideReview);
+        assertEquals(end.atTime(18, 0).atZone(ApplicationPeriod.SEOUL).toInstant(), saved.applicationEndAt);
+        assertEquals(corrected.schedules(), json.readValue(saved.content, Content.class).schedules());
+    }
+
+    @Test
+    void closedNoticeIsNeitherClaimedNorPublishedWhenItClosesDuringVerification() {
         var n = notices.entity(id);
-        n.startDate = start; n.endDate = end;
+        n.startDate = start;
+        n.endDate = end;
         n.applicationEndAt = Instant.now().minusSeconds(1);
         clear();
         assertTrue(queue.claim(id).isEmpty());
         notices.entity(id).applicationEndAt = null;
         clear();
-        var job = claim(); var receipt = stage(job, "d", Decision.ready(content, start, end));
+        var job = claim();
+        var receipt = stage(job, "d", Decision.ready(content, start, end));
         notices.entity(id).applicationEndAt = Instant.now().minusSeconds(1);
         clear();
-        String before = storedContent(); int revision = notices.entity(id).revision;
+        String before = storedContent();
+        int revision = notices.entity(id).revision;
         assertFalse(publication.publish(receipt).changed());
-        assertEquals(before, storedContent()); assertEquals(revision, notices.entity(id).revision);
+        assertEquals(before, storedContent());
+        assertEquals(revision, notices.entity(id).revision);
     }
 
-    @Test void newlyDiscoveredClosedPeriodDoesNotPublishDocumentsOrOtherGuidance() {
+    @Test
+    void newlyDiscoveredClosedPeriodDoesNotPublishDocumentsOrOtherGuidance() {
         var e = content.evidence();
         LocalDate pastStart = LocalDate.now(ApplicationPeriod.SEOUL).minusDays(3);
         LocalDate pastEnd = pastStart.plusDays(1);
         var closed = new Content(content.summary(), e, content.attachments(), content.questions(), content.documents(),
-            List.of(new ScheduleTemplate("start", "신청 접수 시작", pastStart.toString(), e),
-                new ScheduleTemplate("end", "신청 접수 마감", pastEnd.toString(), e),
-                new ScheduleTemplate("documents", "서류 제출 마감", end.toString(), e)));
-        String before = storedContent(); int revision = notices.entity(id).revision;
+                List.of(new ScheduleTemplate("start", "신청 접수 시작", pastStart.toString(), e),
+                        new ScheduleTemplate("end", "신청 접수 마감", pastEnd.toString(), e),
+                        new ScheduleTemplate("documents", "서류 제출 마감", end.toString(), e)));
+        String before = storedContent();
+        int revision = notices.entity(id).revision;
         var result = publication.publish(stage(claim(), "d", Decision.ready(closed, pastStart, pastEnd)));
-        assertEquals("SUPERSEDED", result.state()); assertFalse(result.changed());
-        assertEquals(before, storedContent()); assertEquals(revision, notices.entity(id).revision);
+        assertEquals("SUPERSEDED", result.state());
+        assertFalse(result.changed());
+        assertEquals(before, storedContent());
+        assertEquals(revision, notices.entity(id).revision);
     }
 
-    @Test void publishesFromHoldAndReusesOnlyExactOriginalEvidenceOnScheduledChecks() {
+    @Test
+    void publishesCorrectedDocumentAlongsideAnExplicitAgencyReferral() {
+        String before = "가족관계증명서 제출 대상: 주소가 다른 배우자가 있는 신청자";
+        String after = "가족관계증명서 제출 대상: 주소가 다른 배우자 또는 미성년 자녀가 있는 신청자";
+        var draft = extraction.enqueue(id, true);
+        extraction.finish(extraction.claim(id), List.of(source("신청 자격\n거주 요건: 모집기관에 개별 문의\n"
+                + "연령 기준: 만 19세 이상, 미성년 세대주 예외 포함\n제출 서류\n" + before
+                + "\n공급 일정\n접수기간: " + start + " ~ " + end)), "READY", "완료");
+        var job = claim();
+        var primary = queue.primary(job).orElseThrow();
+        assertEquals(draft.id(), primary.snapshot().draft().id());
+        String nextUrl = "https://apply.lh.or.kr/official-correction.do";
+        var correction = new Source("정정공고", nextUrl, "c".repeat(64), "EXTRACTED", "", List.of(),
+                List.of(new Part("정정표", "정정 전: " + before + "\n정정 후: " + after)));
+        var related = new org.jibro.collection.review.followup.OfficialFollowupModels.Related("CORRECTION", nextUrl,
+                "정정공고", start, "같은 모집 공식 정정 이력", List.of(correction));
+        var discovery = new org.jibro.collection.review.followup.OfficialFollowupModels.Discovery(Instant.now(), List.of(related), List.of());
+        var assessment = org.jibro.collection.review.OfficialFollowupComparison.compare(primary.snapshot().draft(),
+                primary.originalContent(), discovery).assessment();
+        assertTrue(assessment.ready(), assessment.issues().toString());
+        var receipt = queue.stage(job, primary, "e".repeat(64), Instant.now(), json.writeValueAsString(Map.of("discovery", discovery)),
+                Decision.ready(assessment.candidate(), assessment.startDate(), assessment.endDate()));
+        assertEquals("PARTIAL", publication.publish(receipt).state());
+        clear();
+        var notice = notices.notice(id);
+        assertTrue(notice.canStart());
+        assertEquals(1, notice.reviewIssues().size());
+        assertEquals("CONDITION", notice.reviewIssues().get(0).area());
+        assertTrue(notice.questions().stream().anyMatch(q -> !q.reviewRequired() && q.reason().contains("만 19세")));
+        assertTrue(notices.content(id).documents().stream().anyMatch(d -> d.method().contains("미성년 자녀") && d.evidence().url().equals(nextUrl)));
+    }
+
+    @Test
+    void publishesFromHoldAndReusesOnlyExactOriginalEvidenceOnScheduledChecks() {
         var first = publish();
-        assertEquals("PASS", first.state()); assertTrue(first.changed());
+        assertEquals("PASS", first.state());
+        assertTrue(first.changed());
         assertEquals("AVAILABLE", notices.notice(id).guideState());
         assertTrue(notices.notice(id).canStart());
         int version = notices.notice(id).version();
         assertTrue(queue.claim(id).isEmpty(), "success schedules a future check, including targeted calls");
         due();
-        var job = claim(); var primary = queue.primary(job).orElseThrow();
+        var job = claim();
+        var primary = queue.primary(job).orElseThrow();
         assertEquals(extractionId.toString(), primary.snapshot().draft().id());
         assertTrue(primary.originalContent().questions().isEmpty());
         assertTrue(primary.originalContent().schedules().isEmpty());
         assertTrue(queue.sameBundle(job, "c".repeat(64)));
         var repeated = publication.publish(stage(job, "c", Decision.unchanged()));
-        assertEquals("UNCHANGED", repeated.state()); assertFalse(repeated.changed());
-        assertEquals(first.revision(), repeated.revision()); assertEquals(version, notices.notice(id).version());
+        assertEquals("UNCHANGED", repeated.state());
+        assertFalse(repeated.changed());
+        assertEquals(first.revision(), repeated.revision());
+        assertEquals(version, notices.notice(id).version());
         assertEquals(2, db.queryForObject("SELECT count(*) FROM automatic_followup_review WHERE notice_id=?", Integer.class, id));
-        assertTrue(queue.latestSources(id, extractionId, primary.snapshot().fingerprint()).isPresent());
+        assertTrue(queue.completedPreview(id, extractionId, primary.snapshot().fingerprint()).isPresent());
     }
 
-    @Test void unchangedCompiledGuideUnderNewBundleDoesNotIncrementVersions() {
-        var first = publish(); int version = notices.notice(id).version(); due();
+    @Test
+    void unchangedCompiledGuideUnderNewBundleDoesNotIncrementVersions() {
+        var first = publish();
+        int version = notices.notice(id).version();
+        due();
         var outcome = publication.publish(stage(claim(), "d", Decision.ready(content, start, end)));
-        assertEquals("UNCHANGED", outcome.state()); assertEquals(first.revision(), outcome.revision());
+        assertEquals("UNCHANGED", outcome.state());
+        assertEquals(first.revision(), outcome.revision());
         assertEquals(version, notices.notice(id).version());
     }
 
-    @Test void partialGuideRetainsUnaffectedQuestionsAndDependentDocuments() {
+    @Test
+    void partialGuideRetainsUnaffectedQuestionsAndDependentDocuments() {
         var issue = new ReviewIssue("income-conflict", "CONDITION", "소득 기준 확인 필요", "두 공식 자료의 소득 기준이 다릅니다.",
-            List.of("income"), List.of(), List.of(content.evidence()));
+                List.of("income"), List.of(), List.of(content.evidence()));
         var partial = new Content(content.summary(), content.evidence(), content.attachments(), content.questions(), content.documents(), content.schedules(), List.of(issue));
         var result = publication.publish(stage(claim(), "c", Decision.ready(partial, start, end)));
         assertEquals("PARTIAL", result.state());
         var actual = notices.notice(id);
-        assertEquals("AVAILABLE", actual.guideState()); assertTrue(actual.canStart());
-        assertFalse(actual.questions().get(0).reviewRequired()); assertTrue(actual.questions().get(1).reviewRequired());
+        assertEquals("AVAILABLE", actual.guideState());
+        assertTrue(actual.canStart());
+        assertFalse(actual.questions().get(0).reviewRequired());
+        assertTrue(actual.questions().get(1).reviewRequired());
         assertEquals(List.of("income-proof"), actual.reviewIssues().get(0).documentIds());
         assertEquals(2, actual.documentTemplates().size());
     }
 
-    @Test void pendingAndFailedChecksBackOffWithoutChangingPublishedGuideOrPreviewingFailureAsEvidence() {
-        publish(); String before = storedContent(); int revision = notices.entity(id).revision; int version = notices.notice(id).version();
+    @Test
+    void pendingAndFailedChecksBackOffWithoutChangingPublishedGuideOrPreviewingFailureAsEvidence() {
+        publish();
+        String before = storedContent();
+        int revision = notices.entity(id).revision;
+        int version = notices.notice(id).version();
         var token = evidence.snapshot(extractionId).fingerprint();
-        due(); var failed = claim(); queue.fail(failed, "OFFICIAL_SOURCE_DOWNLOAD_FAILED");
-        assertEquals("FAILED", state(failed.runId())); assertTrue(queue.claim(id).isEmpty());
-        assertTrue(queue.latestSources(id, extractionId, token).isEmpty());
+        due();
+        var failed = claim();
+        queue.fail(failed, "OFFICIAL_SOURCE_DOWNLOAD_FAILED");
+        assertEquals("FAILED", state(failed.runId()));
+        assertTrue(queue.claim(id).isEmpty());
+        assertTrue(queue.completedPreview(id, extractionId, token).isEmpty());
         double delay = db.queryForObject("SELECT extract(epoch FROM next_check_at-clock_timestamp()) FROM notice_followup_queue WHERE notice_id=?", Double.class, id);
         assertTrue(delay > 890 && delay <= 900);
-        due(); var deferred = claim(); queue.defer(deferred, "PRIMARY_EXTRACTION_PENDING");
+        due();
+        var deferred = claim();
+        queue.defer(deferred, "PRIMARY_EXTRACTION_PENDING");
         double second = db.queryForObject("SELECT extract(epoch FROM next_check_at-clock_timestamp()) FROM notice_followup_queue WHERE notice_id=?", Double.class, id);
         assertTrue(second > 1790 && second <= 1800);
-        assertEquals(before, storedContent()); assertEquals(revision, notices.entity(id).revision);
-        assertEquals(version, notices.notice(id).version()); assertEquals("AVAILABLE", notices.notice(id).guideState());
+        assertEquals(before, storedContent());
+        assertEquals(revision, notices.entity(id).revision);
+        assertEquals(version, notices.notice(id).version());
+        assertEquals("AVAILABLE", notices.notice(id).guideState());
         assertTrue(notices.content(id).reviewIssues().isEmpty());
     }
 
-    @Test void genuineNewGoverningConflictWithdrawsStaleGuideButRetainsAuditAndPrivateSnapshot() {
+    @Test
+    void genuineNewGoverningConflictWithdrawsStaleGuideButRetainsAuditAndPrivateSnapshot() {
         publish();
         String email = "followup-" + UUID.randomUUID() + "@example.com";
         auth.signup("후속 검증", email, "test-password-123");
         String owner = auth.login(email, "test-password-123").user().id();
         var preparation = preparations.start(owner, id, notices.notice(id).version());
         String privateBefore = db.queryForObject("SELECT snapshot::text FROM preparation WHERE id=?", String.class, UUID.fromString(preparation.id));
-        String publicBefore = storedContent(); int beforeVersion = notices.notice(id).version();
-        due(); var job = claim();
+        String publicBefore = storedContent();
+        int beforeVersion = notices.notice(id).version();
+        due();
+        var job = claim();
         var result = publication.publish(stage(job, "d", Decision.reviewRequired(List.of("NEW_GOVERNING_EXCEPTION_WITH_UNKNOWN_SCOPE"))));
         assertEquals("REVIEW_REQUIRED", result.state());
-        assertEquals("CHANGE_REVIEW", notices.notice(id).guideState()); assertFalse(notices.notice(id).canStart());
-        assertTrue(notices.content(id).questions().isEmpty()); assertTrue(notices.content(id).schedules().isEmpty());
-        assertNull(notices.notice(id).startDate()); assertNull(notices.notice(id).endDate());
+        assertEquals("CHANGE_REVIEW", notices.notice(id).guideState());
+        assertFalse(notices.notice(id).canStart());
+        assertTrue(notices.content(id).questions().isEmpty());
+        assertTrue(notices.content(id).schedules().isEmpty());
+        assertNull(notices.notice(id).startDate());
+        assertNull(notices.notice(id).endDate());
         assertEquals(beforeVersion + 1, notices.notice(id).version());
         assertEquals(publicBefore, db.queryForObject("SELECT before_content::text FROM automatic_followup_review WHERE id=?", String.class, job.runId()));
         assertEquals(privateBefore, db.queryForObject("SELECT snapshot::text FROM preparation WHERE id=?", String.class, UUID.fromString(preparation.id)));
-        due(); assertTrue(queue.primary(claim()).isPresent(), "only the exact audited withdrawn revision may reuse primary evidence");
+        due();
+        assertTrue(queue.primary(claim()).isPresent(), "only the exact audited withdrawn revision may reuse primary evidence");
     }
 
-    @Test void changedRevisionOrContentCannotPublishAnEarlierReceipt() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
-        notices.entity(id).revision++; clear();
+    @Test
+    void changedRevisionOrContentCannotPublishAnEarlierReceipt() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
+        notices.entity(id).revision++;
+        clear();
         String before = storedContent();
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
-        assertEquals(before, storedContent()); assertEquals("HOLD", notices.entity(id).guideReview);
+        assertEquals(before, storedContent());
+        assertEquals("HOLD", notices.entity(id).guideReview);
         assertEquals("SUPERSEDED", state(job.runId()));
     }
 
-    @Test void editedContentEvenWithoutRevisionCannotPublish() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
+    @Test
+    void editedContentEvenWithoutRevisionCannotPublish() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
         db.update("UPDATE notice SET content=jsonb_set(content,'{summary}','\"다른 검토 내용\"'::jsonb) WHERE id=?", id);
-        entities.clear(); String before = storedContent();
-        assertEquals("SUPERSEDED", publication.publish(receipt).state()); assertEquals(before, storedContent());
+        entities.clear();
+        String before = storedContent();
+        assertEquals("SUPERSEDED", publication.publish(receipt).state());
+        assertEquals(before, storedContent());
     }
 
-    @Test void sourceFingerprintChangeInvalidatesStageAndPublication() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
-        notices.entity(id).sourceFingerprint = "f".repeat(64); clear();
+    @Test
+    void sourceFingerprintChangeInvalidatesStageAndPublication() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
+        notices.entity(id).sourceFingerprint = "f".repeat(64);
+        clear();
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
         assertEquals("HOLD", notices.entity(id).guideReview);
     }
 
-    @Test void replacementUnderSameExtractionIdInvalidatesReceipt() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
+    @Test
+    void replacementUnderSameExtractionIdInvalidatesReceipt() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
         extraction.updateFile(id, extractionId, source("변경된 새 공식 문맥"));
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
         assertEquals("HOLD", notices.entity(id).guideReview);
     }
 
-    @Test void aNewerPendingExtractionBlocksOlderCompletedEvidence() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
+    @Test
+    void aNewerPendingExtractionBlocksOlderCompletedEvidence() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
         var newer = extraction.enqueue(id, true);
         // Both inserts are in one test transaction; explicitly order the fixture instead of relying on now().
         db.update("UPDATE notice_extraction SET created_at=clock_timestamp()+interval '1 second' WHERE id=?", UUID.fromString(newer.id()));
@@ -220,8 +483,10 @@ class AutomaticFollowupPublicationIntegrationTest {
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
     }
 
-    @Test void receiptExpiresAtTwoMinutesAndCannotBeRestaged() {
-        var job = claim(); var primary = queue.primary(job).orElseThrow();
+    @Test
+    void receiptExpiresAtTwoMinutesAndCannotBeRestaged() {
+        var job = claim();
+        var primary = queue.primary(job).orElseThrow();
         assertThrows(RuntimeException.class, () -> queue.stage(job, primary, "c".repeat(64), Instant.now().minusSeconds(121), "{}", Decision.ready(content, start, end)));
         var receipt = stage(job, "c", Decision.ready(content, start, end));
         assertThrows(RuntimeException.class, () -> stage(job, "d", Decision.ready(content, start, end)));
@@ -229,77 +494,97 @@ class AutomaticFollowupPublicationIntegrationTest {
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
     }
 
-    @Test void expiredLeaseCannotPublishOrFinishReplacementWorker() {
-        var first = claim(); var receipt = stage(first, "c", Decision.ready(content, start, end));
+    @Test
+    void expiredLeaseCannotPublishOrFinishReplacementWorker() {
+        var first = claim();
+        var receipt = stage(first, "c", Decision.ready(content, start, end));
         assertTrue(queue.claim(id).isEmpty());
         db.update("UPDATE notice_followup_queue SET lease_until=clock_timestamp()-interval '1 second' WHERE notice_id=?", id);
         var second = claim();
-        assertNotEquals(first.leaseToken(), second.leaseToken()); assertEquals("SUPERSEDED", state(first.runId()));
+        assertNotEquals(first.leaseToken(), second.leaseToken());
+        assertEquals("SUPERSEDED", state(first.runId()));
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
         queue.fail(first, "late old worker");
-        assertTrue(queue.renew(second)); assertEquals("RUNNING", state(second.runId()));
+        assertTrue(queue.renew(second));
+        assertEquals("RUNNING", state(second.runId()));
     }
 
-    @Test void manualAndSourceReviewedGuidesAreIneligibleEvenWithAReadyReceipt() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
-        notices.entity(id).automaticReviewBlocked = true; clear();
+    @Test
+    void manualAndSourceReviewedGuidesAreIneligibleEvenWithAReadyReceipt() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
+        notices.entity(id).automaticReviewBlocked = true;
+        clear();
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
         assertTrue(queue.claim(id).isEmpty());
-        notices.entity(id).automaticReviewBlocked = false; clear(); due();
+        notices.entity(id).automaticReviewBlocked = false;
+        clear();
+        due();
         db.update("""
-            INSERT INTO notice_source_review(id,notice_id,source_revision,result_revision,disposition,package_fingerprint,reviewer_kind,payload)
-            VALUES(?,?,2,2,'PASS',?,'AI_ASSISTED_SOURCE_REVIEW','{}'::jsonb)
-            """, UUID.randomUUID(), id, "e".repeat(64));
+                INSERT INTO notice_source_review(id,notice_id,source_revision,result_revision,disposition,package_fingerprint,reviewer_kind,payload)
+                VALUES(?,?,2,2,'PASS',?,'AI_ASSISTED_SOURCE_REVIEW','{}'::jsonb)
+                """, UUID.randomUUID(), id, "e".repeat(64));
         assertTrue(queue.claim(id).isEmpty(), "source-bound human-assisted history remains protected even if a flag was reset");
     }
 
-    @Test void summaryOnlyReviewDoesNotFreezePendingGuidanceButFullReviewStillProtectsIt() {
+    @Test
+    void summaryOnlyReviewDoesNotFreezePendingGuidanceButFullReviewStillProtectsIt() {
         db.update("""
-            INSERT INTO notice_source_review(id,notice_id,source_revision,result_revision,disposition,package_fingerprint,reviewer_kind,payload)
-            VALUES(?,?,2,2,'HOLD',?,'AI_ASSISTED_SOURCE_REVIEW','{"scope":"VERIFIED_SUMMARY_ONLY"}'::jsonb)
-            """, UUID.randomUUID(), id, "e".repeat(64));
+                INSERT INTO notice_source_review(id,notice_id,source_revision,result_revision,disposition,package_fingerprint,reviewer_kind,payload)
+                VALUES(?,?,2,2,'HOLD',?,'AI_ASSISTED_SOURCE_REVIEW','{"scope":"VERIFIED_SUMMARY_ONLY"}'::jsonb)
+                """, UUID.randomUUID(), id, "e".repeat(64));
         assertEquals("HOLD", notices.entity(id).guideReview);
         var job = claim();
         assertTrue(queue.primary(job).isPresent());
         assertEquals("HOLD", notices.entity(id).guideReview, "summary review must not approve guidance");
         var receipt = stage(job, "c", Decision.ready(content, start, end));
         db.update("""
-            INSERT INTO notice_source_review(id,notice_id,source_revision,result_revision,disposition,package_fingerprint,reviewer_kind,payload)
-            VALUES(?,?,2,2,'PASS',?,'AI_ASSISTED_SOURCE_REVIEW','{"scope":"SUMMARY_ONLY_EXPLICIT_EDIT"}'::jsonb)
-            """, UUID.randomUUID(), id, "f".repeat(64));
+                INSERT INTO notice_source_review(id,notice_id,source_revision,result_revision,disposition,package_fingerprint,reviewer_kind,payload)
+                VALUES(?,?,2,2,'PASS',?,'AI_ASSISTED_SOURCE_REVIEW','{"scope":"SUMMARY_ONLY_EXPLICIT_EDIT"}'::jsonb)
+                """, UUID.randomUUID(), id, "f".repeat(64));
         assertEquals("SUPERSEDED", publication.publish(receipt).state());
         due();
         assertTrue(queue.claim(id).isEmpty(), "other review history retains existing protection");
     }
 
-    @Test void unknownReceiptAndForgedBundleCannotConsumeRealAssessment() {
-        var job = claim(); var receipt = stage(job, "c", Decision.ready(content, start, end));
+    @Test
+    void unknownReceiptAndForgedBundleCannotConsumeRealAssessment() {
+        var job = claim();
+        var receipt = stage(job, "c", Decision.ready(content, start, end));
         assertEquals("SUPERSEDED", publication.publish(new Receipt(job.runId(), UUID.randomUUID(), receipt.bundleHash())).state());
         assertEquals("SUPERSEDED", publication.publish(new Receipt(job.runId(), job.leaseToken(), "d".repeat(64))).state());
         assertEquals("STAGED", state(job.runId()));
         assertEquals("PASS", publication.publish(receipt).state());
         int version = notices.notice(id).version();
-        assertEquals("SUPERSEDED", publication.publish(receipt).state()); assertEquals(version, notices.notice(id).version());
+        assertEquals("SUPERSEDED", publication.publish(receipt).state());
+        assertEquals(version, notices.notice(id).version());
     }
 
-    @Test void legacyPublicationNeedsExactAuditContentProofBeforeReusingOlderExtraction() {
+    @Test
+    void legacyPublicationNeedsExactAuditContentProofBeforeReusingOlderExtraction() {
         var snapshot = evidence.snapshot(extractionId);
         assertTrue(automatic.guidance(id, notices.entity(id).revision, extractionId, snapshot.fingerprint(), content, start, end, List.of()));
-        var job = claim(); assertTrue(queue.primary(job).isPresent());
+        var job = claim();
+        assertTrue(queue.primary(job).isPresent());
         db.update("UPDATE automatic_notice_review SET content_fingerprint=NULL WHERE notice_id=? AND phase='GUIDANCE'", id);
         assertTrue(queue.primary(job).isEmpty(), "old unaudited legacy content requires fresh extraction");
     }
 
-    @Test void oldSupplementalAttachmentsCannotContaminateNextPrimaryCompilation() {
+    @Test
+    void oldSupplementalAttachmentsCannotContaminateNextPrimaryCompilation() {
         var supplement = new Evidence("후속 공식 자료", "https://apply.lh.or.kr/followup.pdf", LocalDate.now().toString());
         var enriched = new Content(content.summary(), content.evidence(), List.of(supplement), content.questions(), content.documents(), content.schedules());
         assertEquals("PASS", publication.publish(stage(claim(), "c", Decision.ready(enriched, start, end))).state());
-        due(); var original = queue.primary(claim()).orElseThrow().originalContent();
-        assertEquals(url, original.evidence().url()); assertTrue(original.attachments().isEmpty());
-        assertTrue(original.questions().isEmpty()); assertTrue(original.documents().isEmpty());
+        due();
+        var original = queue.primary(claim()).orElseThrow().originalContent();
+        assertEquals(url, original.evidence().url());
+        assertTrue(original.attachments().isEmpty());
+        assertTrue(original.questions().isEmpty());
+        assertTrue(original.documents().isEmpty());
     }
 
-    @Test void automaticReceiptCannotInventClosureOrPublishMissingApplicationBoundaries() {
+    @Test
+    void automaticReceiptCannotInventClosureOrPublishMissingApplicationBoundaries() {
         var closure = new OfficialApplicationClosure("공식 상태는 접수마감입니다.", content.evidence());
         var c = new Content(content.summary() + closure.reason(), content.evidence(), content.attachments(), content.questions(), content.documents(), content.schedules(), List.of(), closure);
         assertEquals("FAILED", publication.publish(stage(claim(), "c", Decision.ready(c, start, end))).state());
@@ -309,101 +594,139 @@ class AutomaticFollowupPublicationIntegrationTest {
         assertNull(notices.notice(id).endDate());
     }
 
-    @Test void unseenBundleCannotClaimUnchangedAndClosedNoticesAreExcluded() {
+    @Test
+    void unseenBundleCannotClaimUnchangedAndClosedNoticesAreExcluded() {
         assertEquals("FAILED", publication.publish(stage(claim(), "c", Decision.unchanged())).state());
-        due(); start = LocalDate.now().minusDays(30); end = LocalDate.now().minusDays(1);
+        due();
+        start = LocalDate.now().minusDays(30);
+        end = LocalDate.now().minusDays(1);
         content = new Content(content.summary(), content.evidence(), content.attachments(), content.questions(), content.documents(),
-            List.of(new ScheduleTemplate("start", "신청 접수 시작", start.toString(), content.evidence()),
-                new ScheduleTemplate("end", "신청 접수 마감", end.toString(), content.evidence())));
+                List.of(new ScheduleTemplate("start", "신청 접수 시작", start.toString(), content.evidence()),
+                        new ScheduleTemplate("end", "신청 접수 마감", end.toString(), content.evidence())));
         String before = storedContent();
         assertEquals("SUPERSEDED", publish().state());
         assertEquals(before, storedContent());
     }
 
-    @Test void verifiedPrimaryChangeWithdrawsOldPublicFactsAndRequiresNewExtraction() {
-        publish(); String before = storedContent(); int version = notices.notice(id).version(); due();
+    @Test
+    void verifiedPrimaryChangeWithdrawsOldPublicFactsAndRequiresNewExtraction() {
+        publish();
+        String before = storedContent();
+        int version = notices.notice(id).version();
+        due();
         var job = claim();
         assertTrue(publication.primaryChanged(job));
-        assertEquals("HOLD", notices.entity(id).basicReview); assertEquals("HOLD", notices.entity(id).guideReview);
-        assertTrue(notices.content(id).questions().isEmpty()); assertNull(notices.entity(id).endDate);
+        assertEquals("HOLD", notices.entity(id).basicReview);
+        assertEquals("HOLD", notices.entity(id).guideReview);
+        assertTrue(notices.content(id).questions().isEmpty());
+        assertNull(notices.entity(id).endDate);
         assertEquals(version + 1, notices.entity(id).version);
         assertEquals(before, db.queryForObject("SELECT before_content::text FROM automatic_followup_review WHERE id=?", String.class, job.runId()));
         assertEquals("REVIEW_REQUIRED", state(job.runId()));
         assertFalse(publication.primaryChanged(job), "the same obsolete job cannot revoke another revision");
-        assertTrue(automatic.basic(id)); due();
-        var freshJob = claim(); assertTrue(queue.primary(freshJob).isEmpty());
+        assertTrue(automatic.basic(id));
+        due();
+        var freshJob = claim();
+        assertTrue(queue.primary(freshJob).isEmpty());
     }
 
-    @Test void primaryChangeCannotOverrideConcurrentManualProtection() {
-        publish(); due(); var job = claim(); String before = storedContent();
-        notices.entity(id).automaticReviewBlocked = true; clear();
-        assertFalse(publication.primaryChanged(job)); assertEquals(before, storedContent());
+    @Test
+    void primaryChangeCannotOverrideConcurrentManualProtection() {
+        publish();
+        due();
+        var job = claim();
+        String before = storedContent();
+        notices.entity(id).automaticReviewBlocked = true;
+        clear();
+        assertFalse(publication.primaryChanged(job));
+        assertEquals(before, storedContent());
         assertEquals("PASS", notices.entity(id).guideReview);
     }
 
-    @Test void previewUsesProvedCleanPrimaryInsteadOfAlreadyPublishedSupplementalContent() {
+    @Test
+    void previewShowsExactlyThePublishedSupplementalContentAndRejectsStaleEvidence() {
         var supplement = new Evidence("후속 원문", "https://apply.lh.or.kr/later.pdf", LocalDate.now().toString());
         var enriched = new Content(content.summary(), content.evidence(), List.of(supplement), content.questions(), content.documents(), content.schedules());
         assertEquals("PASS", publication.publish(stage(claim(), "c", Decision.ready(enriched, start, end))).state());
         var token = evidence.snapshot(extractionId).fingerprint();
-        var clean = queue.previewOriginal(id, extractionId, token).orElseThrow();
-        assertEquals(url, clean.evidence().url()); assertTrue(clean.attachments().isEmpty());
-        assertTrue(clean.questions().isEmpty()); assertTrue(clean.documents().isEmpty()); assertTrue(clean.schedules().isEmpty());
-        assertTrue(queue.previewOriginal(id, extractionId, "f".repeat(64)).isEmpty());
+        var clean = queue.completedPreview(id, extractionId, token).orElseThrow();
+        assertEquals(enriched, clean.candidate());
+        assertEquals("PASS", clean.state());
+        assertTrue(clean.ready());
+        assertEquals(start, clean.startDate());
+        assertEquals(end, clean.endDate());
+        assertTrue(queue.completedPreview(id, extractionId, "f".repeat(64)).isEmpty());
         var newer = extraction.enqueue(id, true);
         db.update("UPDATE notice_extraction SET created_at=clock_timestamp()+interval '1 second' WHERE id=?", UUID.fromString(newer.id()));
-        assertTrue(queue.previewOriginal(id, extractionId, token).isEmpty());
+        assertTrue(queue.completedPreview(id, extractionId, token).isEmpty());
     }
 
-    @Test void appliedDependenciesSurviveAReplacementExtractionAndFailedSearchButNotManualProtection() {
-        publish(); String applied = queue.latestDependencySources(id).orElseThrow(); due();
-        var job = claim(); queue.fail(job, "FOLLOWUP_SEARCH_UNREAD");
+    @Test
+    void appliedDependenciesSurviveAReplacementExtractionAndFailedSearchButNotManualProtection() {
+        publish();
+        String applied = queue.latestDependencySources(id).orElseThrow();
+        due();
+        var job = claim();
+        queue.fail(job, "FOLLOWUP_SEARCH_UNREAD");
         assertEquals(applied, queue.latestDependencySources(id).orElseThrow());
         var newer = extraction.enqueue(id, true);
         db.update("UPDATE notice_extraction SET created_at=clock_timestamp()+interval '1 second' WHERE id=?", UUID.fromString(newer.id()));
         assertEquals(applied, queue.latestDependencySources(id).orElseThrow());
-        assertTrue(queue.latestSources(id, extractionId, evidence.snapshot(extractionId).fingerprint()).isEmpty());
+        assertTrue(queue.completedPreview(id, extractionId, evidence.snapshot(extractionId).fingerprint()).isEmpty());
         db.update("UPDATE notice SET content=jsonb_set(content,'{summary}','\"새로운 검토\"'::jsonb) WHERE id=?", id);
         entities.clear();
         assertEquals(applied, queue.latestDependencySources(id).orElseThrow());
-        notices.entity(id).automaticReviewBlocked = true; clear();
+        notices.entity(id).automaticReviewBlocked = true;
+        clear();
         assertTrue(queue.latestDependencySources(id).isEmpty());
     }
 
-    @Test void originalDependenciesSurvivePrimaryWithdrawalBasicReviewAndReExtraction() {
-        publish(); String applied = queue.latestDependencySources(id).orElseThrow(); due();
+    @Test
+    void originalDependenciesSurvivePrimaryWithdrawalBasicReviewAndReExtraction() {
+        publish();
+        String applied = queue.latestDependencySources(id).orElseThrow();
+        due();
         assertTrue(publication.primaryChanged(claim()));
-        assertTrue(automatic.basic(id)); clear();
+        assertTrue(automatic.basic(id));
+        clear();
         var draft = extraction.enqueue(id, true);
         extraction.finish(extraction.claim(id), List.of(source("다시 읽은 공식 원문")), "READY", "완료");
         assertNotEquals(extractionId.toString(), draft.id());
         assertEquals(applied, queue.latestDependencySources(id).orElseThrow());
     }
 
-    @Test void emptyUnchangedBundleCannotErasePreviouslyAppliedDependencies() {
-        publish(); String applied = queue.latestDependencySources(id).orElseThrow(); due();
+    @Test
+    void emptyUnchangedBundleCannotErasePreviouslyAppliedDependencies() {
+        publish();
+        String applied = queue.latestDependencySources(id).orElseThrow();
+        due();
         var job = claim();
         var receipt = queue.stage(job, queue.primary(job).orElseThrow(), "d".repeat(64), Instant.now(),
-            "{\"discovery\":{\"related\":[]}}", Decision.ready(content, start, end));
+                "{\"discovery\":{\"related\":[]}}", Decision.ready(content, start, end));
         assertEquals("UNCHANGED", publication.publish(receipt).state());
         assertEquals(applied, queue.latestDependencySources(id).orElseThrow());
     }
 
-    @Test void dependencyHistoryDoesNotCrossAnUnrelatedPrimaryIdentity() {
-        publish(); assertTrue(queue.latestDependencySources(id).isPresent());
+    @Test
+    void dependencyHistoryDoesNotCrossAnUnrelatedPrimaryIdentity() {
+        publish();
+        assertTrue(queue.latestDependencySources(id).isPresent());
         db.update("UPDATE notice SET content=jsonb_set(content,'{evidence,url}',to_jsonb(?::text)) WHERE id=?",
-            "https://apply.lh.or.kr/detail.do?id=" + UUID.randomUUID(), id);
+                "https://apply.lh.or.kr/detail.do?id=" + UUID.randomUUID(), id);
         entities.clear();
         assertTrue(queue.latestDependencySources(id).isEmpty());
     }
 
-    @Test void firstVerifiedUninterpretedCorrectionRemainsADependencyEvenBeforeAnyPass() {
+    @Test
+    void firstVerifiedUninterpretedCorrectionRemainsADependencyEvenBeforeAnyPass() {
         var job = claim();
         assertEquals("REVIEW_REQUIRED", publication.publish(stage(job, "c",
-            Decision.reviewRequired(List.of("VERIFIED_CORRECTION_SCOPE_UNSUPPORTED")))).state());
+                Decision.reviewRequired(List.of("VERIFIED_CORRECTION_SCOPE_UNSUPPORTED")))).state());
         String dependency = queue.latestDependencySources(id).orElseThrow();
         assertTrue(dependency.contains("followup.pdf"));
-        due(); var retry = claim(); queue.fail(retry, "FOLLOWUP_SEARCH_UNREAD");
+        due();
+        var retry = claim();
+        queue.fail(retry, "FOLLOWUP_SEARCH_UNREAD");
         assertEquals(dependency, queue.latestDependencySources(id).orElseThrow());
     }
 }

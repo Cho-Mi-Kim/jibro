@@ -1,6 +1,7 @@
 package org.jibro.notice;
 
 import java.util.UUID;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import org.jibro.notice.HousingModels.Evidence;
@@ -14,10 +15,13 @@ import org.springframework.web.bind.annotation.*;
 public class NoticeLifecycleController {
     private final NoticeLifecycleService lifecycle;
 
-    public NoticeLifecycleController(NoticeLifecycleService lifecycle) { this.lifecycle = lifecycle; }
+    public NoticeLifecycleController(NoticeLifecycleService lifecycle) {
+        this.lifecycle = lifecycle;
+    }
 
     public record Change(@Min(1) int revision, @NotBlank String state, @NotBlank @Size(max = 2000) String reason,
-                         @NotNull Evidence evidence, @AssertTrue boolean officialConfirmed) {}
+                         @NotNull Evidence evidence, @AssertTrue boolean officialConfirmed) {
+    }
 
     @PatchMapping("/{id}/lifecycle")
     Review change(@PathVariable UUID id, @AuthenticationPrincipal Jwt jwt, @Valid @RequestBody Change body) {

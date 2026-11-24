@@ -14,8 +14,23 @@ import tools.jackson.databind.*;
 
 @Component
 public class LhNoticeClient {
+    private static final Set<String> CLOSED_STATUSES = Set.of("접수마감", "접수종료", "공고종료");
+
     public record Item(String key, String title, String region, String type, String url, LocalDate published,
-                       String fingerprint, boolean officiallyClosed) {
+                       String fingerprint, boolean officiallyClosed, Set<String> previousStatusFingerprints) {
+        public Item {
+            previousStatusFingerprints = Set.copyOf(previousStatusFingerprints);
+        }
+
+        public Item(String key, String title, String region, String type, String url, LocalDate published,
+                    String fingerprint, boolean officiallyClosed) {
+            this(key, title, region, type, url, published, fingerprint, officiallyClosed, Set.of());
+        }
+
+        public boolean onlyClosedSince(String previousFingerprint) {
+            return officiallyClosed && previousFingerprint != null && previousStatusFingerprints.contains(previousFingerprint);
+        }
+
         public Item(String key, String title, String region, String type, String url, LocalDate published, String fingerprint) {
             this(key, title, region, type, url, published, fingerprint, false);
         }
@@ -48,7 +63,7 @@ public class LhNoticeClient {
 
     public Batch fetch(int page, CollectionQueryPlan.Query query) throws Exception {
         var request = HttpRequest.newBuilder(requestUri(page, query))
-            .timeout(Duration.ofSeconds(20)).header("Accept", "application/json").GET().build();
+                .timeout(Duration.ofSeconds(20)).header("Accept", "application/json").GET().build();
         var status = new java.util.concurrent.atomic.AtomicInteger(200);
         HttpResponse<byte[]> response;
         try {
@@ -83,8 +98,8 @@ public class LhNoticeClient {
             throw new IllegalArgumentException("COLLECTION_PAGE_INVALID");
         // PAN_NT_ST_DT and CLSG_DT are response fields, not the publication-date search range.
         String query = "ServiceKey=" + URLEncoder.encode(key, StandardCharsets.UTF_8) + "&PG_SZ=100&PAGE=" + page + "&UPP_AIS_TP_CD=" + scope.categoryCode()
-            + "&PAN_ST_DT=" + scope.publishedFrom().format(DateTimeFormatter.BASIC_ISO_DATE)
-            + "&PAN_ED_DT=" + scope.publishedThrough().format(DateTimeFormatter.BASIC_ISO_DATE);
+                + "&PAN_ST_DT=" + scope.publishedFrom().format(DateTimeFormatter.BASIC_ISO_DATE)
+                + "&PAN_ED_DT=" + scope.publishedThrough().format(DateTimeFormatter.BASIC_ISO_DATE);
         return URI.create("https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1?" + query);
     }
 
@@ -107,7 +122,7 @@ public class LhNoticeClient {
             String url = n.path("DTL_URL").asText();
             URI uri = URI.create(url);
             if (!"https".equals(uri.getScheme()) || !"apply.lh.or.kr".equals(uri.getHost()) || uri.getUserInfo() != null
-                || title.isBlank() || title.length() > 300 || url.length() > 2000)
+                    || title.isBlank() || title.length() > 300 || url.length() > 2000)
                 throw new IllegalArgumentException("SOURCE_ITEM_INVALID");
             // URL is the official stable detail identifier; never construct a guessed detail link.
             String sourceKey = sourceKey(url);
@@ -119,17 +134,29 @@ public class LhNoticeClient {
                 if (!Set.of("RNUM", "ALL_CNT", "RS_DTTM").contains(entry.getKey()))
                     stable.put(entry.getKey(), entry.getValue().toString());
             });
-            String fingerprint;
-            try {
-                fingerprint = HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(json.writeValueAsBytes(stable)));
-            } catch (java.security.NoSuchAlgorithmException ex) {
-                throw new IllegalStateException(ex);
+            String fingerprint = fingerprint(stable);
+            // Preserve compatibility with stored full-row hashes; vary only the official status.
+            String status = n.path("PAN_SS").asText().strip();
+            boolean closed = CLOSED_STATUSES.contains(status);
+            Set<String> previous = new HashSet<>();
+            if (closed) {
+                for (String prior : List.of("접수중", "공고중", "접수마감", "접수종료", "공고종료")) {
+                    if (prior.equals(status)) continue;
+                    stable.put("PAN_SS", json.writeValueAsString(prior));
+                    previous.add(fingerprint(stable));
+                }
             }
-            // PAN_SS is an explicit status, whereas CLSG_DT is not a verified application deadline.
-            boolean closed = Set.of("접수마감", "접수종료", "공고종료").contains(n.path("PAN_SS").asText().strip());
-            items.add(new Item(sourceKey, title, region, type, url, date(n.path("PAN_NT_ST_DT").asText()), fingerprint, closed));
+            items.add(new Item(sourceKey, title, region, type, url, date(n.path("PAN_NT_ST_DT").asText()), fingerprint, closed, previous));
         }
         return new Batch(items, total);
+    }
+
+    private String fingerprint(Map<String, String> fields) {
+        try {
+            return HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(json.writeValueAsBytes(fields)));
+        } catch (java.security.NoSuchAlgorithmException ex) {
+            throw new IllegalStateException(ex);
+        }
     }
 
     /**
@@ -144,7 +171,7 @@ public class LhNoticeClient {
         try {
             return value.matches("\\d{8}") ? LocalDate.parse(value, DateTimeFormatter.BASIC_ISO_DATE) : LocalDate.parse(value.replace('.', '-'));
         } catch (java.time.format.DateTimeParseException ex) {
-            return null;
+            throw new IllegalArgumentException("SOURCE_PUBLICATION_DATE_INVALID", ex);
         }
     }
 

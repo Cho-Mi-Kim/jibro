@@ -23,7 +23,7 @@ class EvidenceCheckServiceTest {
     @Test
     void groupsSameAddressButPreservesSourceLocationsAndDates() throws Exception {
         when(sources.read(id, 7)).thenReturn(new Snapshot(7, 3, List.of(
-            source("https://apply.lh.or.kr/file#page=2"), source("https://apply.lh.or.kr/file#page=4"), source(null))));
+                source("https://apply.lh.or.kr/file#page=2"), source("https://apply.lh.or.kr/file#page=4"), source(null))));
         when(transport.probe("https://apply.lh.or.kr/file")).thenReturn(200);
         var report = checks.check(id, 7);
         assertEquals(3, report.version());
@@ -39,13 +39,13 @@ class EvidenceCheckServiceTest {
     @Test
     void doesNotTreatRedirectHeadRejectionOrUnknownHostAsVerifiedOrBrokenContent() throws Exception {
         when(sources.read(id, 1)).thenReturn(new Snapshot(1, 1, List.of(source("https://apply.lh.or.kr/redirect"),
-            source("https://apply.lh.or.kr/blocked"), source("https://www.gov.kr/"), source("https://apply.lh.or.kr/missing"))));
+                source("https://apply.lh.or.kr/blocked"), source("https://www.gov.kr/"), source("https://apply.lh.or.kr/missing"))));
         when(transport.probe("https://apply.lh.or.kr/redirect")).thenReturn(302);
         when(transport.probe("https://apply.lh.or.kr/blocked")).thenReturn(405);
         when(transport.probe("https://www.gov.kr/")).thenThrow(new IOException("ATTACHMENT_URL_REJECTED"));
         when(transport.probe("https://apply.lh.or.kr/missing")).thenReturn(404);
         assertEquals(List.of("MANUAL", "MANUAL", "UNSUPPORTED", "UNAVAILABLE"),
-            checks.check(id, 1).results().stream().map(EvidenceCheckService.Result::status).toList());
+                checks.check(id, 1).results().stream().map(EvidenceCheckService.Result::status).toList());
     }
 
     @Test

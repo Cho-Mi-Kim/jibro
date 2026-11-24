@@ -8,18 +8,24 @@ const cx = bindClasses(preparationClasses);
 export function House({
     progress,
     stage,
+    historical = false,
     onExplanationToggle,
 }: {
     progress: number;
     stage: number;
+    historical?: boolean;
     onExplanationToggle?: (open: boolean) => void;
 }) {
     return (
         <div className={cx('house-row')}>
             <div>
-                <span>전체 준비도</span>
+                <span>{historical ? '당시 준비도' : '전체 준비도'}</span>
                 <strong className={cx('progress-number')}>{progress}%</strong>
-                <progress max="100" value={progress} aria-label="준비도" />
+                <progress
+                    max="100"
+                    value={progress}
+                    aria-label={historical ? '당시 준비도' : '준비도'}
+                />
             </div>
             <div className={cx('house-picture')}>
                 <BrickHouse progress={progress} stage={stage} />

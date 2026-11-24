@@ -1,3 +1,6 @@
+import { demoNoticeListItem } from './demoNoticeListItem';
+import { validatedFollowUp } from './followUp';
+import { canRecordSchedule } from './schedules';
 import {
     demoMember,
     resetDemoMember,
@@ -7,7 +10,7 @@ import {
 import type {
     Answer,
     Collection,
-    Guide,
+    DocumentTemplate,
     Notice,
     Preparation,
     Review,
@@ -16,6 +19,7 @@ import type {
 import { ApiError } from '../../shared/api/client';
 import { waitForDemoResponse } from './demoDelay';
 import { documentNeedsReview } from './reviewIssueSelectors';
+import { dependentDocumentNecessity } from './answerDependencies';
 import { DEFAULT_NOTICE_SORT, noticeComparator } from './noticeOrdering';
 import {
     answerDemoPreparation,
@@ -42,13 +46,21 @@ const questions = [
         evidence,
     },
 ];
-const documentTemplates = [
+const documentTemplates: DocumentTemplate[] = [
     { id: '0', title: '거주 확인 서류' },
-    { id: '1', title: '조건별 확인 서류' },
-];
-const documentRules: Readonly<Record<string, DemoDocumentRule>> = {
-    '1': { questionId: 'house', answerValues: ['YES'] },
-};
+    {
+        id: '1',
+        title: '조건별 확인 서류',
+        conditionQuestionId: 'house',
+        conditionAnswerValues: ['YES'],
+    },
+].map((document) => ({
+    ...document,
+    method: '실제 공고에서 발급 기준과 제출 방법을 확인하세요.',
+    issuer: '공고에서 확인',
+    issueUrl: null,
+    evidence,
+}));
 export const notices: Notice[] = [
     'AVAILABLE',
     'REVIEWING',
@@ -92,33 +104,54 @@ const reviews: Review[] = notices.map((n) => ({
     revision: 1,
 }));
 const collections: Collection[] = [];
-const guides: Guide[] = [
-    {
-        id: 'conditions',
-        category: '조건과 용어',
-        title: '신청 자격과 선정 순위는 어떻게 다른가요?',
-        body: '신청 자격은 신청 대상의 기준이며, 선정 순위는 대상자 사이의 우선순위입니다. 실제 판단은 선택한 공고의 공식 기준을 확인해야 합니다.',
-        evidence,
-    },
-    {
-        id: 'documents',
-        category: '서류 발급 안내',
-        title: '서류를 발급하기 전에 확인할 내용',
-        body: '제출 대상, 발급 기준일, 문서 종류와 제출 방법을 공고에서 확인하세요. 모든 공고에 같은 서류나 발급 조건이 적용되는 것은 아닙니다.',
-        evidence,
-    },
-    {
-        id: 'process',
-        category: '신청 절차',
-        title: '공식 사이트를 열면 신청이 완료되나요?',
-        body: '공식 기관에서 접수를 마친 뒤 접수 결과를 확인하세요. 집으로의 준비 기록과 실제 기관의 접수는 별개입니다.',
-        evidence,
-    },
-];
 function requireUser() {
     if (!user) throw new ApiError(401, '로그인이 필요합니다.');
 }
+function demoSchedules(n: Notice) {
+    return (
+        n.schedules?.map((schedule) => ({ ...schedule, recorded: false })) ?? [
+            {
+                id: 'apply',
+                title: '공식 신청 여부 확인',
+                date: n.endDate ?? '',
+                recorded: false,
+                evidence,
+            },
+        ]
+    );
+}
+function preparationDocumentRules(
+    p: Preparation,
+): Record<string, DemoDocumentRule> {
+    return Object.fromEntries(
+        Object.entries(p.documentConditions ?? {}).map(([id, questionId]) => [
+            id,
+            {
+                questionId,
+                answerValues: p.documentConditionValues?.[id] ?? ['YES'],
+            },
+        ]),
+    );
+}
 function createDemoPreparation(n: Notice): Preparation {
+    const templates = n.documentTemplates ?? documentTemplates;
+    const rules = Object.fromEntries(
+        templates.flatMap((template) =>
+            template.conditionQuestionId
+                ? [
+                      [
+                          template.id,
+                          {
+                              questionId: template.conditionQuestionId,
+                              answerValues: template.conditionAnswerValues ?? [
+                                  'YES',
+                              ],
+                          },
+                      ],
+                  ]
+                : [],
+        ),
+    );
     return assessDemoPreparation({
         id: crypto.randomUUID(),
         noticeId: n.id,
@@ -127,40 +160,35 @@ function createDemoPreparation(n: Notice): Preparation {
         revision: 1,
         guideState: n.guideState,
         reviewIssues: n.reviewIssues,
-        questions: n.questions,
+        questions: structuredClone(n.questions),
         answers: {},
         documentConditions: Object.fromEntries(
-            Object.entries(documentRules).map(([id, rule]) => [
-                id,
-                rule.questionId,
-            ]),
+            Object.entries(rules).map(([id, rule]) => [id, rule.questionId]),
         ),
         documentConditionValues: Object.fromEntries(
-            Object.entries(documentRules).map(([id, rule]) => [
+            Object.entries(rules).map(([id, rule]) => [
                 id,
                 [...rule.answerValues],
             ]),
         ),
-        documents: documentTemplates.map(({ id, title }) => ({
-            id,
-            title,
-            necessity: demoDocumentNecessity(documentRules[id], {}),
+        documents: templates.map((template) => ({
+            id: template.id,
+            title: template.title,
+            necessity: dependentDocumentNecessity(
+                demoDocumentNecessity(rules[template.id], {}, n.questions),
+                template.id,
+                n.questions,
+                {},
+            ),
             state: 'UNCHECKED',
-            method: '실제 공고에서 발급 기준과 제출 방법을 확인하세요.',
-            issuer: '공고에서 확인',
-            issueUrl: null,
+            method: template.method,
+            issuer: template.issuer,
+            issueUrl: template.issueUrl,
+            issueLabel: template.issueLabel,
             note: '',
-            evidence,
+            evidence: template.evidence,
         })),
-        schedules: [
-            {
-                id: 'apply',
-                title: '공식 신청 여부 확인',
-                date: n.endDate ?? '',
-                recorded: false,
-                evidence,
-            },
-        ],
+        schedules: demoSchedules(n),
         progress: 0,
         houseStage: 1,
         warnings: [],
@@ -224,11 +252,12 @@ export async function demoRequest<T>(
                 409,
                 '공고 안내가 바뀌었습니다. 공고를 다시 확인해 주세요.',
             );
+        const draft = createDemoPreparation(n);
         const checked = assessDemoPreparation(
             answerDemoPreparation(
-                createDemoPreparation(n),
+                draft,
                 input.answers as Record<string, Answer>,
-                documentRules,
+                preparationDocumentRules(draft),
             ),
         );
         result = {
@@ -283,12 +312,15 @@ export async function demoRequest<T>(
             types: ['공공임대', '주거비 지원'],
         };
     else if (parts[0] === 'notices' && parts[1]) {
-        result = notices.find(
+        const notice = notices.find(
             (n) =>
                 n.id === parts[1] &&
                 reviews.find((r) => r.id === n.id)?.basic === 'PASS',
         );
-        if (!result) throw new ApiError(404, '공고를 찾을 수 없습니다.');
+        if (!notice) throw new ApiError(404, '공고를 찾을 수 없습니다.');
+        result = notice.canStart
+            ? { ...notice, schedules: demoSchedules(notice) }
+            : notice;
     } else if (parts[0] === 'notices') {
         const q = url.searchParams;
         const keyword = q.get('keyword') ?? '';
@@ -314,61 +346,23 @@ export async function demoRequest<T>(
         const page = Math.max(0, Number(q.get('page')) || 0),
             size = 20;
         result = {
-            items: items.slice(page * size, (page + 1) * size).map((n) => ({
-                id: n.id,
-                title: n.title,
-                agency: n.agency,
-                region: n.region,
-                type: n.type,
-                status: n.status,
-                lifecycle: n.lifecycle,
-                startDate: n.startDate,
-                endDate: n.endDate,
-                applicationTiming: n.applicationTiming,
-                publishedDate: n.publishedDate,
-                guideState: n.guideState,
-                collectedAt: n.collectedAt,
-                partialGuidance: !!n.reviewIssues?.length,
-            })),
+            items: items
+                .slice(page * size, (page + 1) * size)
+                .map(demoNoticeListItem),
             page,
             size,
             totalElements: items.length,
             totalPages: Math.ceil(items.length / size),
         };
     } else if (parts[0] === 'guides') {
-        const category = url.searchParams.get('category') ?? '';
-        const terms = (url.searchParams.get('keyword') ?? '')
-            .normalize('NFC')
-            .toLocaleLowerCase()
-            .trim()
-            .split(/\s+/);
-        const page = Math.max(0, Number(url.searchParams.get('page')) || 0);
-        const matching = guides.filter(
-            (guide) =>
-                (!category || guide.category === category) &&
-                terms.every((term) =>
-                    [
-                        guide.category,
-                        guide.title,
-                        guide.body,
-                        guide.evidence.label,
-                    ]
-                        .join(' ')
-                        .normalize('NFC')
-                        .toLocaleLowerCase()
-                        .includes(term),
-                ),
-        );
-        result = {
-            items: matching.slice(page * 20, (page + 1) * 20),
-            page,
-            hasMore: matching.length > (page + 1) * 20,
-        };
+        const { demoGuides } = await import('../guide/demoGuides');
+        result = demoGuides(url.searchParams);
     } else if (parts[0] === 'preparations') {
         requireUser();
         if (parts.length === 1 && method === 'GET')
             result = preparations
                 .filter((p) => !isDemoArchived(p.id))
+                .map(currentPreparation)
                 .map(
                     ({ id, noticeId, title, version, revision, progress }) => ({
                         id,
@@ -411,7 +405,7 @@ export async function demoRequest<T>(
             if (method !== 'GET') {
                 if (
                     p.revision !== input.revision ||
-                    p.guideState !== 'AVAILABLE'
+                    (p.guideState !== 'AVAILABLE' && parts[2] !== 'follow-up')
                 )
                     throw new ApiError(
                         409,
@@ -422,7 +416,7 @@ export async function demoRequest<T>(
                     p = answerDemoPreparation(
                         p,
                         input.answers as Record<string, Answer>,
-                        documentRules,
+                        preparationDocumentRules(p),
                     );
                 }
                 if (parts[2] === 'documents') {
@@ -452,15 +446,36 @@ export async function demoRequest<T>(
                             400,
                             '준비 상태와 메모를 다시 확인해 주세요.',
                         );
-                    d.state = input.state as typeof d.state;
+                    const nextState = input.state as typeof d.state;
+                    if (nextState !== d.state) {
+                        d.stateBeforeReady =
+                            nextState === 'READY' && d.state !== 'READY'
+                                ? d.state
+                                : undefined;
+                        d.state = nextState;
+                    }
                     d.note = input.note;
                 }
                 if (parts[2] === 'schedules') {
                     const s = p.schedules.find((s) => s.id === parts[3]);
                     if (!s) throw new ApiError(404);
+                    if (!canRecordSchedule(s, p.schedules))
+                        throw new ApiError(
+                            400,
+                            '이 접수 일정은 완료로 기록하지 않아요.',
+                        );
                     s.recorded = Boolean(input.recorded);
                 }
-                if (!['answers', 'documents', 'schedules'].includes(parts[2]))
+                if (parts[2] === 'follow-up')
+                    p.followUp = validatedFollowUp(input);
+                if (
+                    ![
+                        'answers',
+                        'documents',
+                        'schedules',
+                        'follow-up',
+                    ].includes(parts[2])
+                )
                     throw new ApiError(
                         404,
                         '시연에서 지원하지 않는 요청입니다.',

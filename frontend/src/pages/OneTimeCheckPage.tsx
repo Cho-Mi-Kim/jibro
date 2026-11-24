@@ -5,6 +5,7 @@ import {
     useParams,
     useSearchParams,
 } from 'react-router';
+import { useNoticeDetailReturn } from '../features/housing/NoticeListVisit';
 import { useNotice } from '../features/housing/useNotice';
 import { Button, Card, Heading, State } from '../shared/ui/ui';
 import { startPath } from '../features/preparation/startIntent';
@@ -14,6 +15,9 @@ import styles from '../features/preparation/OneTimeCheck.module.css';
 
 export function OneTimeCheckPage({ mode }: { mode: 'choice' | 'once' }) {
     const { noticeId = '' } = useParams();
+    const detailReturn = useNoticeDetailReturn();
+    const detailPath =
+        detailReturn?.to ?? '/notices/' + encodeURIComponent(noticeId);
     const [params] = useSearchParams();
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -30,7 +34,8 @@ export function OneTimeCheckPage({ mode }: { mode: 'choice' | 'once' }) {
                 title={
                     mode === 'choice' ? '조건 확인 방법' : '이번만 조건 확인'
                 }
-                backTo={'/notices/' + noticeId}
+                backTo={detailPath}
+                backState={detailReturn?.state}
             >
                 {notice?.title}
             </Heading>
@@ -45,7 +50,9 @@ export function OneTimeCheckPage({ mode }: { mode: 'choice' | 'once' }) {
                         공고 안내가 변경되었거나 조건 확인을 시작할 수 없습니다.
                         상세에서 최신 안내를 확인해 주세요.
                     </p>
-                    <Link to={'/notices/' + noticeId}>공고 상세 보기</Link>
+                    <Link to={detailPath} state={detailReturn?.state}>
+                        공고 상세 보기
+                    </Link>
                 </Card>
             )}
             {notice &&

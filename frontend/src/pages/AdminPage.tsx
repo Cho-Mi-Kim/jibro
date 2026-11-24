@@ -1,3 +1,4 @@
+import { noticeHousingSummary } from '../features/housing/noticeHousingFacts';
 import { CollectionResponses } from '../features/admin/CollectionResponses';
 import { NoticeLifecycleEditor } from '../features/admin/NoticeLifecycleEditor';
 import { cx } from '../shared/styles/classes';
@@ -125,7 +126,7 @@ function ReviewEditor({ review: r }: { review: Review }) {
             </summary>
             <EvidenceLink evidence={r.notice.evidence} />
             <p>
-                {r.notice.region} · {r.notice.type} ·{' '}
+                {noticeHousingSummary(r.notice)} ·{' '}
                 {r.notice.startDate ?? '시작일 확인 필요'} ~{' '}
                 {r.notice.endDate ?? '종료일 확인 필요'}
             </p>

@@ -9,11 +9,16 @@ import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-/** Persistence for proof-bound social identity changes; transactions are owned by AccountConnections. */
+/**
+ * Persistence for proof-bound social identity changes; transactions are owned by AccountConnections.
+ */
 @Repository
 public class AccountConnectionRepository {
-    record Owner(String email, String password, int version) {}
-    record Intent(UUID user, String provider, String bindingHash, int version, Instant expiresAt, String stateHash) {}
+    record Owner(String email, String password, int version) {
+    }
+
+    record Intent(UUID user, String provider, String bindingHash, int version, Instant expiresAt, String stateHash) {
+    }
 
     private final JdbcTemplate db;
 
@@ -31,7 +36,7 @@ public class AccountConnectionRepository {
 
     void saveProof(UUID user, String tokenHash, int version, Instant expiresAt) {
         db.update("INSERT INTO account_connection_proof(user_id,token_hash,security_version,expires_at) VALUES(?,?,?,?) ON CONFLICT(user_id) DO UPDATE SET token_hash=EXCLUDED.token_hash,security_version=EXCLUDED.security_version,created_at=now(),expires_at=EXCLUDED.expires_at,failures=0",
-            user, tokenHash, version, Timestamp.from(expiresAt));
+                user, tokenHash, version, Timestamp.from(expiresAt));
     }
 
     boolean hasProvider(UUID user, String provider) {
@@ -71,19 +76,7 @@ public class AccountConnectionRepository {
 
     Optional<Owner> findOwner(UUID user, boolean lock) {
         return db.query("SELECT email,password_hash,security_version FROM app_user WHERE id=? AND NOT disabled AND trial_expires_at IS NULL" + (lock ? " FOR UPDATE" : ""),
-            (r, i) -> new Owner(r.getString(1), r.getString(2), r.getInt(3)), user).stream().findFirst();
-    }
-
-    boolean isReauthenticationBlocked(UUID user) {
-        return Boolean.TRUE.equals(db.queryForObject("SELECT EXISTS(SELECT 1 FROM account_connection_attempt WHERE user_id=? AND blocked_until>now())", Boolean.class, user));
-    }
-
-    void deleteExpiredReauthenticationBlock(UUID user) {
-        db.update("DELETE FROM account_connection_attempt WHERE user_id=? AND blocked_until<=now()", user);
-    }
-
-    void clearReauthenticationFailures(UUID user) {
-        db.update("DELETE FROM account_connection_attempt WHERE user_id=?", user);
+                (r, i) -> new Owner(r.getString(1), r.getString(2), r.getInt(3)), user).stream().findFirst();
     }
 
     Optional<String> findUsableProofHash(UUID user, int version) {
@@ -93,19 +86,14 @@ public class AccountConnectionRepository {
     void acceptEmailProof(UUID user) {
         db.update("DELETE FROM account_connection_proof WHERE user_id=?", user);
         db.update("UPDATE app_user SET email_verified=true WHERE id=?", user);
-        clearReauthenticationFailures(user);
     }
 
     void incrementProofFailures(UUID user) {
         db.update("UPDATE account_connection_proof SET failures=failures+1 WHERE user_id=?", user);
     }
 
-    void recordReauthenticationFailure(UUID user) {
-        db.update("INSERT INTO account_connection_attempt(user_id,failures) VALUES(?,1) ON CONFLICT(user_id) DO UPDATE SET failures=account_connection_attempt.failures+1,blocked_until=CASE WHEN account_connection_attempt.failures>=4 THEN now()+interval '15 minutes' ELSE NULL END", user);
-    }
-
     Optional<Intent> findIntent(UUID id) {
         return db.query("SELECT user_id,provider,binding_hash,security_version,expires_at,state_hash FROM account_connection_intent WHERE id=?",
-            (r, i) -> new Intent(r.getObject(1, UUID.class), r.getString(2), r.getString(3), r.getInt(4), r.getTimestamp(5).toInstant(), r.getString(6)), id).stream().findFirst();
+                (r, i) -> new Intent(r.getObject(1, UUID.class), r.getString(2), r.getString(3), r.getInt(4), r.getTimestamp(5).toInstant(), r.getString(6)), id).stream().findFirst();
     }
 }

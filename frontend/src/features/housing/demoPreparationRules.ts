@@ -1,4 +1,5 @@
 import { ApiError } from '../../shared/api/client';
+import { canRecordSchedule } from './schedules';
 import { documentNeedsReview } from './reviewIssueSelectors';
 import {
     answerOptions,
@@ -6,8 +7,18 @@ import {
     validSubmittedAnswer,
     sameAnswer,
     needsFollowUp,
+    applicantQuestions,
 } from './questions';
-import type { Answer, DocumentItem, Preparation } from './types';
+import type { Answer, DocumentItem, Preparation, Question } from './types';
+import {
+    visiblePreparationQuestions,
+    visiblePreparationDocuments,
+    preparationScheduleSelection,
+} from './preparationApplicability';
+import {
+    answerConflictMessages,
+    dependentDocumentNecessity,
+} from './answerDependencies';
 
 export interface DemoDocumentRule {
     questionId: string;
@@ -17,18 +28,22 @@ export interface DemoDocumentRule {
 export function demoDocumentNecessity(
     rule: DemoDocumentRule | undefined,
     answers: Record<string, Answer>,
+    questions: readonly Question[],
 ): DocumentItem['necessity'] {
     if (!rule) return 'REQUIRED';
     const answer = answers[rule.questionId] ?? 'UNKNOWN';
-    return answer === 'UNKNOWN'
+    if (answer === 'UNKNOWN') return 'UNKNOWN';
+    if (
+        (Array.isArray(answer) ? answer : [answer]).some(
+            (value) =>
+                typeof value === 'string' && rule.answerValues.includes(value),
+        )
+    )
+        return 'CONDITIONAL';
+    const question = questions.find((q) => q.id === rule.questionId);
+    return !question || needsFollowUp(question, answer)
         ? 'UNKNOWN'
-        : (Array.isArray(answer) ? answer : [answer]).some(
-                (value) =>
-                    typeof value === 'string' &&
-                    rule.answerValues.includes(value),
-            )
-          ? 'CONDITIONAL'
-          : 'NOT_APPLICABLE';
+        : 'NOT_APPLICABLE';
 }
 
 export function answerDemoPreparation(
@@ -71,12 +86,22 @@ export function answerDemoPreparation(
                 preparation.reviewIssues,
             )
                 ? 'UNKNOWN'
-                : demoDocumentNecessity(rules[document.id], answers);
+                : dependentDocumentNecessity(
+                      demoDocumentNecessity(
+                          rules[document.id],
+                          answers,
+                          preparation.questions,
+                      ),
+                      document.id,
+                      preparation.questions,
+                      answers,
+                  );
             if (necessity === document.necessity) return document;
             return {
                 ...document,
                 necessity,
                 state: document.state === 'READY' ? 'RECHECK' : 'UNCHECKED',
+                stateBeforeReady: undefined,
             };
         }),
     };
@@ -84,38 +109,75 @@ export function answerDemoPreparation(
 
 // The static preview has no Java server; these rules implement its preparation contract.
 export function assessDemoPreparation(p: Preparation): Preparation {
-    const known = p.questions.filter(
-        (q) => !needsFollowUp(q, p.answers[q.id]),
-    ).length;
-    const documents = p.documents.filter(
-        (d) => d.necessity !== 'NOT_APPLICABLE',
+    const questions = applicantQuestions(
+        visiblePreparationQuestions(p),
+        Object.values(p.documentConditions ?? {}),
     );
+    const known = questions.filter(
+        (q) => !needsFollowUp(q, p.answers[q.id], p.answers, p.questions),
+    ).length;
+    const documents = visiblePreparationDocuments(p);
     const ready = documents.filter(
         (d) =>
             d.state === 'READY' &&
             d.necessity !== 'UNKNOWN' &&
             !documentNeedsReview(d, p.reviewIssues),
     ).length;
-    const recorded = p.schedules.filter((s) => s.recorded).length;
+    const schedules = preparationScheduleSelection(
+        p,
+        p.schedules,
+    ).visible.filter((event) => canRecordSchedule(event, p.schedules));
+    const recorded = schedules.filter((s) => s.recorded).length;
     const questionWeight = 30;
     const documentWeight = 50;
     const scheduleWeight = 20;
     const rounded = Math.round(
-        (p.questions.length ? known / p.questions.length : 0) * questionWeight +
+        (questions.length
+            ? known / questions.length
+            : p.questions.length
+              ? 1
+              : 0) *
+            questionWeight +
             (documents.length ? ready / documents.length : 0) * documentWeight +
-            (p.schedules.length ? recorded / p.schedules.length : 0) *
+            (schedules.length
+                ? recorded / schedules.length
+                : p.schedules.length
+                  ? 1
+                  : 0) *
                 scheduleWeight,
     );
     const progress =
         !!p.reviewIssues?.length ||
-        known < p.questions.length ||
+        known < questions.length ||
         ready < documents.length ||
-        recorded < p.schedules.length
+        recorded < schedules.length
             ? Math.min(99, rounded)
             : rounded;
-    const warnings = p.questions
-        .filter((q) => needsFollowUp(q, p.answers[q.id]))
+    const warnings = questions
+        .filter(
+            (q) =>
+                !q.reviewRequired &&
+                needsFollowUp(q, p.answers[q.id], p.answers, p.questions),
+        )
         .map((q) => q.title);
+    const conflicts = [
+        ...new Set(
+            p.questions.flatMap((q) =>
+                answerConflictMessages(
+                    q,
+                    p.answers[q.id],
+                    p.answers,
+                    p.questions,
+                ),
+            ),
+        ),
+    ];
+    warnings.push(...conflicts);
+    warnings.push(
+        ...(p.reviewIssues ?? []).map(
+            (issue) => '공식 확인 필요 · ' + issue.title,
+        ),
+    );
     const recheck = documents.find(
         (d) => d.state === 'RECHECK' && !documentNeedsReview(d, p.reviewIssues),
     );
@@ -124,8 +186,10 @@ export function assessDemoPreparation(p: Preparation): Preparation {
             !documentNeedsReview(d, p.reviewIssues) &&
             (d.state !== 'READY' || d.necessity === 'UNKNOWN'),
     );
-    const answerNeeded = p.questions.some(
-        (q) => !q.reviewRequired && needsFollowUp(q, p.answers[q.id]),
+    const answerNeeded = questions.some(
+        (q) =>
+            !q.reviewRequired &&
+            needsFollowUp(q, p.answers[q.id], p.answers, p.questions),
     );
     const prefix = '/preparations/' + p.id;
     let nextAction: Preparation['nextAction'];
@@ -147,7 +211,9 @@ export function assessDemoPreparation(p: Preparation): Preparation {
     } else if (answerNeeded) {
         nextAction = {
             label: '확인하지 못한 조건 살펴보기',
-            reason: '모름·미입력 항목이 남아 있어요.',
+            reason: conflicts.length
+                ? '서로 다른 답변을 다시 확인해 주세요.'
+                : '모름·미입력 항목이 남아 있어요.',
             path: prefix + '/conditions/edit',
         };
     } else if (unready) {
@@ -162,10 +228,17 @@ export function assessDemoPreparation(p: Preparation): Preparation {
             reason: '기관 자료의 확인 필요 항목은 준비 완료로 계산하지 않아요.',
             path: '/notices/' + p.noticeId,
         };
+    } else if (progress === 100) {
+        nextAction = {
+            label: '준비 기록 완료',
+            reason: '내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.',
+            path: prefix + '/schedule',
+            completed: true,
+        };
     } else {
         nextAction = {
             label: '신청 일정 확인하기',
-            reason: '공식 절차와 일정을 확인하세요.',
+            reason: '신청·제출을 마친 일정은 일정 탭에서 완료로 표시해 주세요.',
             path: prefix + '/schedule',
         };
     }

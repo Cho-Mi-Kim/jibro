@@ -27,5 +27,7 @@ public class CollectionController {
     }
 
     @GetMapping("/schedule")
-    CollectionService.ScheduleStatus schedule() { return service.schedule(); }
+    CollectionService.ScheduleStatus schedule() {
+        return service.schedule();
+    }
 }

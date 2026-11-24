@@ -76,7 +76,12 @@ def parserWorker = tasks.register('documentParserJar', Jar) {
         include 'org/jibro/collection/extraction/SpreadsheetTextParser*.class'
         include 'org/jibro/collection/extraction/HwpxStructuredText*.class'
         include 'org/jibro/collection/extraction/HwpxPackageReader*.class'
+        include 'org/jibro/collection/extraction/HwpxStyles*.class'
+        include 'org/jibro/collection/extraction/HwpxPicture*.class'
+        include 'org/jibro/collection/extraction/RasterArrow*.class'
         include 'org/jibro/collection/extraction/PdfLayoutTextStripper*.class'
+        include 'org/jibro/collection/extraction/PdfPageLayout*.class'
+        include 'org/jibro/collection/extraction/PdfPageRenderer*.class'
         include 'org/jibro/collection/extraction/ParserProtocol.class'
         include 'org/jibro/collection/extraction/ParserProcesses.class'
         include 'org/jibro/collection/extraction/OcrConfiguration.class'
@@ -92,6 +97,8 @@ def parserWorker = tasks.register('documentParserJar', Jar) {
 
 tasks.named('processResources') {
     from('../frontend/public/evidence-manifests.json') { into 'evidence' }
+    from('../data/guides/guide-catalog.json') { into 'guides' }
+    from('../data/contracts/preparation-audience-vocabulary.json') { into 'preparation' }
 }
 
 tasks.named('bootJar') {

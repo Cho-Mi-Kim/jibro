@@ -1,6 +1,7 @@
 package org.jibro.notice.source;
 
 import java.util.UUID;
+
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,9 @@ import org.jibro.notice.source.NoticeSourceInformationModels.Information;
 public class NoticeSourceInformationController {
     private final NoticeSourceInformationService service;
 
-    public NoticeSourceInformationController(NoticeSourceInformationService service) { this.service = service; }
+    public NoticeSourceInformationController(NoticeSourceInformationService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public ResponseEntity<Information> get(@PathVariable UUID noticeId) {

@@ -3,6 +3,7 @@ package org.jibro.auth;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.UUID;
+
 import org.jibro.global.common.ApiException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,14 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class TrialAccountsIntegrationTest {
-    @Autowired AuthService auth;
-    @Autowired TrialAccounts trials;
-    @Autowired JdbcTemplate db;
-    @Autowired JwtDecoder decoder;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    TrialAccounts trials;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    JwtDecoder decoder;
 
     @Test
     void guestsAreDistinctAndRefreshAndLogoutAffectOnlyTheirOwner() {

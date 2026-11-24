@@ -1,12 +1,17 @@
 package org.jibro.collection.review.ai;
 
 import java.util.*;
+
 import org.jibro.collection.review.local.CompactReviewPacket;
+
 import static org.jibro.collection.review.ai.ScopedReviewModels.*;
 
-/** Validates citation boundaries only. Even NO_CONFLICT cannot clear source coverage or publish guidance. */
+/**
+ * Validates citation boundaries only. Even NO_CONFLICT cannot clear source coverage or publish guidance.
+ */
 public final class ScopedReviewValidator {
-    private ScopedReviewValidator() {}
+    private ScopedReviewValidator() {
+    }
 
     public static boolean valid(CompactReviewPacket packet, List<Decision> decisions) {
         if (packet == null || decisions == null || packet.issues().isEmpty()
@@ -30,7 +35,8 @@ public final class ScopedReviewValidator {
             if (decision == null || decision.disposition() == null || !seenIssues.add(decision.issueId())) return false;
             var context = issueContexts.get(decision.issueId());
             var evidence = decision.evidenceClauseIds();
-            if (context == null || evidence.isEmpty() || evidence.size() > ScopedReviewSchema.MAX_EVIDENCE_IDS) return false;
+            if (context == null || evidence.isEmpty() || evidence.size() > ScopedReviewSchema.MAX_EVIDENCE_IDS)
+                return false;
             var cited = new HashSet<>(evidence);
             if (cited.size() != evidence.size() || !context.containsAll(cited)) return false;
             if (decision.disposition() == Disposition.CONFIRMED_CONFLICT && cited.size() < 2) return false;

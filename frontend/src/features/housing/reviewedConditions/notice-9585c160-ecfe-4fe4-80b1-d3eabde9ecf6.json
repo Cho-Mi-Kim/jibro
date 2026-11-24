@@ -1,0 +1,264 @@
+{
+    "entries": [
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "residence",
+            "sourceTitle": "공고일 기준 울산 거주·성년 요건에 해당하나요?",
+            "sourceReason": "10월 29일 기준 울산에 사는 무주택세대구성원으로, 원칙은 만 19세 이상입니다. 같은 등본의 자녀를 부양하거나 부모·조부모 등의 사망·실종 등으로 같은 등본의 형제자매를 부양하는 미성년 세대주도 신청할 수 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=2",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "울산에 거주하며 나이 기준을 충족하나요?",
+            "preview": "10월 29일 기준 울산 거주·만 19세 이상이 원칙이에요. 무주택과 미성년 예외도 확인해요.",
+            "sections": [
+                {
+                    "text": "10월 29일 기준 울산에 사는 집이 없는 심사 대상 세대원으로, 원칙은 만 19세 이상이에요.\n\n같은 등본의 자녀를 부양하거나 부모·조부모 등의 사망·실종 등으로 같은 등본의 형제자매를 부양하는 미성년 세대주도 신청할 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=1&sha256=7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=2&sha256=7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "household",
+            "sourceTitle": "세대 범위와 주택 소유 예외를 확인했나요?",
+            "sourceReason": "분리 배우자와 해당 세대원, 분양권 등을 포함하여 확인하세요. 공고일부터 분양전환시까지 무주택 요건을 유지해야 합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=7",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "세대 범위와 주택 소유 예외를 확인했나요?",
+            "preview": "따로 사는 배우자도 함께 봐요. 무주택 기준은 공고일부터 분양전환까지 유지해요.",
+            "sections": [
+                {
+                    "text": "분리 배우자와 해당 세대원, 분양권 등을 포함하여 확인해요.\n\n공고일부터 분양전환시까지 무주택 요건을 유지해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 · 세대 범위와 주택 소유 예외를 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=7",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "duplicate",
+            "sourceTitle": "중복신청과 기계약자 제한을 확인했나요?",
+            "sourceReason": "한 세대에서 한 주택형에 신청하는 것이 원칙입니다. 이 단지 기계약자와 그 세대원은 신청할 수 없습니다. 부부가 모두 예비입주자로 선정되면 먼저 체결한 계약만 유효합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=1",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "중복신청과 기계약자 제한을 확인했나요?",
+            "preview": "한 세대에서 한 주택형에 신청하는 것이 원칙이에요.",
+            "sections": [
+                {
+                    "text": "- 한 세대에서 한 주택형에 신청하는 것이 원칙이에요.\n- 이 단지 기계약자와 그 세대원은 신청할 수 없어요.\n- 부부가 모두 예비입주자로 선정되면 먼저 체결한 계약만 유효해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 · 중복신청과 부부 예비입주 예외",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=1",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "selection",
+            "sourceTitle": "추첨 방식과 계약 후 제한을 확인했나요?",
+            "sourceReason": "청약저축·과거 당첨·소득·자산 기준과 관계없이 신청할 수 있습니다. 주택형별 무작위 전산추첨으로 순번을 정하며, 계약 후 재당첨 제한과 예비자 지위·분양전환 기준은 별도로 적용됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=10",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "추첨 방식과 계약 후 제한을 확인했나요?",
+            "preview": "통장·소득·자산 조건 없이 신청하고 주택형별 전산추첨으로 순번을 정해요.",
+            "sections": [
+                {
+                    "text": "청약저축·과거 당첨·소득·자산 기준과 관계없이 신청할 수 있어요.\n\n주택형별 무작위 전산추첨으로 순번을 정하며, 계약 후 재당첨 제한과 예비자 지위·분양전환 기준은 별도로 적용돼요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 10쪽 · 추첨 방식과 계약 후 제한을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=10",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "method",
+            "sourceTitle": "온라인 신청과 등기우편 서류 제출을 준비했나요?",
+            "sourceReason": "인터넷·모바일로 신청하며 현장 청약 접수는 불가합니다. 서류는 지정 기간 등기우편으로 보내고 11월 26일 우체국 소인 기준을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=3",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "온라인 신청과 등기우편 서류 제출을 준비했나요?",
+            "preview": "인터넷·모바일로 신청하며 현장 청약 접수는 불가해요.",
+            "sections": [
+                {
+                    "text": "인터넷·모바일로 신청하며 현장 청약 접수는 불가해요.\n\n서류는 지정 기간 등기우편으로 보내고 11월 26일 우체국 소인 기준을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 · 온라인 신청과 등기우편 서류 제출을 준비했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=3",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "2026.10.29. 이후 등본상 세대구성원의 변경이 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "공고 후 주소·세대주가 바뀌었거나 공고의 거주기간 증명이 필요하면 초본을 내요.",
+            "sections": [
+                {
+                    "text": "2026.10.29. 이후 등본상 세대구성원의 변경이 있으면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 주민등록표초본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 주민등록표초본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "주민등록표초본",
+                                "해당되는 경우에만 공고의 제출 범위·발급 기준에 따라 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "applies-spouse-resident",
+            "sourceTitle": "배우자 주민등록표등본 제출 대상인가요?",
+            "sourceReason": "배우자가 등본에 등재되어 있지 않고 세대 분리되어 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "배우자 등본도 따로 내야 하나요?",
+            "preview": "배우자와 등본이 다르면 배우자의 등본을 추가해요.",
+            "sections": [
+                {
+                    "text": "배우자가 등본에 등재되어 있지 않고 세대 분리되어 있으면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 배우자 주민등록표등본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 배우자 주민등록표등본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "배우자 주민등록표등본",
+                                "해당되는 경우에만 공고의 제출 범위·발급 기준에 따라 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+            "questionId": "applies-foreign",
+            "sourceTitle": "국내거소신고증·외국인등록증 제출 대상인가요?",
+            "sourceReason": "배우자가 재외동포 또는 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                "sha256": "7e00a0bf32259daa7b4fec13c78f39f75ee76127450885a794c687563b8cee5c"
+            },
+            "heading": "배우자가 외국인이면 무엇을 내나요?",
+            "preview": "배우자가 외국인이면 등록·거소 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "배우자가 재외동포 또는 외국인이면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 국내거소신고증·외국인등록증 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 국내거소신고증·외국인등록증 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69121320#page=12",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "국내거소신고증·외국인등록증",
+                                "해당되는 경우에만 공고의 제출 범위·발급 기준에 따라 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

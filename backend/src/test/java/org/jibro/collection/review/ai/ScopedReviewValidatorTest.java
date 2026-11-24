@@ -1,15 +1,18 @@
 package org.jibro.collection.review.ai;
 
 import java.util.*;
+
 import org.junit.jupiter.api.Test;
 import org.jibro.collection.review.local.CompactReviewPacket;
+
 import static org.jibro.collection.review.local.CompactReviewPacket.*;
 import static org.jibro.collection.review.ai.ScopedReviewModels.*;
 import static org.jibro.collection.review.ai.ScopedReviewValidator.valid;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ScopedReviewValidatorTest {
-    @Test void acceptsOneDecisionForEveryIssueWithReferencesInsideItsClosedContext() {
+    @Test
+    void acceptsOneDecisionForEveryIssueWithReferencesInsideItsClosedContext() {
         var packet = packet(List.of(issue("income", "pdf-income", "hwp-income"), issue("waiver", "waiver")),
                 "pdf-income", "hwp-income", "waiver");
         assertTrue(valid(packet, List.of(
@@ -20,7 +23,8 @@ class ScopedReviewValidatorTest {
                 decision("waiver", Disposition.NO_CONFLICT, "waiver"))));
     }
 
-    @Test void rejectsMissingInventedAndRepeatedIssues() {
+    @Test
+    void rejectsMissingInventedAndRepeatedIssues() {
         var packet = packet(List.of(issue("income", "c1"), issue("asset", "c2")), "c1", "c2");
         var income = decision("income", Disposition.NO_CONFLICT, "c1");
         assertFalse(valid(packet, List.of(income)));
@@ -29,7 +33,8 @@ class ScopedReviewValidatorTest {
         assertFalse(valid(packet, List.of(income, decision("asset", Disposition.NO_CONFLICT, "c2"), income)));
     }
 
-    @Test void cannotBorrowEvidenceFromAnUnrelatedIssueOrInventClauseIds() {
+    @Test
+    void cannotBorrowEvidenceFromAnUnrelatedIssueOrInventClauseIds() {
         var packet = packet(List.of(issue("income", "c1"), issue("asset", "c2")), "c1", "c2");
         var asset = decision("asset", Disposition.NO_CONFLICT, "c2");
         assertFalse(valid(packet, List.of(decision("income", Disposition.NO_CONFLICT, "missing"), asset)));
@@ -37,7 +42,8 @@ class ScopedReviewValidatorTest {
         assertFalse(valid(packet, List.of(decision("income", Disposition.UNRESOLVED), asset)));
     }
 
-    @Test void conflictNeedsAtLeastTwoDifferentExistingClauses() {
+    @Test
+    void conflictNeedsAtLeastTwoDifferentExistingClauses() {
         var packet = packet(List.of(issue("income", "c1", "c2")), "c1", "c2");
         assertFalse(valid(packet, List.of(decision("income", Disposition.CONFIRMED_CONFLICT, "c1"))));
         assertFalse(valid(packet, List.of(decision("income", Disposition.CONFIRMED_CONFLICT, "c1", "c1"))));
@@ -45,7 +51,8 @@ class ScopedReviewValidatorTest {
         assertTrue(valid(packet, List.of(decision("income", Disposition.CONFIRMED_CONFLICT, "c1", "c2"))));
     }
 
-    @Test void rejectsAmbiguousPacketIdsAndMissingContextRatherThanOverwritingThem() {
+    @Test
+    void rejectsAmbiguousPacketIdsAndMissingContextRatherThanOverwritingThem() {
         var decision = List.of(decision("income", Disposition.NO_CONFLICT, "c1"));
         assertFalse(valid(packet(List.of(issue("income", "c1")), "c1", "c1"), decision));
         assertFalse(valid(packet(List.of(issue("income", "c1", "missing")), "c1"), decision));
@@ -55,7 +62,8 @@ class ScopedReviewValidatorTest {
                 List.of(decision.get(0), decision("income", Disposition.NO_CONFLICT, "c2"))));
     }
 
-    @Test void rejectsEmptyOrMalformedAdvisoryResults() {
+    @Test
+    void rejectsEmptyOrMalformedAdvisoryResults() {
         var packet = packet(List.of(issue("income", "c1")), "c1");
         assertFalse(valid(null, List.of()));
         assertFalse(valid(packet, null));

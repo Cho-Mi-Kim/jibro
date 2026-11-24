@@ -1,3 +1,4 @@
+import { noticeListTitle } from '../housing/noticeDisplay';
 import { useRef, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
@@ -174,8 +175,11 @@ export function PreparationDeleteDialog({
                                 <p className={styles.recordLabel}>
                                     삭제할 준비
                                 </p>
-                                <p className={styles.title}>
-                                    {details.data.title}
+                                <p
+                                    className={styles.title}
+                                    title={details.data.title}
+                                >
+                                    {noticeListTitle(details.data.title)}
                                 </p>
                             </div>
                         </div>

@@ -1,0 +1,554 @@
+{
+  "draft" : {
+    "id" : "29a28cfd-6616-43e3-9a7c-0b2750c9b684",
+    "noticeId" : "6766d1f8-0a4c-462d-8d8a-b1390b15cbcf",
+    "revision" : 7,
+    "status" : "READY",
+    "checkedAt" : "2026-11-17T04:10:49.810425Z",
+    "message" : "Readonly replay of original captured official extraction",
+    "sources" : [ {
+      "label" : "[공고문]2026년다자녀전세임대입주자수시모집(수정).pdf",
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379",
+      "sha256" : "8a6023cb889535d1362a8b7915c80d6997281b37048f0ad77ee0af02d58f6a91",
+      "status" : "EXTRACTED",
+      "message" : "자동 발췌 · 원문 대조 필요",
+      "excerpts" : [ {
+        "category" : "CONDITION",
+        "text" : "▪ 2명 이상 직계비속(태아 포함, 「민법」상 미성년자로 한정)을 양육하는 저소득 가구가 전세임대주택의",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "▪ 본 입주자모집은 모집대상 주택에 대하여 1세대 1주택 기준으로 공급하며, 순위별, 지역별",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "중복 신청 불가(전부 무효 처리)합니다. 신청 내용 수정은 신청일 24:00(마감일의 경우 18:00)까지",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "※ 현재 (수시) 청년 1순위, 신혼1, 신혼2 유형으로 전세임대주택 입주자 모집 중(중복 계약 불가능)이니,",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "신청자가 세대별 주민등록표상 함께 등재되어 있어야 합니다.",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "▪ 본 청약은 인터넷(https://apply.lh.or.kr)으로만 신청 가능합니다(우편·현장접수 불가).",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "▪ 공급호수 대비 신청접수가 과다할 경우 접수가 조기에 중단될 수 있습니다.",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "3. 신청자격 및 순위",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "■ 신청일 현재 무주택세대구성원으로서 2명 이상의 직계비속(태아를 포함하며 「민법」상 19세 미만",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "(소득 70% 이하)",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "있는 가구 중 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "월평균소득의 70% 이하이며, 국민임대주택의 자산기준*(총자산 34,500만원 이하,",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "월평균소득",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "70% 이하이며, 국민임대주택의 자산기준*(총자산 34,500만원 이하, 자동차",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "* `23.3.28 이후 출생가구 수에 따라 자산 완화 가능하며, 세부 기준은 다음 장 참고",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "■ 소득 · 자산 기준 및 자격 검증 대상(이후 ‘세대구성원’을 말함)",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "• 가구원수는 해당세대(세대구성원) 전원(태아 포함)을 말함",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "• 월평균소득액은 세전금액으로서 해당세대(세대구성원)의 월평균소득액을 모두 합산한 금액임",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "• 6인 이상 가구는 5인가구 소득에 1인당 평균금액*을 합산하여 산정",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "* 1인당 평균금액(579,278원) = (5인가구 월평균소득 - 3인가구 월평균소득) / 2",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "※ `23.3.28. 이후 출생 자녀 수에 대한 자산 기준(`24.3.25. 공공주택특별법 시행규칙 개정)",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "총자산가액",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "(단, 주택공급 신청자 또는 동 배우자와 같은 세대별 주민등록표에 등재되어 있는 경우에 한함)",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "배우자가 세대 분리된 경우 배우자 및 배우자가 속한 주민등록표등본의 무주택세대구성원까지 포함",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "배우자가 세대 분리된 경우 배우자 및 배우자가 속한 주민등록표등본의 무주택세대구성원까지 포함",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "신청자와 주민등록표등본상 세대 분리되어 있는 배우자 포함",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "신청자 또는 신청자의 배우자와 세대별 주민등록표등본상에",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "신청자와 세대별 주민등록표등본상에 함께 등재되어 있는 사람에 한함",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "신청자 또는 분리배우자의 세대별 주민등록표등본에 기재되어 있거나",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "주민등록표등본상 주소와 동일한 사람",
+        "location" : "공고문 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "■ 신청기간 : 2026. 03. 24.(화) 10:00 ~ 2026. 12. 31.(목) 18:00까지",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "■ 신청방법 : 제출서류 스캔 후 첨부하여 LH 청약플러스(https://apply.lh.or.kr)→청약신청(전세임대)에서 신청",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "(단, ‘금융정보 등 제공동의서’는 500KB 이내의 tif(tiff) 파일만 가능(파일 해상도 기본 300dpi(흑백))",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "■ 입주대상자 선정안내 : (소득 · 자산확인 필요시) 신청일로부터 최소 10주 소요",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "※ 수급자, 차상위계층 및 한부모가족(증명서 제출 가능자)은 입주대상자 선정 기간이 단축될 수 있음",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "※ 제출서류 미비 또는 자격검증 소요기간에 따라 발표 일정이 연기될 수 있음",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "※ 제출서류 미비 또는 자격검증 소요기간에 따라 발표 일정이 연기될 수 있음",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "- 입주자격 : 수급자, 차상위계층, 한부모가족(법정), 소득기준 충족여부(총자산·자동차 검색 포함)",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "- 신청자 중 자산, 소득 등에 대해 추가 소명이 필요한 대상자는 개별통보하고 소명기한 부여",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "※ 주택, 소득, 부동산 및 자동차 보유 전산검색 결과 부적격자로 판명된 자가 통보 내용이 사실과",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "다르거나, 이의가 있을 경우에는 재확인기간(소명기간)내에 객관적인 증명서류를 제출하여야 하며,",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "기한 내에 증명서류를 제출하지 아니한 자는 부적격 사유에 대하여 이의가 없는 것으로 간주되어",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "6. 신청 시 제출서류",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "- 모든 발급서류는 신청일 기준 2주일 이내 발급분에 한함(열람용 제출 불가)",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "1. 수급자, 차상위계층 및 한부모가족(「한부모가족지원법 시행규칙」 제3조 보호대상)은 해당 증명서 제출",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "2. 1호에 해당하지 않는 신청자는 반드시 금융정보 등 제공동의서와 자산보유사실 확인서 제출",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "2. 1호에 해당하지 않는 신청자는 반드시 금융정보 등 제공동의서와 자산보유사실 확인서 제출",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "⑥ 발급 후 2주일 이상 경과된 서류 제출 등",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "1. 주민등록표등본",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "사항 공개 발급",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "등록번호, 세대구성원 이름 등이 전부 표기되도록 발급",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "2. 가족관계증명서(상세)",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "* 주민번호 공개 발급",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "• 주민등록표 분리 배우자 확인 등",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "보험정보) 제공동의서",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "※ 수급자, 차상위계층 및 한부모가족(증명서 제출 가능자)은 제출 불요",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "4. 자산보유사실 확인서",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "관련 증빙서류를 첨부하여 제출 (첨부된 자산보유사실 확인서 참조)",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "※ 신고 누락된 자산이 추후 확인되어 자산 보유 기준을 충족하지",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "및 제3자 제공 동의서",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "• 가족관계증명서(출생 신고 전인 경우 출생증명서), 입양관계",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "증명서, 임신진단서, 아동수당·부모급여 수령 내역 등 출산·",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "• (수급자) 생계ㆍ의료ㆍ주거ㆍ교육 수급자 증명서",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "차상위 본인부담 경감 대상자 증명서, 자활급여대상자",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "증명서(자활근로자 확인서), 장애수당대상자 확인서, 장애",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "장관이 정하여 고시하는 한부모가족 증명서",
+        "location" : "공고문 2쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "가족관계증명서(상세)",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "• 의료법에 의한 의료기관에서 발급한 임신진단서 또는 임신",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "※ 신청일로부터 1개월 이내 발급분",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "주민등록표등본",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "<배우자의 주민등록표가 분리되어 있는 경우에만 추가 제출>",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "주민등록번호, 세대구성원의 이름 등이 전부 표기되도록",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "• 외국인 배우자 또는 외국인 직계 존 · 비속을 가구원수로 인정",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "※ 외국인배우자가 신청자의 주민등록표등본상 등재 시 제출 생략",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "(단, 가구원수가 5인 이상인 경우 호당 지원한도액 250% 초과 가능)",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "※ 신청일 현재 미성년자인 세 명 이상의 자녀(태아 포함)를 둔 가구 또는 가구원수가 5인 이상인",
+        "location" : "공고문 3쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "- 입주자는 재계약 시점에 재계약 기준(무주택세대구성원, 전년도 도시근로자 가구원수별 가구당",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "월평균소득의 105%이하, 국민임대주택 자산기준)을 충족하여야 하며, 소득 또는 자산이 재계약",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "- 재계약 시점에 입주당시 입주자격 소득요건 초과 시 아래 할증구간별 할증비율 적용하여 임대료 등 할증",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "(도시근로자 가구원수별",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "가구당 월평균 소득기준)",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "월평균소득의 70%이하",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "※ 단, 소득구간별 할증비율은 「기존주택 전세임대 업무처리지침」에 따라 변경될 수 있음",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "- 2024년 이후 출생한 자녀가 있는 경우(같은 세대별 주민등록표에 등재되어 있는 경우를 말하며,",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "- 2세 이하의 자녀(같은 세대별 주민등록표에 등재되어 있어야 하며, 태아를 포함)를 둔 가구는 아래",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "DOCUMENT",
+        "text" : "공공임대주택을 명도하고 대상주택으로 주민등록 전입하여야 함",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "- 공사 방문을 통한 인터넷 접수 대행은 진행하지 않음",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "SCHEDULE",
+        "text" : "- 2026년 공급호수 대비 입주신청 호수 초과(예정) 시 수시접수가 중단될 수 있음",
+        "location" : "공고문 4쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      }, {
+        "category" : "CONDITION",
+        "text" : "11. 사회보장정보시스템을 통한 소득 및 재산 항목 설명 및 소득자료 출처",
+        "location" : "공고문 5쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379"
+      } ],
+      "context" : [ {
+        "location" : "공고문 1쪽",
+        "text" : "2026년 다자녀 전세임대 입주자 수시모집\r\n다자녀 전세임대주택이란?\r\n▪ 2명 이상 직계비속(태아 포함, 「민법」상 미성년자로 한정)을 양육하는 저소득 가구가 전세임대주택의 \r\n입주대상자로 선정되어 지원한도액 범위 내에서 전세 주택을 결정하면 한국토지주택공사가 \r\n해당 주택 소유자와 전세계약을 체결하고 이를 입주대상자에게 재임대하는 제도입니다.\r\n▪ 본 입주자모집은 모집대상 주택에 대하여 1세대 1주택 기준으로 공급하며, 순위별, 지역별 \r\n중복 신청 불가(전부 무효 처리)합니다. 신청 내용 수정은 신청일 24:00(마감일의 경우 18:00)까지 \r\n가능하고, 이후 변경 내용에 대해서는 관할 지역본부로 별도 문의 바랍니다.\r\n※ 현재 (수시) 청년 1순위, 신혼1, 신혼2 유형으로 전세임대주택 입주자 모집 중(중복 계약 불가능)이니, \r\n해당 공고 참고하시고 유의하여 신청하시기를 바랍니다.\r\n▪ 신청자가 손자·손녀를 양육하는 조손가정일 경우 신청일 현재 2명 이상의 미성년 직계비속과 \r\n신청자가 세대별 주민등록표상 함께 등재되어 있어야 합니다.\r\n▪ 본 청약은 인터넷(https://apply.lh.or.kr)으로만 신청 가능합니다(우편·현장접수 불가).\r\n▪ 공급호수 대비 신청접수가 과다할 경우 접수가 조기에 중단될 수 있습니다.\r\n 1. 공급호수 : 2,250호\r\n 2. 공급지역 : 전국\r\n 3. 신청자격 및 순위\r\n■ 신청일 현재 무주택세대구성원으로서 2명 이상의 직계비속(태아를 포함하며 「민법」상 19세 미만 \r\n미성년자로 한정)을 양육하는 가구 중 아래에 해당하는 사람\r\n⟦PDF:TABLE id=1 rows=7 cols=3⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=342.72 y1=342.72⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=342.72 y1=342.72⟧\n유형\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=342.72 y1=342.72⟧\n세부 자격요건\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=366.36 y1=366.36⟧\n1순위\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=361.32 y1=361.32⟧\n신생아가구\r\n⟦PDF:LINE y0=371.52 y1=371.52⟧\n(수급자가구 등)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=351.60 y1=354.96⟧\n신청일로부터 최근 2년이내 출산한 자녀*(태아, 2년이내 출생한 입양자를 포함)가 \r\n⟦PDF:LINE y0=366.72 y1=366.72⟧\n있는 가구 중 수급자가구 또는 차상위계층, 지원대상 한부모가족인 자\r\n⟦PDF:LINE y0=377.88 y1=377.88⟧\n* 예시 : 2026.4.30. 신청시 2024.5.1. 이후 출산한 자녀가 있는 가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=1 rowspan=4 colspan=1⟧\n⟦PDF:LINE y0=440.64 y1=440.64⟧\n2순위\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=395.52 y1=395.52⟧\n수급자 가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=390.48 y1=390.48⟧\n「국민기초생활보장법」 제7조제1항제1호부터 제4호까지의 급여 중 \r\n⟦PDF:LINE y0=400.68 y1=400.68⟧\n어느 하나에 해당하는 급여를 받는 수급자 가구(생계·의료·주거·교육급여 수급자)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=418.44 y1=418.44⟧\n차상위계층\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=418.44 y1=418.44⟧\n「국민기초생활보장법」 제2조제10호에 따른 차상위계층\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=441.36 y1=441.36⟧\n한부모가족\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=436.20 y1=436.20⟧\n「한부모가족지원법 시행규칙」 제3조에 따라 성평등가족부장관이 정하여 \r\n⟦PDF:LINE y0=446.40 y1=446.40⟧\n고시하는 한부모가족\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=469.80 y1=469.80⟧\n신생아가구\r\n⟦PDF:LINE y0=480.00 y1=480.00⟧\n(소득 70% 이하)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=459.72 y1=459.72⟧\n신청일로부터 최근 2년이내 출산한 자녀(태아, 2년이내 출생한 입양자를 포함)가 \r\n⟦PDF:LINE y0=469.80 y1=469.80⟧\n있는 가구 중 해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 \r\n⟦PDF:LINE y0=476.52 y1=480.00⟧\n월평균소득의 70% 이하이며, 국민임대주택의 자산기준*(총자산 34,500만원 이하, \r\n⟦PDF:LINE y0=490.20 y1=490.20⟧\n자동차 4,542만원 이하)을 충족하는 사람\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=514.44 y1=514.44⟧\n3순위\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=509.40 y1=509.40⟧\n월평균소득 \r\n⟦PDF:LINE y0=519.60 y1=519.60⟧\n70% 이하인 자\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=502.80 y1=502.80⟧\n해당 세대의 월평균소득이 전년도 도시근로자 가구원수별 가구당 월평균소득의 \r\n⟦PDF:LINE y0=511.08 y1=514.44⟧\n70% 이하이며, 국민임대주택의 자산기준*(총자산 34,500만원 이하, 자동차 \r\n⟦PDF:LINE y0=526.20 y1=526.20⟧\n4,542만원 이하)을 충족하는 사람\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n * `23.3.28 이후 출생가구 수에 따라 자산 완화 가능하며, 세부 기준은 다음 장 참고\r\n ※ 직계비속 : 본인으로부터 직선으로 내려가서 후손에 이르는 사이의 혈족을 일컫는 말\r\n              (예시 : 자녀·친손자녀·외손자녀 등)\r\n- 1 -\r\n■ 소득 · 자산 기준 및 자격 검증 대상(이후 ‘세대구성원’을 말함) \r\n⟦PDF:TABLE id=2 rows=4 cols=2⟧\n⟦PDF:CELL table=2 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=53.04 y1=53.04⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=53.04 y1=53.04⟧\n세부 기준  \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=100.80 y1=100.80⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=66.72 y1=66.72⟧\n(단위: 원)\r\n⟦PDF:TABLE id=3 rows=2 cols=7⟧\n⟦PDF:CELL table=3 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n3인가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n4인가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n5인가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n6인가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=6 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n7인가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=7 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.72 y1=78.72⟧\n8인가구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n70% \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n5,717,900\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n6,161,541\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n6,528,890\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n6,934,384\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=6 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n7,339,879\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=7 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.32 y1=91.32⟧\n7,745,373\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n⟦PDF:LINE y0=103.92 y1=103.92⟧\n • 가구원수는 해당세대(세대구성원) 전원(태아 포함)을 말함\r\n⟦PDF:LINE y0=113.88 y1=113.88⟧\n • 월평균소득액은 세전금액으로서 해당세대(세대구성원)의 월평균소득액을 모두 합산한 금액임\r\n⟦PDF:LINE y0=120.72 y1=123.84⟧\n • 6인 이상 가구는 5인가구 소득에 1인당 평균금액*을 합산하여 산정\r\n⟦PDF:LINE y0=133.68 y1=133.68⟧\n   * 1인당 평균금액(579,278원) = (5인가구 월평균소득 - 3인가구 월평균소득) / 2 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=187.32 y1=187.32⟧\n자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=145.80 y1=145.80⟧\n※ `23.3.28. 이후 출생 자녀 수에 대한 자산 기준(`24.3.25. 공공주택특별법 시행규칙 개정)\r\n⟦PDF:TABLE id=4 rows=3 cols=4⟧\n⟦PDF:CELL table=4 row=1 col=1 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=162.60 y1=162.60⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=1 col=2 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=158.28 y1=158.28⟧\n자녀가 없거나, 2023.3.27. 이전 \r\n⟦PDF:LINE y0=166.80 y1=166.80⟧\n출생한 자녀만 있는 경우\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=1 col=3 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=157.20 y1=157.20⟧\n‘23.3.28.이후 출생한 자녀(태아 포함)가 있는 경우\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=167.88 y1=167.88⟧\n1인 (+10%p)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=167.88 y1=167.88⟧\n2인 이상 (+20%p)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=3 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=179.52 y1=179.52⟧\n총자산가액\r\n⟦PDF:LINE y0=192.00 y1=192.00⟧\n자동차가액\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=179.52 y1=179.52⟧\n345,000,000원 이하\r\n⟦PDF:LINE y0=192.00 y1=192.00⟧\n45,420,000원 이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=179.52 y1=179.52⟧\n379,000,000원 이하\r\n⟦PDF:LINE y0=192.00 y1=192.00⟧\n49,960,000원 이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=4 row=3 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=179.52 y1=179.52⟧\n413,000,000원 이하\r\n⟦PDF:LINE y0=192.00 y1=192.00⟧\n54,510,000원 이하\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n⟦PDF:LINE y0=206.88 y1=206.88⟧\n※ 출생자녀수는 ’23. 3. 28. 이후 출산한 자녀(신청일 기준 태아 및 입양자녀 포함) 수를 의미하며, 기준일 이후  \r\n⟦PDF:LINE y0=216.72 y1=216.72⟧\n       출생 자녀가 있는 경우에는 기준일 이전 출생한 기존 미성년 자녀도 포함하여 최대 2자녀로 인정\r\n⟦PDF:LINE y0=226.44 y1=226.44⟧\n   (단, 주택공급 신청자 또는 동 배우자와 같은 세대별 주민등록표에 등재되어 있는 경우에 한함)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=400.32 y1=400.32⟧\n검증대상\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=240.72 y1=240.72⟧\n • 아래의 세대구성원에 해당하는 사람 전원이 주택을 소유하고 있지 않은 세대의 구성원을 말하며,\r\n⟦PDF:LINE y0=250.80 y1=250.80⟧\n배우자가 세대 분리된 경우 배우자 및 배우자가 속한 주민등록표등본의 무주택세대구성원까지 포함\r\n⟦PDF:LINE y0=261.48 y1=261.48⟧\n  ※ 세대구성원(자격검증대상)\r\n⟦PDF:TABLE id=5 rows=5 cols=2⟧\n⟦PDF:CELL table=5 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=275.88 y1=275.88⟧\n• 신청자\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=288.96 y1=288.96⟧\n• 신청자의 배우자\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=288.96 y1=288.96⟧\n신청자와 주민등록표등본상 세대 분리되어 있는 배우자 포함\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=3 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=301.08 y1=301.08⟧\n• 신청자의 직계존속\r\n⟦PDF:LINE y0=310.32 y1=310.32⟧\n• 신청자의 배우자의 직계존속\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=3 col=2 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=310.92 y1=310.92⟧\n신청자 또는 신청자의 배우자와 세대별 주민등록표등본상에 \r\n⟦PDF:LINE y0=320.88 y1=320.88⟧\n함께 등재되어 있는 사람에 한함\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=4 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=321.48 y1=321.48⟧\n• 신청자의 직계비속\r\n⟦PDF:LINE y0=330.60 y1=330.60⟧\n• 신청자의 직계비속의 배우자\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=5 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=342.72 y1=342.72⟧\n• 신청자의 배우자의 직계비속\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=342.72 y1=342.72⟧\n신청자와 세대별 주민등록표등본상에 함께 등재되어 있는 사람에 한함\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n⟦PDF:LINE y0=359.04 y1=359.04⟧\n   ※ 아래에 해당하는 사람은 자격검증대상(세대구성원)에 포함  \r\n⟦PDF:TABLE id=6 rows=3 cols=2⟧\n⟦PDF:CELL table=6 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=373.32 y1=373.32⟧\n• 외국인 배우자\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=6 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=373.32 y1=373.32⟧\n가족관계등록부에 등재된 외국인 배우자(외국인 등록을 한 경우에 한함)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=6 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=401.40 y1=401.40⟧\n• 외국인 직계 존·비속\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=6 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=386.52 y1=386.52⟧\n가족관계등록부에 등재되고 외국인 등록(또는 국내거소신고)을 한 사람으로서,\r\n⟦PDF:LINE y0=396.48 y1=396.48⟧\n신청자 또는 분리배우자의 세대별 주민등록표등본에 기재되어 있거나\r\n⟦PDF:LINE y0=406.32 y1=406.32⟧\n외국인 등록증 상의 체류지(거소)가 신청자 또는 분리배우자의 세대별\r\n⟦PDF:LINE y0=416.28 y1=416.28⟧\n주민등록표등본상 주소와 동일한 사람\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=6 row=3 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=429.48 y1=429.48⟧\n• 태아\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=6 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=429.48 y1=429.48⟧\n신청인과 배우자의 태아\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n \r\n⟦PDF:LINE y0=444.60 y1=444.60⟧\n ※ 단, 세대구성원 중 「국민기초생활 보장법 시행령」 제2조제2항제5호부터 제7호에 해당하는 자는 해당 세대\r\n⟦PDF:LINE y0=454.32 y1=454.32⟧\n    구성원에서 제외되며, 신청자 본인이 입증서류를 제출하여야 합니다[「공공주택특별법 시행규칙」 제13조제2항].\r\n⟦PDF:LINE y0=467.88 y1=467.88⟧\n5. 실종선고 절차가 진행 중인 사람\r\n⟦PDF:LINE y0=477.72 y1=477.72⟧\n6. 가출 또는 행방불명으로 경찰서 등 행정관청에 신고된 후 1개월이 지났거나 가출 또는 행방불명 사실을 \r\n⟦PDF:LINE y0=487.68 y1=487.68⟧\n특별자치시장·특별자치도지사·시장·군수·구청장(자치구의 구청장을 말하며, 이하 “시장·군수·구청장”이라 \r\n⟦PDF:LINE y0=497.64 y1=497.64⟧\n한다)이 확인한 사람\r\n⟦PDF:LINE y0=507.60 y1=507.60⟧\n 7. 그 밖에 공급신청자와 생계 및 주거를 달리한다고 시장·군수·구청장이 확인한 사람\r\n⟦PDF:LINE y0=521.04 y1=521.04⟧\n •  「민법」상 미성년자(19세 미만)는 공급 신청할 수 없습니다. 단, 아래의 어느 하나에 해당하는\r\n⟦PDF:LINE y0=530.88 y1=530.88⟧\n    경우에는 미성년자도 공급신청 가능(임대차계약 체결 시 법정대리인 동의 또는 대리 필요) \r\n⟦PDF:LINE y0=540.60 y1=540.60⟧\n   - 자녀가 있는 미성년 세대주\r\n⟦PDF:LINE y0=550.32 y1=550.32⟧\n   - 직계존속의 사망, 실종선고, 행방불명 등으로 형제자매를 부양해야 하는 미성년 세대주\r\n⟦PDF:LINE y0=560.04 y1=560.04⟧\n   - 부 또는 모가 외국인인 한부모가족으로서 미성년 자녀(내국인) 세대주\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n \r\n- 2 -\r\n"
+      }, {
+        "location" : "공고문 2쪽",
+        "text" : " 4. 신청절차, 기간 및 방법\r\n■ 신청절차\r\n입주신청\r\n(LH청약플러스)\r\n자격확인\r\n(LH지역본부)\r\n대상자 선정\r\n(개별안내)\r\n전세주택 물색 (입주대상자)\r\n권리분석 (LH지역본부)\r\n⟦PDF:TABLE id=1 rows=1 cols=3⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=80.52 y1=80.52⟧\n전세 및 \r\n⟦PDF:LINE y0=91.92 y1=91.92⟧\n임대차 계약 체결\r\n⟦PDF:LINE y0=103.20 y1=103.20⟧\n(LH 지역본부)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=2 rowspan=1 colspan=1⟧\n  \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=91.92 y1=91.92⟧\n 입주\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n■ 신청기간 : 2026. 03. 24.(화) 10:00 ~ 2026. 12. 31.(목) 18:00까지\r\n■ 신청방법 : 제출서류 스캔 후 첨부하여 LH 청약플러스(https://apply.lh.or.kr)→청약신청(전세임대)에서 신청\r\n <유의사항>\r\n • 인터넷 청약시스템은 인증서(공동인증서, 금융인증서 또는 네이버 인증서 등)를 소지한 경우에 한하여 \r\n신청 가능하며, LH청약플러스에서 제공하는 “청약신청 연습하기”를 통하여 사전에 미리 청약 절차를 \r\n연습하여 청약하시기 바랍니다.\r\n • 첨부파일의 용량, 형식이 제한되어 있으니, 신청 전에 첨부파일 용량을 미리 확인하시기 바라며,\r\n                                 스캔 등 오류로 인해 서류 식별이 불가하지 않도록 확인하시기 바랍니다.\r\n   (파일크기 최대 3MB 미만 / tif, tiff, jpg, jpeg, gif, hwp, pdf, zip 확장자 업로드 가능)\r\n   (단, ‘금융정보 등 제공동의서’는 500KB 이내의 tif(tiff) 파일만 가능(파일 해상도 기본 300dpi(흑백))\r\n 5. 입주대상자 선정 방법\r\n■ 입주대상자 선정안내 : (소득 · 자산확인 필요시) 신청일로부터 최소 10주 소요\r\n ※ 수급자, 차상위계층 및 한부모가족(증명서 제출 가능자)은 입주대상자 선정 기간이 단축될 수 있음\r\n  ※ 제출서류 미비 또는 자격검증 소요기간에 따라 발표 일정이 연기될 수 있음\r\n  ※ 대상자 선정 및 소명대상 안내 등은 SMS 및 e-mail을 발송할 예정이오니, 입주 신청 시 본인의 연락처\r\n(핸드폰 번호)와 e-mail 주소를 정확히 기입하시기 바랍니다(오기재로 인한 책임은 신청자 본인에게 있음).\r\n■ 입주대상자의 자격은 보건복지부의 “사회보장정보시스템”을 이용하여 조회 예정으로 우리 공사는 \r\n“사회보장정보시스템”을 이용한 검색 결과대로 입주자를 선정\r\n   - 신청자는 “사회보장정보시스템” 이용을 위한 ‘개인정보 제공’에 반드시 동의하여야 함\r\n   - 입주자격 : 수급자, 차상위계층, 한부모가족(법정), 소득기준 충족여부(총자산·자동차 검색 포함)\r\n   - 신청자 중 자산, 소득 등에 대해 추가 소명이 필요한 대상자는 개별통보하고 소명기한 부여\r\n ※ 주택, 소득, 부동산 및 자동차 보유 전산검색 결과 부적격자로 판명된 자가 통보 내용이 사실과 \r\n다르거나, 이의가 있을 경우에는 재확인기간(소명기간)내에 객관적인 증명서류를 제출하여야 하며, \r\n기한 내에 증명서류를 제출하지 아니한 자는 부적격 사유에 대하여 이의가 없는 것으로 간주되어 \r\n지원 대상에서 제외\r\n- 3 -\r\n 6. 신청 시 제출서류\r\n■ 첨부서류 \r\n - 모든 발급서류는 신청일 기준 2주일 이내 발급분에 한함(열람용 제출 불가)\r\n - 유의사항\r\n    1. 수급자, 차상위계층 및 한부모가족(「한부모가족지원법 시행규칙」 제3조 보호대상)은 해당 증명서 제출\r\n    2. 1호에 해당하지 않는 신청자는 반드시 금융정보 등 제공동의서와 자산보유사실 확인서 제출\r\n※ (중요) 아래 사항 해당 시 별도 보완요청 없이 입주대상자 선정에서 제외될 수 있으니 유념하시어 제출\r\n해주시기 바랍니다.\r\n \r\n   ① 공통 서류 및 본인 해당서류 미제출 ② 공고문 첨부 양식 외의 서류 제출 ③ 식별 불가 서류 제출 \r\n④ 자필 서명 없이 한글파일에 타이핑된 서류 제출 ⑤ 기타 신청자 자격 확인이 불가능한 경우 \r\n   ⑥ 발급 후 2주일 이상 경과된 서류 제출 등\r\n⟦PDF:TABLE id=2 rows=8 cols=4⟧\n⟦PDF:CELL table=2 row=1 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=226.20 y1=226.20⟧\n제출서류\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=226.20 y1=226.20⟧\n내용\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=226.20 y1=226.20⟧\n발급처\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=1 rowspan=5 colspan=1⟧\n⟦PDF:LINE y0=334.56 y1=334.56⟧\n공통\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=240.24 y1=240.24⟧\n1. 주민등록표등본 \r\n⟦PDF:LINE y0=251.16 y1=251.16⟧\n* 주소변동을 제외한 모든\r\n⟦PDF:LINE y0=262.08 y1=262.08⟧\n  사항 공개 발급\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=240.48 y1=240.48⟧\n• 세대구성원과 세대주와의 관계, 세대구성원의 전입일/변동일 \r\n⟦PDF:LINE y0=251.16 y1=251.16⟧\n사유, 세대구성 사유, 세대주 및 세대구성원 전원의 주민\r\n⟦PDF:LINE y0=261.84 y1=261.84⟧\n등록번호, 세대구성원 이름 등이 전부 표기되도록 발급\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=4 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=263.64 y1=263.64⟧\n행정복지센터\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=274.08 y1=274.08⟧\n2. 가족관계증명서(상세)\r\n⟦PDF:LINE y0=286.20 y1=286.20⟧\n* 주민번호 공개 발급\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=273.24 y1=273.24⟧\n• 양육 자녀, 배우자 유무 확인\r\n⟦PDF:LINE y0=287.04 y1=287.04⟧\n• 주민등록표 분리 배우자 확인 등\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=303.96 y1=303.96⟧\n3. 금융정보 등(금융‧신용‧\r\n⟦PDF:LINE y0=314.88 y1=314.88⟧\n  보험정보) 제공동의서\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=297.24 y1=297.24⟧\n• 법정 양식으로 본인 및 세대구성원 전원(14세 미만의 세대\r\n⟦PDF:LINE y0=307.80 y1=307.80⟧\n구성원은 보호자(법정대리인)가 서명)의 자필 서명, 날인\r\n⟦PDF:LINE y0=321.72 y1=321.72⟧\n ※ 수급자, 차상위계층 및 한부모가족(증명서 제출 가능자)은 제출 불요\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=4 rowspan=3 colspan=1⟧\n⟦PDF:LINE y0=363.48 y1=363.48⟧\n 반드시 첨부된\r\n⟦PDF:LINE y0=374.16 y1=374.16⟧\n양식 작성\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=368.04 y1=368.04⟧\n4. 자산보유사실 확인서\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=331.80 y1=331.80⟧\n• 공적자료로 확인이 불가능한 임차보증금, 임대보증금, 분양권, \r\n⟦PDF:LINE y0=342.48 y1=342.48⟧\n출자금, 비상장주식내역 등을 기재하고 신청자가 자필 서명하여 \r\n⟦PDF:LINE y0=353.04 y1=353.04⟧\n관련 증빙서류를 첨부하여 제출 (첨부된 자산보유사실 확인서 참조)\r\n⟦PDF:LINE y0=366.60 y1=366.60⟧\n ※ 해당사항 없는 경우 해당여부에 반드시 ‘아니오’ 기재하여 업로드\r\n⟦PDF:LINE y0=380.04 y1=380.04⟧\n ※ 신고 누락된 자산이 추후 확인되어 자산 보유 기준을 충족하지 \r\n⟦PDF:LINE y0=390.72 y1=390.72⟧\n않은 경우 계약 해지될 수 있음\r\n⟦PDF:LINE y0=404.16 y1=404.16⟧\n ※ 수급자, 차상위계층 및 한부모가족(증명서 제출 가능자)은 제출 불요\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=416.76 y1=416.76⟧\n5. 개인정보 수집·이용 \r\n⟦PDF:LINE y0=427.44 y1=427.44⟧\n및 제3자 제공 동의서\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=415.32 y1=415.32⟧\n• 세대구성원 전원이 자필 서명\r\n⟦PDF:LINE y0=428.76 y1=428.76⟧\n ※ 14세 미만의 세대구성원은 보호자(법정대리인)가 서명\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=1 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=489.12 y1=489.12⟧\n해당\r\n⟦PDF:LINE y0=499.80 y1=499.80⟧\n시\r\n⟦PDF:LINE y0=513.24 y1=513.24⟧\n제출\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=449.52 y1=449.52⟧\n6. 신생아가구 확인서류\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=438.96 y1=438.96⟧\n• 가족관계증명서(출생 신고 전인 경우 출생증명서), 입양관계\r\n⟦PDF:LINE y0=449.52 y1=449.52⟧\n증명서, 임신진단서, 아동수당·부모급여 수령 내역 등 출산·\r\n⟦PDF:LINE y0=460.20 y1=460.20⟧\n입양과 양육 사실 증빙 서류\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=4 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=501.24 y1=501.24⟧\n행정복지센터 등\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=8 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=516.36 y1=516.36⟧\n7. 수급자 등 자격확인서류\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=8 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=469.68 y1=469.68⟧\n• (수급자) 생계ㆍ의료ㆍ주거ㆍ교육 수급자 증명서\r\n⟦PDF:LINE y0=485.40 y1=485.40⟧\n• (차상위계층) \r\n⟦PDF:LINE y0=495.96 y1=495.96⟧\n  차상위계층 확인서, 복지대상급여(변경) 신청결과 통보서, \r\n⟦PDF:LINE y0=506.64 y1=506.64⟧\n차상위 본인부담 경감 대상자 증명서, 자활급여대상자 \r\n⟦PDF:LINE y0=517.32 y1=517.32⟧\n증명서(자활근로자 확인서), 장애수당대상자 확인서, 장애\r\n⟦PDF:LINE y0=528.00 y1=528.00⟧\n아동수당대상자 확인서, 우선돌봄차상위 확인서\r\n⟦PDF:LINE y0=541.80 y1=541.80⟧\n• (한부모가족) \r\n⟦PDF:LINE y0=552.48 y1=552.48⟧\n  「한부모가족지원법 시행규칙」 제3조에 따라 성평등가족부 \r\n⟦PDF:LINE y0=563.16 y1=563.16⟧\n장관이 정하여 고시하는 한부모가족 증명서\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n- 4 -\r\n"
+      }, {
+        "location" : "공고문 3쪽",
+        "text" : "⟦PDF:TABLE id=1 rows=4 cols=4⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=4 colspan=1⟧\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=45.12 y1=45.12⟧\n8. (신청자 자녀의)\r\n⟦PDF:LINE y0=53.64 y1=53.64⟧\n   가족관계증명서(상세)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=43.32 y1=43.32⟧\n<신청자가 손자·손녀를 양육하는 가정일 경우에만 추가 제출>\r\n⟦PDF:LINE y0=55.44 y1=55.44⟧\n• 신청자의 직계비속(손자·손녀 등) 확인용\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=49.32 y1=49.32⟧\n행정복지센터\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=83.76 y1=83.76⟧\n9. 임신진단서\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=68.52 y1=68.52⟧\n• 의료법에 의한 의료기관에서 발급한 임신진단서 또는 임신\r\n⟦PDF:LINE y0=79.20 y1=79.20⟧\n확인서(병원직인 날인)\r\n⟦PDF:LINE y0=89.76 y1=89.76⟧\n ※ 신청일로부터 1개월 이내 발급분\r\n⟦PDF:LINE y0=99.00 y1=99.00⟧\n ※ ‘건강보험 임신·출산 진료비 지급 신청서’ 제출 불가\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=83.76 y1=83.76⟧\n해당 병원\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=127.92 y1=127.92⟧\n10. (신청자의 배우자)\r\n⟦PDF:LINE y0=136.44 y1=136.44⟧\n    주민등록표등본\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=110.16 y1=110.16⟧\n<배우자의 주민등록표가 분리되어 있는 경우에만 추가 제출>\r\n⟦PDF:LINE y0=122.16 y1=122.16⟧\n• 반드시 세대구성원과 세대주와의 관계, 세대구성원의 전입일\r\n⟦PDF:LINE y0=132.84 y1=132.84⟧\n/변동일 사유, 세대구성 사유, 세대주 및 세대구성원 전원의 \r\n⟦PDF:LINE y0=143.52 y1=143.52⟧\n주민등록번호, 세대구성원의 이름 등이 전부 표기되도록 \r\n⟦PDF:LINE y0=154.20 y1=154.20⟧\n발급\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=132.12 y1=132.12⟧\n행정복지센터\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=170.28 y1=170.28⟧\n11. 외국인등록사실증명 \r\n⟦PDF:LINE y0=179.52 y1=179.52⟧\n사본 또는 국내 \r\n⟦PDF:LINE y0=188.76 y1=188.76⟧\n거소신고증 사본\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=167.28 y1=167.28⟧\n• 외국인 배우자 또는 외국인 직계 존 · 비속을 가구원수로 인정 \r\n⟦PDF:LINE y0=177.96 y1=177.96⟧\n  받고자 하는 경우\r\n⟦PDF:LINE y0=191.76 y1=191.76⟧\n ※ 외국인배우자가 신청자의 주민등록표등본상 등재 시 제출 생략\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=4 rowspan=1 colspan=1⟧\n   \r\n⟦PDF:LINE y0=174.24 y1=174.24⟧\n출입국 \r\n⟦PDF:LINE y0=184.92 y1=184.92⟧\n관리사무소\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n 7. 지원대상 주택 및 규모\r\n■ 전세금 지원한도액 \r\n⟦PDF:TABLE id=2 rows=2 cols=4⟧\n⟦PDF:CELL table=2 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=258.72 y1=258.72⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=254.28 y1=254.28⟧\n수도권\r\n⟦PDF:LINE y0=263.04 y1=263.04⟧\n(서울, 경기, 인천)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=254.28 y1=254.28⟧\n광역시\r\n⟦PDF:LINE y0=263.04 y1=263.04⟧\n(세종시 포함)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=258.72 y1=258.72⟧\n기타\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=274.80 y1=274.80⟧\n기본\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=274.80 y1=274.80⟧\n1억5천5백만원\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=274.80 y1=274.80⟧\n1억2천만원\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=274.80 y1=274.80⟧\n1억5백만원\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n※ 미성년 직계비속(태아 포함)이 2명을 초과할 경우, 초과하는 직계비속당 2천만원씩 추가 지원\r\n  - 주거와 생계를 같이 하는 경우에 한하여 지원하며, 지원대상주택에 미성년 직계비속 전입 필수\r\n    (태아는 증빙서류로 전입을 갈음함, 출산 이후 전입 필수)\r\n※ 지역별 지원한도액을 초과하는 주택은 초과하는 전세금액을 입주대상자가 부담하고 임차권은 LH에 \r\n귀속되는 조건으로 지원 가능하며, 전세금 총액은 호당 지원한도액의 250% 이내로 제한함\r\n   (단, 가구원수가 5인 이상인 경우 호당 지원한도액 250% 초과 가능)\r\n■ 지원가능 주택\r\n   - 입주대상자가 신청한 지역의 국민주택 규모(전용면적 85㎡) 이하 전세 또는 보증부월세로 계약 \r\n가능하고, 전입신고 가능한 주택(단독, 다가구, 연립주택, 아파트, 주거용 오피스텔)\r\n     ※ 오피스텔의 경우 바닥난방이 되며, 별도로 취사·세면시설 및 화장실을 갖추어 주거용으로 이용 \r\n가능하여야 함\r\n     ※ 신청일 현재 미성년자인 세 명 이상의 자녀(태아 포함)를 둔 가구 또는 가구원수가 5인 이상인 \r\n경우 전용면적 85㎡ 초과 주택 지원 가능\r\n   - 보증부월세 및 월세주택은 주택소유자와 협의하여 전세주택으로 전환하여 계약 체결할 수 있으며, \r\n입주대상자가 원할 경우 기본 임대보증금 외 주택소유자에게 지급하는 월세를 입주자가 부담하고 \r\n1년치 월세에 해당하는 금액을 보증금으로 추가 납부하는 경우 보증부월세 주택도 지원 가능\r\n     ※ 단, 수도권(60만원), 광역시(45만원), 기타지역(40만원) 한도의 보증부월세는 입주자가 원할 경우 3개월치 \r\n월세에 해당하는 금액만 입주자가 부담하고 9개월치 월세는 임차료 지급보증으로 대체가능\r\n        ☞ 임차료 지급보증이란?\r\n           임차인이 임대인에게 임차료(월세)를 지급하지 못할 경우 이를 책임지는 보증상품\r\n- 5 -\r\n■ 지원불가주택\r\n - 입주대상자 또는 배우자의 직계 존·비속 소유의 주택 및 법인 소유의 공공임대주택\r\n - 등기부등본상 압류⋅가압류⋅가등기⋅신탁등기⋅임차권등기 및 소유권행사에 제한이 되는 가처분⋅\r\n예고등기 등이 있는 경우(권리관계 말소 후 신청 가능)\r\n - 토지 소유자와 건물 소유자가 다른 주택(단, 각각의 소유자 모두와 전세계약 체결하는 경우 또는 \r\n토지지분 일부를 소유하고 있는 건물 소유주와 전세계약 체결하는 경우는 가능)\r\n - 주택도시보증공사의 전세임대주택신용보험 가입 불가한 주택(9번 유의사항 참고)\r\n - 기타 우리 공사가 재난·재해 등의 우려로 방침으로 정하여 공급을 제한하는 주택(소급적용 가능)\r\n 8. 임대조건 및 임대기간\r\n■ 기본임대조건(입주자부담)\r\n  - 임대보증금 : 지원한도액 범위 내 전세보증금의 2%  \r\n  - 월  임대료 * : 전세보증금에서 임대보증금을 뺀 나머지 금액에 대한 연 1.2~2.2% 이자    \r\n    * 주거급여 수급세대의 경우 지자체에서 신청자 계좌로 지급되던 주거급여액이 LH 계좌로 지급되며, \r\n      해당 금액은 월 임대료로 자동 수납처리됨\r\n    ※ 「주거급여법」 제7조 제4항에 의거 공사가 직접 수납하며, 보증부월세 계약은 제외\r\n■ 지원보증금 규모별 금리 \r\n⟦PDF:TABLE id=3 rows=2 cols=4⟧\n⟦PDF:CELL table=3 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=321.00 y1=321.00⟧\n 지원보증금 규모\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=321.00 y1=321.00⟧\n4천만원 이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=321.00 y1=321.00⟧\n4천만원 초과~6천만원 이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=321.00 y1=321.00⟧\n6천만원 초과\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=335.76 y1=335.76⟧\n금리(연이율)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=335.76 y1=335.76⟧\n1.2%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=335.76 y1=335.76⟧\n1.7%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=335.76 y1=335.76⟧\n2.2%\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n ※ 우대금리 적용\r\n   ① 미성년 직계비속(태아 포함) : 직계비속 1명 0.2%p, 직계비속 2명 0.3%p, 직계비속 3명 이상 0.5%p\r\n                                 (단, 최저금리는 1.2%)\r\n   ② 생계·의료급여 수급자 : 0.2%p (단, 최저금리는 1.2%)\r\n     (지원대상주택에 미성년 직계비속 전입여부 확인 후 우대금리 적용 가능, 태아는 증빙서류로 전입을 갈음함)\r\n ※ 월 임대료는 주택도시기금 운용계획 융자조건에 따라 변경 가능\r\n■ 임대조건 산정 예시\r\n전세보증금 1억3천500만원 전세임대주택을 임차한 경우(수도권)\r\n  ※ (임대보증금) 270만원\r\n     (월 임대료) [(전세지원금-임대보증금) × 2.2%(연) ÷ 12개월] \r\n                 = [(13,500만원 - 270만원) × 2.2% ÷ 12] = 242,550원    \r\n- 6 -\r\n"
+      }, {
+        "location" : "공고문 4쪽",
+        "text" : "전세보증금 1억원, 월세 30만원 보증부월세 전세임대주택을 임차한 경우(수도권)\r\n  ※ 지급보증을 선택한 경우 (수도권 월세 30만원 이므로, 임차료 지급보증 가입 가능)\r\n     (임대보증금) 290만원(기본 200만원 + 3개월치 월세 해당액 90만원)     \r\n     (월 임대료) [(전세보증금-임대보증금) × 2.2%(연) ÷ 12개월] \r\n              = [(10,000만원 - 290만원) × 2.2% ÷ 12] = 178,010원  \r\n   * 단, 입주자가 기본 임대보증금 외에 추가로 부담하는 전세보증금이 있는 경우에는 추가로 부담하는 \r\n전세 보증금 중 3개월치 월세 부족분만 추가 부담\r\n  ※ 지급보증을 선택하지 않은 경우\r\n     (임대보증금) 560만원(기본 200만원 + 12개월치 월세 해당액 360만원)\r\n     (월 임대료) [(전세보증금-임대보증금) × 2.2%(연) ÷ 12개월] \r\n               = [(10,000만원 - 560만원) × 2.2% ÷ 12] = 173,060원\r\n   \r\n   * 단, 입주자가 기본 임대보증금 외에 추가로 부담하는 전세보증금이 있는 경우에는 추가로 부담하는 \r\n전세 보증금 중 12개월치 월세 부족분만 추가 부담\r\n■ 임대기간 : 2년\r\n  - 최초 임대기간 경과 후 재계약 기준 충족 시 2년 단위로 9회 재계약 가능(최장 20년 거주 가능)\r\n■ 재계약기준\r\n  - 입주자는 재계약 시점에 재계약 기준(무주택세대구성원, 전년도 도시근로자 가구원수별 가구당 \r\n월평균소득의 105%이하, 국민임대주택 자산기준)을 충족하여야 하며, 소득 또는 자산이 재계약 \r\n기준을 초과한 경우에도 1회에 한하여 재계약이 가능하나, 임대료 등이 80% 할증됨\r\n  - 재계약 시점에 입주당시 입주자격 소득요건 초과 시 아래 할증구간별 할증비율 적용하여 임대료 등 할증\r\n< 임대료 등 할증기준 >\r\n⟦PDF:TABLE id=1 rows=5 cols=4⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=366.00 y1=366.00⟧\n입주자격\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=2 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=356.76 y1=356.76⟧\n할증 구간\r\n⟦PDF:LINE y0=366.00 y1=366.00⟧\n(도시근로자 가구원수별 \r\n⟦PDF:LINE y0=375.24 y1=375.24⟧\n가구당 월평균 소득기준)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=351.72 y1=351.72⟧\n할증비율\r\n⟦PDF:LINE y0=363.12 y1=363.12⟧\n(임대료 기준)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=380.76 y1=380.76⟧\n최초 갱신계약 시\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=380.76 y1=380.76⟧\n2회차 이상 갱신계약 시\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=1 rowspan=3 colspan=1⟧\n⟦PDF:LINE y0=409.08 y1=409.08⟧\n전년도 도시근로자 가구 \r\n⟦PDF:LINE y0=420.36 y1=420.36⟧\n월평균소득의 70%이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=397.80 y1=397.80⟧\n73.5%초과 77%이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=397.80 y1=397.80⟧\n10%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=397.80 y1=397.80⟧\n20%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=414.72 y1=414.72⟧\n77%초과 91%이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=414.72 y1=414.72⟧\n20%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=414.72 y1=414.72⟧\n40%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=431.64 y1=431.64⟧\n91%초과 105%이하\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=431.64 y1=431.64⟧\n40%\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=431.64 y1=431.64⟧\n80%\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n  ※ 단, 소득구간별 할증비율은 「기존주택 전세임대 업무처리지침」에 따라 변경될 수 있음\r\n \r\n■ 신생아가구 지원에 관한 특례(‘25.4.11 「기존주택 전세임대 업무치리지침」 개정)\r\n  - 2024년 이후 출생한 자녀가 있는 경우(같은 세대별 주민등록표에 등재되어 있는 경우를 말하며, \r\n태아를 포함)에는 해당 자녀가 성년이 되는 날 이전까지 계속 재계약할 수 있음(이 경우 성년이 \r\n되는 날 이전에 체결한 임대차계약은 해당 임대차계약이 종료되는 날까지로 함)\r\n  - 2세 이하의 자녀(같은 세대별 주민등록표에 등재되어 있어야 하며, 태아를 포함)를 둔 가구는 아래 \r\n유형으로 변경할 수 있음\r\n    1. 다자녀 가구인 경우 : 다자녀 전세임대\r\n    2. 그 외의 경우 : 신혼·신생아 전세임대Ⅰ\r\n- 7 -\r\n 9. 유의사항\r\n■ 주택물색 관련 안내\r\n \r\n  - 부채비율(전세지원금 포함 총부채/주택가격)이 90% 이하인 주택만 지원가능하며, 신청자 및 배우자의 직계 \r\n존·비속 소유의 주택은 지원 대상주택에서 제외됨\r\n \r\n  - 임차할 주택의 소유자와 전세계약에 대한 협의가 성립한 경우 LH 해당 지역본부의 권리분석 승인 후 \r\n전세계약을 체결하여야 함(거주 중인 주택도 지원 기준을 충족하고 임대인 동의 시 지원 가능)\r\n   ※ 입주대상자로 선정된 이후 주택을 물색하여야 하며, LH 승인없이 임의로 계약(가계약 포함)한 건에 \r\n대하여는 향후 문제발생시 (가)계약금 등 보호 불가\r\n   ※ 계약체결 및 주택물색 안내 시 부채비율 산정 방식 등 세부 내용 재안내 예정\r\n \r\n  - 전세계약 체결 시 계약금은 입주대상자 본인이 주택소유자에게 지급\r\n   ※ 계약 체결 후 입주대상자의 귀책사유로 전세계약이 해제·해지될 경우 기 납부한 계약금은 주택\r\n소유자에게 귀속될 수 있으니 반드시 LH 해당 지역본부 승인 후 계약\r\n  - 입주대상자는 지원대상 주택에 전입신고 후 확정일자를 받는 등의 대항력 유지의무가 있으며, 주민\r\n등록 미전입 또는 무단이전 시 계약이 해지될 수 있음\r\n■ 기타사항\r\n  - 입주대상자로 선정된 사람은 계약 시까지 입주자격을 유지하여야 함(입주자격을 유지하지 못할 경우 지원불가)\r\n \r\n  - 태아 또는 입양한 자녀를 인정받아 입주자로 선정된 자는 「모자보건법」 제14조를 위반하여 인공임신\r\n중절 등을 하거나, 입주 전 파양한 사실이 판명될 경우 공급 불가함\r\n \r\n  - 기 대출받은 주택도시기금[본인과 배우자(세대 분리 배우자 포함) 및 세대원 전원의 대출 기금]이 \r\n있을 경우에는 전세임대주택 입주 전까지 상환하여야 함\r\n \r\n  - 입주대상자로 선정된 신청자(배우자 포함)가 공공임대주택의 계약자인 경우 전세임대주택 입주 시까지 \r\n공공임대주택을 명도하고 대상주택으로 주민등록 전입하여야 함\r\n \r\n  - 입주대상자로 선정된 경우, 별도 안내된 기간 내에(기한 연장 불가) 전세주택을 구하여 우리 \r\n공사와 임대차계약을 체결 하여야 함(계약기한은 지역본부별로 별도 안내예정)\r\n \r\n  - 입주대상자 중 공사의 공공임대주택을 기존에 지원받았으나 거주 기간 중 무단이탈 또는 장기 체납, \r\n불법전대 등의 사유로 공사로부터 계약 해제·해지된 경우에는 재지원이 불가할 수 있음\r\n \r\n  - 전세 계약에 따른 임차인의 법정 중개수수료는 LH에서 부담하되, 전세금 지원한도액을 초과함에 \r\n따라 발생하는 중개수수료 증가분은 입주자가 부담하여야 함\r\n \r\n  - 부득이하게 도배·장판 등의 교체가 필요할 경우 총 지원기간 중 10년에 1회에 한하여 도배장판 \r\n시공비용을 지원하되, 지역관행을 고려하여 임차인 시행지역에 한하여 지원함\r\n \r\n  - 공고문에 명시되지 않은 사항에 대하여는 국토교통부 훈령 「기존주택 전세임대 업무처리지침」을 준용함\r\n \r\n  - 국토교통부 및 LH 지침 등 개정에 따라 임대조건은 달라질 수 있음\r\n \r\n  - 외국인은 신청할 수 없으며, 배우자가 국내에 거주하지 않는 재외국민이거나 외국인 등록을 하지 \r\n않은 외국인인 경우 전세임대 공급 신청이 불가함\r\n \r\n  - 연락처 오기재로 선정 통보가 도달되지 않는 경우 책임은 신청자 본인에게 있음\r\n \r\n  - 공사 방문을 통한 인터넷 접수 대행은 진행하지 않음\r\n \r\n  - 2026년 공급호수 대비 입주신청 호수 초과(예정) 시 수시접수가 중단될 수 있음\r\n- 8 -\r\n"
+      }, {
+        "location" : "공고문 5쪽",
+        "text" : " 10. 문의처(월~금요일, 09:00~17:00)\r\n⟦PDF:TABLE id=1 rows=15 cols=4⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=70.44 y1=70.44⟧\n지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=70.44 y1=70.44⟧\n관할 지역\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=70.44 y1=70.44⟧\n주소\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=70.44 y1=70.44⟧\n연락처\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=1 rowspan=1 colspan=3⟧\n⟦PDF:LINE y0=87.84 y1=87.84⟧\n전세임대 통합콜센터\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=4 rowspan=14 colspan=1⟧\n⟦PDF:LINE y0=190.80 y1=190.80⟧\n1670-0002\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=102.96 y1=102.96⟧\n서울지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=102.96 y1=102.96⟧\n 서울\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=102.96 y1=102.96⟧\n서울특별시 강남구 선릉로 121길 12\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=118.08 y1=118.08⟧\n경기남부지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=114.96 y1=118.08⟧\n경기남부*\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=118.08 y1=118.08⟧\n경기도 성남시 분당구 성남대로 54번길 3 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=133.20 y1=133.20⟧\n경기북부지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=130.08 y1=133.20⟧\n경기북부**\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=133.20 y1=133.20⟧\n경기도 의정부시 산단로76번길 116\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=148.32 y1=148.32⟧\n인천지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=148.32 y1=148.32⟧\n인천 · 경기 부천\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=148.32 y1=148.32⟧\n인천광역시 남동구 논현로 46번길 23\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=163.44 y1=163.44⟧\n부산울산지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=163.44 y1=163.44⟧\n부산 · 울산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=163.44 y1=163.44⟧\n부산광역시 동구 중앙대로 224\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=8 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=178.68 y1=178.68⟧\n대구경북지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=8 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=178.68 y1=178.68⟧\n대구 · 경북\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=8 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=178.68 y1=178.68⟧\n대구광역시 달서구 상화로 272\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=9 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=193.80 y1=193.80⟧\n광주전남지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=9 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=193.80 y1=193.80⟧\n광주 · 전남\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=9 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=193.80 y1=193.80⟧\n광주광역시 서구 시청로 91\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=10 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=208.92 y1=208.92⟧\n대전충남지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=10 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=208.92 y1=208.92⟧\n대전 · 세종 · 충남\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=10 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=208.92 y1=208.92⟧\n대전광역시 서구 둔산중로 108\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=11 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=224.04 y1=224.04⟧\n경남지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=11 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=224.04 y1=224.04⟧\n경남\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=11 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=224.04 y1=224.04⟧\n경상남도 창원시 성산구 중앙대로 215\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=12 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=239.16 y1=239.16⟧\n강원지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=12 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=239.16 y1=239.16⟧\n강원\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=12 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=239.16 y1=239.16⟧\n강원특별자치도 춘천시 공지로 337 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=13 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=258.84 y1=258.84⟧\n충북지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=13 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=258.84 y1=258.84⟧\n충북\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=13 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=254.28 y1=254.28⟧\n충청북도 청주시 서원구 구룡산로52번길 40, \r\n⟦PDF:LINE y0=263.52 y1=263.52⟧\n5층\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=14 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=278.64 y1=278.64⟧\n전북지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=14 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=278.64 y1=278.64⟧\n전북\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=14 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=278.64 y1=278.64⟧\n전북특별자치도 전주시 완산구 홍산로 158\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=15 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=293.76 y1=293.76⟧\n제주지역본부\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=15 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=293.76 y1=293.76⟧\n제주\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=15 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=293.76 y1=293.76⟧\n제주특별자치도 제주시 전농로 100\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n  * 경기남부 : 광명, 시흥, 안양, 과천, 성남, 광주, 여주, 화성, 평택, 안성, 수원, 의왕, 안산, 오산, 용인, 이천, 군포\r\n ** 경기북부 : 고양, 하남, 파주, 양주, 의정부, 남양주, 구리, 가평, 동두천, 양평, 연천, 포천, 김포\r\n2026.  03.  24.\r\n- 9 -\r\n 11. 사회보장정보시스템을 통한 소득 및 재산 항목 설명 및 소득자료 출처\r\n⟦PDF:TABLE id=2 rows=13 cols=5⟧\n⟦PDF:CELL table=2 row=1 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=66.84 y1=66.84⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=66.84 y1=66.84⟧\n항목 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=66.84 y1=66.84⟧\n소득 및 재산 항목 설명\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=66.84 y1=66.84⟧\n자료 출처\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=1 rowspan=12 colspan=1⟧\n⟦PDF:LINE y0=316.80 y1=316.80⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=2 rowspan=4 colspan=1⟧\n⟦PDF:LINE y0=170.76 y1=170.76⟧\n근로\r\n⟦PDF:LINE y0=180.00 y1=180.00⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=110.28 y1=110.28⟧\n상시근로소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=110.28 y1=110.28⟧\n상시고용되어 월정액 급여를 지급받는 자의 근로소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=83.64 y1=83.64⟧\n 국민건강보험공단 보수월액\r\n⟦PDF:LINE y0=94.32 y1=94.32⟧\n- 근로복지공단 월평균보수\r\n⟦PDF:LINE y0=104.88 y1=104.88⟧\n  (1)산재보험, 2)고용보험)\r\n⟦PDF:LINE y0=115.56 y1=115.56⟧\n- 국민연금공단 기준소득월액\r\n⟦PDF:LINE y0=126.24 y1=126.24⟧\n- 장애인고용공단 보수월액\r\n⟦PDF:LINE y0=136.92 y1=136.92⟧\n- 국세청종합소득금액(근로소득)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=179.28 y1=179.28⟧\n일용근로소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=151.56 y1=151.56⟧\n -근로계약에 따라 일정한 고용주에게 3개월 이상\r\n⟦PDF:LINE y0=160.80 y1=160.80⟧\n계속하여 고용되지 아니한 자\r\n⟦PDF:LINE y0=170.04 y1=170.04⟧\n -건설공사종사자(동일한 고용주에게 계속하여 1년\r\n⟦PDF:LINE y0=179.28 y1=179.28⟧\n이상 고용된 자 제외)\r\n⟦PDF:LINE y0=188.52 y1=188.52⟧\n -하역(항만)작업 종사자(통상 근로를 제공한 날에\r\n⟦PDF:LINE y0=197.76 y1=197.76⟧\n급여를 지급받지 아니하고 정기적으로 근로대가를\r\n⟦PDF:LINE y0=207.00 y1=207.00⟧\n받는 자)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=170.04 y1=170.04⟧\n - 국세청 일용근로소득 지급\r\n⟦PDF:LINE y0=179.28 y1=179.28⟧\n  명세서\r\n⟦PDF:LINE y0=188.52 y1=188.52⟧\n - 고용노동부 일용근로소득내역\r\n \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=231.00 y1=231.00⟧\n자활근로소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=221.76 y1=221.76⟧\n 자활근로, 자활공공근로, 자활공동체사업, 적응훈련,\r\n⟦PDF:LINE y0=231.00 y1=231.00⟧\n직업훈련 등 자활급여의 일환으로 사업에 참여하여\r\n⟦PDF:LINE y0=240.24 y1=240.24⟧\n근로를 제공하고 받는 급여 및 수당 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=231.00 y1=231.00⟧\n - 자활근로자 근로내역\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=257.40 y1=257.40⟧\n공공일자리\r\n⟦PDF:LINE y0=266.64 y1=266.64⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=257.40 y1=257.40⟧\n 노인일자리사업, 장애인일자리사업, 공공근로 등에\r\n⟦PDF:LINE y0=266.64 y1=266.64⟧\n참여한 대가로 얻는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=261.96 y1=261.96⟧\n- 고용노동부 일모아시스템\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=2 rowspan=4 colspan=1⟧\n⟦PDF:LINE y0=320.88 y1=320.88⟧\n사업\r\n⟦PDF:LINE y0=330.12 y1=330.12⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=298.68 y1=298.68⟧\n농업소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=284.76 y1=284.76⟧\n 경종업(耕種業), 과수․원예업, 양잠업, 종묘업, 특\r\n⟦PDF:LINE y0=294.00 y1=294.00⟧\n수작물생산업, 가축의 사육업, 종축업 또는 부화업\r\n⟦PDF:LINE y0=303.24 y1=303.24⟧\n등과 이에 부수하는 업무에서 얻는 소득\r\n⟦PDF:LINE y0=312.48 y1=312.48⟧\n * 농업소득=국세청 종합소득+농업직불금 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=289.44 y1=289.44⟧\n- 국세청 종합소득(사업소득)\r\n \r\n⟦PDF:LINE y0=298.68 y1=298.68⟧\n- 농림축산식품부 농지원부\r\n⟦PDF:LINE y0=307.80 y1=307.80⟧\n- 농림축산식품부 농업직불금\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=332.04 y1=332.04⟧\n임업소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=327.36 y1=327.36⟧\n 영림업․임산물생산업 또는 야생조수사육업과 이에\r\n⟦PDF:LINE y0=336.60 y1=336.60⟧\n부수하는 업무에서 얻는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=7 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=332.04 y1=332.04⟧\n- 국세청 종합소득(사업소득)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=8 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=349.80 y1=349.80⟧\n어업소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=8 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=349.80 y1=349.80⟧\n 어업과 이에 부수하는 업무에서 얻는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=8 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=349.80 y1=349.80⟧\n- 국세청 종합소득(사업소득)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=9 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=366.48 y1=366.48⟧\n기타사업소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=9 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=366.48 y1=366.48⟧\n 도매업‧소매업, 제조업, 기타 사업에서 얻는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=9 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=361.92 y1=361.92⟧\n- 국세청 종합소득(사업소득)\r\n⟦PDF:LINE y0=371.16 y1=371.16⟧\n- 사업자등록증\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=10 col=2 rowspan=3 colspan=1⟧\n⟦PDF:LINE y0=399.60 y1=399.60⟧\n재산\r\n⟦PDF:LINE y0=408.84 y1=408.84⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=10 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=384.84 y1=384.84⟧\n임대소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=10 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=384.84 y1=384.84⟧\n 부동산‧동산‧권리 기타 재산의 대여로 발생하는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=10 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=384.84 y1=384.84⟧\n- 국세청 종합소득(재산소득)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=11 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=404.28 y1=404.28⟧\n이자소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=11 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=399.60 y1=399.60⟧\n 예금‧주식‧채권의 이자와 배당 또는 할인에 의하여\r\n⟦PDF:LINE y0=408.84 y1=408.84⟧\n발생하는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=11 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=404.28 y1=404.28⟧\n- 국세청 종합소득(재산소득)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=12 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=423.72 y1=423.72⟧\n연금소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=12 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=419.04 y1=419.04⟧\n 민간 연금보험, 연금저축 등에 의해 정기적으로 발생\r\n⟦PDF:LINE y0=428.28 y1=428.28⟧\n하는 소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=12 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=423.72 y1=423.72⟧\n- 금융정보 조회결과\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=13 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=495.48 y1=495.48⟧\n기타\r\n⟦PDF:LINE y0=504.72 y1=504.72⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=13 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=495.48 y1=495.48⟧\n공적이전\r\n⟦PDF:LINE y0=504.72 y1=504.72⟧\n소득\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=13 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=490.92 y1=490.92⟧\n 각종 법령의 규정에 의해 지급되는 각종 수당‧\r\n⟦PDF:LINE y0=500.04 y1=500.04⟧\n연금‧급여‧기타금품(일시금으로 받는 금품은 재산으로\r\n⟦PDF:LINE y0=509.28 y1=509.28⟧\n산정)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=13 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=438.00 y1=438.00⟧\n- 국민연금급여, 사학퇴직연금급여,\r\n⟦PDF:LINE y0=447.24 y1=447.24⟧\n공무원퇴직연금급여, 국방부퇴직,\r\n⟦PDF:LINE y0=456.48 y1=456.48⟧\n연금급여, 별정우체국연금, 한국\r\n⟦PDF:LINE y0=465.72 y1=465.72⟧\n고용정보원 실업급여\r\n⟦PDF:LINE y0=474.84 y1=474.84⟧\n근로복지공단 산재보험급여\r\n⟦PDF:LINE y0=484.08 y1=484.08⟧\n보훈부 보훈대상자명예수당\r\n⟦PDF:LINE y0=493.32 y1=493.32⟧\n보훈부 보훈대상자보상급여 등\r\n⟦PDF:LINE y0=502.56 y1=502.56⟧\n * ｢국가유공자 등 예우 및 지원에\r\n⟦PDF:LINE y0=512.52 y1=512.52⟧\n관한 법률｣ 및 ｢보훈보상대상자\r\n⟦PDF:LINE y0=522.48 y1=522.48⟧\n지원에 관한 법률｣에 의한 간호수당,\r\n⟦PDF:LINE y0=532.44 y1=532.44⟧\n｢대일항쟁기 강제동원 피해조사\r\n⟦PDF:LINE y0=542.40 y1=542.40⟧\n및 국외강제동원 희생자 등 지원에\r\n⟦PDF:LINE y0=552.24 y1=552.24⟧\n관한 특별법｣에 의한 의료지원금은\r\n⟦PDF:LINE y0=562.20 y1=562.20⟧\n제외\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n- 10 -\r\n"
+      }, {
+        "location" : "공고문 6쪽",
+        "text" : "⟦PDF:TABLE id=1 rows=19 cols=5⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=18 colspan=1⟧\n⟦PDF:LINE y0=291.24 y1=291.24⟧\n총자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=105.36 y1=105.36⟧\n일반\r\n⟦PDF:LINE y0=114.60 y1=114.60⟧\n자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=96.12 y1=96.12⟧\n토지,\r\n⟦PDF:LINE y0=105.36 y1=105.36⟧\n건축물\r\n⟦PDF:LINE y0=114.60 y1=114.60⟧\n및\r\n⟦PDF:LINE y0=123.72 y1=123.72⟧\n주택\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=40.68 y1=40.68⟧\n ‑ 토지(지방세법 제104조제1호∼3호) : ｢지적법｣에\r\n⟦PDF:LINE y0=49.92 y1=49.92⟧\n따라 지적공부의 등록 대상이 되는 토지와 그\r\n⟦PDF:LINE y0=59.16 y1=59.16⟧\n밖에 사용되고 있는 사실상의 토지\r\n⟦PDF:LINE y0=68.40 y1=68.40⟧\n ‑ 건물(건축법 제2조제1항제2호) : 토지에 정착하는\r\n⟦PDF:LINE y0=77.64 y1=77.64⟧\n공작물 중 지붕과 기둥 또는 벽이 있는 것과 이에\r\n⟦PDF:LINE y0=86.88 y1=86.88⟧\n딸린 시설물, 지하나 고가의 공작물에 설치하는\r\n⟦PDF:LINE y0=96.12 y1=96.12⟧\n사무소･공연장･점포･차고･창고 등\r\n⟦PDF:LINE y0=105.36 y1=105.36⟧\n ‑ 시설물(지방세법 제6조제4호) : 토지에 정착하거나\r\n⟦PDF:LINE y0=114.60 y1=114.60⟧\n지하 또는 다른 구조물에 설치하는 레저시설,\r\n⟦PDF:LINE y0=123.72 y1=123.72⟧\n저장시설, 도크시설, 접안시설, 도관시설, 급･배수\r\n⟦PDF:LINE y0=132.96 y1=132.96⟧\n시설, 에너지 공급시설 그 밖에 이와 유사한 시설\r\n⟦PDF:LINE y0=142.20 y1=142.20⟧\n(이에 딸린 시설을 포함한다)\r\n⟦PDF:LINE y0=151.44 y1=151.44⟧\n ‑ 주택이란 세대의 구성원이 장기간 독립된 주거\r\n⟦PDF:LINE y0=160.68 y1=160.68⟧\n생활을 할 수 있는 구조로 된 건축물의 전부 또는\r\n⟦PDF:LINE y0=169.92 y1=169.92⟧\n일부 및 그 부속 토지를 말하며, 단독주택과 공동\r\n⟦PDF:LINE y0=179.16 y1=179.16⟧\n주택으로 구분(토지와 건축물의 범위에서 주택은 제외)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=5 rowspan=1 colspan=1⟧\n \r\n \r\n \r\n \r\n \r\n \r\n⟦PDF:LINE y0=109.92 y1=109.92⟧\n- 지방세정 자료\r\n \r\n \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=2 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=200.88 y1=200.88⟧\n자동차\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=196.20 y1=196.20⟧\n지방세법에 의한 자동차(제124조)로 승용자동차, 승합\r\n⟦PDF:LINE y0=205.44 y1=205.44⟧\n자동차, 화물자동차, 특수자동차, 이륜자동차\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=191.64 y1=191.64⟧\n- 보험개발원 차량기준가액\r\n⟦PDF:LINE y0=200.88 y1=200.88⟧\n- 지방세정 시가표준액\r\n⟦PDF:LINE y0=210.12 y1=210.12⟧\n- 국토부 차적정보\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=2 rowspan=7 colspan=1⟧\n⟦PDF:LINE y0=309.96 y1=309.96⟧\n기타\r\n⟦PDF:LINE y0=319.20 y1=319.20⟧\n자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=234.84 y1=234.84⟧\n임차보증금\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=225.60 y1=225.60⟧\n주택, 상가 등의 전부 또는 일부를 일정기간 임차하는\r\n⟦PDF:LINE y0=234.84 y1=234.84⟧\n대가로 소유권자에게 예탁한 보증금\r\n⟦PDF:LINE y0=244.08 y1=244.08⟧\n(전세보증금, 월세보증금, 상가보증금 등)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=230.28 y1=230.28⟧\n- 국토부 확정일자 정보\r\n⟦PDF:LINE y0=239.40 y1=239.40⟧\n- 직권조사 등록\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=278.40 y1=278.40⟧\n선박·항공기\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=259.92 y1=259.92⟧\n선박 : 기선･범선･전마선 등 명칭과 관계없이 모든\r\n⟦PDF:LINE y0=269.16 y1=269.16⟧\n배를 의미\r\n⟦PDF:LINE y0=278.40 y1=278.40⟧\n항공기 : 사람이 탑승 조정하여 항공에 사용하는\r\n⟦PDF:LINE y0=287.64 y1=287.64⟧\n비행기･비행선･활공기･ 회전익항공기\r\n⟦PDF:LINE y0=296.88 y1=296.88⟧\n그밖에 이와 유사한 비행기구\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=278.40 y1=278.40⟧\n - 지방세정 자료\r\n \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=312.60 y1=312.60⟧\n입목재산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=312.60 y1=312.60⟧\n지상의 과수, 임목(林木), 죽목 등 입목(立木)재산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=312.60 y1=312.60⟧\n- 지방세정 자료\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=332.76 y1=332.76⟧\n회원권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=328.08 y1=328.08⟧\n골프회원권, 콘도미니엄회원권, 종합체육시설이용\r\n⟦PDF:LINE y0=337.32 y1=337.32⟧\n회원권, 승마회원권, 요트회원권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=332.76 y1=332.76⟧\n- 지방세정 자료\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=350.64 y1=350.64⟧\n조합원입주권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=350.64 y1=350.64⟧\n소득세법 제89조제2항에 따른 조합원입주권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=7 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=350.64 y1=350.64⟧\n- 지방세정 자료\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=8 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=366.84 y1=366.84⟧\n어업권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=8 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=362.28 y1=362.28⟧\n수산업법 또는 내수면어업법의 규정에 의한 면허어업에\r\n⟦PDF:LINE y0=371.40 y1=371.40⟧\n대한 권리\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=8 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=366.84 y1=366.84⟧\n- 지방세정 자료\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=9 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=394.44 y1=394.44⟧\n분양권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=9 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=385.20 y1=385.20⟧\n건물이 완성되는 때에 그 건물과 이에 부수되는 토지를\r\n⟦PDF:LINE y0=394.44 y1=394.44⟧\n취득할 수 있는 권리(위 조합원입주권은 제외) :\r\n⟦PDF:LINE y0=403.68 y1=403.68⟧\n조사일 현재까지 납부한 금액\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=9 col=5 rowspan=1 colspan=1⟧\n \r\n⟦PDF:LINE y0=389.88 y1=389.88⟧\n- 사회보장정보시스템을 통한 \r\n \r\n⟦PDF:LINE y0=399.12 y1=399.12⟧\n  공적자료 또는 직권조사\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=10 col=2 rowspan=2 colspan=2⟧\n⟦PDF:LINE y0=427.68 y1=427.68⟧\n금융자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=10 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=420.12 y1=420.12⟧\n현금 또는 수표, 어음, 주식, 국·공채 등 유가증권\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=10 col=5 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=427.68 y1=427.68⟧\n- 금융정보 조회결과\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=11 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=435.24 y1=435.24⟧\n예금, 적금, 부금, 예치금, 보험 및 수익증권 등\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=12 col=2 rowspan=7 colspan=2⟧\n⟦PDF:LINE y0=481.44 y1=481.44⟧\n부채\r\n⟦PDF:LINE y0=490.68 y1=490.68⟧\n(총자산 산정 시 \r\n⟦PDF:LINE y0=499.92 y1=499.92⟧\n자산금액\r\n⟦PDF:LINE y0=509.16 y1=509.16⟧\n합계에서 차감)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=12 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=449.28 y1=449.28⟧\n금융기관 대출금\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=12 col=5 rowspan=3 colspan=1⟧\n⟦PDF:LINE y0=462.48 y1=462.48⟧\n- 금융정보 조회결과\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=13 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=462.48 y1=462.48⟧\n금융기관이외의 기관 대출금\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=14 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=475.56 y1=475.56⟧\n법에 근거한 공제회 대출금\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=15 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=489.12 y1=489.12⟧\n법원에 의하여 확인된 사채\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=15 col=5 rowspan=4 colspan=1⟧\n⟦PDF:LINE y0=510.36 y1=510.36⟧\n- 사회보장정보시스템을 통한 \r\n \r\n⟦PDF:LINE y0=519.60 y1=519.60⟧\n  공적자료 또는 직권조사\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=16 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=503.28 y1=503.28⟧\n임대보증금\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=17 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=514.80 y1=514.80⟧\n한국자산관리공사, 예금보험공사가 인수한 부실채권으로\r\n⟦PDF:LINE y0=524.04 y1=524.04⟧\n공사가 증명한 부채\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=18 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=538.20 y1=538.20⟧\n서민금융진흥원 대출금 \r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=19 col=1 rowspan=1 colspan=3⟧\n⟦PDF:LINE y0=557.52 y1=557.52⟧\n자동차\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=19 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=552.60 y1=552.60⟧\n지방세법에 의한 자동차(제124조)로 승용자동차, \r\n⟦PDF:LINE y0=562.56 y1=562.56⟧\n승합자동차, 화물자동차, 특수자동차, 이륜자동차\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=19 col=5 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=557.52 y1=557.52⟧\n- 국토부 및 보험개발원\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n- 11 -\r\n■ 자산항목 산정방법\r\n자산 정보는 보건복지부에서 운영하는 사회보장정보시스템을 통하여 제공되며, 이는 국가 또는 \r\n공공기관이 보유한 공적 소득 자료임 [소득 및 자산액은 가구원의 합계액을 말함]\r\n⟦PDF:TABLE id=2 rows=6 cols=3⟧\n⟦PDF:CELL table=2 row=1 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=78.84 y1=78.84⟧\n구분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=78.84 y1=78.84⟧\n산정방법\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=1 rowspan=5 colspan=1⟧\n⟦PDF:LINE y0=325.08 y1=325.08⟧\n총자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=143.16 y1=143.16⟧\n부동산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=93.24 y1=93.24⟧\n• 사회보장정보시스템을 통해 조사된 세대구성원 전원이 소유하고 있는 모든 부동산 가액\r\n⟦PDF:LINE y0=101.64 y1=101.64⟧\n  - 토지: 소유면적 × 개별공시지가, 건축물 : 공시가격\r\n⟦PDF:LINE y0=109.92 y1=109.92⟧\n• 건축물가액은 건축물의 공시가격으로 함\r\n⟦PDF:LINE y0=118.20 y1=118.20⟧\n  - 건축물가액이 공시되지 아니한 경우에는 지자체장이 결정한 시가표준액 적용\r\n⟦PDF:LINE y0=126.60 y1=126.60⟧\n• 토지가액은 지목에 상관없이 해당세대가 소유하고 있는 모든 토지면적에 개별공시지가를 곱한 금액\r\n⟦PDF:LINE y0=134.88 y1=134.88⟧\n  단, 건축물가액이나 토지가액을 산출하는 경우 다음 항목에 해당하는 부동산은 제외함\r\n⟦PDF:LINE y0=143.16 y1=143.16⟧\n   - 「농지법」제2조제1호에 따른 농지로서 같은 법 제49조에 따라 관할 시·군·구·읍·면장이 관리하는 \r\n⟦PDF:LINE y0=151.56 y1=151.56⟧\n농지원부에 동일한 농업인과 소유자로 등재된 경우 \r\n⟦PDF:LINE y0=159.84 y1=159.84⟧\n   - 「초지법」제2조제1호에 따른 초지로서 소유자가 「축산법」제22조에 따른 축산업 허가를 받은 \r\n⟦PDF:LINE y0=168.12 y1=168.12⟧\n사람이며, 축산업 허가증의 사업장 소재지와 동일한 주소인 경우\r\n⟦PDF:LINE y0=176.52 y1=176.52⟧\n   - 공부상 도로, 구거, 하천 등 공공용지로 사용되고 있는 경우\r\n⟦PDF:LINE y0=184.80 y1=184.80⟧\n   - 종중소유 토지(건축물을 포함한다) 또는 문화재 건립 된 토지 등 해당 부동산의 사용, 처분이 \r\n⟦PDF:LINE y0=193.08 y1=193.08⟧\n금지되거나 현저히 제한 받는 경우. 이 경우 입주(예정)자가 구체적인 사실관계를 입증하여야 함\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=266.40 y1=266.40⟧\n자동차\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=208.08 y1=208.08⟧\n• 사회보장정보시스템을 통해 조사된 보건복지부장관이 정하는 차량기준가액 \r\n⟦PDF:LINE y0=216.36 y1=216.36⟧\n• 총자산가액 산출시 적용하는 자동차 가액은 해당세대가 보유한 자동차의 가액을 모두 합하여 \r\n⟦PDF:LINE y0=224.76 y1=224.76⟧\n산출하고 아래의 경우를 제외함.\r\n⟦PDF:LINE y0=233.04 y1=233.04⟧\n  - 「장애인 복지법」 제39조에 따른 장애인사용 자동차\r\n⟦PDF:LINE y0=241.32 y1=241.32⟧\n  - 「국가유공자 등 예우와 지원에 관한 법률」에 따른 국가유공자로서 상이등급 1급 내지 7급에 \r\n⟦PDF:LINE y0=249.72 y1=249.72⟧\n해당하는 자의 보철용 차량\r\n⟦PDF:LINE y0=258.00 y1=258.00⟧\n• 산출한 자동차가액을 포함한 총자산가액 해당기준을 충족하더라도 별도의 자동차가액 기준을 \r\n⟦PDF:LINE y0=266.40 y1=266.40⟧\n충족하여야 함. 이때 자동차는 「자동차 관리법」 시행규칙 제2조에서 정한 비영업용 승용자동차에 \r\n⟦PDF:LINE y0=274.68 y1=274.68⟧\n한하여 산출하고, 해당세대가 2대 이상의 자동차를 소유한 경우에는 각각의 자동차가액 중 높은 \r\n⟦PDF:LINE y0=282.96 y1=282.96⟧\n차량가액을 기준으로 하며 아래의 경우를 제외함.\r\n⟦PDF:LINE y0=291.36 y1=291.36⟧\n  - 「장애인 복지법」 제39조에 따른 장애인사용 자동차\r\n⟦PDF:LINE y0=299.64 y1=299.64⟧\n  - 「국가유공자 등 예우와 지원에 관한 법률」에 따른 국가유공자로서 상이등급 1급 내지 7급에 \r\n⟦PDF:LINE y0=307.92 y1=307.92⟧\n해당하는 자의 보철용 차량\r\n⟦PDF:LINE y0=316.32 y1=316.32⟧\n• 자동차 가액 산출 시 「대기환경보전법」제58조제3항에 따른 국가나 지방자치단체의 보조를 받고 \r\n⟦PDF:LINE y0=324.60 y1=324.60⟧\n구입한 저공해자동차의 경우 자동차가액에서 정부와 지방자치단체의 보조금을 제외한 금액으로 함.\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=363.48 y1=363.48⟧\n금융\r\n⟦PDF:LINE y0=371.88 y1=371.88⟧\n자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=338.52 y1=338.52⟧\n• 보통예금, 저축예금, 자유저축예금, 외화예금 등 요구불예금: 최근 3개월 이내의 평균 잔액\r\n⟦PDF:LINE y0=346.92 y1=346.92⟧\n• 정기예금, 정기적금 등 저축성예금: 예금의 잔액 또는 총납입액\r\n⟦PDF:LINE y0=355.20 y1=355.20⟧\n• 주식, 수익증권, 출자금, 출자지분, 부동산(연금)신탁: 최종 시세가액. 이 경우 비상장주식의 평가에 \r\n⟦PDF:LINE y0=363.48 y1=363.48⟧\n관하여는 「상속세 및 증여세법 시행령」 제54조제1항을 준용한다.\r\n⟦PDF:LINE y0=371.88 y1=371.88⟧\n• 채권, 어음, 수표, 채무증서, 신주인수권 증서, 양도성예금증서: 액면가액\r\n⟦PDF:LINE y0=380.16 y1=380.16⟧\n• 연금저축: 정기적으로 지급된 금액 또는 최종 잔액\r\n⟦PDF:LINE y0=388.44 y1=388.44⟧\n• 보험증권: 해약하는 경우 지급받게 될 환급금 \r\n⟦PDF:LINE y0=396.84 y1=396.84⟧\n• 연금보험: 해약하는 경우 지급받게 될 환급금 또는 정기적으로 지급되는 금액\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=456.12 y1=456.12⟧\n일반\r\n⟦PDF:LINE y0=464.52 y1=464.52⟧\n자산\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=410.40 y1=410.40⟧\n• 「지방세법」 제104조제4호 및 제5호에 따른 항공기 및 선박 : 「지방세법」 제4조제2항에 따른 \r\n⟦PDF:LINE y0=418.68 y1=418.68⟧\n시가표준액 등을 고려하여 보건복지부장관이 정하는 가액\r\n⟦PDF:LINE y0=427.08 y1=427.08⟧\n• 주택·상가 등에 대한 임차보증금(전세금을 포함한다) : 임대차계약서상의 보증금 및 전세금\r\n⟦PDF:LINE y0=435.36 y1=435.36⟧\n• 「지방세법」 제6조제11호에 따른 입목 : 「지방세법 시행령」 제4조제1항제5호에 따른 시가표준액\r\n⟦PDF:LINE y0=443.64 y1=443.64⟧\n• 「지방세법」 제6조제13호에 따른 어업권 : 「지방세법 시행령」 제4조제1항제8호에 따른 시가표준액\r\n⟦PDF:LINE y0=452.04 y1=452.04⟧\n• 「지방세법」 제6조제14호부터 제18호까지의 규정에 따른 회원권 : 「지방세법 시행령」 제4조 제1항\r\n⟦PDF:LINE y0=460.32 y1=460.32⟧\n제9호에 따른 시가표준액\r\n⟦PDF:LINE y0=468.60 y1=468.60⟧\n•  「소득세법」 제89조제2항에 따른 조합원입주권　: 다음 각 목의 구분에 따른 금액\r\n⟦PDF:LINE y0=477.00 y1=477.00⟧\n   가. 청산금을 납부한 경우: 「도시 및 주거환경정비법」 제48조에 따른 관리처분계획에 따라 정해진 \r\n⟦PDF:LINE y0=485.28 y1=485.28⟧\n가격(이하 \"기존건물평가액\"이라 한다)과 납부한 청산금을 합한 금액\r\n⟦PDF:LINE y0=493.56 y1=493.56⟧\n   나. 청산금을 지급받은 경우: 기존건물평가액에서 지급받은 청산금을 뺀 금액\r\n⟦PDF:LINE y0=501.96 y1=501.96⟧\n• 건물이 완성되는 때에 그 건물과 이에 부수되는 토지를 취득할 수 있는 권리(위 조합원입주권은 \r\n⟦PDF:LINE y0=510.24 y1=510.24⟧\n제외) : 조사일 현재까지 납부한 금액\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=540.84 y1=540.84⟧\n부채\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=2 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=524.28 y1=524.28⟧\n• 「금융실명거래 및 비밀보장에 관한 법률」 제2조제1호에 따른 금융회사 등으로부터 받은 대출금\r\n⟦PDF:LINE y0=532.56 y1=532.56⟧\n• 공공기관 대출금\r\n⟦PDF:LINE y0=540.84 y1=540.84⟧\n• 법에 근거한 공제회 대출금\r\n⟦PDF:LINE y0=549.24 y1=549.24⟧\n• 법원에 의하여(판결문, 화해·조정조서) 확인된 사채\r\n⟦PDF:LINE y0=557.52 y1=557.52⟧\n• 임대보증금(단, 해당 부동산가액 이하의 금액만 반영)\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n- 12 -\r\n"
+      }, {
+        "location" : "공고문 7쪽",
+        "text" : "■ 금융자산 조회 안내\r\n「공공주택 입주자 보유 자산 관련 업무처리기준」에 따라 입주신청자의 세대구성원 전원은 금융자산을 \r\n포함한 총자산가액을 조회하기 위하여 입주자 신청시 ‘금융정보 등 제공 동의서’를 반드시 제출\r\n해야 하며, 제출하지 아니할 경우 신청이 불가합니다.\r\n⟦PDF:TABLE id=1 rows=6 cols=3⟧\n⟦PDF:CELL table=1 row=1 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=106.68 y1=106.68⟧\n구 분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=106.68 y1=106.68⟧\n안 내 사 항\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=125.76 y1=125.76⟧\n동의서 수집 사유\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=125.76 y1=125.76⟧\n 사회보장정보시스템을 통해 금융자산 정보 조회시 금융기관 제출용\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=146.88 y1=146.88⟧\n동의서 서명 대상\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=3 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=146.88 y1=146.88⟧\n 자산검색 대상 세대구성원 전원 서명\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=1 rowspan=2 colspan=1⟧\n⟦PDF:LINE y0=178.68 y1=178.68⟧\n서명\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=168.12 y1=168.12⟧\n정보 제공 동의\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=4 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=168.12 y1=168.12⟧\n 금융기관에 세대구성원 전원이 각각 금융정보 제공을 동의\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=184.68 y1=184.68⟧\n정보 제공 사실 \r\n⟦PDF:LINE y0=193.80 y1=193.80⟧\n미통보\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=5 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=189.24 y1=189.24⟧\n 금융기관의 금융정보 제공 사실을 통보하지 아니하는 것을 동의\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=1 rowspan=1 colspan=2⟧\n⟦PDF:LINE y0=210.36 y1=210.36⟧\n동의서 유효기간 등\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=1 row=6 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=210.36 y1=210.36⟧\n 제출일부터 6개월이내 금융정보 조회시 유효\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧\n  \r\n※ ‘금융정보 등의 제공을 동의함’ 항목은 필수 동의 사항이며 ‘금융정보 등의 제공 사실을 동의자에게 통보\r\n하지 아니함’ 은 선택사항이나, 동의하지 않는 경우 금융기관 등이 금융정보 등의 제공사실을 정보 제공 \r\n동의자에게 우편으로 송부함\r\n- 13 -\r\n 12. 주택 소유여부 확인 방법 및 판정기준(「주택공급에 관한 규칙」 제53조)\r\n￭ 확인방법\r\n  세대구성원 전원을 대상으로 국가 및 지자체가 보유하고 있는 공적자료를 조회하여 신청일 이후 주택소유 여부를 확인\r\n￭ 주택의 범위\r\n  - 건물등기부등본, 건축물대장등본, 과세자료 등에 등재된 전국 소재 주택\r\n    * 주택의 공유지분이나 주택용도가 있는 복합건물도 주택으로 봄\r\n  - 주택에 대한 분양권 및 입주권(이하 ‘분양권 등’, 분양권 등의 공유지분을 소유하고 있는 경우도 포함)\r\n￭ 주택 및 분양권 등의 소유 기준일\r\n  - 주택의 경우(제1호와 제2호의 일자가 상이할 경우, 먼저 처리된 날을 기준으로 함)\r\n    1. 건물등기부등본 : 등기접수일 (미등기 주택인 경우에는 건축물대장등본상의 처리일)\r\n    2. 건축물대장등본 : 처리일\r\n    3. 그밖에 주택소유여부를 증명할 수 있는 서류 : 시장 또는 군수 등 공공기관이 인정하는 날\r\n  - 분양권 등의 경우\r\n    1. 부동산거래계약 신고서 상 공급계약체결일\r\n    2. (분양권 등의 매매가 이루어진 경우) 부동산거래계약 신고서 상 매매대금 완납일\r\n    3. (분양권 등의 상속·증여 등이 이루어진 경우) 사업주체와의 계약서 상 명의변경일\r\n￭ 주택 및 분양권 등을 소유한 것으로 보지 않는 경우 (무주택으로 인정하는 경우)\r\n   ※ 무주택으로 인정되더라도 자산(부동산) 가액에는 포함하여 산정됨.\r\n  ① 상속으로 인하여 주택의 공유지분을 취득한 사실이 판명되어 사업주체(LH)로부터 부적격자로 통보받은 \r\n날부터 3월 이내에 그 공유지분을 처분한 경우\r\n  ② 도시지역이 아닌 지역 또는 면의 행정구역(수도권은 제외)에 건축되어 있는 주택으로서 다음 각 항의 1에 \r\n해당하는 주택의 소유자가 당해주택건설지역에 거주(상속으로 주택을 취득한 경우에는 피상속인이 거주한 \r\n것을 상속인이 거주한 것으로 봄)하다가 다른 주택건설지역으로 이주한 경우\r\n       가. 사용승인 후 20년 이상 경과된 단독주택\r\n       나. 85㎡ 이하인 단독주택\r\n       다. 소유자의 본적지에 건축되어 있는 주택으로서 직계존속 또는 배우자로부터 상속 등에 의하여 이전받은 단독주택\r\n  ③ 개인주택사업자가 분양을 목적으로 주택을 건설하여 이를 분양완료 하였거나 부적격자로 통보받은 날부터 3월 이내에 \r\n이를 처분한 경우\r\n  ④ 세무서에 사업자로 등록한 개인사업자가 그 소속근로자의 숙소로 사용하기 위하여 주택법의 규정에 의하여 주택을 \r\n건설하여 소유하고 있거나 사업주체가 정부시책의 일환으로 근로자에게 공급할 목적으로 사업계획승인을 \r\n얻어 건설한 주택을 공급받아 소유하고 있는 경우\r\n  ⑤ 주택공급신청자가 속한 세대가 20㎡ 이하의 주택 또는 분양권등을 1호 또는 1세대만 소유하고 있는 경우\r\n  ⑥ 건물등기부 또는 건축물대장 등의 공부상 주택으로 등재되어 있으나 주택이 낡아 사람이 살지 아니하는 폐가\r\n이거나 주택이 멸실되었거나 주택이 아닌 다른 용도로 사용되고 있는 경우로서 사업주체(LH)로부터 부적격자로 \r\n통보받은 날부터 3개월 이내에 이를 멸실 또는 실제용도로 공부를 정리한 경우\r\n  ⑦ 무허가 건물[종전의 「건축법」(법률 제7696호 건축법 일부개정법률로 개정되기 전의 것을 말한다) 제8조 및 \r\n제9조에 따라 건축허가 또는 건축신고 없이 건축한 건물을 말한다]을 소유하고 있는 경우(소유자가 해당 \r\n건물이 건축 당시의 법령에 따른 적법한 건물임을 증명하여야 함)\r\n     * 소명방법 : 건축물대장과 건물 등기부등본이 모두 없는 경우, 해당 주택이 2006.5.8 이전 건축법 제8조에 따라 도시지역 이외의 지역 \r\n등에서 건축허가 또는 신고 없이 건축된 연면적 200㎡ 미만이거나 2층 이하의 건물로서 주택공급에 관한 규칙 제53조\r\n제8호에 해당하는지를 확인하는 내용의 민원회신문을 해당 지자체(시･군･자치구)로부터 받아서 제출\r\n  ⑧ 규칙 제27조 5항 및 제28조 10항 1호에 따라 입주자를 선정하고 남은 주택을 선착순의 방법으로 공급 \r\n받은 분양권 등을 소유한 경우 * 단, 해당 분양권 등을 매수한 자는 제외\r\n  ⑨ 매매 외 상속·증여 등의 사유로 분양권 등을 취득한 경우\r\n  ⑩ 보유한 분양권등이 `18.12.11. 전에 입주자모집 승인, 「주택법」 제5조제2항에 따른 지역주택조합의 사업계획\r\n승인, 「도시 및 주거환경정비법」 제74조에 따른 관리처분계획인가, 「빈집 및 소규모주택 정비에 관한 특례법」 \r\n제29조에 따른 가로주택 정비사업이나 소규모재건축사업의 사업시행계획승인을 신청한 사업에 의한 것인 경우\r\n  ⑪ 주택공급 신청자가 임차인으로서 거주하던 임차주택을 취득한 경우로서 다음 각 목의 요건을 모두 갖춘 경우\r\n       가. 2024년 1월 1일부터 2024년 12월 31일까지 취득(생애 최초로 취득한 경우로 한정한다)한 주택(「주택법 \r\n시행령」 제2조 각 호 및 제3조제1항제2호ㆍ제3호에 따른 주택만 해당한다. 이하 이 호에서 같다)일 것\r\n       나. 주거전용면적이 60제곱미터 이하인 주택으로서 그 취득가격(「부동산 거래신고 등에 관한 법률」 제3조에 \r\n따라 신고한 가격을 말한다)이 2억원(수도권은 3억원) 이하일 것\r\n       다. 해당 주택의 취득일(제23조제4항제1호 또는 제2호 중 빠른 날을 말한다) 전날까지 1년 이상 해당 주택에 거주했을 것\r\n- 14 -\r\n"
+      } ]
+    } ]
+  },
+  "original" : {
+    "summary" : "미성년 직계비속(태아 포함) 2명 이상을 양육하는 무주택가구 중 공고의 수급자·차상위·한부모가족 또는 소득·자산 기준 등을 충족하는 가구가 대상입니다. 선정된 가구가 지원 한도 안에서 전세주택을 찾으면 LH가 집주인과 전세계약을 맺고 다시 임대해 줍니다.",
+    "evidence" : {
+      "label" : "[공고문]2026년다자녀전세임대입주자수시모집(수정).pdf",
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379",
+      "checkedAt" : "2026-11-09"
+    },
+    "attachments" : [ ],
+    "questions" : [ ],
+    "documents" : [ ],
+    "schedules" : [ {
+      "id" : "family-multi-start",
+      "title" : "신청 접수 시작 (10:00)",
+      "date" : "2026-03-24",
+      "evidence" : {
+        "label" : "공고문 인쇄 3쪽 (PDF 2쪽) · 접수기간",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379#page=2",
+        "checkedAt" : "2026-11-09"
+      },
+      "timingDescription" : null
+    }, {
+      "id" : "family-multi-end",
+      "title" : "신청 접수 마감 (18:00, 조기중단 가능)",
+      "date" : "2026-12-31",
+      "evidence" : {
+        "label" : "공고문 인쇄 3쪽 (PDF 2쪽) · 접수기간",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379#page=2",
+        "checkedAt" : "2026-11-09"
+      },
+      "timingDescription" : null
+    }, {
+      "id" : "documents-end",
+      "title" : "서류 제출 마감 · 신청 시 함께 제출 (18:00)",
+      "date" : "2026-12-31",
+      "evidence" : {
+        "label" : "공고문 2쪽 · 신청기간 및 동시 서류 제출",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379#page=2",
+        "checkedAt" : "2026-11-10"
+      },
+      "timingDescription" : null
+    }, {
+      "id" : "result-individual",
+      "title" : "결과 발표 · 개별 안내",
+      "date" : "",
+      "evidence" : {
+        "label" : "PDF 2쪽 · 인쇄 3~4쪽 · 선정 안내",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379#page=2",
+        "checkedAt" : "2026-11-10"
+      },
+      "timingDescription" : "소득·자산 확인이 필요한 경우, 신청일부터 최소 10주가 소요됩니다.\n선정 결과와 소명 안내는 문자(SMS)와 이메일로 개별 안내합니다.\n수급자·차상위계층·증명서를 제출할 수 있는 한부모가족은 기간이 단축될 수 있으며, 제출서류 미비나 자격검증 소요기간에 따라 늦어질 수 있습니다."
+    }, {
+      "id" : "reviewed-intake-window",
+      "title" : "접수 회차 · LH청약플러스 온라인 · 3/24 10:00 시작, 12/31 18:00 마감 · 조기 중단 가능",
+      "date" : "2026-03-24",
+      "evidence" : {
+        "label" : "LH 모집공고문 2쪽 · 접수 일정",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868379#page=2",
+        "checkedAt" : "2026-11-17"
+      },
+      "timingDescription" : null
+    } ],
+    "reviewIssues" : [ ],
+    "applicationClosure" : null
+  }
+}

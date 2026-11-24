@@ -18,7 +18,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 @SpringBootTest(properties = {"app.collection.automatic-correction-enabled=true",
-    "app.collection.correction-initial-delay-ms=86400000", "app.collection.max-pages=1", "app.collection.category-codes=06"})
+        "app.collection.correction-initial-delay-ms=86400000", "app.collection.max-pages=1", "app.collection.category-codes=06"})
 @ActiveProfiles("test")
 class CorrectionCollectionHookIntegrationTest {
     @Autowired
@@ -49,7 +49,7 @@ class CorrectionCollectionHookIntegrationTest {
         auth.signup("수집 연결 검사", email, "collection-test-password");
         actor = db.queryForObject("SELECT id::text FROM app_user WHERE email=?", String.class, email);
         String url = "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=991155009"
-            + "&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026";
+                + "&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026";
         var item = new LhNoticeClient.Item(LhNoticeClient.sourceKey(url), "[정정공고] 신규 수집 공고", "서울", "국민임대", url, LocalDate.now(), "b".repeat(64));
         sourceKey = item.key();
         when(lh.configured()).thenReturn(true);

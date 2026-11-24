@@ -56,8 +56,7 @@ export function EvidenceChecks({
             {report && (
                 <>
                     <p className={s.note}>
-                        안내 v{report.version} · 검수 {report.revision} · 주소
-                        점검{' '}
+                        검수 {report.revision} · 주소 점검{' '}
                         {new Date(report.checkedAt).toLocaleString('ko-KR', {
                             timeZone: 'Asia/Seoul',
                         })}

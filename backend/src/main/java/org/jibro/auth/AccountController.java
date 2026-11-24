@@ -2,6 +2,8 @@ package org.jibro.auth;
 
 import java.util.*;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -54,8 +56,8 @@ public class AccountController {
     }
 
     @PutMapping("/member/password")
-    void password(@AuthenticationPrincipal Jwt jwt, @Valid @RequestBody Password body) {
-        service.password(UUID.fromString(jwt.getSubject()), body.current(), body.password());
+    void password(@AuthenticationPrincipal Jwt jwt, @Valid @RequestBody Password body, HttpServletRequest request) {
+        service.password(UUID.fromString(jwt.getSubject()), body.current(), body.password(), request.getRemoteAddr());
     }
 
     @PostMapping("/auth/reset/request")

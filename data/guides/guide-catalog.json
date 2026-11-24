@@ -1,0 +1,615 @@
+{
+    "reviewedAt": "2026-11-21",
+    "items": [
+        {
+            "id": "guide-rental-or-sale",
+            "category": "지원제도 알아보기",
+            "title": "공공임대와 공공분양은 어떻게 다른가요?",
+            "body": "공공임대는 집을 빌려 사는 방식이고, 공공분양은 집을 구입하는 방식이에요.\n\n- 공공임대: 보증금·임대료와 거주기간을 확인해요.\n- 공공분양: 분양가격·계약금·중도금·잔금 등 납부 조건을 확인해요.\n- 분양전환형 임대: 일정 기간 임대한 뒤 분양받을 수 있는 유형이에요. 전환 자격과 가격 산정 방법을 따로 확인해요.",
+            "scope": "공공주택 유형을 처음 비교할 때의 안내예요. 실제 계약 조건은 해당 모집공고를 따라요.",
+            "evidence": {
+                "label": "LH · 공공분양 소개",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1048&mi=1178",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 국민임대 소개",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "LH · 분양전환 공공임대 소개",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1026&mi=1223",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-happy-housing",
+            "category": "지원제도 알아보기",
+            "title": "행복주택은 누가 신청하나요?",
+            "body": "대학생·청년·신혼부부 등에게 시세보다 낮은 임대료로 공급하는 공공임대주택이에요. 공고에 따라 한부모가족·고령자·주거급여수급자 등도 모집해요.\n\n- 먼저 내 신청 유형을 골라요.\n- 그 유형의 나이·혼인 여부·무주택·소득·자산 기준을 확인해요.\n- 거주할 수 있는 기간과 보증금·임대료도 유형별로 확인해요.",
+            "scope": "행복주택 안내예요. 산업단지형·일자리연계형 등은 별도 모집 조건이 있을 수 있어요.",
+            "evidence": {
+                "label": "LH · 행복주택 소개",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-national-permanent",
+            "category": "지원제도 알아보기",
+            "title": "국민임대와 영구임대는 무엇이 다른가요?",
+            "body": "두 유형 모두 장기간 빌려 사는 공공임대주택이지만, 모집 대상과 임대 조건이 달라요.\n\n- 국민임대: 소득·자산 기준을 충족하는 무주택 가구가 주요 대상이에요.\n- 영구임대: 생계·의료급여 수급자, 지원대상 한부모가족 등 공고에서 정한 대상이 신청해요.\n\n이름에 ‘영구’가 있어도 자격 확인이나 재계약 없이 계속 거주하는 것은 아니에요. 해당 공고의 입주·재계약 조건을 확인해요.",
+            "scope": "국민임대·영구임대의 일반적인 구분이에요. 자격완화 모집은 별도 조건을 확인해요.",
+            "evidence": {
+                "label": "LH · 국민임대 소개",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 영구임대 입주자격",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "LH · 영구임대 계약·재계약 안내",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1139&mi=1229",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-purchased-housing",
+            "category": "지원제도 알아보기",
+            "title": "매입임대는 어떤 지원인가요?",
+            "body": "LH 등이 사들인 주택을 입주자에게 빌려주는 방식이에요. 공급 목록에 나온 집의 위치·크기·임대 조건을 확인해요.\n\n- 청년, 신혼·신생아, 다자녀, 고령자 등 모집 유형이 나뉘어요.\n- 유형마다 신청 자격과 보증금·월 임대료가 달라요.\n- ‘전세형’이나 ‘든든전세’라는 이름이어도 매입임대일 수 있어요. 직접 집을 찾는 전세임대와 구분해요.",
+            "scope": "매입임대 사업의 일반 안내예요. 공고의 주택 목록과 세부 유형을 함께 확인해요.",
+            "evidence": {
+                "label": "LH · 매입임대 사업안내",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1029&mi=1150",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 기존주택 전세임대 안내",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-leased-housing",
+            "category": "지원제도 알아보기",
+            "title": "전세임대는 내가 살 집을 직접 찾나요?",
+            "body": "입주대상자로 선정되면 조건에 맞는 집을 찾고, LH의 지원 가능 여부 검토를 거쳐 계약해요. LH가 집주인과 전세계약을 맺고 입주자에게 다시 빌려주는 방식이에요.\n\n- 모집 유형의 지원 한도와 본인 부담금을 확인해요.\n- 집을 찾은 뒤 LH의 권리분석·계약 절차를 따라요.\n- 입주대상자 선정만으로 모든 집을 계약할 수 있는 것은 아니에요.",
+            "scope": "LH 전세임대의 일반적인 흐름이에요. 지원 한도·임대료·주택 조건은 유형별 공고를 확인해요.",
+            "evidence": {
+                "label": "LH · 기존주택 전세임대 안내",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 전세임대 주택 물색·계약 절차",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201453&mi=1240",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-integrated-rental",
+            "category": "지원제도 알아보기",
+            "title": "통합공공임대는 어떤 주택인가요?",
+            "body": "저소득 가구부터 청년·신혼부부·고령자 등 다양한 계층의 주거 안정을 위해 공급하는 공공임대주택이에요.\n\n신청 유형에 맞는 무주택·소득·자산 조건을 확인해요. 소득 기준은 ‘도시근로자 월평균소득’이 아니라 ‘기준 중위소득’을 사용하므로 다른 임대주택의 소득표를 그대로 적용하면 안 돼요.",
+            "scope": "통합공공임대 안내예요. 일반·우선공급 구분과 임대료는 해당 모집공고를 확인해요.",
+            "evidence": {
+                "label": "LH · 통합공공임대 소개",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-young-family-type",
+            "category": "지원제도 알아보기",
+            "title": "청년·신혼부부라면 어떤 유형부터 보나요?",
+            "body": "청년은 행복주택·청년 매입임대·청년 전세임대, 신혼부부는 행복주택·신혼·신생아 매입임대·전세임대부터 비교해 볼 수 있어요.\n\n- 같은 ‘청년’이어도 나이·재학·취업 상태를 보는 방식이 달라요.\n- 신혼·예비신혼·한부모·신생아 가구의 인정 기준도 유형마다 달라요.\n- 지역과 주택을 고른 뒤, 그 공고에서 모집하는 신청 유형을 확인해요.",
+            "scope": "유형을 찾기 위한 길잡이예요. 청년·신혼이라는 이유만으로 모든 유형의 자격을 충족하지는 않아요.",
+            "evidence": {
+                "label": "LH · 청년 매입임대 안내",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201251&mi=1150",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 신혼·신생아 매입임대Ⅰ 안내",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201254&mi=1150",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "LH · 행복주택 소개",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "LH · 기존주택 전세임대 안내",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-eligibility-ranking",
+            "category": "조건과 용어",
+            "title": "신청 자격과 선정 순위는 어떻게 다른가요?",
+            "body": "신청 자격은 ‘신청할 수 있는 사람의 조건’, 선정 순위는 ‘신청자 중 누구를 먼저 뽑을지 정하는 기준’이에요.\n\n- 신청 자격: 무주택·나이·거주지·소득·자산 등을 확인해요.\n- 선정 순위: 지역·소득 구간·청약 납입 등 공고의 우선순위를 확인해요.\n- 같은 순위의 경쟁: 배점·추첨 등 다음 선정 기준을 확인해요.\n\n1순위여도 자격을 충족해야 하며, 당첨이 보장되지는 않아요.",
+            "scope": "일반적인 용어 설명이에요. 적용 순서와 배점은 각 공고의 선정 기준을 따라요.",
+            "evidence": {
+                "label": "LH · 국민임대 자격·선정 기준",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-reference-date",
+            "category": "조건과 용어",
+            "title": "나이·거주지·혼인 여부는 언제 기준으로 보나요?",
+            "body": "오늘 상태가 아니라, 공고에서 정한 ‘자격 기준일’의 상태로 확인해요. 공고일과 신청일을 먼저 구분해요.\n\n- 나이·거주기간·혼인기간: 해당 항목의 기준일로 계산해요.\n- 무주택 등 유지 조건: 입주 때까지 유지해야 하는지도 확인해요.\n- 정정공고: 새 게시일만 보고 기준일이 바뀌었다고 판단하지 말고, 변경 내용을 확인해요.",
+            "scope": "공고의 기준일을 읽는 방법이에요. 항목별 기준일과 유지기간은 실제 모집공고를 확인해요.",
+            "evidence": {
+                "label": "LH · 정정 사유·기준일 안내 사례",
+                "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 행복주택 유형별 자격·소득·자산",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-household-scope",
+            "category": "조건과 용어",
+            "title": "어떤 가족을 함께 심사하나요?",
+            "body": "‘무주택세대구성원’은 신청자와 공고에서 정한 가족을 함께 확인한다는 뜻이에요. 단순히 같이 사는 가족 전체를 뜻하지는 않아요.\n\n- 신청자와 배우자: 주소가 달라도 함께 확인하는 경우가 있어요.\n- 부모·조부모, 자녀·손주와 그 배우자 등: 가족관계와 누구의 등본에 함께 올라 있는지 확인해요.\n- 예비신혼부부: 결혼 후 함께 살 세대의 기준을 확인해요.\n\n청년·대학생의 소득 심사에 부모를 포함하는지 등은 별도로 확인해요.",
+            "scope": "일반적인 세대 범위 안내예요. 외국인 가족·태아·세대분리 등은 해당 유형의 세부 기준을 따라요.",
+            "evidence": {
+                "label": "LH · 영구임대 입주자격",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 행복주택 유형별 자격·소득·자산",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-home-ownership",
+            "category": "조건과 용어",
+            "title": "집 지분이나 분양권이 있어도 무주택인가요?",
+            "body": "집 한 채를 온전히 소유하지 않아도 주택 지분이나 분양권 등을 확인해야 해요.\n\n- 주택의 일부 지분도 주택 소유로 볼 수 있어요.\n- 상속 등으로 취득했다면 취득 경위와 공고의 인정 예외를 확인해요.\n- 처분 기한이나 증빙 조건이 있는 예외는 그 요건까지 충족해야 해요.\n\n스스로 예외라고 단정하기 어렵다면 공고 담당 기관에 취득 경위와 관련 서류를 알려 확인해요.",
+            "scope": "무주택 여부를 확인할 때의 안내예요. 신규 신청과 입주 후 재계약의 예외를 구분해요.",
+            "evidence": {
+                "label": "주택관리공단 · 무주택 판단 안내",
+                "url": "https://www.kohom.or.kr/web/mainComm/HM002003.do?mode=list&schBcode=CD004001004",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-income-assets",
+            "category": "조건과 용어",
+            "title": "소득과 자산은 내 월급·통장 잔액만 보면 되나요?",
+            "body": "월급과 통장 잔액만으로 판단하지 않아요. 신청 유형에 따라 함께 심사하는 사람과 포함 항목을 확인해요.\n\n- 소득: 공고의 가구원 수와 소득 기준표를 확인해요. 청년·대학생은 부모 소득을 함께 보는 유형도 있어요.\n- 자산: 집·토지·예금·보험·임차보증금·자동차 등과 공고에서 인정하는 부채를 확인해요.\n- 자동차: 총자산과 별도로 차량 기준을 적용하는지도 확인해요.\n\n도시근로자 월평균소득과 기준 중위소득은 서로 다른 표예요. 다른 연도나 유형의 금액을 가져오지 않아요.",
+            "scope": "소득·자산 심사의 기본 안내예요. 조회 시점·평가액·가산·제외 항목은 해당 공고를 확인해요.",
+            "evidence": {
+                "label": "LH · 행복주택 유형별 자격·소득·자산",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 통합공공임대 소개",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-reserve-tenant",
+            "category": "조건과 용어",
+            "title": "예비입주자로 선정되면 바로 입주하나요?",
+            "body": "예비입주자는 입주할 차례를 기다리는 사람이에요. 빈집이 생기거나 계약 가능한 집이 확보되면 순번에 따라 안내받아요.\n\n- 예비번호와 실제 계약·입주일은 달라요.\n- 기존 대기자와 빈집 현황에 따라 기다리는 기간이 달라져요.\n- 주소·전화번호가 바뀌면 담당 기관에 알려요.\n- 다른 공고에 신청하거나 입주할 때는 기존 예비자 지위가 유지되는지도 확인해요.",
+            "scope": "예비입주자 모집의 일반 안내예요. 유효기간·중복 선정·연락 방법은 공고마다 확인해요.",
+            "evidence": {
+                "label": "LH · 예비입주자 계약·대기 안내 사례",
+                "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020476&uppAisTpCd=06",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-relaxed-criteria",
+            "category": "조건과 용어",
+            "title": "자격완화 모집은 조건을 안 봐도 되나요?",
+            "body": "공고에서 완화한 항목만 달라져요. 나머지 신청 조건까지 없어지는 것은 아니에요.\n\n- 어떤 항목을 완화했는지 확인해요: 소득·자산·거주지·나이 등.\n- 계속 적용하는 기준을 확인해요: 자동차 기준 등이 남을 수 있어요.\n- 입주 후 재계약할 때도 완화 기준을 적용하는지 확인해요.\n\n‘선계약 후검증’이라면 계약 뒤 자격 심사를 거쳐 최종 입주 여부가 정해져요.",
+            "scope": "자격완화·선계약 후검증 공고를 읽는 방법이에요. 연결된 공고는 사례이며 다른 모집에 그대로 적용하지 않아요.",
+            "evidence": {
+                "label": "LH · 자격완화·재계약 안내 사례",
+                "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=07&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020656&uppAisTpCd=06",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-priority-supply",
+            "category": "조건과 용어",
+            "title": "일반공급·우선공급·특별공급은 무엇인가요?",
+            "body": "모집 대상과 뽑는 방식을 나눈 구분이에요.\n\n- 일반공급: 공고의 기본 신청 자격을 갖춘 사람을 대상으로 모집해요.\n- 우선공급·특별공급: 신혼부부·다자녀·장애인 등 정해진 대상에게 별도 물량이나 우선순위를 적용해요.\n\n해당 대상이어도 별도 신청·기관 추천·증빙이 필요한지 확인해야 해요. 여러 구분에 동시에 신청할 수 있는지는 해당 공고의 중복 신청 규칙을 따라요.",
+            "scope": "공급 구분의 일반 설명이에요. 임대와 분양은 대상·물량·신청 절차가 서로 달라요.",
+            "evidence": {
+                "label": "LH · 일반공급·특별공급 안내",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 국민임대 자격·선정 기준",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-corrected-notice",
+            "category": "조건과 용어",
+            "title": "정정공고가 나오면 무엇을 다시 확인하나요?",
+            "body": "같은 모집의 내용을 고친 공고예요. 원공고와 연결된 최신 정정 내용을 확인해요.\n\n- 바뀐 자격·서류·일정·임대 조건을 확인해요.\n- 이미 신청했다면 변경·취소·추가 제출이 필요한지 공식 안내를 확인해요.\n- 바뀌지 않은 내용도 원공고와 함께 읽어요.\n\n이름이 비슷해도 추가모집·잔여세대 모집은 별도 모집일 수 있어요. 제목만 보고 같은 공고로 판단하지 않아요.",
+            "scope": "정정·변경 공고를 확인하는 방법이에요. 공식 정정 사유와 원공고 연결을 기준으로 봐요.",
+            "evidence": {
+                "label": "LH · 정정 사유·기준일 안내 사례",
+                "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-subscription-account",
+            "category": "조건과 용어",
+            "title": "청약통장은 꼭 있어야 하나요?",
+            "body": "주택 유형과 공급 구분에 따라 달라요. 통장이 신청 자격인지, 순위나 가점을 위한 것인지 구분해요.\n\n- 자격 요건이면 정해진 가입기간·납입 조건을 충족해야 해요.\n- 순위·가점 항목이면 인정되는 납입횟수나 금액을 확인해요.\n- 통장 잔액과 공고에서 인정하는 납입 실적은 같지 않을 수 있어요.\n\n내 공고의 ‘입주자저축’ 또는 ‘청약저축’ 항목을 먼저 확인해요.",
+            "scope": "청약통장 요건을 읽는 방법이에요. 모든 임대주택에 같은 가입·납입 기준을 적용하지 않아요.",
+            "evidence": {
+                "label": "LH · 국민임대 자격·선정 기준",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 일반공급·특별공급 안내",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-document-checklist",
+            "category": "서류 발급 안내",
+            "title": "서류를 발급하기 전에 무엇을 확인하나요?",
+            "body": "공고의 제출서류 표에서 내 신청 유형에 필요한 서류부터 골라요.\n\n- 공통 서류와 해당자만 내는 서류를 구분해요.\n- 누구 이름으로 발급할지, 일반·상세 중 무엇인지 확인해요.\n- 인정되는 발급일과 주소 이력·주민등록번호 표시 범위를 확인해요.\n- 원본·사본·온라인 파일 중 어떤 방식으로 낼지 확인해요.\n\n다른 공고의 서류 목록이나 오래된 양식을 그대로 쓰지 않아요.",
+            "scope": "신청할 공고의 최신 제출서류 표와 정정 안내가 기준이에요.",
+            "evidence": {
+                "label": "LH · 공공임대 제출서류 안내",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-resident-certificates",
+            "category": "서류 발급 안내",
+            "title": "주민등록등본과 초본은 어떻게 다른가요?",
+            "body": "등본은 한 세대의 구성원을, 초본은 한 사람의 주민등록 이력을 확인하는 서류예요.\n\n- 등본: 세대원과 세대주와의 관계 등을 확인해요.\n- 초본: 주소 변동 등 개인의 이력을 확인해요.\n- 발급: 정부24, 행정복지센터, 무인민원발급기를 이용해요. 온라인 대리 신청은 할 수 없어요.\n\n공고가 요구하는 주소 이력·관계·주민등록번호 항목을 선택해 발급해요.",
+            "scope": "공고에서 요구한 종류로 준비해요. 필요한 사람과 표시 항목도 함께 확인해요.",
+            "evidence": {
+                "label": "정부24 · 주민등록표 등본·초본 발급",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-family-marriage-certificates",
+            "category": "서류 발급 안내",
+            "title": "가족관계·혼인관계증명서는 어떻게 준비하나요?",
+            "body": "가족관계증명서는 부모·배우자·자녀와의 관계를, 혼인관계증명서는 혼인 관계를 확인해요.\n\n- 공고에 ‘상세’라고 쓰여 있으면 상세증명서로 발급해요.\n- 신청자·배우자·자녀 중 누구를 기준으로 발급할지 확인해요.\n- 대법원 전자가족관계등록시스템이나 주민센터 등 발급 창구를 이용해요.\n\n등본에 배우자가 없다는 이유만으로 가족관계 서류가 필요 없다고 판단하지 않아요.",
+            "scope": "제출 대상·일반/상세 구분·주민등록번호 공개 범위는 공고별로 확인해요.",
+            "evidence": {
+                "label": "정부24 · 가족관계등록부 증명서 안내",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004&HighCtgCD=A01008&Mcode=10020",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "대법원 · 전자가족관계등록시스템",
+                    "url": "https://efamily.scourt.go.kr/index.jsp",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "LH · 공공임대 제출서류 안내",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-consent-forms",
+            "category": "서류 발급 안내",
+            "title": "개인정보·금융정보 동의서는 어디서 받나요?",
+            "body": "신청할 공고의 첨부파일에서 지정 양식을 받아요. 증명서 발급 사이트에서 받는 서류와는 달라요.\n\n- 개인정보 동의서와 금융정보 동의서가 각각 필요한지 확인해요.\n- 공고가 정한 심사 대상자의 서명·날인란을 빠짐없이 채워요.\n- LH 개인정보 동의서는 만 14세 이상은 본인, 만 14세 미만은 법정대리인이 서명하도록 안내해요.\n\n다른 가족의 서명을 신청자가 임의로 대신하지 않아요.",
+            "scope": "서명 대상과 전자 동의 가능 여부는 해당 공고·양식에 따라요.",
+            "evidence": {
+                "label": "LH · 개인정보 동의서 작성 기준(1쪽)",
+                "url": "https://apply.lh.or.kr/upload/cntntsFile/apple/doc_b3e410f5-6dfa-4f0d-a31d-105ae40b832c1742799126676.pdf",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-income-asset-documents",
+            "category": "서류 발급 안내",
+            "title": "소득·자산은 어떤 서류로 확인하나요?",
+            "body": "기관의 공적자료 조회와 공고가 요구하는 증빙을 함께 사용해요. 소득금액증명 한 장으로 모든 심사가 끝나는 것은 아니에요.\n\n- 소득금액증명: 정부24 등에서 발급해요. 요구하는 소득 연도를 확인해요.\n- 자산 보유 사실 확인서: 공고 양식에 보유 내역을 적어요.\n- 보증금·분양권 등: 요청받은 계약서나 납부 내역을 함께 준비해요.\n\n소득이 없거나 최근 취업·퇴직했다면 어떤 자료로 확인할지 담당 기관에 물어봐요.",
+            "scope": "예시 파일은 제출용이 아니에요. 양식은 최신 공고 첨부에서 받고, 심사 대상과 추가 서류도 그 공고를 따라요.",
+            "evidence": {
+                "label": "정부24 · 소득금액증명 발급",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000021&HighCtgCD=-",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 자산 확인서 예시(2021년 공고문 23쪽)",
+                    "url": "https://www.lh.or.kr/boardDownload.es?bid=0033&list_no=644985&seq=3",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "LH · 통합공공임대 심사 절차",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-welfare-certificates",
+            "category": "서류 발급 안내",
+            "title": "수급자·한부모·장애인 증명서는 어디서 받나요?",
+            "body": "공고에서 인정하는 자격에 맞는 증명서를 준비해요.\n\n- 수급자 증명서: 정부24 또는 주민센터 등에서 발급해요. 공고가 요구하는 급여 종류를 확인해요.\n- 한부모가족 증명서: 법에서 정한 지원대상임을 확인하는 서류예요. 자녀를 혼자 키운다는 사실만으로 자동 발급되지는 않아요.\n- 장애인증명서: 정부24·복지로 또는 주민센터 등에서 발급해요.\n\n차상위 증빙처럼 인정 서류가 여러 종류라면 공고의 서류명을 먼저 확인해요.",
+            "scope": "증명서 발급 자격과 주택 신청 자격은 별도로 확인해요.",
+            "evidence": {
+                "label": "정부24 · 국민기초생활수급자 증명서",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=14600000280",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "정부24 · 한부모가족 증명서",
+                    "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=10601000001&tp_seq=01",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "보건복지부 · 장애인증명서 발급 안내",
+                    "url": "https://www.mohw.go.kr/menu.es?mid=a10710010900",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-foreign-family-documents",
+            "category": "서류 발급 안내",
+            "title": "외국인 가족의 서류는 어떻게 준비하나요?",
+            "body": "공고가 외국인등록 사실증명을 요구하면 정부24나 출입국·외국인관서, 주민센터 등에서 발급해요. 온라인은 본인 신청만 가능해요.\n\n외국인등록 사실증명, 국내거소신고 사실증명, 가족관계증명서는 확인하는 내용이 달라요. 가족의 국적·등록 상태에 맞는 서류명을 확인해요.\n\n외국인 가족을 심사에 포함하는지는 공고 기준을 따르며, 서류를 발급받았다는 사실만으로 신청 자격이 생기지는 않아요.",
+            "scope": "외국인 배우자·가족의 증빙이 필요한 신청자에게 해당해요.",
+            "evidence": {
+                "label": "정부24 · 외국인등록 사실증명",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-pregnancy-adoption-documents",
+            "category": "서류 발급 안내",
+            "title": "임신·입양은 어떤 서류로 확인하나요?",
+            "body": "태아나 입양 자녀를 인정받을 때는 공고가 정한 증빙을 내요.\n\n- 임신: 의료기관에서 발급한 임신진단서 등 공고가 인정하는 서류를 준비해요.\n- 입양: 입양관계증명서나 친양자입양관계증명서 등 해당 서류를 준비해요.\n- 계약·입주 전: 출산이나 입양 상태를 다시 확인하는 서류가 필요한지 확인해요.\n\n임신확인서로도 되는지, 언제 발급한 서류여야 하는지는 공고에서 확인해요.",
+            "scope": "태아·입양 자녀의 자격·가구원 수·가산 인정 범위는 공고별로 확인해요.",
+            "evidence": {
+                "label": "LH · 공공임대 제출서류 안내",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "정부24 · 가족관계등록부 증명서 안내",
+                    "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004&HighCtgCD=A01008&Mcode=10020",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-certificate-proxy",
+            "category": "서류 발급 안내",
+            "title": "가족이 대신 서류를 발급받아도 되나요?",
+            "body": "서류마다 달라요. 가족이라는 이유만으로 모든 서류를 대신 발급받을 수 있는 것은 아니에요.\n\n- 등·초본과 외국인등록 사실증명은 온라인 대리 신청이 안 돼요.\n- 방문 대리 발급은 위임장·신분증 등 필요한 서류를 발급기관에 확인해요.\n- 가족관계증명서는 본인 인증 후 발급할 수 있는 가족 범위가 정해져 있어요.\n\n증명서 대리 발급과 주택 청약 대리 신청은 별개예요. 청약 대리는 모집공고의 허용 여부부터 확인해요.",
+            "scope": "방문 전 해당 민원의 신청 자격과 대리 발급 준비물을 확인해요.",
+            "evidence": {
+                "label": "정부24 · 주민등록표 등본·초본 발급",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "정부24 · 외국인등록 사실증명",
+                    "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027",
+                    "checkedAt": "2026-11-21"
+                },
+                {
+                    "label": "대법원 · 전자가족관계등록시스템",
+                    "url": "https://efamily.scourt.go.kr/index.jsp",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-official-application",
+            "category": "신청 절차",
+            "title": "신청은 어디서 하고, 접수 완료는 어떻게 확인하나요?",
+            "body": "공고에 적힌 공식 사이트나 접수처에서 신청해요. 집으로에서 준비를 마치거나 링크를 여는 것만으로 접수되지는 않아요.\n\n- LH 인터넷 청약은 본인 인증 후 공고·주택형·신청 유형을 선택해요.\n- 입력 내용을 확인하고 제출까지 마쳐요.\n- ‘청약신청 내역조회’에서 접수 내역을 확인해요.\n\n처음이라면 접수 전에 LH ‘청약연습하기’로 인증과 입력 과정을 확인해요.",
+            "scope": "LH 인터넷 청약 기준 안내예요. 다른 기관·현장 접수는 해당 공고의 방법을 따라요.",
+            "evidence": {
+                "label": "LH · 인터넷 청약신청 절차",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "LH · 청약 연습과 사전 준비",
+                    "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1230&mi=1302",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        },
+        {
+            "id": "guide-application-changes",
+            "category": "신청 절차",
+            "title": "신청한 내용을 수정하거나 취소할 수 있나요?",
+            "body": "공고마다 달라요. LH 건설임대 인터넷 청약은 접수 시간 안에 ‘청약신청 내역조회’에서 수정·삭제할 수 있고, 마감 뒤에는 수정할 수 없어요.\n\n주택형은 기존 신청을 삭제한 뒤 다시 신청해야 할 수 있어요. 먼저 삭제하면 재신청을 끝내지 못할 수 있으니 남은 시간과 변경 규칙을 확인해요.\n\n변경 뒤에도 최종 제출 상태를 확인해요.",
+            "scope": "다른 유형·기관의 수정 가능 항목과 취소 방법은 해당 공고·접수 화면을 따라요.",
+            "evidence": {
+                "label": "LH · 인터넷 청약신청 절차",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-document-selection",
+            "category": "신청 절차",
+            "title": "서류제출대상자가 되면 당첨된 건가요?",
+            "body": "아직 최종 선정이 아닐 수 있어요. 서류제출대상자는 신청 내용과 자격을 확인할 서류를 내는 단계예요.\n\n- 대상자 발표에서 내 이름이나 접수번호를 확인해요.\n- 정해진 기간 안에 서류를 제출해요.\n- 자격 심사와 필요한 소명 절차를 거쳐 최종 결과를 확인해요.\n\n서류대상자를 추첨하는지, 점수로 고르는지와 선발 인원은 공고마다 달라요.",
+            "scope": "서류대상자 발표가 별도로 있는 모집에 해당해요. 최종 선정과 구분해 확인해요.",
+            "evidence": {
+                "label": "LH · 통합공공임대 심사 절차",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-document-submission",
+            "category": "신청 절차",
+            "title": "서류는 온라인·우편·방문 중 편한 방법으로 내면 되나요?",
+            "body": "공고에서 허용한 방법으로만 제출해요. 온라인 신청을 했어도 서류는 다른 방법으로 받는 공고가 있어요.\n\n- 온라인: 지정한 파일 형식·크기와 제출 완료 상태를 확인해요.\n- 우편: 마감일 ‘도착’ 기준인지 ‘우체국 소인’ 기준인지 확인해요.\n- 방문: 접수처·운영시간·점심시간과 대리 제출 준비물을 확인해요.\n\n서류제출대상자 발표 때 나온 별도 안내도 함께 확인해요.",
+            "scope": "제출 방법과 인정 기한은 최신 공고·서류 제출 안내가 기준이에요.",
+            "evidence": {
+                "label": "LH · 인터넷 청약신청 절차",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-supplement-explanation",
+            "category": "신청 절차",
+            "title": "추가 서류나 소명 요청을 받으면 어떻게 하나요?",
+            "body": "‘소명’은 기관이 조회한 내용이 실제와 다를 때 증빙으로 설명하는 절차예요.\n\n- 어떤 항목이 문제인지 통보 내용을 확인해요.\n- 담당 기관에 인정 서류와 제출 기한을 확인해요.\n- 사실을 확인할 자료를 기한 안에 내요.\n\n전화로 설명만 했다고 제출이 끝난 것은 아니에요. 제출한 자료와 접수 여부를 보관해요.",
+            "scope": "주택·소득·자산 등의 재확인 요청을 받은 경우예요. 기한을 넘기면 선정에서 제외될 수 있어요.",
+            "evidence": {
+                "label": "LH · 통합공공임대 심사 절차",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-results-contract",
+            "category": "신청 절차",
+            "title": "결과 발표 뒤에는 무엇을 해야 하나요?",
+            "body": "공식 결과에서 당첨인지 예비 순번인지 확인한 뒤 후속 안내를 따라요. 당첨 발표 후 자격 심사를 진행하는 유형도 있어요.\n\n- 추가 심사·소명이나 서류 제출이 남았는지 확인해요.\n- 계약 대상이 되면 계약일·준비물·납부 안내를 확인해요.\n- 계약과 입주 일정은 별도로 확인해요.\n\n공고가 ‘개별 안내’라고 정했다면 안내 방식과 연락처를 확인하고, 기다리는 기간은 그 공고의 설명을 따라요.",
+            "scope": "발표·심사·계약 순서는 유형별로 달라요. 예비 선정만으로 즉시 입주가 정해지지는 않아요.",
+            "evidence": {
+                "label": "LH · 공공임대 심사와 계약 절차",
+                "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1110&mi=1222",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-contact-lh",
+            "category": "공식 문의처",
+            "title": "LH 공고가 헷갈리면 어디에 물어보나요?",
+            "body": "LH 마이홈 콜센터 1600-1004에서 신청 자격·서류·청약 방법 등을 상담해요.\n\n- 상담: 평일 09:00~12:00, 13:00~18:00\n- 주말·공휴일: 상담하지 않아요.\n- 공고명·공고일·신청 유형과 궁금한 항목을 준비해요.\n\n특정 공고의 접수처·서류 인정 여부·서로 다른 일정은 공고에 적힌 담당 부서에 확인해요. 상담만으로 자격이나 당첨이 확정되지는 않아요.",
+            "scope": "LH 분양·임대 및 주거지원 상담 안내예요.",
+            "evidence": {
+                "label": "LH · 콜센터 이용 안내",
+                "url": "https://www.lh.or.kr/menu.es?mid=a10310000000",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-contact-sh-local",
+            "category": "공식 문의처",
+            "title": "SH나 지역 기관 공고도 LH에 문의하면 되나요?",
+            "body": "공고를 낸 기관의 문의처로 연락해요. LH 상담이 다른 기관의 접수나 자격 결정을 대신하지는 않아요.\n\n- SH·서울 주거상담: 1600-3456\n- 상담: 평일 09:00~18:00, 점심시간 12:00~13:00 제외\n- 그 밖의 공사·지자체·관리기관: 공고의 문의처와 접수처를 확인해요.\n\n방문 상담은 담당 센터와 방문 방법을 먼저 확인해요.",
+            "scope": "공급기관과 관리기관이 다를 수 있어요. 궁금한 업무를 담당하는 곳에 문의해요.",
+            "evidence": {
+                "label": "SH 서울주거상담 · 상담 안내",
+                "url": "https://www.seoulhousing.kr/html/0601001.do",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-contact-benefit",
+            "category": "공식 문의처",
+            "title": "주거급여는 어디서 상담하고 신청하나요?",
+            "body": "주거급여 문의는 전용 콜센터 1600-0777로 해요. 임대주택 청약 상담 번호와 구분해요.\n\n신청은 주소지 읍·면·동 주민센터 또는 복지로에서 안내받아요. 신청 뒤 소득·재산과 주거 상태 등을 조사해 지원 여부를 정해요.\n\n임대주택 신청과 주거급여 신청은 별개이므로, 상담할 때 어떤 지원을 받고 싶은지 말해요.",
+            "scope": "생활이 어려운 가구의 임차료·주택 수선 지원인 주거급여 안내예요.",
+            "evidence": {
+                "label": "복지로 · 주거급여 문의와 신청 안내",
+                "url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003201",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": []
+        },
+        {
+            "id": "guide-contact-certificate",
+            "category": "공식 문의처",
+            "title": "서류 발급 사이트가 안 되면 어디에 문의하나요?",
+            "body": "발급 오류는 해당 사이트의 지원 창구로, 서류 제출 기준은 공고 담당 기관으로 문의해요.\n\n- 정부24: 1588-2188 또는 02-721-0600, 평일 09:00~18:00\n- 대법원 전자가족관계등록시스템: 1899-2732, 평일 09:00~18:00\n\n발급하려는 서류명과 오류 내용을 준비하면 좋아요. 방문 발급을 이용하려면 신분증·위임장 등 필요한 준비물을 먼저 확인해요.",
+            "scope": "온라인 발급·인증·출력 문의 안내예요. 주택 신청 자격은 공급기관이 확인해요.",
+            "evidence": {
+                "label": "정부24 · 발급 서비스·하단 상담 안내",
+                "url": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+                "checkedAt": "2026-11-21"
+            },
+            "additionalEvidence": [
+                {
+                    "label": "대법원 · 전자가족관계등록시스템",
+                    "url": "https://efamily.scourt.go.kr/index.jsp",
+                    "checkedAt": "2026-11-21"
+                }
+            ]
+        }
+    ]
+}

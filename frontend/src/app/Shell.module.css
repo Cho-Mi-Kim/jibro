@@ -345,26 +345,27 @@
     position: static;
 }
 
-@media (max-width: 767px) {
-    :global(#root):has([data-notice-detail]) {
-        height: 100dvh;
-        display: flex;
-        flex-direction: column;
-    }
-    .workspace:has([data-notice-detail]),
-    .workspace:has([data-notice-detail]) main {
-        display: flex;
-        flex: 1;
-        min-height: 0;
-        flex-direction: column;
-    }
-    .workspace:has([data-notice-detail]) {
-        width: 100%;
-        margin-block: 0;
-        padding-block: 0;
-    }
-    :global(#root):has([data-notice-detail]) > .bottom-nav {
-        flex: none;
-        position: static;
-    }
+:global(#root):has([data-notice-detail]) {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+:global(#root):has([data-notice-detail])
+    > :is(.topbar, .demo-banner, .bottom-nav) {
+    flex: none;
+}
+.workspace:has([data-notice-detail]),
+.workspace:has([data-notice-detail]) main {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+}
+.workspace:has([data-notice-detail]) {
+    width: 100%;
+    margin-block: 0;
+    padding-block: 0;
+}
+:global(#root):has([data-notice-detail]) > .bottom-nav {
+    position: static;
 }

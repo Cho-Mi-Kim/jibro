@@ -53,7 +53,7 @@ public class EvidenceCheckService {
                 if (key == null) result = new Probe("MISSING", null);
                 else if (checked.containsKey(key)) result = checked.get(key);
                 else if (Thread.currentThread().isInterrupted() || checked.size() >= MAX_URLS
-                    || System.nanoTime() - start > START_BUDGET.toNanos())
+                        || System.nanoTime() - start > START_BUDGET.toNanos())
                     result = new Probe("DEFERRED", null);
                 else {
                     result = probe(key);

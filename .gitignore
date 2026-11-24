@@ -15,10 +15,10 @@
 !.env.example
 !**/.env.example
 *.log
-**/__pycache__/
-*.py[cod]
 .DS_Store
 Thumbs.db
 deploy/runtime.env
 deploy/*.pem
 deploy/*.key
+**/__pycache__/
+*.py[cod]

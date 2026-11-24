@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Set;
 import java.util.UUID;
+
 import org.jibro.global.common.ApiException;
 import org.jibro.notice.HousingModels.Evidence;
 import org.jibro.notice.HousingModels.Review;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
 
-/** Official lifecycle is independent of date calculations and guidance publication. */
+/**
+ * Official lifecycle is independent of date calculations and guidance publication.
+ */
 @Service
 public class NoticeLifecycleService {
     private final NoticeRepository notices;

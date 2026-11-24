@@ -30,9 +30,9 @@ public final class ReviewedLegacyCorrection {
     static OfficialCorrectionLink.Proof verify(Review review, String oldUrl, String oldHtml,
                                                String latestUrl, String latestHtml, AttachmentFingerprintClient http) throws Exception {
         if (review == null || !Objects.equals(review.originalUrl(), oldUrl) || !Objects.equals(review.correctedUrl(), latestUrl)
-            || review.findings() == null || review.findings().length() < 20 || review.findings().length() > 2000
-            || review.attachments().size() != 2
-            || !review.attachments().stream().map(Attachment::mediaType).collect(java.util.stream.Collectors.toSet()).equals(TYPES))
+                || review.findings() == null || review.findings().length() < 20 || review.findings().length() > 2000
+                || review.attachments().size() != 2
+                || !review.attachments().stream().map(Attachment::mediaType).collect(java.util.stream.Collectors.toSet()).equals(TYPES))
             throw invalid();
         var proof = OfficialCorrectionLink.unlinkedLegacyPages(oldUrl, oldHtml, latestUrl, latestHtml);
         if (!proof.reason().equals(review.correctionReason())) throw invalid();
@@ -52,7 +52,7 @@ public final class ReviewedLegacyCorrection {
             for (String fileId : List.of(attachment.originalFileId(), attachment.correctedFileId())) {
                 var fingerprint = http.fetch("https://apply.lh.or.kr/lhapply/lhFile.do?fileid=" + fileId);
                 if (!attachment.sha256().equals(fingerprint.sha256()) || !attachment.mediaType().equals(fingerprint.mediaType())
-                    || fingerprint.bytes() < 10000) throw invalid();
+                        || fingerprint.bytes() < 10000) throw invalid();
             }
         }
         return proof;
@@ -62,14 +62,14 @@ public final class ReviewedLegacyCorrection {
         var doc = Jsoup.parse(html);
         var titles = doc.select(".bbs_ViewA h3");
         var dates = doc.select(".bbs_ViewA .bbsV_data li").stream()
-            .filter(li -> li.select("strong").text().equals("공고일"))
-            .map(li -> {
-                var copy = li.clone();
-                copy.select("strong").remove();
-                return copy.text().strip();
-            }).toList();
+                .filter(li -> li.select("strong").text().equals("공고일"))
+                .map(li -> {
+                    var copy = li.clone();
+                    copy.select("strong").remove();
+                    return copy.text().strip();
+                }).toList();
         if (titles.size() != 1 || !titles.text().equals(title) || dates.size() != 1
-            || !dates.get(0).equals(date.replace('-', '.'))) throw invalid();
+                || !dates.get(0).equals(date.replace('-', '.'))) throw invalid();
     }
 
     private static void checkAttachment(String html, String fileId, String type) {

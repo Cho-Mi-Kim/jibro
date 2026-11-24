@@ -1,0 +1,1525 @@
+{
+  "reviewDate": "2026-11-21",
+  "scope": "현재 기본 목록에서 준비 안내 AVAILABLE인 모든 공고",
+  "defaultListCount": 122,
+  "reviewedNoticeCount": 106,
+  "questionCount": 1474,
+  "newGuidanceVersionCount": 71,
+  "unchangedExistingBespokeModules": [
+    "오산세교2 7단지",
+    "경주·영천",
+    "완주삼례 A-1",
+    "포항블루밸리"
+  ],
+  "notices": [
+    {
+      "noticeId": "c4d5dcea-265f-48cb-8fff-c11f9bded820",
+      "title": "포항블루밸리 행복주택 입주자모집(3개월분 임대료 면제, 선착순 동호지정)",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 6,
+      "questionCount": 15,
+      "documentCount": 16,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "11f5a8d1-3100-4d80-8f4b-b0ef6dc8af3c",
+      "title": "2026년 신혼·신생아 전세임대Ⅱ 입주자 수시모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 6,
+      "questionCount": 17,
+      "documentCount": 29,
+      "previousQuestionCount": 17,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "6766d1f8-0a4c-462d-8d8a-b1390b15cbcf",
+      "title": "2026 다자녀 전세임대 입주자 수시모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 6,
+      "questionCount": 15,
+      "documentCount": 23,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "cb2ba5d3-53bb-4d7a-a8d1-d526f95a89d7",
+      "title": "2026년 신혼·신생아 전세임대 I 입주자 수시모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 6,
+      "questionCount": 17,
+      "documentCount": 29,
+      "previousQuestionCount": 17,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "cb715a71-3611-4d8a-a23f-573d0bae22e9",
+      "title": "2026년 청년 전세임대 1순위 입주자 수시모집",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 10,
+      "questionCount": 7,
+      "documentCount": 9,
+      "previousQuestionCount": 7,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "c492f779-58e0-40b9-bac4-66830c698ff5",
+      "title": "태백장성 국민임대주택 예비입주자 입주자격완화 상시모집",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 11,
+      "questionCount": 11,
+      "documentCount": 24,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "DOCUMENT",
+          "title": "대리신청 때 사용할 위임장 확인"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+      "title": "삼척시·정선군 국민임대 예비입주자 상시모집(26.6.10)",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 10,
+      "questionCount": 9,
+      "documentCount": 12,
+      "previousQuestionCount": 9,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "삼척원조 최초 접수시각 표기 차이"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "de920f26-fdcc-4beb-b26b-6a18d4f54f46",
+      "title": "[정정공고]남원노암단지 영구임대주택 입주자격완화 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 8,
+      "questionCount": 13,
+      "documentCount": 28,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "재계약 때 소득 150% 초과 1·2회의 할증"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+      "title": "[정정공고]동해유성,태백철암장미 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 9,
+      "questionCount": 13,
+      "documentCount": 27,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "공고 후 신청 전에 집을 사거나 판 경우"
+        },
+        {
+          "area": "DOCUMENT",
+          "title": "대리신청 때 사용할 위임장 확인"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "e15cb019-012f-4edb-9bcd-c760885c49bf",
+      "title": "태백궁전 국민임대 입주자격완화 예비입주자 상시모집(26.02.02 공고)",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 9,
+      "questionCount": 15,
+      "documentCount": 27,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "공고 후 신청 전에 집을 사거나 판 경우"
+        },
+        {
+          "area": "DOCUMENT",
+          "title": "대리신청 때 사용할 위임장 확인"
+        },
+        {
+          "area": "CONDITION",
+          "title": "150% 표를 넘을 때 추가 가산 여부"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "67ba01ef-0fb8-4ac0-b855-adc061b1f8ee",
+      "title": "삼척도계·정선신동 국민임대주택 예비입주자 입주자격완화 공고",
+      "guideState": "AVAILABLE",
+      "status": "OPEN",
+      "version": 9,
+      "questionCount": 11,
+      "documentCount": 25,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "DOCUMENT",
+          "title": "대리신청 때 사용할 위임장 확인"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+      "title": "[대전·충남] 2026년 2차 든든전세주택 입주자 모집공고 (분양전환형)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 9,
+      "questionCount": 7,
+      "documentCount": 15,
+      "previousQuestionCount": 7,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+      "title": "인천산곡 A1블록 행복주택(산곡솔마루아파트) 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 13,
+      "documentCount": 14,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "b775c46b-4d0f-4e48-8797-5e79d6a2f7ec",
+      "title": "제천장락1 50년공공임대주택 예비입주자 모집 공고[2026.11.09]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 11,
+      "documentCount": 9,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+      "title": "남원노암 공공임대 50년 예비입주자모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "081ff9b0-6429-4612-84d6-cda7fc5b014d",
+      "title": "청주성화1 국민임대주택 예비입주자 모집공고[2026.11.16]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+      "title": "파주운정A4BL(별하람3) 10년 공공임대주택리츠 예비입주자 모집(무순위)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 8,
+      "documentCount": 5,
+      "previousQuestionCount": 7,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "71a824d2-9c9d-40b4-a55c-6ec1f7e45cc3",
+      "title": "[양산시지역]양산대석휴먼시아 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "78150cc5-5697-46bf-ab2b-bfe303dbb805",
+      "title": "[정정공고]순천시 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 15,
+      "documentCount": 31,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "8f34e975-9698-4098-b39c-684800cf737c",
+      "title": "창원시 지역 진해청안해오름, 진해청안그린빌 국민임대주택 예비입주자 모집 공고(26.11.16.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 27,
+      "documentCount": 76,
+      "previousQuestionCount": 27,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "9ee010da-1d1d-4675-bbea-a5f76e8ea753",
+      "title": "괴산군지역 국민임대주택 예비입주자 모집 공고[2026.11.16]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "da3a1c3a-c554-4987-8a8d-9691459fc981",
+      "title": "장수북동 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 15,
+      "documentCount": 39,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "e4dfe909-5c25-4c2d-9cc5-5eb4d9026ed0",
+      "title": "파주운정A20BL(산내2) 10년 공공임대주택리츠 예비입주자모집(무순위)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 8,
+      "documentCount": 5,
+      "previousQuestionCount": 7,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "f35ab7ac-5a5d-401a-896c-bd591a3d0cbf",
+      "title": "장성군 국민임대주택 예비입주자 모집(2026.11.16.공고)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 10,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "c7c756c5-1ed7-4a91-9fc1-21c71109e8f1",
+      "title": "대전문화1단지 50년공공임대주택 예비입주자 모집공고(2026.11.12.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 7,
+      "documentCount": 11,
+      "previousQuestionCount": 7,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "74aca12e-5f00-4f6d-9538-c042aad840c5",
+      "title": "천안백석3 국민임대주택 예비입주자 모집공고(2026.11.16)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 9,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "9c1ce2a6-b2b3-47c0-96ab-caea33c7b0fa",
+      "title": "칠곡왜관4 국민임대아파트 예비입주자 모집 (39형, 46형)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "c6f106ee-7aed-4efc-bd03-60aa76997bb6",
+      "title": "구미도량2지구3단지 국민임대주택 예비입주자 모집(36,45형)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "d244f893-421c-4f6d-b633-cbd2171ff7b5",
+      "title": "전주시,완주군 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 14,
+      "documentCount": 38,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "589d176a-18fb-4713-9438-b709052ae4f6",
+      "title": "익산시(익산부송1, 익산동산)영구임대주택 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 10,
+      "questionCount": 12,
+      "documentCount": 22,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+      "title": "밀양가곡1 영구임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 7,
+      "documentCount": 27,
+      "previousQuestionCount": 5,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+      "title": "춘천시 철원군지역 행복주택 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 5,
+      "questionCount": 11,
+      "documentCount": 33,
+      "previousQuestionCount": 6,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "413075cd-2626-44f6-a020-336513fa6143",
+      "title": "평택시 평택송화 국민임대 예비입주자 모집공고(2026.11.05)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 19,
+      "documentCount": 34,
+      "previousQuestionCount": 19,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "f8563127-e307-4581-8491-7c241ebd1814",
+      "title": "정선사북 행복주택 입주자 추가모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 4,
+      "questionCount": 15,
+      "documentCount": 32,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "b5b372fa-3bc6-4780-98e4-969f083bff04",
+      "title": "거제시지역 거제장평3 국민임대주택 예비입주자 모집공고(2026.11.16.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "0afe3c9c-ef45-4471-afda-510f65a9c5bc",
+      "title": "원주무실5 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "20af2e78-1e98-4a0a-918f-639173b9109e",
+      "title": "청주시지역(청주율량9) 국민임대주택 예비입주자 모집공고[2026.11.16.]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "2f99b8a4-5ce4-4b61-b875-fbb4149eef5f",
+      "title": "천안병천신한 국민임대주택 예비입주자 모집공고(2026.11.16)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "c186f2f5-aa47-4ca1-893d-37613ce8d6be",
+      "title": "정읍상동2.3 국민임대주택 예비입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 9,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "d62e9377-a385-4a0a-8780-d00e2c8593f0",
+      "title": "2026.11.16. 창녕군 창녕말흘 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 14,
+      "documentCount": 39,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "e7cddb89-1942-4bf6-938c-4ac554f0d5b8",
+      "title": "[정정공고]증평군지역 국민임대주택 예비입주자 모집[2026.11.16]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "1b7e76e1-9b14-48fd-9c44-4b0087d7bc1e",
+      "title": "[정정공고]부산광역시 국민임대주택 예비입주자 정례모집 공고(2026.11.16.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 5,
+      "questionCount": 14,
+      "documentCount": 38,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "3faff622-1c02-4b25-919c-00891a2364de",
+      "title": "나주시 국민임대주택 예비입주자 모집(2026.11.16.공고)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 10,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "70405904-2ab4-4493-9bc9-2545fd121abf",
+      "title": "서귀포동홍3 영구임대주택 예비입주자 모집 공고(공고일 `26.11.16)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 11,
+      "questionCount": 12,
+      "documentCount": 22,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "86f63756-9200-4e36-accf-c92055d1722d",
+      "title": "원주시지역 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "959c0613-3dd9-47b8-96e3-2f3dadb111d5",
+      "title": "영암,해남지역 국민임대주택 예비입주자 모집(2026.11.16.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 8,
+      "questionCount": 27,
+      "documentCount": 62,
+      "previousQuestionCount": 25,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "a43a67a0-fc83-4909-81e0-24a08363d47a",
+      "title": "강원고성군 국민임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "acd69f3c-8df9-4c85-89c8-0ca99d0e2f50",
+      "title": "김해시 지역 국민임대주택 예비입주자 모집(2026.11.16.공고)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 15,
+      "documentCount": 39,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "ca207929-4275-4f5c-9bb4-38a8480699bb",
+      "title": "음성군 국민임대 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 16,
+      "documentCount": 39,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "296edcb9-4b62-4bce-812f-d1de3db4af0c",
+      "title": "영광도동 국민임대주택 예비입주자 모집(2026.11.16. 공고)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 10,
+      "questionCount": 12,
+      "documentCount": 31,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "5bce969e-c68b-4eb8-ba21-46f2415d6477",
+      "title": "경남 통영안정 국민임대주택 예비입주자 자격완화 모집('26.11.16.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 11,
+      "documentCount": 29,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "6f323489-f617-4d2a-90ab-99a142f98282",
+      "title": "경북서부지역(구미시, 김천시, 의성군) 국민임대 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 14,
+      "documentCount": 32,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "a8752e86-9a38-4931-8c51-a7c5ab636943",
+      "title": "('26.11.16.) 고창무장, 고창황산, 김제검산3, 김제교동, 김제대검산, 순창경천, 순창풍산, 정읍농소 국민임대 예비자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 15,
+      "documentCount": 39,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "e7f73134-4a83-4d3d-9b92-436565998121",
+      "title": "전남광주통합특별시(남구,광산구) 국민임대주택 예비입주자 모집(2026.11.16.공고)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 10,
+      "questionCount": 15,
+      "documentCount": 39,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "d54b348e-3984-4169-98e2-46cbb7d5ca97",
+      "title": "인제서화 고령자복지주택(국민임대) 추가 입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 4,
+      "questionCount": 11,
+      "documentCount": 12,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "fcd76f82-00d8-4661-aae3-d75b04cdba10",
+      "title": "인제서화 고령자복지주택(영구임대) 추가 입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 4,
+      "questionCount": 11,
+      "documentCount": 12,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "e760fd43-e548-4d9a-a0bd-59cb53ab711d",
+      "title": "충주시 지역 국민임대주택 예비입주자 모집[2026.11.16]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 7,
+      "questionCount": 14,
+      "documentCount": 31,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "e412134a-79a4-4798-bc27-4fcff7fd2f7f",
+      "title": "대전광역시 유성구 국민임대 예비입주자모집공고(2026.11.16)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 6,
+      "questionCount": 13,
+      "documentCount": 31,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+      "title": "[전남광주통합특별시 북구] 기존주택 등 매입임대주택 예비입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 5,
+      "questionCount": 13,
+      "documentCount": 11,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+      "title": "울산다운2 A-6블록 행복주택 입주자 추가모집(입주자격완화, 선계약후검증)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 5,
+      "questionCount": 11,
+      "documentCount": 29,
+      "previousQuestionCount": 5,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "DOCUMENT",
+          "title": "금융정보 동의서 제출 대상 확인"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "07b2fef1-44c1-45ab-a8d9-2e408f2e073c",
+      "title": "수원시 영구임대주택 예비입주자 모집공고(2026.11.11.)",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 12,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "방문 접수 시간 확인 필요"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+      "title": "익산한스빌 국민임대주택 예비입주자 자격완화 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 12,
+      "questionCount": 16,
+      "documentCount": 19,
+      "previousQuestionCount": 16,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "DOCUMENT",
+          "title": "11월 모집에 서명할 확약서와 재계약 특약"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+      "title": "정읍수성1 영구임대주택 입주자격완화 예비입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 10,
+      "questionCount": 13,
+      "documentCount": 28,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "마지막 날 방문 16~17시 확인"
+        },
+        {
+          "area": "SCHEDULE",
+          "title": "결과 발표 17~18시 확인"
+        },
+        {
+          "area": "DOCUMENT",
+          "title": "출생 자녀 가산용 증빙의 적용 여부"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "787ae41c-78bc-4d0f-8385-b90ed054e7a8",
+      "title": "원주명륜2 영구임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 9,
+      "questionCount": 7,
+      "documentCount": 25,
+      "previousQuestionCount": 5,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "방문 접수 시간 확인 필요"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "27c472ab-be04-411f-af47-31bdb7f082c3",
+      "title": "원주시지역 영구임대주택 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 12,
+      "questionCount": 12,
+      "documentCount": 21,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "방문 접수 시간 확인 필요"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "d29256ae-f5b2-4b04-a971-72b25f00ea6b",
+      "title": "충주연수2 영구임대주택 예비입주자 모집 공고[2026.11.04]",
+      "guideState": "AVAILABLE",
+      "status": "UPCOMING",
+      "version": 9,
+      "questionCount": 23,
+      "documentCount": 32,
+      "previousQuestionCount": 23,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "예비입주자 발표 연도 확인 필요"
+        },
+        {
+          "area": "CONDITION",
+          "title": "계속거주 점수를 매기는 지역"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "82f9e714-eb15-4047-b2de-3a90aa9d6265",
+      "title": "[정정공고][경남지역본부]26년 4차 분양전환형 든든전세주택 예비입주자 모집 공고(모집권역 완화)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 3,
+      "questionCount": 23,
+      "documentCount": 31,
+      "previousQuestionCount": 23,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "4dca5d2d-194d-4cae-ba7e-86b6067755af",
+      "title": "[제주지역본부-제주시] 든든전세주택 (예비)입주자 모집 공고(분양전환형)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 3,
+      "questionCount": 21,
+      "documentCount": 23,
+      "previousQuestionCount": 21,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "487ddf0e-c889-40fd-8f1a-db38995b6320",
+      "title": "[경남지역본부]26년 4차 비분양전환형 든든전세주택 입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 3,
+      "questionCount": 20,
+      "documentCount": 24,
+      "previousQuestionCount": 20,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "dadf9ea6-05bd-4dd1-8171-5dd50ae0e83d",
+      "title": "[경기북부] 청년 매입임대주택 선착순 예비입주자 모집공고 (김포시, 포천시)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 3,
+      "questionCount": 18,
+      "documentCount": 19,
+      "previousQuestionCount": 18,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "b96dad91-8d52-4270-937b-b3c864bfea29",
+      "title": "[정정공고][인천지역본부] 일반 매입임대주택 입주자 모집 공고(인천,부천)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 2,
+      "questionCount": 11,
+      "documentCount": 19,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "ca10955f-e710-4871-975e-45585292e79b",
+      "title": "[전북지역본부]2026년 2차 군산시 분양전환형 든든전세주택 입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 3,
+      "questionCount": 19,
+      "documentCount": 26,
+      "previousQuestionCount": 19,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "935026d6-97e7-4fde-a5aa-29786f64beb1",
+      "title": "2026년 2차 대구경북지역 든든전세주택 입주자 모집공고(비분양전환형)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 3,
+      "questionCount": 20,
+      "documentCount": 23,
+      "previousQuestionCount": 20,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "3577685b-d246-4026-b381-d96077878220",
+      "title": "청주시 다자녀 매입임대주택 예비입주자 모집(261029공고)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 12,
+      "documentCount": 19,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "80ff86e3-9585-453e-be3b-1cd6f0d7b120",
+      "title": "[정정공고]익산제3일반산단 행복주택 입주자격완화 추가모집(동호지정,선계약후검증)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 4,
+      "questionCount": 15,
+      "documentCount": 16,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+      "title": "과천지식정보타운 S12블록 행복주택 입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 18,
+      "documentCount": 16,
+      "previousQuestionCount": 18,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "85f4c42d-6fdc-4fdf-bc27-5cd60b85fd6b",
+      "title": "화성시 동탄지역 행복주택 입주자 모집 공고[입주자격완화/선계약후검증]('26.10.27.)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 5,
+      "questionCount": 16,
+      "documentCount": 17,
+      "previousQuestionCount": 16,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "b58945e4-8785-4937-8ad8-8d70a3fe39eb",
+      "title": "여수미평1 영구임대주택 예비입주자 모집공고(모집공고일 : 2026.10.20.)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "0000e667-e82e-4db9-b3cf-947ba42146f8",
+      "title": "[정정공고]광주두암4 영구임대주택 예비입주자모집 공고(모집공고일 : 2026.10.27)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 22,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+      "title": "경남 창원시 일반 매입임대주택 예비입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 13,
+      "documentCount": 19,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "8c78deeb-d530-4395-aa8f-e2feaf621f52",
+      "title": "[정정공고]광주오치1 영구임대주택 예비입주자 표준모집공고문(2026.10.27. 공고)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "a04b02e6-04f4-4f9a-9ed7-599d295c7412",
+      "title": "[정정공고]광주우산3 영구임대주택 예비입주자 모집 공고(모집공고일: 2026.10.27)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+      "title": "[정정공고]광주두암2 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "efbd1503-652d-41f2-8985-648d9b61a2a2",
+      "title": "[정정공고]광주하남1 영구임대주택 예비입주자 모집공고(모집공고일:2026.10.27)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 12,
+      "documentCount": 21,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "06462f53-d47e-419e-b458-c8a6e212b96a",
+      "title": "경남 거창군 신원면 다자녀 매입임대주택 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 5,
+      "questionCount": 17,
+      "documentCount": 26,
+      "previousQuestionCount": 17,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "c717d2e8-a9e2-4b71-8ac2-023bd437135f",
+      "title": "경남 의령군 화정면 다자녀 매입임대주택 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 5,
+      "questionCount": 17,
+      "documentCount": 25,
+      "previousQuestionCount": 17,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "fc62724b-b583-47df-91f9-530dc78faad3",
+      "title": "김제검산 영구임대주택 입주자격완화 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 5,
+      "questionCount": 13,
+      "documentCount": 13,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "501f3fc5-a598-4699-9efa-ff4d5b244589",
+      "title": "전주1산단(전주팔복) 행복주택 입주자격완화예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 17,
+      "documentCount": 15,
+      "previousQuestionCount": 17,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+      "title": "[정정공고]평택시.안성시 지역 10년 공공임대주택[리츠] 예비입주자 모집공고(2026.11.05)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 16,
+      "documentCount": 11,
+      "previousQuestionCount": 16,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "19807681-f337-4116-9564-799fe5b91fa5",
+      "title": "[정정공고]'26년 11월 인천시 남동구 국민임대주택 예비입주자 모집 공고(2026.11.05.)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 5,
+      "questionCount": 14,
+      "documentCount": 14,
+      "previousQuestionCount": 14,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "d71a2dea-b39c-4930-ace3-2d417f6f9787",
+      "title": "연천전곡1단지 국민임대주택 예비입주자 모집공고(2026.11.05.)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 19,
+      "documentCount": 34,
+      "previousQuestionCount": 19,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+      "title": "담양삼만 통합공공임대(일자리연계형 지원주택) 입주자 추가 모집(2026.10.29. 공고)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 8,
+      "questionCount": 16,
+      "documentCount": 15,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "4e9a5c29-8b73-410b-b59f-d8f5dd4f2a38",
+      "title": "오산세교2 7단지(A-6BL) 영구임대 입주자격완화(소득150%완화) 예비입주자 모집공고(2026.11.02)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 18,
+      "questionCount": 19,
+      "documentCount": 35,
+      "previousQuestionCount": 19,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "bcef4e3d-5cba-426c-80b6-a82f4623ef25",
+      "title": "공주시(덕성그린시티빌,신한1차) 국민임대 자격완화 입주자 모집공고(26.11.02)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 10,
+      "questionCount": 19,
+      "documentCount": 34,
+      "previousQuestionCount": 19,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "9585c160-ecfe-4fe4-80b1-d3eabde9ecf6",
+      "title": "울산 송정하우스디(B3블럭) 10년 공공임대리츠 예비입주자 모집공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 8,
+      "questionCount": 8,
+      "documentCount": 7,
+      "previousQuestionCount": 8,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "8e0362e4-0102-419d-b699-075e205ae4aa",
+      "title": "[정정공고][정정공고]'26.11월 경주시, 영천시 국민임대주택 동호지정 입주자격 완화 입주자 모집(선계약 후검증)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 8,
+      "questionCount": 12,
+      "documentCount": 12,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "3fe0dbde-d45b-42ff-bc6a-14bc2bd2c6e7",
+      "title": "[정정공고]인천논현2단지 국임임대주택 예비입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 10,
+      "questionCount": 19,
+      "documentCount": 34,
+      "previousQuestionCount": 19,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "e91cd733-2195-41df-91e9-954dacff6993",
+      "title": "평창장평 통합공공임대주택(고령자복지형) 입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 13,
+      "documentCount": 12,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "f8326f14-9a64-4252-aaec-a3cd506e6c17",
+      "title": "평창장평 통합공공임대주택(일반형) 입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 15,
+      "documentCount": 14,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": true,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "ef03d490-e2d2-4247-9df9-65d53d10f043",
+      "title": "완주삼례A-1 행복주택 입주자격완화 예비입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 15,
+      "documentCount": 13,
+      "previousQuestionCount": 15,
+      "newGuidanceVersion": false,
+      "reviewIssues": [],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "836418b5-3936-4505-bea3-c23180f29e94",
+      "title": "[부산] 2026년 2차 일반 매입임대주택 입주자 모집 공고",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 6,
+      "questionCount": 13,
+      "documentCount": 20,
+      "previousQuestionCount": 13,
+      "newGuidanceVersion": false,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "공급지역 밖에 주소를 둔 신청자의 거주 요건"
+        }
+      ],
+      "personalRecordsUnchanged": "not modified"
+    },
+    {
+      "noticeId": "9d43c8c3-370f-49ce-b0b9-c3e402a8627f",
+      "title": "[정정공고] 광주하남1 영구임대주택 그린리모델링 예비입주자 모집 공고(공고일 2026.10.27)",
+      "guideState": "AVAILABLE",
+      "status": "CLOSED",
+      "version": 7,
+      "questionCount": 13,
+      "documentCount": 23,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "대학생용 나이 배점의29·39·49세 경계"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+      "title": "대구신서13,14, 경산삼주봉황1,2 국민임대주택 입주자격완화 선계약 후검증 동호지정 입주자 모집",
+      "guideState": "AVAILABLE",
+      "status": "UNKNOWN",
+      "version": 6,
+      "questionCount": 12,
+      "documentCount": 11,
+      "previousQuestionCount": 12,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "SCHEDULE",
+          "title": "온라인 접수 날짜 확인 필요"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "551e2f60-fae9-4c3e-a282-76ad12ecfc72",
+      "title": "군산시 국민임대주택 입주자 선착순 상시 모집(경암부향 등 7개 단지)",
+      "guideState": "AVAILABLE",
+      "status": "UNKNOWN",
+      "version": 6,
+      "questionCount": 11,
+      "documentCount": 23,
+      "previousQuestionCount": 11,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "보유주택 취득시점별 갱신 기준 확인"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "a99442a4-f4aa-4d9b-acfe-7e8c88b27cb4",
+      "title": "김제검산1단지 영구임대주택 예비입주자 모집 공고(상시모집)",
+      "guideState": "AVAILABLE",
+      "status": "UNKNOWN",
+      "version": 8,
+      "questionCount": 11,
+      "documentCount": 10,
+      "previousQuestionCount": 10,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "자격 판단 기준일 확인 필요"
+        },
+        {
+          "area": "CONDITION",
+          "title": "거주기간 배점 적용 지역 확인 필요"
+        },
+        {
+          "area": "SCHEDULE",
+          "title": "상시모집 시작 연도·현재 접수 여부 확인"
+        },
+        {
+          "area": "CONDITION",
+          "title": "자녀1명 자동차 가산 표·예문 금액 차이"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    },
+    {
+      "noticeId": "d5c5d9eb-059d-4680-a6c3-91aa3951a8e3",
+      "title": "전주시(전주평화1,전주평화4) 영구임대주택 예비입주자 모집 공고(공고일:2026.02.10.)",
+      "guideState": "AVAILABLE",
+      "status": "UNKNOWN",
+      "version": 7,
+      "questionCount": 18,
+      "documentCount": 51,
+      "previousQuestionCount": 18,
+      "newGuidanceVersion": true,
+      "reviewIssues": [
+        {
+          "area": "CONDITION",
+          "title": "현재 적용 소득·자산 금액 확인"
+        }
+      ],
+      "personalRecordsUnchanged": true
+    }
+  ]
+}

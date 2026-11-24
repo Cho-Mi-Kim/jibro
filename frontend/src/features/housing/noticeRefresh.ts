@@ -1,5 +1,11 @@
 import type { Notice } from './types';
 
+export function noticeListRefreshInterval(
+    notices: readonly Pick<Notice, 'applicationTiming'>[],
+) {
+    return Math.min(60_000, noticeRefreshInterval(notices) || 60_000);
+}
+
 /** Refetch authoritative status when a reviewed opening/closing boundary passes. */
 export function noticeRefreshInterval(
     notices: readonly Pick<Notice, 'applicationTiming'>[],

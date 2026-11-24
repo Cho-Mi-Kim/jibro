@@ -1,0 +1,306 @@
+{
+    "entries": [
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-eligibility",
+            "sourceTitle": "누가 신청할 수 있나요?",
+            "sourceReason": "수도권에 사는 무주택 세대의 성년자가 대상이며, 미성년 세대주도 공고의 예외에 해당하면 신청할 수 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "누가 신청할 수 있나요?",
+            "preview": "수도권에 사는 무주택 세대의 성년자가 대상이며, 미성년 세대주도 공고의 예외에 해당하면 신청할 수 있어요.",
+            "sections": [
+                {
+                    "text": "수도권에 사는 무주택 세대의 성년자가 대상이며, 미성년 세대주도 공고의 예외에 해당하면 신청할 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-age",
+            "sourceTitle": "나이 기준과 미성년 예외",
+            "sourceReason": "원칙은 만 19세 이상입니다. 같은 등본의 자녀를 부양하거나 부모 등의 사망·실종으로 형제자매를 부양하는 미성년 세대주는 예외가 있습니다. 외국인 부모와 사는 내국인 미성년 세대주의 한부모가족도 예외에 포함됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만 19세 이상이 원칙이고, 미성년 세대주 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "원칙은 만 19세 이상이에요. 같은 등본의 자녀를 부양하거나\n-  부모 등의 사망·실종으로 형제자매를 부양하는 미성년 세대주는 예외가 있어요.\n- 외국인 부모와 사는 내국인 미성년 세대주의 한부모가족도 예외에 포함돼요.",
+                    "evidence": [
+                        {
+                            "label": "공식 모집공고문 6쪽 · 신청 자격·선정 기준",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-household",
+            "sourceTitle": "함께 심사받는 가족",
+            "sourceReason": "신청자와 배우자는 주소가 달라도 함께 심사합니다. 부모·조부모, 자녀·손자녀 등은 누구의 등본에 올라 있는지에 따라 심사 범위가 달라집니다. 예외와 가족별 범위는 연결된 세대구성원 표에서 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=2",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "배우자는 주소가 달라도 포함해요. 부모·자녀 등은 등본과 가족관계에 따라 확인해요.",
+            "sections": [
+                {
+                    "text": "- 신청자와 배우자는 주소가 달라도 함께 심사해요.\n- 부모·조부모, 자녀·손자녀 등은 누구의 등본에 올라 있는지에 따라 심사 범위가 달라져요.\n- 예외와 가족별 범위는 연결된 세대구성원 표에서 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-duplicate",
+            "sourceTitle": "한 세대의 중복 신청",
+            "sourceReason": "공고에서 정한 한 세대 한 주택 신청 기준을 확인하세요. 단지나 주택형을 나눠 신청할 때에도 공고의 중복 신청 기준이 적용됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "한 가족이 여러 번 신청할 수 있나요?",
+            "preview": "한 세대 한 주택이 원칙이에요. 부부가 모두 당첨되면 먼저 신청한 사람을 인정하는 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "- 한 세대는 한 주택만 신청하는 것이 원칙이에요.\n- 다만 부부가 중복 신청해 모두 당첨되면 먼저 신청한 사람의 당첨만 인정하는 공고의 배우자 예외가 있어요.\n- 접수일시가 같으면 공고의 처리 기준을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "다른 세대원의 중복 신청까지 허용하는 예외는 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "한 세대는 한 주택만 신청하는 것이 원칙이에요. 다만 부부가 중복 신청해 모두 당첨되면 먼저 신청한 사람의 당첨만 인정하는 공고의 배우자 예외가 있어요. 접수일시가 같으면 공고의 처리 기준을 확인해요. 다른 세대원의 중복 신청까지 허용하는 예외는 아니에요."
+            ]
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-selection",
+            "sourceTitle": "무순위 추첨과 계약 제한",
+            "sourceReason": "청약저축 가입이나 소득·자산 기준 없이 신청하며, 예비입주 순번은 전산 무작위 추첨으로 정합니다. 해당 단지 기계약자와 그 세대원은 신청할 수 없고 재당첨 제한 중이면 계약 제한을 확인해야 합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "무순위 추첨과 계약 제한",
+            "preview": "청약저축 가입이나 소득·자산 기준 없이 신청하며, 예비입주 순번은 전산 무작위 추첨으로 정해요.",
+            "sections": [
+                {
+                    "text": "- 청약저축 가입이나 소득·자산 기준 없이 신청하며, 예비입주 순번은 전산 무작위 추첨으로 정해요.\n- 해당 단지 기계약자와 그 세대원은 신청할 수 없고 재당첨 제한 중이면 계약 제한을 확인해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-sublet",
+            "sourceTitle": "공공임대 불법 양도·전대 이력",
+            "sourceReason": "신청자나 함께 심사받는 세대원이 공공임대주택을 불법으로 양도·전대하다 적발된 뒤 4년이 지나지 않았다면 선정될 수 없습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "불법으로 임대권을 넘기거나 다시 빌려준 이력이 있나요?",
+            "preview": "함께 심사하는 세대원 중 불법 양도·전대 적발 후 4년이 안 지난 사람이 있으면 제한돼요.",
+            "sections": [
+                {
+                    "text": "신청자나 함께 심사받는 세대원이 공공임대주택을 불법으로 양도·전대하다 적발된 뒤 4년이 지나지 않았다면 선정될 수 없어요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "s1-docs-1",
+            "sourceTitle": "신청 방식·가족 상황에 따라 준비할 서류 (1)",
+            "sourceReason": "해당하는 상황이나 신청하려는 배점·자격 증빙을 고르세요. 정확한 제출 대상과 발급 방법은 각 서류에 표시됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "신청 방법과 가족 상황을 골라 주세요.",
+            "preview": "내 상황에 맞는 항목만 골라요. 서류 이름보다 제출 대상부터 확인해요.",
+            "sections": [
+                {
+                    "text": "여러 상황에 해당하면 함께 골라요. 해당 없음·잘 모르겠어요는 다른 항목과 함께 선택하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공식 모집공고문 11쪽 · 제출 대상·서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공식 모집공고문 11쪽 · 제출 대상·서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=11",
+                            "checkedAt": "2026-11-17"
+                        }
+                    ],
+                    "table": {
+                        "title": "어떤 상황에 필요한가요?",
+                        "headers": ["내 상황", "서류", "제출 기준"],
+                        "rows": [
+                            [
+                                "등본에서 배우자·가족관계를 확인하기 어려워요",
+                                "가족관계증명서(상세)",
+                                "주민등록표등본에 배우자가 등재되어 있지 않는 경우 (미혼, 이혼, 사별, 배우자 분리세대 포함) 제출"
+                            ],
+                            [
+                                "배우자와 등본이 달라요",
+                                "배우자 주민등록표등본",
+                                "배우자가 있으나 주민등록표등본에 등재되어 있지 않는 주소가 다른 배우자인 경우 제출 • 재외동포는 국내거소 신고증(또는 국내거소 사실증명서), 외국인은 외국인등록증 (또는 외국인 등록사실증명서) 제출"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "optionLabels": {
+                "D1": "등본에서 배우자·가족관계를 확인하기 어려워요",
+                "D2": "배우자와 등본이 달라요"
+            },
+            "sourceOptions": [
+                {
+                    "value": "D1",
+                    "label": "가족관계증명서(상세)",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D2",
+                    "label": "배우자 주민등록표등본",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NONE",
+                    "label": "해당 사항 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요",
+                    "requiresFollowUp": false
+                }
+            ],
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "D1",
+                        "label": "가족관계증명서(상세)",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D2",
+                        "label": "배우자 주민등록표등본",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 사항 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": false
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "43637f47-27c6-409e-aaf4-f754c8b5df27",
+            "questionId": "review-register-changed",
+            "sourceTitle": "공고일 이후 등본의 세대 구성이 바뀌었나요?",
+            "sourceReason": "공고일 이후 세대가 바뀌었다면 당시 세대를 확인할 등본과 초본을 추가해요. 세대주·세대원 관계, 주소 이동과 변경일이 보이게 발급해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=5",
+                "sha256": "ff38088874743e846eea02a38c4428821fff81334877fe2b61fbc6dc6d821aa1"
+            },
+            "heading": "공고일 이후 세대가 바뀌었나요?",
+            "preview": "공고일 이후 세대가 바뀌었다면 당시 세대를 확인할 등본과 초본을 추가해요.",
+            "sections": [
+                {
+                    "text": "- 공고일 이후 세대가 바뀌었다면 당시 세대를 확인할 등본과 초본을 추가해요.\n- 세대주·세대원 관계, 주소 이동과 변경일이 보이게 발급해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69430292#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "세대가 바뀌었어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "변경이 없어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

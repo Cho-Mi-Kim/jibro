@@ -1,14 +1,24 @@
 import { useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { Link, useLocation, useSearchParams } from 'react-router';
 import { useQueries, useQuery } from '@tanstack/react-query';
+import {
+    useNoticeDetailReturn,
+    useNoticeListPosition,
+} from '../housing/NoticeListVisit';
+import { noticeListTitle } from '../housing/noticeDisplay';
+import { AgencyHousingSummary } from '../housing/AgencyMark';
+import type { NoticeListItem } from '../housing/types';
+import { noticeAgency } from '../housing/noticeAgency';
 import { api } from '../housing/api';
 import { Heading } from '../../shared/ui/ui';
 import { comparisonApi } from './comparisonApi';
 import { ComparisonContent } from './ComparisonContent';
+import { useComparisonPreparations } from './useComparisonPreparations';
 import {
     comparisonSlots,
     selectComparisonNotice,
     selectedNotices,
+    personalizeComparison,
     type ComparisonSlot,
 } from './comparisonModel';
 import s from './Comparison.module.css';
@@ -42,9 +52,28 @@ function LoadState({
     );
 }
 
-export function NoticeComparisonPage() {
+const pageSize = 10;
+
+export function NoticeComparisonPage({
+    savedNotices,
+    backTo,
+}: {
+    savedNotices?: NoticeListItem[];
+    backTo?: string;
+}) {
     const [params, setParams] = useSearchParams();
+    const location = useLocation();
+    const { state } = location;
+    const detailReturn = useNoticeDetailReturn();
+    const listSearch =
+        typeof state?.noticeSearch === 'string' ? state.noticeSearch : '';
     const selected = selectedNotices(params);
+    if (savedNotices) {
+        for (const slot of comparisonSlots) {
+            if (!savedNotices.some((notice) => notice.id === selected[slot]))
+                selected[slot] = undefined;
+        }
+    }
     const [editing, setEditing] = useState<ComparisonSlot | null>(null);
     const [search, setSearch] = useState('');
     const [page, setPage] = useState(0);
@@ -63,6 +92,10 @@ export function NoticeComparisonPage() {
             enabled: !!selected[slot],
         })),
     });
+    const preparations = useComparisonPreparations([
+        queries[0].isSuccess ? queries[0].data : undefined,
+        queries[1].isSuccess ? queries[1].data : undefined,
+    ]);
     const catalog = useQuery({
         queryKey: ['compare-search', search, page],
         queryFn: () =>
@@ -70,19 +103,61 @@ export function NoticeComparisonPage() {
                 new URLSearchParams({
                     keyword: search,
                     page: String(page),
-                    size: '10',
+                    size: String(pageSize),
                 }).toString(),
             ),
-        enabled: active !== null,
+        enabled: active !== null && !savedNotices,
     });
-    const options =
-        catalog.data?.items.filter(
-            (notice) => !Object.values(selected).includes(notice.id),
-        ) ?? [];
-    const entries = comparisonSlots.map((slot, index) => ({
-        slot,
-        data: queries[index].isSuccess ? queries[index].data : undefined,
-    }));
+    const available = (notice: NoticeListItem) =>
+        notice.id !== selected.a && notice.id !== selected.b;
+    const term = search.trim().toLocaleLowerCase();
+    const savedMatches = savedNotices?.filter((notice) => {
+        if (!available(notice)) return false;
+        const agency = noticeAgency(notice.agency);
+        return [
+            notice.title,
+            noticeListTitle(notice.title),
+            agency.name,
+            agency.fullName,
+        ].some((value) => value?.toLocaleLowerCase().includes(term));
+    });
+    const totalPages = savedMatches
+        ? Math.ceil(savedMatches.length / pageSize)
+        : (catalog.data?.totalPages ?? 0);
+    const currentPage = savedMatches
+        ? Math.min(page, Math.max(0, totalPages - 1))
+        : page;
+    const options = savedMatches
+        ? savedMatches.slice(
+              currentPage * pageSize,
+              (currentPage + 1) * pageSize,
+          )
+        : (catalog.data?.items.filter(available) ?? []);
+    const fetching = !savedNotices && catalog.isFetching;
+    const entries = comparisonSlots.map((slot, index) => {
+        const data = queries[index].isSuccess ? queries[index].data : undefined;
+        const preparation = preparations[index].preparation;
+        return {
+            slot,
+            data:
+                data && preparation
+                    ? personalizeComparison(data, preparation)
+                    : data,
+        };
+    });
+    const ready =
+        comparisonSlots.every(
+            (slot, index) => !selected[slot] || !queries[index].isPending,
+        ) &&
+        preparations.every((item) => item.status !== 'loading') &&
+        (!active || !!savedNotices || !catalog.isPending);
+    const { list, position, remember, clear } =
+        useNoticeListPosition<HTMLDivElement>(ready);
+    const listState = {
+        noticeListKey: state?.noticeListKey,
+        noticeSearch: listSearch,
+        detailReturn: state?.detailReturn,
+    };
 
     function edit(slot: ComparisonSlot) {
         setEditing(slot);
@@ -92,15 +167,29 @@ export function NoticeComparisonPage() {
     function pick(id?: string) {
         if (!active) return;
         selectionButtons.current[active]?.focus();
-        setParams(selectComparisonNotice(params, active, id));
+        setSelection(active, id);
         setEditing(null);
         setSearch('');
         setPage(0);
     }
+    function setSelection(slot: ComparisonSlot, id?: string) {
+        clear();
+        setParams(selectComparisonNotice(params, slot, id), {
+            state: listState,
+        });
+    }
 
     return (
-        <div className={s.page}>
-            <Heading title="공고 비교" backTo="/notices">
+        <div
+            ref={list}
+            className={s.page}
+            data-restored-list={position ? true : undefined}
+        >
+            <Heading
+                title={savedNotices ? '관심 공고 비교' : '공고 비교'}
+                backTo={detailReturn?.to ?? backTo ?? '/notices' + listSearch}
+                backState={detailReturn?.state ?? listState}
+            >
                 두 공고의 조건·서류·일정을 확인하세요. 신청 자격이나 선정
                 가능성을 판단하지 않습니다.
             </Heading>
@@ -124,10 +213,60 @@ export function NoticeComparisonPage() {
                                     />
                                     {query.isSuccess && (
                                         <>
-                                            <p className={s.selectionTitle}>
-                                                {query.data.notice.title}
+                                            <p
+                                                className={s.selectionTitle}
+                                                title={query.data.notice.title}
+                                            >
+                                                {noticeListTitle(
+                                                    query.data.notice.title,
+                                                )}
                                             </p>
+                                            <p
+                                                className={s.muted}
+                                                role="status"
+                                            >
+                                                {preparations[index].status ===
+                                                'personal'
+                                                    ? '내 답변에 맞는 안내 · 공통·확인 필요 항목 포함'
+                                                    : preparations[index]
+                                                            .status ===
+                                                        'loading'
+                                                      ? '저장된 답변을 확인하고 있어요…'
+                                                      : preparations[index]
+                                                              .status ===
+                                                          'outdated'
+                                                        ? '안내가 바뀌어 전체 내용을 표시해요. 내 준비에서 다시 확인해 주세요.'
+                                                        : preparations[index]
+                                                                .status ===
+                                                            'error'
+                                                          ? '저장된 답변을 불러오지 못해 전체 안내를 표시해요.'
+                                                          : '전체 안내'}
+                                            </p>
+                                            {preparations[index].status ===
+                                                'error' && (
+                                                <button
+                                                    type="button"
+                                                    className={s.control}
+                                                    onClick={() =>
+                                                        void preparations[
+                                                            index
+                                                        ].retry?.()
+                                                    }
+                                                >
+                                                    답변 다시 불러오기
+                                                </button>
+                                            )}
                                             <Link
+                                                onClick={() => remember()}
+                                                state={{
+                                                    comparisonReturn: {
+                                                        pathname:
+                                                            location.pathname,
+                                                        search: location.search,
+                                                    },
+                                                    comparisonKey: location.key,
+                                                    ...listState,
+                                                }}
                                                 to={
                                                     '/notices/' +
                                                     encodeURIComponent(id)
@@ -167,12 +306,7 @@ export function NoticeComparisonPage() {
                                             selectionButtons.current[
                                                 slot
                                             ]?.focus();
-                                            setParams(
-                                                selectComparisonNotice(
-                                                    params,
-                                                    slot,
-                                                ),
-                                            );
+                                            setSelection(slot);
                                             edit(slot);
                                         }}
                                     >
@@ -201,12 +335,14 @@ export function NoticeComparisonPage() {
                             placeholder="공고명 또는 기관"
                         />
                     </label>
-                    <LoadState
-                        loading={catalog.isPending}
-                        error={catalog.error}
-                        retry={() => void catalog.refetch()}
-                    />
-                    {!catalog.isError && (
+                    {!savedNotices && (
+                        <LoadState
+                            loading={catalog.isPending}
+                            error={catalog.error}
+                            retry={() => void catalog.refetch()}
+                        />
+                    )}
+                    {(savedNotices || !catalog.isError) && (
                         <ul className={s.results}>
                             {options.map((notice) => (
                                 <li key={notice.id}>
@@ -215,44 +351,55 @@ export function NoticeComparisonPage() {
                                         className={s.result}
                                         onClick={() => pick(notice.id)}
                                     >
-                                        <strong>{notice.title}</strong>
+                                        <strong title={notice.title}>
+                                            {noticeListTitle(notice.title)}
+                                        </strong>
                                         <span>
-                                            {notice.agency} · {notice.region} ·{' '}
-                                            {notice.type}
+                                            <AgencyHousingSummary
+                                                notice={notice}
+                                            />
                                         </span>
                                     </button>
                                 </li>
                             ))}
                         </ul>
                     )}
-                    {catalog.isSuccess && !options.length && (
+                    {(savedNotices || catalog.isSuccess) && !options.length && (
                         <p className={s.muted}>
-                            선택할 공고가 없습니다. 검색어를 바꾸거나 다음
-                            페이지를 확인해 주세요.
+                            {savedNotices
+                                ? term
+                                    ? '검색어와 일치하는 관심 공고가 없습니다.'
+                                    : '선택할 관심 공고가 없습니다. 공고 목록에서 비교할 공고를 더 저장해 주세요.'
+                                : '선택할 공고가 없습니다. 검색어를 바꾸거나 다음 페이지를 확인해 주세요.'}
                         </p>
                     )}
                     <div className={s.actions}>
-                        <button
-                            type="button"
-                            className={s.control}
-                            disabled={!page || catalog.isFetching}
-                            onClick={() => setPage(page - 1)}
-                        >
-                            이전
-                        </button>
-                        <span className={s.muted}>{page + 1}페이지</span>
-                        <button
-                            type="button"
-                            className={s.control}
-                            disabled={
-                                catalog.isFetching ||
-                                !catalog.data ||
-                                page + 1 >= catalog.data.totalPages
-                            }
-                            onClick={() => setPage(page + 1)}
-                        >
-                            다음
-                        </button>
+                        {(!savedNotices || totalPages > 1) && (
+                            <>
+                                <button
+                                    type="button"
+                                    className={s.control}
+                                    disabled={!currentPage || fetching}
+                                    onClick={() => setPage(currentPage - 1)}
+                                >
+                                    이전
+                                </button>
+                                <span className={s.muted}>
+                                    {currentPage + 1}페이지
+                                </span>
+                                <button
+                                    type="button"
+                                    className={s.control}
+                                    disabled={
+                                        fetching ||
+                                        currentPage + 1 >= totalPages
+                                    }
+                                    onClick={() => setPage(currentPage + 1)}
+                                >
+                                    다음
+                                </button>
+                            </>
+                        )}
                         {selected.a && selected.b && (
                             <button
                                 type="button"
@@ -269,9 +416,10 @@ export function NoticeComparisonPage() {
                 <ComparisonContent entries={entries} />
             )}
             <p className={s.description}>
-                공개된 자료만 비교합니다. 확인되지 않은 날짜는 ‘확인 필요’로
-                표시하며, 최종 자격·제출 기준은 각 공고의 공식 근거를 확인해
-                주세요.
+                저장한 답변이 있는 공고는 해당 조건·서류·일정과 공통 안내를
+                비교합니다. 미답변·확인 필요 항목도 함께 보여요. 확인되지 않은
+                날짜는 ‘확인 필요’로 표시하며, 최종 자격·제출 기준은 각 공고의
+                공식 근거를 확인해 주세요.
             </p>
         </div>
     );

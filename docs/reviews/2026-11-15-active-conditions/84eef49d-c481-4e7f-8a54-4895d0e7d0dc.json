@@ -1,0 +1,307 @@
+{
+  "packageId": "active-easy-20261115-84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+  "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+  "revision": 3,
+  "extractionId": "cfc72b1f-52f5-4505-ab2a-22ef05e007ff",
+  "disposition": "PASS",
+  "reviewNotes": "2026-11-15 공식 상세의 정정 연결과 공식 PDF 대조. 기준일·유형별 차이·예외 및 준비할 핵심 서류를 구분.",
+  "unresolvedFindings": [],
+  "sourceReviews": [
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021041&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "sha256": "15b85eb1e18ab07fcfd8b9decb0957c62ef09fb855fbd40a66970383d6b5a0cc",
+      "label": "공식 상세 본문",
+      "role": "OFFICIAL_LISTING",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363674",
+      "sha256": "0a366215c892a4a3456b197f521165945e61aebc94aa8ace4282f98b63a40011",
+      "label": "20261112밀양시영구임대주택예비입주자모집공고.hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675",
+      "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4",
+      "label": "20261112밀양시영구임대주택예비입주자모집공고.pdf",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    }
+  ],
+  "content": {
+    "summary": "지원 대상: 11월 12일 기준 밀양시 거주 무주택세대구성원 중 공고의 영구임대 자격에 해당하는 가구예요. 지원 내용: 밀양가곡1 영구임대의 빈집이 생기면 예비순번에 따라 계약할 수 있어요.",
+    "evidence": {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021041&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=09&mi=1026",
+      "label": "LH 공식 공고 원문",
+      "checkedAt": "2026-11-12"
+    },
+    "documents": [
+      {
+        "id": "register",
+        "title": "주민등록표등본",
+        "method": "공고일 이후 발급본으로 세대관계를 확인해요. 배우자와 등본이 다르면 배우자 등본도 준비하세요.",
+        "issuer": "행정복지센터·정부24",
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "evidence": {
+          "label": "LH 모집공고 PDF 11쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "consent",
+        "title": "금융정보 등 제공동의서",
+        "method": "공고의 서식과 유형별 제출 안내에 따라 조회 대상 세대원의 동의를 준비하세요.",
+        "issuer": "공고 첨부 서식",
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "evidence": {
+          "label": "LH 모집공고 PDF 11쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "application-form",
+        "title": "영구임대주택 공급신청서",
+        "issuer": "거주지 행정복지센터·공고 첨부 서식",
+        "method": "신청자가 작성해서 현장 신청 때 내요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 11쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+          "checkedAt": "2026-11-15"
+        },
+        "conditionQuestionId": null,
+        "issueUrl": null
+      },
+      {
+        "id": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "issuer": "공고 첨부 서식",
+        "method": "세대원 전원이 서명해요. 만 14세 미만은 보호자가 대신 서명해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 11쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+          "checkedAt": "2026-11-15"
+        },
+        "conditionQuestionId": null,
+        "issueUrl": null
+      }
+    ],
+    "questions": [
+      {
+        "id": "residence",
+        "title": "거주지와 무주택 기준을 확인했나요?",
+        "reason": "2026년 11월 12일 기준 밀양시에 거주해야 해요. 공고에서 정한 세대원 모두 입주 때까지 무주택이어야 해요. 한 세대에서 중복 신청하면 모두 무효예요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 2쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "age",
+        "title": "성년 기준 또는 미성년 세대주 예외에 해당하나요?",
+        "reason": "원칙은 만 19세 이상이에요. 같은 등본의 자녀를 부양하거나, 부모 등의 사망·실종 등으로 같은 등본의 형제자매를 부양하는 미성년 세대주도 신청할 수 있어요. 외국인 부모와 미성년 자녀로 구성된 한부모가족의 미성년 세대주는 외국인 부모가 대신 신청해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 2쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "income",
+        "title": "신청 유형에 따른 소득·자산 기준을 확인했나요?",
+        "reason": "가구원 수와 신청 유형에 따라 소득 기준이 달라요. 기본 자산 한도는 총자산 2억 4,500만 원, 자동차 4,542만 원이에요. 출생 자녀에 따른 완화는 4~5쪽 표를 확인하세요. 생계·의료급여 수급자, 법정 지원대상 한부모 등 공고에서 정한 유형은 해당 증명서로 소득·자산 검증을 생략해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 5쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=5",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "rank",
+        "title": "영구임대 신청 순위를 확인했나요?",
+        "reason": "생계·의료급여 수급자와 법정 지원대상 한부모가족 등은 1순위예요. 같은 순위에서는 배점이 높은 사람이 먼저예요. 동점이면 전입이 빠른 순 → 세대원 수 → 신청자 나이 순으로 보고 마지막은 추첨이에요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 8쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=8",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "application",
+        "title": "신청 장소와 방법을 확인했나요?",
+        "reason": "밀양시 거주지 관할 읍·면·동 행정복지센터에 평일 10~17시에 서류를 내요(점심 12~13시 제외). 예비자로 선정된 뒤 빈집이 생기면 순서대로 입주 안내를 받아요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 10쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=10",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      }
+    ],
+    "schedules": [
+      {
+        "id": "auto-application-start",
+        "date": "2026-11-23T10:00",
+        "title": "신청 접수 시작",
+        "evidence": {
+          "label": "LH 모집공고 PDF 10쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=10",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      },
+      {
+        "id": "auto-application-end",
+        "date": "2026-11-27T17:00",
+        "title": "신청 접수 마감",
+        "evidence": {
+          "label": "LH 모집공고 PDF 10쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=10",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      },
+      {
+        "id": "result-review",
+        "title": "예비입주자 발표",
+        "date": "2027-04-06T16:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 10쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=10",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "document-deadline",
+        "title": "서류 제출 마감 · 현장 신청 시 함께 제출",
+        "date": "2026-11-27T17:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 11쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      }
+    ],
+    "attachments": [
+      {
+        "label": "20261112밀양시영구임대주택예비입주자모집공고.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363674",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "20261112밀양시영구임대주택예비입주자모집공고.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "reviewIssues": [],
+    "applicationClosure": null
+  },
+  "startDate": "2026-11-23",
+  "endDate": "2026-11-27"
+}

@@ -53,12 +53,12 @@ public class CollectionService {
         Instant now = Instant.now();
         Instant providerResumeAt = runs.providerResumeAt(now);
         return new ScheduleStatus(scheduleEnabled, client.configured(), CollectionSchedule.ZONE.getId(),
-            CollectionSchedule.HOURS.stream().map(h -> String.format("%02d:00", h)).toList(),
-            scheduleEnabled && client.configured() ? CollectionSchedule.next(now).toString() : null,
-            providerResumeAt == null ? null : providerResumeAt.toString(),
-            runs.pending(), !scheduleEnabled ? "예약 수집이 꺼져 있습니다. 수동 수집은 사용할 수 있습니다."
-            : !client.configured() ? "LH 수집 키가 없어 예약 수집을 실행하지 않습니다."
-            : "한국시간 00시·06시·09~18시 정각에 수집합니다. 서버가 실행 중일 때 동작하며 재시작 시 최근 누락 일정 하나를 확인합니다.");
+                CollectionSchedule.HOURS.stream().map(h -> String.format("%02d:00", h)).toList(),
+                scheduleEnabled && client.configured() ? CollectionSchedule.next(now).toString() : null,
+                providerResumeAt == null ? null : providerResumeAt.toString(),
+                runs.pending(), !scheduleEnabled ? "예약 수집이 꺼져 있습니다. 수동 수집은 사용할 수 있습니다."
+                : !client.configured() ? "LH 수집 키가 없어 예약 수집을 실행하지 않습니다."
+                : "한국시간 00시·06시·09~18시 정각에 수집합니다. 서버가 실행 중일 때 동작하며 재시작 시 최근 누락 일정 하나를 확인합니다.");
     }
 
     public Collection collect(String actor, int startPage) {
@@ -114,7 +114,7 @@ public class CollectionService {
                     nextPage = 1;
                 }
                 runs.checkpoint(work, new CollectionRunStore.PageProgress(completedScope, page, CollectionPage.signature(batch),
-                    scopeIndex, nextPage, count, more && page == CollectionQueryPlan.MAX_PAGE), Instant.now());
+                        scopeIndex, nextPage, count, more && page == CollectionQueryPlan.MAX_PAGE), Instant.now());
             }
         } catch (CollectionRunStore.LeaseLost stopped) {
             return;
@@ -126,7 +126,7 @@ public class CollectionService {
             var budget = new AttachmentCheckService.Budget();
             int checked = 0, incomplete = 0;
             var targets = imported.stream().filter(noticeId -> !notices.content(noticeId).attachments().isEmpty())
-                .sorted(Comparator.comparing(this::lastAttachmentAttempt)).toList();
+                    .sorted(Comparator.comparing(this::lastAttachmentAttempt)).toList();
             for (UUID noticeId : targets) {
                 runs.heartbeat(work, Instant.now());
                 try {
@@ -153,7 +153,7 @@ public class CollectionService {
             }
             int allIssues = work.issues() + incomplete + processorFailures + pageLimitIssues;
             runs.complete(work, allIssues > 0 ? "PARTIAL" : "SUCCEEDED", message
-                + (allIssues > 0 ? " 이 수집의 추가 확인 항목 " + allIssues + "건." : ""), Instant.now());
+                    + (allIssues > 0 ? " 이 수집의 추가 확인 항목 " + allIssues + "건." : ""), Instant.now());
         } catch (CollectionRunStore.LeaseLost stopped) {
             // A new worker recovered the expired lease. The old worker cannot overwrite its state.
         } catch (Exception ex) {

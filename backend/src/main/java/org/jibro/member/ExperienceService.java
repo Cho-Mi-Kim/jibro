@@ -4,12 +4,14 @@ import java.time.Instant;
 import java.util.*;
 
 import org.jibro.global.common.ApiException;
+import org.jibro.notice.HousingModels.FollowUp;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ExperienceService {
-    public record Entry(UUID id, String title, int version, int progress, String note, Instant archivedAt) {
+    public record Entry(UUID id, String title, int version, int progress, int houseStage, String note,
+                        Instant archivedAt, List<ExperienceRepository.ArchivedSchedule> schedules, FollowUp followUp) {
     }
 
     private final ExperienceRepository repository;
@@ -19,7 +21,7 @@ public class ExperienceService {
     }
 
     private Entry view(ExperienceRepository.Entry entry) {
-        return new Entry(entry.id(), entry.title(), entry.version(), entry.progress(), entry.note(), entry.archivedAt());
+        return new Entry(entry.id(), entry.title(), entry.version(), entry.progress(), entry.houseStage(), entry.note(), entry.archivedAt(), entry.schedules(), entry.followUp());
     }
 
     public List<Entry> list(UUID user) {

@@ -8,7 +8,9 @@ import org.jibro.global.common.ApiException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Server-side session lifetime shared by access tokens and every rotated refresh token. */
+/**
+ * Server-side session lifetime shared by access tokens and every rotated refresh token.
+ */
 @Service
 public class LoginSessions {
     private final LoginSessionRepository repository;

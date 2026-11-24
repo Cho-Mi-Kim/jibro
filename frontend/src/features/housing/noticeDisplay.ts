@@ -1,6 +1,10 @@
 import type { Notice, Schedule } from './types';
+import { shortTitleRegions } from './noticeRegions';
 import {
     applicationDate,
+    closesWhenFilled,
+    isBasicScheduleAlias,
+    scheduleMilestone,
     dateWithScheduleTime,
     scheduleDay,
     scheduleKind,
@@ -8,18 +12,26 @@ import {
     selectSchedule,
 } from './schedules';
 
-const titleDate = String.raw`(?:\d{4}|\d{2})\s*(?:[./-]|년)\s*\d{1,2}\s*(?:[./-]|월)\s*\d{1,2}(?:일|\.)?`;
+const titleYearMonth = String.raw`['‘’\x60]?\s*(?:\d{4}|\d{2})\s*(?:[./-]|년)\s*(?:1[0-2]|0?[1-9])`;
+const titleDate = String.raw`${titleYearMonth}\s*(?:(?:[./-]|월)\s*\d{1,2}(?:일|\.)?|월(?!\s*\d{1,2}일))`;
 const titleDateLabel = String.raw`(?:공고(?:일)?\s*[:：]?\s*)?${titleDate}\s*(?:공고)?`;
-const trailingTitleDate = new RegExp(
-    String.raw`(?:\s*[([]\s*${titleDateLabel}\s*[)\]]|\s+${titleDateLabel})\s*$`,
+const bracketedTitleDate = String.raw`(?:\(\s*${titleDateLabel}\s*\)|\[\s*${titleDateLabel}\s*\])`;
+const leadingTitleDate = new RegExp(
+    String.raw`^(\s*(?:\[[^\]]+\]\s*)*)${titleDateLabel}\s+(?![\s~∼～–—-]|(?:접수|신청|마감|이전|이후|기준|현재|부터|까지|발표|입주일)(?=\s|$))(?=\S)`,
+);
+const publicationDateInTitle = new RegExp(
+    String.raw`(?:^|(?<=모집|공고|\]))\s*${bracketedTitleDate}\s*_*|${bracketedTitleDate}\s*$|\s+${titleDateLabel}\s*$`,
+    'g',
 );
 
-/** 목록 표시만 줄인다. 검색·상세·접근성 이름에는 원문 제목을 사용한다. */
+/** 공고를 짧게 표시하는 모든 화면에서 원문 제목에 적용한다. */
 export function noticeListTitle(title: string) {
-    const shortened = title
-        .replace(trailingTitleDate, '')
+    const shortened = shortTitleRegions(title)
+        .replace(leadingTitleDate, '$1')
+        .replace(publicationDateInTitle, ' ')
+        .trimStart()
         .replace(
-            /^\s*(?:\[\s*정정\s*공고\s*\]|\(\s*정정\s*공고\s*\)|정정\s*공고(?=\s|$))/,
+            /^(?:\s*(?:\[\s*정정(?:\s*공고)?\s*\]|\(\s*정정(?:\s*공고)?\s*\)|정정\s*공고(?=\s|$)))+/,
             '[정정]',
         )
         .replace(/^(\s*(?:\[[^\]]+\]\s*)*)20\d{2}(?:\s*년도?)?\s+(?=\S)/, '$1')
@@ -41,6 +53,7 @@ export function noticeListTitle(title: string) {
             (_match, kind: string | undefined) =>
                 kind?.replace(/\s/g, '') === '예비입주자' ? '예비입주자' : '',
         )
+        .replace(/(모집|\s)공고\s*$/, '$1')
         .replace(/\s+/g, ' ')
         .trim();
     return shortened || title;
@@ -55,7 +68,9 @@ export function noticeDaysLeft(
 ) {
     return notice.status === 'CLOSED'
         ? '일정 경과'
-        : daysLeft(applicationDate(notice, 'end'), now);
+        : closesWhenFilled(notice)
+          ? '상시모집'
+          : daysLeft(applicationDate(notice, 'end'), now);
 }
 export function displayDate(value?: string | null) {
     if (!value) return '확인 필요';
@@ -66,6 +81,18 @@ export function displayDate(value?: string | null) {
     }
     return value.replace(/-/g, '.').replace('T', ' ').slice(0, 16);
 }
+export function scheduleEventText(event: {
+    date: string | null;
+    timingDescription?: string | null;
+}) {
+    const date =
+        event.date && scheduleDay(event.date) ? displayDate(event.date) : '';
+    return (
+        [date, event.timingDescription].filter(Boolean).join(' · ') ||
+        '확인 필요'
+    );
+}
+
 export function homeScheduleSummary(event: { title: string; date: string }) {
     const time = scheduleTime(event);
     const title = event.title
@@ -151,13 +178,32 @@ export function nextNoticeSchedule(
                       ),
               )
             : schedules;
+    const reviewed = notice?.applicationTiming
+        ? events.map((event) => {
+              const kind = scheduleKind(event.title);
+              if (kind !== 'start' && kind !== 'end') return event;
+              const milestone = scheduleMilestone(notice, kind);
+              if (
+                  !milestone.date ||
+                  !milestone.event ||
+                  !isBasicScheduleAlias(event, milestone.event, kind)
+              )
+                  return event;
+              // The resolved date carries the reviewed time. Keep other title notes.
+              const title = event.title
+                  .replace(/\b\d{1,2}:\d{2}\b[,·]?\s*/g, '')
+                  .replace(/\(\s*\)/g, '')
+                  .trim();
+              return { title, date: milestone.date };
+          })
+        : events;
     return nextSchedule(
-        events,
+        reviewed,
         notice?.status === 'CLOSED' ||
             notice?.lifecycle?.state === 'EARLY_CLOSED' ||
             notice?.lifecycle?.state === 'CANCELLED'
             ? undefined
-            : notice?.endDate,
+            : notice && applicationDate(notice, 'end'),
         now,
     );
 }

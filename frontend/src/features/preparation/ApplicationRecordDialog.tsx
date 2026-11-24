@@ -1,10 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { ApplicationCompletionBadge } from './ApplicationCompletionBadge';
+import { noticeListTitle } from '../housing/noticeDisplay';
+import { useCallback, useEffect, useRef } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import type { Preparation } from '../housing/types';
 import { api } from '../housing/api';
 import { useSaved } from './usePreparation';
 import { applicationRecordSchedule } from '../housing/schedules';
 import styles from './ApplicationRecordDialog.module.css';
+import { Icon } from '../../shared/ui/Icon';
 
 export function ApplicationRecordDialog({
     preparation,
@@ -17,7 +20,6 @@ export function ApplicationRecordDialog({
 }) {
     const dialog = useRef<HTMLDialogElement>(null);
     const wasRequested = useRef(false);
-    const [message, setMessage] = useState('');
     const saved = useSaved();
     const target = applicationRecordSchedule(preparation.schedules);
     const canRecord = preparation.guideState === 'AVAILABLE' && !!target;
@@ -32,20 +34,14 @@ export function ApplicationRecordDialog({
                 recorded,
             );
         },
-        onSuccess: (next, recorded) => {
+        onSuccess: (next) => {
             saved(next);
-            setMessage(
-                recorded
-                    ? '신청 완료로 기록했어요.'
-                    : '아직 신청하지 않은 상태로 기록했어요.',
-            );
             dialog.current?.close();
         },
     });
     const { reset } = mutation;
     const openDialog = useCallback(() => {
         reset();
-        setMessage('');
         dialog.current?.showModal();
     }, [reset]);
     useEffect(() => {
@@ -56,8 +52,15 @@ export function ApplicationRecordDialog({
     }, [requested, openDialog]);
     return (
         <>
-            <button type="button" aria-haspopup="dialog" onClick={openDialog}>
-                신청 여부 기록
+            <button
+                type="button"
+                aria-haspopup="dialog"
+                data-recorded={target?.recorded === true}
+                onClick={openDialog}
+                className={target?.recorded ? styles.completed : undefined}
+            >
+                {target?.recorded && <Icon name="check" />}
+                {target?.recorded ? '신청 완료' : '신청 여부 기록'}
             </button>
             <dialog
                 ref={dialog}
@@ -80,15 +83,13 @@ export function ApplicationRecordDialog({
                         ×
                     </button>
                 </header>
-                <p className={styles.notice}>{preparation.title}</p>
+                <p className={styles.notice} title={preparation.title}>
+                    {noticeListTitle(preparation.title)}
+                </p>
                 <p className={styles.description}>
                     공식 사이트에서 진행한 신청 여부를 기록해요.
                 </p>
-                {target?.recorded && (
-                    <p className={styles.current}>
-                        현재 신청 완료로 기록되어 있어요.
-                    </p>
-                )}
+                <ApplicationCompletionBadge recorded={target?.recorded} />
                 {!canRecord && (
                     <p role="status">
                         이 공고는 현재 신청 기록을 저장할 수 없어요.
@@ -122,11 +123,6 @@ export function ApplicationRecordDialog({
                     </p>
                 )}
             </dialog>
-            {message && (
-                <p role="status" className={styles.feedback}>
-                    {message}
-                </p>
-            )}
         </>
     );
 }

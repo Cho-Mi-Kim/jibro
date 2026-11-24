@@ -32,6 +32,17 @@ class BoundedDocumentParserTest {
     }
 
     @Test
+    void standaloneWorkerIncludesTheOfficialPictureAndNumberingReaders() throws Exception {
+        var parser = new BoundedDocumentParser();
+        for (String file : List.of("lh-multichild-2026.hwpx", "lh-multichild-two-up.pdf")) {
+            try (var input = getClass().getResourceAsStream("/extraction/" + file)) {
+                var parts = parser.parse(input.readAllBytes(), file.endsWith(".pdf") ? "application/pdf" : "application/zip");
+                assertTrue(parts.stream().anyMatch(p -> p.text().contains("→")), file);
+            }
+        }
+    }
+
+    @Test
     void timeoutKillsNonCooperativeProcessRemovesFilesAndAllowsNextJob() throws Exception {
         Path pid = root.resolve("timeout.pid");
         var parser = helper("hang", pid, Duration.ofSeconds(2));
@@ -64,7 +75,8 @@ class BoundedDocumentParserTest {
         assertNoJobDirectories();
     }
 
-    @Test void invalidOpticalConfigurationPreservesNativePartsAndMarksUnreadImageContent() throws Exception {
+    @Test
+    void invalidOpticalConfigurationPreservesNativePartsAndMarksUnreadImageContent() throws Exception {
         String executable = System.getProperty("jibro.ocr.executable"), data = System.getProperty("jibro.ocr.data-path");
         try {
             System.setProperty("jibro.ocr.executable", root.resolve("not-installed.exe").toString());
@@ -74,8 +86,10 @@ class BoundedDocumentParserTest {
             assertTrue(OcrProvenance.incomplete(parts));
             assertTrue(parts.stream().anyMatch(p -> p.location().contains("OCR_CONFIGURATION_INVALID")));
         } finally {
-            if (executable == null) System.clearProperty("jibro.ocr.executable"); else System.setProperty("jibro.ocr.executable", executable);
-            if (data == null) System.clearProperty("jibro.ocr.data-path"); else System.setProperty("jibro.ocr.data-path", data);
+            if (executable == null) System.clearProperty("jibro.ocr.executable");
+            else System.setProperty("jibro.ocr.executable", executable);
+            if (data == null) System.clearProperty("jibro.ocr.data-path");
+            else System.setProperty("jibro.ocr.data-path", data);
         }
     }
 
@@ -109,7 +123,7 @@ class BoundedDocumentParserTest {
         when(process.descendants()).thenReturn(java.util.stream.Stream.empty());
         when(process.isAlive()).thenReturn(true);
         when(process.waitFor(anyLong(), eq(TimeUnit.NANOSECONDS)))
-            .thenThrow(new InterruptedException("second cancellation")).thenReturn(true);
+                .thenThrow(new InterruptedException("second cancellation")).thenReturn(true);
         try {
             assertTrue(BoundedDocumentParser.terminate(process));
             assertTrue(Thread.currentThread().isInterrupted());
@@ -124,8 +138,8 @@ class BoundedDocumentParserTest {
         try {
             helper("hang", pid, Duration.ofSeconds(20)).parse(new byte[1], "application/pdf");
         } catch (
-            InterruptedException expected) { /* Cancellation must still complete the supervisor's cleanup. */ } catch (
-            Exception failure) {
+                InterruptedException expected) { /* Cancellation must still complete the supervisor's cleanup. */ } catch (
+                Exception failure) {
             failures.add(failure);
         }
     }

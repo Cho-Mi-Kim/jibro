@@ -1,0 +1,1078 @@
+{
+    "entries": [
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-eligibility",
+            "sourceTitle": "누가 신청할 수 있나요?",
+            "sourceReason": "2026년 11월 16일에 정읍시에 살고, 신청자와 심사에 포함되는 가족 모두 자기 명의의 집이 없어야 해요. 이 조건은 입주할 때까지 유지해요.\n\n- 원칙은 만 19세 이상이에요. 미성년 세대주는 아래 나이 조건의 예외를 확인해요.\n- 소득·총자산 기준은 적용하지 않고 자동차 기준은 적용해요.\n- 집뿐 아니라 매매로 취득한 분양권·입주권도 확인해요. 상속·증여로 받은 분양권 등은 공고의 주택 판정 예외를 확인해요.\n\n외국인은 신청할 수 없어요. 공공임대에 사는 세대의 일부가 신청하면 입주 전에 세대를 나누어야 해요. 기존 임차인의 배우자는 세대를 나누어도 중복 입주할 수 없어요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "누가 신청할 수 있나요?",
+            "preview": "11월 16일에 정읍시에 사는 무주택세대구성원이 신청해요.",
+            "sections": [
+                {
+                    "text": "2026년 11월 16일에 정읍시에 살고, 신청자와 심사에 포함되는 가족 모두 자기 명의의 집이 없어야 해요. 이 조건은 입주할 때까지 유지해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 원칙은 만 19세 이상이에요. 미성년 세대주는 아래 나이 조건의 예외를 확인해요.\n- 소득·총자산 기준은 적용하지 않고 자동차 기준은 적용해요.\n- 집뿐 아니라 매매로 취득한 분양권·입주권도 확인해요. 상속·증여로 받은 분양권 등은 공고의 주택 판정 예외를 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "외국인은 신청할 수 없어요. 공공임대에 사는 세대의 일부가 신청하면 입주 전에 세대를 나누어야 해요. 기존 임차인의 배우자는 세대를 나누어도 중복 입주할 수 없어요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                            "label": "공고문 4쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-household",
+            "sourceTitle": "어떤 가족을 함께 심사하나요?",
+            "sourceReason": "신청자와 배우자는 주소가 달라도 함께 심사해요.\n\n함께 확인하는 가족\n신청자·배우자 · 주소가 달라도 포함\n두 사람의 부모·조부모 등 · 신청자 또는 따로 사는 배우자와 같은 등본\n신청자의 자녀·손주 등과 그 배우자 · 신청자 또는 따로 사는 배우자와 같은 등본\n배우자의 자녀·손주 등과 그 배우자 · 신청자와 같은 등본\n\n- 외국인 배우자는 가족관계등록부에 있고 외국인등록·국내거소신고를 했다면 주소가 달라도 포함해요.\n- 외국인 부모·자녀 등은 가족관계등록과 외국인등록·거소신고에 더해 등본 또는 신고 주소를 확인해요.\n- 배우자가 미등록 외국인이거나 국내에 살지 않는 재외국민이면 신청할 수 없어요.\n- 태아는 세대원 수에는 포함하지만 자격 확인 대상에서는 제외해요.\n\n- 예비신혼부부는 두 사람과 결혼 후 함께 살 세대원을 확인해요.\n- 65세 이상 부모·조부모 등을 부양하는 유형은 부양받는 분의 배우자도 무주택이어야 해요.\n- 실종선고 절차 중인 가족, 행방불명 신고 후 1개월이 지난 가족, 또는 기관이 생계·주거 분리를 확인한 가족 등을 제외하려면 증빙을 내요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "신청자와 배우자를 함께 확인하고, 다른 가족은 등본과 가족관계로 구분해요.",
+            "sections": [
+                {
+                    "text": "신청자와 배우자는 주소가 달라도 함께 심사해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "함께 확인하는 가족",
+                        "headers": ["가족", "포함되는 경우"],
+                        "rows": [
+                            ["신청자·배우자", "주소가 달라도 포함"],
+                            [
+                                "두 사람의 부모·조부모 등",
+                                "신청자 또는 따로 사는 배우자와 같은 등본"
+                            ],
+                            [
+                                "신청자의 자녀·손주 등과 그 배우자",
+                                "신청자 또는 따로 사는 배우자와 같은 등본"
+                            ],
+                            [
+                                "배우자의 자녀·손주 등과 그 배우자",
+                                "신청자와 같은 등본"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "- 외국인 배우자는 가족관계등록부에 있고 외국인등록·국내거소신고를 했다면 주소가 달라도 포함해요.\n- 외국인 부모·자녀 등은 가족관계등록과 외국인등록·거소신고에 더해 등본 또는 신고 주소를 확인해요.\n- 배우자가 미등록 외국인이거나 국내에 살지 않는 재외국민이면 신청할 수 없어요.\n- 태아는 세대원 수에는 포함하지만 자격 확인 대상에서는 제외해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 예비신혼부부는 두 사람과 결혼 후 함께 살 세대원을 확인해요.\n- 65세 이상 부모·조부모 등을 부양하는 유형은 부양받는 분의 배우자도 무주택이어야 해요.\n- 실종선고 절차 중인 가족, 행방불명 신고 후 1개월이 지난 가족, 또는 기관이 생계·주거 분리를 확인한 가족 등을 제외하려면 증빙을 내요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                            "label": "공고문 4쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-duplicate",
+            "sourceTitle": "한 가족이 여러 번 신청해도 되나요?",
+            "sourceReason": "신청자와 함께 심사하는 가족을 통틀어 한 세대는 한 주택만 신청해요. 이 공고에 중복 신청하면 모두 무효예요.\n\n다른 공고의 같은 유형 예비입주자로 새로 선정되면 기존 예비입주자 지위는 사라져요. 공공임대에 입주하면 다른 건설형 공공임대 대기 명부에서도 빠져요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=1",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "한 가족이 여러 번 신청해도 되나요?",
+            "preview": "같은 세대는 한 주택만 신청해요. 중복 신청하면 모두 무효예요.",
+            "sections": [
+                {
+                    "text": "신청자와 함께 심사하는 가족을 통틀어 한 세대는 한 주택만 신청해요. 이 공고에 중복 신청하면 모두 무효예요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=1",
+                            "label": "공고문 1쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "다른 공고의 같은 유형 예비입주자로 새로 선정되면 기존 예비입주자 지위는 사라져요. 공공임대에 입주하면 다른 건설형 공공임대 대기 명부에서도 빠져요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=6",
+                            "label": "공고문 6쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-waiver",
+            "sourceTitle": "완화된 기준으로 입주한 뒤에도 계속 살 수 있나요?",
+            "sourceReason": "이번 입주 심사에는 소득·총자산 기준을 적용하지 않아요. 자동차는 4,542만 원 이하 기준을 적용해요.\n\n계약할 때 입주자격 완화 확약서에 서명해요. 이후 소득·총자산이 원래 기준을 넘으면 아래 재계약 조건을 확인해요.\n\n소득·총자산 기준 초과 시 재계약\n1회 초과 · 재계약 허용 · 임대조건 할증 없음\n2회 초과 · 예비입주자가 없을 때 재계약 허용 · 임대조건 할증 없음\n3회 이상 초과 · 원칙은 퇴거. 빈집이 많고 일반 재계약 요건을 충족할 때만 추가 검토 · 할증 가능\n\n무주택 등 재계약 요건도 충족해야 해요. 자동차 기준을 넘으면 재계약이 거절되거나 계약이 끝날 수 있어요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=1",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "완화된 기준으로 입주한 뒤에도 계속 살 수 있나요?",
+            "preview": "처음에는 소득·총자산을 심사하지 않지만, 재계약은 별도 기준을 확인해요.",
+            "sections": [
+                {
+                    "text": "이번 입주 심사에는 소득·총자산 기준을 적용하지 않아요. 자동차는 4,542만 원 이하 기준을 적용해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=1",
+                            "label": "공고문 1쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "계약할 때 입주자격 완화 확약서에 서명해요. 이후 소득·총자산이 원래 기준을 넘으면 아래 재계약 조건을 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=39",
+                            "label": "공고문 39쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "소득·총자산 기준 초과 시 재계약",
+                        "headers": ["구분", "확인할 내용"],
+                        "rows": [
+                            ["1회 초과", "재계약 허용 · 임대조건 할증 없음"],
+                            [
+                                "2회 초과",
+                                "예비입주자가 없을 때 재계약 허용 · 임대조건 할증 없음"
+                            ],
+                            [
+                                "3회 이상 초과",
+                                "원칙은 퇴거. 빈집이 많고 일반 재계약 요건을 충족할 때만 추가 검토 · 할증 가능"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "무주택 등 재계약 요건도 충족해야 해요. 자동차 기준을 넘으면 재계약이 거절되거나 계약이 끝날 수 있어요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=39",
+                            "label": "공고문 39쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-car",
+            "sourceTitle": "자동차는 얼마까지 인정되나요?",
+            "sourceReason": "심사 대상 가족이 가진 비영업용 승용차를 확인해요. 2대 이상이면 가장 비싼 차가 4,542만 원 이하여야 해요. 구매 가격이 아닌 공적 자료의 차량가액으로 확인해요.\n\n- 장애인 사용 자동차와 국가유공자 상이등급 1~7급의 보철용 차량은 제외해요.\n- 보조금을 받고 산 저공해 자동차는 정부·지자체 보조금을 빼고 계산해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "자동차는 얼마까지 인정되나요?",
+            "preview": "심사 대상 가족이 가진 자동차 중 가장 비싼 차가 4,542만 원 이하여야 해요.",
+            "sections": [
+                {
+                    "text": "심사 대상 가족이 가진 비영업용 승용차를 확인해요. 2대 이상이면 가장 비싼 차가 4,542만 원 이하여야 해요. 구매 가격이 아닌 공적 자료의 차량가액으로 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                            "label": "공고문 4쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 장애인 사용 자동차와 국가유공자 상이등급 1~7급의 보철용 차량은 제외해요.\n- 보조금을 받고 산 저공해 자동차는 정부·지자체 보조금을 빼고 계산해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                            "label": "공고문 4쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-rank22-0",
+            "sourceTitle": "기본 점수는 어떻게 계산하나요?",
+            "sourceReason": "기본 점수 60점에 아래 가점 최대 20점을 더해요. 이번 배점표에는 소득 점수가 없어요.\n\n정읍 계속 거주기간\n1년 미만 · 12점\n1년 이상~5년 미만 · 14점\n5년 이상~10년 미만 · 16점\n10년 이상~15년 미만 · 18점\n15년 이상 · 20점\n\n나이는 공고일인 11월 16일 기준이에요.\n\n신청자 나이\n만 40세 미만 · 14점\n만 40~49세 · 16점\n만 50~59세 · 18점\n만 60세 이상 · 20점\n\n세대원 수에는 신청자도 포함해요. 함께 심사하는 가족의 범위로 계산해요.\n\n세대원 수\n1~2명 · 14점\n3명 · 16점\n4명 · 18점\n5명 이상 · 20점\n\n거주기간은 정읍시 최종 전입일 다음 날부터 공고일까지의 계속 거주기간이에요. 주민등록이 말소됐다면 다시 등록한 뒤부터 계산해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "기본 점수는 어떻게 계산하나요?",
+            "preview": "정읍 거주기간·나이·세대원 수를 각각 최대 20점으로 계산해요.",
+            "sections": [
+                {
+                    "text": "기본 점수 60점에 아래 가점 최대 20점을 더해요. 이번 배점표에는 소득 점수가 없어요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                            "label": "공고문 5쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "정읍 계속 거주기간",
+                        "headers": ["기간", "점수"],
+                        "rows": [
+                            ["1년 미만", "12점"],
+                            ["1년 이상~5년 미만", "14점"],
+                            ["5년 이상~10년 미만", "16점"],
+                            ["10년 이상~15년 미만", "18점"],
+                            ["15년 이상", "20점"]
+                        ]
+                    }
+                },
+                {
+                    "text": "나이는 공고일인 11월 16일 기준이에요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                            "label": "공고문 5쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "신청자 나이",
+                        "headers": ["나이", "점수"],
+                        "rows": [
+                            ["만 40세 미만", "14점"],
+                            ["만 40~49세", "16점"],
+                            ["만 50~59세", "18점"],
+                            ["만 60세 이상", "20점"]
+                        ]
+                    }
+                },
+                {
+                    "text": "세대원 수에는 신청자도 포함해요. 함께 심사하는 가족의 범위로 계산해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                            "label": "공고문 5쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "세대원 수",
+                        "headers": ["인원", "점수"],
+                        "rows": [
+                            ["1~2명", "14점"],
+                            ["3명", "16점"],
+                            ["4명", "18점"],
+                            ["5명 이상", "20점"]
+                        ]
+                    }
+                },
+                {
+                    "text": "거주기간은 정읍시 최종 전입일 다음 날부터 공고일까지의 계속 거주기간이에요. 주민등록이 말소됐다면 다시 등록한 뒤부터 계산해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=6",
+                            "label": "공고문 6쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-rank22-1",
+            "sourceTitle": "추가 점수를 받을 수 있나요?",
+            "sourceReason": "본인에게 해당하는 유형을 증빙해요. 심한 장애는 세대원도 포함해요.\n\n추가 점수\n생계·의료급여 수급자 + 가점 유형 3가지 · 20점\n수급자 + 2가지 · 18점\n수급자 + 1가지 · 16점\n수급자 + 해당 유형 없음 · 10점\n비수급자 + 해당 유형 1가지 이상 · 10점\n\n- 국가유공자 등, 일본군위안부 피해자, 귀환국군포로\n- 지원대상 한부모가족, 북한이탈주민, 심한 장애인(세대원 포함)\n- 65세 이상 부모·조부모 등과 그 배우자를 3년 이상 부양\n- 아동복지시설 퇴소자, 소년소녀가정, 미성년 자녀 3명 이상 부양\n- 철거지역·재해·위험건물 철거에 따른 이주자\n- 혼인 7년 이내 신혼부부 또는 예비신혼부부\n\n철거·재해 이주자와 신혼·예비신혼 유형은 비수급자에게도 적용되는 가점 목록에 포함돼요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "추가 점수를 받을 수 있나요?",
+            "preview": "수급 여부와 해당하는 가점 유형 수에 따라 최대 20점을 더해요.",
+            "sections": [
+                {
+                    "text": "본인에게 해당하는 유형을 증빙해요. 심한 장애는 세대원도 포함해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                            "label": "공고문 5쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "추가 점수",
+                        "headers": ["상황", "점수"],
+                        "rows": [
+                            ["생계·의료급여 수급자 + 가점 유형 3가지", "20점"],
+                            ["수급자 + 2가지", "18점"],
+                            ["수급자 + 1가지", "16점"],
+                            ["수급자 + 해당 유형 없음", "10점"],
+                            ["비수급자 + 해당 유형 1가지 이상", "10점"]
+                        ]
+                    }
+                },
+                {
+                    "text": "- 국가유공자 등, 일본군위안부 피해자, 귀환국군포로\n- 지원대상 한부모가족, 북한이탈주민, 심한 장애인(세대원 포함)\n- 65세 이상 부모·조부모 등과 그 배우자를 3년 이상 부양\n- 아동복지시설 퇴소자, 소년소녀가정, 미성년 자녀 3명 이상 부양\n- 철거지역·재해·위험건물 철거에 따른 이주자\n- 혼인 7년 이내 신혼부부 또는 예비신혼부부",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                            "label": "공고문 5쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "철거·재해 이주자와 신혼·예비신혼 유형은 비수급자에게도 적용되는 가점 목록에 포함돼요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=6",
+                            "label": "공고문 6쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-age",
+            "sourceTitle": "공고일에 몇 살이어야 하나요?",
+            "sourceReason": "2026년 11월 16일 기준 만 19세 이상이 원칙이에요.\n\n미성년 세대주 예외 · 다음 중 하나에 해당해요.\n- 같은 등본에 있는 자녀를 부양해요.\n- 부모·조부모 등의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 외국인 부모와 한국 국적 미성년 자녀로 구성된 한부모가족이에요.\n\n예외에 해당하면 법정대리인의 동의 또는 대리가 필요해요. 외국인 부모를 둔 한부모가족은 그 부모가 대신 신청해요. 행방불명은 신고접수증 등으로 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "공고일에 몇 살이어야 하나요?",
+            "preview": "만 19세 이상이 원칙이에요. 미성년 세대주는 일부 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "2026년 11월 16일 기준 만 19세 이상이 원칙이에요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "미성년 세대주 예외 · 다음 중 하나에 해당해요.\n- 같은 등본에 있는 자녀를 부양해요.\n- 부모·조부모 등의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 외국인 부모와 한국 국적 미성년 자녀로 구성된 한부모가족이에요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "예외에 해당하면 법정대리인의 동의 또는 대리가 필요해요. 외국인 부모를 둔 한부모가족은 그 부모가 대신 신청해요. 행방불명은 신고접수증 등으로 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=3",
+                            "label": "공고문 3쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-permanent19-0",
+            "sourceTitle": "소득과 재산이 많아도 신청할 수 있나요?",
+            "sourceReason": "이번 입주 심사 기준이에요. 소득·총자산이 많다는 이유만으로 제외하지 않아요.\n\n이번 모집의 소득·자산 기준\n소득 · 한도 적용 안 함\n세대 총자산 · 한도 적용 안 함\n자동차 · 가장 비싼 차 4,542만 원 이하\n\n무주택·정읍 거주 등 다른 신청 자격은 충족해야 해요. 자동차 예외와 재계약 조건은 각각 해당 항목을 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "소득과 재산이 많아도 신청할 수 있나요?",
+            "preview": "소득·총자산 한도는 적용하지 않고, 자동차는 4,542만 원까지예요.",
+            "sections": [
+                {
+                    "text": "이번 입주 심사 기준이에요. 소득·총자산이 많다는 이유만으로 제외하지 않아요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                            "label": "공고문 4쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "이번 모집의 소득·자산 기준",
+                        "headers": ["항목", "적용 기준"],
+                        "rows": [
+                            ["소득", "한도 적용 안 함"],
+                            ["세대 총자산", "한도 적용 안 함"],
+                            ["자동차", "가장 비싼 차 4,542만 원 이하"]
+                        ]
+                    }
+                },
+                {
+                    "text": "무주택·정읍 거주 등 다른 신청 자격은 충족해야 해요. 자동차 예외와 재계약 조건은 각각 해당 항목을 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=4",
+                            "label": "공고문 4쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-order-0",
+            "sourceTitle": "신청자가 많으면 어떤 순서로 뽑나요?",
+            "sourceReason": "앞 항목이 같을 때 다음 항목으로 비교해요.\n\n경쟁할 때 선정 순서\n1 · 배점 합계가 높은 사람\n2 · 정읍 전입일이 오래된 사람\n3 · 세대원이 많은 사람\n4 · 신청자 나이가 많은 사람\n5 · 추첨",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=6",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "신청자가 많으면 어떤 순서로 뽑나요?",
+            "preview": "점수 → 정읍 전입일 → 세대원 수 → 나이 → 추첨 순서예요.",
+            "sections": [
+                {
+                    "text": "앞 항목이 같을 때 다음 항목으로 비교해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=6",
+                            "label": "공고문 6쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "경쟁할 때 선정 순서",
+                        "headers": ["순서", "먼저 선정하는 사람"],
+                        "rows": [
+                            ["1", "배점 합계가 높은 사람"],
+                            ["2", "정읍 전입일이 오래된 사람"],
+                            ["3", "세대원이 많은 사람"],
+                            ["4", "신청자 나이가 많은 사람"],
+                            ["5", "추첨"]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-sublet",
+            "sourceTitle": "공공임대를 불법으로 빌려준 이력이 있나요?",
+            "sourceReason": "신청자나 함께 심사하는 가족이 공공임대주택을 불법으로 넘기거나 다른 사람에게 빌려주다 적발된 뒤 4년이 지나지 않았다면 선정될 수 없어요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "공공임대를 불법으로 빌려준 이력이 있나요?",
+            "preview": "가족 중 불법 양도·전대로 적발된 뒤 4년이 안 지난 사람이 있으면 선정될 수 없어요.",
+            "sections": [
+                {
+                    "text": "신청자나 함께 심사하는 가족이 공공임대주택을 불법으로 넘기거나 다른 사람에게 빌려주다 적발된 뒤 4년이 지나지 않았다면 선정될 수 없어요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=5",
+                            "label": "공고문 5쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": null,
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-docs-1",
+            "sourceTitle": "가족이나 가점 때문에 추가 서류가 필요한가요?",
+            "sourceReason": "공통 서류는 신청서, 중복선정 확인서, 개인정보·금융정보 동의서, 상세 등본이에요. 서류는 공고일인 11월 16일 이후 발급분으로 준비해요.\n\n본인에게 해당하는 상황을 모두 골라요. 해당 없음·잘 모르겠어요는 다른 선택지와 함께 고르지 않아요.\n\n가족 상황별 추가 서류\n배우자가 외국인 · 외국인등록사실증명서 · 가족관계 확인 서류\n공고일 뒤 주소·세대주 변경 또는 예비신혼 대표 신청자 · 변경된 세대원의 상세 초본 / 대표 신청자 초본\n등본에 배우자 확인 불가(미혼·이혼·사별·세대분리 포함) · 상세 가족관계증명서\n65세 이상 부모 등 부양 유형에서 부양받는 분의 배우자 확인 불가 · 부양받는 분의 상세 가족관계증명서\n예비신혼으로 다른 가족도 함께 살 예정 · 해당 관계가 나오는 신청자 또는 예비배우자의 상세 가족관계증명서\n태아·입양 자녀 증빙이 필요한 경우 · 공고일 이후 의료기관 임신진단서 또는 입양관계증명서\n\n수급·차상위·한부모·장애, 북한이탈, 보훈, 부모 부양, 기관 인정, 시설 퇴소, 귀환국군포로 등은 본인 유형에 맞는 서류만 준비해요. 나열된 모든 증명서를 한꺼번에 내는 뜻은 아니에요.\n\n인터넷 신청자는 12월 2일 18시 이후 서류제출 대상 여부를 확인해요.\n\n대상자로 선정되면 12월 7~9일에 제출하고, 등기우편은 12월 9일 소인까지예요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=11",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "가족이나 가점 때문에 추가 서류가 필요한가요?",
+            "preview": "외국인 배우자·주소 변경·가족관계·가점 등 본인 상황에 맞는 증빙을 골라요.",
+            "sections": [
+                {
+                    "text": "공통 서류는 신청서, 중복선정 확인서, 개인정보·금융정보 동의서, 상세 등본이에요. 서류는 공고일인 11월 16일 이후 발급분으로 준비해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=11",
+                            "label": "공고문 11쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "본인에게 해당하는 상황을 모두 골라요. 해당 없음·잘 모르겠어요는 다른 선택지와 함께 고르지 않아요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=12",
+                            "label": "공고문 12쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "가족 상황별 추가 서류",
+                        "headers": ["내 상황", "준비할 서류"],
+                        "rows": [
+                            [
+                                "배우자가 외국인",
+                                "외국인등록사실증명서 · 가족관계 확인 서류"
+                            ],
+                            [
+                                "공고일 뒤 주소·세대주 변경 또는 예비신혼 대표 신청자",
+                                "변경된 세대원의 상세 초본 / 대표 신청자 초본"
+                            ],
+                            [
+                                "등본에 배우자 확인 불가(미혼·이혼·사별·세대분리 포함)",
+                                "상세 가족관계증명서"
+                            ],
+                            [
+                                "65세 이상 부모 등 부양 유형에서 부양받는 분의 배우자 확인 불가",
+                                "부양받는 분의 상세 가족관계증명서"
+                            ],
+                            [
+                                "예비신혼으로 다른 가족도 함께 살 예정",
+                                "해당 관계가 나오는 신청자 또는 예비배우자의 상세 가족관계증명서"
+                            ],
+                            [
+                                "태아·입양 자녀 증빙이 필요한 경우",
+                                "공고일 이후 의료기관 임신진단서 또는 입양관계증명서"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "수급·차상위·한부모·장애, 북한이탈, 보훈, 부모 부양, 기관 인정, 시설 퇴소, 귀환국군포로 등은 본인 유형에 맞는 서류만 준비해요. 나열된 모든 증명서를 한꺼번에 내는 뜻은 아니에요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=13",
+                            "label": "공고문 13쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "인터넷 신청자는 12월 2일 18시 이후 서류제출 대상 여부를 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=1",
+                            "label": "공고문 1쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=8",
+                            "label": "공고문 8쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "대상자로 선정되면 12월 7~9일에 제출하고, 등기우편은 12월 9일 소인까지예요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=6",
+                            "label": "공고문 6쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "label": "[선택] 본인 행정정보 제공요구서",
+                    "value": "D1",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "외국인등록사실증명서",
+                    "value": "D2",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "주민등록표초본 (전부표기, 상세)",
+                    "value": "D3",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "가족관계증명서 (상세)",
+                    "value": "D4",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "임신진단서 (또는 출생증명서)/ 입양관계 증명서",
+                    "value": "D5",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "신청자격 증명서",
+                    "value": "D6",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "생계(의료)급여수급자, 지원대상 한부모가족, 장애인, 차상위계층",
+                    "value": "D7",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "북한이탈주민",
+                    "value": "D8",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "국가유공자(5·18민주유공자, 보훈보상 대상자, 특수임무수행자, 국가유공자에 준하는 군경 포함) 또는 그 유족 및 참전유공자",
+                    "value": "D9",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "만65세이상의 직계존속(배우자 직계존속 포함)을 부양하는 자로서 생계·의료급여수급자 선정기준의 소득인정액 이하인 자",
+                    "value": "D10",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "국토교통부장관 또는 시도지사가 영구임대주택의 입주가 필요하다고 인정하는 자",
+                    "value": "D11",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "일본군위안부 피해자",
+                    "value": "D12",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "아동복지시설에서 퇴소하는자 / 아동시설 퇴소자",
+                    "value": "D13",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "아동복지시설에서 퇴소하는자 / 시설 퇴소 예정자 보호조치를 연장한자",
+                    "value": "D14",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "귀환국군포로",
+                    "value": "D15",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "해당 사항 없음",
+                    "value": "NONE",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "잘 모르겠어요",
+                    "value": "UNKNOWN",
+                    "requiresFollowUp": false
+                }
+            ],
+            "optionLabels": {
+                "D1": "행정정보 제공에 동의해 제출",
+                "D2": "배우자가 외국인",
+                "D3": "주소·세대주 변경 또는 예비신혼 대표",
+                "D4": "등본만으로 배우자·가족관계 확인 어려움",
+                "D5": "태아·입양 자녀 증빙 필요",
+                "D6": "별도 신청자격 증명 필요",
+                "D7": "수급·차상위·한부모·장애 증빙",
+                "D8": "북한이탈주민",
+                "D9": "국가유공자·보훈 대상",
+                "D10": "65세 이상 부모 등 부양·소득 증빙",
+                "D11": "기관이 입주 필요성을 인정",
+                "D12": "일본군위안부 피해자",
+                "D13": "아동복지시설 퇴소",
+                "D14": "시설 보호 연장·퇴소 예정",
+                "D15": "귀환국군포로",
+                "NONE": "해당 사항 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "label": "[선택] 본인 행정정보 제공요구서",
+                        "value": "D1",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "외국인등록사실증명서",
+                        "value": "D2",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "주민등록표초본 (전부표기, 상세)",
+                        "value": "D3",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "가족관계증명서 (상세)",
+                        "value": "D4",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "임신진단서 (또는 출생증명서)/ 입양관계 증명서",
+                        "value": "D5",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "신청자격 증명서",
+                        "value": "D6",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "생계(의료)급여수급자, 지원대상 한부모가족, 장애인, 차상위계층",
+                        "value": "D7",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "북한이탈주민",
+                        "value": "D8",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "국가유공자(5·18민주유공자, 보훈보상 대상자, 특수임무수행자, 국가유공자에 준하는 군경 포함) 또는 그 유족 및 참전유공자",
+                        "value": "D9",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "만65세이상의 직계존속(배우자 직계존속 포함)을 부양하는 자로서 생계·의료급여수급자 선정기준의 소득인정액 이하인 자",
+                        "value": "D10",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "국토교통부장관 또는 시도지사가 영구임대주택의 입주가 필요하다고 인정하는 자",
+                        "value": "D11",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "일본군위안부 피해자",
+                        "value": "D12",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "아동복지시설에서 퇴소하는자 / 아동시설 퇴소자",
+                        "value": "D13",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "아동복지시설에서 퇴소하는자 / 시설 퇴소 예정자 보호조치를 연장한자",
+                        "value": "D14",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "귀환국군포로",
+                        "value": "D15",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "해당 사항 없음",
+                        "value": "NONE",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "잘 모르겠어요",
+                        "value": "UNKNOWN",
+                        "requiresFollowUp": false
+                    }
+                ],
+                "inputKind": "MULTIPLE",
+                "constraints": null,
+                "answerDependencies": [
+                    {
+                        "questionId": "s1-docs-2",
+                        "answerValues": ["D2"],
+                        "conflictingValues": ["NONE"],
+                        "requiredDocumentIds": ["s1-file-41-8-0"],
+                        "message": "예비신혼부부는 대표 신청자의 초본이 필요해요. 가족·추가 서류 답변을 다시 확인해 주세요."
+                    }
+                ],
+                "applicability": null
+            }
+        },
+        {
+            "noticeId": "db111d1b-8e22-42b2-abd9-b47ebbc3c6bf",
+            "questionId": "s1-docs-2",
+            "sourceTitle": "신혼·장애·방문 신청 때 무엇을 챙기나요?",
+            "sourceReason": "신혼·장애 증빙과 현장에 오는 사람을 각각 골라요. 본인 방문·배우자 대리·다른 대리는 한 가지만 골라요.\n\n상황별 증빙\n신혼부부 · 혼인관계증명서 · 해당하는 자녀·임신·입양 증빙\n예비신혼부부 · 신청확인서 · 세대구성 확인서 · 예비배우자 신분증 사본 · 혼인 확인 서류\n중증장애인 · 장애인고용촉진법에 따른 중증장애인 확인서\n본인 방문 · 본인 신분증 · 도장(서명 가능)\n배우자 대리 · 두 사람 신분증 · 신청자 도장 · 배우자 관계 증빙\n다른 사람이 대리 · 두 사람 신분증 · 위임장 · 인감증명 방식 또는 본인서명 확인 방식\n\n2020년 12월 21일 이후 발급한 여권은 여권정보증명서도 필요해요. 다른 사람에게 맡길 때 인감 방식과 본인서명 방식은 둘 중 하나를 준비해요.\n\n예비신혼부부는 두 사람 중 한 명을 대표 신청자로 정해요. 두 사람의 등본을 각각 내고, 입주 전 혼인 관계와 예정 세대를 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=13",
+                "sha256": "09934a3968090e55398c9bf7a4b751214ed403bda2f09f8d5053cd17bc612e8e"
+            },
+            "heading": "신혼·장애·방문 신청 때 무엇을 챙기나요?",
+            "preview": "신혼 여부와 방문하는 사람에 따라 추가 서류가 달라요.",
+            "sections": [
+                {
+                    "text": "신혼·장애 증빙과 현장에 오는 사람을 각각 골라요. 본인 방문·배우자 대리·다른 대리는 한 가지만 골라요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=13",
+                            "label": "공고문 13쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "상황별 증빙",
+                        "headers": ["상황", "챙길 것"],
+                        "rows": [
+                            [
+                                "신혼부부",
+                                "혼인관계증명서 · 해당하는 자녀·임신·입양 증빙"
+                            ],
+                            [
+                                "예비신혼부부",
+                                "신청확인서 · 세대구성 확인서 · 예비배우자 신분증 사본 · 혼인 확인 서류"
+                            ],
+                            [
+                                "중증장애인",
+                                "장애인고용촉진법에 따른 중증장애인 확인서"
+                            ],
+                            ["본인 방문", "본인 신분증 · 도장(서명 가능)"],
+                            [
+                                "배우자 대리",
+                                "두 사람 신분증 · 신청자 도장 · 배우자 관계 증빙"
+                            ],
+                            [
+                                "다른 사람이 대리",
+                                "두 사람 신분증 · 위임장 · 인감증명 방식 또는 본인서명 확인 방식"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "2020년 12월 21일 이후 발급한 여권은 여권정보증명서도 필요해요. 다른 사람에게 맡길 때 인감 방식과 본인서명 방식은 둘 중 하나를 준비해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=13",
+                            "label": "공고문 13쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "예비신혼부부는 두 사람 중 한 명을 대표 신청자로 정해요. 두 사람의 등본을 각각 내고, 입주 전 혼인 관계와 예정 세대를 확인해요.",
+                    "evidence": [
+                        {
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69517260#page=37",
+                            "label": "공고문 37쪽 보기 · 기준·예외",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "label": "신혼부부",
+                    "value": "D1",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "예비신혼부부",
+                    "value": "D2",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "중증장애인",
+                    "value": "D3",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "본인 직접 신청할 때",
+                    "value": "D4",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "배우자가 대리 신청할 때",
+                    "value": "D5",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "기타 대리인이 대리 신청할 때",
+                    "value": "D6",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "해당 사항 없음",
+                    "value": "NONE",
+                    "requiresFollowUp": false
+                },
+                {
+                    "label": "잘 모르겠어요",
+                    "value": "UNKNOWN",
+                    "requiresFollowUp": false
+                }
+            ],
+            "optionLabels": {
+                "D1": "신혼부부",
+                "D2": "예비신혼부부",
+                "D3": "중증장애인",
+                "D4": "본인 직접 신청할 때",
+                "D5": "배우자가 대리 신청할 때",
+                "D6": "기타 대리인이 대리 신청할 때",
+                "NONE": "해당 사항 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "label": "신혼부부",
+                        "value": "D1",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "예비신혼부부",
+                        "value": "D2",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "중증장애인",
+                        "value": "D3",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "본인 직접 신청할 때",
+                        "value": "D4",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "배우자가 대리 신청할 때",
+                        "value": "D5",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "기타 대리인이 대리 신청할 때",
+                        "value": "D6",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "해당 사항 없음",
+                        "value": "NONE",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "label": "잘 모르겠어요",
+                        "value": "UNKNOWN",
+                        "requiresFollowUp": false
+                    }
+                ],
+                "inputKind": "MULTIPLE",
+                "constraints": null,
+                "answerDependencies": null,
+                "applicability": null
+            }
+        }
+    ]
+}

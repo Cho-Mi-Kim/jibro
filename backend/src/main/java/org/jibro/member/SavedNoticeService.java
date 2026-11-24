@@ -1,26 +1,26 @@
 package org.jibro.member;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 import org.jibro.global.common.ApiException;
+import org.jibro.notice.NoticeService;
+import org.jibro.notice.NoticeListItem;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class SavedNoticeService {
-    public record Saved(UUID id, String title, String agency, String region, LocalDate endDate) {
-    }
-
     private final SavedNoticeRepository repository;
+    private final NoticeService notices;
 
-    public SavedNoticeService(SavedNoticeRepository repository) {
+    public SavedNoticeService(SavedNoticeRepository repository, NoticeService notices) {
         this.repository = repository;
+        this.notices = notices;
     }
 
-    public List<Saved> list(UUID user) {
-        return repository.findOwned(user).stream().map(value -> new Saved(value.id(), value.title(), value.agency(), value.region(), value.endDate())).toList();
+    public List<NoticeListItem> list(UUID user) {
+        return notices.listByIds(repository.findOwned(user));
     }
 
     @Transactional

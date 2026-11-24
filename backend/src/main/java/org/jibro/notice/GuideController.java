@@ -1,6 +1,7 @@
 package org.jibro.notice;
 
 import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,8 +23,8 @@ public class GuideController {
 
     @GetMapping("/guides")
     GuideService.GuidePage guides(@RequestParam(defaultValue = "") String category,
-                                 @RequestParam(defaultValue = "") String keyword,
-                                 @RequestParam(defaultValue = "0") int page) {
+                                  @RequestParam(defaultValue = "") String keyword,
+                                  @RequestParam(defaultValue = "0") int page) {
         return guides.guides(category, keyword, page);
     }
 }

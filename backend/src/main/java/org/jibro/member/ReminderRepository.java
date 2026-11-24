@@ -2,13 +2,17 @@ package org.jibro.member;
 
 import java.util.List;
 import java.util.UUID;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ReminderRepository {
-    public record Channels(boolean emailEnabled, boolean emailVerified) {}
-    public record Device(UUID id, String endpoint) {}
+    public record Channels(boolean emailEnabled, boolean emailVerified) {
+    }
+
+    public record Device(UUID id, String endpoint) {
+    }
 
     private final JdbcTemplate db;
 
@@ -39,10 +43,10 @@ public class ReminderRepository {
 
     public boolean claimDelivery(UUID owner, String event, String channel) {
         return db.update("""
-            INSERT INTO alert_delivery(user_id,event_key,channel,attempts,next_attempt) VALUES(?,?,?,1,now()+interval '10 minutes')
-            ON CONFLICT(user_id,event_key,channel) DO UPDATE SET attempts=alert_delivery.attempts+1,next_attempt=now()+interval '10 minutes'
-            WHERE NOT alert_delivery.delivered AND alert_delivery.next_attempt<=now() AND alert_delivery.attempts<4
-            """, owner, event, channel) > 0;
+                INSERT INTO alert_delivery(user_id,event_key,channel,attempts,next_attempt) VALUES(?,?,?,1,now()+interval '10 minutes')
+                ON CONFLICT(user_id,event_key,channel) DO UPDATE SET attempts=alert_delivery.attempts+1,next_attempt=now()+interval '10 minutes'
+                WHERE NOT alert_delivery.delivered AND alert_delivery.next_attempt<=now() AND alert_delivery.attempts<4
+                """, owner, event, channel) > 0;
     }
 
     public void markDelivered(UUID user, String key, String channel) {

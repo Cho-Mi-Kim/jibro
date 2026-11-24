@@ -44,7 +44,7 @@ class LhNoticeTransportTest {
         var http = mock(HttpClient.class);
         var throttled = response(429, "{\"error\":\"quota\"}", Map.of("Retry-After", List.of("3600")));
         when(http.send(any(HttpRequest.class), org.mockito.ArgumentMatchers.<HttpResponse.BodyHandler<byte[]>>any()))
-            .thenReturn(throttled);
+                .thenReturn(throttled);
         var client = new LhNoticeClient("test", JsonMapper.builder().build(), http);
         var failure = assertThrows(SourceResponse.Rejected.class, () -> client.fetch(1, query));
         assertTrue(CollectionFailure.retryable(failure));

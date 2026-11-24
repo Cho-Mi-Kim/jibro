@@ -19,8 +19,10 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class NoticeComparisonIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired MockMvc mvc;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    MockMvc mvc;
 
     private UUID notice(String guide) {
         var day = LocalDate.now();
@@ -45,7 +47,7 @@ class NoticeComparisonIntegrationTest {
 
     @Test
     void anonymousComparisonCannotReadHeldOrChangedGuidanceButCanReadPublicSchedules() throws Exception {
-        for (String state : new String[] {"HOLD", "UNSUPPORTED", "CHANGE_REVIEW"}) {
+        for (String state : new String[]{"HOLD", "UNSUPPORTED", "CHANGE_REVIEW"}) {
             var id = notice(state.equals("CHANGE_REVIEW") ? "PASS" : state);
             if (state.equals("CHANGE_REVIEW")) notices.entity(id).changeReview = true;
             mvc.perform(get("/api/v1/notices/{id}/comparison", id))

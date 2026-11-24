@@ -21,9 +21,12 @@ import org.springframework.transaction.annotation.Propagation;
 @ActiveProfiles("test")
 @Transactional
 class CollectionRunStoreIntegrationTest {
-    @Autowired CollectionRunStore runs;
-    @Autowired JdbcTemplate db;
-    @Autowired AuthService auth;
+    @Autowired
+    CollectionRunStore runs;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    AuthService auth;
     String actor;
     Instant now = Instant.parse("2090-01-01T00:00:00Z");
 

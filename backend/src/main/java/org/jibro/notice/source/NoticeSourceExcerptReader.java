@@ -13,13 +13,16 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Pattern;
+
 import org.jibro.collection.extraction.ExtractionModels.Part;
 import org.jibro.collection.extraction.ExtractionModels.Source;
 import org.jibro.notice.EvidenceValidation;
 import org.jibro.notice.HousingModels.Evidence;
 import org.jibro.notice.source.NoticeSourceInformationRepository.Snapshot;
 
-/** Classifiers choose tabs only; displayed text always remains the entire original extracted part. */
+/**
+ * Classifiers choose tabs only; displayed text always remains the entire original extracted part.
+ */
 public final class NoticeSourceExcerptReader {
     static final int MAX_PART_CHARACTERS = 6000;
     static final int MAX_SECTIONS_PER_AREA = 3;
@@ -40,9 +43,12 @@ public final class NoticeSourceExcerptReader {
     private static final Pattern SCHEDULE_NUMBERED = numberedHeading(SCHEDULE_TERMS);
 
     private static final Pattern DRAWING = Pattern.compile("평면도|배치도|위치도");
-    private record OriginalPart(Part part, Evidence evidence, int order, boolean drawing) {}
 
-    private NoticeSourceExcerptReader() {}
+    private record OriginalPart(Part part, Evidence evidence, int order, boolean drawing) {
+    }
+
+    private NoticeSourceExcerptReader() {
+    }
 
     public static Information read(Snapshot snapshot, Set<String> allowedHosts) {
         var sections = new ArrayList<Section>();
@@ -58,8 +64,11 @@ public final class NoticeSourceExcerptReader {
                 scanned += part.text().length();
                 String title = source.label() + " · " + part.location();
                 var evidence = new Evidence(title, source.url(), checked);
-                try { EvidenceValidation.validate(evidence); }
-                catch (IllegalArgumentException invalid) { continue; }
+                try {
+                    EvidenceValidation.validate(evidence);
+                } catch (IllegalArgumentException invalid) {
+                    continue;
+                }
                 candidates.add(new OriginalPart(part, evidence, candidates.size(), DRAWING.matcher(source.label()).find()));
             }
         }
@@ -67,9 +76,9 @@ public final class NoticeSourceExcerptReader {
             int count = 0;
             // Explicit section headings precede passing mentions on cover pages. Keep the complete part.
             var selected = candidates.stream().filter(candidate -> area == Area.REFERENCE ? candidate.drawing()
-                    : !candidate.drawing() && category(area).matcher(candidate.part().text()).find())
-                .sorted(Comparator.<OriginalPart>comparingInt(candidate -> headingPriority(area, candidate.part().text()))
-                    .thenComparingInt(OriginalPart::order)).toList();
+                            : !candidate.drawing() && category(area).matcher(candidate.part().text()).find())
+                    .sorted(Comparator.<OriginalPart>comparingInt(candidate -> headingPriority(area, candidate.part().text()))
+                            .thenComparingInt(OriginalPart::order)).toList();
             for (OriginalPart original : selected) {
                 Part part = original.part();
                 Evidence evidence = original.evidence();
@@ -87,18 +96,20 @@ public final class NoticeSourceExcerptReader {
 
     private static boolean trusted(Source source, Set<String> allowedHosts) {
         if (source == null || !"EXTRACTED".equals(source.status()) || source.sha256() == null
-            || !source.sha256().matches("[a-fA-F0-9]{64}") || source.label() == null || source.label().isBlank()
-            || source.url() == null) return false;
+                || !source.sha256().matches("[a-fA-F0-9]{64}") || source.label() == null || source.label().isBlank()
+                || source.url() == null) return false;
         try {
             EvidenceValidation.validateUrl(source.url());
             return allowedHosts.contains(URI.create(source.url()).getHost().toLowerCase(Locale.ROOT));
-        } catch (IllegalArgumentException invalid) { return false; }
+        } catch (IllegalArgumentException invalid) {
+            return false;
+        }
     }
 
     private static boolean completePart(Part part) {
         return part != null && part.location() != null && !part.location().isBlank()
-            && part.text() != null && !part.text().isBlank() && part.text().length() <= MAX_PART_CHARACTERS
-            && !part.text().contains("[발췌 길이 제한]");
+                && part.text() != null && !part.text().isBlank() && part.text().length() <= MAX_PART_CHARACTERS
+                && !part.text().contains("[발췌 길이 제한]");
     }
 
     private static Pattern category(Area area) {
@@ -121,7 +132,7 @@ public final class NoticeSourceExcerptReader {
 
     private static Pattern heading(String terms) {
         return Pattern.compile("(?m)^[\\p{Zs}\\t]*(?:[0-9]+[.)．]|[□■○●▪※①②③④⑤⑥⑦⑧⑨⑩])?[\\p{Zs}\\t]*(?:"
-            + terms + ")(?:[\\s:：().]|$)");
+                + terms + ")(?:[\\s:：().]|$)");
     }
 
     private static int headingPriority(Area area, String text) {

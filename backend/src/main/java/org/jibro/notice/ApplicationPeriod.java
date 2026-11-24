@@ -64,6 +64,10 @@ public final class ApplicationPeriod {
                     : LocalDateTime.parse(event.date()).atZone(SEOUL).toInstant();
             }
             var match = TIME.matcher(event.title());
+            if (event.title().endsWith(" (24:00)") && !match.find()
+                && (basicTitle(event.title(), true) || event.id().startsWith("auto-scoped-") && event.id().endsWith("-end")))
+                return day(event.date()).plusDays(1).atStartOfDay(SEOUL).toInstant();
+            match.reset();
             if (!match.find()) return null;
             int hour = Integer.parseInt(match.group(1) == null ? match.group(3) : match.group(1));
             String minute = match.group(1) == null ? match.group(4) : match.group(2);

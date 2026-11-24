@@ -1,0 +1,503 @@
+{
+    "entries": [
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "residence",
+            "sourceTitle": "공고일 수도권 거주 기준을 확인했나요?",
+            "sourceReason": "2026.11.05 현재 주민등록표등본 기준 서울·인천·경기 거주자를 대상으로 합니다. 현재 주소만 확인하지 말고 공고일 주소와 이후 변경 이력을 함께 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "어느 지역에 살아야 하나요?",
+            "preview": "11월 5일 기준 등본상 서울·인천·경기에 거주해야 해요.",
+            "sections": [
+                {
+                    "text": "2026.11.05 현재 주민등록표등본 기준 서울·인천·경기 거주자를 대상으로 해요.\n\n현재 주소만 확인하지 말고 공고일 주소와 이후 변경 이력을 함께 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=2&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=3&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "adult-exception",
+            "sourceTitle": "성년 또는 공고의 미성년 예외에 해당하나요?",
+            "sourceReason": "원칙은 19세 이상입니다. 자녀를 부양하는 미성년 세대주, 직계존속 사망·실종 등으로 형제자매를 부양하는 경우, 외국인 부모와 한국 국적 미성년 자녀의 한부모가족 대리신청 등 공고의 예외는 증빙과 동일세대 조건을 확인합니다. 예외 선택만으로 자격이 확정되지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "성년 또는 공고의 미성년 예외에 해당하나요?",
+            "preview": "만 19세 이상이 원칙이에요. 자녀·형제자매를 부양하는 미성년 세대주 등은 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "공고일 기준 만 19세 이상이 원칙이에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=9&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "미성년 세대주 예외 (다음 중 하나)\n- 같은 등본의 자녀를 부양해요.\n- 부모·조부모 등 윗세대 가족의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 한부모가족으로, 부모는 외국인이고 미성년 세대주는 한국 국적이에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=10&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "예외에 해당하면 가족관계와 법정대리·부양 사실을 증빙 서류로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=10&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "household",
+            "sourceTitle": "무주택 검증 세대의 범위를 확인했나요?",
+            "sourceReason": "신청자와 배우자는 분리거주해도 포함됩니다. 신청자/배우자의 직계존속과 신청자의 직계비속(그 배우자)은 공고상 동일 등본 범위, 배우자의 직계비속은 신청자 등본에 함께 있는 범위를 확인합니다. 배우자 분리세대·외국인 가족·실종 등 제외 사유를 누락하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "무주택 검증 세대의 범위를 확인했나요?",
+            "preview": "신청자와 배우자는 주소가 달라도 함께 봐요. 나머지 가족은 등본과 가족관계를 확인해요.",
+            "sections": [
+                {
+                    "text": "- 신청자와 배우자는 분리거주해도 포함돼요.\n- 신청자/배우자의 부모·조부모 등 윗세대 가족과 신청자의 자녀·손자녀 등 아랫세대 가족(그 배우자)은 공고상 동일 등본 범위, 배우자의 자녀·손자녀 등 아랫세대 가족은 신청자 등본에 함께 있는 범위를 확인해요.\n- 배우자 분리세대·외국인 가족·실종 등 제외 사유를 누락하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=3&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=10&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=11&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "spouse-separated",
+            "sourceTitle": "배우자가 별도 등본에 있나요?",
+            "sourceReason": "분리된 배우자와 그 세대의 해당 구성원도 자격 확인 대상에 포함될 수 있습니다. 배우자 등본과 가족관계 상세 증명을 준비합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "배우자가 별도 등본에 있나요?",
+            "preview": "분리된 배우자와 그 세대의 해당 구성원도 자격 확인 대상에 포함될 수 있어요.",
+            "sections": [
+                {
+                    "text": "분리된 배우자와 그 세대의 해당 구성원도 자격 확인 대상에 포함될 수 있어요.\n\n배우자 등본과 가족관계 상세 증명을 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 16쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=16&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "family-proof",
+            "sourceTitle": "배우자가 없거나 본인 등본에 표시되지 않나요?",
+            "sourceReason": "미혼 등 배우자가 없거나 배우자가 본인 등본에 없는 경우 공고가 요구하는 본인 가족관계증명서(상세)를 추가 준비합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "배우자가 없거나 본인 등본에 표시되지 않나요?",
+            "preview": "미혼 등 배우자가 없거나 배우자가 본인 등본에 없는 경우 공고가 요구하는 본인 가족관계증명서(상세)를 추가 준비해요.",
+            "sections": [
+                {
+                    "text": "미혼 등 배우자가 없거나 배우자가 본인 등본에 없는 경우 공고가 요구하는 본인 가족관계증명서(상세)를 추가 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 16쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=16&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "foreign-family",
+            "sourceTitle": "배우자·세대원에 외국인·재외국민이 있나요?",
+            "sourceReason": "외국인 본인은 신청할 수 없습니다. 배우자가 국내 비거주 재외국민 또는 외국인등록/국내거소신고 없는 외국인이면 신청 제한이 있습니다. 외국인 배우자·세대원은 유효한 등록번호와 증빙을 확인해야 합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "배우자·세대원에 외국인·재외국민이 있나요?",
+            "preview": "외국인 본인은 신청할 수 없어요.",
+            "sections": [
+                {
+                    "text": "- 외국인 본인은 신청할 수 없어요.\n- 배우자가 국내 비거주 재외국민 또는 외국인등록/국내거소신고 없는 외국인이면 신청 제한이 있어요.\n- 외국인 배우자·세대원은 유효한 등록번호와 증빙을 확인해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=10&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=15&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 16쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=16&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "housing",
+            "sourceTitle": "세대의 주택·분양권과 예외를 확인했나요?",
+            "sourceReason": "무주택세대구성원 기준은 공고일부터 계약·입주 후 분양전환 시까지 유지해야 합니다. 공유지분·분양권·주택 용도 건물도 확인합니다. 상속지분 처분, 비도시 주택, 20㎡ 이하 1호, 멸실/불법건물의 공식 확인 등 예외는 각각의 요건·기한을 확인하며 임의로 제외하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "세대의 주택·분양권과 예외를 확인했나요?",
+            "preview": "집이 없는 심사 대상 세대원 기준은 공고일부터 계약·입주 후 분양전환 시까지 유지해야 해요.",
+            "sections": [
+                {
+                    "text": "- 집이 없는 심사 대상 세대원 기준은 공고일부터 계약·입주 후 분양전환 시까지 유지해야 해요.\n- 공유지분·분양권·주택 용도 건물도 확인해요.\n- 상속지분 처분, 비도시 주택, 20㎡ 이하 1호, 멸실/불법건물의 공식 확인 등 예외는 각각의 요건·기한을 확인하며 임의로 제외하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=9&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=11&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=12&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "duplicate",
+            "sourceTitle": "세대 내 중복신청·기존 계약 여부를 확인했나요?",
+            "sourceReason": "원칙은 1세대 1주택·한 주택형입니다. 세대원 중복으로 당첨되면 무효이며, 부부가 모두 예비자로 선정되면 먼저 체결한 계약만 유효한 별도 예외가 있습니다. 5개 대상단지의 기존 계약자와 그 세대원은 같은 단지에 신청할 수 없습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "세대 내 중복신청·기존 계약 여부를 확인했나요?",
+            "preview": "한 세대 한 주택형이 원칙이에요. 부부 예비자 중복 선정은 먼저 체결한 계약만 유효해요.",
+            "sections": [
+                {
+                    "text": "- 원칙은 1세대 1주택·한 주택형이에요.\n- 세대원 중복으로 당첨되면 무효이며, 부부가 모두 예비자로 선정되면 먼저 체결한 계약만 유효한 별도 예외가 있어요.\n- 5개 대상단지의 기존 계약자와 그 세대원은 같은 단지에 신청할 수 없어요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=2&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 14쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=14&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "winning-restriction",
+            "sourceTitle": "재당첨 제한 기간에 있는 세대원이 있나요?",
+            "sourceReason": "청약통장·소득·자산 기준과 관계없다는 조항이 재당첨 제한 면제를 뜻하지 않습니다. 과거 제한 대상 주택에 당첨된 세대원과 제한기간을 확인해야 합니다. 이번 계약 후 적용될 3년 재당첨 제한과 일부 지역 5년 1순위 제한도 별도 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "재당첨 제한 기간에 있는 세대원이 있나요?",
+            "preview": "소득·통장 조건이 없어도 재당첨 제한은 별도로 확인해요.",
+            "sections": [
+                {
+                    "text": "- 청약통장·소득·자산 기준과 관계없다는 조항이 재당첨 제한 면제를 뜻하지 않아요.\n- 과거 제한 대상 주택에 당첨된 세대원과 제한기간을 확인해야 해요.\n- 이번 계약 후 적용될 3년 재당첨 제한과 일부 지역 5년 1순위 제한도 별도 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=2&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 18쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=18&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "illegal-transfer",
+            "sourceTitle": "불법 양도·전대와 세대 제외 사유를 확인했나요?",
+            "sourceReason": "불법 양도·전대 적발일부터 4년이 지나지 않은 사람의 세대는 신청 제한이 있습니다. 실종 절차·행방불명 신고 후 기간·생계/주거 분리의 공식 확인 등 세대 제외는 공고의 요건과 입증자료로 확인합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "불법 양도·전대와 세대 제외 사유를 확인했나요?",
+            "preview": "불법 양도·전대 적발일부터 4년이 지나지 않은 사람의 세대는 신청 제한이 있어요.",
+            "sections": [
+                {
+                    "text": "불법 양도·전대 적발일부터 4년이 지나지 않은 사람의 세대는 신청 제한이 있어요.\n\n실종 절차·행방불명 신고 후 기간·생계/주거 분리의 공식 확인 등 세대 제외는 공고의 요건과 입증자료로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=10&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=11&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "after-publication-separation",
+            "sourceTitle": "공고일 이후 당시 세대주와 등본이 분리됐나요?",
+            "sourceReason": "공고일 당시 세대주와 분리한 신청자는 본인 초본 외에 당시 세대주 등본, 당시 세대주·세대구성원 초본 등 공고 15~16쪽의 추가자료를 준비합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "공고 후 세대주와 등본이 나뉘었나요?",
+            "preview": "현재 초본과 함께 공고일 당시 세대주·가족을 확인하는 등본·초본을 추가해요.",
+            "sections": [
+                {
+                    "text": "공고일 당시 세대주와 분리한 신청자는 본인 초본 외에 당시 세대주 등본, 당시 세대주·세대구성원 초본 등 공고 15~16쪽의 추가자료를 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=15&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 16쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=16&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "income-waiver",
+            "sourceTitle": "이번 모집에 과거 소득·청약순위 기준을 잘못 적용하지 않았나요?",
+            "sourceReason": "이번 2026.11.05 공고는 청약통장 가입·소득·자산 충족 여부와 무관하다고 명시합니다. 첨부 ZIP의 2015·2017년 최초모집 소득금액·특별공급 순위를 현재 신규 신청 조건으로 적용하지 않습니다. 현재 공고의 무주택·지역·중복·재당첨 제한은 계속 확인해야 합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "소득·재산·청약통장 기준이 있나요?",
+            "preview": "이번 모집은 청약통장·소득·자산 기준 없이 신청해요. 오래된 최초 모집 기준은 적용하지 않아요.",
+            "sections": [
+                {
+                    "text": "- 이번 2026.11.05 공고는 청약통장 가입·소득·자산 충족 여부와 무관하다고 명시해요.\n- 첨부 ZIP의 2015·2017년 최초모집 소득금액·특별공급 순위를 현재 신규 신청 조건으로 적용하지 않아요.\n- 현재 공고의 무주택·지역·중복·재당첨 제한은 계속 확인해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=2&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=9&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "submission",
+            "sourceTitle": "등기우편 서류제출 방식과 불이익을 확인했나요?",
+            "sourceReason": "11/23 17시 이후 서류제출 대상 여부를 직접 확인하고, 대상자만 11/24~11/30 등기우편으로 제출합니다. 11/30 우체국 소인분까지 인정되며 일반우편·택배·소포는 불가합니다. 주소·봉투 표기·도달 여부를 확인하세요. 미제출/미도달/누락은 탈락할 수 있고 소명요청은 별도 기한이 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "등기우편 서류제출 방식과 불이익을 확인했나요?",
+            "preview": "11/23 17시 이후 서류제출 대상 여부를 직접 확인하고, 대상자만 11/24~11/30 등기우편으로 내요.",
+            "sections": [
+                {
+                    "text": "- 11/23 17시 이후 서류제출 대상 여부를 직접 확인하고, 대상자만 11/24~11/30 등기우편으로 내요.\n- 11/30 우체국 소인분까지 인정되며 일반우편·택배·소포는 불가해요.\n- 주소·봉투 표기·도달 여부를 확인해요.\n- 미제출/미도달/누락은 탈락할 수 있고 소명요청은 별도 기한이 있어요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 14쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=14&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=15&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 17쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=17&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "delegate",
+            "sourceTitle": "본인·배우자 이외 대리인이 서류를 제출하나요?",
+            "sourceReason": "공고 15쪽은 본인·배우자 이외를 대리 제출자로 봅니다. 위임장, 인감 또는 본인서명사실 확인 방식의 해당 서류와 본인·대리인 신분증을 준비하고 우편 제출 절차는 공식 지사에 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "다른 사람이 대신 서류를 내나요?",
+            "preview": "신청자·배우자 외의 사람이 대신 내면 대리 제출용 서류를 준비해요.",
+            "sections": [
+                {
+                    "text": "공고 15쪽은 본인·배우자 이외를 대리 제출자로 봐요.\n\n위임장, 인감 또는 본인서명사실 확인 방식의 해당 서류와 본인·대리인 신분증을 준비하고 우편 제출 절차는 공식 지사에 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=15&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "selection-contract",
+            "sourceTitle": "예비선정·계약·분양전환을 구분했나요?",
+            "sourceReason": "11/23 발표는 서류제출 대상/순번 확인 단계로 최종 적격 확정이 아닙니다. 검증과 소명 후 최종 예비순위는 2027년 1월 예정으로 개별 통지하며 정확한 날짜는 미정입니다. 기존 예비자 후순번일 수 있고 만기 분양전환 개시 시 예비자 지위가 소멸합니다. 계약 시 추첨 동호 변경·명의 변경은 불가합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "서류 대상자 발표가 최종 당첨인가요?",
+            "preview": "11월 23일에는 서류 대상·순번을 확인해요. 자격검증을 마쳐야 최종 적격이 돼요.",
+            "sections": [
+                {
+                    "text": "- 11/23 발표는 서류제출 대상/순번 확인 단계로 최종 적격 확정이 아니에요.\n- 검증과 소명 후 최종 예비순위는 2027년 1월 예정으로 개별 통지하며 정확한 날짜는 미정이에요.\n- 기존 예비자 후순번일 수 있고 만기 분양전환 개시 시 예비자 지위가 소멸해요.\n- 계약 시 추첨 동호 변경·명의 변경은 불가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=12&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 16쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=16&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 17쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=17&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "32256ae8-29c9-409b-93b5-0f8ecb5ab8a5",
+            "questionId": "complex-contract",
+            "sourceTitle": "신청 단지의 남은 임대기간·분양전환·계약 조건을 확인했나요?",
+            "sourceReason": "일부 단지는 계약기간이 1~2년 이내일 수 있고 신규 예비자는 해당 조기분양전환 대상이 아닐 수 있습니다. 해당 회차 대상 요건은 안내일 전 예비선정, 계약개시 전 60일(500세대 미만 45일) 계약, 개시 전 입주 등입니다. 공고 4쪽에 따라 최초공고·팸플릿의 단지여건도 확인하세요. 현재 상태 공급·주택 미개방·해약 위약금·감정평가 분양가격을 확인하며 집으로는 계약 적격·가격을 확정하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753",
+                "sha256": "308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d"
+            },
+            "heading": "신청 단지의 남은 임대기간·분양전환·계약 조건을 확인했나요?",
+            "preview": "일부 단지는 계약기간이 1~2년 이내일 수 있고 신규 예비자는 해당 조기분양전환 대상이 아닐 수 있어요.",
+            "sections": [
+                {
+                    "text": "- 일부 단지는 계약기간이 1~2년 이내일 수 있고 신규 예비자는 해당 조기분양전환 대상이 아닐 수 있어요.\n- 해당 회차 대상 요건은 안내일 전 예비선정, 계약개시 전 60일(500세대 미만 45일) 계약, 개시 전 입주 등이에요.\n- 공고 4쪽에 따라 최초공고·팸플릿의 단지여건도 확인해요.\n- 현재 상태 공급·주택 미개방·해약 위약금·감정평가 분양가격을 확인하며 집으로는 계약 적격·가격을 확정하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=2&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=4&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=9&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "PDF 17쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69325753#page=17&sha256=308f3f8dc711b71c7b1e8b7ee40f7570edde834b401908f7884c132d211ffc8d",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

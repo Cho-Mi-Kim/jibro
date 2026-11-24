@@ -28,7 +28,8 @@
 }
 :root[data-reduce-motion='true'] *,
 :root[data-reduce-motion='true'] *::before,
-:root[data-reduce-motion='true'] *::after {
+:root[data-reduce-motion='true'] *::after,
+:root[data-reduce-motion='true'] details::details-content {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
@@ -36,7 +37,8 @@
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
-    *::after {
+    *::after,
+    details::details-content {
         animation: none !important;
         transition: none !important;
         scroll-behavior: auto !important;

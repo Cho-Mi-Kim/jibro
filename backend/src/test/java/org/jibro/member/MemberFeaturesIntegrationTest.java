@@ -72,6 +72,26 @@ class MemberFeaturesIntegrationTest {
     }
 
     @Test
+    void savedCardsFollowPublicStatusesEvenAfterAStoredNoticeCloses() {
+        var owner = user();
+        var id = notice();
+        saved.set(owner, id, true);
+        db.update("UPDATE notice SET content=jsonb_set(content,'{reviewIssues}','[{}]') WHERE id=?", id);
+        var card = saved.list(owner).get(0);
+        var listed = notices.search(List.of(), List.of(), List.of("OPEN"), "검증 공고", "active", 0, 100)
+                .items().stream().filter(item -> item.id().equals(id.toString())).findFirst().orElseThrow();
+        assertEquals(listed, card);
+        assertTrue(card.partialGuidance());
+        db.update("UPDATE notice SET service_closed=true, change_review=true WHERE id=?", id);
+        var closed = saved.list(owner).get(0);
+        assertEquals("CLOSED", closed.status());
+        assertEquals("CHANGE_REVIEW", closed.guideState());
+        assertFalse(closed.partialGuidance());
+        db.update("UPDATE notice SET lifecycle_state='CANCELLED' WHERE id=?", id);
+        assertEquals("CANCELLED", saved.list(owner).get(0).lifecycle().state());
+    }
+
+    @Test
     void publicDetailedDeadlineWhileGuidanceIsHeldCreatesOneReminderAndRetainsReadState() {
         var owner = user();
         var day = LocalDate.now(java.time.ZoneId.of("Asia/Seoul")).plusDays(1);
@@ -171,7 +191,15 @@ class MemberFeaturesIntegrationTest {
         var id = UUID.fromString(first.id);
         var other = UUID.fromString(target.id);
         assertThrows(ApiException.class, () -> experiences.archive(b, id, "", first.revision));
-        experiences.archive(a, id, "발급 날짜를 확인", first.revision);
+        var recorded = preparations.schedule(a.toString(), id, first.schedules.get(0).id, first.revision, true);
+        experiences.archive(a, id, "발급 날짜를 확인", recorded.revision);
+        var archived = experiences.list(a).get(0);
+        assertEquals(recorded.progress, archived.progress());
+        assertEquals(recorded.houseStage, archived.houseStage());
+        assertTrue(archived.schedules().get(0).recorded());
+        assertEquals(recorded.schedules.stream()
+                .map(event -> new ExperienceRepository.ArchivedSchedule(event.title, event.date, event.recorded))
+                .toList(), archived.schedules());
         assertEquals(1, preparations.list(a.toString()).size());
         assertThrows(ApiException.class, () -> preparations.answers(a.toString(), id, first.revision, Map.of("residence", "YES")));
         assertThrows(ApiException.class, () -> experiences.attach(b, other, id));

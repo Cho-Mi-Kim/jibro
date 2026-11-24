@@ -1,11 +1,14 @@
 import { animateScroll } from '../shared/ui/animateScroll';
+import { handleDisclosureCardClick } from '../shared/ui/handleDisclosureCardClick';
 import noticeStyles from '../features/housing/NoticeList.module.css';
 import { bindClasses } from '../shared/styles/classes';
 import { useSearchParams } from 'react-router';
 import { useEffect, useRef } from 'react';
 import { useGuides } from '../features/guide/useGuides';
 import { Card, State } from '../shared/ui/ui';
-import { EvidenceLink } from '../features/housing/EvidenceLink';
+import { GuideAnswer } from '../features/guide/GuideAnswer';
+import { Pagination } from '../shared/ui/Pagination';
+import { usePageScroll } from '../shared/ui/usePageScroll';
 import { Disc } from '../shared/ui/Disc';
 import { Icon, type IconName } from '../shared/ui/Icon';
 import { prefersReducedMotion } from '../features/accessibility/preferences';
@@ -20,6 +23,7 @@ const categories: [string, IconName, string][] = [
     ['신청 절차', 'calendar', 'red'],
     ['공식 문의처', 'phone', 'amber'],
 ];
+
 export function GuidePage() {
     const [params, setParams] = useSearchParams();
     const category = params.get('category');
@@ -30,27 +34,55 @@ export function GuidePage() {
     );
     const q = useGuides(category ?? '', keyword, page);
     const layoutRef = useRef<HTMLDivElement>(null);
+    const { contentRef: questionsRef, preparePageChange } = usePageScroll({
+        page,
+        ready:
+            !q.waiting && !q.isPending && (q.isError || q.data?.page === page),
+        scope: JSON.stringify([category, keyword]),
+        headerSelector: '[data-guide-header]',
+        extraSpace: () =>
+            parseFloat(layoutRef.current?.style.paddingBottom ?? '') || 0,
+    });
     useEffect(() => {
         layoutRef.current?.style.removeProperty('padding-bottom');
     }, [category, keyword, page]);
     function alignQuestion(card: HTMLDetailsElement) {
-        if (card.open) return;
         requestAnimationFrame(() => {
             const layout = layoutRef.current;
-            if (!layout || !card.isConnected || !card.open) return;
+            if (!layout || !card.isConnected) return;
             const header = document.querySelector('[data-guide-header]');
             const offset = (header?.getBoundingClientRect().height ?? 0) + 8;
-            const top = Math.max(
-                0,
-                card.getBoundingClientRect().top + window.scrollY - offset,
+            animateScroll(
+                window,
+                () => {
+                    if (!card.isConnected) return window.scrollY;
+                    // Another answer may still be closing above this question.
+                    const bounds = card.getBoundingClientRect();
+                    const top = Math.max(
+                        0,
+                        bounds.top + window.scrollY - offset,
+                    );
+                    const summary = card.querySelector('summary');
+                    const closingSpace =
+                        !card.open && summary
+                            ? Math.max(
+                                  0,
+                                  bounds.bottom -
+                                      summary.getBoundingClientRect().bottom,
+                              )
+                            : 0;
+                    const previousSpace =
+                        parseFloat(layout.style.paddingBottom) || 0;
+                    const available =
+                        document.documentElement.scrollHeight -
+                        previousSpace -
+                        closingSpace -
+                        window.innerHeight;
+                    layout.style.paddingBottom = `${Math.ceil(Math.max(0, top - available))}px`;
+                    return top;
+                },
+                prefersReducedMotion(),
             );
-            const previousSpace = parseFloat(layout.style.paddingBottom) || 0;
-            const available =
-                document.documentElement.scrollHeight -
-                previousSpace -
-                window.innerHeight;
-            layout.style.paddingBottom = `${Math.ceil(Math.max(0, top - available))}px`;
-            animateScroll(window, top, prefersReducedMotion());
         });
     }
     function change(key: string, value: string) {
@@ -61,17 +93,17 @@ export function GuidePage() {
         setParams(next, { replace: true });
     }
     function goToPage(nextPage: number) {
+        preparePageChange(nextPage);
         const next = new URLSearchParams(params);
         next.set('page', String(nextPage));
         setParams(next);
-        window.scrollTo({ top: 0, behavior: 'instant' });
     }
     const selected = q.waiting ? undefined : q.data?.items;
     return (
         <>
             <header className={cx('guide-heading')}>
                 <h1 className={cx('visually-hidden')}>가이드</h1>
-                <p>용어와 절차를 확인하세요.</p>
+                <p>제도부터 서류와 신청 절차까지 쉽게 확인해요.</p>
             </header>
             <form
                 className={noticeStyles.search}
@@ -115,7 +147,7 @@ export function GuidePage() {
                         ))}
                     </nav>
                 </aside>
-                <section>
+                <section ref={questionsRef} aria-label="가이드 질문 목록">
                     <h2>
                         {keyword ? '가이드 검색 결과' : '자주 확인하는 질문'}
                     </h2>
@@ -126,18 +158,22 @@ export function GuidePage() {
                     />
                     {selected?.map((g, i) => (
                         <details
+                            name="guide-questions"
                             className={cx('card faq')}
-                            key={g.id}
-                            open={i === 0}
+                            key={JSON.stringify([
+                                category ?? '',
+                                keyword,
+                                page,
+                                g.id,
+                            ])}
+                            onClick={(event) => {
+                                const card = event.currentTarget;
+                                handleDisclosureCardClick(event, () =>
+                                    alignQuestion(card),
+                                );
+                            }}
                         >
-                            <summary
-                                onClick={(event) =>
-                                    alignQuestion(
-                                        event.currentTarget
-                                            .parentElement as HTMLDetailsElement,
-                                    )
-                                }
-                            >
+                            <summary>
                                 <Disc
                                     name={i === 1 ? 'people' : 'file'}
                                     tone={i === 1 ? 'amber' : 'red'}
@@ -145,11 +181,7 @@ export function GuidePage() {
                                 <span>{g.title}</span>
                                 <Icon name="down" />
                             </summary>
-                            <p>{g.body}</p>
-                            <EvidenceLink
-                                evidence={g.evidence}
-                                checkedAtOnNewLine
-                            />
+                            <GuideAnswer guide={g} />
                         </details>
                     ))}
                     {selected?.length === 0 && (
@@ -163,31 +195,14 @@ export function GuidePage() {
                             </button>
                         </Card>
                     )}
-                    {(page > 0 || q.data?.hasMore) && (
-                        <nav
-                            className={guideClasses.pagination}
-                            aria-label="가이드 페이지"
-                        >
-                            <button
-                                disabled={
-                                    page === 0 || q.waiting || q.isPending
-                                }
-                                onClick={() => goToPage(page - 1)}
-                                aria-label="이전 페이지"
-                            >
-                                <Icon name="back" />
-                            </button>
-                            <span aria-current="page">{page + 1}</span>
-                            <button
-                                disabled={
-                                    !q.data?.hasMore || q.waiting || q.isPending
-                                }
-                                onClick={() => goToPage(page + 1)}
-                                aria-label="다음 페이지"
-                            >
-                                <Icon name="arrow" />
-                            </button>
-                        </nav>
+                    {q.data && (
+                        <Pagination
+                            page={page}
+                            totalPages={q.data.totalPages}
+                            label="가이드 페이지"
+                            onPageChange={goToPage}
+                            disabled={q.waiting || q.isPending}
+                        />
                     )}
                     <div className={cx('callout')}>
                         <Disc name="warning" tone="amber" />

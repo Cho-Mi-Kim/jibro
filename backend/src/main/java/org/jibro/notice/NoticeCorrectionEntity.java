@@ -1,10 +1,14 @@
 package org.jibro.notice;
 
 import jakarta.persistence.*;
+
 import java.util.UUID;
+
 import org.hibernate.annotations.Immutable;
 
-/** Read-only projection of the officially verified identity relation; writes stay in its repository. */
+/**
+ * Read-only projection of the officially verified identity relation; writes stay in its repository.
+ */
 @Entity
 @Immutable
 @Table(name = "notice_correction")
@@ -15,5 +19,6 @@ class NoticeCorrectionEntity {
     @Column(name = "corrected_notice_id")
     UUID correctedId;
 
-    protected NoticeCorrectionEntity() {}
+    protected NoticeCorrectionEntity() {
+    }
 }

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/** Explicit local executable/model paths only; no PATH lookup, downloads, secrets, or model API. */
+/**
+ * Explicit local executable/model paths only; no PATH lookup, downloads, secrets, or model API.
+ */
 record OcrConfiguration(Path executable, Path data) {
     static OcrConfiguration configured() throws IOException {
         String executable = setting("jibro.ocr.executable", "JIBRO_OCR_EXECUTABLE");
@@ -16,9 +18,10 @@ record OcrConfiguration(Path executable, Path data) {
 
     static OcrConfiguration verified(Path executable, Path data) throws IOException {
         if (!executable.isAbsolute() || !data.isAbsolute() || !Files.isRegularFile(executable)
-            || !Files.isDirectory(data) || !Files.isRegularFile(data.resolve("kor.traineddata"))
-            || !Files.isRegularFile(data.resolve("eng.traineddata"))
-            || !Files.isRegularFile(data.resolve("osd.traineddata"))) throw new IOException("OCR_CONFIGURATION_INVALID");
+                || !Files.isDirectory(data) || !Files.isRegularFile(data.resolve("kor.traineddata"))
+                || !Files.isRegularFile(data.resolve("eng.traineddata"))
+                || !Files.isRegularFile(data.resolve("osd.traineddata")))
+            throw new IOException("OCR_CONFIGURATION_INVALID");
         return new OcrConfiguration(executable.normalize(), data.normalize());
     }
 

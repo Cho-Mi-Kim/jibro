@@ -20,8 +20,6 @@
     min-width: 0;
 }
 .issue {
-    border-inline-start: 3px solid var(--warning, #a76900);
-    padding-inline-start: 10px;
     min-width: 0;
     font-size: 0.875rem;
     line-height: 1.6;
@@ -51,8 +49,4 @@
 }
 .sources[open] summary > svg {
     transform: rotate(180deg);
-}
-.issue .evidence {
-    margin: 4px 0;
-    padding: 0;
 }

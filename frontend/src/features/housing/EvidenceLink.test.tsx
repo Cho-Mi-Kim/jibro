@@ -4,6 +4,45 @@ import { EvidenceLink } from './EvidenceLink';
 import { evidenceHref } from '../../shared/ui/helpers';
 
 describe('공식 근거 위치', () => {
+    it('표시 문구를 바꿔도 원래 근거 위치와 확인일을 사용한다', () => {
+        render(
+            <EvidenceLink
+                label="제출서류 원문"
+                evidence={{
+                    url: 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325',
+                    label: '공고문 10–11쪽 · 제출서류',
+                    checkedAt: '2026-10-01',
+                }}
+            />,
+        );
+        expect(
+            screen.getByRole('link', { name: '제출서류 원문' }),
+        ).toHaveAttribute(
+            'href',
+            expect.stringMatching(
+                /^\/pdf-viewer\.html\?file=69306325&page=10&sha=/,
+            ),
+        );
+        expect(screen.getByText('확인 2026-10-01')).toBeVisible();
+    });
+    it.each([null, 'javascript:alert(1)'])(
+        '열 수 없는 주소 %s는 출처와 확인일을 표시한다',
+        (url) => {
+            render(
+                <EvidenceLink
+                    evidence={{
+                        url,
+                        label: '당시 공식 원문',
+                        checkedAt: '2026-10-01',
+                    }}
+                />,
+            );
+            expect(screen.queryByRole('link')).not.toBeInTheDocument();
+            expect(screen.getByText('당시 공식 원문')).toBeVisible();
+            expect(screen.getByText('확인 2026-10-01')).toBeVisible();
+            expect(screen.getByText('원문 경로 확인 필요')).toBeVisible();
+        },
+    );
     it('확인된 PDF 쪽과 HWPX·엑셀 위치로 연결한다', () => {
         expect(
             evidenceHref(

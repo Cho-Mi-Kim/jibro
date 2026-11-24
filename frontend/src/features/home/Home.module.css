@@ -51,6 +51,8 @@
     margin: 0;
 }
 .home-action {
+    display: grid;
+    gap: 0.75rem;
     grid-column: 2;
     grid-row: 1;
 }
@@ -155,5 +157,9 @@
     }
     .home-summary .meta-dates {
         display: none;
+    }
+    .home-summary[data-expanded='true'] .meta-dates {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }

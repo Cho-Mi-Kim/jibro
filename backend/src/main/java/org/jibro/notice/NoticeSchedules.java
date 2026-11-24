@@ -24,14 +24,14 @@ public final class NoticeSchedules {
     public static List<Due> reminders(Notice notice, Instant now) {
         var schedules = notice.schedules() == null ? List.<ScheduleTemplate>of() : notice.schedules();
         var window = notice.applicationTiming() == null
-            ? ApplicationPeriod.resolve(notice.startDate(), notice.endDate(), schedules)
-            : new ApplicationPeriod.Window(notice.applicationTiming().startsAt(), notice.applicationTiming().endsAt());
+                ? ApplicationPeriod.resolve(notice.startDate(), notice.endDate(), schedules)
+                : new ApplicationPeriod.Window(notice.applicationTiming().startsAt(), notice.applicationTiming().endsAt());
         boolean closed = ApplicationPeriod.status(notice.startDate(), notice.endDate(), window, now).equals("CLOSED");
         return reminders(notice).stream().filter(due -> {
             if (closed && (due.id().equals("end") || isApplicationAction(due.title()))) return false;
             Instant time = due.id().equals("end") ? window.endsAt()
-                : schedules.stream().filter(event -> event.id().equals(due.id()))
-                .map(ApplicationPeriod::instant).filter(Objects::nonNull).findFirst().orElse(null);
+                    : schedules.stream().filter(event -> event.id().equals(due.id()))
+                    .map(ApplicationPeriod::instant).filter(Objects::nonNull).findFirst().orElse(null);
             return time == null ? due.date() != null && !due.date().isBefore(now.atZone(SEOUL).toLocalDate()) : now.isBefore(time);
         }).toList();
     }
@@ -40,11 +40,11 @@ public final class NoticeSchedules {
         if (notice.lifecycle() != null && notice.lifecycle().state().equals("CANCELLED")) return List.of();
         List<ScheduleTemplate> schedules = notice.schedules() != null ? notice.schedules() : List.of();
         var matches = schedules.stream().filter(s -> isApplicationDeadline(s.title())
-            && notice.endDate() != null && notice.endDate().equals(calendarDay(s.date()))).toList();
+                && notice.endDate() != null && notice.endDate().equals(calendarDay(s.date()))).toList();
         var basic = matches.stream().filter(s -> isBasicDeadlineTitle(s.title())).toList();
         if (!basic.isEmpty()) matches = basic;
         var closing = matches.stream().filter(s -> TIME.matcher(s.date()).find() || TIME.matcher(s.title()).find())
-            .findFirst().orElse(matches.isEmpty() ? null : matches.get(0));
+                .findFirst().orElse(matches.isEmpty() ? null : matches.get(0));
         var result = new ArrayList<Due>();
         if (notice.endDate() != null)
             result.add(new Due("end", closing == null ? "신청 접수 마감" : closing.title(), notice.endDate()));
@@ -72,7 +72,7 @@ public final class NoticeSchedules {
 
     private static boolean isBasicDeadlineTitle(String title) {
         return title.replaceAll("\\([^)]*(?:\\d{1,2}:\\d{2}|조기\\s*중단)[^)]*\\)", "")
-            .replaceAll("\\s", "").matches("(?:신청접수|신청|접수)마감");
+                .replaceAll("\\s", "").matches("(?:신청접수|신청|접수)마감");
     }
 
     private static String time(ScheduleTemplate event) {
@@ -85,7 +85,7 @@ public final class NoticeSchedules {
     private static boolean isDeadlineAlias(ScheduleTemplate event, ScheduleTemplate selected) {
         if (event == selected) return true;
         if (!Objects.equals(calendarDay(event.date()), calendarDay(selected.date()))
-            || !isBasicDeadlineTitle(event.title()) || !isBasicDeadlineTitle(selected.title())) return false;
+                || !isBasicDeadlineTitle(event.title()) || !isBasicDeadlineTitle(selected.title())) return false;
         return time(event).isEmpty() || time(event).equals(time(selected));
     }
 
