@@ -5,6 +5,7 @@ import {
     useSyncExternalStore,
 } from 'react';
 import { useLocation } from 'react-router';
+import { sitePageHref } from '../site/siteLinks';
 import {
     AnalyticsClient,
     analyticsSettingsEvent,
@@ -62,7 +63,7 @@ export function AnalyticsConsent({
                 ) : (
                     <p>현재 방문 통계 수집을 사용하지 않아요.</p>
                 )}
-                <a href="/privacy">개인정보처리방침 보기</a>
+                <a href={sitePageHref('privacy')}>개인정보처리방침 보기</a>
             </div>
             <div className={styles.actions}>
                 {client.enabled ? (

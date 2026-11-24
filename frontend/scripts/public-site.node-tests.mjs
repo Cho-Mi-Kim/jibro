@@ -1,7 +1,46 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { test } from 'node:test';
-import { publicPages, appRouteConfig, metadata } from './public-site.mjs';
+import {
+    publicPages,
+    publicSitePlugin,
+    appRouteConfig,
+    metadata,
+} from './public-site.mjs';
+
+test('Pages documents return to hash routes and keep document navigation under the project base', () => {
+    const plugin = publicSitePlugin();
+    plugin.configResolved({ mode: 'pages-demo', base: '/jibro/' });
+    const assets = {};
+    plugin.generateBundle.call({
+        emitFile: ({ fileName, source }) => {
+            assets[fileName] = source;
+        },
+    });
+    for (const name of ['contact.html', 'privacy.html', '404.html']) {
+        const hrefs = [...assets[name].matchAll(/href="([^"]*)"/g)].map(
+            (match) => match[1],
+        );
+        for (const href of [
+            '/jibro/#/',
+            '/jibro/#/notices',
+            '/jibro/contact.html',
+            '/jibro/privacy.html',
+            '/jibro/#/my#analytics-settings',
+        ])
+            assert.ok(hrefs.includes(href), `${name}: ${href}`);
+        assert.ok(
+            hrefs
+                .filter((href) => href.startsWith('/'))
+                .every((href) => href.startsWith('/jibro/')),
+            name,
+        );
+    }
+    assert.match(assets['contact.html'], /href="mailto:support@jibro.live"/);
+    // Production keeps ordinary server routes; the demo rewrite must not leak there.
+    assert.match(publicPages()['contact.html'], /href="\/notices"/);
+    assert.doesNotMatch(publicPages()['contact.html'], /\/jibro\//);
+});
 
 test('public documents contain contact details and metadata but no tracking script', () => {
     const pages = publicPages(false);

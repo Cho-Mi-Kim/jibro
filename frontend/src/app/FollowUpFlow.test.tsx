@@ -155,9 +155,12 @@ describe('신청 후 실제 화면 흐름', () => {
             const p = await api.start('1', 1);
             mount(`/preparations/${p.id}`);
             await userEvent.click(
-                await screen.findByRole('button', {
-                    name: '신청 여부 기록',
-                }),
+                // Wait for the cold lazy route, as for the schedule route below.
+                await screen.findByRole(
+                    'button',
+                    { name: '신청 여부 기록' },
+                    { timeout: 5000 },
+                ),
             );
             await userEvent.click(
                 screen.getByRole('button', { name: '완료했어요' }),
