@@ -134,6 +134,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [첫 접속 Cloudflare 사람 확인](entries/2026-11-24-visitor-verification.md) | 확인 필요 |
 | 2026-11-24 | [최종 검토본과 운영 사이트 일치 확인](entries/2026-11-24-final-production-verification.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-24 | [Iron Laws 실제 실행과 상위 지적 대조](entries/2026-11-24-iron-laws-audit.md) | 검토 완료 |
+| 2026-11-24 | [PC 공고 정렬 메뉴가 카드 뒤에 가려지는 문제 수정](entries/2026-11-24-notice-sort-layer.md) | 검토 완료 |
 | 2026-11-24 | [PR #31의 지역 약칭·테스트·문서 충돌 정리](entries/2026-11-24-pr31-conflict-resolution.md) | 근거 정리·팀 검토 전 |
 | 2026-11-24 | [리팩토링 지적 14건의 책임 통합과 실패 처리 보완](entries/2026-11-24-refactoring-findings-fixed.md) | 완료 |
 | 2026-11-24 | [리팩토링 수정 운영 배포](entries/2026-11-24-refactoring-production-deploy.md) | 완료 |

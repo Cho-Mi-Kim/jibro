@@ -226,6 +226,10 @@
     .controlsContent {
         display: contents;
     }
+    .controls {
+        position: static;
+        z-index: auto;
+    }
     .page {
         grid-template-columns: 16rem minmax(0, 1fr);
         grid-template-rows: auto max-content max-content 1fr;
@@ -247,5 +251,7 @@
     }
     .toolbar {
         grid-column: 2;
+        position: relative;
+        z-index: 10;
     }
 }
