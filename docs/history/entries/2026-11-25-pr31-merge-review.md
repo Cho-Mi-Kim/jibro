@@ -2,7 +2,7 @@
 
 - 기록일: 2026-11-25 (Asia/Seoul)
 - 기록 상태: 실행 근거 정리 완료
-- 작업 상태: 로컬 검증 완료. 기록 커밋의 원격 CI 재확인 후 develop 병합 예정이며 실제 병합 결과는 아래 PR에서 확인한다.
+- 작업 상태: 초기 로컬 검사 통과 후 원격 CI의 날짜 경계 테스트 오류를 재현·수정하고 UTC 전체 로컬 재검사를 통과했다. 최신 CI 확인 후 develop 병합 예정이며 실제 병합 결과는 아래 PR에서 확인한다.
 - 유형: 협업·검증·문서
 - 담당·검토: 사용자가 문제 수정·재검사 후 병합을 요청했고, Codex가 코드 검토와 검사 실행을 수행했다. 이번 검사를 사용자가 직접 수행한 것으로 기록하지 않는다.
 - 관련 PR: [#31](https://github.com/Cho-Mi-Kim/jibro/pull/31)
@@ -22,7 +22,15 @@
 - 저장형·일회성 조건 확인, 과거 기록, 공고 비교의 공통 개인화 정책과 사용자·공고·버전 경계를 검토했다. 일회성 답변의 비저장 처리와 비교 조회 실패 시 공개 안내 유지 경로를 확인했다.
 - 자동 공개의 출처·revision·검수 조건, 변경 안내의 버전 보존, 공식 자료 접근 호스트 제한과 문서 작업 프로세스의 크기·시간·동시 실행 제한을 확인했다.
 - 관리자 API 권한과 방문자 확인, 운영 프록시 설정 및 이전 커밋의 요청 제한 초기화 수정을 검토했다.
-- 이번 검토 범위에서 추가 수정이 필요한 병합 차단 결함은 발견하지 못했다. 제품 코드와 테스트 단정·제한 시간·skip 조건을 변경하지 않았다.
+- 초기 코드 검토에서는 추가 결함을 발견하지 못했으나, 기록 커밋 `9dd1e88`의 새 원격 CI에서 아래 테스트 오류를 발견해 병합을 보류했다. 제품 코드와 테스트 단정·제한 시간·skip 조건은 변경하지 않았다.
+
+### 원격 CI에서 발견한 UTC·한국 날짜 경계 오류
+
+[run 45456315626](https://github.com/Cho-Mi-Kim/jibro/actions/runs/45456315626)에서 `SourceReviewPublicationIntegrationTest.sourceReviewCannotRestoreBasicsWithWrongIdentityOrClosedRecruitment`의 미래 공고 거부 단정이 실패했다. 서비스의 `LhBasicReview`는 한국 날짜를 쓰지만, 테스트의 `LocalDate.now().plusDays(1)`은 JVM 기본 시간대를 사용했다. 실행 시 UTC는 11월 24일, 한국은 11월 25일이므로 테스트가 만든 날짜는 한국 기준 미래가 아닌 오늘이었다.
+
+`JAVA_TOOL_OPTIONS=-Duser.timezone=UTC`로 수정 전 해당 메서드를 실행해 같은 오류를 로컬에서도 재현했다. 테스트 `setup`에서 한국 기준 날짜를 한 번 계산하고 공고일·확인일·과거/미래 기준을 공유하도록 수정했다. 같은 클래스의 접수·현장 방문 일정도 이 기준에서 계산해 2026년 12월 이후 고정 일정 만료로 실패하지 않도록 했다. 기존 거부 단정과 공개 경계는 유지했다.
+
+수정 전 재현 로그·XML과 GitHub 실패 보고서는 `.tools/review/`에 별도로 보존했다. 제품의 공개 정책 변경이나 실패 테스트 제외로 우회하지 않았다.
 
 ## 검증·결과
 
@@ -39,7 +47,9 @@ Windows의 Node.js 24.22.2, JDK 17, 별도 PostgreSQL 17.6 환경에서 실행�
 
 일반 테스트에서 제외된 1개는 `JIBRO_GUIDE_LIVE_AUDIT=true`로 명시적으로 켜야 하는 공식 사이트 직접 접속 검사다. 로컬에서 제외된 인증서 갱신 검사와 실제 Nginx 경계 검사는 Linux CI 성공 여부를 함께 확인했다. 이전 기록의 간헐적 문서 작업 프로세스 실패는 이번 전체 실행에서 재발하지 않았으나, 이를 최초 실패 원인이 해결됐다는 증거로 사용하지 않는다.
 
-일반 빌드에 Java 포맷터 검사는 포함되지 않는다. Gradle 9 호환성 관련 기존 경고가 출력됐으며 현재 Gradle 8.14.6 빌드에는 실패가 없었다. 원시 로컬 로그는 커밋에서 제외되는 `.tools/review/`에 보관했다.
+위 표는 최초 코드 기준 로컬 검사 결과다. 수정 후에는 `JAVA_TOOL_OPTIONS=-Duser.timezone=UTC` 환경에서 `clean build integrationTest`를 다시 실행해 일반 1,009개 통과·기존 선택 검사 1개 제외, 통합 451개 전부 통과를 확인했다. 실행 시간은 5분이었다. 같은 시간대의 수정 전 단일 테스트 실패와 수정 후 전체 테스트 성공을 비교했다.
+
+변경한 Java 파일은 저장소의 공유 스타일 XML과 실제 IntelliJ 2025.1.4.1을 사용하는 `spotlessCheck`도 통과했다. 일회성 init script로 검사 대상을 변경 파일에만 제한했으며 SKIPPED가 아닌 검사 태스크 실행을 확인했다. 최초 init-script 상대 경로 오류는 바로잡고 재실행했으며 성공으로 계산하지 않았다. 일반 빌드 자체에는 Java 포맷터 검사가 포함되지 않는다. Gradle 9 호환성 관련 기존 경고가 출력됐으며 현재 Gradle 8.14.6 빌드에는 실패가 없었다. 원시 로컬 로그는 커밋에서 제외되는 `.tools/review/`에 보관했다.
 
 ## 기여·한계
 
@@ -59,3 +69,4 @@ Windows의 Node.js 24.22.2, JDK 17, 별도 PostgreSQL 17.6 환경에서 실행�
 
 - `docs/history/entries/2026-11-25-pr31-merge-review.md`
 - `docs/history/README.md` — 작업 기록 목록 자동 갱신
+- `backend/src/test/java/org/jibro/notice/SourceReviewPublicationIntegrationTest.java` — 한국 기준 날짜와 상대 일정 fixture

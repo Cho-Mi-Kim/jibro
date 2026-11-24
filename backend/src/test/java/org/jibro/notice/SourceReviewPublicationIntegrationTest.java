@@ -55,27 +55,30 @@ class SourceReviewPublicationIntegrationTest {
     SourceReviewModels.Package review;
     Verification receipt;
     UUID id;
+    LocalDate today;
     static final String URL = "https://apply.lh.or.kr/detail";
     static final String FILE = "https://apply.lh.or.kr/notice.pdf";
     static final String HTML = "<main><p>공고일 2026.11.04</p><a href='/notice.pdf'>공고문</a></main>";
 
     @BeforeEach
     void setup() throws Exception {
+        // Publication rules use Korea's date, even when the CI JVM runs in UTC.
+        today = LocalDate.now(ZoneId.of("Asia/Seoul"));
         when(http.html(URL)).thenReturn(HTML);
         when(http.fetchForSourceReview(FILE)).thenReturn(new AttachmentFingerprintClient.Fingerprint("a".repeat(64), 123, "application/pdf"));
-        id = notices.importSource(new LhNoticeClient.Item("LH:" + UUID.randomUUID(), "실제 출처 검토 테스트", "서울", "국민임대", URL, LocalDate.now(), "b".repeat(64)));
+        id = notices.importSource(new LhNoticeClient.Item("LH:" + UUID.randomUUID(), "실제 출처 검토 테스트", "서울", "국민임대", URL, today, "b".repeat(64)));
         var n = notices.entity(id);
         n.basicReview = "PASS";
         entities.flush();
         var draft = store.enqueue(id, false);
         var job = store.claim(id);
         store.finish(job, List.of(new Source("공식 상세 본문", URL, "a".repeat(64), "EXTRACTED", "", List.of(), OfficialDetailParser.parse(HTML, URL).parts()), new Source("공고문", FILE, "a".repeat(64), "EXTRACTED", "", List.of(), List.of(new Part("1쪽", "신청 자격")))), "READY", "");
-        var e = new Evidence("공고문 1쪽", URL, LocalDate.now().toString());
+        var e = new Evidence("공고문 1쪽", URL, today.toString());
         var content = new Content("원문 대조 안내", e, List.of(e), List.of(new Question("housing", "무주택 기준을 확인했나요?", "가구 범위를 공식 원문에서 확인합니다.", e)),
                 List.of(new DocumentTemplate("consent", "개인정보 동의서", null, "공고 첨부 양식", "LH", URL, e)),
-                List.of(new ScheduleTemplate("apply-start", "신청 접수 시작", "2026-11-25", e), new ScheduleTemplate("apply-end", "신청 접수 마감", "2026-12-16", e)));
+                List.of(new ScheduleTemplate("apply-start", "신청 접수 시작", today.toString(), e), new ScheduleTemplate("apply-end", "신청 접수 마감", today.plusDays(21).toString(), e)));
         review = new SourceReviewModels.Package("test-source-review", id, draft.revision(), UUID.fromString(draft.id()), "PASS", "공식 원문 전체 대조", List.of(),
-                List.of(new SourceReview(URL, "a".repeat(64), "공식 상세 본문", "DETAIL", "상세 확인"), new SourceReview(FILE, "a".repeat(64), "공고문", "RULES", "자격·서류·일정 확인")), content, LocalDate.of(2026, 11, 25), LocalDate.of(2026, 12, 16));
+                List.of(new SourceReview(URL, "a".repeat(64), "공식 상세 본문", "DETAIL", "상세 확인"), new SourceReview(FILE, "a".repeat(64), "공고문", "RULES", "자격·서류·일정 확인")), content, today, today.plusDays(21));
         receipt = receipt(review, Instant.now());
     }
 
@@ -136,12 +139,12 @@ class SourceReviewPublicationIntegrationTest {
         n.sourceClosed = true;
         assertThrows(RuntimeException.class, () -> publication.apply(review, receipt));
         n.sourceClosed = false;
-        n.endDate = LocalDate.now().minusDays(1);
+        n.endDate = today.minusDays(1);
         assertThrows(RuntimeException.class, () -> publication.apply(review, receipt));
         n.endDate = null;
-        n.publishedDate = LocalDate.now().plusDays(1);
+        n.publishedDate = today.plusDays(1);
         assertThrows(RuntimeException.class, () -> publication.apply(review, receipt));
-        n.publishedDate = LocalDate.now();
+        n.publishedDate = today;
         var c = review.content();
         var closedContent = new Content(c.summary() + " 공식 원문에서 조기 접수마감 확인", c.evidence(), c.attachments(), c.questions(), c.documents(), c.schedules(),
                 c.reviewIssues(), new OfficialApplicationClosure("공식 원문에서 조기 접수마감 확인", c.evidence()));
@@ -253,7 +256,7 @@ class SourceReviewPublicationIntegrationTest {
         var n = notices.entity(id);
         var c = notices.content(id);
         var schedules = new ArrayList<>(c.schedules());
-        schedules.add(new ScheduleTemplate("visit", "현장 접수 14:00~16:00", "2026-12-01", c.evidence()));
+        schedules.add(new ScheduleTemplate("visit", "현장 접수 14:00~16:00", today.plusDays(6).toString(), c.evidence()));
         n.content = json.writeValueAsString(new Content(c.summary(), c.evidence(), c.attachments(), c.questions(), c.documents(), schedules));
         n.revision++;
         entities.flush();
@@ -357,7 +360,7 @@ class SourceReviewPublicationIntegrationTest {
         var c = notices.content(id);
         var ancillary = new Evidence("기존 지자체 후속 공지", "https://www.wonju.go.kr/www/selectBbsNttView.do?bbsNo=144&key=220&nttNo=495725", "2026-11-20");
         var schedules = new ArrayList<>(c.schedules());
-        schedules.add(new ScheduleTemplate("office-followup", "방문 접수 안내", "2026-12-01", ancillary));
+        schedules.add(new ScheduleTemplate("office-followup", "방문 접수 안내", today.plusDays(6).toString(), ancillary));
         n.content = json.writeValueAsString(new Content(c.summary(), c.evidence(), c.attachments(), c.questions(), c.documents(), schedules));
         entities.flush();
         var next = new Content(c.summary(), c.evidence(), c.attachments(), p.content().questions(), c.documents(), schedules);
@@ -379,7 +382,7 @@ class SourceReviewPublicationIntegrationTest {
         var c = notices.content(id);
         var ancillary = new Evidence("기존 지자체 공지", "https://www.wonju.go.kr/www/selectBbsNttView.do?bbsNo=144&key=220&nttNo=495725", "2026-11-20");
         var schedules = new ArrayList<>(c.schedules());
-        schedules.add(new ScheduleTemplate("office-followup", "방문 접수 안내", "2026-12-01", ancillary));
+        schedules.add(new ScheduleTemplate("office-followup", "방문 접수 안내", today.plusDays(6).toString(), ancillary));
         n.content = json.writeValueAsString(new Content(c.summary(), c.evidence(), c.attachments(), c.questions(), c.documents(), schedules));
         entities.flush();
         var next = new Content(c.summary(), c.evidence(), c.attachments(), List.of(new Question("housing", "새 자격인가요?", "추가 자격을 확인해요.", ancillary)), c.documents(), schedules);
@@ -609,7 +612,7 @@ class SourceReviewPublicationIntegrationTest {
         when(http.html(detailUrl)).thenReturn(html);
         when(http.fetchForSourceReview(pdfUrl)).thenReturn(new AttachmentFingerprintClient.Fingerprint("a".repeat(64), 123, "application/pdf"));
         id = notices.importSource(new LhNoticeClient.Item(LhNoticeClient.sourceKey(detailUrl), "PDF 출처 재검수 테스트", "경북", "행복주택",
-                detailUrl, LocalDate.now(), "b".repeat(64)));
+                detailUrl, today, "b".repeat(64)));
         notices.entity(id).basicReview = "PASS";
         entities.flush();
         var draft = store.enqueue(id, false);
@@ -617,7 +620,7 @@ class SourceReviewPublicationIntegrationTest {
         store.finish(job, List.of(new Source("공식 상세 본문", detailUrl, "a".repeat(64), "EXTRACTED", "", List.of(), OfficialDetailParser.parse(html, detailUrl).parts()),
                 new Source("공고문", pdfUrl, "a".repeat(64), "EXTRACTED", "", List.of(), List.of(new Part("1쪽", "신청 자격")))), "READY", "");
         var c = review.content();
-        var pdfEvidence = new Evidence("공고문", pdfUrl, LocalDate.now().toString());
+        var pdfEvidence = new Evidence("공고문", pdfUrl, today.toString());
         var pdfContent = new Content(c.summary(), pdfEvidence, List.of(pdfEvidence),
                 List.of(new Question("housing", "주택 기준은 무엇인가요?", "공식 원문 주택 기준을 확인해요.", pdfEvidence)),
                 List.of(new DocumentTemplate("consent", "동의서", null, "공식 양식을 작성해요.", "LH", pdfUrl, pdfEvidence)),
@@ -687,7 +690,7 @@ class SourceReviewPublicationIntegrationTest {
     void detailRankScheduleAloneCannotSilentlyLoseKnownApplicationBoundary() {
         var c = review.content();
         var content = new Content(c.summary(), c.evidence(), c.attachments(), c.questions(), c.documents(),
-                List.of(new ScheduleTemplate("rank", "3순위 신청 접수 (10:00~16:00)", "2026-12-16", c.evidence())));
+                List.of(new ScheduleTemplate("rank", "3순위 신청 접수 (10:00~16:00)", review.endDate().toString(), c.evidence())));
         var p = new SourceReviewModels.Package(review.packageId(), id, review.revision(), review.extractionId(), "PASS", review.reviewNotes(), List.of(), review.sourceReviews(), content, review.startDate(), review.endDate());
         assertThrows(IllegalArgumentException.class, () -> publication.apply(p, receipt(p, Instant.now())));
     }
@@ -730,7 +733,7 @@ class SourceReviewPublicationIntegrationTest {
         var partial = periodReview(review.startDate(), null, List.of(review.content().schedules().get(0)), "application-period");
         var c = partial.content();
         String reason = "공식 상세의 공고상태가 접수마감입니다. 실제 종료일은 확인되지 않았습니다.";
-        var evidence = new Evidence("공식 상세 · 공고상태 접수마감", URL, LocalDate.now().toString());
+        var evidence = new Evidence("공식 상세 · 공고상태 접수마감", URL, today.toString());
         var content = new Content(c.summary() + " " + reason, c.evidence(), c.attachments(), c.questions(),
                 c.documents(), c.schedules(), c.reviewIssues(), new OfficialApplicationClosure(reason, evidence));
         var p = new SourceReviewModels.Package(partial.packageId(), id, partial.revision(), partial.extractionId(),
