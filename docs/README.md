@@ -1,6 +1,6 @@
 # 프로젝트 문서 안내
 
-최종 수정일: 2026-11-24
+최종 수정일: 2026-11-25
 
 현재 PR #31의 공유 범위와 검사 결과는 [업로드 기록](history/entries/2026-11-24-team-review-upload.md)과 [충돌 정리 기록](history/entries/2026-11-24-pr31-conflict-resolution.md)을 확인합니다. [개발 인수인계](developer-handoff.md)는 2026-11-15 PR #26 기준의 과거 현황으로 보존합니다. 당시 미구현·미연결 목록을 현재 상태로 해석하지 않습니다.
 
@@ -27,6 +27,8 @@
 | 시각 참고 자료          | [문서 이미지 안내](assets/README.md)                                                                     | 화면설계서가 참조하는 기존 통합 목업 10장                               |
 
 ## 읽는 순서
+
+개인 이력서·포트폴리오 작성에는 [김윤정 기여 정리](portfolio/kim-yunjeong-contributions.md)와 [작업 기록·PR 근거](portfolio/contribution-evidence.md)를 확인합니다. 2026-11-16까지의 기여 사례를 중심으로 11월 25일 사용자 후속 설명을 보완했습니다. 본인 결정·직접 재검증·코드 검토, AI 보조 개발, 다른 계정의 기능 확장을 구분하며 현재 운영 상태는 후속 기록을 함께 확인합니다.
 
 개발을 인계받았다면 위 최신 작업 기록과 [개발 시작 안내](getting-started.md)를 먼저 읽고, [이전 인수인계 문서](developer-handoff.md)의 H01~H12는 이후 작업 기록과 함께 확인합니다.
 

@@ -132,6 +132,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [문의·개인정보 페이지 로고와 공통 하단 정리](entries/2026-11-24-public-page-branding.md) | 확인 필요 |
 | 확인 필요 | [사이트 기본 운영 항목 점검](entries/2026-11-24-site-basics-audit.md) | 확인 필요 |
 | 확인 필요 | [첫 접속 Cloudflare 사람 확인](entries/2026-11-24-visitor-verification.md) | 확인 필요 |
+| 2026-11-25 | [최신 develop 동기화와 문서·포트폴리오 보존 및 공유 검토](entries/2026-11-25-local-develop-sync.md) | 실행 근거 정리 |
 | 2026-11-25 | [main 승격 검토 중 발견한 Pages 내부 링크 수정](entries/2026-11-25-main-pages-release.md) | 실행 근거 정리 |
 | 2026-11-25 | [PR #31 병합 전 코드 검토와 독립 환경 검증](entries/2026-11-25-pr31-merge-review.md) | 실행 근거 정리 완료 |
 | 2026-11-24 | [새 검사 서버에서 요청 한도가 한 건 빨리 소진되는 문제 수정](entries/2026-11-24-edge-rate-limit-initialization.md) | 근거 정리·담당자 검토 전 |
@@ -174,9 +175,11 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 2026-11-20 | [포항블루밸리 행복주택 조건 질문·답변 점검](entries/2026-11-20-pohang-condition-audit.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-16 | [수집 공고의 접수 시간과 회차별 일정](entries/2026-11-16-automatic-intake-times.md) | 검증 기록 |
 | 2026-11-16 | [수집 공고의 상시 마감과 날짜 미확정 접수 시각](entries/2026-11-16-automatic-rolling-intake.md) | 확인 필요 |
+| 2026-11-16 | [작업 기록·GitHub PR 기반 개인 기여와 포트폴리오 문안 정리](entries/2026-11-16-contribution-portfolio.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-16 | [기존 수집 공고의 접수 시각·회차 재점검](entries/2026-11-16-current-intake-backfill.md) | 검증 완료 |
 | 2026-11-16 | [Windows 개발 환경의 Java 서식 검사](entries/2026-11-16-java-formatter-local.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-16 | [main 반영 검증에서 발견한 UTC·한국 날짜 경계 수정](entries/2026-11-16-main-pages-release.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-16 | [캡스톤 포스터의 로컬 모바일 화면을 인쇄 해상도로 교체](entries/2026-11-16-poster-print-captures.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-16 | [관심 공고에서 저장한 두 공고 비교](entries/2026-11-16-saved-notice-comparison.md) | 확인 필요 |
 | 2026-11-16 | [관심 공고 카드 미리보기](entries/2026-11-16-saved-notice-preview.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [접수 중·예정 공고의 조건과 정정 근거 재검토](entries/2026-11-15-active-conditions-review.md) | 확인 필요 |
