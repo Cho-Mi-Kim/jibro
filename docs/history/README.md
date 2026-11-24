@@ -132,6 +132,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [문의·개인정보 페이지 로고와 공통 하단 정리](entries/2026-11-24-public-page-branding.md) | 확인 필요 |
 | 확인 필요 | [사이트 기본 운영 항목 점검](entries/2026-11-24-site-basics-audit.md) | 확인 필요 |
 | 확인 필요 | [첫 접속 Cloudflare 사람 확인](entries/2026-11-24-visitor-verification.md) | 확인 필요 |
+| 2026-11-25 | [main 승격 검토 중 발견한 Pages 내부 링크 수정](entries/2026-11-25-main-pages-release.md) | 실행 근거 정리 |
 | 2026-11-25 | [PR #31 병합 전 코드 검토와 독립 환경 검증](entries/2026-11-25-pr31-merge-review.md) | 실행 근거 정리 완료 |
 | 2026-11-24 | [새 검사 서버에서 요청 한도가 한 건 빨리 소진되는 문제 수정](entries/2026-11-24-edge-rate-limit-initialization.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-24 | [최종 검토본과 운영 사이트 일치 확인](entries/2026-11-24-final-production-verification.md) | 근거 정리·담당자 검토 전 |

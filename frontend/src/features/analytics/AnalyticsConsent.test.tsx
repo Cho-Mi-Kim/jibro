@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import { beforeEach, expect, it } from 'vitest';
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
+import { SiteFooter } from '../site/SiteFooter';
 import { AnalyticsConsent } from './AnalyticsConsent';
 import {
     AnalyticsClient,
@@ -11,6 +12,35 @@ import {
 beforeEach(() => {
     localStorage.clear();
     document.querySelector('#jibro-analytics')?.remove();
+});
+
+afterEach(() => vi.unstubAllEnvs());
+
+it('keeps footer and reopened analytics privacy links inside the Pages project', () => {
+    vi.stubEnv('MODE', 'pages-demo');
+    vi.stubEnv('BASE_URL', '/jibro/');
+    render(
+        <MemoryRouter>
+            <SiteFooter />
+            <AnalyticsConsent
+                client={
+                    new AnalyticsClient('', 'https://cho-mi-kim.github.io', '')
+                }
+            />
+        </MemoryRouter>,
+    );
+    fireEvent.click(screen.getByRole('button', { name: '통계 설정' }));
+    expect(
+        screen.getByRole('link', { name: '개인정보처리방침 보기' }),
+    ).toHaveAttribute('href', '/jibro/privacy.html');
+    expect(
+        screen.getByRole('link', { name: '개인정보처리방침' }),
+    ).toHaveAttribute('href', '/jibro/privacy.html');
+    expect(screen.getByRole('link', { name: '문의 안내' })).toHaveAttribute(
+        'href',
+        '/jibro/contact.html',
+    );
+    expect(document.querySelector('#jibro-analytics')).toBeNull();
 });
 
 it('lets a visitor reject, reopen settings, allow and withdraw collection', () => {

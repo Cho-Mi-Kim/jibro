@@ -37,7 +37,7 @@ export function metadata(
 function page(title, body, pathname, noindex = false) {
     return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} · 집으로</title>${metadata(title + ' · 집으로', site.description, pathname)}${noindex ? '<meta name="robots" content="noindex,follow">' : ''}<style>${css}${brandCss}</style></head><body><header><a href="/" aria-label="집으로 홈"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10 12 3l9 7v11h-7v-7h-4v7H3Z" /></svg>집으로</a></header><main><h1>${escape(title)}</h1>${body}</main><footer>${link(['홈', '/'])}${link(['공고 찾기', '/notices'])}${link(['문의 안내', '/contact'])}${link(['개인정보처리방침', '/privacy'])}${link(['통계 설정', '/my#analytics-settings'])}</footer></body></html>`;
 }
-export function publicPages(analytics = false) {
+export function publicPages(analytics = false, base = '/') {
     const sections = site.privacy
         .filter((s) => !s.analyticsOnly || analytics)
         .map(
@@ -45,7 +45,7 @@ export function publicPages(analytics = false) {
                 `<section><h2>${escape(s.title)}</h2>${s.paragraphs.map((p) => `<p>${escape(p)}</p>`).join('')}${s.rows ? `<div class="table" tabindex="0" role="region" aria-label="${escape(s.title)} 표"><table><thead><tr>${s.headers.map((h) => `<th scope="col">${escape(h)}</th>`).join('')}</tr></thead><tbody>${s.rows.map((row) => `<tr>${row.map((c) => `<td>${escape(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : ''}${s.links ? `<ul>${s.links.map((l) => `<li>${link(l)}</li>`).join('')}</ul>` : ''}</section>`,
         )
         .join('');
-    return {
+    const pages = {
         'privacy.html': page(
             '개인정보처리방침',
             `<p class="muted">시행일 ${site.effectiveDate} · ${escape(site.operator)}</p>${sections}`,
@@ -65,6 +65,28 @@ export function publicPages(analytics = false) {
         'robots.txt': `User-agent: *\nAllow: /\n${['api/', 'admin', 'preparations', 'saved', 'archive', 'alerts', 'settings', 'login', 'signup', 'auth/', 'account/', 'recovery', 'development', 'review-', 'pdf-viewer.html', 'evidence-viewer.html', 'evidence-dynamic.html', 'jibro-code-model.html'].map((p) => 'Disallow: /' + p).join('\n')}\nSitemap: ${site.origin}/sitemap.xml\n`,
         'sitemap.xml': `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/', '/notices', '/guide', '/contact', '/privacy'].map((p) => `<url><loc>${site.origin}${p}</loc><lastmod>${site.effectiveDate}</lastmod></url>`).join('')}</urlset>`,
     };
+    if (base !== '/') {
+        // Pages serves documents as files and application screens via HashRouter.
+        const destinations = new Map([
+            ['/', `${base}#/`],
+            ['/notices', `${base}#/notices`],
+            ['/contact', `${base}contact.html`],
+            ['/privacy', `${base}privacy.html`],
+            ['/my#analytics-settings', `${base}#/my#analytics-settings`],
+        ]);
+        for (const name of Object.keys(pages).filter((name) =>
+            name.endsWith('.html'),
+        )) {
+            pages[name] = pages[name].replace(
+                /href="([^"]*)"/g,
+                (attribute, url) =>
+                    destinations.has(url)
+                        ? `href="${escape(destinations.get(url))}"`
+                        : attribute,
+            );
+        }
+    }
+    return pages;
 }
 
 export function appRouteConfig(source) {
@@ -110,8 +132,12 @@ export function appRouteConfig(source) {
 }
 
 export function publicSitePlugin({ analytics = false } = {}) {
+    let base = '/';
     return {
         name: 'jibro-public-site',
+        configResolved(config) {
+            base = config.mode === 'pages-demo' ? config.base : '/';
+        },
         transformIndexHtml(html) {
             return html
                 .replace(
@@ -129,7 +155,7 @@ export function publicSitePlugin({ analytics = false } = {}) {
                         : pathname === '/contact'
                           ? 'contact.html'
                           : pathname.slice(1);
-                const pages = publicPages(analytics);
+                const pages = publicPages(analytics, base);
                 if (!(name in pages)) return next();
                 res.statusCode = name === '404.html' ? 404 : 200;
                 res.setHeader(
@@ -145,7 +171,7 @@ export function publicSitePlugin({ analytics = false } = {}) {
         },
         generateBundle() {
             for (const [fileName, source] of Object.entries(
-                publicPages(analytics),
+                publicPages(analytics, base),
             ))
                 this.emitFile({ type: 'asset', fileName, source });
             const source = fs.readFileSync(
