@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { expect, it, vi } from 'vitest';
@@ -7,12 +7,11 @@ import type { DocumentItem, Preparation } from '../housing/types';
 import { DocumentEditor } from './DocumentEditor';
 
 const scrollToCard = vi.fn();
-vi.mock('./usePreparationCardSelection', () => ({
-    usePreparationCardSelection: () => ({
-        cardRef: { current: null },
-        onClick: () => {},
-        scrollToCard,
-    }),
+vi.mock('../../shared/ui/useScrollToCard', () => ({
+    useScrollToCard: () => {
+        const cardRef = { current: null };
+        return { cardRef, scrollToCard: () => scrollToCard(cardRef.current) };
+    },
 }));
 vi.mock('./usePreparation', () => ({ useSaved: () => vi.fn() }));
 vi.mock('../../shared/ui/useUnsavedChanges', () => ({
@@ -74,18 +73,34 @@ it('서류 카드 본문으로 접고 펼칠 때마다 스크롤한다', async (
     );
     const button = screen.getByRole('button', { name: /공급신청서/ });
     expect(button).toHaveAttribute('aria-expanded', 'false');
+    expect(button).toHaveAccessibleName('공급신청서');
+    expect(button).toHaveAccessibleDescription('미확인');
+    expect(screen.getByText('제출 대상')).not.toBeVisible();
+    expect(screen.getByText('발급 방법')).not.toBeVisible();
+    await userEvent.click(button);
     expect(screen.getByText('예비신혼부부')).toBeVisible();
     expect(screen.queryByText('신혼부부')).not.toBeInTheDocument();
-    expect(within(button.parentElement!).getByText('발급처')).toBeVisible();
-    await userEvent.click(
-        screen.getByText('공급신청서', { selector: 'strong' }),
-    );
+    expect(screen.getByText('발급 방법')).toBeVisible();
     expect(button).toHaveAttribute('aria-expanded', 'true');
-    await userEvent.click(
-        screen.getByText('공급신청서', { selector: 'strong' }),
-    );
-    expect(button).toHaveAttribute('aria-expanded', 'false');
+    const summary = screen.getByText('상태·메모 수정');
+    const options = summary.closest('details')!;
+    await userEvent.click(summary);
+    await waitFor(() => expect(scrollToCard).toHaveBeenCalledTimes(2));
+    expect(scrollToCard).toHaveBeenLastCalledWith(options);
+    await userEvent.selectOptions(screen.getByRole('combobox'), 'NEEDED');
+    await userEvent.type(screen.getByRole('textbox'), '발급 예정');
     expect(scrollToCard).toHaveBeenCalledTimes(2);
+    await userEvent.click(summary);
+    await waitFor(() => expect(scrollToCard).toHaveBeenCalledTimes(3));
+    expect(scrollToCard).toHaveBeenLastCalledWith(
+        button.closest('[data-active]'),
+    );
+    expect(options.open).toBe(false);
+    expect(button).toHaveAttribute('aria-expanded', 'true');
+    await userEvent.click(screen.getByText('예비신혼부부'));
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.getByText('예비신혼부부')).not.toBeVisible();
+    expect(scrollToCard).toHaveBeenCalledTimes(4);
 });
 
 it('기존 준비 기록에도 검증된 온라인 발급 링크를 표시한다', () => {
@@ -125,11 +140,9 @@ it('기존 준비 기록에도 검증된 온라인 발급 링크를 표시한다
             />
         </QueryClientProvider>,
     );
-    const card = screen.getByRole('button', {
-        name: /신청자 주민등록표등본/,
-    }).parentElement!;
-    expect(within(card).getByText('행정복지센터')).toBeVisible();
-    expect(within(card).getByText('모든 신청자')).toBeVisible();
+    const facts = screen.getByText('발급 방법').closest('dl')!;
+    expect(within(facts).getByText('행정복지센터')).toBeVisible();
+    expect(within(facts).getByText('모든 신청자')).toBeVisible();
     expect(
         screen.getByRole('link', { name: /정부24 주민등록표 발급/ }),
     ).toHaveAttribute(

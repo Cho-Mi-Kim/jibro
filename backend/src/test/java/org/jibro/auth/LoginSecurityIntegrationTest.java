@@ -96,10 +96,10 @@ class LoginSecurityIntegrationTest {
         assertThrows(JwtException.class, () -> decoder.decode(previous.accessToken()));
         assertThrows(ApiException.class, () -> auth.startTrial(previous.refresh()));
         mvc.perform(post("/api/v1/auth/refresh").with(csrf()).cookie(new Cookie("jibro_refresh", previous.refresh())))
-            .andExpect(status().isUnauthorized())
-            .andExpect(cookie().maxAge("jibro_refresh", 0))
-            .andExpect(cookie().path("jibro_refresh", "/api/v1/auth"))
-            .andExpect(cookie().httpOnly("jibro_refresh", true));
+                .andExpect(status().isUnauthorized())
+                .andExpect(cookie().maxAge("jibro_refresh", 0))
+                .andExpect(cookie().path("jibro_refresh", "/api/v1/auth"))
+                .andExpect(cookie().httpOnly("jibro_refresh", true));
         // Once the browser honors the deletion cookie, a new trial has a distinct valid session.
         var fresh = auth.startTrial(null);
         users.add(UUID.fromString(fresh.user().id()));
@@ -120,9 +120,9 @@ class LoginSecurityIntegrationTest {
         decoder.decode(a.accessToken());
 
         mvc.perform(post("/api/v1/auth/logout").with(csrf()).cookie(new Cookie("jibro_refresh", renewed.refresh())))
-            .andExpect(status().isNoContent()).andExpect(cookie().maxAge("jibro_refresh", 0));
+                .andExpect(status().isNoContent()).andExpect(cookie().maxAge("jibro_refresh", 0));
         mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer " + a.accessToken()))
-            .andExpect(status().isUnauthorized());
+                .andExpect(status().isUnauthorized());
         assertThrows(JwtException.class, () -> decoder.decode(renewed.accessToken()));
         assertThrows(ApiException.class, () -> auth.refresh(renewed.refresh()));
         assertEquals(b.user().id(), auth.refresh(b.refresh()).user().id());
@@ -133,7 +133,7 @@ class LoginSecurityIntegrationTest {
         var a = auth.login(member(), PASSWORD, address());
         var next = auth.refresh(a.refresh());
         mvc.perform(post("/api/v1/auth/logout").cookie(new Cookie("jibro_refresh", a.refresh())))
-            .andExpect(status().isForbidden());
+                .andExpect(status().isForbidden());
         decoder.decode(next.accessToken());
         // Supports the case where refresh won a race before logout acquired the owner lock.
         auth.logout(a.refresh());
@@ -183,7 +183,7 @@ class LoginSecurityIntegrationTest {
     void validBearerCanLogoutItsOwnSessionWithoutACookie() throws Exception {
         var a = auth.login(member(), PASSWORD, address());
         mvc.perform(post("/api/v1/auth/logout").with(csrf()).header("Authorization", "Bearer " + a.accessToken()))
-            .andExpect(status().isNoContent());
+                .andExpect(status().isNoContent());
         assertThrows(JwtException.class, () -> decoder.decode(a.accessToken()));
     }
 
@@ -194,8 +194,8 @@ class LoginSecurityIntegrationTest {
         var issued = decoder.decode(a.accessToken());
         for (String sid : Arrays.asList(null, sid(b), "not-a-session")) {
             var claims = JwtClaimsSet.builder().issuer("jibro").audience(List.of("jibro-web"))
-                .subject(a.user().id()).issuedAt(Instant.now()).expiresAt(Instant.now().plusSeconds(900))
-                .claim("role", "USER").claim("sv", issued.getClaim("sv"));
+                    .subject(a.user().id()).issuedAt(Instant.now()).expiresAt(Instant.now().plusSeconds(900))
+                    .claim("role", "USER").claim("sv", issued.getClaim("sv"));
             if (sid != null) claims.claim("sid", sid);
             String token = encoder.encode(JwtEncoderParameters.from(JwsHeader.with(MacAlgorithm.HS256).build(), claims.build())).getTokenValue();
             assertThrows(JwtException.class, () -> decoder.decode(token));
@@ -247,15 +247,15 @@ class LoginSecurityIntegrationTest {
     void ipBudgetCannotBeBypassedWithSpoofedForwardingHeaders() throws Exception {
         String ip = "203.0.113.87";
         addresses.add(ip);
-        for (int i = 0; i < 30; i++) limits.begin(email(), ip);
+        for (int i = 0; i < 30; i++) limits.begin(email(), ip, LoginAttemptLimiter.Purpose.LOGIN);
         String candidate = email();
         mvc.perform(post("/api/v1/auth/login").with(csrf()).with(request -> {
-                    request.setRemoteAddr(ip);
-                    return request;
-                })
-                .header("X-Forwarded-For", "198.51.100.80").header("X-Real-IP", "198.51.100.81")
-                .contentType("application/json").content("{\"email\":\"" + candidate + "\",\"password\":\"wrong\"}"))
-            .andExpect(status().isTooManyRequests()).andExpect(jsonPath("$.code").value("LOGIN_RATE_LIMIT"));
+                            request.setRemoteAddr(ip);
+                            return request;
+                        })
+                        .header("X-Forwarded-For", "198.51.100.80").header("X-Real-IP", "198.51.100.81")
+                        .contentType("application/json").content("{\"email\":\"" + candidate + "\",\"password\":\"wrong\"}"))
+                .andExpect(status().isTooManyRequests()).andExpect(jsonPath("$.code").value("LOGIN_RATE_LIMIT"));
         // The same unknown account on a different real address is not IP-blocked.
         assertEquals(401, assertThrows(ApiException.class, () -> auth.login(candidate, "wrong", address())).status);
     }

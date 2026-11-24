@@ -2,6 +2,7 @@ package org.jibro.notice;
 
 import java.util.List;
 import java.util.UUID;
+
 import org.jibro.collection.review.ApplicationPeriodCompiler;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -24,6 +25,7 @@ public class ApplicationPeriodReviewRepository {
                 ORDER BY x.created_at DESC,x.id DESC LIMIT 1
             ) e ON true WHERE n.source_key LIKE 'LH:%%' AND n.basic_review='PASS'
             AND NOT n.automatic_review_blocked AND n.lifecycle_state='NORMAL'
+            AND NOT EXISTS(SELECT 1 FROM notice_correction c WHERE c.original_notice_id=n.id)
             AND n.source_fingerprint IS NOT NULL AND n.collected_at IS NOT NULL
             AND e.source_fingerprint=n.source_fingerprint AND e.status IN ('READY','PARTIAL')
             AND NOT EXISTS(SELECT 1 FROM review_audit a WHERE a.notice_id=n.id)
@@ -35,7 +37,11 @@ public class ApplicationPeriodReviewRepository {
 
     boolean matchesSource(UUID extractionId, String sourceFingerprint) {
         return Boolean.TRUE.equals(db.queryForObject(
-            "SELECT source_fingerprint=? FROM notice_extraction WHERE id=?", Boolean.class, sourceFingerprint, extractionId));
+            """
+                SELECT source_fingerprint=? AND NOT EXISTS(
+                    SELECT 1 FROM notice_correction c WHERE c.original_notice_id=e.notice_id
+                ) FROM notice_extraction e WHERE id=?
+                """, Boolean.class, sourceFingerprint, extractionId));
     }
 
     boolean alreadyReviewed(UUID extractionId, String evidenceFingerprint) {
@@ -47,9 +53,9 @@ public class ApplicationPeriodReviewRepository {
     void record(UUID noticeId, UUID extractionId, int sourceRevision, int resultRevision, String evidenceFingerprint,
                 String decision, ApplicationPeriodCompiler.Result result) {
         db.update("""
-            INSERT INTO application_period_review(id,notice_id,extraction_id,source_revision,result_revision,
-                evidence_fingerprint,policy,decision,result) VALUES(?,?,?,?,?,?,?,?,?::jsonb)
-            """, UUID.randomUUID(), noticeId, extractionId, sourceRevision, resultRevision,
+                INSERT INTO application_period_review(id,notice_id,extraction_id,source_revision,result_revision,
+                    evidence_fingerprint,policy,decision,result) VALUES(?,?,?,?,?,?,?,?,?::jsonb)
+                """, UUID.randomUUID(), noticeId, extractionId, sourceRevision, resultRevision,
             evidenceFingerprint, ApplicationPeriodCompiler.POLICY, decision, json.writeValueAsString(result));
     }
 }

@@ -6,7 +6,9 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import javax.net.ssl.SSLException;
 
-/** Only transport failures and explicit provider throttling/server failures are retryable. */
+/**
+ * Only transport failures and explicit provider throttling/server failures are retryable.
+ */
 public final class CollectionFailure extends IOException {
     private final boolean retryable;
     private final Duration retryAfter;
@@ -30,7 +32,11 @@ public final class CollectionFailure extends IOException {
 
     public static Duration delay(Throwable error, int retriesUsed) {
         if (error instanceof SourceResponse.Rejected rejected) return delay(rejected.getCause(), retriesUsed);
-        long seconds = switch (retriesUsed) { case 0 -> 60; case 1 -> 300; default -> 900; };
+        long seconds = switch (retriesUsed) {
+            case 0 -> 60;
+            case 1 -> 300;
+            default -> 900;
+        };
         Duration base = Duration.ofSeconds(seconds);
         if (error instanceof CollectionFailure failure && failure.retryAfter != null && failure.retryAfter.compareTo(base) > 0)
             return failure.retryAfter;
@@ -51,6 +57,8 @@ public final class CollectionFailure extends IOException {
             if (result.isNegative()) return Duration.ZERO;
             now.plus(result); // Reject values outside the supported instant range instead of overflowing the queue.
             return result;
-        } catch (RuntimeException ignored) { return null; }
+        } catch (RuntimeException ignored) {
+            return null;
+        }
     }
 }

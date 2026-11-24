@@ -6,6 +6,7 @@ import java.time.Instant;
 import java.util.*;
 
 import org.jibro.auth.AccountMail;
+import org.jibro.auth.LoginAttemptLimiter;
 import org.jibro.global.common.ApiException;
 import org.jibro.preparation.PreparationDeletionRepository.Owner;
 import org.jibro.preparation.PreparationDeletionRepository.Preparation;
@@ -13,19 +14,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Destruction has its own owner/revision-bound proof; account deletion tickets are never accepted. */
+/**
+ * Destruction has its own owner/revision-bound proof; account deletion tickets are never accepted.
+ */
 @Service
 public class PreparationDeletionService {
-    public record Details(String title, int revision, boolean trial, boolean passwordLogin, String mailMode) {}
-    public record Confirmation(int revision, String confirmation, String password, String code) {}
+    public record Details(String title, int revision, boolean trial, boolean passwordLogin, String mailMode) {
+    }
+
+    public record Confirmation(int revision, String confirmation, String password, String code) {
+    }
+
     private final PreparationDeletionRepository repository;
     private final PasswordEncoder passwords;
     private final AccountMail mail;
+    private final LoginAttemptLimiter attempts;
 
-    public PreparationDeletionService(PreparationDeletionRepository repository, PasswordEncoder passwords, AccountMail mail) {
+    public PreparationDeletionService(PreparationDeletionRepository repository, PasswordEncoder passwords, AccountMail mail, LoginAttemptLimiter attempts) {
         this.repository = repository;
         this.passwords = passwords;
         this.mail = mail;
+        this.attempts = attempts;
     }
 
     @Transactional(readOnly = true)
@@ -53,36 +62,34 @@ public class PreparationDeletionService {
 
     // A failed password/code check must retain its attempt count after the error response.
     @Transactional(noRollbackFor = ApiException.class)
-    public void delete(UUID user, UUID preparation, Confirmation confirmation) {
+    public void delete(UUID user, UUID preparation, Confirmation confirmation, String remoteAddress) {
         if (confirmation == null || !"준비 삭제".equals(confirmation.confirmation))
             throw new ApiException(400, "DELETE_CONFIRMATION_REQUIRED", "삭제 확인 문구를 정확히 입력해 주세요.");
         var owner = owner(user, true);
         checkRevision(preparation(user, preparation, true), confirmation.revision);
-        if (!owner.trial()) authenticate(user, preparation, owner, confirmation);
+        if (!owner.trial()) authenticate(user, preparation, owner, confirmation, remoteAddress);
         // FK cascades remove saved historical answers and both directions of experience links.
         // The notice, other preparations, and bookmarks have no cascading edge from this row.
         if (!repository.deleteOwnedRevision(user, preparation, confirmation.revision))
             throw ApiException.conflict();
     }
 
-    private void authenticate(UUID user, UUID preparation, Owner owner, Confirmation confirmation) {
-        if (repository.isBlocked(user))
-            throw new ApiException(429, "REAUTHENTICATION_LIMIT", "본인 확인을 여러 번 실패했습니다. 15분 뒤 다시 시도해 주세요.");
-        repository.removeExpiredAttempts(user);
+    private void authenticate(UUID user, UUID preparation, Owner owner, Confirmation confirmation, String remoteAddress) {
+        UUID attempt = attempts.begin(owner.email(), remoteAddress, LoginAttemptLimiter.Purpose.REAUTHENTICATION);
         boolean valid = false;
-        if (confirmation.password != null && !confirmation.password.isBlank()) {
-            valid = owner.password() != null && confirmation.password.getBytes(StandardCharsets.UTF_8).length <= 72 && passwords.matches(confirmation.password, owner.password());
-        } else if (confirmation.code != null && !confirmation.code.isBlank() && confirmation.code.length() <= 100) {
-            var hashes = repository.findValidProofHashes(user, preparation, confirmation.revision, owner.version());
-            valid = !hashes.isEmpty() && MessageDigest.isEqual(hashes.get(0).getBytes(StandardCharsets.UTF_8), digest(confirmation.code.strip()).getBytes(StandardCharsets.UTF_8));
-        }
-        if (valid) {
-            repository.clearAttempts(user);
+        try {
+            if (confirmation.password != null && !confirmation.password.isBlank()) {
+                valid = owner.password() != null && confirmation.password.getBytes(StandardCharsets.UTF_8).length <= 72 && passwords.matches(confirmation.password, owner.password());
+            } else if (confirmation.code != null && !confirmation.code.isBlank() && confirmation.code.length() <= 100) {
+                var hashes = repository.findValidProofHashes(user, preparation, confirmation.revision, owner.version());
+                valid = !hashes.isEmpty() && MessageDigest.isEqual(hashes.get(0).getBytes(StandardCharsets.UTF_8), digest(confirmation.code.strip()).getBytes(StandardCharsets.UTF_8));
+            }
+            if (!valid)
+                throw new ApiException(400, "REAUTHENTICATION_REQUIRED", "현재 비밀번호 또는 삭제 확인 코드를 다시 확인해 주세요.");
             repository.removeProof(preparation);
-            return;
+        } finally {
+            attempts.finish(attempt, valid);
         }
-        repository.recordFailedAttempt(user);
-        throw new ApiException(400, "REAUTHENTICATION_REQUIRED", "현재 비밀번호 또는 삭제 확인 코드를 다시 확인해 주세요.");
     }
 
     private Owner owner(UUID user, boolean lock) {
@@ -98,7 +105,10 @@ public class PreparationDeletionService {
     }
 
     private String digest(String value) {
-        try { return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(value.getBytes(StandardCharsets.UTF_8))); }
-        catch (NoSuchAlgorithmException impossible) { throw new IllegalStateException(impossible); }
+        try {
+            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(value.getBytes(StandardCharsets.UTF_8)));
+        } catch (NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException(impossible);
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { demoNoticeListItem } from '../housing/demoNoticeListItem';
 import { ApiError } from '../../shared/api/client';
 import type { Notice, Preparation, User } from '../housing/types';
 import type { Settings, Experience } from './memberApi';
@@ -39,7 +40,10 @@ export function demoMember(
 ) {
     const [, resource, id, , source] = parts;
     if (resource === 'saved') {
-        if (method === 'GET') return notices.filter((n) => saved.has(n.id));
+        if (method === 'GET')
+            return notices
+                .filter((n) => saved.has(n.id))
+                .map(demoNoticeListItem);
         if (method === 'DELETE') {
             saved.delete(id);
             return;
@@ -131,6 +135,13 @@ export function demoMember(
             title: p.title,
             version: p.version,
             progress: p.progress,
+            houseStage: p.houseStage,
+            followUp: p.followUp ? structuredClone(p.followUp) : null,
+            schedules: p.schedules.map(({ title, date, recorded }) => ({
+                title,
+                date,
+                recorded,
+            })),
             note: String(input.note),
             archivedAt: new Date().toISOString(),
         });

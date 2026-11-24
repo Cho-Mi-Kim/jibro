@@ -1,0 +1,33 @@
+.evidence {
+    display: grid;
+    gap: 0.125rem;
+    min-width: 0;
+    margin: 0.375rem 0;
+    padding: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    color: var(--muted);
+}
+.link.link {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    color: var(--brand);
+    font-size: inherit;
+    font-weight: 650;
+    line-height: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+.link.link > svg {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}
+.source,
+.checkedAt,
+.unavailable {
+    min-width: 0;
+}

@@ -1,0 +1,799 @@
+{
+  "packageId" : "active-easy-20261115-01c79a68-cc52-4c44-bec7-c142130c57af-form",
+  "noticeId" : "01c79a68-cc52-4c44-bec7-c142130c57af",
+  "revision" : 6,
+  "extractionId" : "0b8f7ca7-a80d-474a-9616-60e2d0e8a6b6",
+  "disposition" : "PARTIAL",
+  "reviewNotes" : "거주지역·순위·배점 없이 접수 순서로 선정하고 소득요건은 적용하지 않는 이번 모집의 조건을 확인했습니다. 공고일이 다른 재계약 확약서만 기관 확인으로 남깁니다.",
+  "unresolvedFindings" : [ "IKSAN_WAIVER_FORM_NOTICE_DATE" ],
+  "sourceReviews" : [ {
+    "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+    "sha256" : "8d8d9a13dcfe8d3194ecebe455794c932e33a619ef4d502c602440cef4f2ffef",
+    "label" : "공식 상세 본문",
+    "role" : "OFFICIAL_LISTING",
+    "reviewNotes" : "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+  }, {
+    "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296594",
+    "sha256" : "c5f74bd04de6b63020f86f5b86ac000ca7286a4361403935f959afd5dd3e175f",
+    "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).hwpx",
+    "role" : "OFFICIAL_ATTACHMENT",
+    "reviewNotes" : "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+  }, {
+    "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+    "sha256" : "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee",
+    "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf",
+    "role" : "OFFICIAL_ATTACHMENT",
+    "reviewNotes" : "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+  } ],
+  "content" : {
+    "summary" : "공고에서 완화한 주택 보유 기준과 자동차 기준 등을 충족하는 가구가 대상이며, 소득·총자산 기준은 적용하지 않습니다. 익산한스빌 국민임대주택에 보증금과 월 임대료를 내고 거주할 예비입주자를 모집합니다. 예비입주자로 선정되면 빈집이 생겼을 때 대기순번에 따라 계약을 안내받습니다.",
+    "evidence" : {
+      "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+      "label" : "LH 공식 공고 원문",
+      "checkedAt" : "2026-11-08"
+    },
+    "documents" : [ {
+      "id" : "nr-doc-application",
+      "title" : "국민임대주택 공급신청서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "현장 접수 시 공고 첨부 양식으로 제출하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽 · 공고문 16쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "nr-doc-privacy",
+      "title" : "개인정보 수집·이용 및 제3자 제공 동의서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "대상 세대원 전원의 서명이 필요합니다. 14세 미만은 법정대리인이 서명합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽 · 공고문 27쪽 · 공고문 28쪽 · 공고문 34쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "nr-doc-waiver",
+      "title" : "입주자격 완화 입주자 확인서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "입주자격 완화 입주자 확인서는 제출 대상 서류입니다. 다만 첨부 확약서가 2026.10.08 공고를 적고 있어 2026.11.04 모집에 사용할 양식과 재계약 조항 적용 범위는 기관 확인이 필요합니다. 날짜를 직접 고치거나 이전 모집 양식을 적용하지 마세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "nr-doc-duplicate",
+      "title" : "예비입주자 중복선정 불가사항 확인서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "내용을 확인하고 신청자가 서명 또는 날인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 1쪽 · 공고문 11쪽 · 공고문 33쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "nr-doc-registry",
+      "title" : "신청자 주민등록표등본(전부표기)",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "공고일 이후 발급분과 전부표기 기준을 확인하세요. 원본은 공식 접수처에 제출하며 앱에는 올리지 않습니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽 · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "nr-doc-finance",
+      "title" : "금융정보 등 제공 동의서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "소득·총자산 요건 배제와 금융정보 조회 동의는 별개입니다. 원문의 세대원 서명·제출 지시를 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 3쪽 · 공고문 4쪽 · 공고문 24쪽 · 공고문 25쪽 · 공고문 29쪽 · 공고문 30쪽 · 공고문 34쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : null,
+      "conditionAnswerValues" : null
+    }, {
+      "id" : "nr-doc-minor-proof",
+      "title" : "미성년 신청 예외 입증자료",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "선택한 예외의 동일 세대·부양·신고 등 요건에 맞는 자료를 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 5쪽 · 공고문 11쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-adult",
+      "conditionAnswerValues" : [ "MINOR_CHILD", "MINOR_SIBLING", "MINOR_PARENT" ]
+    }, {
+      "id" : "nr-doc-household-proof",
+      "title" : "자격검증 세대 제외 입증자료",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "실종·행방불명 등 실제 제외 사유에 맞는 입증자료를 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 6쪽 · 공고문 12쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-household",
+      "conditionAnswerValues" : [ "EXCEPTION" ]
+    }, {
+      "id" : "nr-doc-fiance-registry",
+      "title" : "예비배우자 주민등록표등본",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "신청자와 예비배우자 모두 각각 제출하는 등본 기준을 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 6쪽 · 공고문 11쪽 · 공고문 12쪽 · 공고문 34쪽 · 공고문 35쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-engaged",
+      "conditionAnswerValues" : [ "YES" ]
+    }, {
+      "id" : "nr-doc-fiance-forms",
+      "title" : "예비신혼 신청·세대구성확인서와 예비배우자 신분증 사본",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "공고 첨부 양식과 대표 신청자·예정 세대 기준을 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-engaged",
+      "conditionAnswerValues" : [ "YES" ]
+    }, {
+      "id" : "nr-doc-spouse-registry",
+      "title" : "분리배우자 주민등록표등본",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "배우자 세대의 전부표기 등본을 준비하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-separate-spouse",
+      "conditionAnswerValues" : [ "YES" ]
+    }, {
+      "id" : "nr-doc-head-registry",
+      "title" : "공고일 당시 세대주의 주민등록표등본",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "공고일 이후 등본 분리 시 추가 제출하는 등본입니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-separate-head",
+      "conditionAnswerValues" : [ "YES" ]
+    }, {
+      "id" : "nr-doc-family",
+      "title" : "가족관계증명서(상세)",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "기본 세대·배우자·미성년 자녀 및 예비신혼 예정세대 관계 확인에 필요한 상세 가족관계증명서를 준비합니다. 등본으로 배우자가 확인되는 경우의 제출 제외와 이혼·재혼 자녀 인정 범위는 공고문 11~12쪽을 확인하세요. 가산점 목적의 추가 증명은 아래 별도 항목에서 확인합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽 · 공고문 12쪽 · 공고문 13쪽 · 공고문 16쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-family-certificate",
+      "conditionAnswerValues" : [ "REQUIRED", "REVIEW" ]
+    }, {
+      "id" : "nr-doc-foreign",
+      "title" : "외국인 배우자 등록증 사본·외국인등록사실증명서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "등록 상태와 공고의 제출 대상을 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-foreign-spouse",
+      "conditionAnswerValues" : [ "REGISTERED", "UNREGISTERED" ]
+    }, {
+      "id" : "nr-doc-self-visit",
+      "title" : "본인 신청 신분증·도장 또는 서명 준비",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "원문의 인정 신분증을 지참하세요. 본인 신청은 도장을 서명으로 대체할 수 있습니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-visit",
+      "conditionAnswerValues" : [ "SELF" ]
+    }, {
+      "id" : "nr-doc-spouse-visit",
+      "title" : "배우자 대리 신청 준비물",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "신청자·배우자 신분증, 신청자 도장, 관계 입증자료를 지참하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-visit",
+      "conditionAnswerValues" : [ "SPOUSE" ]
+    }, {
+      "id" : "nr-doc-seal-visit",
+      "title" : "기타 대리 인감방식 준비물",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "양측 신분증과 신청자의 인감증명서·인감도장·인감날인 위임장이 필요합니다.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-visit",
+      "conditionAnswerValues" : [ "SEAL" ]
+    }, {
+      "id" : "nr-doc-signature-visit",
+      "title" : "기타 대리 본인서명방식 준비물",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "양측 신분증과 본인서명사실확인서·자필서명 위임장이 필요합니다. 수임인 성명을 확인하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-visit",
+      "conditionAnswerValues" : [ "SIGNATURE" ]
+    }, {
+      "id" : "nr-doc-passport-proof",
+      "title" : "여권정보증명서",
+      "issuer" : "공고문 발급처·제출 기준 확인",
+      "method" : "해당 발급 시점의 여권을 신분증으로 사용할 때 함께 지참하세요.",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "issueUrl" : null,
+      "conditionQuestionId" : "nr-passport",
+      "conditionAnswerValues" : [ "YES" ]
+    } ],
+    "questions" : [ {
+      "id" : "nr-adult",
+      "title" : "성년자이거나 공고의 미성년 신청 예외에 해당하나요?",
+      "reason" : "19세 이상이 기본입니다. 미성년 예외는 같은 등본의 자녀가 있는 세대주, 직계존속 사망·실종 등으로 같은 등본의 형제자매를 부양하는 세대주, 외국인 부모와 내국인 미성년 세대주인 한부모가족입니다. 마지막 경우 부모가 대리 신청합니다. 예외의 세부 요건과 입증자료는 원문에서 확인하세요.",
+      "options" : [ {
+        "label" : "19세 이상이에요",
+        "value" : "ADULT",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "자녀가 있는 미성년 세대주예요",
+        "value" : "MINOR_CHILD",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "형제자매를 부양하는 미성년 세대주예요",
+        "value" : "MINOR_SIBLING",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "외국인 부모와 내국인 미성년 한부모가족이에요",
+        "value" : "MINOR_PARENT",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "해당하지 않아요",
+        "value" : "NONE",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 5쪽 · 공고문 6쪽 · 공고문 11쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-nationality",
+      "title" : "신청자 본인의 국적을 확인했나요?",
+      "reason" : "공고는 외국인 본인의 신청을 제한합니다. 외국인 배우자·가족은 별도의 세대 범위와 등록 기준으로 확인합니다.",
+      "options" : [ {
+        "label" : "내국인이에요",
+        "value" : "DOMESTIC",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "외국인이에요",
+        "value" : "FOREIGN",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 5쪽 · 공고문 6쪽 · 공고문 11쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-household",
+      "title" : "공고의 자격검증 대상 세대원을 모두 확인했나요?",
+      "reason" : "분리 배우자도 포함됩니다. 직계존속·직계비속과 그 배우자는 신청자 또는 분리 배우자의 등본 등재 조건이 다릅니다. 외국인 가족의 등록·주소, 태아, 예비신혼의 예정 세대도 구분하세요. 실종·행방불명·생계 및 주거 분리 등 제외 사유는 신청자의 입증이 필요합니다.",
+      "options" : [ {
+        "label" : "세대 범위를 확인했어요",
+        "value" : "CONFIRMED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "세대 제외 사유의 입증이 필요해요",
+        "value" : "EXCEPTION",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 5쪽 · 공고문 6쪽 · 공고문 11쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-housing",
+      "title" : "어떤 주택 소유 기준을 확인해야 하나요?",
+      "reason" : "이번 모집은 무주택 요건 완화가 있습니다. 소형·저가 특례는 면적과 법령상 가격 조건을 모두 충족해야 하며, 아파트/그 외와 수도권 여부에 따라 기준이 다릅니다. 다른 지역의 주택 특례는 주택건설지역·연접지역의 소유 여부를 확인하는 기준이며 거주지 순위가 아닙니다. 법정 예외, 취득 시점과 재계약 기준은 원문을 별도로 확인하세요.",
+      "options" : [ {
+        "label" : "세대원 모두 주택·분양권이 없어요",
+        "value" : "NONE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "소형·저가주택 특례를 확인해야 해요",
+        "value" : "SMALL",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "건설·연접지역 외 주택 특례를 확인해야 해요",
+        "value" : "OUTSIDE",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "법정 예외 또는 다른 사유를 확인해야 해요",
+        "value" : "EXCEPTION",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 1쪽 · 공고문 2쪽 · 공고문 5쪽 · 공고문 15쪽 · 공고문 18쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-vehicle",
+      "title" : "세대 전체의 자동차 기준을 확인했나요?",
+      "reason" : "자동차 기준은 완화하지 않습니다. 비영업용 승용자동차별 가액 중 최고 가액이 4,542만원 이하인지 확인합니다. 총자산용 차량 합산액과 다릅니다. 장애인사용 자동차·해당 국가유공자 보철용 차량의 제외와 저공해차 정부·지자체 보조금 차감을 적용하세요. 배우자 등 다른 세대원의 차량도 포함합니다.",
+      "options" : [ {
+        "label" : "대상 세대에 기준 적용 차량이 없어요",
+        "value" : "NO_VEHICLE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "대상·제외·차감 후 한도 이내임을 확인했어요",
+        "value" : "WITHIN",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "차량 대상이나 예외를 더 확인해야 해요",
+        "value" : "EXCEPTION",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "한도를 초과해 추가 확인이 필요해요",
+        "value" : "OVER",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 1쪽 · 공고문 7쪽 · 공고문 9쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-sublease",
+      "title" : "세대원 중 불법양도·전대 적발 후 4년이 지나지 않은 사람이 있나요?",
+      "reason" : "신청자만이 아니라 공고의 자격검증 대상 세대원을 기준으로 확인하세요.",
+      "options" : [ {
+        "label" : "없어요",
+        "value" : "NO",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "있어요",
+        "value" : "YES",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 6쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-duplicate",
+      "title" : "중복 신청과 기존 공공임대 입주 기준을 확인했나요?",
+      "reason" : "1세대 1주택 신청 원칙, 중복 신청 무효와 기존 예비입주자 지위를 구분하세요. 기존 임차인의 배우자는 세대 분리만으로 중복 입주가 해소되지 않습니다. 입주 전 기존 주택 명도, 계약·재계약 조건은 원문에서 확인하세요. 이번 선정은 거주지역·순위·배점과 무관한 접수 순번이며 자격 검증은 별도로 진행합니다.",
+      "options" : [ {
+        "label" : "해당 기준을 확인했어요",
+        "value" : "CONFIRMED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "기존 입주·신청 기록을 더 확인해야 해요",
+        "value" : "REVIEW",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 3쪽 · 공고문 6쪽 · 공고문 9쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-engaged",
+      "title" : "예비신혼부부로 신청하나요?",
+      "reason" : "혼인으로 구성할 세대와 대표 신청자를 확인하세요. 대표 신청자는 신청 후 변경할 수 없습니다.",
+      "options" : [ {
+        "label" : "예",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아니요",
+        "value" : "NO",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 6쪽 · 공고문 11쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-separate-spouse",
+      "title" : "신청자와 배우자의 주민등록표가 분리되어 있나요?",
+      "reason" : "분리 배우자의 전부표기 등본 제출 대상인지 확인합니다.",
+      "options" : [ {
+        "label" : "예",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아니요 또는 배우자가 없어요",
+        "value" : "NO",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-separate-head",
+      "title" : "공고일 이후 당시 세대주와 등본이 분리되었나요?",
+      "reason" : "공고일 당시 세대주의 주민등록표등본을 추가로 제출하는 경우를 확인합니다.",
+      "options" : [ {
+        "label" : "예",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아니요",
+        "value" : "NO",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-family-certificate",
+      "title" : "가족관계증명서의 제출 대상과 생략 조건을 확인했나요?",
+      "reason" : "등본에서 배우자를 확인할 수 없거나 미성년 자녀 관계를 확인할 수 없는 경우 등 가족관계증명서 제출 여부를 확인합니다. 예비신혼부부 예정세대에 다른 가족을 포함하는 경우 해당 관계를 증명합니다. 부모·자녀 육아지원 및 65세 직계존속 부양 가산점 목적의 추가 증명은 별도 확인 필요 항목입니다.",
+      "options" : [ {
+        "label" : "제출 사유가 있어요",
+        "value" : "REQUIRED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "생략 조건을 확인했고 별도 필수 사유가 없어요",
+        "value" : "EXEMPT",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "가산점 등 적용 여부를 확인해야 해요",
+        "value" : "REVIEW",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 11쪽 · 공고문 12쪽 · 공고문 13쪽 · 공고문 16쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-foreign-spouse",
+      "title" : "배우자의 외국인 등록 상태를 확인했나요?",
+      "reason" : "외국인 배우자는 가족관계등록과 외국인등록·국내거소신고 등 공고의 조건을 확인해야 합니다. 국내 미거주 재외국민 또는 미등록 배우자 관련 제한도 원문을 확인하세요. 서류 제출 대상과 신청 가능 여부는 별개입니다.",
+      "options" : [ {
+        "label" : "외국인 배우자가 없어요",
+        "value" : "NONE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "외국인 배우자의 등록·신고 조건을 확인했어요",
+        "value" : "REGISTERED",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "등록·거주 조건을 더 확인해야 해요",
+        "value" : "UNREGISTERED",
+        "requiresFollowUp" : true
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 5쪽 · 공고문 6쪽 · 공고문 11쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-visit",
+      "title" : "현장 신청은 누가 하나요?",
+      "reason" : "본인 방문은 신분증과 도장(서명 대체 가능), 배우자 대리는 양측 신분증·신청자 도장·관계 입증자료를 지참합니다. 기타 대리는 인감방식 또는 본인서명방식 중 한 방식을 사용하며 양측 신분증이 필요합니다. 계약 시의 서류 목록과 구분하세요.",
+      "options" : [ {
+        "label" : "본인이 직접 신청해요",
+        "value" : "SELF",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "배우자가 대신 신청해요",
+        "value" : "SPOUSE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "기타 대리인이 인감방식으로 신청해요",
+        "value" : "SEAL",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "기타 대리인이 본인서명방식으로 신청해요",
+        "value" : "SIGNATURE",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "nr-passport",
+      "title" : "신분증으로 2020년 12월 21일 이후 발급한 여권을 사용하나요?",
+      "reason" : "해당 여권을 사용할 때는 여권정보증명서도 필요합니다. 다른 신분증을 사용하면 이 추가 서류의 대상이 아닙니다.",
+      "options" : [ {
+        "label" : "예",
+        "value" : "YES",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "아니요",
+        "value" : "NO",
+        "requiresFollowUp" : false
+      }, {
+        "label" : "잘 모르겠어요",
+        "value" : "UNKNOWN",
+        "requiresFollowUp" : true
+      } ],
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+        "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf · 공고문 12쪽 · 공고문 13쪽",
+        "checkedAt" : "2026-11-08"
+      },
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "selection-order",
+      "title" : "선정 순서와 가점 서류를 확인했나요?",
+      "reason" : "자격을 갖춘 신청자는 접수한 순서대로 선정해요. 거주지역·순위·배점은 쓰지 않아 육아지원이나 부모 부양 가점만을 위한 서류는 필요하지 않아요. 세대를 확인하는 기본 가족관계 서류는 별도예요.",
+      "evidence" : {
+        "label" : "LH 모집공고 PDF 9쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+        "checkedAt" : "2026-11-15"
+      },
+      "options" : [ {
+        "value" : "YES",
+        "label" : "기준을 확인했어요",
+        "requiresFollowUp" : false
+      }, {
+        "value" : "NO",
+        "label" : "추가 확인이 필요해요",
+        "requiresFollowUp" : true
+      }, {
+        "value" : "UNKNOWN",
+        "label" : "잘 모르겠어요",
+        "requiresFollowUp" : true
+      } ],
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    }, {
+      "id" : "income-proof-scope",
+      "title" : "임신·입양 증명서가 필요한 목적을 확인했나요?",
+      "reason" : "이번 모집은 소득을 심사하지 않아요(7쪽). 12쪽의 임신·입양 증명서는 소득 계산에 태아·입양 자녀를 포함하려는 사람에게 요구하는 서류예요. 세대관계나 별도 자격을 증명하기 위한 서류까지 면제되는 것은 아니에요.",
+      "evidence" : {
+        "label" : "LH 모집공고 PDF 12쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+        "checkedAt" : "2026-11-15"
+      },
+      "options" : [ {
+        "value" : "YES",
+        "label" : "기준을 확인했어요",
+        "requiresFollowUp" : false
+      }, {
+        "value" : "NO",
+        "label" : "추가 확인이 필요해요",
+        "requiresFollowUp" : true
+      }, {
+        "value" : "UNKNOWN",
+        "label" : "잘 모르겠어요",
+        "requiresFollowUp" : true
+      } ],
+      "inputKind" : "SINGLE",
+      "constraints" : null,
+      "reviewRequired" : false
+    } ],
+    "schedules" : [ {
+      "id" : "auto-application-start",
+      "date" : "2026-11-25",
+      "title" : "신청 접수 시작",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "label" : "공식 상세 본문 · 항목 4",
+        "checkedAt" : "2026-11-08"
+      },
+      "timingDescription" : null
+    }, {
+      "id" : "auto-application-end",
+      "date" : "2026-11-26",
+      "title" : "신청 접수 마감",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "label" : "공식 상세 본문 · 항목 4",
+        "checkedAt" : "2026-11-08"
+      },
+      "timingDescription" : null
+    }, {
+      "id" : "auto-result",
+      "date" : "2027-01-21",
+      "title" : "결과 발표",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021017&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07&mi=1026",
+        "label" : "공식 상세 본문 · 항목 5",
+        "checkedAt" : "2026-11-08"
+      },
+      "timingDescription" : null
+    }, {
+      "id" : "documents-end",
+      "date" : "2026-11-26",
+      "title" : "서류 제출 마감 · 신청 시 함께 제출 (16:00)",
+      "evidence" : {
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=10",
+        "label" : "공고문 3·10쪽 · 신청기간 및 동시 서류 제출",
+        "checkedAt" : "2026-11-10"
+      },
+      "timingDescription" : null
+    } ],
+    "attachments" : [ {
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296594",
+      "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).hwpx",
+      "checkedAt" : "2026-11-08"
+    }, {
+      "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+      "label" : "익산한스빌국민임대주택예비입주자자격완화모집공고문(2026.11.04).pdf",
+      "checkedAt" : "2026-11-08"
+    } ],
+    "reviewIssues" : [ {
+      "id" : "IKSAN_WAIVER_FORM_NOTICE_DATE",
+      "area" : "DOCUMENT",
+      "title" : "완화 확인서의 공고일 확인 필요",
+      "detail" : "이번 공고일은 11월 4일인데 32쪽 확약서에는 10월 8일로 적혀 있어요. 어느 양식을 써야 하는지와 해당 재계약 조항은 제출 전에 관리사무소에 확인하세요.",
+      "questionIds" : [ ],
+      "documentIds" : [ "nr-doc-waiver" ],
+      "evidence" : [ {
+        "label" : "LH 모집공고 PDF 1쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=1",
+        "checkedAt" : "2026-11-15"
+      }, {
+        "label" : "LH 모집공고 PDF 32쪽",
+        "url" : "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=32",
+        "checkedAt" : "2026-11-15"
+      } ]
+    } ],
+    "applicationClosure" : null
+  },
+  "startDate" : "2026-11-25",
+  "endDate" : "2026-11-26"
+}

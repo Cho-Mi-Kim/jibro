@@ -27,10 +27,13 @@ class PreparationRulesTest {
 
     @Test
     void documentNecessityUsesItsDeclaredQuestionAndAcceptedOptions() {
-        assertEquals("REQUIRED", PreparationRules.necessity(null, List.of("YES"), Map.of()));
-        assertEquals("UNKNOWN", PreparationRules.necessity("route", List.of("STUDENT"), Map.of()));
-        assertEquals("UNKNOWN", PreparationRules.necessity("route", List.of("STUDENT"), Map.of("route", "UNKNOWN")));
-        assertEquals("CONDITIONAL", PreparationRules.necessity("route", List.of("STUDENT", "GRADUATE"), Map.of("route", "GRADUATE")));
-        assertEquals("NOT_APPLICABLE", PreparationRules.necessity("route", List.of("STUDENT"), Map.of("route", "JOBSEEKER")));
+        var questions = List.of(new Question("route", "신청 유형", "", null,
+                List.of(new AnswerOption("STUDENT", "대학생"), new AnswerOption("GRADUATE", "졸업생"),
+                        new AnswerOption("JOBSEEKER", "구직자"), new AnswerOption("UNKNOWN", "모름", true))));
+        assertEquals("REQUIRED", PreparationRules.necessity(null, List.of("YES"), Map.of(), questions));
+        assertEquals("UNKNOWN", PreparationRules.necessity("route", List.of("STUDENT"), Map.of(), questions));
+        assertEquals("UNKNOWN", PreparationRules.necessity("route", List.of("STUDENT"), Map.of("route", "UNKNOWN"), questions));
+        assertEquals("CONDITIONAL", PreparationRules.necessity("route", List.of("STUDENT", "GRADUATE"), Map.of("route", "GRADUATE"), questions));
+        assertEquals("NOT_APPLICABLE", PreparationRules.necessity("route", List.of("STUDENT"), Map.of("route", "JOBSEEKER"), questions));
     }
 }

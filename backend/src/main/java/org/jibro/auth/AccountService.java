@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 @Service
 public class AccountService {
@@ -22,12 +24,17 @@ public class AccountService {
     private final AccountMail mail;
     private final String frontend;
     private final SecureRandom random = new SecureRandom();
+    private final LoginAttemptLimiter attempts;
+    private final TransactionTemplate passwordTransaction;
 
-    public AccountService(AccountRepository repository, PasswordEncoder encoder, AccountMail mail, @Value("${app.auth.frontend-url}") String frontend) {
+    public AccountService(AccountRepository repository, PasswordEncoder encoder, AccountMail mail, @Value("${app.auth.frontend-url}") String frontend,
+                          LoginAttemptLimiter attempts, PlatformTransactionManager transactions) {
         this.repository = repository;
         this.encoder = encoder;
         this.mail = mail;
         this.frontend = frontend.replaceAll("/+$", "");
+        this.attempts = attempts;
+        this.passwordTransaction = new TransactionTemplate(transactions);
     }
 
     public Profile profile(UUID id) {
@@ -55,17 +62,32 @@ public class AccountService {
         }
     }
 
-    private void changeSecret(UUID id, String password) {
+    private void validatePassword(String password) {
         if (password.length() < 10 || password.getBytes(StandardCharsets.UTF_8).length > 72) throw invalid();
+    }
+
+    private void changeSecret(UUID id, String password) {
+        validatePassword(password);
         repository.replacePasswordAndInvalidateCredentials(id, encoder.encode(password));
     }
 
-    @Transactional
-    public void password(UUID id, String oldValue, String newValue) {
-        String hash = repository.lockPasswordCredential(id).map(AccountRepository.PasswordCredential::hash).orElse(null);
-        if (hash == null || !encoder.matches(oldValue, hash))
-            throw new ApiException(400, "BAD_PASSWORD", "현재 비밀번호가 일치하지 않습니다.");
-        changeSecret(id, newValue);
+    public void password(UUID id, String oldValue, String newValue, String remoteAddress) {
+        validatePassword(newValue);
+        String email = repository.findProfile(id).orElseThrow(ApiException::notFound).email();
+        UUID attempt = attempts.begin(email, remoteAddress, LoginAttemptLimiter.Purpose.REAUTHENTICATION);
+        boolean successful = false;
+        try {
+            passwordTransaction.executeWithoutResult(status -> {
+                String hash = repository.lockPasswordCredential(id).map(AccountRepository.PasswordCredential::hash).orElse(null);
+                if (hash == null || !encoder.matches(oldValue, hash))
+                    throw new ApiException(400, "BAD_PASSWORD", "현재 비밀번호가 일치하지 않습니다.");
+                changeSecret(id, newValue);
+            });
+            successful = true;
+        } finally {
+            // This commits independently after a failed credential transaction has rolled back.
+            attempts.finish(attempt, successful);
+        }
     }
 
     @Transactional

@@ -15,6 +15,7 @@ export type IconName =
     | 'bookmark'
     | 'info'
     | 'warning'
+    | 'exclamation'
     | 'people'
     | 'phone'
     | 'clock'
@@ -41,6 +42,7 @@ const paths: Record<IconName, string> = {
     bookmark: 'M6 3h12v18l-6-4-6 4Z',
     info: 'M12 17v-5m0-5v1M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',
     warning: 'M12 6v8m0 3v1M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',
+    exclamation: 'M12 5v9m0 4v.1',
     people: 'M14 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM2 21v-2a8 8 0 0 1 16 0v2M18 4a4 4 0 0 1 0 7m2 4a7 7 0 0 1 2 6',
     phone: 'M7 3 3 5c-1 8 8 17 16 16l2-4-6-4-2 3-5-5 3-2Z',
     clock: 'M12 5v7l5 3M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',

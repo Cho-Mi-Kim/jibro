@@ -30,7 +30,7 @@ class ReminderDispatchTest {
         when(repository.deliveryAllowed(user, channel)).thenReturn(true);
         when(push.publicKey()).thenReturn("test-public-key");
         when(alerts.inbox(user)).thenReturn(new AlertService.Inbox(new AlertService.Settings(true, 3, true),
-            List.of(new AlertService.Alert("event", UUID.randomUUID(), "공고", "변경", null, false, null))));
+                List.of(new AlertService.Alert("event", UUID.randomUUID(), "공고", "변경", null, false, null))));
     }
 
     @Test

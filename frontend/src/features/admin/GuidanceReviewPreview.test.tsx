@@ -14,6 +14,8 @@ const evidence = {
     checkedAt: '2026-11-08',
 };
 const preview: GuidancePreview = {
+    state: 'PRIMARY_DRAFT',
+    confirmedItems: [],
     profile: 'national-rental-waiver',
     ready: false,
     candidate: {
@@ -107,6 +109,55 @@ function setup(initial = { enabled: true, sourceVersion: 'v1' }) {
 }
 
 describe('관리자 준비 안내 초안 검토', () => {
+    it('완료된 항목 공개 결과와 아직 후속 검수 중인 초안을 구분한다', async () => {
+        vi.mocked(call).mockResolvedValue({
+            ...preview,
+            profile: 'completed-official-review',
+            state: 'ITEMS',
+            candidate: null,
+            issues: [],
+            findings: [],
+            confirmedItems: [
+                {
+                    id: 'income',
+                    area: 'CONDITION',
+                    title: '소득 기준',
+                    text: '월평균 소득 150% 이하',
+                    evidence,
+                },
+            ],
+        });
+        const { user, rerender } = setup();
+        await user.click(
+            screen.getByRole('button', { name: '준비 안내 초안 검토' }),
+        );
+        expect(await screen.findByText('확인된 항목만 공개 중')).toBeVisible();
+        expect(
+            screen.getByLabelText('원문 대조를 마친 항목'),
+        ).toHaveTextContent('소득 기준');
+        expect(
+            screen.getByText('마지막으로 완료된 검수의 실제 공개 결과입니다.'),
+        ).toBeVisible();
+
+        rerender({ enabled: true, sourceVersion: 'new-source' });
+        vi.mocked(call).mockResolvedValue({
+            ...preview,
+            state: 'PENDING',
+            issues: ['FOLLOWUP_REVIEW_PENDING'],
+            findings: [],
+        });
+        await user.click(
+            screen.getByRole('button', { name: '준비 안내 초안 검토' }),
+        );
+        expect(await screen.findByText('후속 검수 대기 중')).toBeVisible();
+        expect(
+            screen.queryByLabelText('원문 대조를 마친 항목'),
+        ).not.toBeInTheDocument();
+        expect(
+            screen.queryByText('자동 검수 조건 충족'),
+        ).not.toBeInTheDocument();
+    });
+
     it('요청할 때만 읽기 조회하고 공개 보류 이유와 생성된 내용을 함께 보여 준다', async () => {
         const { user } = setup();
         expect(call).not.toHaveBeenCalled();

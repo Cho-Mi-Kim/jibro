@@ -6,7 +6,6 @@ import java.util.*;
 
 import org.jibro.global.common.ApiException;
 import org.jibro.notice.NoticeService;
-import org.jibro.notice.GuidanceIssues;
 import org.jibro.notice.ReviewedNoticeFiles;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +23,9 @@ public class PreparationService {
 
     @Transactional(readOnly = true)
     public List<PreparationListItem> list(String user) {
-        return repository.findActive(UUID.fromString(user));
+        return repository.findActive(UUID.fromString(user)).stream()
+                .map(entry -> new PreparationListItem(entry.id(), entry.noticeId(), entry.title(), entry.version(), entry.revision(),
+                        PreparationRules.progress(entry.progressInput()))).toList();
     }
 
     public Preparation get(String user, UUID id) {
@@ -64,23 +65,23 @@ public class PreparationService {
         Preparation p = next.preparation();
         p.id = old.id;
         p.revision = old.revision;
+        p.followUp = old.followUp;
         for (var question : p.questions) {
             // Only an identical question contract may retain an old answer.
             if (old.questions.contains(question) && old.answers.containsKey(question.id()))
                 p.answers.put(question.id(), old.answers.get(question.id()));
         }
+        PreparationSnapshots.recalculateDocuments(next);
         for (var d : p.documents) {
             old.documents.stream().filter(prior -> prior.id.equals(d.id)).findFirst().ifPresent(prior -> {
                 d.note = prior.note;
                 d.state = prior.state == DocumentState.READY ? DocumentState.RECHECK : prior.state;
             });
-            d.reviewRequired = GuidanceIssues.documentRequiresReview(p.reviewIssues, d.id, next.rules().get(d.id));
-            d.necessity = d.reviewRequired ? "UNKNOWN" : PreparationRules.necessity(next.rules().get(d.id), next.valuesFor(d.id), p.answers);
         }
         for (var schedule : p.schedules)
             old.schedules.stream()
-                .filter(prior -> prior.id.equals(schedule.id) && prior.date.equals(schedule.date) && prior.title.equals(schedule.title))
-                .findFirst().ifPresent(prior -> schedule.recorded = prior.recorded);
+                    .filter(prior -> prior.id.equals(schedule.id) && prior.date.equals(schedule.date) && prior.title.equals(schedule.title))
+                    .findFirst().ifPresent(prior -> schedule.recorded = prior.recorded);
         repository.retainHistory(id, old.version, previous);
         repository.updateNoticeVersion(id, version);
         return save(next);
@@ -98,7 +99,7 @@ public class PreparationService {
         if (state == null || note == null || note.length() > 2000) throw new IllegalArgumentException();
         if (d.reviewRequired || List.of("UNKNOWN", "NOT_APPLICABLE").contains(d.necessity))
             throw new ApiException(409, "CONDITION_REQUIRED", "서류 해당 여부를 먼저 확인하세요.");
-        d.state = state;
+        d.changeState(state);
         d.note = note;
         return save(snap);
     }
@@ -106,6 +107,8 @@ public class PreparationService {
     public Preparation schedule(String user, UUID id, String scheduleId, int revision, boolean recorded) {
         Snapshot snap = editable(user, id, revision);
         var s = snap.preparation().schedules.stream().filter(v -> v.id.equals(scheduleId)).findFirst().orElseThrow(ApiException::notFound);
+        if (!PreparationSchedules.canRecord(s, snap.preparation().schedules))
+            throw new IllegalArgumentException("이 접수 일정은 완료로 기록하지 않아요.");
         s.recorded = recorded;
         return save(snap);
     }
@@ -113,6 +116,18 @@ public class PreparationService {
     private Snapshot load(String user, UUID id, boolean lock) {
         return (lock ? repository.lockActive(UUID.fromString(user), id) : repository.findActive(UUID.fromString(user), id))
                 .orElseThrow(ApiException::notFound);
+    }
+
+    public Preparation followUp(String user, UUID id, int revision, FollowUp record) {
+        // Personal outcomes remain editable after the notice closes or changes.
+        // They never establish official eligibility or change preparation progress.
+        Snapshot snap = load(user, id, true);
+        if (snap.preparation().revision != revision) throw ApiException.conflict();
+        if (record == null || (record.waitlistNumber() != null &&
+                (record.result() != FollowUpResult.WAITLIST || record.waitlistNumber() < 1 || record.waitlistNumber() > 999999)))
+            throw new IllegalArgumentException("예비 순번을 다시 확인해 주세요.");
+        snap.preparation().followUp = record;
+        return save(snap);
     }
 
     private Snapshot editable(String user, UUID id, int revision) {

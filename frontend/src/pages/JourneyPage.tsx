@@ -1,3 +1,4 @@
+import { noticeListTitle } from '../features/housing/noticeDisplay';
 import { Link } from 'react-router';
 import { usePreparation } from '../features/preparation/usePreparation';
 import { journeySteps } from '../features/preparation/journey';
@@ -22,8 +23,7 @@ export function JourneyPage() {
             {p && (
                 <>
                     <Card>
-                        <h2>{p.title}</h2>
-                        <p>준비 안내 v{p.version}</p>
+                        <h2 title={p.title}>{noticeListTitle(p.title)}</h2>
                         <ol className={styles.steps}>
                             {journeySteps(p).map((step) => (
                                 <li key={step.label}>

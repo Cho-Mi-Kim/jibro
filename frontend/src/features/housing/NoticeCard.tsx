@@ -1,5 +1,6 @@
+import { NoticeStatusBadges } from './NoticeStatusBadges';
+import { noticeHousingSummary } from './noticeHousingFacts';
 import { Collapse } from '../../shared/ui/Collapse';
-import { effectiveNoticeStatus } from './noticeLifecycle';
 import { useRef } from 'react';
 
 import { Bookmark } from '../member/SavedNotices';
@@ -7,12 +8,7 @@ import { NoticePreview } from './NoticePreview';
 import card from './NoticeCard.module.css';
 import { NoticeCardDeadline } from './NoticeCardDeadline';
 
-import { useLocation } from 'react-router';
-import { GuideBadge } from './NoticeFacts';
-import { Status } from '../../shared/ui/Status';
-
 import type { NoticeListItem } from './types';
-import { statusLabels } from './noticeLabels';
 import { useNoticeCardScroll } from './useNoticeCardScroll';
 import { AgencyMark } from './AgencyMark';
 import { noticeListTitle } from './noticeDisplay';
@@ -20,32 +16,35 @@ export function NoticeCard({
     notice: n,
     expanded,
     toggle,
+    showCollapsedDeadline = false,
+    restoreExpanded = false,
+    onOpenDetail,
 }: {
     notice: NoticeListItem;
     expanded: boolean;
     toggle: () => void;
+    showCollapsedDeadline?: boolean;
+    restoreExpanded?: boolean;
+    onOpenDetail?: () => void;
 }) {
-    const { search } = useLocation();
     const ref = useRef<HTMLElement>(null);
-    useNoticeCardScroll(ref, expanded);
+    useNoticeCardScroll(ref, expanded, !restoreExpanded);
     return (
         <article
             ref={ref}
             id={'notice-card-' + n.id}
             className={card.card}
             data-expanded={expanded}
+            data-restored={restoreExpanded || undefined}
         >
             <div className={card.agency}>
                 <AgencyMark agency={n.agency} />
             </div>
-            <div className={card.badges}>
-                <Status
-                    tone={effectiveNoticeStatus(n) === 'OPEN' ? 'red' : 'gray'}
-                >
-                    {statusLabels[effectiveNoticeStatus(n)]}
-                </Status>
-                <GuideBadge state={n.guideState} partial={n.partialGuidance} />
-            </div>
+            <NoticeStatusBadges
+                notice={n}
+                className={card.badges}
+                direction="left"
+            />
             <div className={card.main}>
                 <h3 className={card.title}>
                     <button
@@ -60,17 +59,17 @@ export function NoticeCard({
                         <span>{noticeListTitle(n.title)}</span>
                     </button>
                 </h3>
-                <p className={card.metadata}>
-                    <span>{n.region}</span>
-                    <span>{n.type}</span>
-                </p>
+                <p className={card.metadata}>{noticeHousingSummary(n)}</p>
                 <div className={card.controls}>
                     <Bookmark id={n.id} />
                 </div>
             </div>
+            {showCollapsedDeadline && (
+                <NoticeCardDeadline notice={n} includeDate={!expanded} />
+            )}
             <Collapse open={expanded} className={card.previewMotion}>
-                <NoticeCardDeadline notice={n} />
-                <NoticePreview notice={n} search={search} />
+                {!showCollapsedDeadline && <NoticeCardDeadline notice={n} />}
+                <NoticePreview notice={n} onOpenDetail={onOpenDetail} />
             </Collapse>
         </article>
     );

@@ -1,5 +1,7 @@
+import { useNoticeDetailReturn } from '../housing/NoticeListVisit';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router';
 import { getQuestionStep } from './questionNavigation';
+import { answerableQuestions } from '../housing/questions';
 import { usePreparation } from './usePreparation';
 import { usePreparationRecord } from './usePreparationRecord';
 import { State } from '../../shared/ui/ui';
@@ -9,6 +11,8 @@ import { PreparationNav } from './PreparationNav';
 import { getPreparationTab, preparationTabPath } from './preparationTabRoutes';
 import { useActivePreparation } from './useActivePreparation';
 import styles from './PreparationHeader.module.css';
+import { applicantInputQuestions } from '../housing/preparationApplicability';
+import { showFollowUp } from '../housing/followUp';
 
 export function PreparationTabLayout() {
     const tab = getPreparationTab(useLocation());
@@ -17,13 +21,20 @@ export function PreparationTabLayout() {
 
 function ConditionContinue() {
     const { data: record } = usePreparation();
-    if (
-        !record ||
-        record.guideState !== 'AVAILABLE' ||
-        !record.questions.length
-    )
+    const questions = answerableQuestions(
+        record ? applicantInputQuestions(record) : [],
+        Object.values(record?.documentConditions ?? {}),
+    );
+    if (!record || record.guideState !== 'AVAILABLE' || !questions.length)
         return null;
-    const next = record.questions[getQuestionStep(record)];
+    const next =
+        questions[
+            getQuestionStep(
+                { questions, answers: record.answers },
+                undefined,
+                record.questions,
+            )
+        ];
     return (
         <footer className={styles.conditionFooter}>
             <Link
@@ -48,7 +59,9 @@ function Workspace({
     const { query, active, select } = useActivePreparation();
     const navigate = useNavigate();
     const id = tab.preparationId ?? active?.id;
-    const detail = usePreparationRecord(tab.preparationId ? undefined : id);
+    const current = query.data?.find((record) => record.id === id);
+    const detail = usePreparationRecord(id, current?.revision);
+    const detailReturn = useNoticeDetailReturn(current?.noticeId);
     function switchRecord(nextId: string) {
         if (nextId === id || !allowRecordChange()) return;
         select(nextId);
@@ -58,13 +71,22 @@ function Workspace({
     }
     return (
         <div data-preparation-workspace className={styles.frame}>
+            {current && detailReturn && (
+                <Link className={styles.detailBack} {...detailReturn}>
+                    공고 상세로 돌아가기
+                </Link>
+            )}
             <PreparationHeader
                 preparations={query.data}
                 activeId={id}
                 onSelect={switchRecord}
             />
             {id && (
-                <PreparationNav id={id} overviewIsList={!tab.preparationId} />
+                <PreparationNav
+                    id={id}
+                    overviewIsList={!tab.preparationId}
+                    followUpVisible={showFollowUp(detail.data)}
+                />
             )}
             <div
                 key={id + ':' + tab.section}

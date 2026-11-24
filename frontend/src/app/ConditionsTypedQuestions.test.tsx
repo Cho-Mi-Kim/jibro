@@ -101,9 +101,11 @@ describe('숫자·날짜·다중 선택 조건 확인', () => {
             screen.getByRole('checkbox', { name: '둘째 항목' }),
         );
         expect(save).not.toHaveBeenCalled();
-        expect(screen.getByRole('group')).toHaveAccessibleName(
-            '여러 항목 테스트',
-        );
+        expect(
+            screen.getByRole('group', {
+                name: '여러 항목 테스트 · 내 상황에 해당하나요?',
+            }),
+        ).toHaveAccessibleName('여러 항목 테스트 · 내 상황에 해당하나요?');
         await userEvent.click(screen.getByRole('button', { name: '다음' }));
         const input = await screen.findByRole('spinbutton', {
             name: '숫자 입력',
@@ -164,9 +166,9 @@ describe('숫자·날짜·다중 선택 조건 확인', () => {
         expect(screen.getByRole('spinbutton')).toHaveValue(1.5);
         await userEvent.click(screen.getByRole('button', { name: '다음' }));
         await waitFor(() =>
-            expect(screen.getByRole('group')).toHaveAccessibleName(
-                '날짜 테스트',
-            ),
+            expect(
+                screen.getByRole('group', { name: '날짜 테스트' }),
+            ).toHaveAccessibleName('날짜 테스트'),
         );
         fireEvent.change(screen.getByLabelText('날짜 입력'), {
             target: { value: '2025-01-01' },

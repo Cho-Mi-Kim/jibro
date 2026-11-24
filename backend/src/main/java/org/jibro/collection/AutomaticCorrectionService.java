@@ -51,7 +51,7 @@ public class AutomaticCorrectionService implements CollectionItemProcessor {
     }
 
     @Scheduled(initialDelayString = "${app.collection.correction-initial-delay-ms:60000}",
-        fixedDelayString = "${app.collection.correction-poll-ms:30000}")
+            fixedDelayString = "${app.collection.correction-poll-ms:30000}")
     public void tick() {
         if (!enabled || !running.compareAndSet(false, true)) return;
         try {

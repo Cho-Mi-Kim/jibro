@@ -8,11 +8,16 @@ import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-/** Account profile, credentials and one-use account ticket persistence. */
+/**
+ * Account profile, credentials and one-use account ticket persistence.
+ */
 @Repository
 public class AccountRepository {
-    record Profile(String name, String email, String region, boolean verified, boolean passwordLogin) {}
-    record PasswordCredential(String hash) {}
+    record Profile(String name, String email, String region, boolean verified, boolean passwordLogin) {
+    }
+
+    record PasswordCredential(String hash) {
+    }
 
     private final JdbcTemplate db;
 
@@ -22,7 +27,7 @@ public class AccountRepository {
 
     Optional<Profile> findProfile(UUID id) {
         return db.query("SELECT name,CASE WHEN trial_expires_at IS NULL THEN email ELSE '' END,interest_region,email_verified,password_hash IS NOT NULL FROM app_user WHERE id=? AND NOT disabled",
-            (r, i) -> new Profile(r.getString(1), r.getString(2), r.getString(3), r.getBoolean(4), r.getBoolean(5)), id).stream().findFirst();
+                (r, i) -> new Profile(r.getString(1), r.getString(2), r.getString(3), r.getBoolean(4), r.getBoolean(5)), id).stream().findFirst();
     }
 
     void updateProfile(UUID id, String name, String region) {
@@ -35,12 +40,11 @@ public class AccountRepository {
         db.update("DELETE FROM account_ticket WHERE user_id=?", id);
         db.update("DELETE FROM account_connection_intent WHERE user_id=?", id);
         db.update("DELETE FROM account_connection_proof WHERE user_id=?", id);
-        db.update("DELETE FROM account_connection_attempt WHERE user_id=?", id);
     }
 
     Optional<PasswordCredential> lockPasswordCredential(UUID id) {
         return db.query("SELECT password_hash FROM app_user WHERE id=? AND NOT disabled FOR UPDATE",
-            (r, i) -> new PasswordCredential(r.getString(1)), id).stream().findFirst();
+                (r, i) -> new PasswordCredential(r.getString(1)), id).stream().findFirst();
     }
 
     Optional<UUID> lockPasswordAccountByEmail(String email) {
@@ -87,7 +91,6 @@ public class AccountRepository {
         db.update("DELETE FROM login_identity WHERE user_id=?", user);
         db.update("DELETE FROM account_connection_intent WHERE user_id=?", user);
         db.update("DELETE FROM account_connection_proof WHERE user_id=?", user);
-        db.update("DELETE FROM account_connection_attempt WHERE user_id=?", user);
         // Preserve the anonymous actor key referenced by review/collection audit records.
         db.update("UPDATE app_user SET disabled=true,security_version=security_version+1,name='탈퇴 회원',email=?,password_hash=NULL,interest_region='',email_verified=false,role='USER' WHERE id=?", "deleted:" + user, user);
     }

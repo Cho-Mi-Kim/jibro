@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
 import jakarta.persistence.EntityManager;
 import org.jibro.notice.NoticeService;
 import org.jibro.notice.SampleData;
@@ -23,19 +24,25 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class ExtractionRetryIntegrationTest {
-    @Autowired ExtractionStore store;
-    @Autowired NoticeService notices;
-    @Autowired JdbcTemplate db;
-    @Autowired EntityManager entities;
+    @Autowired
+    ExtractionStore store;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    EntityManager entities;
     UUID notice;
 
-    @BeforeEach void setup() {
+    @BeforeEach
+    void setup() {
         notice = notices.insert("retry-test-" + UUID.randomUUID(), "발췌 재시도", "LH", "서울", "임대",
                 LocalDate.now(), LocalDate.now().plusDays(30), LocalDate.now(), SampleData.content());
         entities.flush();
     }
 
-    @Test void failedSourcesRetryTwiceWithDelayAndKeepSuccessfulAndEmptySources() {
+    @Test
+    void failedSourcesRetryTwiceWithDelayAndKeepSuccessfulAndEmptySources() {
         var draft = store.enqueue(notice, false);
         UUID id = UUID.fromString(draft.id());
         Source extracted = source("EXTRACTED", "good");
@@ -64,7 +71,8 @@ class ExtractionRetryIntegrationTest {
         assertEquals(2, retries(id));
     }
 
-    @Test void emptyExtractionDoesNotRetryAndContinuationDoesNotUseRetryBudget() {
+    @Test
+    void emptyExtractionDoesNotRetryAndContinuationDoesNotUseRetryBudget() {
         UUID id = UUID.fromString(store.enqueue(notice, false).id());
         var first = store.claim();
         store.finish(first, List.of(source("EXTRACTED", "good"), source("DEFERRED", "later")), "QUEUED", "이어서 처리");
@@ -78,7 +86,8 @@ class ExtractionRetryIntegrationTest {
         assertNull(store.claim());
     }
 
-    @Test void recoveredWorkerCannotFinishNewAttemptAndRepeatedInterruptionsAreBounded() {
+    @Test
+    void recoveredWorkerCannotFinishNewAttemptAndRepeatedInterruptionsAreBounded() {
         UUID id = UUID.fromString(store.enqueue(notice, false).id());
         var old = store.claim();
         expire(id);
@@ -101,7 +110,8 @@ class ExtractionRetryIntegrationTest {
         assertEquals(2, retries(id));
     }
 
-    @Test void changedNoticeNeverQueuesAnOldFailedExtraction() {
+    @Test
+    void changedNoticeNeverQueuesAnOldFailedExtraction() {
         UUID id = UUID.fromString(store.enqueue(notice, false).id());
         var job = store.claim();
         notices.updateContent(notice, job.revision(), notices.content(notice));
@@ -112,7 +122,8 @@ class ExtractionRetryIntegrationTest {
         assertNull(store.claim());
     }
 
-    @Test void explicitForceAfterInterruptedRunCreatesFreshJobAndRejectsLateFinish() {
+    @Test
+    void explicitForceAfterInterruptedRunCreatesFreshJobAndRejectsLateFinish() {
         UUID id = UUID.fromString(store.enqueue(notice, false).id());
         var old = store.claim();
         expire(id);
@@ -135,13 +146,14 @@ class ExtractionRetryIntegrationTest {
         assertEquals("RUNNING", store.find(id).status());
         assertEquals(0, retries(id));
         assertEquals(running.claimToken(), db.queryForObject(
-            "SELECT claim_token FROM notice_extraction WHERE id=?", UUID.class, id));
+                "SELECT claim_token FROM notice_extraction WHERE id=?", UUID.class, id));
 
         store.finish(running, List.of(source("EXTRACTED", "completed-ocr")), "READY", "완료");
         assertEquals("READY", store.find(id).status());
     }
 
-    @Test void automaticRecoveryStartsOnlyAfterTenMinutesAndRejectsTheOldWorker() {
+    @Test
+    void automaticRecoveryStartsOnlyAfterTenMinutesAndRejectsTheOldWorker() {
         UUID id = UUID.fromString(store.enqueue(notice, false).id());
         var expired = store.claim(notice);
         age(id, 601);
@@ -159,7 +171,8 @@ class ExtractionRetryIntegrationTest {
         assertTrue(store.find(id).sources().isEmpty());
     }
 
-    @Test void successfulFileCheckpointRenewsTheLeaseForTheNextOcrFile() {
+    @Test
+    void successfulFileCheckpointRenewsTheLeaseForTheNextOcrFile() {
         UUID id = UUID.fromString(store.enqueue(notice, false).id());
         var running = store.claim(notice);
         age(id, 599);
@@ -167,7 +180,7 @@ class ExtractionRetryIntegrationTest {
 
         assertTrue(store.checkpoint(running, completed));
         assertEquals(0L, db.queryForObject(
-            "SELECT extract(epoch FROM now()-started_at)::bigint FROM notice_extraction WHERE id=?", Long.class, id));
+                "SELECT extract(epoch FROM now()-started_at)::bigint FROM notice_extraction WHERE id=?", Long.class, id));
         assertNull(store.claim(notice));
         assertEquals(id.toString(), store.enqueue(notice, true).id());
         assertEquals(completed, store.find(id).sources());

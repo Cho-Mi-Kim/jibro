@@ -16,7 +16,8 @@ public class AlertService {
     public record Settings(boolean enabled, @Min(1) @Max(7) int leadDays, boolean includeSaved) {
     }
 
-    public record Alert(String key, UUID noticeId, String title, String label, LocalDate date, boolean read, Instant occurredAt) {
+    public record Alert(String key, UUID noticeId, String title, String label, LocalDate date, boolean read,
+                        Instant occurredAt) {
     }
 
     public record Inbox(Settings settings, List<Alert> items) {
@@ -40,7 +41,7 @@ public class AlertService {
     @Transactional(readOnly = true)
     public Inbox inbox(UUID owner) {
         var settings = repository.findPreferences(owner).map(value -> new Settings(value.enabled(), value.leadDays(), value.includeSaved()))
-            .orElse(new Settings(false, 3, true));
+                .orElse(new Settings(false, 3, true));
         if (!settings.enabled()) return new Inbox(settings, List.of());
         var read = new HashSet<>(repository.findReadKeys(owner));
         var rows = repository.findTargets(owner, settings.includeSaved());

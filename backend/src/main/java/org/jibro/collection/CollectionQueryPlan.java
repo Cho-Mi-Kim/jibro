@@ -43,7 +43,7 @@ public class CollectionQueryPlan {
         if (value == null) throw new IllegalArgumentException("COLLECTION_CATEGORIES_INVALID");
         var result = Arrays.stream(value.split(",", -1)).map(String::trim).toList();
         if (result.isEmpty() || result.size() > ALLOWED_CATEGORIES.size()
-            || !ALLOWED_CATEGORIES.containsAll(result) || Set.copyOf(result).size() != result.size())
+                || !ALLOWED_CATEGORIES.containsAll(result) || Set.copyOf(result).size() != result.size())
             throw new IllegalArgumentException("COLLECTION_CATEGORIES_INVALID");
         return result;
     }
@@ -51,7 +51,7 @@ public class CollectionQueryPlan {
     public record Query(String categoryCode, LocalDate publishedFrom, LocalDate publishedThrough) {
         public Query {
             if (!ALLOWED_CATEGORIES.contains(categoryCode) || publishedFrom == null || publishedThrough == null
-                || publishedFrom.isAfter(publishedThrough) || publishedFrom.getYear() < 1900 || publishedThrough.getYear() > 9999)
+                    || publishedFrom.isAfter(publishedThrough) || publishedFrom.getYear() < 1900 || publishedThrough.getYear() > 9999)
                 throw new IllegalArgumentException("COLLECTION_QUERY_INVALID");
         }
     }

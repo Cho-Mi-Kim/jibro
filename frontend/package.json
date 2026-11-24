@@ -11,11 +11,14 @@
         "lint": "eslint . --max-warnings 0",
         "typecheck": "tsc -b --pretty false",
         "check:boundaries": "node --test scripts/check-boundaries.node-tests.mjs && node scripts/check-boundaries.mjs",
+        "build:reviewed-conditions": "node scripts/build-reviewed-conditions.mjs",
+        "check:reviewed-conditions": "node scripts/build-reviewed-conditions.mjs --check",
+        "check:public-site": "node --test scripts/public-site.node-tests.mjs scripts/production-security.node-tests.mjs",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "test": "vitest",
         "test:run": "vitest run",
-        "ci": "npm run format:check && npm run lint && npm run check:boundaries && npm run typecheck && npm run test:run && npm run build",
+        "ci": "npm run format:check && npm run lint && npm run check:boundaries && npm run check:reviewed-conditions && npm run check:public-site && npm run typecheck && npm run test:run && npm run build",
         "preview": "vite preview"
     },
     "dependencies": {

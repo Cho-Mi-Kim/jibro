@@ -112,7 +112,7 @@ class CollectionResponseArchiveIntegrationTest {
     @Test
     void invalidProviderResponseIsArchivedAndOnlyAdministratorsCanReadBodies() throws Exception {
         var failure = assertThrows(SourceResponse.Rejected.class,
-            () -> real.accept(200, "{\"SS_CODE\":\"N\",\"reason\":\"bad query\"}", null, Instant.now()));
+                () -> real.accept(200, "{\"SS_CODE\":\"N\",\"reason\":\"bad query\"}", null, Instant.now()));
         when(client.fetch(anyInt(), any(CollectionQueryPlan.Query.class))).thenThrow(failure);
         UUID run = UUID.fromString(collections.collect(actor, 1).id());
         var receipt = archive.list(run).get(0);
@@ -121,7 +121,7 @@ class CollectionResponseArchiveIntegrationTest {
         mvc.perform(get(path)).andExpect(status().isUnauthorized());
         mvc.perform(get(path).with(jwt().authorities(new SimpleGrantedAuthority("ROLE_USER")))).andExpect(status().isForbidden());
         mvc.perform(get(path).with(jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
-            .andExpect(status().isOk()).andExpect(jsonPath("bodyJson").value(failure.response().bodyJson()));
+                .andExpect(status().isOk()).andExpect(jsonPath("bodyJson").value(failure.response().bodyJson()));
     }
 
     private LhNoticeClient.Batch accepted(String body) throws Exception {

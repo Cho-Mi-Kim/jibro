@@ -15,11 +15,11 @@ final class CollectionPage {
 
     static void validate(LhNoticeClient.Batch batch, int page) {
         if (page < 1 || page > CollectionQueryPlan.MAX_PAGE || batch == null || batch.items() == null
-            || batch.items().size() > 100 || batch.total() < 0
-            || batch.total() > 0 && batch.items().size() != Math.min(100, Math.max(0, batch.total() - (page - 1) * 100))
-            || batch.items().stream().anyMatch(Objects::isNull)
-            || batch.items().stream().map(LhNoticeClient.Item::key).anyMatch(key -> key == null || key.isBlank())
-            || batch.items().stream().map(LhNoticeClient.Item::key).distinct().count() != batch.items().size())
+                || batch.items().size() > 100 || batch.total() < 0
+                || batch.total() > 0 && batch.items().size() != Math.min(100, Math.max(0, batch.total() - (page - 1) * 100))
+                || batch.items().stream().anyMatch(Objects::isNull)
+                || batch.items().stream().map(LhNoticeClient.Item::key).anyMatch(key -> key == null || key.isBlank())
+                || batch.items().stream().map(LhNoticeClient.Item::key).distinct().count() != batch.items().size())
             throw new IllegalArgumentException("SOURCE_PAGINATION_INVALID");
     }
 

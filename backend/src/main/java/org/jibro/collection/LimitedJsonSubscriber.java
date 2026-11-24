@@ -6,16 +6,30 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.concurrent.*;
 
-/** Enforces the response bound while receiving, before allocating an unrestricted response body. */
+/**
+ * Enforces the response bound while receiving, before allocating an unrestricted response body.
+ */
 final class LimitedJsonSubscriber implements HttpResponse.BodySubscriber<byte[]> {
-    static final class TooLarge extends IllegalStateException {}
+    static final class TooLarge extends IllegalStateException {
+    }
+
     private final CompletableFuture<byte[]> body = new CompletableFuture<>();
     private final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     private Flow.Subscription subscription;
 
-    @Override public CompletionStage<byte[]> getBody() { return body; }
-    @Override public void onSubscribe(Flow.Subscription value) { subscription = value; value.request(1); }
-    @Override public void onNext(List<ByteBuffer> buffers) {
+    @Override
+    public CompletionStage<byte[]> getBody() {
+        return body;
+    }
+
+    @Override
+    public void onSubscribe(Flow.Subscription value) {
+        subscription = value;
+        value.request(1);
+    }
+
+    @Override
+    public void onNext(List<ByteBuffer> buffers) {
         if (body.isDone()) return;
         for (var buffer : buffers) {
             if (buffer.remaining() > SourceResponseSanitizer.MAX_BYTES - bytes.size()) {
@@ -29,6 +43,14 @@ final class LimitedJsonSubscriber implements HttpResponse.BodySubscriber<byte[]>
         }
         subscription.request(1);
     }
-    @Override public void onError(Throwable error) { body.completeExceptionally(error); }
-    @Override public void onComplete() { body.complete(bytes.toByteArray()); }
+
+    @Override
+    public void onError(Throwable error) {
+        body.completeExceptionally(error);
+    }
+
+    @Override
+    public void onComplete() {
+        body.complete(bytes.toByteArray());
+    }
 }

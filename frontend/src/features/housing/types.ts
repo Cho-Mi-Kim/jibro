@@ -18,6 +18,13 @@ export interface AnswerOption {
     label: string;
     requiresFollowUp?: boolean;
 }
+export interface AnswerDependency {
+    questionId: string;
+    answerValues: string[];
+    conflictingValues: string[];
+    requiredDocumentIds: string[];
+    message: string;
+}
 export interface Evidence {
     label: string;
     url: string | null;
@@ -43,6 +50,10 @@ export interface DocumentTemplate {
     evidence: Evidence;
     conditionAnswerValues?: string[] | null;
 }
+export interface QuestionApplicability {
+    questionId: string;
+    answerValues: string[];
+}
 export interface Question {
     id: string;
     title: string;
@@ -52,6 +63,8 @@ export interface Question {
     inputKind?: QuestionKind | null;
     constraints?: InputConstraints | null;
     reviewRequired?: boolean;
+    answerDependencies?: AnswerDependency[] | null;
+    applicability?: QuestionApplicability | null;
 }
 export type NoticeLifecycleState = 'NORMAL' | 'EARLY_CLOSED' | 'CANCELLED';
 export interface NoticeLifecycle {
@@ -64,6 +77,7 @@ export interface NoticeLifecycle {
 export interface DocumentSummaryGroup {
     items: { id: string; title: string; evidence: Evidence }[];
     remainingCount: number;
+    remainingIds?: string[];
 }
 export interface Notice {
     id: string;
@@ -79,6 +93,7 @@ export interface Notice {
         startsAt: string | null;
         endsAt: string | null;
         nextChangeAt: string | null;
+        untilFilled?: boolean;
     } | null;
     publishedDate: string | null;
     attachments: Evidence[];
@@ -150,6 +165,7 @@ export interface DocumentItem {
     necessity: 'REQUIRED' | 'CONDITIONAL' | 'UNKNOWN' | 'NOT_APPLICABLE';
     reviewRequired?: boolean;
     state: DocumentState;
+    stateBeforeReady?: Exclude<DocumentState, 'READY'> | null;
     method: string;
     issuer: string;
     issueUrl: string | null;
@@ -165,7 +181,15 @@ export interface Schedule {
     recorded: boolean;
     evidence: Evidence;
 }
+export interface FollowUpRecord {
+    result: 'WAITING' | 'SELECTED' | 'WAITLIST' | 'NOT_SELECTED';
+    waitlistNumber: number | null;
+    documentsSubmitted: boolean;
+    contractCompleted: boolean;
+    movedIn: boolean;
+}
 export interface Preparation {
+    followUp?: FollowUpRecord | null;
     documentConditions?: Record<string, string>;
     documentConditionValues?: Record<string, string[]>;
     id: string;
@@ -182,7 +206,12 @@ export interface Preparation {
     progress: number;
     houseStage: number;
     warnings: string[];
-    nextAction: { label: string; reason: string; path: string };
+    nextAction: {
+        label: string;
+        reason: string;
+        path: string;
+        completed?: boolean;
+    };
 }
 export interface Guide {
     id: string;
@@ -190,11 +219,20 @@ export interface Guide {
     title: string;
     body: string;
     evidence: Evidence;
+    scope?: string;
+    additionalEvidence?: Evidence[];
+    freshness?: {
+        status: 'CURRENT' | 'RECHECK' | 'UNREACHABLE';
+        checkedAt?: string;
+        lastAttemptAt?: string;
+        message?: string;
+    };
 }
 export interface GuidePageData {
     items: Guide[];
     page: number;
     hasMore: boolean;
+    totalPages: number;
 }
 export interface Review {
     id: string;

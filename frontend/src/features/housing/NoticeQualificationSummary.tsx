@@ -1,6 +1,6 @@
 import { Icon } from '../../shared/ui/Icon';
-import { EvidenceLink } from './EvidenceLink';
-import { qualificationSummaryRows } from './qualificationSummaryRows';
+import { qualificationSummary } from './qualificationSummary';
+import { QualificationSummaryDetails } from './QualificationSummaryDetails';
 import { NoticeSummaryCard } from './NoticeSummaryCard';
 import type { Notice } from './types';
 import styles from './NoticeDetail.module.css';
@@ -12,17 +12,14 @@ export function NoticeQualificationSummary({
     notice: Notice;
     onConditions: () => void;
 }) {
-    const overview = notice.qualificationSummary;
+    const summary = qualificationSummary(notice);
     return (
         <NoticeSummaryCard
             title="자격과 순위를 구분해요"
-            rows={qualificationSummaryRows(overview)}
+            rows={summary.rows}
             explanationLabel="자격과 순위 세부 기준 보기"
         >
-            {overview?.detail && <p>{overview.detail}</p>}
-            {overview?.evidence && (
-                <EvidenceLink evidence={overview.evidence} />
-            )}
+            <QualificationSummaryDetails summary={summary} />
             <button
                 type="button"
                 className={styles.cardAction}

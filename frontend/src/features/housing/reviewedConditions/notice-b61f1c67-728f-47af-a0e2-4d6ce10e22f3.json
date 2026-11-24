@@ -1,0 +1,404 @@
+{
+    "entries": [
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-residence",
+            "sourceTitle": "공고 기준일에 해당 지역에 거주하나요?",
+            "sourceReason": "공고문에 정한 기준일의 광산구·동구·서구·남구·북구 거주 여부를 확인하세요. 현재 주소만으로 판단하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=2",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "공고 기준일에 해당 지역에 거주하나요?",
+            "preview": "2026년 10월 27일에 광산구·동구·서구·남구·북구에 살아야 해요.",
+            "sections": [
+                {
+                    "text": "- 공고문에 정한 기준일의 광산구·동구·서구·남구·북구 거주 여부를 확인하세요.\n- 현재 주소만으로 판단하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-adult",
+            "sourceTitle": "성년자 또는 공고의 미성년 신청 예외에 해당하나요?",
+            "sourceReason": "만 19세 이상이 원칙입니다. 자녀·형제자매 부양 및 외국인 부모와 구성된 한부모가족의 미성년 세대주 예외는 공고문에서 함께 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=2",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만 19세 이상이 원칙이고, 미성년 세대주 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "만 19세 이상이 원칙이에요. 자녀·형제자매 부양 및\n- 외국인 부모와 구성된 한부모가족의 미성년 세대주 예외는 공고문에서 함께 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 · 성년자 또는 공고의 미성년 신청 예외에 해당하나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-household",
+            "sourceTitle": "공고의 세대 범위와 예외를 적용하면 무주택 요건에 해당하나요?",
+            "sourceReason": "분리 배우자와 해당 직계존비속, 분양권 등을 포함해 확인하세요. 외국인 가족·예비신혼부부·세대 제외 사유·기존 임대주택 중복입주 제한은 공고문 기준을 따릅니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=3",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "배우자는 주소가 달라도 포함해요. 부모·자녀 등은 등본과 가족관계에 따라 확인해요.",
+            "sections": [
+                {
+                    "text": "- 주소가 다른 배우자와 해당 부모·조부모, 자녀·손자녀, 분양권 등을 포함해 확인하세요.\n- 외국인 가족·예비신혼부부·세대 제외 사유·기존 임대주택 중복입주 제한은 공고문 기준을 따라요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-income-assets",
+            "sourceTitle": "신청 유형별 소득·자산 기준에 해당하나요?",
+            "sourceReason": "수급자·한부모·장애인 등 신청 유형에 따라 기준이 다릅니다. 가구원 수, 출생 자녀 가산, 총자산·자동차의 제외 및 예외를 함께 확인하세요. 하나의 소득 비율을 모든 신청자에게 적용하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=4",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "신청 유형별 소득·자산 기준에 해당하나요?",
+            "preview": "유형별 소득 50%·70%·100%를 확인해요. 자산 2억 4,500만 원·차 4,542만 원이 기본이에요.",
+            "sections": [
+                {
+                    "text": "신청 유형별 기본 소득 기준은 일반 50%, 보훈·북한이탈·장애인 1순위·시설퇴소 70%, 장애인 2순위 100%예요. 1인 가구는 20%p, 2인 가구는 10%p를 더하고 출생자녀 가산을 확인해요. 자산 적용 유형은 총자산 2억 4,500만 원·자동차 4,542만 원 이하가 기본이고, 출생자녀 1명은 2억 7,000만 원·4,996만 원, 2명 이상은 2억 9,400만 원·5,451만 원이에요. 수급·지원 한부모 등 신분으로 심사를 생략하는 범위와 필수 동의서 제출은 구분해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "출생자녀 가산은 2023년 3월 28일 이후 자녀(태아·입양 포함)가 있을 때 적용해요. 기존 미성년 자녀를 함께 세는 범위는 공고의 자녀 가산표를 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "신청 유형별 기본 소득 기준은 일반 50%, 보훈·북한이탈·장애인 1순위·시설퇴소 70%, 장애인 2순위 100%예요. 1인 가구는 20%p, 2인 가구는 10%p를 더하고 출생자녀 가산을 확인해요. 자산 적용 유형은 총자산 2억 4,500만 원·자동차 4,542만 원 이하가 기본이고, 출생자녀 1명은 2억 7,000만 원·4,996만 원, 2명 이상은 2억 9,400만 원·5,451만 원이에요. 수급·지원 한부모 등 신분으로 심사를 생략하는 범위와 필수 동의서 제출은 구분해요."
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-rank",
+            "sourceTitle": "이번 모집의 대상 유형과 선정 기준을 확인했나요?",
+            "sourceReason": "신청 자격과 선정 순위는 별개입니다. 해당 자격 유형, 동일 순위의 배점·동점 처리와 증빙을 공고문에서 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=8",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "어떤 항목에 점수를 받나요?",
+            "preview": "거주기간·가족 수·나이·가족 구성 점수를 합쳐요. 이 공고는 40~50세가 연령 최고점이에요.",
+            "sections": [
+                {
+                    "text": "같은 순위에서는 배점 → 전입일 → 세대원 수 → 가구주 연령 점수 → 추첨 순이에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "배점",
+                        "headers": ["항목", "구간", "점수"],
+                        "rows": [
+                            [
+                                "광산·동·서·남·북구 계속 거주",
+                                "1년 미만 / 1~5년 / 5~10년 / 10~15년 / 15년 이상",
+                                "22 / 24 / 26 / 28 / 30점"
+                            ],
+                            [
+                                "세대원 수",
+                                "1 / 2 / 3 / 4 / 5 / 6명 이상",
+                                "20 / 22 / 24 / 26 / 28 / 30점"
+                            ],
+                            [
+                                "신청자 나이",
+                                "30세 미만 / 30~40세 / 40~50세 / 50~60세 / 60세 이상",
+                                "16 / 18 / 20 / 18 / 16점"
+                            ],
+                            [
+                                "가족 구성 유형",
+                                "1가지 / 2가지 / 3가지 / 기타 유형",
+                                "16 / 18 / 20 / 10점"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "가족 구성형태는 65세 이상 부모·조부모, 지원대상 한부모, 미성년 (손)자녀 3명 이상 부양, 중증장애, 소년소녀가정, 10년 이상 장기복무 제대군인 등 원문 유형을 확인해요. 같은 유형을 임의로 중복 계산하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "같은 순위는 배점 → 광산구·동구·서구·남구·북구 전입일 → 세대원 수 → 가구주 연령 점수 → 추첨 순으로 선정해요. 거주기간 최대 30점, 가족 수 최대 30점, 신청자 나이 최대 20점, 가족 구성형태 최대 20점이에요. 나이는 40세 이상 50세 미만이 20점이고 더 나이가 많다고 무조건 유리하지 않아요."
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-rank",
+            "sourceTitle": "이번 모집의 대상 유형과 선정 기준을 확인했나요?",
+            "sourceReason": "같은 순위는 배점 → 광산구·동구·서구·남구·북구 전입일 → 세대원 수 → 가구주 연령 점수 → 추첨 순으로 선정해요. 거주기간 최대 30점, 가족 수 최대 30점, 신청자 나이 최대 20점, 가족 구성형태 최대 20점이에요. 나이는 40세 이상 50세 미만이 20점이고 더 나이가 많다고 무조건 유리하지 않아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=9",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "어떤 항목에 점수를 받나요?",
+            "preview": "거주기간·가족 수·나이·가족 구성 점수를 합쳐요. 이 공고는 40~50세가 연령 최고점이에요.",
+            "sections": [
+                {
+                    "text": "같은 순위에서는 배점 → 전입일 → 세대원 수 → 가구주 연령 점수 → 추첨 순이에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "배점",
+                        "headers": ["항목", "구간", "점수"],
+                        "rows": [
+                            [
+                                "광산·동·서·남·북구 계속 거주",
+                                "1년 미만 / 1~5년 / 5~10년 / 10~15년 / 15년 이상",
+                                "22 / 24 / 26 / 28 / 30점"
+                            ],
+                            [
+                                "세대원 수",
+                                "1 / 2 / 3 / 4 / 5 / 6명 이상",
+                                "20 / 22 / 24 / 26 / 28 / 30점"
+                            ],
+                            [
+                                "신청자 나이",
+                                "30세 미만 / 30~40세 / 40~50세 / 50~60세 / 60세 이상",
+                                "16 / 18 / 20 / 18 / 16점"
+                            ],
+                            [
+                                "가족 구성 유형",
+                                "1가지 / 2가지 / 3가지 / 기타 유형",
+                                "16 / 18 / 20 / 10점"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "가족 구성형태는 65세 이상 부모·조부모, 지원대상 한부모, 미성년 (손)자녀 3명 이상 부양, 중증장애, 소년소녀가정, 10년 이상 장기복무 제대군인 등 원문 유형을 확인해요. 같은 유형을 임의로 중복 계산하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "review-application",
+            "sourceTitle": "신청 방식과 중복신청 제한을 확인했나요?",
+            "sourceReason": "거주지 관할 행정복지센터의 지정 기간에 현장 접수합니다. 인터넷 접수로 바꾸지 마세요. 세대 내 중복신청, 다른 단지 중복신청 및 예비입주자 지위 변경 규칙을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=10",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "어디서 신청하고 중복 신청은 어떻게 처리하나요?",
+            "preview": "거주지 관할 행정복지센터에서 신청해요. 한 세대가 중복 신청하면 무효예요.",
+            "sections": [
+                {
+                    "text": "- 거주지 관할 행정복지센터의 지정 기간에 현장 접수해요.\n- 인터넷 접수로 바꾸지 마세요.\n- 세대 내 중복신청, 다른 단지 중복신청 및 예비입주자 지위 변경 규칙을 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "applies-resident-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "공고일 이후 주소·세대주 변동, 지역 거주기간 또는 예비신혼부부 대표신청자 등 공고의 제출 대상에 해당하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "주소·세대주가 바뀌었거나 거주기간을 등본으로 확인하기 어려우면 상세 초본을 준비해요.",
+            "sections": [
+                {
+                    "text": "다음 대상은 상세 주민등록초본을 준비해요.\n- 공고일 이후 주소나 세대주가 바뀐 세대원(신청자 포함)\n- 지역 거주기간을 확인해야 하는 사람\n- 예비신혼부부의 대표 신청자\n과거 주소변동·세대주 이름과 관계, 해당 지역 거주기간을 모두 표시해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서 제출 대상인가요?",
+            "sourceReason": "등본에서 배우자를 확인할 수 없거나, 부양하는 직계존속의 배우자 확인·예비신혼부부 세대 관계 증명이 필요한 경우인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "미혼·배우자 등본 분리·외국인 배우자나 추가 가족관계 확인이 필요하면 상세 증명서를 준비해요.",
+            "sections": [
+                {
+                    "text": "다음 중 해당하면 상세 가족관계증명서를 준비해요.\n- 미혼·이혼·사별·세대 분리 등으로 등본에서 배우자가 확인되지 않아요.\n- 65세 이상 부모·조부모 등을 부양하며 수급자 선정기준의 소득인정액 이하이고, 부양받는 분의 배우자가 등본에 없어요. 이때는 부양받는 분의 증명서를 내요.\n- 예비신혼으로 두 사람 외의 가족을 함께 살 세대에 포함해요. 그 관계가 나오는 신청자 또는 예비배우자의 증명서를 내요.\n배우자가 외국인이면 외국인등록증 등 사본도 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "applies-foreign-spouse",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인 경우인가요? 외국인등록증 등 추가 사본도 공고 기준을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "배우자가 외국인이면 어떤 서류를 내나요?",
+            "preview": "배우자가 외국인이면 등록사실증명서와 공고가 요구하는 등록증 사본을 확인해요.",
+            "sections": [
+                {
+                    "text": "외국인등록사실증명서\n공고일 이후 발급 및 공고문 제출 대상·생략 조건을 확인하세요. 원본은 이 서비스에 업로드하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 신청서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "applies-child-proof",
+            "sourceTitle": "임신진단서·입양관계증명서 제출 대상인가요?",
+            "sourceReason": "태아 또는 입양 자녀로 소득·자산기준 상향을 인정받으려는 경우인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "임신·입양은 어떤 서류로 확인하나요?",
+            "preview": "태아·입양 자녀를 인정받으려면 공고일 이후 임신증명 또는 입양관계증명서를 준비해요.",
+            "sections": [
+                {
+                    "text": "임신진단서·입양관계증명서\n공고일 이후 발급 및 공고문 제출 대상·생략 조건을 확인하세요. 원본은 이 서비스에 업로드하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 신청서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "applies-eligibility-proof",
+            "sourceTitle": "신청자격 증명서 제출 대상인가요?",
+            "sourceReason": "수급·한부모·장애·유공자·시설퇴소 등 선택한 신청자격을 증명하는 해당 서류의 제출 대상인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "신청 유형은 어떤 서류로 확인하나요?",
+            "preview": "수급·한부모·장애·보훈 등 실제 신청 유형을 증명할 서류만 준비해요.",
+            "sections": [
+                {
+                    "text": "신청자격 증명서\n공고일 이후 발급 및 공고문 제출 대상·생략 조건을 확인하세요. 원본은 이 서비스에 업로드하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 신청서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "b61f1c67-728f-47af-a0e2-4d6ce10e22f3",
+            "questionId": "applies-additional-proof",
+            "sourceTitle": "그 밖의 해당자 증빙 제출 대상인가요?",
+            "sourceReason": "예비신혼부부·대리신청·배점 증빙 등 공고의 추가 제출 대상인가요? 해당 유형의 서류만 준비하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                "sha256": "31b3cc48eafe3acf403b3b762dafd369e5abcfae9ad54373a28a6759d32517f0"
+            },
+            "heading": "추가로 필요한 서류가 있나요?",
+            "preview": "예비신혼·대리 신청·가점 등 내 상황에 해당하는 추가 서류를 준비해요.",
+            "sections": [
+                {
+                    "text": "그 밖의 해당자 증빙\n공고일 이후 발급 및 공고문 제출 대상·생략 조건을 확인하세요. 원본은 이 서비스에 업로드하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 신청서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69173003#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 .overview {
     display: grid;
-    grid-template-areas: 'summary' 'next' 'journey' 'official' 'resume';
+    grid-template-areas: 'summary' 'next' 'followup' 'journey' 'official' 'resume';
     gap: 0.75rem;
     align-items: start;
     min-width: 0;
@@ -16,51 +16,8 @@
 .summary {
     grid-area: summary;
 }
-.next {
-    grid-area: next;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: calc(0.875rem - 2px) 0.875rem;
-    background: var(--warning-soft);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
-    text-decoration: none;
-}
-.next > span:first-child {
-    width: 2.5rem;
-    height: 2.5rem;
-    flex-shrink: 0;
-}
-.next > div {
-    flex: 1;
-    min-width: 0;
-}
-.next > div > span {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--warning);
-}
-.next h2 {
-    margin: 0.125rem 0 0;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--ink);
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-}
-.next > svg {
-    width: 1.25rem;
-    flex-shrink: 0;
-    color: var(--muted);
-}
-.reason {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+.followUp {
+    grid-area: followup;
 }
 .journey {
     grid-area: journey;
@@ -100,6 +57,9 @@
     grid-area: official;
     padding-block: 0.875rem;
 }
+.official > span + .officialActions {
+    margin-top: 0.5rem;
+}
 .officialActions {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
@@ -129,6 +89,11 @@
     height: 1rem;
     flex-shrink: 0;
 }
+.officialActions[data-applied='true'] > button {
+    border-color: var(--positive, #24794f);
+    background: var(--positive-soft, #edf7f1);
+    color: var(--positive, #24794f);
+}
 .resume {
     grid-area: resume;
 }
@@ -154,6 +119,6 @@
 @media (min-width: 1024px) {
     .overview {
         grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-        grid-template-areas: 'summary next' 'summary journey' 'summary official' 'resume resume';
+        grid-template-areas: 'summary next' 'summary followup' 'summary journey' 'summary official' 'resume resume';
     }
 }

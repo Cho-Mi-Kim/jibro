@@ -30,12 +30,14 @@ public class AccountConnections {
     private final PasswordEncoder passwords;
     private final AccountMail mail;
     private final OAuthConfig config;
+    private final LoginAttemptLimiter attempts;
 
-    public AccountConnections(AccountConnectionRepository repository, PasswordEncoder passwords, AccountMail mail, OAuthConfig config) {
+    public AccountConnections(AccountConnectionRepository repository, PasswordEncoder passwords, AccountMail mail, OAuthConfig config, LoginAttemptLimiter attempts) {
         this.repository = repository;
         this.passwords = passwords;
         this.mail = mail;
         this.config = config;
+        this.attempts = attempts;
     }
 
     public Overview overview(UUID user) {
@@ -43,7 +45,7 @@ public class AccountConnections {
         var available = config.providers();
         var connected = repository.connectedProviders(user);
         return new Overview(owner.password() != null, mail.mode(), List.of("google", "kakao").stream()
-            .map(p -> new Provider(p, connected.contains(p), available.contains(p), connected.contains(p) && hasRemainingSignIn(owner, connected, available, p))).toList());
+                .map(p -> new Provider(p, connected.contains(p), available.contains(p), connected.contains(p) && hasRemainingSignIn(owner, connected, available, p))).toList());
     }
 
     @Transactional
@@ -59,10 +61,10 @@ public class AccountConnections {
 
     // Failed proofs and rejected callbacks stay consumed; failures must not roll those writes back.
     @Transactional(noRollbackFor = ApiException.class)
-    public UUID begin(UUID user, String provider, String binding, Proof proof) {
+    public UUID begin(UUID user, String provider, String binding, Proof proof, String remoteAddress) {
         requireProvider(provider);
         var owner = owner(user, true);
-        authenticate(user, owner, proof);
+        authenticate(user, owner, proof, remoteAddress);
         if (repository.hasProvider(user, provider))
             throw new ApiException(409, "ALREADY_CONNECTED", "이미 연결된 로그인 수단입니다.");
         invalidate(user);
@@ -100,10 +102,10 @@ public class AccountConnections {
     }
 
     @Transactional(noRollbackFor = ApiException.class)
-    public void disconnect(UUID user, String provider, Proof proof) {
+    public void disconnect(UUID user, String provider, Proof proof, String remoteAddress) {
         requireProvider(provider);
         var owner = owner(user, true);
-        authenticate(user, owner, proof);
+        authenticate(user, owner, proof, remoteAddress);
         var identities = repository.connectedProviders(user);
         if (!identities.contains(provider)) throw ApiException.notFound();
         if (!hasRemainingSignIn(owner, identities, config.providers(), provider))
@@ -127,28 +129,27 @@ public class AccountConnections {
 
     private Owner owner(UUID user, boolean lock) {
         return repository.findOwner(user, lock)
-            .orElseThrow(() -> new ApiException(403, "ACCOUNT_REQUIRED", "일반 계정으로 로그인해 주세요."));
+                .orElseThrow(() -> new ApiException(403, "ACCOUNT_REQUIRED", "일반 계정으로 로그인해 주세요."));
     }
 
-    private void authenticate(UUID user, Owner owner, Proof proof) {
-        if (repository.isReauthenticationBlocked(user))
-            throw new ApiException(429, "REAUTHENTICATION_LIMIT", "본인 확인을 여러 번 실패했습니다. 15분 뒤 다시 시도해 주세요.");
-        repository.deleteExpiredReauthenticationBlock(user);
-        if (proof != null && proof.password != null && !proof.password.isBlank()) {
-            if (owner.password() != null && proof.password.getBytes(StandardCharsets.UTF_8).length <= 72 && passwords.matches(proof.password, owner.password())) {
-                repository.clearReauthenticationFailures(user);
-                return;
+    private void authenticate(UUID user, Owner owner, Proof proof, String remoteAddress) {
+        UUID attempt = attempts.begin(owner.email(), remoteAddress, LoginAttemptLimiter.Purpose.REAUTHENTICATION);
+        boolean valid = false;
+        try {
+            if (proof != null && proof.password != null && !proof.password.isBlank()) {
+                valid = owner.password() != null && proof.password.getBytes(StandardCharsets.UTF_8).length <= 72
+                        && passwords.matches(proof.password, owner.password());
+            } else if (proof != null && proof.code != null && !proof.code.isBlank() && proof.code.length() <= 100) {
+                var hash = repository.findUsableProofHash(user, owner.version());
+                valid = hash.isPresent() && MessageDigest.isEqual(hash.get().getBytes(StandardCharsets.UTF_8), digest(proof.code.strip()).getBytes(StandardCharsets.UTF_8));
+                if (valid) repository.acceptEmailProof(user);
+                else repository.incrementProofFailures(user);
             }
-        } else if (proof != null && proof.code != null && !proof.code.isBlank() && proof.code.length() <= 100) {
-            var hash = repository.findUsableProofHash(user, owner.version());
-            if (hash.isPresent() && MessageDigest.isEqual(hash.get().getBytes(StandardCharsets.UTF_8), digest(proof.code.strip()).getBytes(StandardCharsets.UTF_8))) {
-                repository.acceptEmailProof(user);
-                return;
-            }
-            repository.incrementProofFailures(user);
+            if (!valid)
+                throw new ApiException(400, "REAUTHENTICATION_REQUIRED", "현재 비밀번호 또는 이메일 확인 코드를 다시 확인해 주세요.");
+        } finally {
+            attempts.finish(attempt, valid);
         }
-        repository.recordReauthenticationFailure(user);
-        throw new ApiException(400, "REAUTHENTICATION_REQUIRED", "현재 비밀번호 또는 이메일 확인 코드를 다시 확인해 주세요.");
     }
 
     private Intent intent(UUID id) {
@@ -157,7 +158,7 @@ public class AccountConnections {
 
     private boolean valid(Intent row, Owner owner, String provider, String binding) {
         return Objects.equals(row.provider(), provider) && Objects.equals(row.bindingHash(), digest(binding))
-            && row.version() == owner.version() && row.expiresAt().isAfter(Instant.now());
+                && row.version() == owner.version() && row.expiresAt().isAfter(Instant.now());
     }
 
     private static void requireProvider(String provider) {

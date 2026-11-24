@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { lifecycleLabel } from '../features/housing/noticeLifecycle';
 import { PreparationIdentity } from '../features/preparation/PreparationIdentity';
 import { NextAction } from '../features/preparation/NextAction';
+import { FollowUpSummary } from '../features/preparation/FollowUpSummary';
+import { showFollowUp } from '../features/housing/followUp';
 import { useNotice } from '../features/housing/useNotice';
 import { bindClasses } from '../shared/styles/classes';
 import { Link } from 'react-router';
 import { NoticeHomeSummary } from '../features/home/NoticeHomeSummary';
-import { HomeNoticeTitle } from '../features/home/HomeNoticeTitle';
+import { NoticeTitle } from '../features/housing/NoticeTitle';
 import { useHomeNotice } from '../features/home/useHomeNotice';
 import { useSession } from '../features/auth/useSession';
 import { Card, Heading, State } from '../shared/ui/ui';
+import { scheduleMilestone } from '../features/housing/schedules';
 import { Deadline } from '../features/housing/NoticeFacts';
 import { Disc } from '../shared/ui/Disc';
 import {
@@ -28,7 +31,7 @@ function HomeDashboard({ p }: { p: Preparation }) {
     const [expanded, setExpanded] = useState(false);
     return (
         <div className={cx('home-dashboard')}>
-            <div className={cx('home-summary')}>
+            <div className={cx('home-summary')} data-expanded={expanded}>
                 <PreparationSummary
                     p={p}
                     onExplanationToggle={setExpanded}
@@ -37,7 +40,7 @@ function HomeDashboard({ p }: { p: Preparation }) {
                             preparation={p}
                             notice={n.data}
                             titleContent={
-                                <HomeNoticeTitle
+                                <NoticeTitle
                                     title={p.title}
                                     expanded={expanded}
                                 />
@@ -48,6 +51,9 @@ function HomeDashboard({ p }: { p: Preparation }) {
             </div>
             <div className={cx('home-action')}>
                 <NextAction p={p} />
+                {showFollowUp(p) && (
+                    <FollowUpSummary record={p.followUp} preparationId={p.id} />
+                )}
             </div>
             <div className={cx('home-journey')}>
                 <Journey p={p} />
@@ -57,7 +63,7 @@ function HomeDashboard({ p }: { p: Preparation }) {
             </div>
             <aside className={cx('panel home-deadline')}>
                 <Deadline
-                    date={n.data?.endDate}
+                    date={n.data && scheduleMilestone(n.data, 'end').date}
                     statusLabel={lifecycleLabel(n.data) || undefined}
                 >
                     <Link

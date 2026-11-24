@@ -20,10 +20,14 @@ public class CollectionScheduler {
         return thread;
     });
 
-    public CollectionScheduler(CollectionService service) { this.service = service; }
+    public CollectionScheduler(CollectionService service) {
+        this.service = service;
+    }
 
     @Scheduled(cron = "0 0 0,6,9-18 * * *", zone = "Asia/Seoul")
-    public void scheduledHour() { tick(); }
+    public void scheduledHour() {
+        tick();
+    }
 
     @Scheduled(initialDelayString = "${app.collection.initial-delay-ms:15000}", fixedDelayString = "${app.collection.tick-ms:30000}")
     public void tick() {
@@ -34,11 +38,17 @@ public class CollectionScheduler {
             worker.execute(() -> {
                 try {
                     service.processDue();
-                } finally { busy.set(false); }
+                } finally {
+                    busy.set(false);
+                }
             });
-        } catch (RejectedExecutionException closing) { busy.set(false); }
+        } catch (RejectedExecutionException closing) {
+            busy.set(false);
+        }
     }
 
     @PreDestroy
-    public void close() { worker.shutdownNow(); }
+    public void close() {
+        worker.shutdownNow();
+    }
 }

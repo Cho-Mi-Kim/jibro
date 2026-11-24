@@ -22,7 +22,7 @@ public final class OfficialCorrectionHistory {
         var latest = OfficialCorrectionLink.identity(latestUrl);
         if (html == null || html.length() > 2 * 1024 * 1024) throw invalid();
         var tables = Jsoup.parse(html).select("table").stream()
-            .filter(t -> t.select("caption").text().startsWith("공고이력조회")).toList();
+                .filter(t -> t.select("caption").text().startsWith("공고이력조회")).toList();
         if (tables.size() != 1) throw invalid();
         var rows = tables.get(0).select("tbody tr");
         if (rows.size() < 2 || rows.size() > 20) throw invalid();
@@ -54,7 +54,7 @@ public final class OfficialCorrectionHistory {
             if (!ids.add(id) || date.isAfter(previous) || title.isBlank() || title.length() > 300) throw invalid();
             previous = date;
             result.add(new Entry(OfficialCorrectionLink.withPanId(latestUrl, id), title, date,
-                kind.equals("일반공고") ? "01" : "02"));
+                    kind.equals("일반공고") ? "01" : "02"));
         }
         return List.copyOf(result);
     }

@@ -18,7 +18,9 @@ public class AttachmentCheckController {
     }
 
     @GetMapping
-    List<AttachmentCheckStore.Run> recent(@PathVariable UUID id) { return store.recent(id); }
+    List<AttachmentCheckStore.Run> recent(@PathVariable UUID id) {
+        return store.recent(id);
+    }
 
     @PostMapping
     AttachmentCheckStore.Run check(@PathVariable UUID id, @AuthenticationPrincipal Jwt jwt) {

@@ -1,6 +1,7 @@
 package org.jibro.preparation;
 
 import java.util.*;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import org.springframework.http.CacheControl;
@@ -16,7 +17,8 @@ public class OneTimeCheckController {
         this.service = service;
     }
 
-    public record Request(@Min(1) int version, @NotNull @Size(max = 100) Map<String, Object> answers) {}
+    public record Request(@Min(1) int version, @NotNull @Size(max = 100) Map<String, Object> answers) {
+    }
 
     @PostMapping("/{id}/check-once")
     ResponseEntity<OneTimeCheckService.Result> evaluate(@PathVariable UUID id, @Valid @RequestBody Request request) {

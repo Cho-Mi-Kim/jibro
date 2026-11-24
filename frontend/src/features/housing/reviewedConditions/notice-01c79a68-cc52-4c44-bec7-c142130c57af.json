@@ -1,0 +1,540 @@
+{
+    "entries": [
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-adult",
+            "sourceTitle": "성년자이거나 공고의 미성년 신청 예외에 해당하나요?",
+            "sourceReason": "19세 이상이 기본입니다. 미성년 예외는 같은 등본의 자녀가 있는 세대주, 직계존속 사망·실종 등으로 같은 등본의 형제자매를 부양하는 세대주, 외국인 부모와 내국인 미성년 세대주인 한부모가족입니다. 마지막 경우 부모가 대리 신청합니다. 예외의 세부 요건과 입증자료는 원문에서 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만 19세 이상이 원칙이고 미성년 세대주 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "19세 이상이 기본이에요. 미성년 예외는 같은 등본의 자녀가 있는 세대주, 부모·조부모 등 윗세대 가족 사망·실종 등으로 같은 등본의 형제자매를 부양하는 세대주,\n- 외국인 부모와 내국인 미성년 세대주인 한부모가족이에요. 마지막 경우 부모가 대리 신청해요. 예외의 세부 요건과 입증자료는 원문에서 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-nationality",
+            "sourceTitle": "신청자 본인의 국적을 확인했나요?",
+            "sourceReason": "공고는 외국인 본인의 신청을 제한합니다. 외국인 배우자·가족은 별도의 세대 범위와 등록 기준으로 확인합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "국적과 등록 상태를 확인했나요?",
+            "preview": "공고는 외국인 본인의 신청을 제한해요.",
+            "sections": [
+                {
+                    "text": "- 공고는 외국인 본인의 신청을 제한해요.\n- 외국인 배우자·가족은 별도의 세대 범위와 등록 기준으로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-household",
+            "sourceTitle": "공고의 자격검증 대상 세대원을 모두 확인했나요?",
+            "sourceReason": "분리 배우자도 포함됩니다. 직계존속·직계비속과 그 배우자는 신청자 또는 분리 배우자의 등본 등재 조건이 다릅니다. 외국인 가족의 등록·주소, 태아, 예비신혼의 예정 세대도 구분하세요. 실종·행방불명·생계 및 주거 분리 등 제외 사유는 신청자의 입증이 필요합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "배우자는 주소가 달라도 포함해요. 부모·자녀 등은 등본과 가족관계에 따라 확인해요.",
+            "sections": [
+                {
+                    "text": "- 주소가 다른 배우자도 포함돼요.\n- 부모·조부모 등 윗세대 가족·자녀·손자녀 등 아랫세대 가족과 그 배우자는 신청자 또는 주소가 다른 배우자의 등본 등재 조건이 달라요.\n- 외국인 가족의 등록·주소, 태아, 예비신혼의 예정 세대도 구분하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=5",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "실종·행방불명·생계 및 주거 분리 등 제외 사유는 신청자의 입증이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=5",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-housing",
+            "sourceTitle": "어떤 주택 소유 기준을 확인해야 하나요?",
+            "sourceReason": "이번 모집은 무주택 요건 완화가 있습니다. 소형·저가 특례는 면적과 법령상 가격 조건을 모두 충족해야 하며, 아파트/그 외와 수도권 여부에 따라 기준이 다릅니다. 다른 지역의 주택 특례는 주택건설지역·연접지역의 소유 여부를 확인하는 기준이며 거주지 순위가 아닙니다. 법정 예외, 취득 시점과 재계약 기준은 원문을 별도로 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "집이 있어도 신청할 수 있나요?",
+            "preview": "소형·저가주택이나 익산·이웃 지역 밖의 주택은 완화 기준을 확인해요. 면적·가격 제한이 있어요.",
+            "sections": [
+                {
+                    "text": "- 이번 모집은 무주택 요건을 완화해요.\n- 소형·저가 아파트: 전용 60㎡ 이하이면서 법령상 가격 1억 원 이하(수도권 1억 6천만 원)예요.\n- 아파트가 아닌 주택: 전용 85㎡ 이하이면서 3억 원 이하(수도권 5억 원)예요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 익산시와 연접지역 밖에만 집이 있는 경우도 공고의 완화 범위를 확인해요.\n- 면적과 가격을 모두 충족해야 하고, 주택·분양권 취득 경위와 재계약 기준은 별도로 확인해요.\n- 자동차 기준은 완화하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "이번 모집은 무주택 요건을 완화해요.\n- 소형·저가 아파트: 전용 60㎡ 이하이면서 법령상 가격 1억 원 이하(수도권 1억 6천만 원)예요.\n- 아파트가 아닌 주택: 전용 85㎡ 이하이면서 3억 원 이하(수도권 5억 원)예요.\n- 익산시와 연접지역 밖에만 집이 있는 경우도 공고의 완화 범위를 확인해요.\n면적과 가격을 모두 충족해야 하고, 주택·분양권 취득 경위와 재계약 기준은 별도로 확인해요. 자동차 기준은 완화하지 않아요."
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-housing",
+            "sourceTitle": "어떤 주택 소유 기준을 확인해야 하나요?",
+            "sourceReason": "이번 모집은 무주택 요건을 완화해요.\n- 소형·저가 아파트: 전용 60㎡ 이하이면서 법령상 가격 1억 원 이하(수도권 1억 6천만 원)예요.\n- 아파트가 아닌 주택: 전용 85㎡ 이하이면서 3억 원 이하(수도권 5억 원)예요.\n- 익산시와 연접지역 밖에만 집이 있는 경우도 공고의 완화 범위를 확인해요.\n면적과 가격을 모두 충족해야 하고, 주택·분양권 취득 경위와 재계약 기준은 별도로 확인해요. 자동차 기준은 완화하지 않아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=1",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "집이 있어도 신청할 수 있나요?",
+            "preview": "소형·저가주택이나 익산·이웃 지역 밖의 주택은 완화 기준을 확인해요. 면적·가격 제한이 있어요.",
+            "sections": [
+                {
+                    "text": "- 이번 모집은 무주택 요건을 완화해요.\n- 소형·저가 아파트: 전용 60㎡ 이하이면서 법령상 가격 1억 원 이하(수도권 1억 6천만 원)예요.\n- 아파트가 아닌 주택: 전용 85㎡ 이하이면서 3억 원 이하(수도권 5억 원)예요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 익산시와 연접지역 밖에만 집이 있는 경우도 공고의 완화 범위를 확인해요.\n- 면적과 가격을 모두 충족해야 하고, 주택·분양권 취득 경위와 재계약 기준은 별도로 확인해요.\n- 자동차 기준은 완화하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-vehicle",
+            "sourceTitle": "세대 전체의 자동차 기준을 확인했나요?",
+            "sourceReason": "자동차 기준은 완화하지 않습니다. 비영업용 승용자동차별 가액 중 최고 가액이 4,542만원 이하인지 확인합니다. 총자산용 차량 합산액과 다릅니다. 장애인사용 자동차·해당 국가유공자 보철용 차량의 제외와 저공해차 정부·지자체 보조금 차감을 적용하세요. 배우자 등 다른 세대원의 차량도 포함합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "세대 전체의 자동차 기준을 확인했나요?",
+            "preview": "소득·총자산은 완화해도 자동차는 4,542만 원 이하예요. 제외 차량·보조금 차감을 확인해요.",
+            "sections": [
+                {
+                    "text": "- 자동차 기준은 완화하지 않아요.\n- 비영업용 승용자동차별 가액 중 최고 가액이 4,542만원 이하인지 확인해요.\n- 총자산용 차량 합산액과 달라요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=7",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 장애인사용 자동차·해당 국가유공자 보철용 차량의 제외와 저공해차 정부·지자체 보조금 차감을 적용하세요.\n- 배우자 등 다른 세대원의 차량도 포함해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=7",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-sublease",
+            "sourceTitle": "세대원 중 불법양도·전대 적발 후 4년이 지나지 않은 사람이 있나요?",
+            "sourceReason": "신청자만이 아니라 공고의 자격검증 대상 세대원을 기준으로 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "불법으로 임대권을 넘기거나 다시 빌려준 이력이 있나요?",
+            "preview": "신청자만이 아니라 공고의 자격검증 대상 세대원을 기준으로 확인하세요.",
+            "sections": [
+                {
+                    "text": "신청자만이 아니라 공고의 자격검증 대상 세대원을 기준으로 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-duplicate",
+            "sourceTitle": "중복 신청과 기존 공공임대 입주 기준을 확인했나요?",
+            "sourceReason": "1세대 1주택 신청 원칙, 중복 신청 무효와 기존 예비입주자 지위를 구분하세요. 기존 임차인의 배우자는 세대 분리만으로 중복 입주가 해소되지 않습니다. 입주 전 기존 주택 명도, 계약·재계약 조건은 원문에서 확인하세요. 이번 선정은 거주지역·순위·배점과 무관한 접수 순번이며 자격 검증은 별도로 진행합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "한 가족이 여러 번 신청할 수 있나요?",
+            "preview": "한 세대 한 주택, 기존 임대의 퇴거 조건을 확인해요. 자격을 갖추면 접수순으로 선정해요.",
+            "sections": [
+                {
+                    "text": "- 1세대 1주택 신청 원칙, 중복 신청 무효와 기존 예비입주자 지위를 구분하세요.\n- 기존 임차인의 배우자는 세대 분리만으로 중복 입주가 해소되지 않아요.\n- 입주 전 기존 주택 기존 집을 비워 주기, 계약·재계약 조건은 원문에서 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=3",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "이번 선정은 거주지역·순위·배점과 무관한 접수 순번이며 자격 검증은 별도로 진행해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=3",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-engaged",
+            "sourceTitle": "예비신혼부부로 신청하나요?",
+            "sourceReason": "혼인으로 구성할 세대와 대표 신청자를 확인하세요. 대표 신청자는 신청 후 변경할 수 없습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "예비신혼부부로 신청하나요?",
+            "preview": "혼인으로 구성할 세대와 대표 신청자를 확인하세요.",
+            "sections": [
+                {
+                    "text": "- 혼인으로 구성할 세대와 대표 신청자를 확인하세요.\n- 대표 신청자는 신청 후 변경할 수 없어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=11",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 34쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=34",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 35쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=35",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-separate-spouse",
+            "sourceTitle": "신청자와 배우자의 주민등록표가 분리되어 있나요?",
+            "sourceReason": "분리 배우자의 전부표기 등본 제출 대상인지 확인합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "신청자와 배우자의 주민등록표가 분리되어 있나요?",
+            "preview": "주소가 다른 배우자의 전부표기 등본 제출 대상인지 확인해요.",
+            "sections": [
+                {
+                    "text": "주소가 다른 배우자의 전부표기 등본 제출 대상인지 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-separate-head",
+            "sourceTitle": "공고일 이후 당시 세대주와 등본이 분리되었나요?",
+            "sourceReason": "공고일 당시 세대주의 주민등록표등본을 추가로 제출하는 경우를 확인합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "공고일 이후 당시 세대주와 등본이 분리되었나요?",
+            "preview": "공고일 당시 세대주의 주민등록표등본을 추가로 제출하는 경우를 확인해요.",
+            "sections": [
+                {
+                    "text": "공고일 당시 세대주의 주민등록표등본을 추가로 제출하는 경우를 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-family-certificate",
+            "sourceTitle": "가족관계증명서의 제출 대상과 생략 조건을 확인했나요?",
+            "sourceReason": "등본에서 배우자를 확인할 수 없거나 미성년 자녀 관계를 확인할 수 없는 경우 등 가족관계증명서 제출 여부를 확인합니다. 예비신혼부부 예정세대에 다른 가족을 포함하는 경우 해당 관계를 증명합니다. 부모·자녀 육아지원 및 65세 직계존속 부양 가산점 목적의 추가 증명은 별도 확인 필요 항목입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "배우자·가족관계를 등본으로 확인하기 어려우면 상세 증명서를 준비해요. 가점만을 위한 증명은 제외해요.",
+            "sections": [
+                {
+                    "text": "- 등본에서 배우자를 확인할 수 없거나 미성년 자녀 관계를 확인할 수 없는 경우 등 가족관계증명서 제출 여부를 확인해요.\n- 예비신혼부부 예정세대에 다른 가족을 포함하는 경우 해당 관계를 증명해요.\n- 부모·자녀 육아지원 및 65세 부모·조부모 등 윗세대 가족 부양 가산점 목적의 추가 증명은 별도 확인 필요 항목이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=11",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-foreign-spouse",
+            "sourceTitle": "배우자의 외국인 등록 상태를 확인했나요?",
+            "sourceReason": "외국인 배우자는 가족관계등록과 외국인등록·국내거소신고 등 공고의 조건을 확인해야 합니다. 국내 미거주 재외국민 또는 미등록 배우자 관련 제한도 원문을 확인하세요. 서류 제출 대상과 신청 가능 여부는 별개입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "배우자의 외국인 등록 상태를 확인했나요?",
+            "preview": "외국인 배우자는 가족관계등록과 외국인등록·국내거소신고 등 공고의 조건을 확인해야 해요.",
+            "sections": [
+                {
+                    "text": "- 외국인 배우자는 가족관계등록과 외국인등록·국내거소신고 등 공고의 조건을 확인해야 해요.\n- 국내 미거주 재외국민 또는 미등록 배우자 관련 제한도 원문을 확인하세요.\n- 서류 제출 대상과 신청 가능 여부는 별개이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=5",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=6",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=11",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-visit",
+            "sourceTitle": "현장 신청은 누가 하나요?",
+            "sourceReason": "본인 방문은 신분증과 도장(서명 대체 가능), 배우자 대리는 양측 신분증·신청자 도장·관계 입증자료를 지참합니다. 기타 대리는 인감방식 또는 본인서명방식 중 한 방식을 사용하며 양측 신분증이 필요합니다. 계약 시의 서류 목록과 구분하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "현장 신청은 누가 하나요?",
+            "preview": "본인·배우자·다른 대리인에 따라 신분증·도장·관계 증명·위임 서류를 준비해요.",
+            "sections": [
+                {
+                    "text": "- 본인 방문은 신분증과 도장(서명 대체 가능), 배우자 대리는 양측 신분증·신청자 도장·관계 입증자료를 지참해요.\n- 기타 대리는 인감방식 또는 본인서명방식 중 한 방식을 사용하며 양측 신분증이 필요해요.\n- 계약 시의 서류 목록과 구분하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "nr-passport",
+            "sourceTitle": "신분증으로 2020년 12월 21일 이후 발급한 여권을 사용하나요?",
+            "sourceReason": "해당 여권을 사용할 때는 여권정보증명서도 필요합니다. 다른 신분증을 사용하면 이 추가 서류의 대상이 아닙니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "신분증으로 2020년 12월 21일 이후 발급한 여권을 사용하나요?",
+            "preview": "해당 여권을 사용할 때는 여권정보증명서도 필요해요.",
+            "sections": [
+                {
+                    "text": "- 해당 여권을 사용할 때는 여권정보증명서도 필요해요.\n- 다른 신분증을 사용하면 이 추가 서류의 대상이 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "selection-order",
+            "sourceTitle": "선정 순서와 가점 서류를 확인했나요?",
+            "sourceReason": "자격을 갖춘 신청자는 접수한 순서대로 선정해요. 거주지역·순위·배점은 쓰지 않아 육아지원이나 부모 부양 가점만을 위한 서류는 필요하지 않아요. 세대를 확인하는 기본 가족관계 서류는 별도예요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "선정 순서와 가점 서류를 확인했나요?",
+            "preview": "자격을 갖춘 신청자는 접수한 순서대로 선정해요.",
+            "sections": [
+                {
+                    "text": "- 자격을 갖춘 신청자는 접수한 순서대로 선정해요.\n- 거주지역·순위·배점은 쓰지 않아 육아지원이나 부모 부양 가점만을 위한 서류는 필요하지 않아요.\n- 세대를 확인하는 기본 가족관계 서류는 별도예요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "01c79a68-cc52-4c44-bec7-c142130c57af",
+            "questionId": "income-proof-scope",
+            "sourceTitle": "임신·입양 증명서가 필요한 목적을 확인했나요?",
+            "sourceReason": "이번 모집은 소득을 심사하지 않아요(7쪽). 12쪽의 임신·입양 증명서는 소득 계산에 태아·입양 자녀를 포함하려는 사람에게 요구하는 서류예요. 세대관계나 별도 자격을 증명하기 위한 서류까지 면제되는 것은 아니에요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                "sha256": "ef7eba28a841920038bb1817624cfb3d08bac1017b5d9a69f11c0f83a738e7ee"
+            },
+            "heading": "임신·입양 증명서가 필요한 목적을 확인했나요?",
+            "preview": "소득 심사는 하지 않아요. 임신·입양 서류는 실제로 인정받을 가족관계·자녀 요건이 있을 때 준비해요.",
+            "sections": [
+                {
+                    "text": "- 이번 모집은 소득을 심사하지 않아요(7쪽).\n- 12쪽의 임신·입양 증명서는 소득 계산에 태아·입양 자녀를 포함하려는 사람에게 요구하는 서류예요.\n- 세대관계나 별도 자격을 증명하기 위한 서류까지 면제되는 것은 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296595#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

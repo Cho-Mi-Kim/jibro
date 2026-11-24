@@ -1,3 +1,4 @@
+import { areaReviewIssues } from './reviewIssueSelectors';
 import { Icon } from '../../shared/ui/Icon';
 import { EvidenceLink } from './EvidenceLink';
 import type { ReviewIssue } from './types';
@@ -22,8 +23,38 @@ export function PartialGuidanceNotice({ issues }: { issues?: ReviewIssue[] }) {
     );
 }
 
-export function ReviewIssues({ issues }: { issues: ReviewIssue[] }) {
-    if (!issues.length) return null;
+export function AreaReviewIssues({
+    issues,
+    area,
+}: {
+    issues?: ReviewIssue[];
+    area: ReviewIssue['area'];
+}) {
+    return <ReviewIssues issues={areaReviewIssues(issues, area)} />;
+}
+
+export function ReviewIssues({
+    issues,
+    flagged,
+    historical = false,
+}: {
+    issues: ReviewIssue[];
+    flagged?: '조건' | '서류';
+    historical?: boolean;
+}) {
+    if (!issues.length) {
+        if (!flagged) return null;
+        return (
+            <p className={styles.notice}>
+                <Icon name="info" />
+                <span>
+                    {historical
+                        ? `저장 당시 공식 확인이 필요했던 ${flagged}입니다.`
+                        : `공식 확인이 필요한 ${flagged}입니다.`}
+                </span>
+            </p>
+        );
+    }
     return (
         <div className={styles.list}>
             {issues.map((issue) => (
@@ -36,17 +67,21 @@ export function ReviewIssues({ issues }: { issues: ReviewIssue[] }) {
                         <Icon name="info" />
                         {issueHeading(issue)}
                     </strong>
-                    <p>{issue.detail}</p>
-                    {issue.evidence.length > 0 && (
+                    {(issue.detail || issue.evidence.length > 0) && (
                         <details className={styles.sources}>
                             <summary>
-                                확인할 공식 근거 <Icon name="down" />
+                                {issue.evidence.length
+                                    ? issue.detail
+                                        ? '확인 사유·공식 근거'
+                                        : '확인할 공식 근거'
+                                    : '확인 사유'}
+                                <Icon name="down" />
                             </summary>
+                            {issue.detail && <p>{issue.detail}</p>}
                             {issue.evidence.map((evidence, index) => (
                                 <EvidenceLink
                                     key={issue.id + ':' + index}
                                     evidence={evidence}
-                                    className={styles.evidence}
                                 />
                             ))}
                         </details>

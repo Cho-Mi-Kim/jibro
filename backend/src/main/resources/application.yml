@@ -47,6 +47,13 @@ server:
     include-stacktrace: never
 
 app:
+  turnstile:
+    enabled: ${TURNSTILE_ENABLED:false}
+    site-key: ${TURNSTILE_SITE_KEY:}
+    secret-key: ${TURNSTILE_SECRET_KEY:}
+  guide-refresh:
+    enabled: ${GUIDE_REFRESH_ENABLED:true}
+    ai-enabled: ${GUIDE_REFRESH_AI_ENABLED:${GEMINI_REVIEW_ENABLED:false}}
   collection:
     gemini-enabled: ${GEMINI_REVIEW_ENABLED:false}
     automatic-followup-enabled: ${AUTOMATIC_FOLLOWUP_ENABLED:true}

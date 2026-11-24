@@ -18,7 +18,7 @@
 ## 보안 경계
 
 - API의 사용자 ID는 검증된 자체 JWT에서 얻는다. 요청 본문으로 연결 대상을 지정할 수 없다. 기존 API 보안 정책처럼 Bearer 인증 요청은 쿠키 인증에 의존하지 않는다.
-- 현재 비밀번호 또는 등록 이메일 소유를 확인한 일회용 코드로 재인증한다. 256비트 무작위 코드는 서버에 SHA-256 해시로 저장하고 10분 뒤 만료되며 한 번만 사용할 수 있다. 본인 확인 5회 실패 시 15분 동안 재시도를 제한한다.
+- 현재 비밀번호 또는 등록 이메일 소유를 확인한 일회용 코드로 재인증한다. 256비트 무작위 코드는 서버에 SHA-256 해시로 저장하고 10분 뒤 만료되며 한 번만 사용할 수 있다. 실패 제한은 로그인·비밀번호 변경·준비 삭제와 [같은 계정·접속 주소 예산](login-sessions-and-limits.md)을 공유한다. 목적별 코드의 소유자·제공자 바인딩은 유지한다.
 - 연결 요청도 10분 동안 유효하다. 사용자, `security_version`, 제공자, 브라우저 세션의 무작위 바인딩, OAuth state를 함께 확인한다. 요청을 다시 사용하거나 다른 세션·제공자·state로 완료할 수 없다.
 - `ConnectionOAuthFlow`는 Spring의 세션 기반 authorization request repository가 state를 확인한 요청에만 연결 문맥을 붙인다. 연결 의도를 callback 쿼리에서 받아들이지 않는다. 자체 JWT·확인 코드·연결 요청 ID를 리디렉션 URL에 넣지 않는다. 제공자가 반환하는 OAuth authorization code/state는 표준 callback에만 사용한다. 이 구현은 [Spring Security의 authorization request 저장 계약](https://docs.spring.io/spring-security/reference/servlet/oauth2/client/authorization-grants.html)과 [RFC 9700의 브라우저에 결합된 state 검증 원칙](https://www.rfc-editor.org/rfc/rfc9700.html#section-4.7.1)을 따른다.
 - `(provider, subject)`는 전체 계정에서 유일하고 사용자별 동일 제공자 연결도 하나다. 다른 사용자가 이미 보유한 소셜 계정을 가져오거나 동일 이메일을 근거로 계정을 합치지 않는다.

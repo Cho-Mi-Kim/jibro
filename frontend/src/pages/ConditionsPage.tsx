@@ -1,3 +1,5 @@
+import { showQuestionEvidence } from '../features/housing/conditionOverview';
+import { noticeListTitle } from '../features/housing/noticeDisplay';
 import { QuestionSteps } from '../features/preparation/QuestionSteps';
 import { ConditionResult } from '../features/preparation/ConditionResult';
 import {
@@ -15,9 +17,9 @@ import { useMutation } from '@tanstack/react-query';
 import { api } from '../features/housing/api';
 import type { Answer } from '../features/housing/types';
 import { Button, Heading, State } from '../shared/ui/ui';
+import { handleDisclosureCardClick } from '../shared/ui/handleDisclosureCardClick';
 import { EvidenceLink } from '../features/housing/EvidenceLink';
-import { PartialGuidanceNotice } from '../features/housing/ReviewIssues';
-import { QuestionCriteria } from '../features/preparation/QuestionCriteria';
+import { QuestionPrompt } from '../features/preparation/QuestionPrompt';
 
 import { Icon } from '../shared/ui/Icon';
 import { GuidanceRefresh } from '../features/preparation/PreparationNav';
@@ -27,6 +29,9 @@ import {
 } from '../features/preparation/usePreparation';
 import questionsClasses from '../features/preparation/Conditions.module.css';
 import { getQuestionStep } from '../features/preparation/questionNavigation';
+import { answerConflictMessages } from '../features/housing/answerDependencies';
+import { updateApplicantAnswer } from '../features/preparation/applicantQuestion';
+import { applicantInputQuestions } from '../features/housing/preparationApplicability';
 
 const cx = bindClasses(questionsClasses);
 
@@ -39,6 +44,11 @@ export function ConditionsPage({
     const { state } = useLocation();
     const q = usePreparation();
     const p = q.data;
+    const documentQuestionIds = Object.values(p?.documentConditions ?? {});
+    const allQuestions = answerableQuestions(
+        p ? applicantInputQuestions(p) : [],
+        documentQuestionIds,
+    );
     const saved = useSaved();
     const navigate = useNavigate();
     const [answers, setAnswers] = useState<Record<string, Answer>>({});
@@ -52,13 +62,19 @@ export function ConditionsPage({
     if (p && remainingMode && snapshot?.id !== p.id) {
         snapshot = {
             id: p.id,
-            ids: answerableQuestions(p.questions)
-                .filter((item) => needsFollowUp(item, p.answers[item.id]))
+            ids: allQuestions
+                .filter((item) =>
+                    needsFollowUp(
+                        item,
+                        p.answers[item.id],
+                        p.answers,
+                        p.questions,
+                    ),
+                )
                 .map((item) => item.id),
         };
         setReviewSnapshot(snapshot);
     }
-    const allQuestions = answerableQuestions(p?.questions ?? []);
     const questions = remainingMode
         ? allQuestions.filter((item) => snapshot?.ids.includes(item.id))
         : allQuestions;
@@ -66,6 +82,7 @@ export function ConditionsPage({
         ? getQuestionStep(
               { questions, answers: p.answers },
               params.get('question'),
+              p.questions,
           )
         : 0;
     const question = questions[step];
@@ -87,20 +104,62 @@ export function ConditionsPage({
     useUnsavedChanges(Object.keys(answers).length > 0);
     const save = useMutation({
         mutationFn: ({ id, value }: { id: string; value: Answer }) =>
-            api.answers(p!.id, p!.revision, { ...p!.answers, [id]: value }),
-        onSuccess: (next, { id }) => {
+            api.answers(
+                p!.id,
+                p!.revision,
+                updateApplicantAnswer(p!.questions, p!.answers, id, value),
+            ),
+        onSuccess: (next, { id, value }) => {
             saved(next);
             setAnswers((drafts) => {
                 const remaining = { ...drafts };
                 delete remaining[id];
-                return remaining;
+                const rebased = updateApplicantAnswer(
+                    p!.questions,
+                    { ...p!.answers, ...remaining },
+                    id,
+                    value,
+                );
+                return Object.fromEntries(
+                    Object.keys(remaining).map((key) => [key, rebased[key]]),
+                );
             });
-            const nextQuestions = answerableQuestions(next.questions).filter(
-                (item) =>
-                    !remainingMode || reviewSnapshot?.ids.includes(item.id),
+            const answerable = answerableQuestions(
+                applicantInputQuestions(next),
+                Object.values(next.documentConditions ?? {}),
             );
-            if (step < nextQuestions.length - 1)
-                goToQuestion(nextQuestions[step + 1].id);
+            const remainingIds = new Set(reviewSnapshot?.ids);
+            if (remainingMode) {
+                for (const item of answerable) {
+                    if (
+                        !allQuestions.some(
+                            (previous) => previous.id === item.id,
+                        ) ||
+                        (needsFollowUp(
+                            item,
+                            next.answers[item.id],
+                            next.answers,
+                            next.questions,
+                        ) &&
+                            !needsFollowUp(
+                                item,
+                                p!.answers[item.id],
+                                p!.answers,
+                                p!.questions,
+                            ))
+                    )
+                        remainingIds.add(item.id);
+                }
+                setReviewSnapshot({ id: next.id, ids: [...remainingIds] });
+            }
+            const nextQuestions = answerable.filter(
+                (item) => !remainingMode || remainingIds.has(item.id),
+            );
+            const currentIndex = nextQuestions.findIndex(
+                (item) => item.id === id,
+            );
+            if (currentIndex < nextQuestions.length - 1)
+                goToQuestion(nextQuestions[currentIndex + 1].id);
             else
                 navigate('/preparations/' + next.id + '/conditions/result', {
                     state,
@@ -110,7 +169,7 @@ export function ConditionsPage({
             submitting.current = false;
         },
     });
-    function submit(nextAnswers: Record<string, Answer>) {
+    function submit(nextAnswers: Record<string, Answer>, automatic = false) {
         if (submitting.current || !p || p.guideState !== 'AVAILABLE') return;
         const current = questions[step];
         if (
@@ -121,6 +180,17 @@ export function ConditionsPage({
             )
         )
             return;
+        const combined = { ...p.answers, ...nextAnswers };
+        if (
+            automatic &&
+            answerConflictMessages(
+                current,
+                combined[current.id],
+                combined,
+                p.questions,
+            ).length
+        )
+            return;
         submitting.current = true;
         save.mutate({
             id: current.id,
@@ -128,13 +198,17 @@ export function ConditionsPage({
         });
     }
     return (
-        <div className={cx(edit ? 'condition-page' : 'result-page')}>
+        <div
+            className={cx(edit ? 'condition-page' : 'result-page')}
+            data-question-page={edit || undefined}
+            data-preparation-panel={mode === 'result' || undefined}
+        >
             {edit && (
                 <Heading
-                    title="조건 확인"
+                    title="내 상황에 맞는 준비 안내"
                     backTo={p ? '/preparations/' + p.id : '/preparations'}
                 >
-                    {p ? p.title + ' · 안내 v' + p.version : undefined}
+                    {p && noticeListTitle(p.title)}
                 </Heading>
             )}
             <State
@@ -154,19 +228,27 @@ export function ConditionsPage({
             {p &&
                 (edit && question ? (
                     <div className={cx('condition-layout')}>
-                        <QuestionSteps questions={questions} step={step} />
-                        <section className={cx('panel question-panel')}>
-                            <PartialGuidanceNotice issues={p.reviewIssues} />
+                        <QuestionSteps
+                            questions={questions}
+                            step={step}
+                            answers={{ ...p.answers, ...answers }}
+                            dependencyQuestions={p.questions}
+                        />
+                        <section
+                            className={cx('panel question-panel')}
+                            onClick={handleDisclosureCardClick}
+                        >
                             <fieldset key={question.id}>
-                                <legend aria-live="polite">
-                                    {question.title}
-                                </legend>
-                                <QuestionCriteria
+                                <QuestionPrompt
                                     question={question}
                                     reviewIssues={p.reviewIssues}
+                                    answers={{ ...p.answers, ...answers }}
+                                    questions={p.questions}
                                 />
                                 <QuestionInput
                                     question={question}
+                                    answers={{ ...p.answers, ...answers }}
+                                    questions={p.questions}
                                     value={
                                         answers[question.id] ??
                                         p.answers[question.id]
@@ -175,7 +257,7 @@ export function ConditionsPage({
                                         save.isPending ||
                                         p.guideState !== 'AVAILABLE'
                                     }
-                                    onRepeatChoice={() => submit(answers)}
+                                    onRepeatChoice={() => submit(answers, true)}
                                     onChange={(value) => {
                                         const next = {
                                             ...answers,
@@ -183,14 +265,18 @@ export function ConditionsPage({
                                         };
                                         setAnswers(next);
                                         if (questionKind(question) === 'SINGLE')
-                                            submit(next);
+                                            submit(next, true);
                                     }}
                                 />
                             </fieldset>
-                            <div className={cx('question-evidence')}>
-                                <Icon name="file" />
-                                <EvidenceLink evidence={question.evidence} />
-                            </div>
+                            {showQuestionEvidence(question) && (
+                                <div className={cx('question-evidence')}>
+                                    <Icon name="file" />
+                                    <EvidenceLink
+                                        evidence={question.evidence}
+                                    />
+                                </div>
+                            )}
                             {p.guideState !== 'AVAILABLE' && (
                                 <p role="alert">
                                     안내 검토 중으로 저장이 보류됩니다.

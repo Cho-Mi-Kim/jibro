@@ -3,16 +3,20 @@ package org.jibro.collection.extraction;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
 import static org.jibro.collection.extraction.ExtractionModels.Part;
 
-/** Versioned, bounded IPC; errors never contain document text, paths or exception messages. */
+/**
+ * Versioned, bounded IPC; errors never contain document text, paths or exception messages.
+ */
 final class ParserProtocol {
     static final int MAX_INPUT = 20 * 1024 * 1024;
     static final int MAX_OUTPUT = 4_500_000;
     static final int MAX_PARTS = 200;
     static final int MAGIC = 0x4a425031;
 
-    private ParserProtocol() {}
+    private ParserProtocol() {
+    }
 
     static void write(List<Part> parts, OutputStream stream) throws IOException {
         if (parts.size() > MAX_PARTS) throw new IOException("PARSER_OUTPUT_LIMIT");
@@ -22,7 +26,8 @@ final class ParserProtocol {
         out.writeInt(parts.size());
         int chars = 0;
         for (Part part : parts) {
-            if (part.location().length() > 1024 || (chars += part.text().length()) > 1_000_000) throw new IOException("PARSER_OUTPUT_LIMIT");
+            if (part.location().length() > 1024 || (chars += part.text().length()) > 1_000_000)
+                throw new IOException("PARSER_OUTPUT_LIMIT");
             writeString(out, part.location());
             writeString(out, part.text());
             if (bytes.size() > MAX_OUTPUT) throw new IOException("PARSER_OUTPUT_LIMIT");
@@ -41,7 +46,8 @@ final class ParserProtocol {
         int chars = 0;
         for (int i = 0; i < count; i++) {
             String location = readString(in, 4096), text = readString(in, 4_000_000);
-            if (location.length() > 1024 || (chars += text.length()) > 1_000_000) throw new IOException("PARSER_OUTPUT_LIMIT");
+            if (location.length() > 1024 || (chars += text.length()) > 1_000_000)
+                throw new IOException("PARSER_OUTPUT_LIMIT");
             parts.add(new Part(location, text));
         }
         if (in.available() != 0) throw new IOException("PARSER_PROTOCOL_INVALID");

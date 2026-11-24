@@ -1,5 +1,6 @@
 import { call, demoMode } from '../../../shared/api/transport';
 import { ApiError } from '../../../shared/api/client';
+import { withReviewedConditions } from '../../housing/reviewedConditionPresentation';
 import type { Preparation } from '../../housing/types';
 import type { Experience } from '../../member/memberApi';
 
@@ -41,6 +42,10 @@ export const preparationHistoryApi = {
     },
     async get(id: string, version: number): Promise<PreparationHistoryDetail> {
         if (demoMode) throw new ApiError(404);
-        return call<PreparationHistoryDetail>(`${path(id)}/${version}`);
+        const result = await call<PreparationHistoryDetail>(
+            `${path(id)}/${version}`,
+        );
+        await withReviewedConditions(result.preparation);
+        return result;
     },
 };

@@ -95,9 +95,95 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [LH 공식 공급 지역을 공고 검색에 연결](entries/2026-11-15-official-supply-regions.md) | 확인 필요 |
 | 확인 필요 | [공식 첨부 15개와 제출 양식 17개 반영](entries/2026-11-15-reviewed-notice-files.md) | 확인 필요 |
 | 확인 필요 | [상단 알림 아이콘의 읽지 않은 알림 표시](entries/2026-11-15-unread-alert-indicator.md) | 확인 필요 |
+| 확인 필요 | [공고 상세에서 검색 목록 위치 복원](entries/2026-11-16-notice-list-detail-return.md) | 확인 필요 |
+| 확인 필요 | [공개 공고의 누락된 접수 시각 대조](entries/2026-11-16-reviewed-intake-times.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 및 일정 확인 필요 공고 7건의 접수 시간 재검수](entries/2026-11-16-seven-intake-windows.md) | 확인 필요 |
+| 확인 필요 | [서류별 제출 대상과 발급 방법 공통 적용](entries/2026-11-16-shared-document-summaries.md) | 확인 필요 |
+| 확인 필요 | [공고 모집 지역과 주택 유형의 공통 표시](entries/2026-11-16-shared-housing-facts.md) | 확인 필요 |
+| 확인 필요 | [공고 운영기관의 이름·로고 표시 통합](entries/2026-11-16-shared-notice-agency.md) | 확인 필요 |
+| 확인 필요 | [접수 상태와 준비 안내 상태의 공통 표시](entries/2026-11-16-shared-notice-statuses.md) | 확인 필요 |
+| 확인 필요 | [공고 제목 축약 규칙 공유](entries/2026-11-16-shared-notice-titles.md) | 확인 필요 |
+| 확인 필요 | [일정 요약의 공통 표시](entries/2026-11-16-shared-schedule-summaries.md) | 확인 필요 |
+| 확인 필요 | [접수 예정 공고 43건의 자격·서류 대조](entries/2026-11-17-active-field-coverage.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 공고 전체 자격·서류 재검수](entries/2026-11-17-all-active-preparation-review.md) | 확인 필요 |
+| 확인 필요 | [첨부를 읽을 수 없는 활성 모집의 대체 원문 검수](entries/2026-11-17-alternative-official-originals.md) | 확인 필요 |
+| 확인 필요 | [신규 공고의 방문 접수 일정 자동 반영](entries/2026-11-17-automatic-visit-hours.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 전체의 기관 공지와 서식 재검수](entries/2026-11-17-current-agency-preparation.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 공고의 대체 원문과 공식 서식 재검수](entries/2026-11-17-current-alternative-originals.md) | 확인 필요 |
+| 확인 필요 | [현재 공고의 날짜별 방문 접수 일정 재검수](entries/2026-11-17-current-daily-visit-sessions.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 공고의 방문 접수 시간 재대조](entries/2026-11-17-current-visit-hours.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 공고의 기관 후속 공지와 첨부 서식 자동 대조](entries/2026-11-17-future-agency-preparation.md) | 확인 필요 |
+| 확인 필요 | [신규 LH 공고의 세부 자격·서류 항목 대조](entries/2026-11-17-future-guidance-items.md) | 확인 필요 |
+| 확인 필요 | [수집 공고의 자격·서류 판독과 정정본 항목 대조](entries/2026-11-17-future-item-coverage.md) | 확인 필요 |
+| 확인 필요 | [방문 접수 시간의 공식 자료 대조](entries/2026-11-17-future-visit-hour-agreement.md) | 확인 필요 |
+| 확인 필요 | [접수처별 점심시간과 마지막 날 방문 마감](entries/2026-11-17-office-specific-intake.md) | 확인 필요 |
+| 확인 필요 | [접수 중·예정 7개 공고의 자격·서류 후속 대조](entries/2026-11-17-seven-agency-forms.md) | 확인 필요 |
+| 확인 필요 | [정읍상동2·3, 공주, 광주 북구 공식 원문 재대조](entries/2026-11-17-three-official-routes.md) | 확인 필요 |
+| 확인 필요 | [신청 완료 여부 공통 표시](entries/2026-11-18-application-completion-badge.md) | 확인 필요 |
+| 확인 필요 | [조건 답변 상태 공통 표시](entries/2026-11-18-condition-answer-status.md) | 확인 필요 |
+| 확인 필요 | [서류 발급처와 공식 양식 링크 공통 표시](entries/2026-11-18-document-issuance-links.md) | 확인 필요 |
+| 확인 필요 | [서류 준비 상태 공통 표시](entries/2026-11-18-document-state-badge.md) | 확인 필요 |
+| 확인 필요 | [일정 완료 상태 공통 표시](entries/2026-11-18-schedule-completion-badge.md) | 확인 필요 |
+| 확인 필요 | [공식 근거 링크 공통 표시](entries/2026-11-18-shared-evidence-links.md) | 확인 필요 |
+| 확인 필요 | [준비 진행률 공통 표시](entries/2026-11-18-shared-preparation-progress.md) | 확인 필요 |
+| 확인 필요 | [공식 확인이 필요한 항목의 공통 표시](entries/2026-11-18-shared-review-issues.md) | 확인 필요 |
+| 확인 필요 | [AWS 무료 플랜 운영 배포](entries/2026-11-22-aws-free-deployment.md) | 확인 필요 |
+| 확인 필요 | [무료 메일 발송 연결 준비](entries/2026-11-22-free-mail-connection.md) | 확인 필요 |
+| 확인 필요 | [문의·개인정보 페이지 로고와 공통 하단 정리](entries/2026-11-24-public-page-branding.md) | 확인 필요 |
+| 확인 필요 | [사이트 기본 운영 항목 점검](entries/2026-11-24-site-basics-audit.md) | 확인 필요 |
+| 확인 필요 | [첫 접속 Cloudflare 사람 확인](entries/2026-11-24-visitor-verification.md) | 확인 필요 |
+| 2026-11-25 | [main 승격 검토 중 발견한 Pages 내부 링크 수정](entries/2026-11-25-main-pages-release.md) | 실행 근거 정리 |
+| 2026-11-25 | [PR #31 병합 전 코드 검토와 독립 환경 검증](entries/2026-11-25-pr31-merge-review.md) | 실행 근거 정리 완료 |
+| 2026-11-24 | [새 검사 서버에서 요청 한도가 한 건 빨리 소진되는 문제 수정](entries/2026-11-24-edge-rate-limit-initialization.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-24 | [최종 검토본과 운영 사이트 일치 확인](entries/2026-11-24-final-production-verification.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-24 | [Iron Laws 실제 실행과 상위 지적 대조](entries/2026-11-24-iron-laws-audit.md) | 검토 완료 |
+| 2026-11-24 | [PC 공고 정렬 메뉴가 카드 뒤에 가려지는 문제 수정](entries/2026-11-24-notice-sort-layer.md) | 검토 완료 |
+| 2026-11-24 | [PR #31의 지역 약칭·테스트·문서 충돌 정리](entries/2026-11-24-pr31-conflict-resolution.md) | 근거 정리·팀 검토 전 |
+| 2026-11-24 | [리팩토링 지적 14건의 책임 통합과 실패 처리 보완](entries/2026-11-24-refactoring-findings-fixed.md) | 완료 |
+| 2026-11-24 | [리팩토링 수정 운영 배포](entries/2026-11-24-refactoring-production-deploy.md) | 완료 |
+| 2026-11-24 | [첨부 원칙에 따른 리팩토링 점검](entries/2026-11-24-refactoring-review.md) | 검토 완료 |
+| 2026-11-24 | [공개 PDF 자원 경계와 비밀번호 변경 재인증 보완](entries/2026-11-24-security-findings-fix.md) | 검증 완료 |
+| 2026-11-24 | [공개 운영 안내·방문 통계·문의 메일 구현](entries/2026-11-24-site-basics-implementation.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-24 | [시각화 제외 로컬 개선 사항 팀 검토 업로드](entries/2026-11-24-team-review-upload.md) | 근거 정리·팀 검토 전 |
+| 2026-11-23 | [신청 후 결과·서류·계약·입주 기록 연결](entries/2026-11-23-application-followup.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-23 | [북구 PDF의 떨어진 표와 자동 맞춤 질문 연결](entries/2026-11-23-detached-pdf-tables.md) | 검증 완료·팀 담당자 검토 전 |
+| 2026-11-23 | [PC 내 준비 서류 상세 상단 이동](entries/2026-11-23-document-detail-scroll.md) | 확인 필요 |
+| 2026-11-23 | [보류 수치 정정과 공식 원문 대조·상황별 질문 복구](entries/2026-11-23-held-guidance-personalization.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-23 | [PDF·한글본 대조와 신청 유형별 자동 질문 보완](entries/2026-11-23-paired-applicant-automation.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-23 | [서울 영구임대·수원당수1·2 원문 대조와 맞춤 준비 안내 공개](entries/2026-11-23-seoul-suwon-personal-guidance.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [제공 중인 공고 전체의 상황 선택·질문·서류 연결](entries/2026-11-22-all-applicant-situations.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [신청자 상황 질문과 맞춤 준비 안내 분리](entries/2026-11-22-applicant-guidance.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [공식 모집 유형에 따른 질문과 서류 분기](entries/2026-11-22-applicant-official-types.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [선택한 신청 유형에 따른 입력 질문 분기](entries/2026-11-22-applicant-question-branches.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [새 공고의 상황별 질문 생성과 기존 유지 12건 재확인](entries/2026-11-22-automatic-applicant-situations.md) | 검토 완료 |
+| 2026-11-22 | [첨부 구조 대조와 유지 12건의 맞춤 질문 보완](entries/2026-11-22-automatic-source-dialogue.md) | 검토 완료 |
+| 2026-11-22 | [파주운정 A4BL의 신청 상황별 질문](entries/2026-11-22-paju-applicant-questions.md) | 검토 완료 |
+| 2026-11-22 | [답변에 맞춘 내 준비 조건·서류·일정 표시](entries/2026-11-22-preparation-personal-scope.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [자격 요약의 책임 통합과 비교 직접 진입 보완](entries/2026-11-22-qualification-summary-refactor.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [화면별 코드 지연 로딩과 큰 번들 경고 해소](entries/2026-11-22-route-code-splitting.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-22 | [그림·자동 번호·여러 쪽 표의 원문 대조와 상황별 질문 연결](entries/2026-11-22-source-structure-applicant-automation.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [신청 유형·가족관계 답변 모순 확인과 필수 서류 누락 방지](entries/2026-11-21-answer-consistency-family-documents.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [공식 안내 변경에 따른 가이드 자동 재확인](entries/2026-11-21-guide-automatic-refresh.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [가이드 전체 내용을 공식 자료로 재검토](entries/2026-11-21-guide-content-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [가이드와 공고 목록의 페이지 이동 표시 통일](entries/2026-11-21-guide-pagination-ui.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [가이드 줄바꿈과 공고 목록 페이지 스크롤](entries/2026-11-21-guide-readability-notice-page-scroll.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [현재 제공 공고 전체의 조건 질문·답변 개별 검토](entries/2026-11-21-listed-condition-improvement.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [포항블루밸리 조건 카드·질문 표현 개별 검토](entries/2026-11-21-pohang-condition-presentation-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-21 | [Google·카카오 로컬 로그인 연결과 재시도 복귀](entries/2026-11-21-social-login-connection.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-20 | [다른 공고의 조건 질문·답변 개별 전면 점검](entries/2026-11-20-all-notice-condition-audit.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-20 | [포항블루밸리 행복주택 조건 질문·답변 점검](entries/2026-11-20-pohang-condition-audit.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-16 | [수집 공고의 접수 시간과 회차별 일정](entries/2026-11-16-automatic-intake-times.md) | 검증 기록 |
+| 2026-11-16 | [수집 공고의 상시 마감과 날짜 미확정 접수 시각](entries/2026-11-16-automatic-rolling-intake.md) | 확인 필요 |
+| 2026-11-16 | [기존 수집 공고의 접수 시각·회차 재점검](entries/2026-11-16-current-intake-backfill.md) | 검증 완료 |
+| 2026-11-16 | [Windows 개발 환경의 Java 서식 검사](entries/2026-11-16-java-formatter-local.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-16 | [main 반영 검증에서 발견한 UTC·한국 날짜 경계 수정](entries/2026-11-16-main-pages-release.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-16 | [관심 공고에서 저장한 두 공고 비교](entries/2026-11-16-saved-notice-comparison.md) | 확인 필요 |
+| 2026-11-16 | [관심 공고 카드 미리보기](entries/2026-11-16-saved-notice-preview.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-15 | [접수 중·예정 공고의 조건과 정정 근거 재검토](entries/2026-11-15-active-conditions-review.md) | 확인 필요 |
 | 2026-11-15 | [준비 기록의 중복 보관과 복원 후 오래된 저장 방지](entries/2026-11-15-archive-revision.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-15 | [신규 모집의 정정 대조와 조건 요약](entries/2026-11-15-automatic-conditions-review.md) | 확인 필요 |
 | 2026-11-15 | [미커밋 인수인계 문서 검토와 최신 구현 반영](entries/2026-11-15-handoff-docs-review.md) | 근거 정리·담당자 검토 전 |
+| 2026-11-15 | [공고 상세 조건 카드의 기본 요약 축소](entries/2026-11-15-notice-condition-preview.md) | 확인 필요 |
 | 2026-11-15 | [PR #26의 develop 충돌 해결과 회귀 검증](entries/2026-11-15-pr26-conflict-resolution.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-15 | [PR #26 충돌 조사와 해결 방향](entries/2026-11-15-pr26-conflict-review.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-12 | [접수 종료 후 28일 이내 일부 확인 필요 7건 재검토](entries/2026-11-12-closed-seven-review.md) | 근거 정리·담당자 검토 전 |

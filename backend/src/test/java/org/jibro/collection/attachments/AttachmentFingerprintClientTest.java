@@ -22,16 +22,31 @@ class AttachmentFingerprintClientTest {
     private static final byte[] PDF = "%PDF-1.7\nhello".getBytes(StandardCharsets.US_ASCII);
     private final HttpClient http = mock(HttpClient.class);
     private final AttachmentFingerprintClient client = new AttachmentFingerprintClient("apply.lh.or.kr,www.lh.or.kr",
-        http, host -> new InetAddress[]{InetAddress.getByAddress(new byte[]{93, (byte) 184, (byte) 216, 34})},
-        1024, Duration.ofSeconds(1));
+            http, host -> new InetAddress[]{InetAddress.getByAddress(new byte[]{93, (byte) 184, (byte) 216, 34})},
+            1024, Duration.ofSeconds(1));
+
+    @Test
+    void pageTransportPreservesStatusAndAllowsEmptyRedirectButStillBoundsEveryBody() throws Exception {
+        respond(302, "text/html", new byte[0]);
+        assertEquals(302, client.page(URL).status());
+        respond(200, "text/html", "<main>official guidance</main>".getBytes(StandardCharsets.UTF_8));
+        assertEquals("text/html", client.page(URL).contentType());
+        respond(302, "text/html", new byte[1025]);
+        assertThrows(ExecutionException.class, () -> client.page(URL));
+        respond(200, "application/pdf", PDF);
+        assertArrayEquals(PDF, client.page(URL).bytes());
+        var requests = org.mockito.ArgumentCaptor.forClass(HttpRequest.class);
+        verify(http, times(4)).sendAsync(requests.capture(), any(HttpResponse.BodyHandler.class));
+        assertTrue(requests.getAllValues().stream().allMatch(request -> request.bodyPublisher().isEmpty()));
+    }
 
     @Test
     void acceptsOnlyExactOfficialHttpsHostsAndPreservesEncodedQuery() throws Exception {
         assertEquals("https://apply.lh.or.kr/download?name=a%20b&token=x%2By",
-            client.requestUri("https://apply.lh.or.kr/download?name=a%20b&token=x%2By#page=4").toString());
+                client.requestUri("https://apply.lh.or.kr/download?name=a%20b&token=x%2By#page=4").toString());
         for (String unsafe : List.of("http://apply.lh.or.kr/file", "https://apply.lh.or.kr.evil.invalid/file",
-            "https://user@apply.lh.or.kr/file", "https://apply.lh.or.kr:8443/file", "file:///tmp/a.pdf",
-            "https://127.0.0.1/file", "https://evil.invalid/file")) {
+                "https://user@apply.lh.or.kr/file", "https://apply.lh.or.kr:8443/file", "file:///tmp/a.pdf",
+                "https://127.0.0.1/file", "https://evil.invalid/file")) {
             assertThrows(IOException.class, () -> client.fetch(unsafe), unsafe);
         }
         verifyNoInteractions(http);
@@ -58,12 +73,12 @@ class AttachmentFingerprintClientTest {
     @Test
     void rejectsNonPublicDnsAnswersBeforeOpeningConnection() throws Exception {
         for (String ip : List.of("127.0.0.1", "10.2.3.4", "172.16.1.1", "192.168.0.1", "169.254.169.254",
-            "100.64.1.1", "198.18.0.1", "0.0.0.0", "224.0.0.1", "::1", "fe80::1", "fc00::1",
-            "2001:db8::1", "2002:7f00:1::")) {
+                "100.64.1.1", "198.18.0.1", "0.0.0.0", "224.0.0.1", "::1", "fe80::1", "fc00::1",
+                "2001:db8::1", "2002:7f00:1::")) {
             assertFalse(AttachmentFingerprintClient.publicAddress(InetAddress.getByName(ip)), ip);
         }
         var blocked = new AttachmentFingerprintClient("apply.lh.or.kr", http,
-            host -> new InetAddress[]{InetAddress.getByName("127.0.0.1")}, 1024, Duration.ofSeconds(1));
+                host -> new InetAddress[]{InetAddress.getByName("127.0.0.1")}, 1024, Duration.ofSeconds(1));
         assertEquals("ATTACHMENT_ADDRESS_REJECTED", assertThrows(IOException.class, () -> blocked.fetch(URL)).getMessage());
         verifyNoInteractions(http);
     }
@@ -83,18 +98,18 @@ class AttachmentFingerprintClientTest {
         verify(subscription, never()).cancel();
 
         assertEquals("application/zip", read(new byte[]{80, 75, 3, 4, 1, 2, 3, 4},
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document").mediaType());
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document").mediaType());
         assertEquals("application/x-ole-storage", read(new byte[]{(byte) 0xd0, (byte) 0xcf, 0x11,
-            (byte) 0xe0, (byte) 0xa1, (byte) 0xb1, 0x1a, (byte) 0xe1, 1}, "application/octet-stream").mediaType());
+                (byte) 0xe0, (byte) 0xa1, (byte) 0xb1, 0x1a, (byte) 0xe1, 1}, "application/octet-stream").mediaType());
     }
 
     @Test
     void rejectsRedirectsFailuresCompressedBodiesAndOversizedDeclaredLengthsWithoutReading() {
         for (var response : List.of(info(302, Map.of("Location", List.of("https://apply.lh.or.kr/other.pdf"))),
-            info(304, Map.of()), info(404, Map.of()), info(200, Map.of("Content-Length", List.of("1025"))),
-            info(200, Map.of("Content-Length", List.of("0"))),
-            info(200, Map.of("Content-Type", List.of("text/html"))),
-            info(200, Map.of("Content-Encoding", List.of("gzip"))))) {
+                info(304, Map.of()), info(404, Map.of()), info(200, Map.of("Content-Length", List.of("1025"))),
+                info(200, Map.of("Content-Length", List.of("0"))),
+                info(200, Map.of("Content-Type", List.of("text/html"))),
+                info(200, Map.of("Content-Encoding", List.of("gzip"))))) {
             var subscriber = client.bodyHandler().apply(response);
             Subscription subscription = mock(Subscription.class);
             subscriber.onSubscribe(subscription);
@@ -131,7 +146,7 @@ class AttachmentFingerprintClientTest {
             return pending;
         });
         var shortTimeout = new AttachmentFingerprintClient("apply.lh.or.kr", http,
-            host -> new InetAddress[]{InetAddress.getByName("93.184.216.34")}, 1024, Duration.ofMillis(100));
+                host -> new InetAddress[]{InetAddress.getByName("93.184.216.34")}, 1024, Duration.ofMillis(100));
         assertTimeout(Duration.ofSeconds(2), () -> assertThrows(TimeoutException.class, () -> shortTimeout.fetch(URL)));
         assertTrue(pending.isCancelled());
         var request = requested.get();
@@ -255,7 +270,8 @@ class AttachmentFingerprintClientTest {
                 subscriber.onComplete();
                 return subscriber.getBody().toCompletableFuture().thenApply(body -> {
                     HttpResponse<Object> response = mock(HttpResponse.class);
-                    when(response.body()).thenReturn(body); return response;
+                    when(response.body()).thenReturn(body);
+                    return response;
                 });
             });
             if (count == 120) {

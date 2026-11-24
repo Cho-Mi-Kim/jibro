@@ -1,0 +1,5294 @@
+{
+    "basis": "LH 공식 행복주택 붙임 서식의 완결된 규범·입력란 문법. 공고 식별자/해시는 승인 조건으로 사용하지 않음. 추가·변경된 규범은 전체 일치 검사를 통과하지 않음.",
+    "schemas": [
+        {
+            "role": "RENEWAL_REFERENCE",
+            "title": "입주자격완화관련확약서",
+            "recipient": "신청자전원필수제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": 1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]입주자격완화관련확약서(신청자전원필수제출)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "확약서"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "동확약서의내용은{{publication}}모집공고한{{recruitment}}모집이후계약체결시임대차계약서“계약조건”제16조에따른특약으로서,확약자는해당내용을준수할것임을확약합니다."
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "본인은본래입주자격을완화하여모집한공고에따른대기자로서입주후재계약시아래와같은특수조건이적용됨을확인하고이행할것이며,미이행에따른재계약거절등에대하여일체의이의를제기하지않을것임을확약합니다.1.재계약을위하여는관계법령,입주자모집공고등에따른재계약요건을충족하여야하며,충족하지못하는경우에는제부금을완납하고임대차계약종료시해당주택을명도하여야함을확인하였습니다.2.(소득·총자산배제)재계약요건을충족하지못하는경우관계법령등에따라재계약이거절되거나계약이해제·해지될수있으며,거주허용시완화전소득또는자산기준을초과하는경우관계법령등에서정하는비율로기본임대조건이할증될수있음을확인하였습니다.3.(무주택)주택을취득한경우에는재계약이거절되거나계약이해제·해지될수있음을확인하였습니다.{{signYear}}년월일위확약자성명:(서명)생년월일:한국토지주택공사{{office}}지역본부장귀하"
+                }
+            ]
+        },
+        {
+            "role": "WAITLIST",
+            "title": "예비입주자중복선정불가사항확인서",
+            "recipient": "신청자전원필수제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 7,
+                    "columns": 5,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 5
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 2,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 5
+                        },
+                        {
+                            "row": 5,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 5
+                        },
+                        {
+                            "row": 6,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 5
+                        },
+                        {
+                            "row": 7,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 5
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": 1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]예비입주자중복선정불가사항확인서(신청자전원필수제출)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        }
+                    ],
+                    "syntax": "예비입주자중복선정불가및대기자명부제외사항확인서"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 2,
+                                "column": 1,
+                                "rowSpan": 2,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "신청인"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 2,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 2,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "생년월일"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 3,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주소"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 4,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        }
+                    ],
+                    "syntax": "확인내용"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 5,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        }
+                    ],
+                    "syntax": "신청인본인은LH가공급하는건설형공공임대주택(통합공공임대주택,국민임대,행복주택,영구임대,이하동일)의입주자모집에청약신청함에있어,아래의사항을충분히인지하고청약을하였음을확인합니다."
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 5,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        },
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "건설형공공임대주택에입주시,모든건설형공공임대주택의입주대기자명부에서제외처리됨【입주여부판단기준】실입주일을말하며,입주지정기간이후에는임대보증금완납일을입주일로판단"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 6,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        }
+                    ],
+                    "syntax": "신청인:(인){{signYear}}년월일한국토지주택공사{{office}}지역본부장귀하"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 7,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        }
+                    ],
+                    "syntax": "※공공임대주택예비입주자업무처리지침제11조(예비입주자중복선정방지)공공주택사업자는동일한신청자가제3조제2항에따른동일한유형의공공임대주택(영구임대주택,국민임대주택,행복주택및통합공공임대주택각각을말한다)에중복하여예비입주자로선정되지않도록입주대기자명부를관리하여야한다.※공공임대주택예비입주자업무처리지침제10조(입주대기자명부관리)제3항공공주택사업자는예비입주자가공공임대주택에입주한경우모든입주대기자명부에서해당예비입주자를제외하여야하며,이경우에는예비입주자에게임대차계약체결이전에제외사실을안내하여야한다."
+                },
+                {
+                    "cells": [],
+                    "syntax": "`"
+                }
+            ]
+        },
+        {
+            "role": "CONSENT",
+            "title": "개인정보수집·이용및제3자제공동의서",
+            "recipient": "신청자전원필수제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 5,
+                    "columns": 8,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 5,
+                    "columns": 4,
+                    "parent": 4,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 3,
+                            "rowSpan": 4,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 4,
+                            "rowSpan": 4,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 5,
+                    "parent": 4,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 5,
+                    "parent": 9,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 6,
+                    "columns": 4,
+                    "parent": 11,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 4,
+                            "rowSpan": 5,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 6,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 6,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 6,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 5,
+                    "parent": 11,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 2,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 5,
+                    "parent": 14,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]개인정보수집·이용및제3자제공동의서(신청자전원필수제출)페이지1"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "개인정보수집･이용및제3자제공동의서(임대주택입주신청자용/자격검증용)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "「공공주택특별법」제53조에따라국토교통부로부터권한위임받은한국토지주택공사는「공공주택특별법」제4조에따른공공주택사업자로서같은법제48조의6에따라공공주택공급신청자의자격확인을위하여개인정보등을관계기관으로부터제공받아이용할수있으며,같은법제48조의7에따라제공받은자료또는정보를수집,관리,보유또는활용할수있습니다."
+                },
+                {
+                    "cells": [],
+                    "syntax": "1.[필수]개인정보수집·이용및제3자제공에동의하는사람의성명,주민등록번호,청약자와의관계,서명또는날인"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주민등록번호"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "관계"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "서명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주민등록번호"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 7,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "관계"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "서명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 2,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 2,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "본인"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 2,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 2,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 2,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "배우자"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 4,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 4,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 4,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 4,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 5,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 5,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 5,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 5,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(서명또는인)"
+                },
+                {
+                    "cells": [],
+                    "syntax": "*만14세이상의세대원은본인이직접서명하고,만14세미만의세대원은보호자(법정대리인)가서명함2.개인정보수집·이용안내"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "수집하는개인정보항목"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 1,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "수집·이용목적"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "보유·이용기간"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 2,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "기본"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 2,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-주민등록사항(성명,주소,거주시작일,신청인과의관계)-병역사항(행복주택공급시남성에게만해당)-연락처(유·무선전화번호,이메일주소)-주택청약종합저축가입내역(은행,계좌번호,납입인정횟수,저축금액)-주택소유및공공임대주택계약·입주내역"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 2,
+                                "column": 3,
+                                "rowSpan": 4,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "한국토지주택공사가공급하는공공임대주택의임차인자격심사및선정순위결정,임대차계약안내및관리,임대주택정책자료활용,임차권불법양도·전대확인"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 2,
+                                "column": 4,
+                                "rowSpan": 4,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "청약신청일로부터신청자는6개월,당첨(예비)자는5년"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 3,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "소득"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 3,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-「소득세법」제12조,제16조부터제22조에따른소득내역-공적연금가입내역-건강보험가입내역-국가·지자체등으로부터지급받는각종급여,수당및직불금내역-국세및지방세과세내역-사업자등록사항"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 4,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "자산"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 4,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-토지,주택,건축물및자동차보유내역"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 5,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "기타"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 5,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "-「국민기초생활보장법」상수급자또는차상위계층해당여부"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "※위의개인정보수집·이용에대한동의를거부할권리가있습니다.단,동의를거부할경우한국토지주택공사가본인의임대주택공급신청접수를거부하거나임대차계약(갱신계약포함)체결에응하지않을수있습니다.[필수]본인(공급신청자를말하며,위1호에기재된사람을포함합니다.이하같습니다.)은본인의개인정보를본인으로부터직접제공받거나「개인정보보호법」제2조제6호에규정한공공기관및관계기관으로부터정보통신망또는「전자정부법」제36조제1항에따른행정정보의공동이용등을통하여제공받아수집·이용하는데동의하십니까?"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 6,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "동의"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 6,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "미동의"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 7,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "※주민(외국인)등록번호수집·이용안내:「개인정보보호법」제15조제1항제3호에따라정보주체의동의없이개인정보를수집·이용합니다.가.수집하는개인정보항목:신청자주민등록번호(외국인등록번호),세대구성원주민등록번호(외국인등록번호)나.수집·이용목적:한국토지주택공사가공급하는공공임대주택임차인자격심사및선정순위결정,임대차계약체결및관리,임대료수납관리,임대주택입주자관리,임대주택중복입주확인,임대주택거주자실태조사및만족도조사,임대주택정책자료활용,임차권불법양도·전대확인다.수집근거:「공공주택특별법시행령」제63조(고유식별정보의처리)라.보유·이용기간:청약신청일로부터6개월,당첨(예비)자는5년※개인정보의파기절차및방법:수집한개인정보는이용목적달성후지체없이(5일이내)파기하며,종이형태로보유중인개인정보는분쇄또는소각을통해,전자파일형태로보유중인개인정보는재생불가능한기술적방법을사용하여파기합니다.다만,관계법령의규정에의하여보존할필요가있는경우,공사는관계법령에서정한일정기간동안관련정보를보존합니다."
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 8,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]개인정보수집·이용및제3자제공동의서(신청자전원필수제출)페이지2"
+                },
+                {
+                    "cells": [],
+                    "syntax": "3.민감정보수집·이용안내"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 9,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "가.민감정보수집·이용목적:한국토지주택공사가공급하는공공임대주택임차인자격심사및선정순위결정나.수집하려는민감정보의항목:장애인해당여부,장애유형·정도다.민감정보의보유·이용기간:청약신청일로부터6개월,당첨(예비)자는5년,계약자는영구라.민감정보수집및이용동의거부의권리:민감정보를제공하고자하는자는민감정보활용동의를거부할수있습니다.단,동의를거부할경우우선공급대상“장애인등”에서제외되고,장애인관련배점적용대상및편의시설설치대상에서제외됨을알려드립니다.[선택]본인은위2~3호사무를위하여위와같이민감정보를처리하는데동의하십니까?"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 9,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 10,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "동의"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 9,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 10,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "미동의"
+                },
+                {
+                    "cells": [],
+                    "syntax": "4.개인정보의제3자제공동의여부"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "가.개인정보를제공받는자:국토교통부장관,｢개인정보보호법｣제2조제6호에규정한공공기관으로서소득･재산및주택관련원천정보보유기관,｢사회복지사업법｣제6조의3에따라설립된기구(사회보장정보원),「공공주택특별법」제49조의7에따라불법양도·전대임차인정보관리하는전산관리지정기관,한국부동산원나.개인정보를제공받는자의개인정보이용목적,제공항목,보유·이용기간"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "제공받는자"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 1,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "제공목적"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 1,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "제공항목"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "보유·이용기간"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 2,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "국토교통부장관"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 2,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주택소유여부검색"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 2,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명,주소,휴대전화번호,주민등록번호(외국인등록번호)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 2,
+                                "column": 4,
+                                "rowSpan": 5,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "청약신청일로부터신청자는6개월,당첨(예비)자는5년"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 3,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "소득･재산·주택·공공임대주택계약및입주관련원천정보보유기관"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 3,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주택,소득및자산,계약및입주여부검색"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 3,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명,주소,휴대전화번호,주민등록번호(외국인등록번호)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 4,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "사회보장정보원"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 4,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주택,소득및자산검색"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 4,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명,주소,휴대전화번호,주민등록번호(외국인등록번호)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 5,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "한국부동산원"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 5,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주택청약종합저축가입내역확인(가입은행,계좌번호,납입인정횟수,저축금액)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 5,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명,주민등록번호(외국인등록번호),주택청약종합저축가입정보,계좌번호"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 6,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "전산관리지정기관"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 6,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "임차인중복계약및불법양도·전대확인"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 12,
+                            "cell": {
+                                "row": 6,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명,주소,신청인과의관계,주민등록번호(외국인등록번호)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "※위의개인정보수집·이용에대한동의를거부할권리가있습니다.단,동의를거부할경우한국토지주택공사가본인의임대주택공급신청접수를거부하거나임대차계약(갱신계약포함)체결에응하지않을수있습니다.[필수]본인은위와같이본인의개인정보를제3자에게제공하는데동의하십니까?"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 13,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "동의"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 11,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 13,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "미동의"
+                },
+                {
+                    "cells": [],
+                    "syntax": "5.공공주택관련정보제공을위한개인정보수집·이용안내"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 14,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "가.개인정보수집·이용목적:입주자모집알림등공공주택관련정보제공및홍보나.수집하려는개인정보의항목:유선·휴대전화번호다.개인정보의보유·이용기간:청약신청일로부터신청자는6개월,당첨(예비)자는5년라.선택항목에동의하지않을수있으며,동의하지않더라도한국토지주택공사에서공급하는분양·임대주택의청약서비스이용에는제한이없으나,공공주택관련정보메시지(또는전화)가발송되지않습니다.[선택]본인은위와같이본인의개인정보를수집·이용하는데동의하십니까?"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 14,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 15,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "동의"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 14,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        },
+                        {
+                            "table": 15,
+                            "cell": {
+                                "row": 1,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "미동의"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 14,
+                            "cell": {
+                                "row": 2,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "{{signYear}}...한국토지주택공사{{office}}지역본부장귀하"
+                }
+            ]
+        },
+        {
+            "role": "POST_VERIFICATION",
+            "title": "선계약후검증확약서",
+            "recipient": "신청자전원필수제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]선계약후검증확약서(신청자전원필수제출)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "확약서(선계약후검증)본인은{{site}}행복주택입주자모집공고(‘{{publication}})계약자로서동계약은“계약체결이후입주자격을검증함“에따른것임을인지하고있으며,1.향후입주자격에흠결이있을경우한국토지주택공사(이하‘LH공사’)가동계약을직권으로계약을해제(해지)할수있고,계약해제(해지)시LH는위약금및계약금에대한이자등을지급하지않는것에대해동의하며,입주자격흠결이아닌계약자의입주자격검증관련보완서류미제출,계약자의단순변심에의한임의해약등의경우에는모집공고문에명시된위약금을LH공사가징수함을확약합니다.2.본인은LH공사로부터최종입주가능여부에대한통보를받은후계약주택에대한이사일정등입주계획을세울것이며,입주가능여부를최종통보받기전임의로이사일정등을세움에따라발생할수있는일정차질,금전적손실등에대해일체의민원을제기하지않을것임을확약합니다.{{signYear}}년월일위확약자성명:(서명)생년월일:한국토지주택공사{{office}}지역본부장귀하"
+                }
+            ]
+        },
+        {
+            "role": "APPLICATION_FORM",
+            "title": "행복주택공급신청서",
+            "recipient": "현장청약신청자만제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 2,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 2,
+                    "columns": 3,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 4,
+                    "columns": 3,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 2,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 2,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 2,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 1,
+                    "columns": 2,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]행복주택공급신청서(현장청약신청자만제출)"
+                },
+                {
+                    "cells": [],
+                    "syntax": "{{site}}행복주택입주자격완화동호지정입주자모집신청서(입주자격완화,선계약후검증,동호지정)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "접수번호"
+                },
+                {
+                    "cells": [],
+                    "syntax": "1.신청인성명：2.신청인주민등록번호:-******3.신청인주소：4.전화번호：5.핸드폰번호：6.신청자격(해당자격에“○”표기)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "대학생,청년(소득無)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "청년(소득有)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주거급여수급자"
+                },
+                {
+                    "cells": [],
+                    "syntax": "7.신청단지및평형(해당자격에“○”표기)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 2,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "{{complex}}"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "14㎡(주거급여수급자신청불가)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 1,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "26㎡"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 1,
+                                "rowSpan": 2,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "{{complex}}"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "14㎡(주거급여수급자신청불가)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 3,
+                            "cell": {
+                                "row": 3,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "26㎡"
+                },
+                {
+                    "cells": [],
+                    "syntax": "상기인은차량가액({{vehicleAmount}}만원이하)기준을초과하지않으며무주택세대구성원으로위의기재사항이사실과다를경우,계약해제또는해지는물론관계법령에의거처벌되더라도이를감수할것을각서하고위와같이신청합니다.{{signYear}}년월일신청인：(인)한국토지주택공사{{office}}지역본부장귀하-------------------------------------------------절취선-------------------------------------------------{{site}}1·2단지행복주택입주자격완화동호지정입주자모집접수증(입주자격완화,선계약후검증,동호지정)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 4,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "확인자"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 5,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "접수번호"
+                },
+                {
+                    "cells": [],
+                    "syntax": "{{publication}}공고한{{site}}1·2단지행복주택모집공고의접수가완료되었음을확인함.한국토지주택공사{{office}}지역본부장"
+                }
+            ]
+        },
+        {
+            "role": "RETURN_STUDY",
+            "title": "각서",
+            "recipient": "복학예정인자로대학생계층에공급신청한자",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]각서(복학예정인자로대학생계층에공급신청한자)"
+                },
+                {
+                    "cells": [],
+                    "syntax": "각서(복학예정자의복학및복학증명서류제출)ㅇ성명:ㅇ주민등록번호:ㅇ대학명:상기본인은년월현재휴학중이나다음학기(20년월)복학예정자로서행복주택공급대상중\"대학생\"으로신청하였으며,입주지정기간만료일다음학기까지복학을하지않는경우공급신청미자격자가되어당첨및계약이취소됨을안내받았습니다.이에따라복학후{{returnMonths}}개월이내에재학증명서를제출할것임을서약하며,해당기한내에제출하지않을경우에는당첨및계약이취소되어도일체의이의를제기하지않을것임을확약합니다.{{signYear}}년월일각서인:(인)한국토지주택공사{{office}}지역본부장귀하"
+                }
+            ]
+        },
+        {
+            "role": "PROXY_AUTHORITY",
+            "title": "위임장",
+            "recipient": "대리인이현장접수또는동호지정·계약체결하는경우제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 4,
+                    "columns": 2,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 4,
+                    "columns": 2,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 1,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 2,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 3,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 4,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]위임장(대리인이현장접수또는동호지정·계약체결하는경우제출)"
+                },
+                {
+                    "cells": [],
+                    "syntax": "위임장□위임인(신청자본인,위임하는분)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(인)※인감날인또는본인서명사실확인서상서명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 2,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주민등록번호"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 3,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주소"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 4,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "연락처"
+                },
+                {
+                    "cells": [],
+                    "syntax": "본인은한국토지주택공사에서모집하는단지신청등에필요한모든권한을아래의수임인에게위임합니다.추후이와관련하여분쟁이발생할경우위임자와수임자가책임지고해결하겠으며,귀공사에어떠한이의도제기하지아니하겠습니다.□수임인(대리인,위임받는분)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 1,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "(인)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 2,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주민등록번호"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 3,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주소"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 2,
+                            "cell": {
+                                "row": 4,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "연락처"
+                },
+                {
+                    "cells": [],
+                    "syntax": "{{signYear}}년월일첨부:위임인인감증명서(본인발급분)1부,위임인및수임인신분증사본각1부.※인감도장이없는경우,본인서명사실확인서로대체가능(위임장에쓴서명과같은서명이여야함)※위임장은반드시위임인(신청자)이자필로작성한국토지주택공사{{office}}지역본부장귀하"
+                }
+            ]
+        },
+        {
+            "role": "ACCESSIBILITY_REQUEST",
+            "title": "장애인·고령자편의증진시설설치신청서",
+            "recipient": "희망자만제출",
+            "tables": [
+                {
+                    "rows": 1,
+                    "columns": 1,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        }
+                    ]
+                },
+                {
+                    "rows": 29,
+                    "columns": 10,
+                    "parent": -1,
+                    "cells": [
+                        {
+                            "row": 1,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 10
+                        },
+                        {
+                            "row": 2,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 10
+                        },
+                        {
+                            "row": 3,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 3,
+                            "column": 4,
+                            "rowSpan": 1,
+                            "columnSpan": 5
+                        },
+                        {
+                            "row": 3,
+                            "column": 9,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 4,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 10
+                        },
+                        {
+                            "row": 5,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 4
+                        },
+                        {
+                            "row": 5,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 5,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 4
+                        },
+                        {
+                            "row": 6,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 6,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 9
+                        },
+                        {
+                            "row": 7,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 7,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 9
+                        },
+                        {
+                            "row": 8,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 8,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 4
+                        },
+                        {
+                            "row": 8,
+                            "column": 6,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 8,
+                            "column": 7,
+                            "rowSpan": 1,
+                            "columnSpan": 4
+                        },
+                        {
+                            "row": 9,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 9,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 9
+                        },
+                        {
+                            "row": 10,
+                            "column": 1,
+                            "rowSpan": 19,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 10,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 10,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 10,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 10,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 10,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 11,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 11,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 11,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 11,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 11,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 12,
+                            "column": 2,
+                            "rowSpan": 7,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 12,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 12,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 12,
+                            "column": 8,
+                            "rowSpan": 6,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 12,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 13,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 13,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 13,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 14,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 14,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 14,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 15,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 15,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 15,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 16,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 16,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 16,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 17,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 17,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 17,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 18,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 18,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 18,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 18,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 19,
+                            "column": 2,
+                            "rowSpan": 2,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 19,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 19,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 19,
+                            "column": 8,
+                            "rowSpan": 3,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 19,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 20,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 20,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 20,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 21,
+                            "column": 2,
+                            "rowSpan": 5,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 21,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 21,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 21,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 22,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 22,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 22,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 22,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 23,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 23,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 23,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 23,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 24,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 24,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 24,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 24,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 25,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 25,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 25,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 25,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 26,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 26,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 26,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 26,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 26,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 27,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 27,
+                            "column": 3,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 27,
+                            "column": 5,
+                            "rowSpan": 1,
+                            "columnSpan": 3
+                        },
+                        {
+                            "row": 27,
+                            "column": 8,
+                            "rowSpan": 1,
+                            "columnSpan": 2
+                        },
+                        {
+                            "row": 27,
+                            "column": 10,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 28,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 9
+                        },
+                        {
+                            "row": 29,
+                            "column": 1,
+                            "rowSpan": 1,
+                            "columnSpan": 1
+                        },
+                        {
+                            "row": 29,
+                            "column": 2,
+                            "rowSpan": 1,
+                            "columnSpan": 9
+                        }
+                    ]
+                }
+            ],
+            "nodes": [
+                {
+                    "cells": [
+                        {
+                            "table": 0,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "[붙임{{number}}]장애인·고령자편의증진시설설치신청서(희망자만제출)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 1,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 10
+                            }
+                        }
+                    ],
+                    "syntax": "장애인·고령자편의증진시설설치신청서"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 3,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "접수번호"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 3,
+                                "column": 4,
+                                "rowSpan": 1,
+                                "columnSpan": 5
+                            }
+                        }
+                    ],
+                    "syntax": "접수일자"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 3,
+                                "column": 9,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "처리기간"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 5,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "1.당첨자성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 5,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "2.당첨자생년월일"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 6,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "3.주소"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 6,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 9
+                            }
+                        }
+                    ],
+                    "syntax": "(전화번호:)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 7,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "4.입주세대"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 7,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 9
+                            }
+                        }
+                    ],
+                    "syntax": "아파트동호(규모:전용면적㎡)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 8,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "5.주거약자성명"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 8,
+                                "column": 6,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "6.주거약자생년월일"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 9,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "7.구분"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 9,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 9
+                            }
+                        }
+                    ],
+                    "syntax": "①65세이상인사람(),②3급이상지체장애인과뇌병변장애인(),③청각장애인(),④시각장애인(),⑤상이등급3급이상판정받은자()"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 10,
+                                "column": 1,
+                                "rowSpan": 19,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "8.신청내용"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 10,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "구분"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 10,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "항목"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 10,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "시설내용"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 10,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "대상"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 10,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "신청"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 11,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "현관"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 11,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "①마루굽틀경사로"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 11,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․휠체어이용자등의통행을원활히할수있도록현관턱에경사로설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 11,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "②"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 11,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 12,
+                                "column": 2,
+                                "rowSpan": 7,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "욕실"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 12,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "②단차없애기"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 12,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․통행에지장이되는바닥의단차를줄임"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 12,
+                                "column": 8,
+                                "rowSpan": 6,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "①~⑤"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 12,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 13,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "③출입문규격확대개폐방향변경"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 13,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․출입구폭80㎝이상확대(설치불가능경우제외)․개폐방향변경(안여닫이→밖여닫이)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 13,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 14,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "④좌식샤워시설"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 14,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․좌식의자및안전손잡이(L자형,ㅡ자형각1개)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 14,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 15,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑤좌변기안전손잡이"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 15,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․좌변기벽면에안전손잡이설치(L자형1개)"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 15,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 16,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑥수건걸이높이조정"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 16,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․바닥면에서1.2미터높이내외로설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 16,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 17,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑦높낮이조절세면기"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 17,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "․높낮이조절이가능한세면기설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 17,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 18,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑧좌변기옆여유공간"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 18,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ휠체어이용자등을위해좌변기옆75cm이상의여유공간확보"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 18,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "②"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 18,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 19,
+                                "column": 2,
+                                "rowSpan": 2,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "주방"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 19,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑨좌식싱크대"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 19,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ휠체어·의자사용이가능한좌식싱크대설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 19,
+                                "column": 8,
+                                "rowSpan": 3,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "①~⑤"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 19,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 20,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑩가스밸브높이조정"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 20,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ바닥면에서1.2미터높이내외로설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 20,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 21,
+                                "column": 2,
+                                "rowSpan": 5,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "거실"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 21,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑪비디오폰높이조정"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 21,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ바닥면에서1.2미터높이내외로설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 21,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 22,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑫비디오폰점자표지"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 22,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ비디오폰(월패드)단축버튼점자표지"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 22,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "④,⑤"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 22,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 23,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑬시각경보기"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 23,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ비상상황발생시청각장애인이인지가가능하도록시각경보기세대내1개소설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 23,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "③"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 23,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 24,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑭야간센서등"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 24,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ야간에안전하게이동할수있도록욕실출입구벽체하부에설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 24,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "②"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 24,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 25,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑮조명밝기조정"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 25,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ거실조명밝기(600~900럭스(lux))"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 25,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "③"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 25,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 26,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "침실"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 26,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑯조명밝기조정"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 26,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ침실조명밝기(300~400럭스(lux))"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 26,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "③"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 26,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 27,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "기타"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 27,
+                                "column": 3,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "⑰음성유도신호기"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 27,
+                                "column": 5,
+                                "rowSpan": 1,
+                                "columnSpan": 3
+                            }
+                        }
+                    ],
+                    "syntax": "ㆍ상가,관리소,시각장애인이거주하는주거동출입구에설치"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 27,
+                                "column": 8,
+                                "rowSpan": 1,
+                                "columnSpan": 2
+                            }
+                        }
+                    ],
+                    "syntax": "④"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 27,
+                                "column": 10,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "□"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 28,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 9
+                            }
+                        }
+                    ],
+                    "syntax": "※편의증진시설제공대상ㆍ최초입주자로서본인또는부양가족중에공공주택업무처리지침제34조의3제1항에서정한주거약자가있는경우로서세대주가희망하는가구※일부항목에대해서는현장여건에따라설치가불가능할수있습니다."
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 29,
+                                "column": 1,
+                                "rowSpan": 1,
+                                "columnSpan": 1
+                            }
+                        }
+                    ],
+                    "syntax": "9.제출서류"
+                },
+                {
+                    "cells": [
+                        {
+                            "table": 1,
+                            "cell": {
+                                "row": 29,
+                                "column": 2,
+                                "rowSpan": 1,
+                                "columnSpan": 9
+                            }
+                        }
+                    ],
+                    "syntax": "1)장애인수첩사본,국가유공자증사본,지원대상자확인원,보훈보상대상자증사본,5․18민주유공자확인원,고엽제법적용대상확인원,국가유공자에준하는군경등확인서,진단서등기타증명서류1부.2)주민등록등본1부.※서류제출시주민번호뒤7자리는삭제후제출"
+                },
+                {
+                    "cells": [],
+                    "syntax": "본인이신청을희망한편의증진시설내용을확인하고위와같이신청합니다.20년월일신청인(인)"
+                }
+            ]
+        }
+    ]
+}

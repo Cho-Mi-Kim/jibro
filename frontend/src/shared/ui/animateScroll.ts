@@ -5,6 +5,7 @@ export function animateScroll(
     target: Window | HTMLElement,
     top: number | (() => number),
     reduced = false,
+    onFinish?: () => void,
 ) {
     activeScrolls.get(target)?.();
     const start =
@@ -16,18 +17,23 @@ export function animateScroll(
             ),
         ) || 750;
     let frame = 0;
+    let stopped = false;
     let startedAt: number | undefined;
     const stop = () => {
+        if (stopped) return;
+        stopped = true;
         cancelAnimationFrame(frame);
         target.removeEventListener('wheel', stop);
         target.removeEventListener('touchstart', stop);
         if (activeScrolls.get(target) === stop) activeScrolls.delete(target);
+        onFinish?.();
     };
     if (reduced) {
         target.scrollTo({
             top: typeof top === 'function' ? top() : top,
             behavior: 'instant',
         });
+        stop();
         return stop;
     }
     const step = (time: number) => {

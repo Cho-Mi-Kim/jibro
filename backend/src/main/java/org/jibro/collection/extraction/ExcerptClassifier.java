@@ -2,11 +2,16 @@ package org.jibro.collection.extraction;
 
 import java.util.*;
 import java.util.regex.Pattern;
+
 import static org.jibro.collection.extraction.ExtractionModels.*;
 
-/** Extracts source sentences only. Categories are review aids, never eligibility predicates. */
+/**
+ * Extracts source sentences only. Categories are review aids, never eligibility predicates.
+ */
 public final class ExcerptClassifier {
-    private ExcerptClassifier() {}
+    private ExcerptClassifier() {
+    }
+
     private static final Map<String, Pattern> CATEGORIES = Map.of(
             "CONDITION", Pattern.compile("무주택|소득|자산|연령|만\\s*\\d+\\s*세|신청\\s*자격|가구원|거주지|순위"),
             "DOCUMENT", Pattern.compile("제출\\s*서류|증명서|주민등록|동의서|확약서|발급|구비\\s*서류"),

@@ -1,12 +1,9 @@
-import type { NoticeLifecycle } from '../housing/types';
+import type {
+    FollowUpRecord,
+    NoticeLifecycle,
+    NoticeListItem,
+} from '../housing/types';
 import { call } from '../../shared/api/transport';
-export interface SavedNotice {
-    id: string;
-    title: string;
-    agency: string;
-    region: string;
-    endDate: string | null;
-}
 export interface Settings {
     enabled: boolean;
     leadDays: number;
@@ -26,12 +23,15 @@ export interface Inbox {
     items: AlertItem[];
 }
 export interface Experience {
+    followUp?: FollowUpRecord | null;
     id: string;
     title: string;
     version: number;
     progress: number;
+    houseStage: number;
     note: string;
     archivedAt: string;
+    schedules?: { title: string; date: string; recorded?: boolean | null }[];
 }
 export interface Profile {
     name: string;
@@ -48,7 +48,7 @@ export interface Edition {
 }
 const member = '/member';
 export const memberApi = {
-    saved: () => call<SavedNotice[]>(member + '/saved'),
+    saved: () => call<NoticeListItem[]>(member + '/saved'),
     save: (id: string, saved: boolean) =>
         call<void>(
             member + '/saved/' + encodeURIComponent(id),

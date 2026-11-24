@@ -1,0 +1,470 @@
+{
+    "entries": [
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "residence",
+            "sourceTitle": "거주지와 무주택 기준을 확인했나요?",
+            "sourceReason": "2026년 11월 12일 기준 밀양시에 거주해야 해요. 공고에서 정한 세대원 모두 입주 때까지 무주택이어야 해요. 한 세대에서 중복 신청하면 모두 무효예요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "거주지와 무주택 기준을 확인했나요?",
+            "preview": "2026년 11월 12일 기준 밀양시에 거주해야 해요.",
+            "sections": [
+                {
+                    "text": "- 2026년 11월 12일 기준 밀양시에 거주해야 해요.\n- 공고에서 정한 세대원 모두 입주 때까지 무주택이어야 해요.\n- 한 세대에서 중복 신청하면 모두 무효예요.",
+                    "evidence": [
+                        {
+                            "label": "LH 모집공고 PDF 2쪽",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+                            "checkedAt": "2026-11-15"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "age",
+            "sourceTitle": "성년 기준 또는 미성년 세대주 예외에 해당하나요?",
+            "sourceReason": "원칙은 만 19세 이상이에요. 같은 등본의 자녀를 부양하거나, 부모 등의 사망·실종 등으로 같은 등본의 형제자매를 부양하는 미성년 세대주도 신청할 수 있어요. 외국인 부모와 미성년 자녀로 구성된 한부모가족의 미성년 세대주는 외국인 부모가 대신 신청해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "성년 기준 또는 미성년 세대주 예외에 해당하나요?",
+            "preview": "만 19세 이상이 원칙이에요. 자녀·형제자매를 부양하는 미성년 세대주 등은 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "공고일 기준 만 19세 이상이 원칙이에요.",
+                    "evidence": [
+                        {
+                            "label": "LH 모집공고 PDF 2쪽",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+                            "checkedAt": "2026-11-15"
+                        }
+                    ]
+                },
+                {
+                    "text": "미성년 세대주 예외 (다음 중 하나)\n- 같은 등본의 자녀를 부양해요.\n- 부모·조부모 등 윗세대 가족의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 한부모가족으로, 부모는 외국인이고 미성년 세대주는 한국 국적이에요.",
+                    "evidence": [
+                        {
+                            "label": "LH 모집공고 PDF 2쪽",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+                            "checkedAt": "2026-11-15"
+                        }
+                    ]
+                },
+                {
+                    "text": "예외에 해당하면 가족관계와 법정대리·부양 사실을 증빙 서류로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "LH 모집공고 PDF 2쪽",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=2",
+                            "checkedAt": "2026-11-15"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "income",
+            "sourceTitle": "신청 유형에 따른 소득·자산 기준을 확인했나요?",
+            "sourceReason": "세대의 세전 월소득을 합산해요. 국가유공자 등·북한이탈주민·1순위 장애인·시설퇴소자는 기본 70% 이하예요. 2순위 일반입주자는 50%, 2순위 장애인은 100% 이하예요. 1인 가구는 20%p, 2인 가구는 10%p를 더해요. 소득·자산 심사 대상의 기본 총자산 한도는 2억 4,500만 원, 자동차는 4,542만 원이에요. 2023년 3월 28일 이후 출생 자녀(입양·태아 포함)가 있으면 가산을 적용해요. 이전 출생 자녀를 합해 최대 2자녀까지 인정하며 신청자 또는 배우자와 같은 등본이어야 해요. 생계·의료급여 수급자·법정 지원대상 한부모 등 공고의 별도 인정 유형에는 이 표를 일괄 적용하지 않아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=4",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "우리 신청 유형의 소득·재산 한도는 얼마인가요?",
+            "preview": "소득은 신청 유형별 기준을 적용해요. 기본 총자산 2억 4,500만 원·자동차 4,542만 원이에요.",
+            "sections": [
+                {
+                    "text": "세전 월소득을 합산해요. 생계·의료급여 수급자·법정 지원대상 한부모 등 별도 인정 유형에 아래 표를 일괄 적용하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "신청 유형별 소득 비율",
+                        "headers": ["신청 유형", "3인 이상 기본", "1인", "2인"],
+                        "rows": [
+                            [
+                                "보훈 대상·북한이탈·1순위 장애인·시설퇴소",
+                                "70%",
+                                "90%",
+                                "80%"
+                            ],
+                            ["2순위 일반입주자", "50%", "70%", "60%"],
+                            ["2순위 장애인", "100%", "120%", "110%"]
+                        ]
+                    }
+                },
+                {
+                    "text": "2023년 3월 28일 이후 출생 자녀가 있어야 출생 자녀 가산을 받아요. 입양·태아를 포함해요. 신청자나 배우자와 같은 등본의 기존 자녀도 합해 최대 2명까지 인정해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "출생 자녀에 따른 자산 한도",
+                        "headers": ["가산 자녀 수", "총자산", "자동차"],
+                        "rows": [
+                            ["가산 없음", "2억 4,500만 원", "4,542만 원"],
+                            ["1명", "2억 7,000만 원", "4,996만 원"],
+                            ["2명 이상", "2억 9,400만 원", "5,451만 원"]
+                        ]
+                    }
+                },
+                {
+                    "text": "자녀 가산 소득 비율은 1명 10%p, 2명 이상 20%p예요. 원문 표의 가산 반영 금액에 다시 더하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "rank",
+            "sourceTitle": "영구임대 신청 순위를 확인했나요?",
+            "sourceReason": "생계·의료급여 수급자와 법정 지원대상 한부모가족 등은 1순위예요. 같은 순위에서는 배점이 높은 사람이 먼저예요. 동점이면 전입이 빠른 순 → 세대원 수 → 신청자 나이 순으로 보고 마지막은 추첨이에요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=8",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "어떤 순서로 뽑고 점수는 어떻게 매기나요?",
+            "preview": "같은 순위에서는 배점 → 전입일 → 세대원 수 → 나이 → 추첨 순으로 뽑아요.",
+            "sections": [
+                {
+                    "text": "신청 순위를 먼저 보고 같은 순위에서 배점이 높은 사람을 뽑아요. 동점이면 전입이 빠른 순 → 세대원이 많은 순 → 신청자 나이가 많은 순 → 추첨이에요. 기본 배점은 거주기간 최대 30점, 나이 최대 25점, 세대원 수 최대 30점이며 해당 유형의 가점은 7~15점이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "각 구간의 끝 나이는 미만이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "기본 배점",
+                        "headers": ["항목", "구간", "점수"],
+                        "rows": [
+                            [
+                                "거주기간",
+                                "1년 미만 / 1~5년 / 5~10년 / 10~15년 / 15년 이상",
+                                "22 / 24 / 26 / 28 / 30점"
+                            ],
+                            [
+                                "나이",
+                                "40세 미만 / 40~50세 / 50~60세 / 60세 이상",
+                                "19 / 21 / 23 / 25점"
+                            ],
+                            [
+                                "세대원 수",
+                                "1~2명 / 3명 / 4명 / 5명 이상",
+                                "24 / 26 / 28 / 30점"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "생계·의료급여 수급자의 추가 유형 1개는 11점, 2개 13점, 3개는 15점이에요. 공고에 열거한 비수급자 유형 및 일부 수급자 유형은 7점이에요. 단순히 항목 개수만 세지 않고, 해당 유형의 인정 범위와 증명을 함께 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "신청 순위를 먼저 보고 같은 순위에서 배점이 높은 사람을 뽑아요. 동점이면 전입이 빠른 순 → 세대원이 많은 순 → 신청자 나이가 많은 순 → 추첨이에요. 기본 배점은 거주기간 최대 30점, 나이 최대 25점, 세대원 수 최대 30점이며 해당 유형의 가점은 7~15점이에요."
+            ]
+        },
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "application",
+            "sourceTitle": "신청 장소와 방법을 확인했나요?",
+            "sourceReason": "밀양시 거주지 관할 읍·면·동 행정복지센터에 평일 10~17시에 서류를 내요(점심 12~13시 제외). 예비자로 선정된 뒤 빈집이 생기면 순서대로 입주 안내를 받아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=10",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "어디에 신청하나요?",
+            "preview": "주소지 관할 행정복지센터에 신청해요. 예비자 선정 후 빈집이 생기면 순서대로 안내받아요.",
+            "sections": [
+                {
+                    "text": "밀양시 거주지 관할 읍·면·동 행정복지센터에 평일 10~17시에 서류를 내요(점심 12~13시 제외). 예비자로 선정된 뒤 빈집이 생기면 순서대로 입주 안내를 받아요.",
+                    "evidence": [
+                        {
+                            "label": "LH 모집공고 PDF 10쪽",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=10",
+                            "checkedAt": "2026-11-15"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "review-family-documents",
+            "sourceTitle": "추가 가족 서류가 필요한 상황이 있나요?",
+            "sourceReason": "해당하는 상황을 모두 골라요. 공고일(2026년 11월 12일) 이후 발급한 서류를 준비해요. 등본·초본은 주소 변동, 세대주와 관계 등 공고가 요구한 항목을 모두 표시해요. 예비신혼부부는 두 사람의 등본과 대표 신청자의 초본을 내요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "추가 가족 서류가 필요한 상황이 있나요?",
+            "preview": "배우자와 등본이 다르거나 가족·주소·태아·입양 확인이 필요하면 해당 서류를 추가해요.",
+            "sections": [
+                {
+                    "text": "해당하는 상황을 모두 골라요. 공고일(2026년 11월 12일) 이후 발급한 서류를 준비해요. 등본·초본은 주소 변동, 세대주와 관계 등 공고가 요구한 항목을 모두 표시해요. 예비신혼부부는 두 사람의 등본과 대표 신청자의 초본을 내요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "내 상황에 맞는 서류",
+                        "headers": ["내 상황", "준비할 서류"],
+                        "rows": [
+                            [
+                                "배우자와 등본이 달라요",
+                                "배우자·예비배우자 주민등록등본 · 가족관계증명서"
+                            ],
+                            [
+                                "공고일 이후 당시 세대주와 등본이 나뉘었어요",
+                                "공고일 당시 세대주의 주민등록등본"
+                            ],
+                            [
+                                "공고일 이후 주소·세대주가 바뀌었어요",
+                                "주민등록초본(상세)"
+                            ],
+                            [
+                                "예비신혼부부로 신청해요",
+                                "배우자·예비배우자 주민등록등본 · 주민등록초본(상세)"
+                            ],
+                            [
+                                "미혼·이혼·사별 등으로 등본에서 배우자를 확인할 수 없어요",
+                                "가족관계증명서"
+                            ],
+                            [
+                                "결혼 후 함께 살 세대에 두 사람 외 가족을 넣어요",
+                                "가족관계증명서"
+                            ],
+                            [
+                                "배우자가 외국인이에요",
+                                "가족관계증명서 · 외국인등록사실증명서"
+                            ],
+                            ["태아로 출생 자녀 가산을 받아요", "임신진단서"],
+                            [
+                                "입양 자녀로 출생 자녀 가산을 받아요",
+                                "가족관계증명서 · 입양관계증명서"
+                            ],
+                            [
+                                "부양하는 65세 이상 가족의 배우자가 등본에서 안 보여요",
+                                "가족관계증명서"
+                            ],
+                            [
+                                "기관이 추가 서류를 요청했어요",
+                                "기관이 요청한 추가 증빙"
+                            ],
+                            [
+                                "출생 자녀로 소득·자산 가산을 받아요",
+                                "가족관계증명서"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "inputKind": "MULTIPLE",
+                "options": [
+                    { "value": "SEPARATE", "label": "배우자와 등본이 달라요" },
+                    {
+                        "value": "OLD_HEAD",
+                        "label": "공고일 이후 당시 세대주와 등본이 나뉘었어요"
+                    },
+                    {
+                        "value": "CHANGE",
+                        "label": "공고일 이후 주소·세대주가 바뀌었어요"
+                    },
+                    {
+                        "value": "PREMARITAL",
+                        "label": "예비신혼부부로 신청해요"
+                    },
+                    {
+                        "value": "FAMILY",
+                        "label": "미혼·이혼·사별 등으로 등본에서 배우자를 확인할 수 없어요"
+                    },
+                    {
+                        "value": "PREMARITAL_FAMILY",
+                        "label": "결혼 후 함께 살 세대에 두 사람 외 가족을 넣어요"
+                    },
+                    { "value": "FOREIGN", "label": "배우자가 외국인이에요" },
+                    {
+                        "value": "PREGNANT",
+                        "label": "태아로 출생 자녀 가산을 받아요"
+                    },
+                    {
+                        "value": "ADOPTED",
+                        "label": "입양 자녀로 출생 자녀 가산을 받아요"
+                    },
+                    {
+                        "value": "ELDER_FAMILY",
+                        "label": "부양하는 65세 이상 가족의 배우자가 등본에서 안 보여요"
+                    },
+                    {
+                        "value": "ADDITIONAL",
+                        "label": "기관이 추가 서류를 요청했어요"
+                    },
+                    {
+                        "value": "BIRTH",
+                        "label": "출생 자녀로 소득·자산 가산을 받아요"
+                    },
+                    { "value": "NONE", "label": "해당 없음" },
+                    { "value": "UNKNOWN", "label": "잘 모르겠어요" }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "84eef49d-c481-4e7f-8a54-4895d0e7d0dc",
+            "questionId": "review-qualification-proof",
+            "sourceTitle": "어떤 신청 자격을 증명하나요?",
+            "sourceReason": "내가 신청하는 유형의 증명서만 준비해요. 아래 유형을 고르는 것만으로 입주 자격이나 가점이 확정되지는 않아요. 원문의 유형별 소득·자산 조건도 함께 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=12",
+                "sha256": "ec52e2699e64e9ebcfbbccf5d04ad161a1a115f615c2e4fe4292a0a22d77cad4"
+            },
+            "heading": "어떤 신청 자격을 증명하나요?",
+            "preview": "수급·한부모·장애·보훈 등 신청하는 자격의 증명서만 내요. 모든 종류를 내는 것은 아니에요.",
+            "sections": [
+                {
+                    "text": "내가 신청하는 유형의 증명서만 준비해요. 아래 유형을 고르는 것만으로 입주 자격이나 가점이 확정되지는 않아요. 원문의 유형별 소득·자산 조건도 함께 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69363675#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "내 상황에 맞는 서류",
+                        "headers": ["내 상황", "준비할 서류"],
+                        "rows": [
+                            ["생계·의료급여 수급자", "수급자증명서"],
+                            ["지원대상 한부모가족", "한부모가족 증명서"],
+                            ["등록장애인", "장애인증명서"],
+                            ["차상위계층", "차상위계층 증빙"],
+                            ["북한이탈주민", "북한이탈주민등록확인서"],
+                            [
+                                "국가유공자·유족·참전유공자 등",
+                                "보훈 대상 증명서(본인 해당 유형)"
+                            ],
+                            [
+                                "65세 이상 부모·조부모 등을 부양하며 소득인정액 기준 해당",
+                                "부양가족 소득인정액 증빙"
+                            ],
+                            [
+                                "기관이 영구임대 입주 필요성을 인정한 대상",
+                                "기관 인정 대상 증빙"
+                            ],
+                            ["일본군위안부 피해자", "피해자 결정통지서 사본"],
+                            [
+                                "아동복지시설 퇴소·퇴소예정 등",
+                                "아동복지시설 퇴소 등 증빙"
+                            ],
+                            ["귀환국군포로", "귀환용사증 사본"],
+                            [
+                                "고엽제후유증 환자",
+                                "고엽제후유(의)증 환자 등 확인서"
+                            ],
+                            ["중증장애인", "중증장애인 확인서"]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "inputKind": "MULTIPLE",
+                "options": [
+                    { "value": "BENEFIT", "label": "생계·의료급여 수급자" },
+                    {
+                        "value": "SINGLE_PARENT",
+                        "label": "지원대상 한부모가족"
+                    },
+                    { "value": "DISABILITY", "label": "등록장애인" },
+                    { "value": "NEAR_POOR", "label": "차상위계층" },
+                    { "value": "DEFECTOR", "label": "북한이탈주민" },
+                    {
+                        "value": "VETERAN",
+                        "label": "국가유공자·유족·참전유공자 등"
+                    },
+                    {
+                        "value": "ELDER_SUPPORT",
+                        "label": "65세 이상 부모·조부모 등을 부양하며 소득인정액 기준 해당"
+                    },
+                    {
+                        "value": "APPROVED",
+                        "label": "기관이 영구임대 입주 필요성을 인정한 대상"
+                    },
+                    { "value": "COMFORT", "label": "일본군위안부 피해자" },
+                    {
+                        "value": "CARE",
+                        "label": "아동복지시설 퇴소·퇴소예정 등"
+                    },
+                    { "value": "RETURNED", "label": "귀환국군포로" },
+                    { "value": "AGENT_ORANGE", "label": "고엽제후유증 환자" },
+                    { "value": "SEVERE", "label": "중증장애인" },
+                    { "value": "NONE", "label": "해당 없음" },
+                    { "value": "UNKNOWN", "label": "잘 모르겠어요" }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

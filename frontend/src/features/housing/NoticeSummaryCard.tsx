@@ -5,16 +5,19 @@ import { cx } from '../../shared/styles/classes';
 import styles from './NoticeDetail.module.css';
 import summaryStyles from './NoticeSummaryCard.module.css';
 import { useNoticeDetailSelection } from './useNoticeDetailSelection';
+import { ConditionDetailText } from './ConditionDetailText';
 
 export function NoticeSummaryCard({
     title,
     rows,
     explanationLabel,
+    onToggle,
     children,
 }: {
     title: string;
-    rows: { label?: string | null; text: ReactNode }[];
+    rows: { label?: string | null; text: ReactNode; details?: string[] }[];
     explanationLabel: string;
+    onToggle?: (open: boolean) => void;
     children: ReactNode;
 }) {
     const { cardRef, onClick } = useNoticeDetailSelection();
@@ -44,7 +47,15 @@ export function NoticeSummaryCard({
                     ))}
                 </div>
             )}
-            <InlineExplanation label={explanationLabel}>
+            <InlineExplanation label={explanationLabel} onToggle={onToggle}>
+                {rows.map((row, index) =>
+                    row.details?.length ? (
+                        <ConditionDetailText
+                            key={index}
+                            text={row.details.join('\n')}
+                        />
+                    ) : null,
+                )}
                 {children}
             </InlineExplanation>
         </section>

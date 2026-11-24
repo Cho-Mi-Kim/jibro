@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
+
 import org.jibro.auth.AuthService;
 import org.jibro.notice.NoticeService;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,19 +28,27 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Transactional
 class TypedAnswersIntegrationTest {
-    @Autowired AuthService auth;
-    @Autowired NoticeService notices;
-    @Autowired PreparationService preparations;
-    @Autowired PreparationHistoryService history;
-    @Autowired JdbcTemplate db;
-    @Autowired ObjectMapper json;
-    @Autowired MockMvc mvc;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    PreparationService preparations;
+    @Autowired
+    PreparationHistoryService history;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    ObjectMapper json;
+    @Autowired
+    MockMvc mvc;
     String owner, token;
     UUID notice, id;
     Preparation current;
     final Evidence evidence = new Evidence("입력 계약 테스트 근거", null, "2026-11-06");
 
-    @BeforeEach void setup() {
+    @BeforeEach
+    void setup() {
         String email = UUID.randomUUID() + "@example.invalid";
         auth.signup("입력 테스트", email, "test-password-123");
         var user = auth.login(email, "test-password-123");
@@ -70,7 +79,8 @@ class TypedAnswersIntegrationTest {
         return Map.of("legacy", "YES", "amount", 0, "date", "2024-02-29", "choices", List.of("B", "A"));
     }
 
-    @Test void savesTypedJsonAndMultiChoiceDocumentsUseAnyMatchingSelection() throws Exception {
+    @Test
+    void savesTypedJsonAndMultiChoiceDocumentsUseAnyMatchingSelection() throws Exception {
         mvc.perform(put("/api/v1/preparations/" + id + "/answers").header("Authorization", "Bearer " + token)
                         .contentType(MediaType.APPLICATION_JSON).content(json.writeValueAsString(Map.of("revision", current.revision, "answers", answers()))))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.answers.amount").value(0))
@@ -88,7 +98,8 @@ class TypedAnswersIntegrationTest {
         assertEquals("NOT_APPLICABLE", current.documents.get(0).necessity);
     }
 
-    @Test void rejectedInputDoesNotReplaceAnswersOrIncrementRevision() throws Exception {
+    @Test
+    void rejectedInputDoesNotReplaceAnswersOrIncrementRevision() throws Exception {
         current = preparations.answers(owner, id, current.revision, answers());
         String before = db.queryForObject("SELECT snapshot::text FROM preparation WHERE id=?", String.class, id);
         for (Map<String, Object> invalid : List.of(Map.<String, Object>of("amount", "2"), Map.<String, Object>of("amount", 10.5),
@@ -101,7 +112,8 @@ class TypedAnswersIntegrationTest {
         }
     }
 
-    @Test void constraintChangesClearOnlyChangedAnswersAndPreserveHistoricalTypedSnapshot() {
+    @Test
+    void constraintChangesClearOnlyChangedAnswersAndPreserveHistoricalTypedSnapshot() {
         current = preparations.answers(owner, id, current.revision, answers());
         var changed = notices.updateContent(notice, 1, content(20));
         notices.review(notice, owner, changed.revision(), "PASS", "PASS", "입력 계약 검수");
@@ -116,7 +128,8 @@ class TypedAnswersIntegrationTest {
         assertEquals(0, saved.questions.get(1).constraints().max().compareTo(BigDecimal.TEN));
     }
 
-    @Test void numericAndDateInputsCannotSilentlyBecomeEligibilityPredicates() {
+    @Test
+    void numericAndDateInputsCannotSilentlyBecomeEligibilityPredicates() {
         var original = content(10);
         for (String question : List.of("amount", "date")) {
             var invalid = new Content(original.summary(), evidence, List.of(), original.questions(),

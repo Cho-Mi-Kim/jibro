@@ -1,0 +1,177 @@
+{
+    "reviewedAt": "2026-11-21",
+    "scope": "서류9·절차6·문의4 일반 가이드",
+    "status": "REVIEWED_DRAFT",
+    "method": "공식 웹페이지 검색·본문 대조, 출처당 짧은 독립 요약. 기관에 전화하지 않았으며 로그인 후 실제 민원 발급·청약 접수는 수행하지 않음.",
+    "limitations": [
+        "마이홈 상담/주거급여 PC URL은 도구에서 반복 타임아웃. 주거급여 번호는 복지로 공식 2026 서비스 본문으로 확인.",
+        "SH 청약센터 직접 경로는 도구 제한이 있어 SH가 운영하는 서울주거상담 본문을 사용.",
+        "정부24 본문에 접속대기/차단용 숨김 안내가 포함되어 있으나 실제 민원 본문과 서비스 정보를 별도 확인. 인증 후 발급 완료는 미검증.",
+        "일반 가이드의 특정 연도·개별 공급유형의 숫자 기준을 모든 공고에 적용하지 않음."
+    ],
+    "items": [
+        {
+            "id": "guide-document-checklist",
+            "title": "서류를 발급하기 전에 무엇을 확인하나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226"
+            ],
+            "review": "LH 공공임대 제출서류 표의 필수/해당자, 발급 기준 및 포함 항목에 기반. 특정 유형의 상세 서류 목록이나 과거 연도 placeholder를 일반 안내로 복사하지 않았다."
+        },
+        {
+            "id": "guide-resident-certificates",
+            "title": "주민등록등본과 초본은 어떻게 다른가요?",
+            "sources": [
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200"
+            ],
+            "review": "정부24 본문에서 세대별 등본/개인별 초본, 인터넷·방문·무인발급기, 온라인 대리 불가 확인."
+        },
+        {
+            "id": "guide-family-marriage-certificates",
+            "title": "가족관계·혼인관계증명서는 어떻게 준비하나요?",
+            "sources": [
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004&HighCtgCD=A01008&Mcode=10020",
+                "https://efamily.scourt.go.kr/index.jsp",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226"
+            ],
+            "review": "정부24에서 일반/상세/특정 구분과 서류별 용도, 법원 온라인 발급을 확인. LH 제출서류 표에서 배우자 미등재 등의 추가 가족증빙 사례 확인; 모든 공고에 필수라고 하지 않음."
+        },
+        {
+            "id": "guide-consent-forms",
+            "title": "개인정보·금융정보 동의서는 어디서 받나요?",
+            "sources": [
+                "https://apply.lh.or.kr/upload/cntntsFile/apple/doc_b3e410f5-6dfa-4f0d-a31d-105ae40b832c1742799126676.pdf"
+            ],
+            "review": "LH 공식 개인정보 동의서 PDF 전체2쪽 중1쪽에서 만14세 서명 구분 확인. web 도구의 PDF 본문 추출을 직접 읽었으며 로컬 파일 추출본은 없음. 금융정보 동의서는 개인정보 동의서와 별도로 해당 공고 양식을 확인하도록 안내; 특정 가족 범위·면제 조건을 확정하지 않음."
+        },
+        {
+            "id": "guide-income-asset-documents",
+            "title": "소득·자산은 어떤 서류로 확인하나요?",
+            "sources": [
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000021&HighCtgCD=-",
+                "https://www.lh.or.kr/boardDownload.es?bid=0033&list_no=644985&seq=3",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584"
+            ],
+            "review": "정부24 소득금액증명의 과세소득 증명 역할, LH 자산확인서의 보증금/분양권 및 증빙 역할, LH 소득·자산 조회·소명 절차 대조. 자산 링크는2021년 신혼Ⅰ 공고 전체24쪽 중23쪽에 자산 보유 사실 확인서가 있고 임차보증금/분양권 기재란과 계약서/납부확인원 증빙 목록을 읽음. web 도구 PDF 본문 추출을 직접 대조했으며 로컬 파일 추출본은 없음. 2021 자산양식은 구조 예시로만 연결하며 실제 제출은 현재 공고 양식 사용."
+        },
+        {
+            "id": "guide-welfare-certificates",
+            "title": "수급자·한부모·장애인 증명서는 어디서 받나요?",
+            "sources": [
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=14600000280",
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=10601000001&tp_seq=01",
+                "https://www.mohw.go.kr/menu.es?mid=a10710010900"
+            ],
+            "review": "정부24 수급자/지원대상 한부모 민원과 보건복지부 장애인증명서 발급 안내 확인. 법정 지원대상 한부모와 일반 한부모가족이 다름을 보존. 민원별 추가서류·대리자격 일반화 안 함."
+        },
+        {
+            "id": "guide-foreign-family-documents",
+            "title": "외국인 가족의 서류는 어떻게 준비하나요?",
+            "sources": [
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027"
+            ],
+            "review": "정부24 외국인등록사실증명의 민원 목적·창구·온라인 본인/방문 대리 가능 조건 확인. 거소/등록/가족증명서가 자동 대체된다는 표현 없음."
+        },
+        {
+            "id": "guide-pregnancy-adoption-documents",
+            "title": "임신·입양은 어떤 서류로 확인하나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1113&mi=1226",
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004&HighCtgCD=A01008&Mcode=10020"
+            ],
+            "review": "LH 공공임대 서류표의 임신/입양 증빙·재확인 안내 확인. 해당 표의 공고일부터1개월 같은 특정 인정기간을 전체 공고에 복사하지 않고 공고 확인으로 한정."
+        },
+        {
+            "id": "guide-certificate-proxy",
+            "title": "가족이 대신 서류를 발급받아도 되나요?",
+            "sources": [
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+                "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027",
+                "https://efamily.scourt.go.kr/index.jsp"
+            ],
+            "review": "정부24 등초본/외국인 민원 온라인 대리 불가와 방문 위임, 대법원 이용안내의 가족 발급범위 확인. 증명서 대리 발급과 청약 대리신청을 분리."
+        },
+        {
+            "id": "guide-official-application",
+            "title": "신청은 어디서 하고, 접수 완료는 어떻게 확인하나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1230&mi=1302"
+            ],
+            "review": "LH 청약연습1230과 실제 인터넷절차1231의 본인인증/공고선택/제출/신청내역 메뉴 확인. 집으로 준비기록과 기관 신청 차이는 현재 제품 구조에 따른 설명."
+        },
+        {
+            "id": "guide-application-changes",
+            "title": "신청한 내용을 수정하거나 취소할 수 있나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303"
+            ],
+            "review": "LH 건설임대 인터넷 절차1231의 마감 전 수정/삭제, 마감 후 변경 불가, 주택형 삭제 후 재신청 확인. 매입임대나 타기관에 같은 수정권이 있다고 일반화하지 않도록 본문 범위를 건설임대로 명시."
+        },
+        {
+            "id": "guide-document-selection",
+            "title": "서류제출대상자가 되면 당첨된 건가요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584"
+            ],
+            "review": "통합공공임대 임대절차1201332의 신청→서류대상→서류접수→조사·소명→당첨 순서 확인. 서류 대상 추첨/배점이나 배수를 고정하지 않음."
+        },
+        {
+            "id": "guide-document-submission",
+            "title": "서류는 온라인·우편·방문 중 편한 방법으로 내면 되나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1231&mi=1303"
+            ],
+            "review": "LH 인터넷절차1231의 서류제출기간·미제출 영향 확인. 온라인/우편/방문별 확인 체크리스트는 공고별 정함; 특정 제출경로를 임의 허용하지 않음."
+        },
+        {
+            "id": "guide-supplement-explanation",
+            "title": "추가 서류나 소명 요청을 받으면 어떻게 하나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201332&mi=1201584"
+            ],
+            "review": "LH 통합공공임대 절차1201332의 객관적 증명자료·소명기간·미제출 제외 확인. 일괄 소명기간일수나 재심승인을 확정하지 않음."
+        },
+        {
+            "id": "guide-results-contract",
+            "title": "결과 발표 뒤에는 무엇을 해야 하나요?",
+            "sources": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1110&mi=1222"
+            ],
+            "review": "LH 공공임대 절차1110의 당첨후자격심사·소명·계약 순서 확인. 다른 유형은 순서가 달라질 수 있음을 명시."
+        },
+        {
+            "id": "guide-contact-lh",
+            "title": "LH 공고가 헷갈리면 어디에 물어보나요?",
+            "sources": [
+                "https://www.lh.or.kr/menu.es?mid=a10310000000"
+            ],
+            "review": "LH 콜센터 상세에서1600-1004·평일09–12/13–18·주말공휴일휴무 확인. 특정 개인 자격판정은 담당부서에 공고명/질문 준비 후 문의."
+        },
+        {
+            "id": "guide-contact-sh-local",
+            "title": "SH나 지역 기관 공고도 LH에 문의하면 되나요?",
+            "sources": [
+                "https://www.seoulhousing.kr/html/0601001.do"
+            ],
+            "review": "SH 운영 서울주거상담0601001 본문에서1600-3456·평일09–18·점심12–13 확인. 다른 도시공사 번호는 추정하지 않음."
+        },
+        {
+            "id": "guide-contact-benefit",
+            "title": "주거급여는 어디서 상담하고 신청하나요?",
+            "sources": [
+                "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003201"
+            ],
+            "review": "복지로 2026 주거급여 상세WLF00003201에서 문의1600-0777 확인. 마이홈 일반콜센터1600-1004와 구분. 마이홈 직접열기 반복타임아웃이어서 정상 확인된 복지로를 실제 근거로 선택."
+        },
+        {
+            "id": "guide-contact-certificate",
+            "title": "서류 발급 사이트가 안 되면 어디에 문의하나요?",
+            "sources": [
+                "https://m.gov.kr/",
+                "https://efamily.scourt.go.kr/index.jsp"
+            ],
+            "review": "정부24 공식메인 콜센터와 법원 공식메인 사용자지원센터 번호/운영시간 확인. 주택 자격 문의와 기술지원을 구분."
+        }
+    ]
+}

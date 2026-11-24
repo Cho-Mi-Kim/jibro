@@ -1,0 +1,397 @@
+{
+    "entries": [
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "adult",
+            "sourceTitle": "공고일 현재 성년자이거나 미성년 신청 예외에 해당하나요?",
+            "sourceReason": "공고일 현재 만 19세 이상이 원칙입니다. 미성년 세대주도 같은 등본의 자녀를 부양하거나, 직계존속의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양하거나, 외국인 부모를 둔 내국인 미성년 세대주인 한부모가족이면 예외가 있습니다. 예외는 가족관계 및 법정대리·부양 입증이 필요하므로 추가 확인으로 남깁니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만 19세 이상이 원칙이고, 미성년 세대주 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "공고일 현재 만 19세 이상이 원칙이에요.\n\n미성년 세대주 예외 (다음 중 하나)\n- 같은 등본에 있는 자녀를 부양해요.\n- 부모·조부모 등 윗세대 가족의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 외국인 부모를 둔 한부모가족으로, 미성년 세대주는 한국 국적이에요. 이 경우 외국인 부모가 대신 신청해요.\n\n추가 확인 · 가족관계와 부양 사실을 증명해요. 행방불명은 신고 접수증이 필요해요. 법정대리·부양 입증은 접수기관에 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "household",
+            "sourceTitle": "내 세대 범위에 별도 확인이 필요한 가족이 있나요?",
+            "sourceReason": "신청자·배우자는 주소가 달라도 포함합니다. 신청자/분리배우자와 같은 등본의 직계존속·직계비속 및 그 배우자, 신청자와 같은 등본의 배우자 직계비속 및 그 배우자, 등록된 외국인 가족, 태아의 범위를 원문과 대조하세요. 미등록 외국인/국내 미거주 재외국민 배우자, 실종·행방불명·생계주거 분리로 제외하려는 가족은 기관 확인이 필요합니다.  해당 항목을 함께 선택하되, 해당 없음·잘 모르겠어요는 다른 항목과 함께 선택하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "배우자는 주소가 달라도 포함해요. 부모·자녀 등은 등본과 가족관계에 따라 확인해요.",
+            "sections": [
+                {
+                    "text": "- 신청자·배우자는 주소가 달라도 포함해요.\n- 신청자/주소가 다른 배우자와 같은 등본의 부모·조부모 등 윗세대 가족·자녀·손자녀 등 아랫세대 가족 및 그 배우자, 신청자와 같은 등본의 배우자 자녀·손자녀 등 아랫세대 가족 및 그 배우자, 등록된 외국인 가족, 태아의 범위를 원문과 대조하세요.\n- 미등록 외국인/국내 미거주 재외국민 배우자, 실종·행방불명·생계주거 분리로 제외하려는 가족은 기관 확인이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "해당 항목을 함께 선택하되, 해당 없음·잘 모르겠어요는 다른 항목과 함께 선택하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "housing",
+            "sourceTitle": "공고에서 정한 대상 모두가 무주택인가요?",
+            "sourceReason": "신청자와 분리배우자를 포함한 공고의 세대 범위를 먼저 확인하세요. 주택뿐 아니라 매매로 취득한 분양권·입주권도 확인하고, 상속·증여 분양권, 상속 공유지분 처분, 주택 판정의 법정 예외는 원문의 판정기준과 입증자료를 별도 확인합니다. 일반 신청자는 공고일부터 입주 시까지 무주택세대구성원을 유지해야 합니다. 이 답변은 최종 자격 판정이 아닙니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "공고에서 정한 대상 모두가 무주택인가요?",
+            "preview": "함께 심사하는 가족의 집·분양권을 확인해요. 상속·증여 등 무주택 인정 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "- 신청자와 주소가 다른 배우자를 포함한 공고의 세대 범위를 먼저 확인하세요.\n- 주택뿐 아니라 매매로 취득한 분양권·입주권도 확인하고, 상속·증여 분양권, 상속 공유지분 처분, 주택 판정의 법정 예외는 원문의 판정기준과 입증자료를 별도 확인해요.\n- 일반 신청자는 공고일부터 입주 시까지 무주택세대구성원을 유지해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=4",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 18쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=18",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 19쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=19",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "이 답변은 최종 자격 판정이 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=4",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 18쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=18",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 19쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=19",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "restrictions",
+            "sourceTitle": "중복 신청·기존 임대 거주·불법전대 관련 사항이 있나요?",
+            "sourceReason": "1세대 1주택 신청이 원칙이며 이 공고 중복신청은 무효입니다. 신청자나 세대원 중 불법양도·전대로 적발된 후 4년이 지나지 않은 경우 제한됩니다. 기존 공공임대 거주자는 이주·해지 또는 입주 전 세대분리 조건을 확인하고 배우자 분리는 중복입주 예외가 아닙니다. 같은 유형의 예비입주자 선정 시 종전 지위 상실, 장기임대 입주 시 대기명부 제외도 구분하세요. 해당 항목을 함께 선택하되, 해당 없음·잘 모르겠어요는 다른 항목과 함께 선택하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "한 가족이 여러 번 신청할 수 있나요?",
+            "preview": "1세대 1주택 신청이 원칙이며 이 공고 중복신청은 무효예요.",
+            "sections": [
+                {
+                    "text": "- 1세대 1주택 신청이 원칙이며 이 공고 중복신청은 무효예요.\n- 신청자나 세대원 중 불법양도·전대로 적발된 후 4년이 지나지 않은 경우 제한돼요.\n- 기존 공공임대 거주자는 이주·해지 또는 입주 전 세대분리 조건을 확인하고 배우자 분리는 중복입주 예외가 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=4",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=5",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 같은 유형의 예비입주자 선정 시 종전 지위 상실, 장기임대 입주 시 대기명부 제외도 구분하세요.\n- 해당 항목을 함께 선택하되, 해당 없음·잘 모르겠어요는 다른 항목과 함께 선택하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=4",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=5",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "family",
+            "sourceTitle": "가족관계증명서로 관계를 추가 확인해야 하나요?",
+            "sourceReason": "등본에서 배우자를 확인할 수 없는 세대분리·미혼·이혼·사별, 외국인 배우자에 해당하면 신청자 기준 상세 가족관계증명서를 준비합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본에서 배우자를 확인할 수 없는 세대분리·미혼·이혼·사별, 외국인 배우자에 해당하면 신청자 기준 상세 가족관계증명서를 준비해요.",
+            "sections": [
+                {
+                    "text": "등본에서 배우자를 확인할 수 없는 세대분리·미혼·이혼·사별, 외국인 배우자에 해당하면 신청자 기준 상세 가족관계증명서를 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "registry",
+            "sourceTitle": "주소·세대주 변경 또는 계속거주기간 확인이 필요한가요?",
+            "sourceReason": "공고일 이후 주소/세대주 변동이 있거나 남원시 계속거주기간이 등본으로 확인되지 않으면 과거 주소변동과 세대주 관계를 모두 표시한 초본이 필요합니다. 공고일 이후 당시 세대주와 등본이 분리된 경우 당시 세대주 등본도 추가합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "주소·세대주 변경 또는 계속거주기간 확인이 필요한가요?",
+            "preview": "공고일 이후 주소/세대주 변동이 있거나 남원시 계속거주기간이 등본으로 확인되지 않으면 과거 주소변동과 세대주 관계를 모두 표시한 초본이 필요해요.",
+            "sections": [
+                {
+                    "text": "- 공고일 이후 주소/세대주 변동이 있거나 남원시 계속거주기간이 등본으로 확인되지 않으면 과거 주소변동과 세대주 관계를 모두 표시한 초본이 필요해요.\n- 공고일 이후 당시 세대주와 등본이 분리된 경우 당시 세대주 등본도 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=10",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "spouse",
+            "sourceTitle": "배우자의 주민등록표가 분리되어 있나요?",
+            "sourceReason": "주민등록표가 분리되어 있는 배우자는 세대구성원과 세대주 관계·전입변동 등 상세사항이 모두 표시된 등본을 추가합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "배우자의 주민등록표가 분리되어 있나요?",
+            "preview": "배우자와 등본이 다르면 세대주와 관계·전입변동 등이 모두 표시된 배우자 등본도 내요.",
+            "sections": [
+                {
+                    "text": "주민등록표가 분리되어 있는 배우자는 세대구성원과 세대주 관계·전입변동 등 상세사항이 모두 표시된 등본을 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "route",
+            "sourceTitle": "어떤 방식으로 신청할 예정인가요?",
+            "sourceReason": "신청방식별 날짜·장소·신분증·위임장을 확인하세요. 현장접수 지원 대상이 제한된 공고는 해당 조건을 우선합니다. 배우자 대리는 두 사람 신분증·신청자 도장·관계증빙, 기타 대리는 인감증명 또는 본인서명사실확인 방식의 위임 증빙이 필요합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "어떤 방식으로 신청할 예정인가요?",
+            "preview": "신청방식별 날짜·장소·신분증·위임장을 확인하세요.",
+            "sections": [
+                {
+                    "text": "- 신청방식별 날짜·장소·신분증·위임장을 확인하세요.\n- 현장접수 지원 대상이 제한된 공고는 해당 조건을 우선해요.\n- 배우자 대리는 두 사람 신분증·신청자 도장·관계증빙, 기타 대리는 인감증명 또는 본인서명사실확인 방식의 위임 증빙이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=9",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=10",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=11",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 23쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=23",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "additional",
+            "sourceTitle": "기관에서 소명·추가 증빙 제출을 안내받았나요?",
+            "sourceReason": "공적 조회와 실제 사실이 다르거나 기본서류로 확인할 수 없으면 기관이 추가 증빙을 요청할 수 있습니다. 요청받은 사유·기한을 공식 안내에서 확인하고 모르는 사항은 추가 확인으로 남깁니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "기관에서 소명·추가 증빙 제출을 안내받았나요?",
+            "preview": "공적 조회와 실제 사실이 다르거나 기본서류로 확인할 수 없으면 기관이 추가 증빙을 요청할 수 있어요.",
+            "sections": [
+                {
+                    "text": "- 공적 조회와 실제 사실이 다르거나 기본서류로 확인할 수 없으면 기관이 추가 증빙을 요청할 수 있어요.\n- 요청받은 사유·기한을 공식 안내에서 확인하고 모르는 사항은 추가 확인으로 남깁니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "subscription",
+            "sourceTitle": "청약저축 가입기간·납입인정횟수는 어느 경우인가요?",
+            "sourceReason": "2026.11.6 현재 가입6개월 경과 및 납입인정6회 이상은1순위, 가입했으나1순위 미충족은2순위, 미가입 무주택자는 무순위입니다. 통장표시 회차가 아닌 순위확인서의 인정회차를 확인하세요. 주택관리번호2026000583.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "청약저축 가입기간·납입인정횟수는 어느 경우인가요?",
+            "preview": "11월 6일 기준 가입 6개월·납입 6회면 1순위, 가입자는 2순위, 미가입자는 무순위예요.",
+            "sections": [
+                {
+                    "text": "- 2026.11.6 현재 가입6개월 경과 및 납입인정6회 이상은1순위, 가입했으나1순위 미충족은2순위, 미가입 무주택자는 무순위이에요.\n- 통장표시 회차가 아닌 순위확인서의 인정회차를 확인하세요.\n- 주택관리번호2026000583.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "residency_rank",
+            "sourceTitle": "공고일 현재 남원시에 거주하며 무주택기간을 확인했나요?",
+            "sourceReason": "동일순위에서 남원시 거주자를 우선합니다. 40㎡ 이하 경쟁 시3년 이상 세대원 전원 무주택이며 납입횟수가 많은 자→납입횟수 많은 자 순으로 봅니다. 무주택기간은 만30세부터, 30세 이전 혼인은 혼인신고일부터 산정하며 소유주택 처분 후 시점·혼인 전 배우자 소유 제외를 구분합니다. 2순위 및 동일조건은 추첨입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "공고일 현재 남원시에 거주하며 무주택기간을 확인했나요?",
+            "preview": "같은 순위는 남원 거주자 우선이에요. 40㎡ 이하는 무주택 3년·납입횟수를 확인해요.",
+            "sections": [
+                {
+                    "text": "- 동일순위에서 남원시 거주자를 우선해요.\n- 40㎡ 이하 경쟁 시3년 이상 세대원 전원 무주택이며 납입횟수가 많은 자→납입횟수 많은 자 순으로 봅니다.\n- 무주택기간은 만30세부터, 30세 이전 혼인은 혼인신고일부터 산정하며 소유주택 처분 후 시점·혼인 전 배우자 소유 제외를 구분해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "2순위 및 동일조건은 추첨이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "394f7a6e-1054-419c-bd27-f436d6289162",
+            "questionId": "early_marriage",
+            "sourceTitle": "만30세 이전 혼인으로 무주택기간을 산정하나요?",
+            "sourceReason": "만30세 이전 혼인신고를 한 경우 혼인관계증명서로 해당 신고일을 확인합니다. 다른 배우자·세대원의 주택소유 이력과 함께 원문 무주택기간 기준을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325",
+                "sha256": "b310ba4956859535ed3e19ad15b8c9958a2b63c394083056172d8731d63c6055"
+            },
+            "heading": "만30세 이전 혼인으로 무주택기간을 산정하나요?",
+            "preview": "만30세 이전 혼인신고를 한 경우 혼인관계증명서로 해당 신고일을 확인해요.",
+            "sections": [
+                {
+                    "text": "- 만30세 이전 혼인신고를 한 경우 혼인관계증명서로 해당 신고일을 확인해요.\n- 다른 배우자·세대원의 주택소유 이력과 함께 원문 무주택기간 기준을 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=5",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -2,23 +2,34 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { OfficialLink } from '../../shared/ui/OfficialLink';
 import { Icon } from '../../shared/ui/Icon';
 import { Button } from '../../shared/ui/ui';
-import { safeUrl } from '../../shared/ui/helpers';
+import { EvidenceLink } from './EvidenceLink';
 import {
     preparationChoicePath,
     oneTimeCheckPath,
 } from '../preparation/oneTimeCheckApi';
 import type { Notice } from './types';
 import styles from './NoticeDetail.module.css';
-import { useNoticeDetailScroll } from './useNoticeDetailScroll';
+import { NoticeDetailScrollDetails } from './NoticeDetailScrollArea';
+
+function useDetailDeparture(id: string, onLeaveDetail?: () => void) {
+    const { search, key } = useLocation();
+    return {
+        onClick: onLeaveDetail,
+        state: { detailReturn: { id, search, key } },
+    };
+}
 
 export function NoticeDetailActions({
     notice,
     preparationId,
+    onLeaveDetail,
 }: {
     notice: Notice;
     preparationId?: string;
+    onLeaveDetail?: () => void;
 }) {
     const navigate = useNavigate();
+    const departure = useDetailDeparture(notice.id, onLeaveDetail);
     const { state } = useLocation();
     return (
         <footer className={styles.actions}>
@@ -32,17 +43,18 @@ export function NoticeDetailActions({
                 </OfficialLink>
                 {(notice.canStart || preparationId) && (
                     <Button
-                        onClick={() =>
-                            navigate(
-                                preparationId
-                                    ? '/preparations/' + preparationId
-                                    : preparationChoicePath(
-                                          notice.id,
-                                          notice.version,
-                                      ),
-                                { state },
-                            )
-                        }
+                        onClick={() => {
+                            departure.onClick?.();
+                            const to = preparationId
+                                ? '/preparations/' + preparationId
+                                : preparationChoicePath(
+                                      notice.id,
+                                      notice.version,
+                                  );
+                            navigate(to, {
+                                state: { ...state, ...departure.state },
+                            });
+                        }}
                     >
                         {preparationId
                             ? notice.canStart
@@ -57,23 +69,43 @@ export function NoticeDetailActions({
     );
 }
 
-export function NoticeResources({ notice }: { notice: Notice }) {
-    const { cardRef, scrollToCard } =
-        useNoticeDetailScroll<HTMLDetailsElement>();
+export function NoticeResources({
+    notice,
+    onLeaveDetail,
+}: {
+    notice: Notice;
+    onLeaveDetail?: () => void;
+}) {
+    const departure = useDetailDeparture(notice.id, onLeaveDetail);
     return (
-        <details ref={cardRef} className={styles.resources}>
-            <summary onClick={scrollToCard}>
+        <NoticeDetailScrollDetails className={styles.resources}>
+            <summary>
                 공고 자료와 비교
                 <Icon name="down" />
             </summary>
             <nav aria-label="공고 보조 기능">
                 {notice.canStart && (
-                    <Link to={oneTimeCheckPath(notice.id, notice.version)}>
+                    <Link
+                        to={oneTimeCheckPath(notice.id, notice.version)}
+                        {...departure}
+                    >
                         저장하지 않고 이번만 확인
                     </Link>
                 )}
-                <Link to={'/compare?a=' + notice.id}>공고 비교</Link>
-                <Link to={'/notices/' + notice.id + '/versions'}>
+                <Link
+                    to={'/compare?' + new URLSearchParams({ a: notice.id })}
+                    {...departure}
+                >
+                    공고 비교
+                </Link>
+                <Link
+                    to={
+                        '/notices/' +
+                        encodeURIComponent(notice.id) +
+                        '/versions'
+                    }
+                    {...departure}
+                >
                     수정 전후 비교
                 </Link>
             </nav>
@@ -81,28 +113,14 @@ export function NoticeResources({ notice }: { notice: Notice }) {
                 <section>
                     <h2>공고 첨부 자료</h2>
                     <ul className={styles.attachments}>
-                        {notice.attachments.map(
-                            ({ label, url, checkedAt }, index) => (
-                                <li key={index}>
-                                    {url && safeUrl(url) ? (
-                                        <a
-                                            href={url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                        >
-                                            {label}
-                                        </a>
-                                    ) : (
-                                        label
-                                    )}
-                                    {' · 확인 '}
-                                    {checkedAt}
-                                </li>
-                            ),
-                        )}
+                        {notice.attachments.map((evidence, index) => (
+                            <li key={index}>
+                                <EvidenceLink evidence={evidence} />
+                            </li>
+                        ))}
                     </ul>
                 </section>
             )}
-        </details>
+        </NoticeDetailScrollDetails>
     );
 }

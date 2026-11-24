@@ -2,68 +2,961 @@
   {
     "name": "partially-prepared",
     "preparation": {
-      "id": "p", "noticeId": "n", "guideState": "AVAILABLE",
-      "questions": [{"id":"q1","title":"거주","reason":""},{"id":"q2","title":"소득","reason":""}],
-      "answers": {"q1":"YES"},
-      "documents": [{"id":"d1","title":"등본","necessity":"REQUIRED","state":"READY"},{"id":"d2","title":"소득 서류","necessity":"REQUIRED","state":"UNCHECKED"}],
-      "schedules": [{"id":"s1","recorded":false}]
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q1",
+          "title": "거주",
+          "reason": ""
+        },
+        {
+          "id": "q2",
+          "title": "소득",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q1": "YES"
+      },
+      "documents": [
+        {
+          "id": "d1",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        },
+        {
+          "id": "d2",
+          "title": "소득 서류",
+          "necessity": "REQUIRED",
+          "state": "UNCHECKED"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s1",
+          "recorded": false
+        }
+      ]
     },
-    "expected": {"progress":40,"houseStage":3,"warnings":["소득"],"nextAction":{"label":"확인하지 못한 조건 살펴보기","reason":"모름·미입력 항목이 남아 있어요.","path":"/preparations/p/conditions/edit"}}
+    "expected": {
+      "progress": 40,
+      "houseStage": 3,
+      "warnings": [
+        "소득"
+      ],
+      "nextAction": {
+        "label": "확인하지 못한 조건 살펴보기",
+        "reason": "모름·미입력 항목이 남아 있어요.",
+        "path": "/preparations/p/conditions/edit"
+      }
+    }
   },
   {
     "name": "recheck-before-unanswered",
     "preparation": {
-      "id":"p","noticeId":"n","guideState":"AVAILABLE",
-      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{},
-      "documents":[{"id":"d","title":"등본","necessity":"CONDITIONAL","state":"RECHECK"}],
-      "schedules":[{"id":"s","recorded":false}]
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {},
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "CONDITIONAL",
+          "state": "RECHECK"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": false
+        }
+      ]
     },
-    "expected":{"progress":0,"houseStage":1,"warnings":["거주"],"nextAction":{"label":"서류 다시 확인하기","reason":"조건 변경으로 재확인이 필요한 서류가 있어요.","path":"/preparations/p/documents"}}
+    "expected": {
+      "progress": 0,
+      "houseStage": 1,
+      "warnings": [
+        "거주"
+      ],
+      "nextAction": {
+        "label": "서류 다시 확인하기",
+        "reason": "조건 변경으로 재확인이 필요한 서류가 있어요.",
+        "path": "/preparations/p/documents"
+      }
+    }
   },
   {
-    "name":"unavailable-before-recheck",
-    "preparation":{
-      "id":"p","noticeId":"n","guideState":"REVIEWING",
-      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{},
-      "documents":[{"id":"d","title":"등본","necessity":"CONDITIONAL","state":"RECHECK"}],
-      "schedules":[{"id":"s","recorded":false}]
+    "name": "unavailable-before-recheck",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "REVIEWING",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {},
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "CONDITIONAL",
+          "state": "RECHECK"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": false
+        }
+      ]
     },
-    "expected":{"progress":0,"houseStage":1,"warnings":["거주","공고 기준이 변경되었거나 안내를 재검수 중입니다. 기존 기록은 보존됩니다."],"nextAction":{"label":"공고 변경 내용 확인하기","reason":"새 기준 확인 전에는 준비 기록을 수정할 수 없어요.","path":"/notices/n"}}
+    "expected": {
+      "progress": 0,
+      "houseStage": 1,
+      "warnings": [
+        "거주",
+        "공고 기준이 변경되었거나 안내를 재검수 중입니다. 기존 기록은 보존됩니다."
+      ],
+      "nextAction": {
+        "label": "공고 변경 내용 확인하기",
+        "reason": "새 기준 확인 전에는 준비 기록을 수정할 수 없어요.",
+        "path": "/notices/n"
+      }
+    }
   },
   {
-    "name":"complete-with-excluded-document",
-    "preparation":{
-      "id":"p","noticeId":"n","guideState":"AVAILABLE",
-      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{"q":"NO"},
-      "documents":[{"id":"d1","title":"등본","necessity":"REQUIRED","state":"READY"},{"id":"d2","title":"소득 서류","necessity":"NOT_APPLICABLE","state":"RECHECK"}],
-      "schedules":[{"id":"s","recorded":true}]
+    "name": "complete-with-excluded-document",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q": "NO"
+      },
+      "documents": [
+        {
+          "id": "d1",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        },
+        {
+          "id": "d2",
+          "title": "소득 서류",
+          "necessity": "NOT_APPLICABLE",
+          "state": "RECHECK"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ]
     },
-    "expected":{"progress":100,"houseStage":5,"warnings":[],"nextAction":{"label":"신청 일정 확인하기","reason":"공식 절차와 일정을 확인하세요.","path":"/preparations/p/schedule"}}
+    "expected": {
+      "progress": 100,
+      "houseStage": 5,
+      "warnings": [],
+      "nextAction": {
+        "label": "준비 기록 완료",
+        "reason": "내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.",
+        "path": "/preparations/p/schedule",
+        "completed": true
+      }
+    }
   },
   {
-    "name":"unknown-document-is-not-ready",
-    "preparation":{
-      "id":"p","noticeId":"n","guideState":"AVAILABLE",
-      "questions":[{"id":"q","title":"거주","reason":""}],"answers":{"q":"YES"},
-      "documents":[{"id":"d","title":"등본","necessity":"UNKNOWN","state":"READY"}],
-      "schedules":[{"id":"s","recorded":true}]
+    "name": "unknown-document-is-not-ready",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q": "YES"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "UNKNOWN",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ]
     },
-    "expected":{"progress":50,"houseStage":3,"warnings":[],"nextAction":{"label":"등본 준비하기","reason":"아직 준비가 끝나지 않은 서류예요.","path":"/preparations/p/documents"}}
+    "expected": {
+      "progress": 50,
+      "houseStage": 3,
+      "warnings": [],
+      "nextAction": {
+        "label": "등본 준비하기",
+        "reason": "아직 준비가 끝나지 않은 서류예요.",
+        "path": "/preparations/p/documents"
+      }
+    }
   },
   {
-    "name":"option-requires-follow-up",
-    "preparation":{
-      "id":"p","noticeId":"n","guideState":"AVAILABLE",
-      "questions":[{"id":"q","title":"제출 확인","reason":"","options":[{"value":"PENDING","label":"확인 중","requiresFollowUp":true},{"value":"DONE","label":"확인 완료"}]}],
-      "answers":{"q":"PENDING"},
-      "documents":[{"id":"d","title":"등본","necessity":"REQUIRED","state":"READY"}],
-      "schedules":[{"id":"s","recorded":true}]
+    "name": "option-requires-follow-up",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "제출 확인",
+          "reason": "",
+          "options": [
+            {
+              "value": "PENDING",
+              "label": "확인 중",
+              "requiresFollowUp": true
+            },
+            {
+              "value": "DONE",
+              "label": "확인 완료"
+            }
+          ]
+        }
+      ],
+      "answers": {
+        "q": "PENDING"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ]
     },
-    "expected":{"progress":70,"houseStage":4,"warnings":["제출 확인"],"nextAction":{"label":"확인하지 못한 조건 살펴보기","reason":"모름·미입력 항목이 남아 있어요.","path":"/preparations/p/conditions/edit"}}
+    "expected": {
+      "progress": 70,
+      "houseStage": 4,
+      "warnings": [
+        "제출 확인"
+      ],
+      "nextAction": {
+        "label": "확인하지 못한 조건 살펴보기",
+        "reason": "모름·미입력 항목이 남아 있어요.",
+        "path": "/preparations/p/conditions/edit"
+      }
+    }
   },
   {
-    "name":"empty-groups-do-not-add-progress",
-    "preparation":{"id":"p","noticeId":"n","guideState":"AVAILABLE","questions":[],"answers":{},"documents":[],"schedules":[]},
-    "expected":{"progress":0,"houseStage":1,"warnings":[],"nextAction":{"label":"신청 일정 확인하기","reason":"공식 절차와 일정을 확인하세요.","path":"/preparations/p/schedule"}}
+    "name": "empty-groups-do-not-add-progress",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [],
+      "answers": {},
+      "documents": [],
+      "schedules": []
+    },
+    "expected": {
+      "progress": 0,
+      "houseStage": 1,
+      "warnings": [],
+      "nextAction": {
+        "label": "신청 일정 확인하기",
+        "reason": "신청·제출을 마친 일정은 일정 탭에서 완료로 표시해 주세요.",
+        "path": "/preparations/p/schedule"
+      }
+    }
+  },
+  {
+    "name": "acknowledgements-do-not-block-preparation-or-rewrite-old-answers",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "guide",
+          "title": "guide 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          },
+          "options": [
+            {
+              "value": "ACK",
+              "label": "안내를 확인했어요",
+              "requiresFollowUp": false
+            },
+            {
+              "value": "UNKNOWN",
+              "label": "잘 모르겠어요",
+              "requiresFollowUp": true
+            }
+          ]
+        },
+        {
+          "id": "residence",
+          "title": "residence 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          }
+        }
+      ],
+      "answers": {
+        "residence": "YES",
+        "guide": "UNKNOWN"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ]
+    },
+    "expected": {
+      "progress": 100,
+      "houseStage": 5,
+      "warnings": [],
+      "nextAction": {
+        "label": "준비 기록 완료",
+        "reason": "내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.",
+        "path": "/preparations/p/schedule",
+        "completed": true
+      }
+    }
+  },
+  {
+    "name": "document-linked-acknowledgement-remains-answerable-and-unknown",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "guide",
+          "title": "guide 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          },
+          "options": [
+            {
+              "value": "ACK",
+              "label": "안내를 확인했어요",
+              "requiresFollowUp": false
+            },
+            {
+              "value": "UNKNOWN",
+              "label": "잘 모르겠어요",
+              "requiresFollowUp": true
+            }
+          ]
+        },
+        {
+          "id": "residence",
+          "title": "residence 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          }
+        }
+      ],
+      "answers": {
+        "residence": "YES",
+        "guide": "UNKNOWN"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "UNKNOWN",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ],
+      "documentConditions": {
+        "d": "guide"
+      }
+    },
+    "expected": {
+      "progress": 35,
+      "houseStage": 2,
+      "warnings": [
+        "guide 질문"
+      ],
+      "nextAction": {
+        "label": "확인하지 못한 조건 살펴보기",
+        "reason": "모름·미입력 항목이 남아 있어요.",
+        "path": "/preparations/p/conditions/edit"
+      }
+    }
+  },
+  {
+    "name": "official-review-survives-informational-question-filter",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "guide",
+          "title": "guide 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          },
+          "options": [
+            {
+              "value": "ACK",
+              "label": "안내를 확인했어요",
+              "requiresFollowUp": false
+            },
+            {
+              "value": "UNKNOWN",
+              "label": "잘 모르겠어요",
+              "requiresFollowUp": true
+            }
+          ],
+          "reviewRequired": true
+        },
+        {
+          "id": "residence",
+          "title": "residence 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          }
+        }
+      ],
+      "answers": {
+        "residence": "YES",
+        "guide": "UNKNOWN"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ],
+      "reviewIssues": [
+        {
+          "id": "pending",
+          "area": "CONDITION",
+          "title": "접수 기준",
+          "detail": "기관 확인 중",
+          "questionIds": [
+            "guide"
+          ],
+          "documentIds": [],
+          "evidence": []
+        }
+      ]
+    },
+    "expected": {
+      "progress": 85,
+      "houseStage": 4,
+      "warnings": [
+        "공식 확인 필요 · 접수 기준"
+      ],
+      "nextAction": {
+        "label": "공식 확인이 필요한 항목 보기",
+        "reason": "기관 자료의 확인 필요 항목은 준비 완료로 계산하지 않아요.",
+        "path": "/notices/n"
+      }
+    }
+  },
+  {
+    "name": "only-informational-questions-need-no-answer-but-stay-unanswered",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "guide",
+          "title": "guide 질문",
+          "reason": "공식 기준과 준비 안내",
+          "evidence": {
+            "label": "공식 원문",
+            "url": null,
+            "checkedAt": "2026-11-22"
+          },
+          "options": [
+            {
+              "value": "ACK",
+              "label": "안내를 확인했어요",
+              "requiresFollowUp": false
+            },
+            {
+              "value": "UNKNOWN",
+              "label": "잘 모르겠어요",
+              "requiresFollowUp": true
+            }
+          ]
+        }
+      ],
+      "answers": {},
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ]
+    },
+    "expected": {
+      "progress": 100,
+      "houseStage": 5,
+      "warnings": [],
+      "nextAction": {
+        "label": "준비 기록 완료",
+        "reason": "내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.",
+        "path": "/preparations/p/schedule",
+        "completed": true
+      }
+    }
+  },
+  {
+    "name": "no-question-data-does-not-count-as-completed",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [],
+      "answers": {},
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": true
+        }
+      ]
+    },
+    "expected": {
+      "progress": 70,
+      "houseStage": 4,
+      "warnings": [],
+      "nextAction": {
+        "label": "신청 일정 확인하기",
+        "reason": "신청·제출을 마친 일정은 일정 탭에서 완료로 표시해 주세요.",
+        "path": "/preparations/p/schedule"
+      }
+    }
+  },
+  {
+    "name": "nonapplicable-application-rounds-do-not-block-current-progress",
+    "preparation": {
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "method",
+          "title": "어떤 방법으로 신청하나요?",
+          "reason": "",
+          "evidence": null,
+          "options": [
+            {
+              "value": "ONLINE",
+              "label": "인터넷 신청"
+            },
+            {
+              "value": "VISIT",
+              "label": "현장 신청"
+            },
+            {
+              "value": "POSTAL",
+              "label": "우편 신청"
+            },
+            {
+              "value": "UNKNOWN",
+              "label": "잘 모르겠어요"
+            }
+          ],
+          "inputKind": "SINGLE",
+          "reviewRequired": false
+        }
+      ],
+      "answers": {
+        "method": "ONLINE"
+      },
+      "documents": [
+        {
+          "id": "doc",
+          "title": "공통 서류",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "documentConditions": {},
+      "schedules": [
+        {
+          "id": "common",
+          "title": "신청 접수 시작",
+          "date": "2026-12-01",
+          "recorded": true
+        },
+        {
+          "id": "online",
+          "title": "접수 회차 · 인터넷 접수 10:00~17:00",
+          "date": "2026-12-01",
+          "recorded": true
+        },
+        {
+          "id": "visit",
+          "title": "접수 회차 · 현장 접수 10:00~16:00",
+          "date": "2026-12-01",
+          "recorded": false
+        },
+        {
+          "id": "post",
+          "title": "접수 회차 · 우편 접수",
+          "date": "2026-12-01",
+          "recorded": false
+        },
+        {
+          "id": "contract",
+          "title": "접수 회차 · 현장 동호지정 및 계약",
+          "date": "2026-12-01",
+          "recorded": true
+        },
+        {
+          "id": "docs",
+          "title": "접수 회차 · 방문 서류 제출",
+          "date": "2026-12-01",
+          "recorded": true
+        },
+        {
+          "id": "ambiguous",
+          "title": "접수 회차 · 현장 10:00~17:00",
+          "date": "2026-12-01",
+          "recorded": true
+        }
+      ],
+      "reviewIssues": [],
+      "id": "p",
+      "noticeId": "n"
+    },
+    "expected": {
+      "progress": 100,
+      "houseStage": 5,
+      "warnings": [],
+      "nextAction": {
+        "label": "준비 기록 완료",
+        "reason": "내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.",
+        "path": "/preparations/p/schedule",
+        "completed": true
+      }
+    }
+  },
+  {
+    "name": "cancel-last-schedule-restores-next-task",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q": "NO"
+      },
+      "documents": [
+        {
+          "id": "d1",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        },
+        {
+          "id": "d2",
+          "title": "소득 서류",
+          "necessity": "NOT_APPLICABLE",
+          "state": "RECHECK"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "s",
+          "recorded": false
+        }
+      ]
+    },
+    "expected": {
+      "progress": 80,
+      "houseStage": 4,
+      "warnings": [],
+      "nextAction": {
+        "label": "신청 일정 확인하기",
+        "reason": "신청·제출을 마친 일정은 일정 탭에서 완료로 표시해 주세요.",
+        "path": "/preparations/p/schedule"
+      }
+    }
+  },
+  {
+    "name": "reception-info-does-not-block-completion",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q": "YES"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "start",
+          "title": "신청 접수 시작",
+          "date": "2026-11-01",
+          "recorded": false
+        },
+        {
+          "id": "session",
+          "title": "접수 회차 · 현장 접수",
+          "date": "2026-11-20",
+          "recorded": false
+        },
+        {
+          "id": "end",
+          "title": "신청 접수 마감",
+          "date": "2026-12-01",
+          "recorded": true
+        }
+      ]
+    },
+    "expected": {
+      "progress": 100,
+      "houseStage": 5,
+      "warnings": [],
+      "nextAction": {
+        "label": "준비 기록 완료",
+        "reason": "내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.",
+        "path": "/preparations/p/schedule",
+        "completed": true
+      }
+    }
+  },
+  {
+    "name": "reception-info-cannot-replace-application-record",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q": "YES"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "start",
+          "title": "신청 접수 시작",
+          "date": "2026-11-01",
+          "recorded": true
+        },
+        {
+          "id": "session",
+          "title": "접수 회차 · 현장 접수",
+          "date": "2026-11-20",
+          "recorded": true
+        },
+        {
+          "id": "end",
+          "title": "신청 접수 마감",
+          "date": "2026-12-01",
+          "recorded": false
+        }
+      ]
+    },
+    "expected": {
+      "progress": 80,
+      "houseStage": 4,
+      "warnings": [],
+      "nextAction": {
+        "label": "신청 일정 확인하기",
+        "reason": "신청·제출을 마친 일정은 일정 탭에서 완료로 표시해 주세요.",
+        "path": "/preparations/p/schedule"
+      }
+    }
+  },
+  {
+    "name": "legacy-application-record-is-the-single-source",
+    "preparation": {
+      "id": "p",
+      "noticeId": "n",
+      "guideState": "AVAILABLE",
+      "questions": [
+        {
+          "id": "q",
+          "title": "거주",
+          "reason": ""
+        }
+      ],
+      "answers": {
+        "q": "YES"
+      },
+      "documents": [
+        {
+          "id": "d",
+          "title": "등본",
+          "necessity": "REQUIRED",
+          "state": "READY"
+        }
+      ],
+      "schedules": [
+        {
+          "id": "start",
+          "title": "신청 접수 시작",
+          "date": "2026-11-01",
+          "recorded": false
+        },
+        {
+          "id": "session",
+          "title": "접수 회차 · 현장 접수",
+          "date": "2026-11-20",
+          "recorded": false
+        },
+        {
+          "id": "end",
+          "title": "신청 접수 마감",
+          "date": "2026-12-01",
+          "recorded": false
+        },
+        {
+          "id": "apply",
+          "title": "공식 신청 여부 확인",
+          "date": "2026-12-01",
+          "recorded": true
+        }
+      ]
+    },
+    "expected": {
+      "progress": 100,
+      "houseStage": 5,
+      "warnings": [],
+      "nextAction": {
+        "label": "준비 기록 완료",
+        "reason": "내 답변에 해당하는 조건·서류·일정을 모두 기록했어요. 결과와 후속 안내는 공식 공고에서 확인해 주세요.",
+        "path": "/preparations/p/schedule",
+        "completed": true
+      }
+    }
   }
 ]

@@ -18,6 +18,8 @@ public class NoticeEntity {
     String sourceKey;
     String sourceFingerprint;
     boolean sourceClosed;
+    @Column(insertable = false, updatable = false)
+    Instant intakeClosedAt;
     boolean serviceClosed;
     boolean serviceExcluded;
     String serviceDecisionReason = "";

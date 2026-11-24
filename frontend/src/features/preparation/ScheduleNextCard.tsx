@@ -1,13 +1,10 @@
 import { activeSchedules } from '../housing/noticeLifecycle';
 import { Link } from 'react-router';
 import type { Notice, Preparation } from '../housing/types';
-import { currentPreparationSchedules } from '../housing/schedules';
-import {
-    daysLeft,
-    displayDate,
-    nextNoticeSchedule,
-} from '../housing/noticeDisplay';
+import { nextSchedule } from '../housing/noticeDisplay';
+import { buildScheduleTimeline } from './scheduleTimelineModel';
 import { Icon } from '../../shared/ui/Icon';
+import { UpcomingScheduleCard } from '../housing/ScheduleCard';
 import { CalendarExport } from './CalendarExport';
 import styles from './ScheduleNextCard.module.css';
 import { PreparationScrollSection } from './PreparationScrollSection';
@@ -19,14 +16,19 @@ export function ScheduleNextCard({
     notice?: Notice;
     preparation: Preparation;
 }) {
-    const next = nextNoticeSchedule(
-        notice,
-        activeSchedules(
-            notice,
-            currentPreparationSchedules(preparation, notice),
-        ),
-    );
-    const titleParts = next?.title.match(/^(.*?)\s*\(([^()]*)\)\s*$/);
+    const milestones = buildScheduleTimeline(notice, preparation)
+        .rows.filter(
+            (row) =>
+                row.id !== 'published' &&
+                !(
+                    notice?.status === 'CLOSED' &&
+                    (row.id === 'start' || row.id === 'end')
+                ),
+        )
+        .flatMap((row) =>
+            row.date ? [{ title: row.title, date: row.date }] : [],
+        );
+    const next = nextSchedule(activeSchedules(notice, milestones));
     return (
         <PreparationScrollSection
             as="aside"
@@ -35,22 +37,7 @@ export function ScheduleNextCard({
         >
             <h3>다음 중요한 일정</h3>
             {next ? (
-                <>
-                    <div className={styles.summary}>
-                        <div>
-                            <h4>{titleParts?.[1] ?? next.title}</h4>
-                        </div>
-                        <strong className={styles.countdown}>
-                            {daysLeft(next.date)}
-                        </strong>
-                    </div>
-                    <p className={styles.note}>
-                        <time dateTime={next.date}>
-                            {displayDate(next.date)}
-                        </time>
-                        {titleParts?.[2] && <span>{titleParts[2]}</span>}
-                    </p>
-                </>
+                <UpcomingScheduleCard event={next} />
             ) : (
                 <p>예정된 공식 일정이 없습니다.</p>
             )}

@@ -1,0 +1,335 @@
+{
+    "entries": [
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-eligibility",
+            "sourceTitle": "누가 신청할 수 있나요?",
+            "sourceReason": "공고일 기준 세대원 모두가 무주택이면 거주 지역에 관계없이 신청할 수 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=3",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "누가 신청할 수 있나요?",
+            "preview": "전국 무주택 세대 · 최초 임대 소득·자산 제한 없음",
+            "sections": [
+                {
+                    "text": "공고일 기준 세대원 모두가 무주택이면 거주 지역에 관계없이 신청할 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-age",
+            "sourceTitle": "나이 기준과 미성년 예외",
+            "sourceReason": "원칙은 만 19세 이상입니다. 같은 등본의 자녀를 부양하거나 부모 등의 사망·실종으로 형제자매를 부양하는 미성년 세대주는 예외가 있습니다. 외국인 부모와 사는 내국인 미성년 세대주의 한부모가족도 예외에 포함됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=4",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만19세 이상 원칙 · 미성년 세대주 일부 예외",
+            "sections": [
+                {
+                    "text": "• 원칙은 만 19세 이상이에요.\n• 같은 등본의 자녀를 부양하거나 부모 등의 사망·실종으로 형제자매를 부양하는 미성년 세대주는 예외가 있어요.\n• 외국인 부모와 사는 내국인 미성년 세대주의 한부모가족도 예외에 포함돼요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-household",
+            "sourceTitle": "함께 심사받는 가족",
+            "sourceReason": "신청자와 배우자는 주소가 달라도 함께 심사합니다. 부모·조부모, 자녀·손자녀 등은 누구의 등본에 올라 있는지에 따라 심사 범위가 달라집니다. 예외와 가족별 범위는 연결된 세대구성원 표에서 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=4",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "주소가 다른 배우자 포함 · 가족별 등본·등록 조건 확인",
+            "sections": [
+                {
+                    "text": "• 신청자와 배우자는 주소가 달라도 함께 심사해요.\n• 부모·조부모, 자녀·손자녀 등은 누구의 등본에 올라 있는지에 따라 심사 범위가 달라집니다.\n• 예외와 가족별 범위는 연결된 세대구성원 표에서 확인해 주세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-rank8-0",
+            "sourceTitle": "선정 순위와 배점",
+            "sourceReason": "①신생아 가구 여부 (2024.11.13. 이후 출생·입양한 자녀 및 태아) / 공고일 기준 2년 이내 출산한 자녀 (임신진단서 등으로 확인되는 태아, 2년 이내 출생한 입양자 포함) / 2점\n②자녀의 수 (태아를 포함한 민법상 미성년인 자녀에 한하며, 재혼한 경우에는 이전 배우자와의 혼인관계에서 출산한 미성년인 자녀도 포함) / 가. 3인 이상 나. 2인 다. 1인 / 3점 2점 1점",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=22",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "어떤 순서로 뽑나요?",
+            "preview": "신생아2점 + 미성년 자녀1~3점",
+            "sections": [
+                {
+                    "text": "• ①신생아 가구 여부 (2024.11.13.\n• 이후 출생·입양한 자녀 및 태아) / 공고일 기준 2년 이내 출산한 자녀 (임신진단서 등으로 확인되는 태아, 2년 이내 출생한 입양자 포함) / 2점\n• ②자녀의 수 (태아를 포함한 민법상 미성년인 자녀에 한하며, 재혼한 경우에는 이전 배우자와의 혼인관계에서 출산한 미성년인 자녀도 포함) / 가. 3인 이상 나. 2인 다. 1인 / 3점 2점 1점",
+                    "evidence": [
+                        {
+                            "label": "공고문 22쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=22",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-selection",
+            "sourceTitle": "입주자와 동·호는 어떻게 정하나요?",
+            "sourceReason": "신생아 가구 여부와 미성년 자녀 수로 점수를 합산합니다. 점수가 높은 순으로 당첨자·예비자를 정하고, 동점이면 추첨합니다. 당첨자의 동·호도 별도로 무작위 추첨합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=1",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "같은 순위에서는 누구를 먼저 뽑나요?",
+            "preview": "가점 높은 순 → 동점 추첨 · 동·호 별도 추첨",
+            "sections": [
+                {
+                    "text": "• 신생아 가구 여부와 미성년 자녀 수로 점수를 합산해요.\n• 점수가 높은 순으로 당첨자·예비자를 정하고, 동점이면 추첨해요.\n• 당첨자의 동·호도 별도로 무작위 추첨해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-conversion",
+            "sourceTitle": "신청 자격과 분양전환 기준",
+            "sourceReason": "전세 입주 신청과 우선분양전환의 소득·자산 기준은 구분합니다. 최초 모집 당시 공고의 분양전환 소득·자산 기준을 충족하고 입주 후 분양전환 때까지 해당 주택에 거주한 무주택 세대가 우선분양전환 대상입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=11",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "분양전환 기준은 무엇인가요?",
+            "preview": "분양전환: 소득130%·맞벌이200% · 총자산3억6,200만 원",
+            "sections": [
+                {
+                    "text": "• 전세 입주 신청에는 소득·자산 제한을 적용하지 않아요.\n• 우선분양전환은 별도예요.\n• 최초 모집 당시 소득 130% 이하(맞벌이 200% 이하), 총자산 3억6,200만 원 이하 기준을 충족하고, 입주 후 분양전환 때까지 해당 주택에 거주한 무주택 세대가 대상이에요.",
+                    "evidence": []
+                },
+                {
+                    "text": "소득·자산은 최초 공고의 가구원 수 가산과 조회 기준도 함께 적용해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 11쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=11",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "전세 입주 신청에는 소득·자산 제한을 적용하지 않아요. 우선분양전환은 별도예요. 최초 모집 당시 소득 130% 이하(맞벌이 200% 이하), 총자산 3억6,200만 원 이하 기준을 충족하고, 입주 후 분양전환 때까지 해당 주택에 거주한 무주택 세대가 대상이에요. 소득·자산은 최초 공고의 가구원 수 가산과 조회 기준도 함께 적용해요."
+            ]
+        },
+        {
+            "noticeId": "dd888b3b-16a3-463d-bcd0-3ace9f2a5cac",
+            "questionId": "s1-docs-1",
+            "sourceTitle": "신청 방식·가족 상황에 따라 준비할 서류 (1)",
+            "sourceReason": "해당하는 상황이나 신청하려는 배점·자격 증빙을 고르세요. 정확한 제출 대상과 발급 방법은 각 서류에 표시됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=8",
+                "sha256": "d29d114d203f06350f1d6ed99688e63751af9601aacae8f4e4d192d1a9ad0d9f"
+            },
+            "heading": "신청·가족 상황에 맞는 서류는 무엇인가요?",
+            "preview": "신청 방식·가족관계·출생·가점에 맞는 증빙 선택",
+            "sections": [
+                {
+                    "text": "해당하는 항목만 골라요. 각 항목의 필수 요건과 예외도 아래에서 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69424210#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "상황에 맞는 제출서류",
+                        "headers": ["내 상황", "준비할 서류"],
+                        "rows": [
+                            [
+                                "본인 행정정보 제공요구서 (선택사항)",
+                                "본인 행정정보 제공요구서 (선택사항)"
+                            ],
+                            ["배우자 주민등록등본", "배우자 주민등록표등본"],
+                            ["세대원 주민등록표초본", "세대원 주민등록표초본"],
+                            ["입양관계증명서", "입양관계증명서"],
+                            [
+                                "세대구성 확인서 (예비 신혼부부)",
+                                "세대구성 확인서 (예비 신혼부부)"
+                            ],
+                            [
+                                "혼인관계증명서 (예비 신혼부부)",
+                                "혼인관계증명서 (예비 신혼부부)"
+                            ],
+                            [
+                                "외국인등록증 사본 또는 국내거소신고증",
+                                "외국인등록증 사본 또는 국내거소신고증"
+                            ],
+                            ["자격요건 확인 서류", "자격요건 확인 서류"],
+                            ["입주 시 추가 제출서류", "입주 시 추가 제출서류"]
+                        ]
+                    }
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "D1",
+                    "label": "본인 행정정보 제공요구서 (선택사항)",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D2",
+                    "label": "배우자 주민등록표등본",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D3",
+                    "label": "세대원 주민등록표초본",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D4",
+                    "label": "입양관계증명서",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D5",
+                    "label": "세대구성 확인서 (예비 신혼부부)",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D6",
+                    "label": "혼인관계증명서 (예비 신혼부부)",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D7",
+                    "label": "외국인등록증 사본 또는 국내거소신고증",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D8",
+                    "label": "자격요건 확인 서류",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "D9",
+                    "label": "입주 시 추가 제출서류",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NONE",
+                    "label": "해당 사항 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요",
+                    "requiresFollowUp": false
+                }
+            ],
+            "optionLabels": {
+                "D1": "본인 행정정보 제공요구서 (선택사항)",
+                "D2": "배우자 주민등록등본",
+                "D3": "세대원 주민등록표초본",
+                "D4": "입양관계증명서",
+                "D5": "세대구성 확인서 (예비 신혼부부)",
+                "D6": "혼인관계증명서 (예비 신혼부부)",
+                "D7": "외국인등록증 사본 또는 국내거소신고증",
+                "D8": "자격요건 확인 서류",
+                "D9": "입주 시 추가 제출서류",
+                "NONE": "해당 사항 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "D1",
+                        "label": "본인 행정정보 제공요구서 (선택사항)",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D2",
+                        "label": "배우자 주민등록표등본",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D3",
+                        "label": "세대원 주민등록표초본",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D4",
+                        "label": "입양관계증명서",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D5",
+                        "label": "세대구성 확인서 (예비 신혼부부)",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D6",
+                        "label": "혼인관계증명서 (예비 신혼부부)",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D7",
+                        "label": "외국인등록증 사본 또는 국내거소신고증",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D8",
+                        "label": "자격요건 확인 서류",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "D9",
+                        "label": "입주 시 추가 제출서류",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 사항 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": false
+                    }
+                ]
+            }
+        }
+    ]
+}

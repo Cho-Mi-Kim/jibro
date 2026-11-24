@@ -26,7 +26,9 @@ final class SourceResponseSanitizer {
         if (!key.isBlank()) {
             forms.add(key);
             forms.add(URLEncoder.encode(key, StandardCharsets.UTF_8));
-            try { forms.add(URLDecoder.decode(key, StandardCharsets.UTF_8)); } catch (IllegalArgumentException ignored) { /* Literal key remains masked. */ }
+            try {
+                forms.add(URLDecoder.decode(key, StandardCharsets.UTF_8));
+            } catch (IllegalArgumentException ignored) { /* Literal key remains masked. */ }
         }
         secrets = forms.stream().filter(value -> !value.isBlank()).map(value -> Pattern.compile(Pattern.quote(value), Pattern.CASE_INSENSITIVE)).toList();
     }

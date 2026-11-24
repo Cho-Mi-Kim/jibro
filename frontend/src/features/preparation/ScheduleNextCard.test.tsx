@@ -117,13 +117,131 @@ function mount(overrides: Partial<Notice> = {}, records = preparation) {
 }
 
 describe('다음 중요한 일정 카드', () => {
-    it('제목과 시간·조기 중단 안내를 나누되 원래 정보를 유지한다', () => {
+    it('전체 일정의 주요 단계 중 다음 일정을 표시하고 가까운 접수 회차는 제외한다', () => {
+        vi.setSystemTime(new Date('2026-11-23T23:00:00+09:00'));
+        const schedules = [
+            {
+                ...closing,
+                id: 'start',
+                title: '신청 접수 시작',
+                date: '2026-11-23T09:00:00',
+            },
+            {
+                ...closing,
+                id: 'round',
+                title: '접수 회차 · 현장 접수',
+                date: '2026-11-24T09:00:00',
+            },
+            { ...closing, date: '2026-11-25T18:00:00' },
+        ];
+        mount(
+            { startDate: '2026-11-23', endDate: '2026-11-25', schedules },
+            { ...preparation, schedules },
+        );
+        expect(
+            screen.getByRole('heading', { name: '신청 접수 마감' }),
+        ).toBeVisible();
+        expect(screen.getByText('D-2')).toBeVisible();
+        expect(screen.getByText('2026.11.25 18:00')).toBeVisible();
+        expect(
+            screen.queryByText('접수 회차 · 현장 접수'),
+        ).not.toBeInTheDocument();
+    });
+
+    it.each(['CLOSED', 'EARLY_CLOSED', 'CANCELLED'] as const)(
+        '공식 마감·취소 상태 %s에서는 미래 접수 일정을 추천하지 않는다',
+        (state) => {
+            mount(
+                state === 'CLOSED'
+                    ? { status: 'CLOSED' }
+                    : {
+                          lifecycle: {
+                              state,
+                              reason: '공식 마감·취소',
+                              evidence,
+                              checkedAt: evidence.checkedAt,
+                              revision: 1,
+                          },
+                      },
+            );
+            expect(
+                screen.getByText('예정된 공식 일정이 없습니다.'),
+            ).toBeVisible();
+        },
+    );
+
+    it('선택한 접수 방법의 일정과 공통 일정만 다음 일정과 캘린더에 함께 표시한다', async () => {
+        const schedules = [
+            {
+                ...closing,
+                id: 'visit',
+                title: '접수 회차 · 현장 접수 시작',
+                date: '2026-11-10T09:00:00',
+            },
+            {
+                ...closing,
+                id: 'online',
+                title: '접수 회차 · 온라인 접수 시작',
+                date: '2026-11-11T10:00:00',
+            },
+            {
+                ...closing,
+                id: 'result',
+                title: '결과 발표',
+                date: '2026-11-30',
+            },
+        ];
+        mount(
+            { schedules },
+            {
+                ...preparation,
+                questions: [
+                    {
+                        id: 'method',
+                        title: '어떤 방법으로 신청하나요?',
+                        reason: '공식 접수 방법',
+                        evidence,
+                        options: [
+                            { value: 'ONLINE', label: '온라인으로 신청해요' },
+                            { value: 'VISIT', label: '현장에서 신청해요' },
+                            { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                        ],
+                    },
+                ],
+                answers: { method: 'ONLINE' },
+                schedules,
+            },
+        );
+        expect(
+            screen.getByRole('heading', {
+                name: '신청 접수 시작',
+            }),
+        ).toBeVisible();
+        await userEvent.click(
+            screen.getByRole('button', { name: '캘린더 내보내기' }),
+        );
+        const dialog = within(
+            screen.getByRole('dialog', { name: '캘린더 내보내기' }),
+        );
+        expect(
+            dialog.queryByRole('checkbox', { name: /현장 접수 시작/ }),
+        ).not.toBeInTheDocument();
+        expect(
+            dialog.getByRole('checkbox', {
+                name: '신청 접수 시작 · 2026.11.11 10:00',
+            }),
+        ).toBeChecked();
+        expect(
+            dialog.getByRole('checkbox', { name: /결과 발표/ }),
+        ).toBeChecked();
+    });
+
+    it('전체 일정과 같은 제목과 확인된 마감 시각을 표시한다', () => {
         mount();
         expect(
             screen.getByRole('heading', { name: '신청 접수 마감' }),
         ).toBeVisible();
-        expect(screen.getByText('18:00, 조기 중단 가능')).toBeVisible();
-        expect(screen.getByText('2026.12.31')).toBeVisible();
+        expect(screen.getByText('2026.12.31 18:00')).toBeVisible();
         expect(screen.getByText('D-55')).toBeVisible();
     });
 
@@ -156,8 +274,7 @@ describe('다음 중요한 일정 카드', () => {
         expect(
             screen.getByRole('heading', { name: '신청 접수 마감' }),
         ).toBeVisible();
-        expect(screen.getByText('2026.12.31')).toBeVisible();
-        expect(screen.getByText('17:00')).toBeVisible();
+        expect(screen.getByText('2026.12.31 17:00')).toBeVisible();
         expect(
             screen.queryByText('18:00, 조기 중단 가능'),
         ).not.toBeInTheDocument();

@@ -1,6 +1,10 @@
+import { ApplicationCompletionBadge } from '../features/preparation/ApplicationCompletionBadge';
+import { usePreparationRecord } from '../features/preparation/usePreparationRecord';
+import { applicationRecordSchedule } from '../features/housing/schedules';
 import { Link, useLocation, useParams, useSearchParams } from 'react-router';
 import { getHomeReturn } from '../shared/navigation/useNoticeEntryState';
 import { useNotice } from '../features/housing/useNotice';
+import { useNoticeDetailPosition } from '../features/housing/NoticeListVisit';
 import { usePreparationList } from '../features/preparation/usePreparationList';
 import { NoticeDetailOverview } from '../features/housing/NoticeDetailOverview';
 import { NoticeCorrectionBanner } from '../features/housing/NoticeCorrectionBanner';
@@ -20,13 +24,50 @@ import { Icon } from '../shared/ui/Icon';
 import { State } from '../shared/ui/ui';
 import styles from '../features/housing/NoticeDetail.module.css';
 
+function detailBackLink(
+    state: ReturnType<typeof useLocation>['state'],
+    noticeId: string,
+) {
+    const origin = state?.comparisonReturn;
+    if (
+        (origin?.pathname === '/compare' ||
+            origin?.pathname === '/saved/compare') &&
+        typeof origin.search === 'string'
+    ) {
+        return {
+            to: { pathname: origin.pathname, search: origin.search },
+            replace: true,
+            'aria-label': '공고 비교로 돌아가기',
+            state: {
+                comparisonKey: state.comparisonKey,
+                detailReturn: state.detailReturn,
+                noticeListKey: state.noticeListKey,
+                noticeSearch: state.noticeSearch,
+            },
+        };
+    }
+    const home = getHomeReturn(state);
+    if (home)
+        return { to: home, replace: true, 'aria-label': '홈으로 돌아가기' };
+    const search =
+        typeof state?.noticeSearch === 'string' ? state.noticeSearch : '';
+    if (state?.fromSaved === true)
+        return {
+            to: { pathname: '/saved', search },
+            replace: true,
+            'aria-label': '관심 공고로 돌아가기',
+        };
+    return {
+        to: { pathname: '/notices', search },
+        state: { noticeAnchor: noticeId, noticeListKey: state?.noticeListKey },
+        'aria-label': '공고 목록 보기',
+    };
+}
+
 export function NoticeDetailPage() {
     const { noticeId = '' } = useParams();
     const { state } = useLocation();
     const [params, setParams] = useSearchParams();
-    const homeReturn = getHomeReturn(state);
-    const backSearch =
-        typeof state?.noticeSearch === 'string' ? state.noticeSearch : '';
     const tab =
         noticeDetailTabs.find(({ value }) => value === params.get('tab'))
             ?.value ?? 'summary';
@@ -39,35 +80,35 @@ export function NoticeDetailPage() {
     const query = useNotice(noticeId);
     const notice = query.data;
     const sourceInformation = useNoticeSourceInformation(notice);
-    const preparations = usePreparationList(!!notice?.canStart);
+    const { host, position, remember } = useNoticeDetailPosition(
+        !!notice && !sourceInformation.loading,
+    );
+    const preparations = usePreparationList(!!notice);
     const current = preparations.data?.find(
         (item) =>
             item.noticeId === noticeId && item.version === notice?.version,
     );
+    const record = usePreparationRecord(current?.id).data;
+    const application =
+        record &&
+        record.noticeId === noticeId &&
+        record.version === notice?.version
+            ? applicationRecordSchedule(record.schedules)
+            : undefined;
 
     return (
         <div className={styles.page} data-notice-detail>
             <div
                 className={styles.scrollContent}
+                ref={host}
+                data-restored-list={position ? true : undefined}
                 key={noticeId}
                 data-notice-detail-scroll
             >
                 <header className={styles.header}>
                     <Link
                         className={styles.back}
-                        to={
-                            homeReturn ?? {
-                                pathname: '/notices',
-                                search: backSearch,
-                            }
-                        }
-                        replace={!!homeReturn}
-                        state={
-                            homeReturn ? undefined : { noticeAnchor: noticeId }
-                        }
-                        aria-label={
-                            homeReturn ? '홈으로 돌아가기' : '공고 목록 보기'
-                        }
+                        {...detailBackLink(state, noticeId)}
                     >
                         <Icon name="back" />
                     </Link>
@@ -89,7 +130,15 @@ export function NoticeDetailPage() {
                 {notice && (
                     <>
                         <NoticeCorrectionBanner notice={notice} />
-                        <NoticeDetailOverview key={notice.id} notice={notice} />
+                        <NoticeDetailOverview
+                            key={notice.id}
+                            notice={notice}
+                            applicationRecord={
+                                <ApplicationCompletionBadge
+                                    recorded={application?.recorded}
+                                />
+                            }
+                        />
                         <div
                             className={styles.tabs}
                             role="tablist"
@@ -160,13 +209,17 @@ export function NoticeDetailPage() {
                                 sourceInformation={sourceInformation}
                             />
                         </section>
-                        <NoticeResources notice={notice} />
+                        <NoticeResources
+                            notice={notice}
+                            onLeaveDetail={remember}
+                        />
                     </>
                 )}
             </div>
             {notice && (
                 <NoticeDetailActions
                     notice={notice}
+                    onLeaveDetail={remember}
                     preparationId={current?.id}
                 />
             )}

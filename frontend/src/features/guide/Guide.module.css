@@ -1,18 +1,5 @@
 @value guide-heading, guide-search, guide-art, guide-layout, guide-categories, faq, guide-mobile-search from "./GuideClassNames.module.css";
 @value page-heading, icon-disc from "../../shared/styles/PrimitivesClassNames.module.css";
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin: 16px 0;
-}
-.pagination button {
-    min-width: 44px;
-    min-height: 44px;
-    display: grid;
-    place-items: center;
-}
 .guide-heading {
     display: flex;
     align-items: center;

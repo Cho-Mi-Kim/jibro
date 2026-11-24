@@ -1,13 +1,13 @@
-import type { Notice, Preparation } from '../housing/types';
-import { IndividualAnnouncement } from '../housing/IndividualAnnouncement';
+import type { Notice, Preparation, Schedule } from '../housing/types';
 import { Icon } from '../../shared/ui/Icon';
 import { EvidenceLink } from '../housing/EvidenceLink';
 import { displayDate } from '../housing/noticeDisplay';
 import { buildScheduleTimeline } from './scheduleTimelineModel';
-import { ReviewIssues } from '../housing/ReviewIssues';
-import { scheduleReviewIssues } from '../housing/reviewIssueSelectors';
+import { ScheduleCard, TimelineScheduleCard } from '../housing/ScheduleCard';
+import { AreaReviewIssues } from '../housing/ReviewIssues';
 import styles from './ScheduleTimeline.module.css';
 import { PreparationScrollSection } from './PreparationScrollSection';
+import { usePreparationCardSelection } from './usePreparationCardSelection';
 
 export function ScheduleTimeline({
     notice,
@@ -37,42 +37,13 @@ export function ScheduleTimeline({
                             {row.tone === 'done' && <Icon name="check" />}
                             {row.tone === 'active' && <Icon name="pin" />}
                         </span>
-                        <div className={styles.date}>
-                            {row.date ? (
-                                <time dateTime={row.date}>
-                                    {row.dateLabel}
-                                    <small>({row.weekday})</small>
-                                    {row.time && <small>{row.time}</small>}
-                                </time>
-                            ) : (
-                                <span
-                                    aria-label={
-                                        row.announcementExplanation
-                                            ? '정해진 발표일 없음'
-                                            : '날짜 확인 필요'
-                                    }
-                                >
-                                    —
-                                </span>
-                            )}
-                        </div>
-                        <strong className={styles.title}>{row.title}</strong>
-                        <span className={styles.badge}>
-                            {row.announcementExplanation ? (
-                                <IndividualAnnouncement
-                                    event={row.announcementExplanation}
-                                />
-                            ) : (
-                                row.status
-                            )}
-                        </span>
+                        <TimelineScheduleCard row={row} />
                     </li>
                 ))}
             </ol>
-            <ReviewIssues
-                issues={scheduleReviewIssues(
-                    notice?.reviewIssues ?? preparation.reviewIssues,
-                )}
+            <AreaReviewIssues
+                area="SCHEDULE"
+                issues={notice?.reviewIssues ?? preparation.reviewIssues}
             />
             <details className={styles.sources}>
                 <summary aria-label="일정 근거와 안내 펼치기">
@@ -87,22 +58,11 @@ export function ScheduleTimeline({
                     일정 근거 · 세부 접수 일정 보기
                 </h3>
                 {timeline.evidence && (
-                    <EvidenceLink
-                        evidence={timeline.evidence}
-                        className={styles.evidence}
-                    />
+                    <EvidenceLink evidence={timeline.evidence} />
                 )}
                 {timeline.details.map((event) => (
                     <div key={event.id} className={styles.source}>
-                        <h3>{event.title}</h3>
-                        <p>
-                            {event.timingDescription || displayDate(event.date)}
-                        </p>
-                        {event.recorded && <p>내 기록 · 완료</p>}
-                        <EvidenceLink
-                            evidence={event.evidence}
-                            className={styles.evidence}
-                        />
+                        <PreparationScheduleCard event={event} />
                     </div>
                 ))}
                 {!timeline.evidence && !timeline.details.length && (
@@ -117,5 +77,18 @@ export function ScheduleTimeline({
                 </p>
             </details>
         </PreparationScrollSection>
+    );
+}
+
+function PreparationScheduleCard({ event }: { event: Schedule }) {
+    const { cardRef, onClick } =
+        usePreparationCardSelection<HTMLDetailsElement>();
+    return (
+        <ScheduleCard
+            event={event}
+            heading="h3"
+            evidence={event.evidence}
+            detailsProps={{ ref: cardRef, onClick }}
+        />
     );
 }

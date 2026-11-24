@@ -94,7 +94,7 @@ class ConfigurationTests(unittest.TestCase):
                   "DB_USERNAME": "fixture", "DB_PASSWORD": "fixture-password", "JWT_SECRET": "a" * 32,
                   "FRONTEND_URL": "https://housing.example.org"}
         deployment = {"PUBLIC_HOST": "housing.example.org", "BACKEND_IMAGE": "app@sha256:" + "a" * 64,
-                      "WEB_IMAGE": "web@sha256:" + "b" * 64, "TLS_DIRECTORY": "/certs", "RDS_CA_FILE": "/rds-ca.pem"}
+                      "WEB_IMAGE": "web@sha256:" + "b" * 64, "TLS_DIRECTORY": "/certs", "ACME_DIRECTORY": "/acme", "RDS_CA_FILE": "/rds-ca.pem"}
         self.assertEqual(config.production_errors(values, deployment), [])
         errors = config.production_errors({**values, "LH_COLLECTION_CATEGORY_CODES": "06,06",
                                            "OAUTH_BASE_URL": "https://other.example.org",
@@ -108,6 +108,14 @@ class ConfigurationTests(unittest.TestCase):
                                           {"PUBLIC_HOST": "housing.example.org"})
         self.assertIn("FRONTEND_URL must match the HTTPS public origin", errors)
         self.assertNotIn("private", str(errors))
+
+    def test_local_image_ids_are_immutable_but_tags_and_short_ids_are_rejected(self):
+        for image in ("sha256:" + "a" * 64, "registry/app@sha256:" + "b" * 64):
+            errors = config.production_errors({}, {"BACKEND_IMAGE": image, "WEB_IMAGE": image})
+            self.assertFalse(any("immutable image" in error for error in errors))
+        for image in ("app:latest", "app:release", "sha256:abc123", "sha256:" + "g" * 64):
+            errors = config.production_errors({}, {"BACKEND_IMAGE": image, "WEB_IMAGE": image})
+            self.assertEqual(sum("immutable image" in error for error in errors), 2)
 
     def test_smtp_default_port_is_not_a_connection_and_invalid_ports_are_rejected(self):
         self.assertEqual(config.connection_status({"SPRING_MAIL_PORT": "587"})["SMTP"], "disabled")

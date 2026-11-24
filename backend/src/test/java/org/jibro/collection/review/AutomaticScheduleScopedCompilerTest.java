@@ -23,13 +23,13 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void conflictingResultDatesKeepNormalPeriodAndDocumentsWithBothOfficialSources() {
         var sources = List.of(source(URL, PERIOD, "서류제출 대상자 발표: 2026.12.07", "서류 제출 마감: 2026.12.10", "결과 발표: 2027.03.26"),
-            source(URL + "?attachment=correction", "결과 발표: 2026.03.26"));
+                source(URL + "?attachment=correction", "결과 발표: 2026.03.26"));
         var result = AutomaticScheduleCompiler.compileScoped(sources, CHECKED);
         assertTrue(result.complete(), result.issues().toString());
         assertEquals(LocalDate.of(2026, 11, 16), result.startDate());
         assertEquals(LocalDate.of(2026, 11, 18), result.endDate());
         assertEquals(List.of("auto-application-start", "auto-application-end", "auto-document-selection", "auto-documents-end"),
-            result.schedules().stream().map(s -> s.id()).toList());
+                result.schedules().stream().map(s -> s.id()).toList());
         assertEquals(1, result.reviewIssues().size());
         var issue = result.reviewIssues().get(0);
         assertEquals("SCHEDULE", issue.area());
@@ -40,7 +40,7 @@ class AutomaticScheduleScopedCompilerTest {
         assertEquals(List.of(URL, URL + "?attachment=correction"), issue.evidence().stream().map(Evidence::url).toList());
         assertTrue(issue.evidence().stream().allMatch(e -> e.checkedAt().equals(CHECKED.toString())));
         assertDoesNotThrow(() -> GuidanceIssues.validate(new Content("안내", issue.evidence().get(0), List.of(),
-            List.of(), List.of(), result.schedules(), result.reviewIssues())));
+                List.of(), List.of(), result.schedules(), result.reviewIssues())));
         var strict = AutomaticScheduleCompiler.compile(sources, CHECKED);
         assertFalse(strict.complete(), "legacy callers must retain the strict contract");
         assertTrue(strict.schedules().isEmpty());
@@ -49,7 +49,7 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void contradictoryDocumentDeadlineTimesNeverChooseOneAndKeepOtherEvents() {
         var result = compile(PERIOD, "서류제출 대상자 발표: 2026.12.07", "결과 발표: 2027.03.26",
-            "서류 제출 마감: 2026.12.10 17:00", "서류 제출 마감: 2026.12.10 18:00");
+                "서류 제출 마감: 2026.12.10 17:00", "서류 제출 마감: 2026.12.10 18:00");
         assertTrue(result.complete(), result.issues().toString());
         assertTrue(result.schedules().stream().noneMatch(s -> s.id().equals("auto-documents-end")));
         assertTrue(result.schedules().stream().anyMatch(s -> s.id().equals("auto-result")));
@@ -65,7 +65,7 @@ class AutomaticScheduleScopedCompilerTest {
         assertTrue(result.complete(), result.issues().toString());
         assertEquals(2, result.reviewIssues().size());
         assertEquals(List.of("auto-application-start", "auto-application-end", "auto-documents-end"),
-            result.schedules().stream().map(s -> s.id()).toList());
+                result.schedules().stream().map(s -> s.id()).toList());
         assertTrue(result.reviewIssues().stream().allMatch(i -> i.detail().contains("접수 마감보다 이르게")));
         assertTrue(result.reviewIssues().stream().allMatch(i -> i.detail().contains("2026-11-18 18:00")));
     }
@@ -73,14 +73,14 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void uncertainAnnouncementScopeDoesNotDiscardVerifiedRankWindows() {
         var source = context("""
-            6. 모집일정
-            1순위
-            2026.11.16(월)10:00∼16:00
-            2순위
-            2026.11.18(수)10:00∼16:00
-            7. 신청방법
-            결과 발표: 2026.11.17
-            """);
+                6. 모집일정
+                1순위
+                2026.11.16(월)10:00∼16:00
+                2순위
+                2026.11.18(수)10:00∼16:00
+                7. 신청방법
+                결과 발표: 2026.11.17
+                """);
         var result = AutomaticScheduleCompiler.compileScoped(List.of(source), CHECKED);
         assertTrue(result.complete(), result.issues().toString());
         assertEquals(6, result.schedules().size());
@@ -103,7 +103,7 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void anUnknownStageInAnotherSourceDoesNotSilentlyValidateAnOtherwisePreciseDate() {
         var result = AutomaticScheduleCompiler.compileScoped(List.of(source(URL, PERIOD, "결과 발표: 2027.03.26"),
-            source(URL + "?attachment=latest", "결과 발표: 추후 별도 안내")), CHECKED);
+                source(URL + "?attachment=latest", "결과 발표: 추후 별도 안내")), CHECKED);
         assertTrue(result.complete());
         assertEquals(2, result.schedules().size());
         assertEquals(2, result.reviewIssues().get(0).evidence().size());
@@ -126,24 +126,24 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void missingOrConflictingRankPeriodsCannotUseAnotherRanksBoundary() {
         var missing = AutomaticScheduleCompiler.compileScoped(List.of(context("""
-            접수기간: 2026.11.16 ~ 2026.11.18
-            6. 모집일정
-            1순위
-            2026.11.16(월)10:00∼16:00
-            2순위
-            """)), CHECKED);
+                접수기간: 2026.11.16 ~ 2026.11.18
+                6. 모집일정
+                1순위
+                2026.11.16(월)10:00∼16:00
+                2순위
+                """)), CHECKED);
         assertFalse(missing.complete());
         assertTrue(missing.issues().contains("SCHEDULE_SCOPED_PERIOD_MISSING:2순위"));
         assertTrue(missing.schedules().isEmpty());
         var conflicting = AutomaticScheduleCompiler.compileScoped(List.of(context("""
-            6. 모집일정
-            1순위
-            2026.11.16(월)10:00∼16:00
-            1순위
-            2026.11.17(화)10:00∼16:00
-            2순위
-            2026.11.18(수)10:00∼16:00
-            """)), CHECKED);
+                6. 모집일정
+                1순위
+                2026.11.16(월)10:00∼16:00
+                1순위
+                2026.11.17(화)10:00∼16:00
+                2순위
+                2026.11.18(수)10:00∼16:00
+                """)), CHECKED);
         assertFalse(conflicting.complete());
         assertNull(conflicting.endDate());
         assertTrue(conflicting.issues().contains("SCHEDULE_CONFLICT:START"));
@@ -152,7 +152,7 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void malformedOrAmbiguousOptionalNumbersAreStillBlockers() {
         for (String text : List.of("결과 발표: 2026.02.30", "결과 발표: 2026.12.10 25:00",
-            "결과 발표: 2026.12.10 또는 2026.12.11", "결과 발표: 12.10")) {
+                "결과 발표: 2026.12.10 또는 2026.12.11", "결과 발표: 12.10")) {
             var result = compile(PERIOD, text);
             assertFalse(result.complete(), text);
             assertFalse(result.issues().isEmpty());
@@ -168,7 +168,7 @@ class AutomaticScheduleScopedCompilerTest {
         assertFalse(result.complete());
         assertTrue(result.issues().contains("SCHEDULE_SOURCE_UNAVAILABLE"));
         var detached = new Source("정정 공고문", URL + "?correction", "hash", "EXTRACTED", "", List.of(
-            new Excerpt("SCHEDULE", "결과 발표: 2026.12.10", "공고문 2쪽", "https://example.com")));
+                new Excerpt("SCHEDULE", "결과 발표: 2026.12.10", "공고문 2쪽", "https://example.com")));
         var invalid = AutomaticScheduleCompiler.compileScoped(List.of(source(URL, PERIOD), detached), CHECKED);
         assertFalse(invalid.complete());
         assertTrue(invalid.issues().contains("SCHEDULE_EVIDENCE_MISSING"));
@@ -178,14 +178,14 @@ class AutomaticScheduleScopedCompilerTest {
     @Test
     void completeListingFieldsAreComparedEvenWhenNoKeywordExcerptWasExtracted() {
         var listing = new Source("공식 상세 본문", URL + "?listing", "fetched-hash", "EMPTY", "본문 발췌 없음", List.of(),
-            List.of(new Part("공식 상세 일정", "당첨자발표일 : 2026.12.11")));
+                List.of(new Part("공식 상세 일정", "당첨자발표일 : 2026.12.11")));
         var result = AutomaticScheduleCompiler.compileScoped(List.of(source(URL, PERIOD, "결과 발표: 2026.12.10"), listing), CHECKED);
         assertTrue(result.complete(), result.issues().toString());
         assertEquals(2, result.schedules().size());
         assertEquals(2, result.reviewIssues().get(0).evidence().size());
         assertTrue(result.reviewIssues().get(0).detail().contains("2026-12-11"));
         var boundary = new Source("공식 상세 본문", URL + "?listing", "fetched-hash", "EMPTY", "본문 발췌 없음", List.of(),
-            List.of(new Part("공식 상세 일정", "접수기간 : 2026.11.16 ~ 2026.11.19")));
+                List.of(new Part("공식 상세 일정", "접수기간 : 2026.11.16 ~ 2026.11.19")));
         var invalid = AutomaticScheduleCompiler.compileScoped(List.of(source(URL, PERIOD), boundary), CHECKED);
         assertFalse(invalid.complete());
         assertTrue(invalid.issues().contains("SCHEDULE_CONFLICT:END"));
@@ -219,7 +219,7 @@ class AutomaticScheduleScopedCompilerTest {
 
     private Source source(String url, String... fields) {
         return new Source("공고문", url, "fetched-hash", "EXTRACTED", "", Arrays.stream(fields)
-            .map(value -> new Excerpt("SCHEDULE", value, "공고문 2쪽", url)).toList());
+                .map(value -> new Excerpt("SCHEDULE", value, "공고문 2쪽", url)).toList());
     }
 
     private Source context(String text) {

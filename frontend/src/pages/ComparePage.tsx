@@ -1,5 +1,7 @@
 import type { Edition } from '../features/member/memberApi';
-import { statusLabels } from '../features/housing/noticeLabels';
+import { applicationStatuses } from '../features/housing/noticeLabels';
+import { recruitmentRegionLabel } from '../features/housing/noticeRegions';
+import { useNoticeDetailReturn } from '../features/housing/NoticeListVisit';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
@@ -23,10 +25,12 @@ const fields: Record<string, string> = {
     documents: '제출서류',
     schedules: '일정',
 };
-function value(v: Edition['facts'][string] | undefined) {
+function value(v: Edition['facts'][string] | undefined, field?: string) {
+    if (field === 'region' && typeof v === 'string')
+        return recruitmentRegionLabel(v);
     if (v && typeof v === 'object' && !Array.isArray(v))
         return [
-            v.state === 'NORMAL' ? '정상' : statusLabels[v.state],
+            v.state === 'NORMAL' ? '정상' : applicationStatuses[v.state].label,
             v.reason,
             v.evidence?.label,
             v.evidence?.checkedAt,
@@ -38,6 +42,9 @@ function value(v: Edition['facts'][string] | undefined) {
 export function VersionsPage() {
     const { noticeId = '' } = useParams(),
         [chosen, setChosen] = useState('');
+    const detailReturn = useNoticeDetailReturn();
+    const detailPath =
+        detailReturn?.to ?? '/notices/' + encodeURIComponent(noticeId);
     const q = useQuery({
         queryKey: ['editions', noticeId],
         queryFn: () => memberApi.editions(noticeId),
@@ -53,14 +60,15 @@ export function VersionsPage() {
                   (k) =>
                       k in latest.facts &&
                       (k in old.facts || k === 'lifecycle') &&
-                      value(old.facts[k]) !== value(latest.facts[k]),
+                      value(old.facts[k], k) !== value(latest.facts[k], k),
               )
             : [];
     return (
         <>
             <Heading
                 title="수정 공고 전후 비교"
-                backTo={'/notices/' + noticeId}
+                backTo={detailPath}
+                backState={detailReturn?.state}
             >
                 공개된 이력에서 변경된 항목만 표시합니다.
             </Heading>
@@ -72,10 +80,6 @@ export function VersionsPage() {
             {latest && (
                 <section className={s.section}>
                     <h2>{value(latest.facts.title)}</h2>
-                    <p>
-                        현재 안내 v{latest.version} · 검수 기록{' '}
-                        {latest.revision}
-                    </p>
                     {old ? (
                         <>
                             <label>
@@ -84,13 +88,14 @@ export function VersionsPage() {
                                     value={old.version + '.' + old.revision}
                                     onChange={(e) => setChosen(e.target.value)}
                                 >
-                                    {previous?.map((x) => (
+                                    {previous?.map((x, index) => (
                                         <option
                                             key={x.version + '.' + x.revision}
                                             value={x.version + '.' + x.revision}
                                         >
-                                            안내 v{x.version} · 검수 기록{' '}
-                                            {x.revision}
+                                            {index === 0
+                                                ? '바로 이전 공고'
+                                                : `${index + 1}회 전 공고`}
                                         </option>
                                     ))}
                                 </select>
@@ -103,9 +108,9 @@ export function VersionsPage() {
                                     <h3>{fields[k]}</h3>
                                     <dl className={s.difference}>
                                         <dt>이전</dt>
-                                        <dd>{value(old.facts[k])}</dd>
+                                        <dd>{value(old.facts[k], k)}</dd>
                                         <dt>현재</dt>
-                                        <dd>{value(latest.facts[k])}</dd>
+                                        <dd>{value(latest.facts[k], k)}</dd>
                                     </dl>
                                 </div>
                             ))}
@@ -116,7 +121,9 @@ export function VersionsPage() {
                             이후의 검수본을 비교할 수 있습니다.
                         </p>
                     )}
-                    <Link to={'/notices/' + noticeId}>현재 공식 근거 보기</Link>
+                    <Link to={detailPath} state={detailReturn?.state}>
+                        현재 공식 근거 보기
+                    </Link>
                 </section>
             )}
         </>

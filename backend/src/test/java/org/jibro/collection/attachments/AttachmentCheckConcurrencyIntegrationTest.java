@@ -23,20 +23,30 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
-/** Committed fixtures and separate worker transactions verify the actual network/locking boundary. */
+/**
+ * Committed fixtures and separate worker transactions verify the actual network/locking boundary.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 class AttachmentCheckConcurrencyIntegrationTest {
-    @Autowired AttachmentCheckService checks;
-    @Autowired NoticeService notices;
-    @Autowired AuthService auth;
-    @Autowired JdbcTemplate db;
-    @Autowired PlatformTransactionManager transactions;
-    @MockitoBean AttachmentFingerprintClient client;
-    @MockitoBean LhNoticeClient lh;
+    @Autowired
+    AttachmentCheckService checks;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    PlatformTransactionManager transactions;
+    @MockitoBean
+    AttachmentFingerprintClient client;
+    @MockitoBean
+    LhNoticeClient lh;
 
-    private record Fixture(UUID user, UUID notice, Content content) {}
+    private record Fixture(UUID user, UUID notice, Content content) {
+    }
 
     @Test
     void downloadDoesNotHoldDatabaseLockAndConcurrentDraftEditDiscardsTheStaleBaseline() throws Exception {

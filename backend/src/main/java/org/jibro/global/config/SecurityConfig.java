@@ -47,14 +47,14 @@ public class SecurityConfig {
     JwtDecoder jwtDecoder(SecretKeySpec key, LoginSessionRepository sessions) {
         var decoder = NimbusJwtDecoder.withSecretKey(key).macAlgorithm(MacAlgorithm.HS256).build();
         decoder.setJwtValidator(new DelegatingOAuth2TokenValidator<>(JwtValidators.createDefaultWithIssuer("jibro"),
-            new JwtClaimValidator<java.util.List<String>>("aud", value -> value != null && value.contains("jibro-web")),
-            (Jwt jwt) -> {
-                Object version = jwt.getClaims().get("sv");
-                Object sid = jwt.getClaims().get("sid");
-                boolean valid = jwt.getSubject() != null && version instanceof Number && sid instanceof String
-                    && sessions.isAccessSessionValid(jwt.getSubject(), ((Number) version).intValue(), (String) sid);
-                return valid ? OAuth2TokenValidatorResult.success() : OAuth2TokenValidatorResult.failure(new OAuth2Error("invalid_token"));
-            }));
+                new JwtClaimValidator<java.util.List<String>>("aud", value -> value != null && value.contains("jibro-web")),
+                (Jwt jwt) -> {
+                    Object version = jwt.getClaims().get("sv");
+                    Object sid = jwt.getClaims().get("sid");
+                    boolean valid = jwt.getSubject() != null && version instanceof Number && sid instanceof String
+                            && sessions.isAccessSessionValid(jwt.getSubject(), ((Number) version).intValue(), (String) sid);
+                    return valid ? OAuth2TokenValidatorResult.success() : OAuth2TokenValidatorResult.failure(new OAuth2Error("invalid_token"));
+                }));
         return decoder;
     }
 
@@ -69,19 +69,20 @@ public class SecurityConfig {
         var converter = new JwtAuthenticationConverter();
         converter.setJwtGrantedAuthoritiesConverter(authorities);
         return http.securityMatcher("/api/**")
-            .authorizeHttpRequests(a -> a
-                .requestMatchers(HttpMethod.GET, "/api/v1/health", "/api/v1/auth/csrf", "/api/v1/auth/providers", "/api/v1/meta", "/api/v1/auth/mail-mode", "/api/v1/notices/**", "/api/v1/guides").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/v1/auth/trial", "/api/v1/auth/signup", "/api/v1/auth/login", "/api/v1/auth/refresh", "/api/v1/auth/logout", "/api/v1/auth/reset/request", "/api/v1/auth/reset/complete", "/api/v1/auth/verify").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/v1/notices/*/check-once").permitAll()
-                .requestMatchers("/api/v1/member/verify", "/api/v1/member/closure/**", "/api/v1/member/password", "/api/v1/member/channels", "/api/v1/member/channels/**", "/api/v1/member/connections", "/api/v1/member/connections/**").hasAnyRole("USER", "ADMIN")
-                .requestMatchers("/api/v1/admin/**").hasRole("ADMIN").anyRequest().authenticated())
-            .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .csrf(c -> c.csrfTokenRepository(csrf))
-            .oauth2ResourceServer(o -> o.jwt(j -> j.jwtAuthenticationConverter(converter))
-                .authenticationEntryPoint((req, res, e) -> error(res, 401, "UNAUTHORIZED", "로그인이 필요합니다.")))
-            .exceptionHandling(e -> e.authenticationEntryPoint((req, res, ex) -> error(res, 401, "UNAUTHORIZED", "로그인이 필요합니다."))
-                .accessDeniedHandler((req, res, ex) -> error(res, 403, "FORBIDDEN", "권한 또는 요청 인증 정보를 확인해 주세요.")))
-            .requestCache(c -> c.disable()).build();
+                .authorizeHttpRequests(a -> a
+                        .requestMatchers("/api/v1/security/visitor").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/health", "/api/v1/auth/csrf", "/api/v1/auth/providers", "/api/v1/meta", "/api/v1/auth/mail-mode", "/api/v1/notices/**", "/api/v1/guides").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/trial", "/api/v1/auth/signup", "/api/v1/auth/login", "/api/v1/auth/refresh", "/api/v1/auth/logout", "/api/v1/auth/reset/request", "/api/v1/auth/reset/complete", "/api/v1/auth/verify").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/notices/*/check-once").permitAll()
+                        .requestMatchers("/api/v1/member/verify", "/api/v1/member/closure/**", "/api/v1/member/password", "/api/v1/member/channels", "/api/v1/member/channels/**", "/api/v1/member/connections", "/api/v1/member/connections/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN").anyRequest().authenticated())
+                .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf(c -> c.csrfTokenRepository(csrf))
+                .oauth2ResourceServer(o -> o.jwt(j -> j.jwtAuthenticationConverter(converter))
+                        .authenticationEntryPoint((req, res, e) -> error(res, 401, "UNAUTHORIZED", "로그인이 필요합니다.")))
+                .exceptionHandling(e -> e.authenticationEntryPoint((req, res, ex) -> error(res, 401, "UNAUTHORIZED", "로그인이 필요합니다."))
+                        .accessDeniedHandler((req, res, ex) -> error(res, 403, "FORBIDDEN", "권한 또는 요청 인증 정보를 확인해 주세요.")))
+                .requestCache(c -> c.disable()).build();
     }
 
     public static void error(jakarta.servlet.http.HttpServletResponse res, int status, String code, String message) throws java.io.IOException {

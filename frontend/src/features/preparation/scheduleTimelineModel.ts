@@ -1,19 +1,24 @@
 import { scheduleIsActive, lifecycleLabel } from '../housing/noticeLifecycle';
 import type { Evidence, Notice, Preparation, Schedule } from '../housing/types';
-import { individualAnnouncement } from '../housing/schedules';
+import {
+    individualAnnouncement,
+    firstComeScheduleLabel,
+} from '../housing/schedules';
+import { applicationStatuses } from '../housing/noticeLabels';
 import { daysLeft } from '../housing/noticeDisplay';
 import {
     currentPreparationSchedules,
-    applicationDate,
-    dateWithScheduleTime,
+    currentPreparationScheduleSource,
+    scheduleMilestone,
     scheduleDay,
     scheduleTime,
-    selectSchedule,
 } from '../housing/schedules';
 
 type TimelineId = 'published' | 'start' | 'end' | 'result' | 'documents';
 export interface TimelineRow {
+    timingLabel?: string;
     announcementExplanation?: Schedule;
+    announcementAlternatives?: Omit<Schedule, 'recorded'>[];
     id: TimelineId;
     title: string;
     date: string | null;
@@ -32,10 +37,6 @@ const titles: Record<TimelineId, string> = {
     documents: '서류 제출 마감',
 };
 
-function validDate(value?: string | null) {
-    return value && scheduleDay(value) ? value : null;
-}
-
 export function buildScheduleTimeline(
     notice: Notice | undefined,
     preparation: Preparation,
@@ -48,69 +49,84 @@ export function buildScheduleTimeline(
 } {
     const sameBasis = !notice || notice.version === preparation.version;
     const details = currentPreparationSchedules(preparation, notice).map(
-        (event): Schedule => ({
-            ...event,
-            recorded:
-                sameBasis &&
-                preparation.schedules.some(
-                    (saved) =>
-                        saved.id === event.id &&
-                        saved.title === event.title &&
-                        saved.date === event.date &&
-                        saved.recorded,
-                ),
-        }),
+        (event) => {
+            const original =
+                notice?.schedules?.find((item) => item.id === event.id) ??
+                event;
+            const saved = sameBasis
+                ? preparation.schedules.find(
+                      (item) =>
+                          item.id === original.id &&
+                          item.title === original.title &&
+                          item.date === original.date,
+                  )
+                : undefined;
+            return {
+                ...event,
+                recorded: saved?.recorded ?? false,
+            };
+        },
     );
-    const basic: Partial<Record<TimelineId, string | null>> = {
-        published: notice?.publishedDate,
-        start: notice?.startDate,
-        end: notice?.endDate,
+    const source = currentPreparationScheduleSource(preparation, notice) ?? {
+        title: preparation.title,
+        schedules: details,
     };
+    details.sort((a, b) => {
+        const dayA = scheduleDay(a.date);
+        const dayB = scheduleDay(b.date);
+        if (!dayA || !dayB) return dayA ? -1 : dayB ? 1 : 0;
+        return (
+            dayA.localeCompare(dayB) ||
+            scheduleTime(a)
+                .padStart(5, '0')
+                .localeCompare(scheduleTime(b).padStart(5, '0'))
+        );
+    });
     const resultExplanation = individualAnnouncement(details);
     const rows = (Object.keys(titles) as TimelineId[]).map(
         (id): TimelineRow => {
-            const basicDate = validDate(basic[id]);
-            const event = selectSchedule(details, id, basicDate);
-            const date = validDate(
-                notice?.applicationTiming && (id === 'start' || id === 'end')
-                    ? applicationDate(notice, id)
-                    : (basicDate ?? event?.date),
-            );
+            const { date, alternatives } = scheduleMilestone(source, id);
+            const timingLabel = firstComeScheduleLabel(source, id);
+            if (timingLabel)
+                return {
+                    id,
+                    title: titles[id],
+                    date: null,
+                    dateLabel: timingLabel,
+                    timingLabel,
+                    weekday: '',
+                    time: '',
+                    status: '',
+                    tone: 'pending',
+                };
             if (!date)
                 return {
+                    announcementAlternatives: alternatives,
                     announcementExplanation:
                         id === 'result' ? resultExplanation : undefined,
                     id,
                     title:
-                        id === 'result' && resultExplanation
+                        id === 'result' &&
+                        (resultExplanation || alternatives.length)
                             ? '결과 발표'
                             : titles[id],
                     date: null,
                     dateLabel: '—',
                     weekday: '',
                     time: '',
-                    status:
-                        id === 'result' && resultExplanation
-                            ? '개별 안내'
-                            : '확인 필요',
+                    status: alternatives.length
+                        ? '대상별 안내'
+                        : id === 'result' && resultExplanation
+                          ? '개별 안내'
+                          : '확인 필요',
                     tone: 'unknown',
                 };
             const day = scheduleDay(date)!;
-            const time =
-                notice?.applicationTiming && (id === 'start' || id === 'end')
-                    ? scheduleTime({ date, title: '' })
-                    : scheduleTime({ date, title: event?.title ?? '' }) ||
-                      (event ? scheduleTime(event) : '');
+            const time = scheduleTime({ date, title: '' });
             const left =
                 id === 'end' && notice?.status === 'CLOSED'
                     ? '일정 경과'
-                    : daysLeft(
-                          notice?.applicationTiming &&
-                              (id === 'start' || id === 'end')
-                              ? date
-                              : dateWithScheduleTime(date, event),
-                          now,
-                      );
+                    : daysLeft(date, now);
             const past = left === '일정 경과';
             const status =
                 id === 'published'
@@ -120,7 +136,7 @@ export function buildScheduleTimeline(
                     : id === 'start'
                       ? past || left === 'D-Day'
                           ? '시작됨'
-                          : '접수 예정'
+                          : applicationStatuses.UPCOMING.label
                       : id === 'end'
                         ? past
                             ? '마감'
@@ -162,7 +178,8 @@ export function buildScheduleTimeline(
             const closed =
                 notice?.status === 'CLOSED' ||
                 daysLeft(end.date, now) === '일정 경과';
-            start.status = closed ? '접수 종료' : '접수 중';
+            start.status =
+                applicationStatuses[closed ? 'CLOSED' : 'OPEN'].label;
             start.tone = closed ? 'done' : 'active';
         }
     }

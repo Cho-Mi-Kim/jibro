@@ -1,0 +1,475 @@
+[
+  {
+    "noticeId": "11f5a8d1-3100-4d80-8f4b-b0ef6dc8af3c",
+    "baselineVersion": 6,
+    "questionPatches": [
+      {
+        "id": "family-new2-parent-separated",
+        "applicability": {
+          "questionId": "family-new2-marriage-doc",
+          "answerValues": [
+            "SINGLE_PARENT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869337#page=5",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "documentPatches": [],
+    "removedQuestionIds": [],
+    "removedDocumentIds": [],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68869337",
+        "sha256": "a4c7c51976edf6528dc0b645b69ea1757f4975909b923fcb2970dcc252af4440"
+      }
+    ],
+    "notes": [
+      "2026-11-22 LH 공식 PDF를 직접 재조회하여 해당 제출대상표를 대조함. 공식 상세와 현재 첨부 집합 일치는 게시 직전 기존 원문 검증 경로에서 다시 확인해야 함.",
+      "PDF 5쪽의 한부모가족 추가서류는 부모와 자녀가 다른 등본일 때의 세대구성확인서임. 기존 실제 혼인·가족 상태 질문의 SINGLE_PARENT 답변에만 후속 질문을 연결함.",
+      "신생아·유자녀 혼인가구라는 지원유형만으로 실제 가족 상태를 추정하지 않음. 혼인·가족 상태를 고르지 않았거나 모름·충돌·검수 중이면 후속 질문을 유지함.",
+      "혼인관계증명서·예비신혼 서식·신생아 증빙·금융 및 자산 서류의 기존 제출 조건과 원본 답변·메모는 변경하지 않음."
+    ]
+  },
+  {
+    "noticeId": "cb2ba5d3-53bb-4d7a-a8d1-d526f95a89d7",
+    "baselineVersion": 6,
+    "questionPatches": [
+      {
+        "id": "family-new1-parent-separated",
+        "applicability": {
+          "questionId": "family-new1-marriage-doc",
+          "answerValues": [
+            "SINGLE_PARENT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868733#page=5",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "documentPatches": [],
+    "removedQuestionIds": [],
+    "removedDocumentIds": [],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68868733",
+        "sha256": "6f0296b0b3c67b7bc0ae4a1b2d4ee7260145196e7126248719fb9971e5c05cd1"
+      }
+    ],
+    "notes": [
+      "2026-11-22 LH 공식 PDF를 직접 재조회하여 해당 제출대상표를 대조함. 공식 상세와 현재 첨부 집합 일치는 게시 직전 기존 원문 검증 경로에서 다시 확인해야 함.",
+      "PDF 5쪽의 한부모가족 추가서류는 부모와 자녀가 다른 등본일 때의 세대구성확인서임. 기존 실제 혼인·가족 상태 질문의 SINGLE_PARENT 답변에만 후속 질문을 연결함.",
+      "신생아·유자녀 혼인가구라는 지원유형만으로 실제 가족 상태를 추정하지 않음. 혼인·가족 상태를 고르지 않았거나 모름·충돌·검수 중이면 후속 질문을 유지함.",
+      "혼인관계증명서·예비신혼 서식·신생아 증빙·금융 및 자산 서류의 기존 제출 조건과 원본 답변·메모는 변경하지 않음."
+    ]
+  },
+  {
+    "noticeId": "80ff86e3-9585-453e-be3b-1cd6f0d7b120",
+    "baselineVersion": 4,
+    "questionPatches": [
+      {
+        "id": "applies-student",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "STUDENT",
+            "JOB_SEEKER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 16쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69371433#page=16",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-youth",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 17쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69371433#page=17",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-subscription",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER",
+            "NEWLYWED",
+            "PREMARITAL",
+            "SINGLE_PARENT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 17쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69371433#page=17",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-marriage",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "NEWLYWED",
+            "PREMARITAL"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 18쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69371433#page=18",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-benefit",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "BENEFIT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 18쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69371433#page=18",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "documentPatches": [],
+    "removedQuestionIds": [],
+    "removedDocumentIds": [],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69371433",
+        "sha256": "2d3c1b335a78c8eeb4bd8cca409b4e40cd332390064a3c72981cd9ce2dcad120"
+      }
+    ],
+    "notes": [
+      "2026-11-22 LH 공식 PDF를 직접 재조회하여 해당 제출대상표를 대조함. 공식 상세와 현재 첨부 집합 일치는 게시 직전 기존 원문 검증 경로에서 다시 확인해야 함.",
+      "유형 선택지는 이미 명확함. PDF 16쪽 대학생·취업준비생, 17쪽 청년·사회초년생, 18쪽 신혼·예비신혼 및 주거급여 서류에만 명시 적용조건을 추가함.",
+      "청약통장은 청년계층과 신혼부부·한부모 계층 공통이므로 같은 계층을 연결함. 고령자는 공통 제출서류 외 추가서류 없음.",
+      "가족관계·주소변동·외국인·임신입양·대리신청은 다른 사실과 결합되는 공통 질문으로 유지함. 기존 필수서류 의존관계와 저장 기록은 보존함."
+    ]
+  },
+  {
+    "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+    "baselineVersion": 6,
+    "questionPatches": [
+      {
+        "id": "applies-finance",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "STUDENT",
+            "JOB_SEEKER",
+            "YOUTH",
+            "EARLY_CAREER",
+            "NEWLYWED",
+            "PREMARITAL",
+            "SINGLE_PARENT",
+            "ELDER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 24쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-assets",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "STUDENT",
+            "JOB_SEEKER",
+            "YOUTH",
+            "EARLY_CAREER",
+            "NEWLYWED",
+            "PREMARITAL",
+            "SINGLE_PARENT",
+            "ELDER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 24쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-student",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "STUDENT",
+            "JOB_SEEKER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 26쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-youth",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 26쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-marriage",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "NEWLYWED",
+            "PREMARITAL"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 27쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-subscription",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER",
+            "NEWLYWED",
+            "PREMARITAL",
+            "SINGLE_PARENT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 27쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-benefit",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "BENEFIT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 28쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "documentPatches": [],
+    "removedQuestionIds": [],
+    "removedDocumentIds": [],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684",
+        "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+      }
+    ],
+    "notes": [
+      "2026-11-22 LH 공식 PDF를 직접 재조회하여 해당 제출대상표를 대조함. 공식 상세와 현재 첨부 집합 일치는 게시 직전 기존 원문 검증 경로에서 다시 확인해야 함.",
+      "PDF 24쪽은 주거급여수급자의 금융정보 동의서·자산보유사실 확인서 작성을 제외함. 개인정보 동의서와 다른 공통서류까지 제외하지 않음.",
+      "PDF 26~28쪽 계층별 제출대상표에 따라 학생·청년·혼인·청약통장·급여 질문을 명시 연결함. 청약통장의 공고일 미가입·입주 전 제출 조건은 기존 질문에 남김.",
+      "소득근거지·우선공급 가점 증빙은 청년·신혼뿐 아니라 고령자·주거급여 계층에도 해당할 수 있으므로 공통으로 유지함. 가족·외국인·자녀·대리신청 질문도 유지함."
+    ]
+  },
+  {
+    "noticeId": "501f3fc5-a598-4699-9efa-ff4d5b244589",
+    "baselineVersion": 6,
+    "questionPatches": [
+      {
+        "id": "applies-student",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "STUDENT",
+            "JOB_SEEKER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 23쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825#page=23",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-youth",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 23쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825#page=23",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-subscription",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER",
+            "NEWLYWED",
+            "PREMARITAL",
+            "SINGLE_PARENT",
+            "INDUSTRIAL"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 23쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825#page=23",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-industrial",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "INDUSTRIAL"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 22쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825#page=22",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "applies-marriage",
+        "applicability": {
+          "questionId": "category",
+          "answerValues": [
+            "NEWLYWED",
+            "PREMARITAL"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 25쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825#page=25",
+          "checkedAt": "2026-11-22"
+        },
+        "title": "신혼·예비신혼 증빙 제출 대상인가요?",
+        "reason": "신혼부부는 상세 혼인관계증명서를 내요. 예비신혼부부는 신청확인서·예정 세대구성원 명단과 예비배우자 신분증 사본을 준비하고, 입주 전에는 혼인 사실과 실제 세대를 증명해요. 한부모가족의 가족관계·자녀 증빙은 해당 서류 질문에서 확인해요.",
+        "answerDependencies": [
+          {
+            "questionId": "category",
+            "answerValues": [
+              "NEWLYWED",
+              "PREMARITAL"
+            ],
+            "conflictingValues": [
+              "NO"
+            ],
+            "requiredDocumentIds": [
+              "marriage"
+            ],
+            "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+          }
+        ]
+      }
+    ],
+    "documentPatches": [
+      {
+        "id": "marriage",
+        "title": "혼인·예비신혼 증빙",
+        "method": "신혼부부는 상세 혼인관계증명서를 내요. 예비신혼부부는 신청확인서·예정 세대구성원 명단, 예비배우자 신분증 사본을 내고 입주 전 혼인관계·등본·가족관계 증빙을 추가해요.",
+        "evidence": {
+          "label": "PDF 25쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825#page=25",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "removedQuestionIds": [],
+    "removedDocumentIds": [],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998825",
+        "sha256": "f5b963add2e85d3be4d300d234a4590f2a04b8bb210df1c3418fad973b59cf6f"
+      }
+    ],
+    "notes": [
+      "2026-11-22 LH 공식 PDF를 직접 재조회하여 해당 제출대상표를 대조함. 공식 상세와 현재 첨부 집합 일치는 게시 직전 기존 원문 검증 경로에서 다시 확인해야 함.",
+      "PDF 22~25쪽 공급대상자별 추가 제출서류를 대조함. 산업단지 근무 증빙은 산업단지근로자, 학생 증빙은 대학생·취업준비생, 청년 증빙은 청년·사회초년생에게 연결함.",
+      "PDF 25쪽을 표 이미지로도 확인함. 혼인관계증명서는 신혼부부, 예비신혼 서식·입주 전 증빙은 예비신혼부부 대상이므로 기존 혼인 묶음의 한부모 포함을 제거함. 한부모의 상세 가족관계증명서와 임신 증빙 등은 기존 별도 공통·조건부 문서에서 유지함.",
+      "청약통장 공통 대상에는 산업단지근로자·청년계층·신혼부부 및 한부모 계층이 포함됨. 같은 증빙 이름이라도 다른 공급계층의 소득근거지 증빙을 산업단지 자격 증빙으로 합치지 않음."
+    ]
+  },
+  {
+    "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+    "baselineVersion": 8,
+    "questionPatches": [
+      {
+        "id": "applies-marriage",
+        "applicability": {
+          "questionId": "review-applicant-type",
+          "answerValues": [
+            "NEWLYWED",
+            "PREMARITAL",
+            "SINGLE_PARENT"
+          ]
+        },
+        "evidence": {
+          "label": "PDF 14쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "documentPatches": [],
+    "removedQuestionIds": [],
+    "removedDocumentIds": [],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711",
+        "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+      }
+    ],
+    "notes": [
+      "2026-11-22 LH 공식 PDF를 직접 재조회하여 해당 제출대상표를 대조함. 공식 상세와 현재 첨부 집합 일치는 게시 직전 기존 원문 검증 경로에서 다시 확인해야 함.",
+      "PDF 9쪽은 사업·근로소득이라는 공통 직업요건과 청년·신혼·한부모·장기종사자 중 신분요건 하나를 모두 요구함. LONG_TERM을 산업단지근로자나 고령자로 추정하지 않음.",
+      "PDF 14쪽의 신혼·예비신혼·한부모 서류를 기존 review-applicant-type의 해당 선택값에 명시 연결함. LONG_TERM도 실제 선택값으로 대조하므로 전용 서류 질문을 확실히 제외할 수 있음.",
+      "사업·근로소득 증빙은 전 유형 공통이며 장기종사자는 추가 근무기간 증빙도 있음. applies-work를 장기종사자 전용으로 좁히지 않음. 가족관계·분리배우자·자녀·외국인·주거약자 및 가점 증빙은 별도의 사실조건이므로 그대로 유지함."
+    ]
+  }
+]

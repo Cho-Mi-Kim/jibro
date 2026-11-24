@@ -2,10 +2,14 @@ package org.jibro.collection.review.local;
 
 import java.net.URI;
 import java.util.*;
+
 import org.jibro.collection.review.local.CompactReviewPacket.*;
+
 import static org.jibro.collection.review.local.LocalRuleBook.*;
 
-/** Selects complete dependency groups, never a shortened prefix of an official condition. */
+/**
+ * Selects complete dependency groups, never a shortened prefix of an official condition.
+ */
 public final class CompactReviewPlanner {
     public static final int MAX_PACKET_CHARACTERS = 6000;
     public static final int MAX_PACKETS_PER_PASS = 3;
@@ -15,29 +19,45 @@ public final class CompactReviewPlanner {
     private static final int MAX_CLAUSES = 10_000;
     private static final int MAX_ISSUES = 2000;
 
-    private CompactReviewPlanner() {}
+    private CompactReviewPlanner() {
+    }
 
     public record Blocked(String issueId, String code, List<String> clauseIds, String reason, int requiredCharacters) {
-        public Blocked { clauseIds = List.copyOf(clauseIds); }
+        public Blocked {
+            clauseIds = List.copyOf(clauseIds);
+        }
     }
+
     public record Metrics(int rawCharacters, int selectedCharacters, int transmittedCharacters,
                           int candidatePacketCount, int selectedPacketCount, int completedPacketCount,
-                          int deferredPacketCount, int selectedIssueCount, int blockedIssueCount) {}
-    public record Plan(List<CompactReviewPacket> packets, List<Blocked> blocked, List<String> deferredPacketIds, Metrics metrics) {
+                          int deferredPacketCount, int selectedIssueCount, int blockedIssueCount) {
+    }
+
+    public record Plan(List<CompactReviewPacket> packets, List<Blocked> blocked, List<String> deferredPacketIds,
+                       Metrics metrics) {
         public Plan {
             packets = List.copyOf(packets);
             blocked = List.copyOf(blocked);
             deferredPacketIds = List.copyOf(deferredPacketIds);
         }
     }
-    private record Group(Issue issue, Set<String> clauseIds, int priority) {}
-    private record Closure(Set<String> ids, String failure) {}
 
-    public static Plan plan(LocalRuleBook book) { return plan(book, Set.of()); }
+    private record Group(Issue issue, Set<String> clauseIds, int priority) {
+    }
 
-    /** Completed packet IDs permit a bounded next pass without repeatedly sending earlier packets. */
+    private record Closure(Set<String> ids, String failure) {
+    }
+
+    public static Plan plan(LocalRuleBook book) {
+        return plan(book, Set.of());
+    }
+
+    /**
+     * Completed packet IDs permit a bounded next pass without repeatedly sending earlier packets.
+     */
     public static Plan plan(LocalRuleBook book, Set<String> completedPacketIds) {
-        Objects.requireNonNull(book); Objects.requireNonNull(completedPacketIds);
+        Objects.requireNonNull(book);
+        Objects.requireNonNull(completedPacketIds);
         var blocked = new ArrayList<Blocked>();
         if (book.clauses().size() > MAX_CLAUSES || book.unresolved().size() > MAX_ISSUES) {
             blocked.add(new Blocked("book", "LOCAL_INDEX_LIMIT", List.of(), "LOCAL_INDEX_LIMIT", 0));
@@ -55,11 +75,12 @@ public final class CompactReviewPlanner {
         }
         var aliases = clauseAliases(clauses.keySet());
         Map<String, List<Fact>> factsByClause = new HashMap<>();
-        for (Fact fact : book.facts()) for (String id : fact.clauseIds())
-            factsByClause.computeIfAbsent(id, ignored -> new ArrayList<>()).add(fact);
+        for (Fact fact : book.facts())
+            for (String id : fact.clauseIds())
+                factsByClause.computeIfAbsent(id, ignored -> new ArrayList<>()).add(fact);
         var incompleteClauses = new HashSet<String>();
         book.unresolved().stream().filter(issue -> incomplete(issue.code()))
-            .forEach(issue -> incompleteClauses.addAll(issue.clauseIds()));
+                .forEach(issue -> incompleteClauses.addAll(issue.clauseIds()));
 
         List<Group> groups = new ArrayList<>();
         Set<String> seenIssues = new HashSet<>();
@@ -106,9 +127,12 @@ public final class CompactReviewPlanner {
         for (Group group : groups) {
             boolean added = false;
             for (List<Group> bin : bins) {
-                var combined = new ArrayList<>(bin); combined.add(group);
+                var combined = new ArrayList<>(bin);
+                combined.add(group);
                 if (combined.size() <= MAX_ISSUES_PER_PACKET && packet(book, combined, clauses, aliases).transmittedCharacters() <= MAX_PACKET_CHARACTERS) {
-                    bin.add(group); added = true; break;
+                    bin.add(group);
+                    added = true;
+                    break;
                 }
             }
             if (!added) bins.add(new ArrayList<>(List.of(group)));
@@ -118,7 +142,10 @@ public final class CompactReviewPlanner {
         int completed = 0;
         for (var bin : bins) {
             var packet = packet(book, bin, clauses, aliases);
-            if (completedPacketIds.contains(packet.id())) { completed++; continue; }
+            if (completedPacketIds.contains(packet.id())) {
+                completed++;
+                continue;
+            }
             if (selected.size() < MAX_PACKETS_PER_PASS) selected.add(packet);
             else deferred.add(packet.id());
         }
@@ -148,12 +175,12 @@ public final class CompactReviewPlanner {
 
     private static boolean incomplete(String code) {
         return code.contains("MISSING") || code.contains("INCOMPLETE") || code.contains("UNREADABLE")
-            || code.contains("SOURCE_FAILED") || code.equals("EXCEPTION_PARENT_UNRESOLVED");
+                || code.contains("SOURCE_FAILED") || code.equals("EXCEPTION_PARENT_UNRESOLVED");
     }
 
     private static boolean substantive(Clause clause) {
         return clause.topics().stream().anyMatch(topic -> topic != Topic.OTHER)
-            || !clause.markers().isEmpty() || !clause.quantities().isEmpty();
+                || !clause.markers().isEmpty() || !clause.quantities().isEmpty();
     }
 
     private static int priority(String code, Set<String> ids, Map<String, Clause> clauses) {
@@ -185,14 +212,14 @@ public final class CompactReviewPlanner {
             Clause c = clauses.get(id);
             var source = sourceKeys.get(c.sourceUrl() + "\n" + c.sourceSha256());
             evidence.add(new EvidenceClause(aliases.get(c.id()), source.id(), c.location(), c.start(), c.end(), c.quote(), c.heading(),
-                c.topics(), c.subjects(), c.scopes(), c.markers(), c.quantities(), c.references(),
-                c.relatedClauseIds().stream().map(aliases::get).toList()));
+                    c.topics(), c.subjects(), c.scopes(), c.markers(), c.quantities(), c.references(),
+                    c.relatedClauseIds().stream().map(aliases::get).toList()));
         }
         var facts = book.facts().stream().filter(fact -> !Collections.disjoint(fact.clauseIds(), ids))
-            .sorted(Comparator.comparing(Fact::id)).map(fact -> new Fact(fact.id(), fact.type(), fact.topic(), fact.subject(),
-                fact.values(), fact.clauseIds().stream().map(aliases::get).toList())).toList();
+                .sorted(Comparator.comparing(Fact::id)).map(fact -> new Fact(fact.id(), fact.type(), fact.topic(), fact.subject(),
+                        fact.values(), fact.clauseIds().stream().map(aliases::get).toList())).toList();
         var issues = groups.stream().map(Group::issue).sorted(Comparator.comparing(Issue::id))
-            .map(issue -> new Issue(issue.id(), issue.code(), issue.clauseIds().stream().map(aliases::get).toList())).toList();
+                .map(issue -> new Issue(issue.id(), issue.code(), issue.clauseIds().stream().map(aliases::get).toList())).toList();
         String policy = POLICY + "/" + book.policy();
         var unsigned = new CompactReviewPacket("", policy, List.copyOf(sourceKeys.values()), evidence, facts, issues);
         String id = "packet-" + CompactReviewPacket.digest(unsigned.payloadJson());
@@ -213,17 +240,20 @@ public final class CompactReviewPlanner {
 
     private static boolean valid(Clause clause) {
         if (clause.id() == null || clause.id().isBlank() || clause.quote() == null || clause.quote().isBlank()
-            || clause.start() < 0 || clause.end() - clause.start() != clause.quote().length()
-            || clause.location() == null || clause.location().isBlank() || clause.location().length() > 300
-            || clause.sourceSha256() == null || !clause.sourceSha256().matches("[a-fA-F0-9]{64}")) return false;
+                || clause.start() < 0 || clause.end() - clause.start() != clause.quote().length()
+                || clause.location() == null || clause.location().isBlank() || clause.location().length() > 300
+                || clause.sourceSha256() == null || !clause.sourceSha256().matches("[a-fA-F0-9]{64}")) return false;
         try {
             String value = clause.sourceUrl();
             if (value == null || value.length() > 2000
-                || value.matches("(?is).*[?&](?:service.?key|api.?key|token|access.?token|password|secret)=.*")) return false;
+                    || value.matches("(?is).*[?&](?:service.?key|api.?key|token|access.?token|password|secret)=.*"))
+                return false;
             URI uri = URI.create(value);
             return "https".equalsIgnoreCase(uri.getScheme()) && Set.of("apply.lh.or.kr", "www.lh.or.kr").contains(uri.getHost())
-                && uri.getRawUserInfo() == null && (uri.getPort() == -1 || uri.getPort() == 443);
-        } catch (RuntimeException invalid) { return false; }
+                    && uri.getRawUserInfo() == null && (uri.getPort() == -1 || uri.getPort() == 443);
+        } catch (RuntimeException invalid) {
+            return false;
+        }
     }
 
     private static Plan result(LocalRuleBook book, List<CompactReviewPacket> packets, List<Blocked> blocked,
@@ -231,8 +261,8 @@ public final class CompactReviewPlanner {
         var unique = new HashMap<String, Integer>();
         packets.forEach(packet -> packet.clauses().forEach(clause -> unique.putIfAbsent(clause.id(), clause.quote().length())));
         var metrics = new Metrics(book.sourceCharacters(), unique.values().stream().mapToInt(Integer::intValue).sum(),
-            packets.stream().mapToInt(CompactReviewPacket::transmittedCharacters).sum(), candidateCount, packets.size(),
-            completedCount, deferred.size(), packets.stream().mapToInt(packet -> packet.issues().size()).sum(), blocked.size());
+                packets.stream().mapToInt(CompactReviewPacket::transmittedCharacters).sum(), candidateCount, packets.size(),
+                completedCount, deferred.size(), packets.stream().mapToInt(packet -> packet.issues().size()).sum(), blocked.size());
         return new Plan(packets, blocked, deferred, metrics);
     }
 }

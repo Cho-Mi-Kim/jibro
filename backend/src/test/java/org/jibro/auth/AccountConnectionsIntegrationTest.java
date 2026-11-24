@@ -36,6 +36,10 @@ import tools.jackson.databind.ObjectMapper;
 @Transactional
 class AccountConnectionsIntegrationTest {
     @Autowired
+    LoginAttemptLimiter limits;
+    @Autowired
+    org.springframework.transaction.PlatformTransactionManager transactions;
+    @Autowired
     AccountConnections connections;
     @Autowired
     AuthService auth;
@@ -53,6 +57,7 @@ class AccountConnectionsIntegrationTest {
     AccountMail mail;
     @MockitoSpyBean
     OAuthConfig config;
+    private final String remoteAddress = "reauth-test-" + UUID.randomUUID();
     private static final String PASSWORD = "fixture-password-123";
     private static final AccountConnections.Proof PASSWORD_PROOF = new AccountConnections.Proof(PASSWORD, null);
 
@@ -72,7 +77,7 @@ class AccountConnectionsIntegrationTest {
     }
 
     private UUID intent(UUID user, String provider) {
-        UUID intent = connections.begin(user, provider, "browser-binding", PASSWORD_PROOF);
+        UUID intent = connections.begin(user, provider, "browser-binding", PASSWORD_PROOF, remoteAddress);
         connections.authorize(intent, provider, "browser-binding", "oauth-state");
         return intent;
     }
@@ -129,24 +134,27 @@ class AccountConnectionsIntegrationTest {
         String code = body.getValue().split("\n\n")[1];
         assertNotEquals(code, db.queryForObject("SELECT token_hash FROM account_connection_proof WHERE user_id=?", String.class, a));
         var proof = new AccountConnections.Proof(null, code);
-        assertThrows(ApiException.class, () -> connections.begin(b, "google", "binding", proof));
+        assertThrows(ApiException.class, () -> connections.begin(b, "google", "binding", proof, remoteAddress));
         assertEquals(429, assertThrows(ApiException.class, () -> connections.requestProof(a)).status);
-        connections.begin(a, "google", "binding", proof);
-        assertThrows(ApiException.class, () -> connections.begin(a, "kakao", "binding", proof));
+        connections.begin(a, "google", "binding", proof, remoteAddress);
+        assertThrows(ApiException.class, () -> connections.begin(a, "kakao", "binding", proof, remoteAddress));
         assertTrue(db.queryForObject("SELECT email_verified FROM app_user WHERE id=?", Boolean.class, a));
         connections.requestProof(a);
         db.update("UPDATE account_connection_proof SET expires_at=now()-interval '1 second' WHERE user_id=?", a);
-        assertThrows(ApiException.class, () -> connections.begin(a, "kakao", "binding", proof));
+        assertThrows(ApiException.class, () -> connections.begin(a, "kakao", "binding", proof, remoteAddress));
     }
 
     @Test
     void rejectsWrongPasswordAndLimitsRepeatedReauthentication() {
         UUID user = id(member());
         for (int n = 0; n < 5; n++)
-            assertThrows(ApiException.class, () -> connections.begin(user, "google", "browser", new AccountConnections.Proof("wrong", null)));
-        assertEquals(429, assertThrows(ApiException.class, () -> connections.begin(user, "google", "browser", PASSWORD_PROOF)).status);
-        db.update("UPDATE account_connection_attempt SET blocked_until=now()-interval '1 second' WHERE user_id=?", user);
-        assertNotNull(connections.begin(user, "google", "browser", PASSWORD_PROOF));
+            assertThrows(ApiException.class, () -> connections.begin(user, "google", "browser", new AccountConnections.Proof("wrong", null), remoteAddress));
+        assertEquals(429, assertThrows(ApiException.class, () -> connections.begin(user, "google", "browser", PASSWORD_PROOF, remoteAddress)).status);
+        String accountKey = limits.key("account:" + db.queryForObject("SELECT email FROM app_user WHERE id=?", String.class, user));
+        var expiry = new org.springframework.transaction.support.TransactionTemplate(transactions);
+        expiry.setPropagationBehavior(org.springframework.transaction.TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        expiry.executeWithoutResult(ignored -> db.update("UPDATE login_attempt SET created_at=now()-interval '16 minutes' WHERE account_key=?", accountKey));
+        assertNotNull(connections.begin(user, "google", "browser", PASSWORD_PROOF, remoteAddress));
     }
 
     @Test
@@ -155,7 +163,7 @@ class AccountConnectionsIntegrationTest {
         UUID user = id(member);
         linked(user, "google", "subject");
         var pending = intent(user, "kakao");
-        connections.disconnect(user, "google", PASSWORD_PROOF);
+        connections.disconnect(user, "google", PASSWORD_PROOF, remoteAddress);
         assertThrows(JwtException.class, () -> decoder.decode(member.accessToken()));
         assertThrows(ApiException.class, () -> auth.refresh(member.refresh()));
         assertThrows(ApiException.class, () -> connections.complete(pending, "kakao", "second", "browser-binding", "oauth-state"));
@@ -174,7 +182,7 @@ class AccountConnectionsIntegrationTest {
         var body = ArgumentCaptor.forClass(String.class);
         verify(mail).send(anyString(), anyString(), body.capture());
         String code = body.getValue().split("\n\n")[1];
-        assertEquals(409, assertThrows(ApiException.class, () -> connections.disconnect(user, "google", new AccountConnections.Proof(null, code))).status);
+        assertEquals(409, assertThrows(ApiException.class, () -> connections.disconnect(user, "google", new AccountConnections.Proof(null, code), remoteAddress)).status);
         assertEquals(1, db.queryForObject("SELECT count(*) FROM login_identity WHERE user_id=?", Integer.class, user));
     }
 
@@ -184,14 +192,14 @@ class AccountConnectionsIntegrationTest {
         UUID user = id(member);
         var pending = intent(user, "google");
         connections.requestProof(user);
-        accounts.password(user, PASSWORD, "changed-password-123");
+        accounts.password(user, PASSWORD, "changed-password-123", remoteAddress);
         assertThrows(ApiException.class, () -> connections.complete(pending, "google", "subject", "browser-binding", "oauth-state"));
         assertEquals(0, db.queryForObject("SELECT count(*) FROM account_connection_proof WHERE user_id=?", Integer.class, user));
         accounts.issue(user, "delete");
         var body = ArgumentCaptor.forClass(String.class);
         verify(mail, atLeastOnce()).send(anyString(), anyString(), body.capture());
         String token = body.getValue().split("#delete=")[1].split("\n")[0];
-        var finalIntent = connections.begin(user, "google", "binding", new AccountConnections.Proof("changed-password-123", null));
+        var finalIntent = connections.begin(user, "google", "binding", new AccountConnections.Proof("changed-password-123", null), remoteAddress);
         accounts.delete(user, token, "회원 탈퇴");
         assertThrows(ApiException.class, () -> connections.authorize(finalIntent, "google", "binding", "state"));
     }
@@ -209,7 +217,7 @@ class AccountConnectionsIntegrationTest {
         var body = ArgumentCaptor.forClass(String.class);
         verify(mail).send(anyString(), anyString(), body.capture());
         var proof = new AccountConnections.Proof(null, body.getValue().split("\n\n")[1]);
-        assertEquals(409, assertThrows(ApiException.class, () -> connections.disconnect(user, "google", proof)).status);
+        assertEquals(409, assertThrows(ApiException.class, () -> connections.disconnect(user, "google", proof, remoteAddress)).status);
         assertEquals(2, db.queryForObject("SELECT count(*) FROM login_identity WHERE user_id=?", Integer.class, user));
     }
 
@@ -220,11 +228,11 @@ class AccountConnectionsIntegrationTest {
         mvc.perform(get("/api/v1/member/connections")).andExpect(status().isUnauthorized());
         mvc.perform(get("/api/v1/member/connections").header("Authorization", "Bearer " + trial.accessToken())).andExpect(status().isForbidden());
         mvc.perform(post("/api/v1/member/connections/google/start").header("Authorization", "Bearer " + member.accessToken()).contentType("application/json").content("{}"))
-            .andExpect(status().isBadRequest()); // Bearer-authenticated API calls do not use cookie authentication.
+                .andExpect(status().isBadRequest()); // Bearer-authenticated API calls do not use cookie authentication.
         mvc.perform(post("/api/v1/member/connections/google/start").with(csrf()).header("Authorization", "Bearer " + member.accessToken()).contentType("application/json").content("{}"))
-            .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest());
         var response = mvc.perform(post("/api/v1/member/connections/google/start").with(csrf()).header("Authorization", "Bearer " + member.accessToken()).contentType("application/json").content("{\"password\":\"" + PASSWORD + "\"}"))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.authorizationUrl").value("/oauth2/authorization/google?connect=1")).andReturn();
+                .andExpect(status().isOk()).andExpect(jsonPath("$.authorizationUrl").value("/oauth2/authorization/google?connect=1")).andReturn();
         assertFalse(response.getResponse().getContentAsString().contains("Token"));
         var browser = response.getRequest().getSession(false);
         assertNotNull(browser);
@@ -240,7 +248,7 @@ class AccountConnectionsIntegrationTest {
         var start = new MockHttpServletRequest("GET", "/oauth2/authorization/google");
         start.setServletPath("/oauth2/authorization/google");
         start.setParameter("connect", "1");
-        var pending = connections.begin(user, "google", "binding", PASSWORD_PROOF);
+        var pending = connections.begin(user, "google", "binding", PASSWORD_PROOF, remoteAddress);
         start.getSession().setAttribute(ConnectionOAuthFlow.PENDING, new ConnectionOAuthFlow.Link(pending, "google"));
         start.getSession().setAttribute(ConnectionOAuthFlow.BINDING, "binding");
         var authorization = flow.resolve(start);
@@ -287,13 +295,13 @@ class AccountConnectionsIntegrationTest {
     void configuredProviderCallbackCannotBeChangedByRequestHost() throws Exception {
         for (String provider : List.of("google", "kakao")) {
             var response = mvc.perform(get("/oauth2/authorization/" + provider)
-                    .with(request -> {
-                        request.setServerName("untrusted.example.invalid");
-                        return request;
-                    })
-                    .header("Host", "untrusted.example.invalid")
-                    .header("X-Forwarded-Host", "untrusted.example.invalid"))
-                .andExpect(status().is3xxRedirection()).andReturn().getResponse();
+                            .with(request -> {
+                                request.setServerName("untrusted.example.invalid");
+                                return request;
+                            })
+                            .header("Host", "untrusted.example.invalid")
+                            .header("X-Forwarded-Host", "untrusted.example.invalid"))
+                    .andExpect(status().is3xxRedirection()).andReturn().getResponse();
             String target = java.net.URLDecoder.decode(response.getRedirectedUrl(), java.nio.charset.StandardCharsets.UTF_8);
             assertTrue(target.contains("redirect_uri=http://localhost:8080/login/oauth2/code/" + provider));
             assertFalse(target.contains("untrusted.example.invalid"));
@@ -307,8 +315,8 @@ class AccountConnectionsIntegrationTest {
         String subject = UUID.randomUUID().toString();
         String email = UUID.randomUUID() + "@example.invalid";
         var principal = new DefaultOAuth2User(List.of(new SimpleGrantedAuthority("ROLE_USER")),
-            Map.of("id", subject, "kakao_account", Map.of("email", email, "is_email_valid", true,
-                "is_email_verified", true, "profile", Map.of("nickname", "카카오 검증"))), "id");
+                Map.of("id", subject, "kakao_account", Map.of("email", email, "is_email_valid", true,
+                        "is_email_verified", true, "profile", Map.of("nickname", "카카오 검증"))), "id");
         var token = new OAuth2AuthenticationToken(principal, principal.getAuthorities(), "kakao");
         var response = new MockHttpServletResponse();
         handler().onAuthenticationSuccess(new MockHttpServletRequest(), response, token);
@@ -329,9 +337,9 @@ class AccountConnectionsIntegrationTest {
 
     private ConnectionOAuthFlow flow() {
         var registration = ClientRegistration.withRegistrationId("google").clientId("fixture").clientSecret("fixture")
-            .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE).redirectUri("http://localhost/login/oauth2/code/google")
-            .authorizationUri("https://provider.invalid/authorize").tokenUri("https://provider.invalid/token")
-            .userInfoUri("https://provider.invalid/me").userNameAttributeName("sub").build();
+                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE).redirectUri("http://localhost/login/oauth2/code/google")
+                .authorizationUri("https://provider.invalid/authorize").tokenUri("https://provider.invalid/token")
+                .userInfoUri("https://provider.invalid/me").userNameAttributeName("sub").build();
         return new ConnectionOAuthFlow(new InMemoryClientRegistrationRepository(registration), connections);
     }
 }

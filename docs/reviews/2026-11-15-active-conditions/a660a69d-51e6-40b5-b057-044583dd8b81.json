@@ -1,0 +1,351 @@
+{
+  "packageId": "active-easy-20261115-a660a69d-51e6-40b5-b057-044583dd8b81",
+  "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+  "revision": 3,
+  "extractionId": "6b3c98ae-39fe-4823-85dd-ca1014987e42",
+  "disposition": "PASS",
+  "reviewNotes": "2026-11-15 공식 상세의 정정 연결과 공식 PDF 대조. 기준일·유형별 차이·예외 및 준비할 핵심 서류를 구분.",
+  "unresolvedFindings": [],
+  "sourceReviews": [
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021060&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "sha256": "03867e00542c2d517bcf1d1f9c517f50aedd9bf12ad08d38ee68b17a4b4846fc",
+      "label": "공식 상세 본문",
+      "role": "OFFICIAL_LISTING",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389515",
+      "sha256": "0a103347eb480159c0676bc452faa23986a224b919f9f1478e29feed421938ec",
+      "label": "(공고)울산다운2A-6블록행복주택입주자추가모집(입주자격완화,선계약후검증)_261112.hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516",
+      "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124",
+      "label": "(공고)울산다운2A-6블록행복주택입주자추가모집(입주자격완화,선계약후검증)_261112.pdf",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389536",
+      "sha256": "d4c03ff041064fc6013d18fdfac752045203f910b34911a7844847d374b8e949",
+      "label": "★울산다운2a-6행복주택팜플렛(최종).pdf",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389550",
+      "sha256": "7f3d7d44c483aa930f4b91dedaa88b66586186d9d57929b4bc808fec6f8382d4",
+      "label": "(양식)본인행정정보제공요구서.hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389555",
+      "sha256": "2d90cc2bfcce6702d15a0414d8272243377f26116b42f99a76ec4a7bfc12f854",
+      "label": "(양식)서류제출등작성서류(금융정보,자산보유등)_울산다운2A-6블록.hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389608",
+      "sha256": "ea8116ed5a1437a42dc114897cbbe6332b4e43e4a7bc7644fcfb39a459a51f73",
+      "label": "(양식)위임장_울산다운2A-6블록.hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389567",
+      "sha256": "3678a3de3afb6c32e7cb868da652ef86009057ee5a7f76f1b4eed1425a4d0148",
+      "label": "(양식)입주자격완화확약서및선계약후검증확약서(울산다운2).hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    }
+  ],
+  "content": {
+    "summary": "지원 대상: 대학생·청년·신혼부부·한부모가족·고령자·주거급여수급자 중 해당 유형 기준을 갖춘 사람이 대상이에요. 지원 내용: 울산다운2 A-6 행복주택을 먼저 계약하고, 자격 확인을 통과하면 입주해요.",
+    "evidence": {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021060&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "label": "LH 공식 공고 원문",
+      "checkedAt": "2026-11-12"
+    },
+    "documents": [
+      {
+        "id": "register",
+        "title": "주민등록표등본",
+        "method": "세대관계를 확인하는 등본을 준비해요. 배우자와 별도 등본이면 배우자 등본도 확인하세요.",
+        "issuer": "행정복지센터·정부24",
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "evidence": {
+          "label": "LH 모집공고 PDF 8쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "method": "공고 서식에 유형별 대상자가 서명해요. 예비신혼부부는 결혼 후 구성할 세대 기준이에요.",
+        "issuer": "공고 첨부 서식",
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "evidence": {
+          "label": "LH 모집공고 PDF 8쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+          "checkedAt": "2026-11-15"
+        }
+      }
+    ],
+    "questions": [
+      {
+        "id": "verification",
+        "title": "계약 후 자격 확인 방식을 확인했나요?",
+        "reason": "먼저 계약하고 자격 확인을 통과해야 입주해요. 완화 기준으로 1회 재계약할 수 있어요. 그 계약이 끝날 때 일반 자격을 갖춘 대기자가 없으면 한 번 더 가능해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 1쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=1",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "student",
+        "title": "대학생·취업준비생 기준을 확인했나요?",
+        "reason": "혼인 중이 아닌 무주택자가 대상이에요. 대학 재학·다음 학기 입학 또는 복학 예정이거나, 대학·고등학교 졸업 또는 중퇴 후 2년 이내인 경우예요. 소득·자산 요건은 완화하지만 본인이 자동차가액 산출 대상 자동차를 소유하면 안 돼요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 3쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=3",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "youth",
+        "title": "청년·사회초년생 기준을 확인했나요?",
+        "reason": "청년은 19~39세예요. 사회초년생은 소득이 있는 일을 한 기간이 총 7년 이내이고 근무 중이거나, 퇴직 후 1년 이내 구직급여 수급자격을 인정받았거나, 예술인인 경우예요. 혼인 중이 아닌 무주택자여야 하고 해당 세대의 자동차는 4,542만 원 이하여야 해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 4쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=4",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "family",
+        "title": "신혼부부·한부모 기준을 확인했나요?",
+        "reason": "신혼부부는 혼인 10년 이내이거나 만 9세 이하 자녀가 있어야 해요. 한부모는 만 9세 이하 자녀가 있어야 하며 태아도 포함해요. 예비신혼부부는 입주 전 혼인을 증명하고 결혼 후 구성할 세대가 무주택이어야 해요. 해당 세대 자동차는 4,542만 원 이하예요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 5쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=5",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "elder",
+        "title": "고령자·주거급여수급자 기준을 확인했나요?",
+        "reason": "고령자 유형은 공고일 기준 만 65세 이상인 무주택세대구성원이고 세대 자동차는 4,542만 원 이하여야 해요. 주거급여수급자는 별도 유형으로 무주택세대구성원 여부와 수급 자격을 확인해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      }
+    ],
+    "schedules": [
+      {
+        "id": "auto-application-start",
+        "date": "2026-11-23T10:00",
+        "title": "신청 접수 시작",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      },
+      {
+        "id": "auto-application-end",
+        "date": "2026-11-25T17:00",
+        "title": "신청 접수 마감",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      },
+      {
+        "id": "doc-result",
+        "title": "서류 제출 대상자 발표",
+        "date": "2026-12-02T14:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "doc-end",
+        "title": "서류 제출 마감",
+        "date": "2026-12-08T18:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "result",
+        "title": "당첨자·예비입주자 발표",
+        "date": "2026-12-16T14:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      }
+    ],
+    "attachments": [
+      {
+        "label": "(공고)울산다운2A-6블록행복주택입주자추가모집(입주자격완화,선계약후검증)_261112.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389515",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(공고)울산다운2A-6블록행복주택입주자추가모집(입주자격완화,선계약후검증)_261112.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "★울산다운2a-6행복주택팜플렛(최종).pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389536",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)본인행정정보제공요구서.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389550",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)서류제출등작성서류(금융정보,자산보유등)_울산다운2A-6블록.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389555",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)위임장_울산다운2A-6블록.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389608",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(양식)입주자격완화확약서및선계약후검증확약서(울산다운2).hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389567",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "reviewIssues": [],
+    "applicationClosure": null
+  },
+  "startDate": "2026-11-23",
+  "endDate": "2026-11-25"
+}

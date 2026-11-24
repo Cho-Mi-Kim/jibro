@@ -1,10 +1,14 @@
 package org.jibro.collection.review.ai;
 
 import java.util.*;
+
 import tools.jackson.databind.JsonNode;
+
 import static org.jibro.collection.review.ai.ScopedReviewModels.*;
 
-/** The provider can cite existing issue and clause IDs, but cannot invent rules or publication flags. */
+/**
+ * The provider can cite existing issue and clause IDs, but cannot invent rules or publication flags.
+ */
 final class ScopedReviewSchema {
     static final int MAX_DECISIONS = 32;
     static final int MAX_EVIDENCE_IDS = 64;
@@ -12,20 +16,21 @@ final class ScopedReviewSchema {
     private static final Set<String> ROOT_FIELDS = Set.of("decisions");
     private static final Set<String> DECISION_FIELDS = Set.of("issueId", "disposition", "evidenceClauseIds");
 
-    private ScopedReviewSchema() {}
+    private ScopedReviewSchema() {
+    }
 
     static Map<String, Object> schema() {
         // Nested array bounds can exceed the provider's decoding-grammar complexity. The
         // bounded body reader and strict local parser enforce all counts and identifier limits.
         var id = Map.of("type", "string");
         var decision = Map.of("type", "object", "properties", Map.of(
-                "issueId", id,
-                "disposition", Map.of("type", "string", "enum", Arrays.stream(Disposition.values()).map(Enum::name).toList()),
-                "evidenceClauseIds", Map.of("type", "array",
-                        "items", id)),
+                        "issueId", id,
+                        "disposition", Map.of("type", "string", "enum", Arrays.stream(Disposition.values()).map(Enum::name).toList()),
+                        "evidenceClauseIds", Map.of("type", "array",
+                                "items", id)),
                 "required", List.of("issueId", "disposition", "evidenceClauseIds"), "additionalProperties", false);
         return Map.of("type", "object", "properties", Map.of(
-                "decisions", Map.of("type", "array", "items", decision)),
+                        "decisions", Map.of("type", "array", "items", decision)),
                 "required", List.of("decisions"), "additionalProperties", false);
     }
 

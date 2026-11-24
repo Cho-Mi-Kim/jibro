@@ -12,10 +12,15 @@ import {
 import { api } from '../features/housing/api';
 import { memberApi } from '../features/member/memberApi';
 import { ComparePage, VersionsPage } from './ComparePage';
+import { NoticeListLayout } from '../features/housing/NoticeListLayout';
 import { comparisonApi } from '../features/comparison/comparisonApi';
 import { comparisonFixture } from '../features/comparison/comparisonFixtures';
 
-const data = ['A', 'B', 'C'].map(comparisonFixture);
+const data = ['A', 'B', 'C'].map((id) => {
+    const item = comparisonFixture(id);
+    item.notice.title = `2026년 ${id} 청년 공고 (2026.10.27)`;
+    return item;
+});
 function NavigationProbe() {
     const location = useLocation();
     const navigate = useNavigate();
@@ -37,11 +42,13 @@ function mount(path = '/compare?a=A&b=B') {
             <MemoryRouter initialEntries={[path]}>
                 <NavigationProbe />
                 <Routes>
-                    <Route path="/compare" element={<ComparePage />} />
-                    <Route
-                        path="/notices/:noticeId/versions"
-                        element={<VersionsPage />}
-                    />
+                    <Route element={<NoticeListLayout />}>
+                        <Route path="/compare" element={<ComparePage />} />
+                        <Route
+                            path="/notices/:noticeId/versions"
+                            element={<VersionsPage />}
+                        />
+                    </Route>
                 </Routes>
             </MemoryRouter>
         </QueryClientProvider>,
@@ -71,20 +78,22 @@ describe('공고 비교 선택 흐름', () => {
     it('주소의 두 공고를 읽고 한 공고 변경 후 뒤로 가면 원래 비교를 복원한다', async () => {
         const user = userEvent.setup();
         mount();
-        expect(await selection(1).findByText('A 청년 공고')).toBeVisible();
-        expect(await selection(2).findByText('B 청년 공고')).toBeVisible();
+        expect(await selection(1).findByText('A 청년')).toBeVisible();
+        expect(await selection(2).findByText('B 청년')).toBeVisible();
         await user.click(
             selection(2).getByRole('button', { name: '2번 공고 변경' }),
         );
-        await user.click(
-            await screen.findByRole('button', { name: /C 청년 공고/ }),
-        );
-        expect(await selection(2).findByText('C 청년 공고')).toBeVisible();
+        await user.click(await screen.findByRole('button', { name: /C 청년/ }));
+        expect(await selection(2).findByText('C 청년')).toBeVisible();
+        const basic = within(screen.getByRole('region', { name: '기본 정보' }));
+        expect(
+            basic.getByRole('heading', { name: /C 청년/ }),
+        ).toHaveTextContent(/^2\s*C 청년$/);
         expect(screen.getByLabelText('현재 주소')).toHaveTextContent(
             '/compare?a=A&b=C',
         );
         await user.click(screen.getByRole('button', { name: '브라우저 뒤로' }));
-        expect(await selection(2).findByText('B 청년 공고')).toBeVisible();
+        expect(await selection(2).findByText('B 청년')).toBeVisible();
         expect(screen.getByLabelText('현재 주소')).toHaveTextContent(
             '/compare?a=A&b=B',
         );
@@ -96,22 +105,22 @@ describe('공고 비교 선택 흐름', () => {
     it('첫 번째를 해제하고 다시 골라도 두 번째 선택은 유지하고 중복 후보는 제외한다', async () => {
         const user = userEvent.setup();
         mount();
-        await selection(1).findByText('A 청년 공고');
+        await selection(1).findByText('A 청년');
         await user.click(
             selection(1).getByRole('button', { name: '1번 공고 선택 해제' }),
         );
         const search = screen.getByRole('region', { name: '1번 공고 검색' });
         expect(
-            await within(search).findByRole('button', { name: /A 청년 공고/ }),
+            await within(search).findByRole('button', { name: /A 청년/ }),
         ).toBeVisible();
         expect(
-            within(search).queryByRole('button', { name: /B 청년 공고/ }),
+            within(search).queryByRole('button', { name: /B 청년/ }),
         ).not.toBeInTheDocument();
         await user.click(
-            within(search).getByRole('button', { name: /C 청년 공고/ }),
+            within(search).getByRole('button', { name: /C 청년/ }),
         );
-        expect(await selection(1).findByText('C 청년 공고')).toBeVisible();
-        expect(selection(2).getByText('B 청년 공고')).toBeVisible();
+        expect(await selection(1).findByText('C 청년')).toBeVisible();
+        expect(selection(2).getByText('B 청년')).toBeVisible();
         expect(screen.getByLabelText('현재 주소')).toHaveTextContent('b=B&a=C');
     });
 
@@ -128,7 +137,7 @@ describe('공고 비교 선택 흐름', () => {
         await user.click(
             selection(1).getByRole('button', { name: '다시 시도' }),
         );
-        expect(await selection(1).findByText('A 청년 공고')).toBeVisible();
+        expect(await selection(1).findByText('A 청년')).toBeVisible();
         expect(screen.getByRole('region', { name: '공식 일정' })).toBeVisible();
     });
 
@@ -156,7 +165,7 @@ describe('공고 비교 선택 흐름', () => {
     it('공고 변경 검색은 새 검색어로 조회하고 기존 두 공고를 유지한 채 취소한다', async () => {
         const user = userEvent.setup();
         mount();
-        await selection(1).findByText('A 청년 공고');
+        await selection(1).findByText('A 청년');
         await user.click(
             selection(1).getByRole('button', { name: '1번 공고 변경' }),
         );

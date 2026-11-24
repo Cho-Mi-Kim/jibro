@@ -1,0 +1,462 @@
+{
+    "entries": [
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "household",
+            "sourceTitle": "세대 범위와 완화된 주택 요건을 확인했나요?",
+            "sourceReason": "2026.11.11. 기준 공고의 무주택세대구성원 범위를 적용합니다. 이번 모집은 소형·저가주택 및 해당·연접지역 밖 주택의 예외가 있으므로 대구신서와 경산삼주봉황의 지역 범위를 각각 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=6",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "집이 있어도 신청할 수 있나요?",
+            "preview": "집이 없어야 하는 지역과 소형·저가주택 예외를 확인해요. 두 단지군의 지역 범위가 달라요.",
+            "sections": [
+                {
+                    "text": "2026.11.11. 기준 공고의 집이 없는 심사 대상 세대원 범위를 적용해요.\n\n이번 모집은 소형·저가주택 및 해당·연접지역 밖 주택의 예외가 있으므로 대구신서와 경산삼주봉황의 지역 범위를 각각 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 세대 범위와 완화된 주택 요건을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "vehicle",
+            "sourceTitle": "자동차 기준과 예외에 해당하나요?",
+            "sourceReason": "소득·총자산 기준은 배제하나 자동차가액 4,542만원 이하 기준은 남아 있습니다. 장애인·국가유공자 차량 등 제외와 보조금 처리 기준을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=7",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "자동차 한도는 얼마인가요?",
+            "preview": "소득·총자산은 보지 않지만 자동차는 기본 4,542만 원 이하여야 해요. 가산·제외도 확인해요.",
+            "sections": [
+                {
+                    "text": "소득·총자산 기준은 배제하나 자동차가액 4,542만원 이하 기준은 남아 있어요.\n\n장애인·국가유공자 차량 등 제외와 보조금 처리 기준을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 · 자동차 기준과 예외에 해당하나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=7",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "contract",
+            "sourceTitle": "선계약 후검증 방식과 재계약 기준을 확인했나요?",
+            "sourceReason": "계약을 먼저 하더라도 입주는 자격검증 적격자만 가능합니다. 완화 요건의 재계약 제한과 부적격·계약해지 조건을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=1",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "먼저 계약하면 바로 입주할 수 있나요?",
+            "preview": "계약한 뒤 자격을 확인해요. 적격자만 입주하고 완화 항목별 재계약 제한도 적용돼요.",
+            "sections": [
+                {
+                    "text": "계약을 먼저 하더라도 입주는 자격검증 적격자만 가능해요.\n\n완화 요건의 재계약 제한과 부적격·계약해지 조건을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 · 선계약 후검증 방식과 재계약 기준을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=1",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "restriction",
+            "sourceTitle": "중복신청·기계약자 제한에 해당하지 않나요?",
+            "sourceReason": "동일 공고의 4개 단지 중 1세대 1주택만 신청합니다. 대상주택 기계약자와 배우자(분리배우자 포함)는 신청 불가하며 불법양도·전대 제한도 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=7",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "중복신청·기계약자 제한에 해당하지 않나요?",
+            "preview": "동일 공고의 4개 단지 중 1세대 1주택만 신청해요.",
+            "sections": [
+                {
+                    "text": "동일 공고의 4개 단지 중 1세대 1주택만 신청해요.\n\n대상주택 기계약자와 배우자(따로 사는 배우자 포함)는 신청 불가하며 불법양도·전대 제한도 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 · 중복신청·기계약자 제한에 해당하지 않나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=7",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "selection",
+            "sourceTitle": "동호지정 순번 추첨과 제출시점을 확인했나요?",
+            "sourceReason": "단지·주택형별 전산 무작위 추첨으로 순번을 정합니다. 현장 신청자는 청약 시, 온라인 신청자는 동호지정·계약 시 서류를 제출합니다. 순번별 계약 일정·조기마감을 별도로 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=9",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "동·호 지정과 계약은 어떤 순서인가요?",
+            "preview": "동·호를 정하고 계약금 50만 원을 내요. 계약한 뒤 자격을 확인해요.",
+            "sections": [
+                {
+                    "text": "- 단지·주택형별 전산 무작위 추첨으로 순번을 정해요.\n- 현장 신청자는 청약 시, 온라인 신청자는 동호지정·계약 시 서류를 내요.\n- 순번별 계약 일정·조기마감을 별도로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 9쪽 · 동호지정 순번 추첨과 제출시점을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=9",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-application",
+            "sourceTitle": "국민임대주택 공급신청서 제출 대상인가요?",
+            "sourceReason": "현장 청약 신청자인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "국민임대주택 공급신청서는 누가 내나요?",
+            "preview": "현장 청약자는 공고 양식 신청서를 접수할 때 내요.",
+            "sections": [
+                {
+                    "text": "현장 청약자는 공고 양식의 공급신청서를 작성해 접수할 때 내요. 인터넷·모바일 신청자는 온라인 신청 내용으로 접수해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "국민임대주택 공급신청서",
+                                "현장 청약자는 공고 양식의 공급신청서를 작성해 접수할 때 내요. 인터넷·모바일 신청자는 온라인 신청 내용으로 접수해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "현장 청약자는 공고 양식의 공급신청서를 작성해 접수할 때 내요. 인터넷·모바일 신청자는 온라인 신청 내용으로 접수해요."
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-pledges",
+            "sourceTitle": "입주자격 완화·선계약 후검증 확약서 제출 대상인가요?",
+            "sourceReason": "동호지정 선정자가 되어 계약하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "계약할 때 확약서는 어떻게 내나요?",
+            "preview": "두 확약서에 서명하고 신분증·신청자 통장 사본을 준비해요.",
+            "sections": [
+                {
+                    "text": "동·호 지정 대상자가 계약할 때 입주자격 완화 확약서와 선계약 후검증 확약서 두 장에 각각 서명하거나 도장을 찍어요. 선계약 후검증 확약서에는 신분증과 신청자 명의 통장 사본을 붙여요. 통장 사본은 이름·은행명·계좌번호가 나온 모바일 화면도 가능해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "입주자격 완화·선계약 후검증 확약서",
+                                "동·호 지정 대상자가 계약할 때 입주자격 완화 확약서와 선계약 후검증 확약서 두 장에 각각 서명하거나 도장을 찍어요. 선계약 후검증 확약서에는 신분증과 신청자 명의 통장 사본을 붙여요. 통장 사본은 이름·은행명·계좌번호가 나온 모바일 화면도 가능해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "동·호 지정 대상자가 계약할 때 입주자격 완화 확약서와 선계약 후검증 확약서 두 장에 각각 서명하거나 도장을 찍어요. 선계약 후검증 확약서에는 신분증과 신청자 명의 통장 사본을 붙여요. 통장 사본은 이름·은행명·계좌번호가 나온 모바일 화면도 가능해요."
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서(상세) 제출 대상인가요?",
+            "sourceReason": "배우자 관계 확인·외국인 배우자·예비신혼부부 세대 관계 확인 등이 필요한가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본에서 배우자·가족관계를 확인할 수 없거나 공고의 필수 대상이면 가족관계증명서를 내요.",
+            "sections": [
+                {
+                    "text": "배우자 관계 확인·외국인 배우자·예비신혼부부 세대 관계 확인 등이 필요하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 가족관계증명서(상세) 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 가족관계증명서(상세) 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "가족관계증명서(상세)",
+                                "일반·특정 증명서가 아닌 상세증명서로 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본(상세) 제출 대상인가요?",
+            "sourceReason": "공고일 이후 주소·세대주 변동이 있거나 예비신혼부부 대표신청자인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "공고 후 주소·세대주가 바뀌면 초본을 내요. 예비신혼 대표 신청자 등 추가 대상도 확인해요.",
+            "sections": [
+                {
+                    "text": "공고일 이후 주소·세대주가 바뀐 세대원은 상세 초본을 내요. 예비신혼부부는 대표 신청자 초본을 내요. 과거 주소, 세대주 이름과 관계를 모두 표시해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "주민등록표초본(상세)",
+                                "공고일 이후 주소·세대주가 바뀐 세대원은 상세 초본을 내요. 예비신혼부부는 대표 신청자 초본을 내요. 과거 주소, 세대주 이름과 관계를 모두 표시해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "공고일 이후 주소·세대주가 바뀐 세대원은 상세 초본을 내요. 예비신혼부부는 대표 신청자 초본을 내요. 과거 주소, 세대주 이름과 관계를 모두 표시해요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "applies-newlywed",
+                        "answerValues": ["YES"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["history"],
+                        "message": "예비신혼부부 대표 신청자는 주민등록초본이 필요해요. 신청 유형과 초본 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-newlywed",
+            "sourceTitle": "예비신혼부부 신청·세대구성 확인서 제출 대상인가요?",
+            "sourceReason": "예비신혼부부로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "예비신혼부부는 무엇을 더 내나요?",
+            "preview": "신청·세대구성 확인서를 내고, 입주 전 상세 혼인관계증명서로 실제 혼인을 확인해요.",
+            "sections": [
+                {
+                    "text": "예비신혼부부는 LH 신청확인서와 세대구성 확인서를 내요. 입주 전에는 신청 때 적은 예비배우자와 혼인했는지 상세 혼인관계증명서로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "예비신혼부부 신청·세대구성 확인서",
+                                "예비신혼부부는 LH 신청확인서와 세대구성 확인서를 내요. 입주 전에는 신청 때 적은 예비배우자와 혼인했는지 상세 혼인관계증명서로 확인해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "예비신혼부부는 LH 신청확인서와 세대구성 확인서를 내요. 입주 전에는 신청 때 적은 예비배우자와 혼인했는지 상세 혼인관계증명서로 확인해요."
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "배우자가 외국인이면 무엇을 내나요?",
+            "preview": "배우자가 외국인이면 등록·거소 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "배우자가 외국인이면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "외국인등록사실증명서",
+                                "공고의 제출 대상에 맞춰 발급하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "0e185218-45e5-462d-8026-821bbf2528ee",
+            "questionId": "applies-identity",
+            "sourceTitle": "현장·대리신청 확인서류 제출 대상인가요?",
+            "sourceReason": "본인 또는 대리인이 현장 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                "sha256": "ebc42ea6ce3f19ed2de9251428e5cb12e1461f023db0dedd29b6b8694fa856cd"
+            },
+            "heading": "방문하거나 대신 신청할 때 무엇을 챙기나요?",
+            "preview": "본인·배우자 대리·그 외 대리에 따라 신분증과 위임서류가 달라요.",
+            "sections": [
+                {
+                    "text": "본인 또는 대리인이 현장 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 현장·대리신청 확인서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 현장·대리신청 확인서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69334954#page=13",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "현장·대리신청 확인서류",
+                                "신분증·도장·위임장·관계증빙 등 신청 방식별 서류를 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

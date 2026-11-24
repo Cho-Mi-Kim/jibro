@@ -70,7 +70,7 @@ public class V21__notice_application_timing extends BaseJavaMigration {
 
     private static boolean basicTitle(String title, boolean closing) {
         String plain = title.replaceAll("\\([^)]*(?:\\d{1,2}:\\d{2}|\\d{1,2}시|조기\\s*중단)[^)]*\\)", "")
-            .replaceAll("\\s", "");
+                .replaceAll("\\s", "");
         return plain.matches(closing ? "(?:신청접수|신청|접수)마감" : "(?:신청접수|신청|접수)(?:시작|개시)");
     }
 
@@ -78,7 +78,7 @@ public class V21__notice_application_timing extends BaseJavaMigration {
         try {
             if (value.length() == 10) return LocalDate.parse(value);
             return hasOffset(value) ? OffsetDateTime.parse(value).atZoneSameInstant(SEOUL).toLocalDate()
-                : LocalDateTime.parse(value).toLocalDate();
+                    : LocalDateTime.parse(value).toLocalDate();
         } catch (DateTimeException error) {
             return null;
         }
@@ -88,7 +88,7 @@ public class V21__notice_application_timing extends BaseJavaMigration {
         try {
             if (value.length() > 10)
                 return hasOffset(value) ? OffsetDateTime.parse(value).toInstant()
-                    : LocalDateTime.parse(value).atZone(SEOUL).toInstant();
+                        : LocalDateTime.parse(value).atZone(SEOUL).toInstant();
             var match = CLOCK.matcher(title);
             if (!match.find()) return null;
             int hour = Integer.parseInt(match.group(2));

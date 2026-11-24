@@ -14,7 +14,9 @@ export interface NoticeSourceInformationData {
         title: string;
         text: string;
         evidence: Evidence;
+        form?: Evidence;
     }[];
+    confirmedItems?: NoticeSourceInformationData['sections'];
     pendingAreas: SourceInformationArea[];
 }
 

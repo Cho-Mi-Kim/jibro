@@ -1,4 +1,5 @@
 import { call } from '../../shared/api/transport';
+import { withReviewedConditions } from '../housing/reviewedConditionPresentation';
 import type {
     Answer,
     DocumentItem,
@@ -48,5 +49,5 @@ export const oneTimeCheckApi = {
             '/notices/' + encodeURIComponent(noticeId) + '/check-once',
             'POST',
             { version, answers },
-        ),
+        ).then(withReviewedConditions),
 };

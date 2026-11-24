@@ -38,6 +38,23 @@ const notice: Notice = {
 };
 
 describe('서버가 확인한 접수 시각', () => {
+    it('홈과 내 준비의 다음 일정도 검수된 마감 시각과 조기 중단 조건을 표시한다', () => {
+        const event = {
+            id: 'closing',
+            title: '신청 접수 마감 (17:00, 조기 중단 가능)',
+            date: '2026-12-31',
+            evidence,
+        };
+        const next = nextNoticeSchedule(
+            { ...notice, schedules: [event] },
+            [event],
+            new Date('2026-12-31T08:30:00Z'),
+        );
+        expect(next).toMatchObject({
+            date: notice.applicationTiming!.endsAt,
+            title: '신청 접수 마감 (조기 중단 가능)',
+        });
+    });
     it('18시 직전과 정각의 마감 표시를 구분하고 날짜만 있으면 시각을 만들지 않는다', () => {
         expect(noticeDaysLeft(notice, new Date('2026-12-31T08:59:59Z'))).toBe(
             'D-Day',

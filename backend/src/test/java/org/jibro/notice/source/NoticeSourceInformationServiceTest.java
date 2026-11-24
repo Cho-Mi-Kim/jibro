@@ -8,12 +8,14 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 import org.jibro.collection.extraction.ExtractionModels.*;
 import org.jibro.notice.source.NoticeSourceInformationRepository.Snapshot;
 import org.junit.jupiter.api.Test;
 
 class NoticeSourceInformationServiceTest {
-    @Test void changingSourceDuringReadDiscardsAllOldTextBeforeReturning() {
+    @Test
+    void changingSourceDuringReadDiscardsAllOldTextBeforeReturning() {
         var repository = mock(NoticeSourceInformationRepository.class);
         UUID id = UUID.randomUUID();
         var source = new Source("공고.pdf", "https://apply.lh.or.kr/notice.pdf", "a".repeat(64), "EXTRACTED", "", List.of(),
@@ -30,7 +32,8 @@ class NoticeSourceInformationServiceTest {
         verifyNoMoreInteractions(repository);
     }
 
-    @Test void noCompletedCurrentExtractionReturnsPendingWithoutAnyOtherWork() {
+    @Test
+    void withoutCurrentExtractionOnlyIndependentlyVerifiedItemsMayBeRead() {
         var repository = mock(NoticeSourceInformationRepository.class);
         UUID id = UUID.randomUUID();
         when(repository.publishedRevision(id)).thenReturn(3);
@@ -38,6 +41,7 @@ class NoticeSourceInformationServiceTest {
         assertEquals(State.PENDING, new NoticeSourceInformationService(repository, "apply.lh.or.kr").get(id).state());
         verify(repository).publishedRevision(id);
         verify(repository).latest(id, 3);
+        verify(repository).confirmedItems(id, 3);
         verifyNoMoreInteractions(repository);
     }
 }

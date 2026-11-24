@@ -21,8 +21,8 @@ public final class EvidenceValidation {
 
     static void validate(Evidence evidence, LocalDate today) {
         if (evidence == null || evidence.label() == null || evidence.label().isBlank()
-            || evidence.label().length() > 300 || evidence.checkedAt() == null
-            || !evidence.checkedAt().matches("\\d{4}-\\d{2}-\\d{2}"))
+                || evidence.label().length() > 300 || evidence.checkedAt() == null
+                || !evidence.checkedAt().matches("\\d{4}-\\d{2}-\\d{2}"))
             throw new IllegalArgumentException("출처 위치와 확인일을 확인해 주세요.");
         validateUrl(evidence.url());
         LocalDate checkedAt;
@@ -40,7 +40,7 @@ public final class EvidenceValidation {
         if (value.length() > 2000) throw new IllegalArgumentException("공식 주소를 확인해 주세요.");
         URI uri = URI.create(value);
         if (!"https".equalsIgnoreCase(uri.getScheme()) || uri.getHost() == null || uri.getRawUserInfo() != null
-            || uri.getPort() != -1 && uri.getPort() != 443)
+                || uri.getPort() != -1 && uri.getPort() != 443)
             throw new IllegalArgumentException("HTTPS 공식 주소를 입력해 주세요.");
     }
 }

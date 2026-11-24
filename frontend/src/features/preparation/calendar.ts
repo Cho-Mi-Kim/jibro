@@ -3,6 +3,7 @@ import type { Evidence, Notice, Preparation } from '../housing/types';
 import { safeUrl } from '../../shared/ui/helpers';
 import {
     currentPreparationSchedules,
+    currentPreparationScheduleSource,
     applicationDate,
     dateWithScheduleTime,
     isBasicScheduleAlias,
@@ -28,10 +29,11 @@ export function calendarItems(n: Notice, p?: Preparation) {
     const schedules = p
         ? currentPreparationSchedules(p, n)
         : (n.schedules ?? []);
+    const source = p ? currentPreparationScheduleSource(p, n) : n;
     const selected = new Set<(typeof schedules)[number]>();
     for (const [kind, title, date] of [
-        ['start', '신청 접수 시작', n.startDate],
-        ['end', '신청 접수 마감', n.endDate],
+        ['start', '신청 접수 시작', source.startDate],
+        ['end', '신청 접수 마감', source.endDate],
     ] as const) {
         if (!date) continue;
         const event = selectSchedule(schedules, kind, date);
@@ -39,8 +41,8 @@ export function calendarItems(n: Notice, p?: Preparation) {
             event && safeUrl(event.evidence.url) ? event.evidence : n.evidence;
         add(
             kind,
-            n.applicationTiming ? title : (event?.title ?? title),
-            applicationDate(n, kind),
+            source.applicationTiming ? title : (event?.title ?? title),
+            applicationDate(source, kind),
             evidence,
         );
         if (event)
@@ -125,8 +127,7 @@ export function calendarFile(
             'DTSTAMP:' + utc(now),
             'DTSTART' + start,
             'SUMMARY:' + escape(n.title + ' · ' + e.title),
-            'DESCRIPTION:' +
-                escape('공식 공고 기준 v' + n.version + '\n' + e.source),
+            'DESCRIPTION:' + escape(e.source),
             'URL:' + new URL(e.source).href,
             'END:VEVENT',
         );

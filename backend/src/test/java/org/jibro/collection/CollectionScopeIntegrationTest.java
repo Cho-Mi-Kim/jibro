@@ -67,7 +67,7 @@ class CollectionScopeIntegrationTest {
         var receipts = archive.list(UUID.fromString(first.id()));
         assertEquals(List.of("06", "13"), receipts.stream().map(CollectionResponseRepository.Receipt::categoryCode).toList());
         assertTrue(receipts.stream().allMatch(receipt -> receipt.publishedFrom().equals(LocalDate.of(2000, 1, 1))
-            && receipt.publishedThrough().equals(receipt.queryDate()) && receipt.page() == 1));
+                && receipt.publishedThrough().equals(receipt.queryDate()) && receipt.page() == 1));
         assertEquals(2, db.queryForObject("SELECT scope_index FROM collection_run WHERE id=?", Integer.class, UUID.fromString(first.id())));
     }
 
@@ -121,7 +121,7 @@ class CollectionScopeIntegrationTest {
     @Test
     void safetyLimitIsPartialAndStillChecksTheOtherCategory() throws Exception {
         when(client.fetch(eq(500), any(CollectionQueryPlan.Query.class))).thenReturn(new LhNoticeClient.Batch(
-            IntStream.range(0, 100).mapToObj(i -> item("limit-" + i, LocalDate.of(2024, 1, 1))).toList(), 100_001));
+                IntStream.range(0, 100).mapToObj(i -> item("limit-" + i, LocalDate.of(2024, 1, 1))).toList(), 100_001));
         var run = collections.collect(actor, 500);
         assertEquals("PARTIAL", run.status());
         assertEquals(1, db.queryForObject("SELECT issue_count FROM collection_run WHERE id=?", Integer.class, UUID.fromString(run.id())));
@@ -141,6 +141,6 @@ class CollectionScopeIntegrationTest {
 
     private LhNoticeClient.Item item(String key, LocalDate published) {
         return new LhNoticeClient.Item(prefix + "-" + key, "검수 전 공식 공고 " + key, "서울", "청년 매입임대",
-            "https://apply.lh.or.kr/example?id=" + key, published, "stable-" + key);
+                "https://apply.lh.or.kr/example?id=" + key, published, "stable-" + key);
     }
 }

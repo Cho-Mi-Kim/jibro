@@ -1,0 +1,547 @@
+{
+    "entries": [
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "verification",
+            "sourceTitle": "계약 후 자격 확인 방식을 확인했나요?",
+            "sourceReason": "먼저 계약하고 자격 확인을 통과해야 입주해요. 완화 기준으로 1회 재계약할 수 있어요. 그 계약이 끝날 때 일반 자격을 갖춘 대기자가 없으면 한 번 더 가능해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=1",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "계약 후 자격 확인 방식을 확인했나요?",
+            "preview": "먼저 계약한 뒤 자격을 확인해요. 적격자만 입주하고, 완화 자격 재계약에는 횟수 제한이 있어요.",
+            "sections": [
+                {
+                    "text": "- 먼저 계약하고 자격 확인을 통과해야 입주해요.\n- 완화 기준으로 1회 재계약할 수 있어요.\n- 그 계약이 끝날 때 일반 자격을 갖춘 대기자가 없으면 한 번 더 가능해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "student",
+            "sourceTitle": "대학생·취업준비생 기준을 확인했나요?",
+            "sourceReason": "혼인 중이 아닌 무주택자가 대상이에요. 대학 재학·다음 학기 입학 또는 복학 예정이거나, 대학·고등학교 졸업 또는 중퇴 후 2년 이내인 경우예요. 소득·자산 요건은 완화하지만 본인이 자동차가액 산출 대상 자동차를 소유하면 안 돼요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=3",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "대학생·취업준비생 기준을 확인했나요?",
+            "preview": "미혼·무주택 대학생 또는 졸업·중퇴 2년 이내 취업준비생이 대상이에요. 본인 자동차는 없어야 해요.",
+            "sections": [
+                {
+                    "text": "- 혼인 중이 아닌 무주택자가 대상이에요.\n- 대학 재학·다음 학기 입학 또는 복학 예정이거나, 대학·고등학교 졸업 또는 중퇴 후 2년 이내인 경우예요.\n- 소득·자산 요건은 완화하지만 본인이 자동차가액 산출 대상 자동차를 소유하면 안 돼요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "youth",
+            "sourceTitle": "청년·사회초년생 기준을 확인했나요?",
+            "sourceReason": "청년은 19~39세예요. 사회초년생은 소득이 있는 일을 한 기간이 총 7년 이내이고 근무 중이거나, 퇴직 후 1년 이내 구직급여 수급자격을 인정받았거나, 예술인인 경우예요. 혼인 중이 아닌 무주택자여야 하고 해당 세대의 자동차는 4,542만 원 이하여야 해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=4",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "청년·사회초년생 기준을 확인했나요?",
+            "preview": "미혼·무주택 19~39세 청년 또는 일한 기간 7년 이내 사회초년생이 대상이에요. 차는 4,542만 원 이하예요.",
+            "sections": [
+                {
+                    "text": "- 청년은 19~39세예요.\n- 사회초년생은 소득이 있는 일을 한 기간이 총 7년 이내이고 근무 중이거나, 퇴직 후 1년 이내 구직급여 수급자격을 인정받았거나, 예술인인 경우예요.\n- 혼인 중이 아닌 무주택자여야 하고 해당 세대의 자동차는 4,542만 원 이하여야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "family",
+            "sourceTitle": "신혼부부·한부모 기준을 확인했나요?",
+            "sourceReason": "신혼부부는 혼인 10년 이내이거나 만 9세 이하 자녀가 있어야 해요. 한부모는 만 9세 이하 자녀가 있어야 하며 태아도 포함해요. 예비신혼부부는 입주 전 혼인을 증명하고 결혼 후 구성할 세대가 무주택이어야 해요. 해당 세대 자동차는 4,542만 원 이하예요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=5",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "신혼·예비신혼·한부모의 자격은 무엇인가요?",
+            "preview": "혼인 10년 이내 또는 9세 이하 자녀 가구, 예비신혼·한부모가 대상이에요. 세대 무주택·자동차 기준이 있어요.",
+            "sections": [
+                {
+                    "text": "- 신혼부부는 혼인 10년 이내이거나 만 9세 이하 자녀가 있어야 해요.\n- 한부모는 만 9세 이하 자녀가 있어야 하며 태아도 포함해요.\n- 예비신혼부부는 입주 전 혼인을 증명하고 결혼 후 구성할 세대가 무주택이어야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "해당 세대 자동차는 4,542만 원 이하예요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "elder",
+            "sourceTitle": "고령자·주거급여수급자 기준을 확인했나요?",
+            "sourceReason": "고령자 유형은 공고일 기준 만 65세 이상인 무주택세대구성원이고 세대 자동차는 4,542만 원 이하여야 해요. 주거급여수급자는 별도 유형으로 무주택세대구성원 여부와 수급 자격을 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "고령자·주거급여수급자 기준을 확인했나요?",
+            "preview": "65세 이상 고령자와 주거급여수급자는 별도 유형이에요. 무주택 세대와 유형별 증빙을 확인해요.",
+            "sections": [
+                {
+                    "text": "- 고령자 유형은 공고일 기준 만 65세 이상인 무주택세대구성원이고 세대 자동차는 4,542만 원 이하여야 해요.\n- 주거급여수급자는 별도 유형으로 무주택세대구성원 여부와 수급 자격을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "review-category",
+            "sourceTitle": "어떤 유형으로 신청하나요?",
+            "sourceReason": "이번 공고에서 신청할 유형 하나를 골라요. 대학생·청년은 본인 무주택을, 신혼·한부모·고령자·주거급여수급자는 공고의 세대 범위를 확인해요. 예비신혼부부는 결혼 후 함께 살 가족 모두 무주택이어야 해요. 유형별 자격과 증빙이 달라서 다른 유형의 기준을 대신 적용하지 않아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=3",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "어떤 유형으로 신청하나요?",
+            "preview": "대학생·청년·신혼·한부모·고령자·주거급여수급자 중 실제 신청 유형을 골라요.",
+            "sections": [
+                {
+                    "text": "- 이번 공고에서 신청할 유형 하나를 골라요.\n- 대학생·청년은 본인 무주택을, 신혼·한부모·고령자·주거급여수급자는 공고의 세대 범위를 확인해요.\n- 예비신혼부부는 결혼 후 함께 살 가족 모두 무주택이어야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "유형별 자격과 증빙이 달라서 다른 유형의 기준을 대신 적용하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "STUDENT",
+                        "label": "대학생·다음 학기 입학·복학 예정",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "JOBSEEKER",
+                        "label": "졸업·중퇴 2년 이내 취업준비생",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "YOUTH",
+                        "label": "19~39세 청년",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WORKER",
+                        "label": "일하는 사회초년생 · 소득활동 7년 이내",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "RETIRED",
+                        "label": "퇴직 1년 이내 · 구직급여 수급자격 인정",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ARTIST",
+                        "label": "예술활동증명을 받은 사회초년생",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NEWLYWED",
+                        "label": "혼인 10년 이내 또는 9세 이하 자녀가 있는 부부",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PREMARITAL",
+                        "label": "입주 전 혼인할 예비신혼부부",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SINGLE_PARENT",
+                        "label": "9세 이하 자녀가 있는 한부모",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ELDER",
+                        "label": "만 65세 이상 고령자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "BENEFIT",
+                        "label": "주거급여수급자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "review-family",
+            "sourceTitle": "가족관계증명서를 내야 하는 경우인가요?",
+            "sourceReason": "대학생·취업준비생·청년·사회초년생·한부모는 상세 가족관계증명서를 내요. 예비신혼부부는 대표 신청자와 예비배우자가 각각 준비해요. 그 밖에도 미혼·이혼·사별·등본 분리로 배우자가 안 보이거나, 신청자가 세대주가 아니어서 심사할 가족을 확인해야 하면 필요해요. 배우자가 외국인이면 외국인등록·거소 증빙도 추가해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "가족관계증명서를 내야 하는 경우인가요?",
+            "preview": "대학생·청년·한부모·예비신혼은 필수예요. 그 밖에도 등본에 배우자·가족관계가 안 보이면 준비해요.",
+            "sections": [
+                {
+                    "text": "- 대학생·취업준비생·청년·사회초년생·한부모는 상세 가족관계증명서를 내요.\n- 예비신혼부부는 대표 신청자와 예비배우자가 각각 준비해요.\n- 그 밖에도 미혼·이혼·사별·등본 분리로 배우자가 안 보이거나, 신청자가 세대주가 아니어서 심사할 가족을 확인해야 하면 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "배우자가 외국인이면 외국인등록·거소 증빙도 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "신청 유형이나 가족 상황상 필요해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "그 밖의 유형이고 별도 제출 사유가 없어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null,
+                "answerDependencies": [
+                    {
+                        "questionId": "review-category",
+                        "answerValues": [
+                            "STUDENT",
+                            "JOBSEEKER",
+                            "YOUTH",
+                            "WORKER",
+                            "RETIRED",
+                            "ARTIST",
+                            "PREMARITAL",
+                            "SINGLE_PARENT"
+                        ],
+                        "conflictingValues": ["NONE"],
+                        "requiredDocumentIds": ["review-family-certificate"],
+                        "message": "선택한 신청 유형은 가족관계증명서가 필요해요. 신청 유형과 가족관계 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "review-subscription",
+            "sourceTitle": "입주 전 청약통장 가입이 필요한가요?",
+            "sourceReason": "청년·사회초년생은 본인, 신혼·예비신혼은 두 사람 중 한 명, 한부모는 본인 명의 청약통장 가입을 입주 전까지 증명해야 해요. 지금 미가입이어도 입주 전 가입할 수 있지만, 기한 안에 통장 사본을 내지 않으면 입주할 수 없어요. 대학생·고령자·주거급여수급자에게 이 청약통장 조건을 적용하지 않아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=5",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "입주 전 청약통장 가입이 필요한가요?",
+            "preview": "청년·신혼·한부모는 입주 전 청약통장 가입을 증명해요. 예비신혼은 두 사람 중 한 명이면 돼요.",
+            "sections": [
+                {
+                    "text": "- 청년·사회초년생은 본인, 신혼·예비신혼은 두 사람 중 한 명, 한부모는 본인 명의 청약통장 가입을 입주 전까지 증명해야 해요.\n- 지금 미가입이어도 입주 전 가입할 수 있지만, 기한 안에 통장 사본을 내지 않으면 입주할 수 없어요.\n- 대학생·고령자·주거급여수급자에게 이 청약통장 조건을 적용하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "REVIEW",
+                        "label": "추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "review-extra-documents",
+            "sourceTitle": "추가 증빙이 필요한 상황이 있나요?",
+            "sourceReason": "아래에서 실제로 해당하는 상황만 골라요. 가족관계·임신·일한 기간·주거약자 증명은 각 조건의 제출 대상에 해당할 때 준비해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=9",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "추가 증빙이 필요한 상황이 있나요?",
+            "preview": "주소변동·외국인 배우자·태아·학업·근무·주거약자 중 내 상황에 맞는 증빙만 골라요.",
+            "sections": [
+                {
+                    "text": "- 아래에서 실제로 해당하는 상황만 골라요.\n- 가족관계·임신·일한 기간·주거약자 증명은 각 조건의 제출 대상에 해당할 때 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "MULTIPLE",
+                "options": [
+                    {
+                        "value": "HISTORY",
+                        "label": "공고일 이후 주소·세대주가 바뀌었어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "FOREIGN",
+                        "label": "배우자가 외국인이에요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PREGNANT",
+                        "label": "태아로 신혼·한부모 자녀 요건을 인정받아요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PARENT_SEPARATED",
+                        "label": "대학생 유형이고 부모와 가족관계가 단절됐어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WORKPLACE",
+                        "label": "거주지 대신 일하는 곳으로 순위를 신청해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WORK_STATUS",
+                        "label": "연금 이력만으로 현재 소득활동이 확인되지 않아요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "STUDY_EXCLUSION",
+                        "label": "사회초년생 근무기간에서 재학 기간을 빼야 해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "MILITARY",
+                        "label": "사회초년생 근무기간에서 병역이행 기간을 빼야 해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ACCESSIBLE",
+                        "label": "주거약자용의 장애·보훈 자격으로 신청해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 사항이 없어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "review-visit",
+            "sourceTitle": "현장 신청은 누가 하나요?",
+            "sourceReason": "온라인 신청과 현장 지참서류는 구분해요. 본인은 신분증과 도장(서명 대체 가능), 배우자는 양쪽 신분증·신청자 도장·관계증명, 다른 대리인은 인감방식 또는 본인서명방식의 위임서류가 필요해요. 2020년 12월 21일 이후 여권을 쓰면 여권정보증명서도 준비해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "현장 신청은 누가 하나요?",
+            "preview": "현장 신청은 신분증이 필요하고, 배우자·그 밖의 대리인은 관계 증명·위임 서류를 추가해요.",
+            "sections": [
+                {
+                    "text": "- 온라인 신청과 현장 지참서류는 구분해요.\n- 본인은 신분증과 도장(서명 대체 가능), 배우자는 양쪽 신분증·신청자 도장·관계증명, 다른 대리인은 인감방식 또는 본인서명방식의 위임서류가 필요해요.\n- 2020년 12월 21일 이후 여권을 쓰면 여권정보증명서도 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "ONLINE",
+                        "label": "온라인으로 신청해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SELF",
+                        "label": "본인이 방문해요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SPOUSE",
+                        "label": "배우자가 대신 가요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SEAL",
+                        "label": "그 밖의 대리인 · 인감 방식",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SIGN",
+                        "label": "그 밖의 대리인 · 본인서명 방식",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "a660a69d-51e6-40b5-b057-044583dd8b81",
+            "questionId": "review-financial-consent",
+            "sourceTitle": "금융정보 동의서도 내야 하나요?",
+            "sourceReason": "이번 모집은 소득·총자산 기준을 적용하지 않아요. PDF 8쪽 공통서류표에는 금융동의서 별도 행 없이 주거급여수급자 작성 제외 각주가 있고, 첨부 예비신혼 신청확인서에는 금융동의서 제출 동의가 적혀 있어요. 금융동의서를 누가 제출해야 하는지는 접수기관에 확인해야 해요. 확인된 나머지 서류는 안내대로 준비할 수 있어요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                "sha256": "2c0f9a16a69bc0626825e771cdc50b6dc9830a0f7b79dc77faa7828d5a39b124"
+            },
+            "heading": "금융정보 동의서도 내야 하나요?",
+            "preview": "공고표와 예비신혼 양식의 금융동의서 안내가 달라요. 이 서류의 제출 여부만 기관에 확인해요.",
+            "sections": [
+                {
+                    "text": "이번 모집은 소득·총자산 기준을 적용하지 않아요. PDF 8쪽 공통서류표에는 금융동의서 별도 행 없이 주거급여수급자 작성 제외 각주가 있고, 첨부 예비신혼 신청확인서에는 금융동의서 제출 동의가 적혀 있어요. 금융동의서를 누가 제출해야 하는지는 접수기관에 확인해야 해요. 확인된 나머지 서류는 안내대로 준비할 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389516#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "예비신혼 신청확인서에 개인정보·금융정보 동의서를 각각 제출하는 데 동의한다는 문장이 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공식 양식 · 예비신혼 신청확인서",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69389555",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "REVIEW",
+                        "label": "접수기관에 제출 여부를 확인할게요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "아직 확인하지 못했어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

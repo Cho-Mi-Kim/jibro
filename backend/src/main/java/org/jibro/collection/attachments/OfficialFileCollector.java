@@ -1,10 +1,12 @@
 package org.jibro.collection.attachments;
 
 import jakarta.annotation.PreDestroy;
+
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.jibro.collection.CollectionItemProcessor;
 import org.jibro.collection.LhNoticeClient;
 import org.jibro.collection.extraction.OfficialDetailParser;
@@ -36,7 +38,8 @@ public class OfficialFileCollector implements CollectionItemProcessor {
 
     @Override
     public void process(UUID id, LhNoticeClient.Item item) {
-        if (!item.officiallyClosed() && LhNoticeClient.sourceKey(item.url()).equals(item.key())) store.enqueue(id, item);
+        if (!item.officiallyClosed() && LhNoticeClient.sourceKey(item.url()).equals(item.key()))
+            store.enqueue(id, item);
     }
 
     @Scheduled(initialDelay = 10000, fixedDelay = 10000)
@@ -57,7 +60,8 @@ public class OfficialFileCollector implements CollectionItemProcessor {
 
     void refresh(OfficialFileRepository.Job job) {
         try {
-            if (!LhNoticeClient.sourceKey(job.url()).equals(job.sourceKey())) throw new IllegalArgumentException("SOURCE_MISMATCH");
+            if (!LhNoticeClient.sourceKey(job.url()).equals(job.sourceKey()))
+                throw new IllegalArgumentException("SOURCE_MISMATCH");
             String html = http.html(job.url());
             // Also verifies that the rendered LH form carries the requested notice ID.
             if (OfficialCorrectionLink.explicitlyClosed(job.url(), html)) {

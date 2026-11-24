@@ -4,6 +4,9 @@
     gap: 1rem;
     min-width: 0;
 }
+.snapshot {
+    padding-bottom: var(--summary-scroll-space, 0px);
+}
 .card {
     min-width: 0;
     padding: 1rem;
@@ -19,7 +22,10 @@
     font-size: 1.125rem;
     line-height: 1.5;
 }
-.card h3 {
+.recordHeading h2 {
+    padding-inline-end: var(--explanation-toggle-width);
+}
+.items > li > h3 {
     margin: 0;
     font-size: 1rem;
     line-height: 1.5;

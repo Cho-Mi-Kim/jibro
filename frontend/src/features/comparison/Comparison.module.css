@@ -1,8 +1,12 @@
-.page {
+.page,
+.content {
     display: grid;
     gap: 1rem;
     min-width: 0;
     color: var(--ink);
+}
+.content {
+    padding-bottom: var(--summary-scroll-space, 0px);
 }
 .page :is(h2, h3, h4, p, ul, dl) {
     margin: 0;
@@ -147,11 +151,11 @@
     display: grid;
     gap: 0.5rem;
 }
-.coreGroup h4 {
+.coreGroup > h4 {
     color: var(--brand);
     font-size: 0.875rem;
 }
-.item h4 {
+.item > h4 {
     font-size: 1rem;
     line-height: 1.5;
 }
@@ -172,9 +176,6 @@
     cursor: pointer;
     min-height: var(--target);
     padding-block: 0.5rem;
-}
-.evidence > div {
-    margin: 0;
 }
 .difference {
     margin-inline-start: 0.375rem;

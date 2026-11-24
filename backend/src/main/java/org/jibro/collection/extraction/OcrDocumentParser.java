@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
 import javax.imageio.ImageIO;
+
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
@@ -18,9 +19,12 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.poi.poifs.filesystem.*;
+
 import static org.jibro.collection.extraction.ExtractionModels.Part;
 
-/** Bounded optical reading of full PDF pages and HWP BinData images. No eligibility inference or text correction. */
+/**
+ * Bounded optical reading of full PDF pages and HWP BinData images. No eligibility inference or text correction.
+ */
 final class OcrDocumentParser {
     static final Duration DOCUMENT_TIMEOUT = Duration.ofSeconds(300);
     static final Duration PAGE_TIMEOUT = Duration.ofSeconds(45);
@@ -42,11 +46,16 @@ final class OcrDocumentParser {
     OcrDocumentParser(Path directory, TesseractOcr.Recognizer recognizer) {
         this(directory, recognizer, DOCUMENT_TIMEOUT.minusSeconds(5));
     }
+
     OcrDocumentParser(Path directory, TesseractOcr.Recognizer recognizer, Duration timeout) {
         this(directory, recognizer, null, 0, timeout);
     }
+
     OcrDocumentParser(Path directory, TesseractOcr.Recognizer recognizer, TesseractOcr.Recognizer alternate, int alternateMode, Duration timeout) {
-        this.directory = directory; this.recognizer = recognizer; this.alternate = alternate; this.alternateMode = alternateMode;
+        this.directory = directory;
+        this.recognizer = recognizer;
+        this.alternate = alternate;
+        this.alternateMode = alternateMode;
         this.deadline = System.nanoTime() + timeout.toNanos();
     }
 
@@ -77,7 +86,8 @@ final class OcrDocumentParser {
 
     private List<Part> pdf(byte[] bytes, List<Part> nativeParts) throws Exception {
         try (var document = Loader.loadPDF(bytes)) {
-            if (document.isEncrypted() || !document.getCurrentAccessPermission().canExtractContent()) throw new IOException("OCR_PDF_RESTRICTED");
+            if (document.isEncrypted() || !document.getCurrentAccessPermission().canExtractContent())
+                throw new IOException("OCR_PDF_RESTRICTED");
             // Count pages that actually need optical reading in budget(), not text-only pages.
             // A long native-text notice with one scanned appendix still has only one OCR image.
             if (document.getNumberOfPages() > ParserProtocol.MAX_PARTS) throw new IOException("OCR_PAGE_LIMIT");
@@ -93,7 +103,8 @@ final class OcrDocumentParser {
                 if (!hasImage(page.getResources(), new HashSet<>()) && letters(part.text()) > 0) continue;
                 var box = page.getCropBox();
                 double width = box.getWidth(), height = box.getHeight();
-                if (!Double.isFinite(width) || !Double.isFinite(height) || width <= 0 || height <= 0) throw new IOException("OCR_IMAGE_DIMENSIONS");
+                if (!Double.isFinite(width) || !Double.isFinite(height) || width <= 0 || height <= 0)
+                    throw new IOException("OCR_IMAGE_DIMENSIONS");
                 double scale = Math.min(300d / 72, Math.sqrt(MAX_IMAGE_PIXELS / (width * height)));
                 scale = Math.min(scale, singleImageScale(page.getResources(), width, height));
                 if (scale < 0.5) throw new IOException("OCR_IMAGE_DIMENSIONS");
@@ -102,8 +113,11 @@ final class OcrDocumentParser {
                 if (planned > MAX_IMAGE_PIXELS) scale *= 0.999;
                 claimPixels((long) Math.ceil(width * scale) * (long) Math.ceil(height * scale));
                 BufferedImage image = renderer.renderImage(index, (float) scale, ImageType.GRAY);
-                try { readImages(image, "공고문 " + (index + 1) + "쪽", output); }
-                finally { image.flush(); }
+                try {
+                    readImages(image, "공고문 " + (index + 1) + "쪽", output);
+                } finally {
+                    image.flush();
+                }
             }
             return List.copyOf(output);
         }
@@ -137,7 +151,8 @@ final class OcrDocumentParser {
         try (var fs = new POIFSFileSystem(new ByteArrayInputStream(bytes))) {
             if (!fs.getRoot().hasEntry("FileHeader")) return nativeParts; // XLS is not an image document.
             byte[] header = readBounded(fs.createDocumentInputStream("FileHeader"), 1024);
-            if (header.length < 40 || !new String(header, 0, 17, StandardCharsets.US_ASCII).startsWith("HWP Document File")) throw new IOException("OCR_HWP_HEADER");
+            if (header.length < 40 || !new String(header, 0, 17, StandardCharsets.US_ASCII).startsWith("HWP Document File"))
+                throw new IOException("OCR_HWP_HEADER");
             int flags = ByteBuffer.wrap(header).order(ByteOrder.LITTLE_ENDIAN).getInt(36);
             if ((flags & 6) != 0) throw new IOException("OCR_HWP_RESTRICTED");
             if (!fs.getRoot().hasEntry("BinData")) return nativeParts;
@@ -159,13 +174,19 @@ final class OcrDocumentParser {
                 byte[] imageBytes = readBounded(new DocumentInputStream(entry), Math.min(MAX_IMAGE_BYTES, MAX_EXPANDED - expanded));
                 if (!imageHeader(imageBytes) && (flags & 1) != 0) {
                     var inflater = new Inflater(true);
-                    try { imageBytes = readBounded(new InflaterInputStream(new ByteArrayInputStream(imageBytes), inflater), Math.min(MAX_IMAGE_BYTES, MAX_EXPANDED - expanded)); }
-                    finally { inflater.end(); }
+                    try {
+                        imageBytes = readBounded(new InflaterInputStream(new ByteArrayInputStream(imageBytes), inflater), Math.min(MAX_IMAGE_BYTES, MAX_EXPANDED - expanded));
+                    } finally {
+                        inflater.end();
+                    }
                 }
                 expanded += imageBytes.length;
                 BufferedImage image = decodeImage(imageBytes);
-                try { readImages(image, "HWP BinData/" + name + " (쪽 번호 확인 필요)", output); }
-                finally { image.flush(); }
+                try {
+                    readImages(image, "HWP BinData/" + name + " (쪽 번호 확인 필요)", output);
+                } finally {
+                    image.flush();
+                }
             }
             return List.copyOf(output);
         }
@@ -187,7 +208,9 @@ final class OcrDocumentParser {
                 var parameters = reader.getDefaultReadParam();
                 parameters.setSourceSubsampling(sample, sample, 0, 0);
                 return reader.read(0, parameters);
-            } finally { reader.dispose(); }
+            } finally {
+                reader.dispose();
+            }
         }
     }
 
@@ -216,23 +239,30 @@ final class OcrDocumentParser {
         if ((long) image.getWidth() * image.getHeight() > MAX_IMAGE_PIXELS) throw new IOException("OCR_PIXEL_LIMIT");
         Path file = directory.resolve("ocr-page.png");
         try {
-            if (!ImageIO.write(image, "png", file.toFile()) || Files.size(file) > MAX_IMAGE_BYTES) throw new IOException("OCR_IMAGE_LIMIT");
+            if (!ImageIO.write(image, "png", file.toFile()) || Files.size(file) > MAX_IMAGE_BYTES)
+                throw new IOException("OCR_IMAGE_LIMIT");
             long remaining = deadline - System.nanoTime();
             if (remaining <= 0) throw new IOException("OCR_DOCUMENT_TIMEOUT");
             String text = reader.read(file, Duration.ofNanos(Math.min(PAGE_TIMEOUT.toNanos(), remaining)));
             checkTime();
             if (text == null || (textChars += text.length()) > MAX_TEXT) throw new IOException("OCR_TEXT_LIMIT");
             return new Part(OcrProvenance.MARKER + " " + location, text);
-        } finally { Files.deleteIfExists(file); }
+        } finally {
+            Files.deleteIfExists(file);
+        }
     }
 
     private void claimPixels(long value) throws IOException {
-        if (value <= 0 || value > MAX_IMAGE_PIXELS || ++images > MAX_IMAGES || value > MAX_TOTAL_PIXELS - pixels) throw new IOException("OCR_PIXEL_LIMIT");
+        if (value <= 0 || value > MAX_IMAGE_PIXELS || ++images > MAX_IMAGES || value > MAX_TOTAL_PIXELS - pixels)
+            throw new IOException("OCR_PIXEL_LIMIT");
         pixels += value;
     }
+
     private void checkTime() throws IOException {
-        if (Thread.currentThread().isInterrupted() || System.nanoTime() >= deadline) throw new IOException("OCR_DOCUMENT_TIMEOUT");
+        if (Thread.currentThread().isInterrupted() || System.nanoTime() >= deadline)
+            throw new IOException("OCR_DOCUMENT_TIMEOUT");
     }
+
     static String failureCode(Throwable failure) {
         if (failure instanceof java.util.concurrent.TimeoutException) return "OCR_PAGE_TIMEOUT";
         for (Throwable cause = failure; cause != null; cause = cause.getCause()) {
@@ -241,15 +271,22 @@ final class OcrDocumentParser {
         }
         return "OCR_WORKER_FAILED";
     }
-    private static long letters(String text) { return text.codePoints().filter(Character::isLetter).limit(80).count(); }
+
+    private static long letters(String text) {
+        return PdfLayoutTextStripper.withoutStructure(HwpxStructuredText.withoutStructure(text))
+                .codePoints().filter(Character::isLetter).limit(80).count();
+    }
+
     private static boolean imageHeader(byte[] bytes) {
         return bytes.length > 4 && ((bytes[0] == (byte) 0xff && bytes[1] == (byte) 0xd8)
-            || (bytes[0] == (byte) 0x89 && bytes[1] == 'P') || (bytes[0] == 'B' && bytes[1] == 'M')
-            || (bytes[0] == 'G' && bytes[1] == 'I') || (bytes[0] == 'I' && bytes[1] == 'I') || (bytes[0] == 'M' && bytes[1] == 'M'));
+                || (bytes[0] == (byte) 0x89 && bytes[1] == 'P') || (bytes[0] == 'B' && bytes[1] == 'M')
+                || (bytes[0] == 'G' && bytes[1] == 'I') || (bytes[0] == 'I' && bytes[1] == 'I') || (bytes[0] == 'M' && bytes[1] == 'M'));
     }
+
     private byte[] readBounded(InputStream stream, int limit) throws IOException {
         try (stream; var output = new ByteArrayOutputStream()) {
-            byte[] buffer = new byte[8192]; int count;
+            byte[] buffer = new byte[8192];
+            int count;
             while ((count = stream.read(buffer)) != -1) {
                 checkTime();
                 if (count > limit - output.size()) throw new IOException("OCR_IMAGE_BYTES_LIMIT");

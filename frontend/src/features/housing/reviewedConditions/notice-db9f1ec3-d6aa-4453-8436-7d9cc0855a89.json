@@ -1,0 +1,1110 @@
+{
+    "entries": [
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-adult",
+            "sourceTitle": "성년자 요건 또는 미성년 세대주 예외를 확인했나요?",
+            "sourceReason": "신청접수일 현재 만 19세 이상이 원칙입니다. 같은 주민등록표에 자녀가 있는 미성년 세대주, 직계존속의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양하는 미성년 세대주, 외국인 부모와 내국인 미성년 세대주로 구성된 한부모가족은 예외가 있습니다. 행방불명은 신고접수증으로 입증하며 마지막 경우 외국인 부모가 대리 신청합니다. 예외의 증빙은 접수처에서 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=2",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만19세 이상 원칙 · 미성년 세대주 일부 예외",
+            "sections": [
+                {
+                    "text": "• 신청접수일 현재 만 19세 이상이 원칙이에요.\n• 같은 주민등록표에 자녀가 있는 미성년 세대주, 부모·조부모 등 윗세대 가족의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양하는 미성년 세대주, 외국인 부모와 내국인 미성년 세대주로 구성된 한부모가족은 예외가 있어요.\n• 행방불명은 신고접수증으로 입증하며 마지막 경우 외국인 부모가 대리 신청해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "예외의 증빙은 접수처에서 확인해 주세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "ADULT",
+                    "label": "만 19세 이상",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "MINOR_CHILD",
+                    "label": "자녀를 부양하는 미성년 세대주",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "MINOR_SIBLING",
+                    "label": "형제자매를 부양하는 미성년 세대주",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "MINOR_FOREIGN",
+                    "label": "외국인 부모가 대리하는 내국인 미성년 세대주",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "NO",
+                    "label": "해당하지 않아요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "ADULT": "만 19세 이상",
+                "MINOR_CHILD": "자녀를 부양하는 미성년 세대주",
+                "MINOR_SIBLING": "형제자매를 부양하는 미성년 세대주",
+                "MINOR_FOREIGN": "외국인 부모가 대리하는 내국인 미성년 세대주",
+                "NO": "해당하지 않아요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "ADULT",
+                        "label": "만 19세 이상",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "MINOR_CHILD",
+                        "label": "자녀를 부양하는 미성년 세대주",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "MINOR_SIBLING",
+                        "label": "형제자매를 부양하는 미성년 세대주",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "MINOR_FOREIGN",
+                        "label": "외국인 부모가 대리하는 내국인 미성년 세대주",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당하지 않아요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-nationality",
+            "sourceTitle": "신청자 국적과 세대 범위를 확인했나요?",
+            "sourceReason": "외국인은 신청할 수 없습니다. 외국인 가족이 있는 내국인 신청자는 가족관계등록·외국인등록과 세대 범위 요건을 별도로 확인하세요. 신청자와 배우자는 주소가 달라도 포함합니다. 신청자 또는 분리배우자와 같은 등본의 직계존속·직계비속 및 그 배우자, 신청자와 같은 등본의 배우자 직계비속 및 그 배우자도 해당합니다. 외국인 배우자는 가족관계등록과 외국인등록/거소신고를 확인하고, 외국인 직계존비속은 등본 기재 또는 동일 체류지 요건도 확인합니다. 태아는 세대에 포함되지만 자격검증은 제외됩니다. 국내에 거주하지 않는 재외국민 배우자 또는 미등록 외국인 배우자가 있는 경우 신청할 수 없다고 공고되어 있습니다. 예비신혼부부는 혼인으로 구성될 양쪽 세대와 대표신청인을 확정하고 입주 전 혼인·세대구성 증빙을 제출해야 합니다. 실종 절차, 신고 후 1개월 경과한 가출/행방불명 또는 기관이 확인한 생계·주거 분리로 세대원을 제외하려면 입증서류가 필요합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "국적·주민등록 요건은 무엇인가요?",
+            "preview": "내국인 신청 원칙 · 외국인 가족·재외국민 요건 별도",
+            "sections": [
+                {
+                    "text": "• 외국인은 신청할 수 없어요.\n• 외국인 가족이 있는 내국인 신청자는 가족관계등록·외국인등록과 세대 범위 요건을 별도로 확인해 주세요.\n• 신청자와 배우자는 주소가 달라도 포함해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 신청자 또는 주소가 다른 배우자와 같은 등본의 부모·조부모 등 윗세대 가족·자녀·손자녀 등 아랫세대 가족 및 그 배우자, 신청자와 같은 등본의 배우자 자녀·손자녀 등 아랫세대 가족 및 그 배우자도 해당해요.\n• 외국인 배우자는 가족관계등록과 외국인등록/거소신고를 확인하고, 외국인 직계존비속은 등본 기재 또는 동일 체류지 요건도 확인해요.\n• 태아는 세대에 포함되지만 자격검증은 제외돼요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 국내에 거주하지 않는 재외국민 배우자 또는 미등록 외국인 배우자가 있는 경우 신청할 수 없다고 공고되어 있어요.\n• 예비신혼부부는 혼인으로 구성될 양쪽 세대와 대표신청인을 확정하고 입주 전 혼인·세대구성 증빙을 제출해야 해요.\n• 실종 절차, 신고 후 1개월 경과한 가출/행방불명 또는 기관이 확인한 생계·주거 분리로 세대원을 제외하려면 입증서류가 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-family",
+            "sourceTitle": "가족관계·세대 구성에서 필요한 추가서류는 무엇인가요?",
+            "sourceReason": "해당 항목을 모두 선택하세요. 배우자가 등본에서 확인되지 않는 미혼·이혼·사별·분리세대, 외국인 배우자, 등본에서 미성년자녀 확인이 불가한 경우 등에는 상세 가족관계증명서가 필요합니다. 이혼·재혼 자녀는 같은 등본 등재 요건을 확인하세요. 예비신혼부부가 두 사람 외 세대원을 포함하면 관계 증빙이 필요합니다. 해당 없음은 다른 항목과 함께 고르지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본에 배우자·가족관계가 확인되지 않는 경우 등 추가 증명",
+            "sections": [
+                {
+                    "text": "• 해당 항목을 모두 선택하세요.\n• 배우자가 등본에서 확인되지 않는 미혼·이혼·사별·분리세대, 외국인 배우자, 등본에서 미성년자녀 확인이 불가한 경우 등에는 상세 가족관계증명서가 필요해요.\n• 이혼·재혼 자녀는 같은 등본 등재 요건을 확인해 주세요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 예비신혼부부가 두 사람 외 세대원을 포함하면 관계 증빙이 필요해요.\n• 해당 없음은 다른 항목과 함께 고르지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "FAMILY",
+                    "label": "배우자·자녀 등 관계 확인이 필요함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SEPARATE",
+                    "label": "배우자의 등본이 분리됨",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "FOREIGN",
+                    "label": "배우자가 외국인임",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "PREGNANT",
+                    "label": "태아를 가구원·자녀로 인정받으려 함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "ADOPTED",
+                    "label": "입양자녀를 인정받으려 함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "ENGAGED",
+                    "label": "예비신혼부부로 신청함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "ENGAGED_EXTRA",
+                    "label": "예비신혼부부·두 사람 외 세대원도 포함함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "EXCLUDED",
+                    "label": "세대원 제외 사유를 소명해야 함",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "NONE",
+                    "label": "해당 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "FAMILY": "배우자·자녀 등 관계 확인이 필요함",
+                "SEPARATE": "배우자의 등본이 분리됨",
+                "FOREIGN": "배우자가 외국인임",
+                "PREGNANT": "태아를 가구원·자녀로 인정받으려 함",
+                "ADOPTED": "입양자녀를 인정받으려 함",
+                "ENGAGED": "예비신혼부부로 신청함",
+                "ENGAGED_EXTRA": "예비신혼부부·두 사람 외 세대원도 포함함",
+                "EXCLUDED": "세대원 제외 사유를 소명해야 함",
+                "NONE": "해당 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "FAMILY",
+                        "label": "배우자·자녀 등 관계 확인이 필요함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SEPARATE",
+                        "label": "배우자의 등본이 분리됨",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "FOREIGN",
+                        "label": "배우자가 외국인임",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PREGNANT",
+                        "label": "태아를 가구원·자녀로 인정받으려 함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ADOPTED",
+                        "label": "입양자녀를 인정받으려 함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ENGAGED",
+                        "label": "예비신혼부부로 신청함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ENGAGED_EXTRA",
+                        "label": "예비신혼부부·두 사람 외 세대원도 포함함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "EXCLUDED",
+                        "label": "세대원 제외 사유를 소명해야 함",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-single",
+            "sourceTitle": "한 세대에서 한 단지·한 주택형만 신청하나요?",
+            "sourceReason": "동해유성·태백철암장미 중 한 단지·한 주택형만 신청합니다. 세대원 전체 기준 1세대 1주택이 원칙이며 중복 신청은 전부 무효입니다. 동일 유형의 다른 공고에 예비자로 선정되면 기존 예비자 지위가 상실되고, 건설형 공공임대에 입주하면 모든 대기명부에서 제외됩니다. 기존 공공임대 입주자는 입주 전 명도와 중복입주 제한을 확인하세요. 배우자는 세대를 분리해도 중복입주가 허용되지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=5",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "한 세대에서 몇 주택을 신청하나요?",
+            "preview": "한 세대 한 단지·주택형 · 중복 신청 불가",
+            "sections": [
+                {
+                    "text": "• 동해유성·태백철암장미 중 한 단지·한 주택형만 신청해요.\n• 세대원 전체 기준 1세대 1주택이 원칙이며 중복 신청은 전부 무효이에요.\n• 동일 유형의 다른 공고에 예비자로 선정되면 기존 예비자 지위가 상실되고, 건설형 공공임대에 입주하면 모든 대기명부에서 제외돼요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 기존 공공임대 입주자는 입주 전 명도와 중복입주 제한을 확인해 주세요.\n• 배우자는 세대를 분리해도 중복입주가 허용되지 않습니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-sublet",
+            "sourceTitle": "세대원의 불법양도·전대 제한기간을 확인했나요?",
+            "sourceReason": "세대구성원 중 공공임대 불법양도·전대로 적발된 후 4년이 지나지 않은 사람이 있으면 선정될 수 없습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=2",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "불법 양도·전대 이력이 있나요?",
+            "preview": "불법 양도·전대 적발 후4년 미경과 세대원은 선정 제한",
+            "sections": [
+                {
+                    "text": "세대구성원 중 공공임대 불법양도·전대로 적발된 후 4년이 지나지 않은 사람이 있으면 선정될 수 없어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-housing",
+            "sourceTitle": "무주택 또는 이 공고의 완화 요건에 해당하나요?",
+            "sourceReason": "세대원 전체 주택/분양권이 2호 이상이면 완화대상에서 제외됩니다. 1호에 한해 해당·연접지역에 주택이 없는 경우 또는 전용60㎡ 이하이면서 법정가격1억원 이하 소형·저가주택인 경우 무주택으로 간주한다고 명시되어 있습니다. 동해유성 해당지역은 동해시, 연접지역은 강릉시·정선군·삼척시입니다. 태백철암장미는 태백시, 연접지역은 정선군·영월군·삼척시·경북 봉화군입니다. 주택·공유지분·복합건물의 주택용도 부분과 분양권/입주권까지 세대원 전체를 확인합니다. 주택은 등기접수일·건축물대장 처리일 중 빠른 날 등을, 분양권은 계약·대금완납·명의변경일 등 원문 기준으로 봅니다. 원문 붙임의 예외에는 상속 공유지분의 통보 후 3개월 내 처분, 비수도권 비도시/면지역의 일정 단독주택 소유자의 이주, 개인주택사업자의 분양/처분, 근로자 숙소, 20㎡ 이하 주택/분양권 1호, 폐가·멸실·타용도의 공부정리, 적법성을 입증한 무허가건물, 선착순 직접 공급 분양권(매수 제외), 상속·증여 분양권, 2018.12.11 전 승인신청 등 사업의 분양권이 있습니다. 2024년 중 생애최초로 취득한 종전 임차주택은 지정 주택종류·60㎡ 이하·2억원 이하(수도권3억원)·취득 전 1년 이상 거주를 모두 확인해야 합니다. 예외는 증빙을 갖춘 기관 판단 대상이며 자동 무주택 판정이 아닙니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "누구의 주택을 확인하나요?",
+            "preview": "주택1호까지 지역 또는60㎡·1억원 완화 · 2호 이상 제외",
+            "sections": [
+                {
+                    "text": "• 세대원 전체 주택/분양권이 2호 이상이면 완화대상에서 제외돼요. 1호에 한해 해당·연접지역에 주택이 없는 경우 또는 전용60㎡ 이하이면서 법정가격1억원 이하 소형·저가주택인 경우 무주택으로 간주한다고 명시되어 있어요.\n• 동해유성 해당지역은 동해시, 연접지역은 강릉시·정선군·삼척시이에요.\n• 태백철암장미는 태백시, 연접지역은 정선군·영월군·삼척시·경북 봉화군이에요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 주택·공유지분·복합건물의 주택용도 부분과 분양권/입주권까지 세대원 전체를 확인해요.\n• 주택은 등기접수일·건축물대장 처리일 중 빠른 날 등을, 분양권은 계약·대금완납·명의변경일 등 원문 기준으로 봐요.\n• 원문 붙임의 예외에는 상속 공유지분의 통보 후 3개월 내 처분, 비수도권 비도시/면지역의 일정 단독주택 소유자의 이주, 개인주택사업자의 분양/처분, 근로자 숙소, 20㎡ 이하 주택/분양권 1호, 폐가·멸실·타용도의 공부정리, 적법성을 입증한 무허가건물, 선착순 직접 공급 분양권(매수 제외), 상속·증여 분양권, 2018.12.11 전 승인신청 등 사업의 분양권이 있어요. 2024년 중 생애최초로 취득한 종전 임차주택은 지정 주택종류·60㎡ 이하·2억원 이하(수도권3억원)·취득 전 1년 이상 거주를 모두 확인해야 해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "예외는 증빙을 갖춘 기관 판단 대상이며 자동 무주택 판정이 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "NONE",
+                    "label": "세대원 모두 주택·분양권이 없어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "REGION",
+                    "label": "1호 보유·해당/연접지역 밖 완화 확인 필요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "SMALL",
+                    "label": "1호 보유·소형저가 완화 확인 필요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "EXCEPTION",
+                    "label": "다른 무주택 인정 예외를 소명해야 함",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "MULTIPLE",
+                    "label": "세대원 전체 2호 이상 소유",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "NONE": "세대원 모두 주택·분양권이 없어요",
+                "REGION": "1호 보유·해당/연접지역 밖 완화 확인 필요",
+                "SMALL": "1호 보유·소형저가 완화 확인 필요",
+                "EXCEPTION": "다른 무주택 인정 예외를 소명해야 함",
+                "MULTIPLE": "세대원 전체 2호 이상 소유",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "NONE",
+                        "label": "세대원 모두 주택·분양권이 없어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "REGION",
+                        "label": "1호 보유·해당/연접지역 밖 완화 확인 필요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "SMALL",
+                        "label": "1호 보유·소형저가 완화 확인 필요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "EXCEPTION",
+                        "label": "다른 무주택 인정 예외를 소명해야 함",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "MULTIPLE",
+                        "label": "세대원 전체 2호 이상 소유",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-income",
+            "sourceTitle": "소득·총자산 기준 적용배제와 갱신 조건을 확인했나요?",
+            "sourceReason": "정정 모집의 최초 입주자 선정은 소득과 총자산 기준을 적용하지 않습니다. 자동차 기준과 나머지 요건은 유지되며, 금융정보 동의서·자산보유 사실확인서 제출도 생략하지 않습니다. 완화 입주자는 원칙적으로 재계약1회, 정상자격 예비자가 없는 경우에만1회 추가가 가능하고, 이후 원래 국민임대 자격으로 갱신 여부·할증을 판단합니다. 무주택 완화는 공고 전 취득주택에 한해 재계약1회로 안내됩니다. 최초 완화와 갱신을 혼동하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "소득·총자산 제한을 적용하나요?",
+            "preview": "정정 모집의 최초 입주자 선정은 소득과 총자산 기준을 적용하지 않습니다",
+            "sections": [
+                {
+                    "text": "• 정정 모집의 최초 입주자 선정은 소득과 총자산 기준을 적용하지 않습니다.\n• 자동차 기준과 나머지 요건은 유지되며, 금융정보 동의서·자산보유 사실확인서 제출도 생략하지 않습니다.\n• 완화 입주자는 원칙적으로 재계약1회, 정상자격 예비자가 없는 경우에만1회 추가가 가능하고, 이후 원래 국민임대 자격으로 갱신 여부·할증을 판단해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 무주택 완화는 공고 전 취득주택에 한해 재계약1회로 안내돼요.\n• 최초 완화와 갱신을 혼동하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-car",
+            "sourceTitle": "자동차 기준과 적용 가능한 제외·가산을 확인했나요?",
+            "sourceReason": "기본 자동차 기준은4,563만원 이하입니다. 원문 출산자녀 가산표는1명5,020만원, 2명5,476만원입니다. 2023.3.28 이후 출산 미성년자녀(입양·태아 포함)와 같은 등본 등 가산 요건을 확인하세요. 별도 차량 기준은 비영업용 승용차 중 최고가액으로 확인하며, 장애인사용 자동차·상이등급1~7급 보철용 차량 제외와 저공해차 보조금 차감은 원문 요건을 충족해야 합니다. 총자산 적용배제와 자동차 기준 적용은 별개입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "자동차는 얼마까지 허용하나요?",
+            "preview": "자동차4,563만 원 · 자녀1명5,020만·2명5,476만",
+            "sections": [
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "출생자녀 가산에 따른 자동차",
+                        "headers": ["가산 자녀", "자동차 한도"],
+                        "rows": [
+                            ["없음", "4,563만 원"],
+                            ["1명", "5,020만 원"],
+                            ["2명 이상", "5,476만 원"]
+                        ]
+                    }
+                },
+                {
+                    "text": "• 기본 자동차 기준은4,563만원 이하이에요.\n• 원문 출산자녀 가산표는1명5,020만원, 2명5,476만원이에요. 2023.3.28 이후 출산 미성년자녀(입양·태아 포함)와 같은 등본 등 가산 요건을 확인해 주세요.\n• 별도 차량 기준은 비영업용 승용차 중 최고가액으로 확인하며, 장애인사용 자동차·상이등급1~7급 보철용 차량 제외와 저공해차 보조금 차감은 원문 요건을 충족해야 해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "총자산 적용배제와 자동차 기준 적용은 별개이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-asset-docs",
+            "sourceTitle": "자산보유 확인서에 첨부할 자료가 있나요?",
+            "sourceReason": "총자산 기준 적용 여부와 별개로 모든 신청자는 자산보유 사실확인서를 냅니다. 실제 보유한 임차/임대보증금, 분양권, 비상장주식, 출자지분, 장기카드대출의 증빙을 함께 준비하세요. LH 임대주택 임차보증금은 계약서 사본 제출이 불필요하다고 명시되어 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "자산확인서에 무엇을 첨부하나요?",
+            "preview": "자산확인서와 보유한 자산·부채에 해당하는 증빙 제출",
+            "sections": [
+                {
+                    "text": "• 총자산 기준 적용 여부와 별개로 모든 신청자는 자산보유 사실확인서를 냅니다.\n• 실제 보유한 임차/임대보증금, 분양권, 비상장주식, 출자지분, 장기카드대출의 증빙을 함께 준비하세요.\n• LH 임대주택 임차보증금은 계약서 사본 제출이 불필요하다고 명시되어 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "LEASE",
+                    "label": "LH 외 임차보증금 또는 임대보증금",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "PRESALE",
+                    "label": "분양권",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "STOCK",
+                    "label": "비상장주식",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SHARE",
+                    "label": "출자금·출자지분",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "CARD",
+                    "label": "장기카드대출",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NONE",
+                    "label": "해당 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "LEASE": "LH 외 임차보증금 또는 임대보증금",
+                "PRESALE": "분양권",
+                "STOCK": "비상장주식",
+                "SHARE": "출자금·출자지분",
+                "CARD": "장기카드대출",
+                "NONE": "해당 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "LEASE",
+                        "label": "LH 외 임차보증금 또는 임대보증금",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PRESALE",
+                        "label": "분양권",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "STOCK",
+                        "label": "비상장주식",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SHARE",
+                        "label": "출자금·출자지분",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "CARD",
+                        "label": "장기카드대출",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-proxy",
+            "sourceTitle": "본인이 방문하나요, 대리인이 방문하나요?",
+            "sourceReason": "현장접수만 가능하며 본인 방문은 인정 신분증과 도장(서명 대체 가능)을 준비합니다. 배우자도 대리신청에 포함하여 본문12쪽의 위임서류를 확인합니다. 인감증명 방식과 본인서명사실확인 방식 중 해당 방식을 준비하고 두 사람 신분증을 지참합니다. 2020.12.21 이후 발급 여권은 여권정보증명서가 함께 필요합니다. ZIP 위임장의 배우자 제외 표현과 달리 본문의 배우자 포함 요건을 생략하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "대신 신청할 때 무엇을 챙기나요?",
+            "preview": "본인·배우자·그 밖의 대리인에 맞는 신분·위임 서류",
+            "sections": [
+                {
+                    "text": "• 현장접수만 가능하며 본인 방문은 인정 신분증과 도장(서명 대체 가능)을 준비해요.\n• 배우자도 대리신청에 포함하여 본문12쪽의 위임서류를 확인해요.\n• 인감증명 방식과 본인서명사실확인 방식 중 해당 방식을 준비하고 두 사람 신분증을 지참해요. 2020.12.21 이후 발급 여권은 여권정보증명서가 함께 필요해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "ZIP 위임장의 배우자 제외 표현과 달리 본문의 배우자 포함 요건을 생략하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "SELF",
+                    "label": "본인이 직접 방문",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SEAL",
+                    "label": "대리 신청 · 인감증명 방식",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SIGN",
+                    "label": "대리 신청 · 본인서명 방식",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "SELF": "본인이 직접 방문",
+                "SEAL": "대리 신청 · 인감증명 방식",
+                "SIGN": "대리 신청 · 본인서명 방식",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "SELF",
+                        "label": "본인이 직접 방문",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SEAL",
+                        "label": "대리 신청 · 인감증명 방식",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SIGN",
+                        "label": "대리 신청 · 본인서명 방식",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-facility",
+            "sourceTitle": "장애인·고령자 편의시설을 신청하나요?",
+            "sourceReason": "최초 입주자나 부양가족이 공고13쪽 대상에 해당하면 계약체결기간에 편의시설을 신청할 수 있습니다. 필요한 장애·보훈 증빙과 설치 가능 항목을 접수기관에 확인하세요. 편의시설 설치주택 공가의 장애인 우선입주는15쪽 요건에 해당하고 의사를 표시한 경우를 별도 확인하며, 일반접수 순번과 동일한 의미가 아닙니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "편의시설을 신청할 수 있나요?",
+            "preview": "장애·고령 등 해당자만 편의시설 신청 · 인정·설치 범위 확인",
+            "sections": [
+                {
+                    "text": "• 최초 입주자나 부양가족이 공고13쪽 대상에 해당하면 계약체결기간에 편의시설을 신청할 수 있어요.\n• 필요한 장애·보훈 증빙과 설치 가능 항목을 접수기관에 확인해 주세요.\n• 편의시설 설치주택 공가의 장애인 우선입주는15쪽 요건에 해당하고 의사를 표시한 경우를 별도 확인하며, 일반접수 순번과 동일한 의미가 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "해당 시설 신청을 희망해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "NO",
+                    "label": "신청하지 않아요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "해당 시설 신청을 희망해요",
+                "NO": "신청하지 않아요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "해당 시설 신청을 희망해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NO",
+                        "label": "신청하지 않아요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-history",
+            "sourceTitle": "공고일부터 신청일까지 주택·자산 변동이 있었나요?",
+            "sourceReason": "신청일을 기준으로 자격을 보고 입주 때까지 유지하는 것이 본문의 기준입니다. 동해유성·태백철암장미는 공고에서 정한 주택 1호까지 무주택 예외를 적용합니다. 유의사항은 공고일부터 무주택을 요구합니다. 2월 2일 공고 후 신청 전에 집을 사거나 판 경우, 그 이력을 어느 날부터 보는지 LH에 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "기준일 뒤 주택·자산이 바뀌었나요?",
+            "preview": "공고·신청 기준일 차이는 변동이 있는 경우에 확인",
+            "sections": [
+                {
+                    "text": "• 신청일을 기준으로 자격을 보고 입주 때까지 유지하는 것이 본문의 기준이에요.\n• 동해유성·태백철암장미는 공고에서 정한 주택 1호까지 무주택 예외를 적용해요.\n• 유의사항은 공고일부터 무주택을 요구해요. 2월 2일 공고 후 신청 전에 집을 사거나 판 경우, 그 이력을 어느 날부터 보는지 LH에 확인해 주세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "NO",
+                    "label": "공고일부터 지금까지 관련 변동 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "YES",
+                    "label": "소유·처분·자산 변동이 있어 적용일 확인 필요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "NO": "공고일부터 지금까지 관련 변동 없음",
+                "YES": "소유·처분·자산 변동이 있어 적용일 확인 필요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "NO",
+                        "label": "공고일부터 지금까지 관련 변동 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "YES",
+                        "label": "소유·처분·자산 변동이 있어 적용일 확인 필요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "db9f1ec3-d6aa-4453-8436-7d9cc0855a89",
+            "questionId": "dh-contract",
+            "sourceTitle": "완화 입주의 재계약 조건을 확인했나요?",
+            "sourceReason": "완화 입주자는 재계약1회를 원칙으로 하고 정상자격 예비자가 없을 때만1회 추가를 허용한다고 안내합니다. 이후 원래 국민임대 자격에 따른 할증·갱신 거절 가능성이 있습니다. 무주택 완화 입주는 공고 전 취득주택에 한해 재계약1회입니다. 보증금·임대료는 실제 계약 시점의 조건을 확인하며 최대30년 거주가 개인에게 보장된다는 뜻이 아닙니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+                "sha256": "22ee8b7bc070cadd9437ee53be543b9a278557ca0ab1c62012fbe57ac28e8942"
+            },
+            "heading": "선정 뒤 무엇을 준비하나요?",
+            "preview": "완화 입주 후 재계약은 별도 심사·조건 적용",
+            "sections": [
+                {
+                    "text": "• 완화 입주자는 재계약1회를 원칙으로 하고 정상자격 예비자가 없을 때만1회 추가를 허용한다고 안내해요.\n• 이후 원래 국민임대 자격에 따른 할증·갱신 거절 가능성이 있어요.\n• 무주택 완화 입주는 공고 전 취득주택에 한해 재계약1회이에요.",
+                    "evidence": []
+                },
+                {
+                    "text": "보증금·임대료는 실제 계약 시점의 조건을 확인하며 최대30년 거주가 개인에게 보장된다는 뜻이 아니에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499745#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        }
+    ]
+}

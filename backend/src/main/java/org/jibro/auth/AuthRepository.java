@@ -8,14 +8,25 @@ import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-/** Authentication persistence. Callers own transactions and the owner-before-token lock order. */
+/**
+ * Authentication persistence. Callers own transactions and the owner-before-token lock order.
+ */
 @Repository
 public class AuthRepository {
-    record User(UUID id, String name, String email, String role, boolean trial) {}
-    record Credentials(UUID id, String passwordHash) {}
-    record TrialTokenOwner(boolean trial, boolean revoked) {}
-    record LogoutOwner(UUID id, boolean trial) {}
-    record RefreshToken(UUID user, Instant expiresAt, boolean revoked, UUID session) {}
+    record User(UUID id, String name, String email, String role, boolean trial) {
+    }
+
+    record Credentials(UUID id, String passwordHash) {
+    }
+
+    record TrialTokenOwner(boolean trial, boolean revoked) {
+    }
+
+    record LogoutOwner(UUID id, boolean trial) {
+    }
+
+    record RefreshToken(UUID user, Instant expiresAt, boolean revoked, UUID session) {
+    }
 
     private final JdbcTemplate db;
 
@@ -25,7 +36,7 @@ public class AuthRepository {
 
     Optional<User> findActiveUser(UUID id) {
         return db.query("SELECT id,name,CASE WHEN trial_expires_at IS NULL THEN email ELSE '' END,role,trial_expires_at IS NOT NULL FROM app_user WHERE id=? AND NOT disabled AND (trial_expires_at IS NULL OR trial_expires_at>now())",
-            (r, i) -> new User(r.getObject(1, UUID.class), r.getString(2), r.getString(3), r.getString(4), r.getBoolean(5)), id).stream().findFirst();
+                (r, i) -> new User(r.getObject(1, UUID.class), r.getString(2), r.getString(3), r.getString(4), r.getBoolean(5)), id).stream().findFirst();
     }
 
     void insertPasswordAccount(UUID id, String name, String email, String passwordHash) {
@@ -34,12 +45,12 @@ public class AuthRepository {
 
     Optional<Credentials> lockCredentials(String email) {
         return db.query("SELECT id,password_hash FROM app_user WHERE email=? AND NOT disabled FOR UPDATE",
-            (r, i) -> new Credentials(r.getObject(1, UUID.class), r.getString(2)), email).stream().findFirst();
+                (r, i) -> new Credentials(r.getObject(1, UUID.class), r.getString(2)), email).stream().findFirst();
     }
 
     Optional<TrialTokenOwner> lockTrialTokenOwner(String hash) {
         return db.query("SELECT u.trial_expires_at IS NOT NULL AS trial,t.revoked FROM refresh_token t JOIN app_user u ON u.id=t.user_id WHERE t.hash=? AND t.expires_at>now() AND NOT u.disabled AND (u.trial_expires_at IS NULL OR u.trial_expires_at>now()) FOR UPDATE OF u",
-            (r, i) -> new TrialTokenOwner(r.getBoolean(1), r.getBoolean(2)), hash).stream().findFirst();
+                (r, i) -> new TrialTokenOwner(r.getBoolean(1), r.getBoolean(2)), hash).stream().findFirst();
     }
 
     boolean lockRefreshOwner(String hash) {
@@ -48,7 +59,7 @@ public class AuthRepository {
 
     Optional<RefreshToken> lockRefreshToken(String hash) {
         return db.query("SELECT user_id,expires_at,revoked,session_id FROM refresh_token WHERE hash=? FOR UPDATE",
-            (r, i) -> new RefreshToken(r.getObject(1, UUID.class), r.getTimestamp(2).toInstant(), r.getBoolean(3), r.getObject(4, UUID.class)), hash).stream().findFirst();
+                (r, i) -> new RefreshToken(r.getObject(1, UUID.class), r.getTimestamp(2).toInstant(), r.getBoolean(3), r.getObject(4, UUID.class)), hash).stream().findFirst();
     }
 
     void revokeRefreshToken(String hash) {
@@ -57,12 +68,12 @@ public class AuthRepository {
 
     Optional<LogoutOwner> lockLogoutOwner(UUID user) {
         return db.query("SELECT trial_expires_at IS NOT NULL AS trial FROM app_user WHERE id=? AND NOT disabled FOR UPDATE",
-            (r, i) -> new LogoutOwner(user, r.getBoolean(1)), user).stream().findFirst();
+                (r, i) -> new LogoutOwner(user, r.getBoolean(1)), user).stream().findFirst();
     }
 
     Optional<LogoutOwner> lockLogoutOwnerByToken(String hash) {
         return db.query("SELECT u.id,u.trial_expires_at IS NOT NULL AS trial FROM app_user u JOIN refresh_token t ON u.id=t.user_id WHERE t.hash=? AND t.expires_at>now() FOR UPDATE OF u",
-            (r, i) -> new LogoutOwner(r.getObject(1, UUID.class), r.getBoolean(2)), hash).stream().findFirst();
+                (r, i) -> new LogoutOwner(r.getObject(1, UUID.class), r.getBoolean(2)), hash).stream().findFirst();
     }
 
     Optional<UUID> findIdentityOwner(String provider, String subject) {

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
+
 import jakarta.persistence.EntityManager;
 import org.jibro.auth.AuthService;
 import org.jibro.global.common.ApiException;
@@ -35,16 +36,26 @@ import tools.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 @Transactional
 class NoticeLifecycleIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired NoticeLifecycleService lifecycle;
-    @Autowired PreparationService preparations;
-    @Autowired AuthService auth;
-    @Autowired AlertService alerts;
-    @Autowired SavedNoticeService saved;
-    @Autowired EntityManager entities;
-    @Autowired JdbcTemplate db;
-    @Autowired MockMvc mvc;
-    @Autowired ObjectMapper json;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    NoticeLifecycleService lifecycle;
+    @Autowired
+    PreparationService preparations;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    AlertService alerts;
+    @Autowired
+    SavedNoticeService saved;
+    @Autowired
+    EntityManager entities;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    MockMvc mvc;
+    @Autowired
+    ObjectMapper json;
     UUID owner, notice;
     Evidence evidence;
 

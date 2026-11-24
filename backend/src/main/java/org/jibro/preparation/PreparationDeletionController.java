@@ -1,7 +1,9 @@
 package org.jibro.preparation;
 
 import java.util.UUID;
+
 import jakarta.validation.Valid;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -11,10 +13,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/preparations/{id}")
 public class PreparationDeletionController {
     private final PreparationDeletionService service;
-    public PreparationDeletionController(PreparationDeletionService service) { this.service = service; }
-    public record ProofRequest(@Min(1) int revision) {}
-    public record DeleteRequest(@Min(1) int revision, @NotBlank @Size(max=30) String confirmation,
-                                @Size(max=72) String password, @Size(max=100) String code) {}
+
+    public PreparationDeletionController(PreparationDeletionService service) {
+        this.service = service;
+    }
+
+    public record ProofRequest(@Min(1) int revision) {
+    }
+
+    public record DeleteRequest(@Min(1) int revision, @NotBlank @Size(max = 30) String confirmation,
+                                @Size(max = 72) String password, @Size(max = 100) String code) {
+    }
 
     @GetMapping("/deletion")
     PreparationDeletionService.Details details(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id) {
@@ -29,7 +38,7 @@ public class PreparationDeletionController {
 
     @DeleteMapping
     @ResponseStatus(org.springframework.http.HttpStatus.NO_CONTENT)
-    void delete(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @Valid @RequestBody DeleteRequest body) {
-        service.delete(UUID.fromString(jwt.getSubject()), id, new PreparationDeletionService.Confirmation(body.revision(), body.confirmation(), body.password(), body.code()));
+    void delete(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @Valid @RequestBody DeleteRequest body, HttpServletRequest request) {
+        service.delete(UUID.fromString(jwt.getSubject()), id, new PreparationDeletionService.Confirmation(body.revision(), body.confirmation(), body.password(), body.code()), request.getRemoteAddr());
     }
 }

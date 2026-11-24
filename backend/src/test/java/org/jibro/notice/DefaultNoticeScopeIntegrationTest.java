@@ -91,6 +91,6 @@ class DefaultNoticeScopeIntegrationTest {
         assertEquals(Set.of(old, boundary, today), new HashSet<>(explicit.items().stream().map(NoticeListSource::id).toList()));
         assertDoesNotThrow(() -> notices.notice(old));
         assertFalse(queries.search(List.of(), List.of(), List.of(), group, "active", 0, 20,
-            day.plusDays(1).atStartOfDay(ApplicationPeriod.SEOUL).toInstant()).items().stream().anyMatch(n -> n.id().equals(boundary)));
+                day.plusDays(1).atStartOfDay(ApplicationPeriod.SEOUL).toInstant()).items().stream().anyMatch(n -> n.id().equals(boundary)));
     }
 }

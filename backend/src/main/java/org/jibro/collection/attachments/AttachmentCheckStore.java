@@ -13,16 +13,29 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/** Short transactions around the network scan; no database lock is held while downloading. */
+/**
+ * Short transactions around the network scan; no database lock is held while downloading.
+ */
 // JdbcTemplate translates database errors; scan/domain exceptions keep their original contract.
 @Component
 public class AttachmentCheckStore {
-    public record Target(String label, String url, String key) {}
-    public record Scan(UUID id, UUID noticeId, int revision, List<Target> targets) {}
-    public record Download(Target target, AttachmentFingerprintClient.Fingerprint fingerprint, String failure) {}
+    public record Target(String label, String url, String key) {
+    }
+
+    public record Scan(UUID id, UUID noticeId, int revision, List<Target> targets) {
+    }
+
+    public record Download(Target target, AttachmentFingerprintClient.Fingerprint fingerprint, String failure) {
+    }
+
     public record Result(String label, String url, String status, String message,
-                         String previousHash, String currentHash, Long bytes) {}
-    public record Run(String id, String status, String startedAt, String finishedAt, String message, List<Result> results) {}
+                         String previousHash, String currentHash, Long bytes) {
+    }
+
+    public record Run(String id, String status, String startedAt, String finishedAt, String message,
+                      List<Result> results) {
+    }
+
     private final JdbcTemplate db;
     private final NoticeService notices;
     private final ExtractionStore extraction;
@@ -57,14 +70,23 @@ public class AttachmentCheckStore {
         // Restrict this supplement to the verified baseline registry; never fetch arbitrary evidence URLs.
         var content = snapshot.content();
         var extra = new ArrayList<org.jibro.notice.HousingModels.Evidence>();
-        if (content.questions() != null) content.questions().forEach(item -> { if (item != null && item.evidence() != null) extra.add(item.evidence()); });
-        if (content.documents() != null) content.documents().forEach(item -> { if (item != null && item.evidence() != null) extra.add(item.evidence()); });
-        if (content.schedules() != null) content.schedules().forEach(item -> { if (item != null && item.evidence() != null) extra.add(item.evidence()); });
-        if (content.reviewIssues() != null) content.reviewIssues().forEach(item -> { if (item != null && item.evidence() != null) extra.addAll(item.evidence()); });
+        if (content.questions() != null) content.questions().forEach(item -> {
+            if (item != null && item.evidence() != null) extra.add(item.evidence());
+        });
+        if (content.documents() != null) content.documents().forEach(item -> {
+            if (item != null && item.evidence() != null) extra.add(item.evidence());
+        });
+        if (content.schedules() != null) content.schedules().forEach(item -> {
+            if (item != null && item.evidence() != null) extra.add(item.evidence());
+        });
+        if (content.reviewIssues() != null) content.reviewIssues().forEach(item -> {
+            if (item != null && item.evidence() != null) extra.addAll(item.evidence());
+        });
         for (var evidence : extra) {
             if (evidence == null || evidence.url() == null) continue;
             String url = evidence.url().split("#", 2)[0];
-            if (relocation.baselineHash(url) != null) targets.putIfAbsent(key(url), new Target(evidence.label(), url, key(url)));
+            if (relocation.baselineHash(url) != null)
+                targets.putIfAbsent(key(url), new Target(evidence.label(), url, key(url)));
         }
         Map<String, Instant> attempts = new HashMap<>();
         db.query("SELECT url_key,attempted_at FROM attachment_fingerprint WHERE notice_id=?", rs -> {
@@ -98,18 +120,31 @@ public class AttachmentCheckStore {
                 boolean pending = "DEFERRED".equals(download.failure());
                 status = pending ? "DEFERRED" : "FAILED";
                 message = pending ? "이번 실행 한도를 넘었습니다. 다시 확인하면 미확인 첨부부터 처리합니다." : failureMessage(download.failure());
-                if (pending) deferred++; else failed++;
+                if (pending) deferred++;
+                else failed++;
             } else if (previous == null && relocation.differsFromKnownBaseline(target.url(), value.sha256())) {
                 previous = relocation.baselineHash(target.url());
-                status = "CHANGED"; message = "기존 근거의 원문과 현재 파일이 다릅니다. 재검수가 필요합니다."; changed++; changedFiles.add(download);
+                status = "CHANGED";
+                message = "기존 근거의 원문과 현재 파일이 다릅니다. 재검수가 필요합니다.";
+                changed++;
+                changedFiles.add(download);
             } else if (previous == null) {
-                status = "BASELINE"; message = "첫 비교 기준을 등록했습니다. 이전 내용과의 동일 여부는 판단하지 않습니다."; baseline++;
+                status = "BASELINE";
+                message = "첫 비교 기준을 등록했습니다. 이전 내용과의 동일 여부는 판단하지 않습니다.";
+                baseline++;
             } else if (previous.equals(value.sha256()) && relocation.needsReconciliation(target.url(), value.sha256())) {
-                status = "CHANGED"; message = "현재 파일을 기존 근거와 자동 대조합니다."; changed++; changedFiles.add(download);
+                status = "CHANGED";
+                message = "현재 파일을 기존 근거와 자동 대조합니다.";
+                changed++;
+                changedFiles.add(download);
             } else if (previous.equals(value.sha256())) {
-                status = "UNCHANGED"; message = "직전 성공 검사와 파일 내용이 같습니다.";
+                status = "UNCHANGED";
+                message = "직전 성공 검사와 파일 내용이 같습니다.";
             } else {
-                status = "CHANGED"; message = "같은 주소의 파일 내용이 바뀌었습니다. 원문 재검수가 필요합니다."; changed++; changedFiles.add(download);
+                status = "CHANGED";
+                message = "같은 주소의 파일 내용이 바뀌었습니다. 원문 재검수가 필요합니다.";
+                changed++;
+                changedFiles.add(download);
             }
             db.update("INSERT INTO attachment_check_result(run_id,ordinal,label,url,status,message,previous_hash,current_hash,byte_size) VALUES (?,?,?,?,?,?,?,?,?)",
                     scan.id(), ordinal++, target.label(), target.url(), status, message, previous, value == null ? null : value.sha256(), value == null ? null : value.bytes());
@@ -125,7 +160,8 @@ public class AttachmentCheckStore {
         if (!superseded && changed > 0) {
             notices.attachmentChanged(scan.noticeId(), scan.revision(), "첨부 내용 변경 " + changed + "건 감지 · 점검 " + scan.id());
             if (!notices.applicationClosed(scan.noticeId())) {
-                for (var download : changedFiles) relocation.markPending(download.target().url(), download.fingerprint().sha256());
+                for (var download : changedFiles)
+                    relocation.markPending(download.target().url(), download.fingerprint().sha256());
                 extraction.enqueue(scan.noticeId(), false);
             }
         }
@@ -157,8 +193,11 @@ public class AttachmentCheckStore {
     }
 
     static String key(String url) {
-        try { return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(url.getBytes(StandardCharsets.UTF_8))); }
-        catch (java.security.NoSuchAlgorithmException impossible) { throw new IllegalStateException(impossible); }
+        try {
+            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(url.getBytes(StandardCharsets.UTF_8)));
+        } catch (java.security.NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException(impossible);
+        }
     }
 
     private String failureMessage(String code) {

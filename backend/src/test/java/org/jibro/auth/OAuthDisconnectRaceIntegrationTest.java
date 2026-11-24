@@ -34,6 +34,7 @@ class OAuthDisconnectRaceIntegrationTest {
     JdbcTemplate db;
     @MockitoSpyBean
     AuthRepository repository;
+    private final String remoteAddress = "reauth-test-" + UUID.randomUUID();
     private static final String PASSWORD = "race-test-password-123";
 
     @Test
@@ -61,7 +62,7 @@ class OAuthDisconnectRaceIntegrationTest {
             }).when(repository).findIdentityOwner("google", subject);
             var login = worker.submit(() -> auth.social("google", subject, "동시성 테스트", email));
             assertTrue(identityRead.await(10, TimeUnit.SECONDS));
-            connections.disconnect(user, "google", new AccountConnections.Proof(PASSWORD, null));
+            connections.disconnect(user, "google", new AccountConnections.Proof(PASSWORD, null), remoteAddress);
             continueLogin.countDown();
             var error = assertThrows(ExecutionException.class, () -> login.get(10, TimeUnit.SECONDS));
             assertInstanceOf(ApiException.class, error.getCause());

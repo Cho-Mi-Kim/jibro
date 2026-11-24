@@ -1,4 +1,5 @@
 import { call } from '../../shared/api/transport';
+import type { NoticeSourceInformationData } from '../housing/noticeSourceInformationApi';
 import type { Evidence, Question, Schedule } from '../housing/types';
 
 export interface GuidanceDocument {
@@ -22,6 +23,15 @@ export interface GuidanceCandidate {
 
 export interface GuidancePreview {
     profile: string;
+    state:
+        | 'PRIMARY_DRAFT'
+        | 'PENDING'
+        | 'PASS'
+        | 'PARTIAL'
+        | 'INTAKE'
+        | 'ITEMS'
+        | 'REVIEW_REQUIRED';
+    confirmedItems: NoticeSourceInformationData['sections'];
     ready: boolean;
     candidate: GuidanceCandidate | null;
     issues: string[];

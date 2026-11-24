@@ -5,6 +5,7 @@ import { useEffect, type RefObject } from 'react';
 export function useNoticeCardScroll(
     ref: RefObject<HTMLElement | null>,
     expanded: boolean,
+    alignOnExpand = true,
 ) {
     useEffect(() => {
         const card = ref.current;
@@ -36,7 +37,7 @@ export function useNoticeCardScroll(
                 });
             }
         };
-        let alignOnOpen = true;
+        let alignOnOpen = alignOnExpand;
         const update = () => {
             frame = 0;
             const controlsHeight =
@@ -96,5 +97,5 @@ export function useNoticeCardScroll(
             window.removeEventListener('resize', schedule);
             list.style.removeProperty('--notice-scroll-space');
         };
-    }, [expanded, ref]);
+    }, [expanded, ref, alignOnExpand]);
 }

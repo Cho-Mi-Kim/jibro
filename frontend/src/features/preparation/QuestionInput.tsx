@@ -1,12 +1,12 @@
 import type { Answer, Question } from '../housing/types';
 import {
-    answerOptions,
     inputDescription,
     questionKind,
     validAnswer,
 } from '../housing/questions';
 import { cx } from '../../shared/styles/classes';
 import styles from './QuestionInput.module.css';
+import { applicantQuestion } from './applicantQuestion';
 
 export function QuestionInput({
     question,
@@ -14,17 +14,25 @@ export function QuestionInput({
     disabled,
     onChange,
     onRepeatChoice,
+    answers,
+    questions,
 }: {
     question: Question;
     value: Answer | undefined;
     disabled: boolean;
     onChange: (value: Answer) => void;
     onRepeatChoice: () => void;
+    answers?: Readonly<Record<string, Answer>>;
+    questions?: readonly Question[];
 }) {
     const kind = questionKind(question);
     const c = question.constraints;
+    const options = applicantQuestion(
+        question,
+        answers && questions ? { answers, questions } : undefined,
+    ).options;
     if (kind === 'SINGLE')
-        return answerOptions(question).map((option) => (
+        return options.map((option) => (
             <label className={cx('choice')} key={option.value}>
                 <input
                     type="radio"
@@ -42,14 +50,14 @@ export function QuestionInput({
     if (kind === 'MULTIPLE') {
         const selected = Array.isArray(value) ? value : [];
         const selectedChoices = selected.filter((choice) => choice !== 'NONE');
-        const max = c?.maxSelections ?? answerOptions(question).length - 1;
+        const max = c?.maxSelections ?? options.length - 1;
         return (
             <>
                 <p className={styles.hint}>
                     해당하는 항목을 고른 뒤 다음을 눌러 주세요. 최대 {max}개
                     선택할 수 있어요.
                 </p>
-                {answerOptions(question).map((option) => {
+                {options.map((option) => {
                     const unknown = option.value === 'UNKNOWN';
                     const none = option.value === 'NONE';
                     const checked = unknown

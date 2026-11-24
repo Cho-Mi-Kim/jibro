@@ -1,0 +1,803 @@
+{
+    "entries": [
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "site",
+            "sourceTitle": "신청할 단지에 내 유형이 있나요?",
+            "sourceReason": "대학생은 춘천거두2, 청년은 세 단지 모두, 신혼·한부모는 춘천거두2와 철원철원에 신청할 수 있어요. 고령자는 철원갈말·철원철원, 주거급여수급자는 철원갈말이에요. 고령자 기준은 65세 이상이에요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "어느 단지에 신청할 수 있나요?",
+            "preview": "춘천거두2·철원갈말·철원철원은 모집 계층이 달라요",
+            "sections": [
+                {
+                    "text": "고령자는 공고일 만65세 이상이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "단지별 모집 유형",
+                        "headers": ["단지", "신청 유형"],
+                        "rows": [
+                            ["춘천거두2", "대학생·청년·신혼·한부모"],
+                            ["철원갈말", "청년·고령자·주거급여 수급자"],
+                            ["철원철원", "청년·신혼·한부모·고령자"]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "student",
+            "sourceTitle": "대학생·취업준비생 기준을 확인했나요?",
+            "sourceReason": "혼인 중이 아닌 무주택자로 대학 재학·다음 학기 입학 또는 복학 예정이거나 대학·고등학교 졸업 또는 중퇴 후 2년 이내여야 해요. 본인과 부모의 소득 기준은 기본 100%, 1인 120%, 2인 110% 이하예요. 기본 본인 자산 한도는 1억 800만 원이고 자동차가액 산출 대상 자동차를 소유하면 안 돼요. 출생 자녀 가산은 같은 쪽 표를 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=6",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "대학생·취업준비생 기준은 무엇인가요?",
+            "preview": "미혼 대학생·취준2년 · 소득100%·1인120·2인110%",
+            "sections": [
+                {
+                    "text": "• 혼인 중이 아닌 무주택자로 대학 재학·다음 학기 입학 또는 복학 예정이거나 대학·고등학교 졸업 또는 중퇴 후 2년 이내여야 해요.\n• 본인과 부모의 소득 기준은 기본 100%, 1인 120%, 2인 110% 이하예요.\n• 기본 본인 자산 한도는 1억 800만 원이고 자동차가액 산출 대상 자동차를 소유하면 안 돼요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 출생 자녀 가산은 같은 쪽 표를 확인해 주세요.\n• 수료했지만 아직 졸업하지 않았다면 재학생으로 봐요.\n• 원격대학·사내대학·대학원 등은 제외돼요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 이혼 등으로 부모 관계가 단절되었다면 실제 부양하는 부 또는 모를 공고7쪽 기준으로 확인해요.\n• 입학 예정자는 공고일에 입학을 증명하고 입학 후1개월 안에 추가 증명을 내요.\n• 복학 예정자는 복학 후1개월 안에 재학증명서를 내요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "혼인 중이 아닌 무주택자로 대학 재학·다음 학기 입학 또는 복학 예정이거나 대학·고등학교 졸업 또는 중퇴 후 2년 이내여야 해요. 본인과 부모의 소득 기준은 기본 100%, 1인 120%, 2인 110% 이하예요. 기본 본인 자산 한도는 1억 800만 원이고 자동차가액 산출 대상 자동차를 소유하면 안 돼요. 출생 자녀 가산은 같은 쪽 표를 확인하세요. 수료했지만 아직 졸업하지 않았다면 재학생으로 봐요. 원격대학·사내대학·대학원 등은 제외돼요. 이혼 등으로 부모 관계가 단절되었다면 실제 부양하는 부 또는 모를 공고7쪽 기준으로 확인해요. 입학 예정자는 공고일에 입학을 증명하고 입학 후1개월 안에 추가 증명을 내요. 복학 예정자는 복학 후1개월 안에 재학증명서를 내요."
+            ],
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "이 유형의 기준을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당 기준의 추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NOT_APPLICABLE",
+                        "label": "내가 신청하는 유형이 아니에요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "answerDependencies": [
+                    {
+                        "questionId": "application-category",
+                        "answerValues": [
+                            "STUDENT",
+                            "ADMISSION",
+                            "RETURN",
+                            "JOBSEEKER"
+                        ],
+                        "conflictingValues": ["NOT_APPLICABLE"],
+                        "requiredDocumentIds": [],
+                        "message": "선택한 신청 유형에 해당하는 기준이에요. 신청 유형과 이 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "youth",
+            "sourceTitle": "청년·사회초년생 기준을 확인했나요?",
+            "sourceReason": "혼인 중이 아닌 무주택자로 청년은 19~39세예요. 사회초년생은 소득이 있는 일을 한 기간이 총 5년 이내이며 근무 중이거나, 퇴직 후 1년 이내 구직급여 자격을 인정받았거나, 예술인이어야 해요. 기본 총자산은 2억 5,100만 원, 자동차는 4,542만 원 이하이고 자녀 가산은 별도로 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=8",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "청년·사회초년생 기준은 무엇인가요?",
+            "preview": "미혼 청년19~39세 또는 사회초년생5년 · 소득·자산 심사",
+            "sections": [
+                {
+                    "text": "• 혼인 중이 아닌 무주택자로 청년은 19~39세예요.\n• 사회초년생은 소득이 있는 일을 한 기간이 총 5년 이내이며 근무 중이거나, 퇴직 후 1년 이내 구직급여 자격을 인정받았거나, 예술인이어야 해요.\n• 기본 총자산은 2억 5,100만 원, 자동차는 4,542만 원 이하이고 자녀 가산은 별도로 확인해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 소득은 도시근로자 월평균소득100% 이하(1인120%,2인110%)예요.\n• 세대주인 청년은 해당 세대, 세대원인 청년은 본인 기준으로 확인해요.\n• 본인은 입주 전까지 청약통장 가입을 증명해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "혼인 중이 아닌 무주택자로 청년은 19~39세예요. 사회초년생은 소득이 있는 일을 한 기간이 총 5년 이내이며 근무 중이거나, 퇴직 후 1년 이내 구직급여 자격을 인정받았거나, 예술인이어야 해요. 기본 총자산은 2억 5,100만 원, 자동차는 4,542만 원 이하이고 자녀 가산은 별도로 확인해요. 소득은 도시근로자 월평균소득100% 이하(1인120%,2인110%)예요. 세대주인 청년은 해당 세대, 세대원인 청년은 본인 기준으로 확인해요. 본인은 입주 전까지 청약통장 가입을 증명해야 해요."
+            ],
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "이 유형의 기준을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당 기준의 추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NOT_APPLICABLE",
+                        "label": "내가 신청하는 유형이 아니에요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "answerDependencies": [
+                    {
+                        "questionId": "application-category",
+                        "answerValues": [
+                            "YOUTH",
+                            "WORKER",
+                            "RETIRED",
+                            "ARTIST"
+                        ],
+                        "conflictingValues": ["NOT_APPLICABLE"],
+                        "requiredDocumentIds": [],
+                        "message": "선택한 신청 유형에 해당하는 기준이에요. 신청 유형과 이 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "family",
+            "sourceTitle": "신혼·한부모 신청 유형을 확인했나요?",
+            "sourceReason": "신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요. 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요. 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "신혼·한부모 기준은 무엇인가요?",
+            "preview": "혼인7년·자녀6세 · 소득100/맞벌이120%·가구원 가산",
+            "sections": [
+                {
+                    "text": "• 신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요.\n• 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요.\n• 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 신청자와 심사 대상 세대원 모두 무주택이어야 해요.\n• 소득은100% 이하(2인110%), 맞벌이는120% 이하(2인130%)이고 총자산3억4,500만 원·자동차4,542만 원 이하예요.\n• 인정되는 출생자녀 가산은 별도 적용해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "본인 또는 배우자 중 한 명이 입주 전까지 청약통장 가입을 증명해야 하고, 한부모는 본인 통장이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요. 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요. 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요. 신청자와 심사 대상 세대원 모두 무주택이어야 해요. 소득은100% 이하(2인110%), 맞벌이는120% 이하(2인130%)이고 총자산3억4,500만 원·자동차4,542만 원 이하예요. 인정되는 출생자녀 가산은 별도 적용해요. 본인 또는 배우자 중 한 명이 입주 전까지 청약통장 가입을 증명해야 하고, 한부모는 본인 통장이 필요해요."
+            ],
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "이 유형의 기준을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당 기준의 추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NOT_APPLICABLE",
+                        "label": "내가 신청하는 유형이 아니에요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "answerDependencies": [
+                    {
+                        "questionId": "application-category",
+                        "answerValues": [
+                            "MARRIED",
+                            "PROPOSED",
+                            "SINGLE_PARENT"
+                        ],
+                        "conflictingValues": ["NOT_APPLICABLE"],
+                        "requiredDocumentIds": [],
+                        "message": "선택한 신청 유형에 해당하는 기준이에요. 신청 유형과 이 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "family",
+            "sourceTitle": "신혼·한부모 신청 유형을 확인했나요?",
+            "sourceReason": "신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요. 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요. 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=10",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "신혼·한부모 기준은 무엇인가요?",
+            "preview": "혼인7년·자녀6세 · 소득100/맞벌이120%·가구원 가산",
+            "sections": [
+                {
+                    "text": "• 신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요.\n• 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요.\n• 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 신청자와 심사 대상 세대원 모두 무주택이어야 해요.\n• 소득은100% 이하(2인110%), 맞벌이는120% 이하(2인130%)이고 총자산3억4,500만 원·자동차4,542만 원 이하예요.\n• 인정되는 출생자녀 가산은 별도 적용해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "본인 또는 배우자 중 한 명이 입주 전까지 청약통장 가입을 증명해야 하고, 한부모는 본인 통장이 필요해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요. 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요. 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요. 신청자와 심사 대상 세대원 모두 무주택이어야 해요. 소득은100% 이하(2인110%), 맞벌이는120% 이하(2인130%)이고 총자산3억4,500만 원·자동차4,542만 원 이하예요. 인정되는 출생자녀 가산은 별도 적용해요. 본인 또는 배우자 중 한 명이 입주 전까지 청약통장 가입을 증명해야 하고, 한부모는 본인 통장이 필요해요."
+            ],
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "이 유형의 기준을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당 기준의 추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NOT_APPLICABLE",
+                        "label": "내가 신청하는 유형이 아니에요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "answerDependencies": [
+                    {
+                        "questionId": "application-category",
+                        "answerValues": [
+                            "MARRIED",
+                            "PROPOSED",
+                            "SINGLE_PARENT"
+                        ],
+                        "conflictingValues": ["NOT_APPLICABLE"],
+                        "requiredDocumentIds": [],
+                        "message": "선택한 신청 유형에 해당하는 기준이에요. 신청 유형과 이 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "priority",
+            "sourceTitle": "우선 공급 대상과 단지별 순서를 확인했나요?",
+            "sourceReason": "공고일에 같은 세대에 2세 미만 자녀(태아 포함)가 있으면 주택형·대상별 모집 물량의 30% 안에서 먼저 선정해요. 여기서 떨어져도 남은 물량을 두고 다시 경쟁해요. 철원철원 36A는 신혼부부 계층을 먼저 뽑고 남은 물량을 청년에게 공급해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=3",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "어떤 순위로 신청하나요?",
+            "preview": "2세 미만 자녀30% 우선 · 철원철원36A 신혼 우선",
+            "sections": [
+                {
+                    "text": "• 공고일에 같은 세대에 2세 미만 자녀(태아 포함)가 있으면 주택형·대상별 모집 물량의 30% 안에서 먼저 선정해요.\n• 여기서 떨어져도 남은 물량을 두고 다시 경쟁해요.\n• 철원철원 36A는 신혼부부 계층을 먼저 뽑고 남은 물량을 청년에게 공급해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 춘천의1순위 지역은 춘천·화천·양구·인제·홍천·가평, 철원은 철원·연천·포천·화천·양구예요.2순위는 나머지 강원,3순위는 그 밖이에요.\n• 대학생은 본인 거주지나 대학 소재지, 청년은 본인 거주지나 소득근거지, 신혼·한부모는 본인 또는 배우자의 거주지나 소득근거지를 봐요.\n• 고령자·주거급여는 별도 추첨이며 철원갈말16A·26A는 두 계층 물량을 합쳐 추첨해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "춘천거두2 16A 대학생·청년도 물량을 합쳐 순위별 추첨해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "공고일에 같은 세대에 2세 미만 자녀(태아 포함)가 있으면 주택형·대상별 모집 물량의 30% 안에서 먼저 선정해요. 여기서 떨어져도 남은 물량을 두고 다시 경쟁해요. 철원철원 36A는 신혼부부 계층을 먼저 뽑고 남은 물량을 청년에게 공급해요. 춘천의1순위 지역은 춘천·화천·양구·인제·홍천·가평, 철원은 철원·연천·포천·화천·양구예요.2순위는 나머지 강원,3순위는 그 밖이에요. 대학생은 본인 거주지나 대학 소재지, 청년은 본인 거주지나 소득근거지, 신혼·한부모는 본인 또는 배우자의 거주지나 소득근거지를 봐요. 고령자·주거급여는 별도 추첨이며 철원갈말16A·26A는 두 계층 물량을 합쳐 추첨해요. 춘천거두2 16A 대학생·청년도 물량을 합쳐 순위별 추첨해요."
+            ]
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "apply",
+            "sourceTitle": "신청 방식과 서류 제출 경로를 확인했나요?",
+            "sourceReason": "인터넷 청약이 기본이에요. 철원군 고령자 유형은 11월 25일 10:30~16:00(점심 12~13시 제외)에 현장 신청도 가능해요. 온라인 신청 후 서류 제출 대상자로 뽑히면 인터넷 또는 등기우편으로 제출해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "어떻게 신청·서류 제출하나요?",
+            "preview": "인터넷 원칙 · 철원 고령자11/25 10:30~16시 방문",
+            "sections": [
+                {
+                    "text": "• 인터넷 청약이 기본이에요.\n• 철원군 고령자 유형은 11월 25일 10:30~16:00(점심 12~13시 제외)에 현장 신청도 가능해요.\n• 온라인 신청 후 서류 제출 대상자로 뽑히면 인터넷 또는 등기우편으로 제출해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "application-category",
+            "sourceTitle": "어떤 유형으로 신청하나요?",
+            "sourceReason": "춘천거두2는 대학생·청년·신혼·한부모, 철원갈말은 청년·고령자·주거급여수급자, 철원철원은 청년·신혼·한부모·고령자를 모집해요. 신청할 단지의 모집 유형을 먼저 골라요. 예비신혼부부는 두 사람 중 대표 신청자 한 명을 정하며 신청 뒤 바꿀 수 없어요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "어떤 유형으로 신청하나요?",
+            "preview": "단지별 대학생·청년·가족·고령자·수급자 유형 선택",
+            "sections": [
+                {
+                    "text": "• 춘천거두2는 대학생·청년·신혼·한부모, 철원갈말은 청년·고령자·주거급여수급자, 철원철원은 청년·신혼·한부모·고령자를 모집해요.\n• 신청할 단지의 모집 유형을 먼저 골라요.\n• 예비신혼부부는 두 사람 중 대표 신청자 한 명을 정하며 신청 뒤 바꿀 수 없어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "STUDENT",
+                        "label": "대학 재학 중",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ADMISSION",
+                        "label": "다음 학기 입학 예정",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "RETURN",
+                        "label": "다음 학기 복학 예정",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "JOBSEEKER",
+                        "label": "졸업·중퇴 후 2년 이내",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "YOUTH",
+                        "label": "19~39세 청년",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WORKER",
+                        "label": "소득활동 5년 이내 근무자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "RETIRED",
+                        "label": "퇴직1년 이내 구직급여 인정자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ARTIST",
+                        "label": "소득활동5년 이내 예술인",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "MARRIED",
+                        "label": "신혼부부",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PROPOSED",
+                        "label": "예비신혼부부",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SINGLE_PARENT",
+                        "label": "6세 이하 자녀를 둔 한부모",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SENIOR",
+                        "label": "65세 이상 고령자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "BENEFIT",
+                        "label": "주거급여 수급자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "document-situation",
+            "sourceTitle": "추가 가족·근무 서류가 필요한가요?",
+            "sourceReason": "2026.11.12 이후 주소나 세대주가 바뀌면 초본을 내요. 배우자와 등본이 다르거나 공고일 당시 세대주와 나뉘었다면 해당 등본을 더 내요. 등본으로 배우자·세대관계가 확인되지 않는 경우에도 가족관계증명서가 필요해요. 외국인 배우자, 태아·입양, 근무지 순위·맞벌이, 대리 신청은 각각 해당 증빙을 준비해요. 한 가지에 해당하지 않아도 다른 항목은 함께 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=21",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "추가 가족·근무 서류가 필요한가요?",
+            "preview": "주소·가족·태아·입양·근무·대리 신청에 맞는 서류",
+            "sections": [
+                {
+                    "text": "• 2026.11.12 이후 주소나 세대주가 바뀌면 초본을 내요.\n• 배우자와 등본이 다르거나 공고일 당시 세대주와 나뉘었다면 해당 등본을 더 내요.\n• 등본으로 배우자·세대관계가 확인되지 않는 경우에도 가족관계증명서가 필요해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 외국인 배우자, 태아·입양, 근무지 순위·맞벌이, 대리 신청은 각각 해당 증빙을 준비해요.\n• 한 가지에 해당하지 않아도 다른 항목은 함께 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 21쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=21",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "MULTIPLE",
+                "options": [
+                    {
+                        "value": "HISTORY",
+                        "label": "주소·세대주 변경",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "REGISTER",
+                        "label": "배우자·공고일 세대주 등본 추가",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "FAMILY",
+                        "label": "등본으로 가족관계 확인 불가",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "FOREIGN",
+                        "label": "외국인 배우자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PREGNANT",
+                        "label": "태아 인정",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ADOPTED",
+                        "label": "입양 자녀 인정",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WORK",
+                        "label": "근무지로 순위 신청",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "DUAL",
+                        "label": "맞벌이 소득기준 적용",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PROXY",
+                        "label": "대리 신청",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "BIRTH",
+                        "label": "출생 자녀 가산",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "senior-benefit",
+            "sourceTitle": "고령자·주거급여 유형의 기준은 무엇인가요?",
+            "sourceReason": "고령자는 공고일 기준 만65세 이상 무주택세대구성원이어야 해요. 소득100% 이하(1인120%,2인110%), 총자산3억4,500만 원·자동차4,542만 원 이하가 기본이고 출생자녀 가산을 적용해요. 주거급여 유형은 무주택세대구성원인 주거급여 수급자가 대상이며 수급자증명서를 내요. 주거급여 유형은 금융정보 동의서·자산보유사실확인서 작성에서 제외돼요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=13",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "고령자·주거급여 유형의 기준은 무엇인가요?",
+            "preview": "고령자 소득·자산 심사 · 주거급여는 수급 자격 증명",
+            "sections": [
+                {
+                    "text": "• 고령자는 공고일 기준 만65세 이상 무주택세대구성원이어야 해요.\n• 소득100% 이하(1인120%,2인110%), 총자산3억4,500만 원·자동차4,542만 원 이하가 기본이고 출생자녀 가산을 적용해요.\n• 주거급여 유형은 무주택세대구성원인 주거급여 수급자가 대상이며 수급자증명서를 내요.",
+                    "evidence": []
+                },
+                {
+                    "text": "주거급여 유형은 금융정보 동의서·자산보유사실확인서 작성에서 제외돼요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "이 유형의 기준을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당 기준의 추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NOT_APPLICABLE",
+                        "label": "내가 신청하는 유형이 아니에요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null,
+                "answerDependencies": [
+                    {
+                        "questionId": "application-category",
+                        "answerValues": ["SENIOR", "BENEFIT"],
+                        "conflictingValues": ["NOT_APPLICABLE"],
+                        "requiredDocumentIds": [],
+                        "message": "선택한 신청 유형에 해당하는 기준이에요. 신청 유형과 이 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "special-proof",
+            "sourceTitle": "추가 근무·가족 증명이 필요한가요?",
+            "sourceReason": "대학생이 부모 이혼 등 관계 단절 예외를 쓰면 부모 혼인관계증명서와 실제 부양관계를 확인할 등·초본이 필요해요. 연금 이력에 현재 근무가 확인되지 않으면 사업자등록·재직·근로계약 등 해당 증빙을 내요. 사회초년생 근무기간에서 재학·병역 기간을 빼려면 졸업·복무·병적 증빙이 필요해요. 주거약자용을 신청하면 인정 유형을 증명해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=22",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "추가 근무·가족 증명이 필요한가요?",
+            "preview": "부모 관계·현재 근무·기간 제외·주거약자 해당 증빙",
+            "sections": [
+                {
+                    "text": "• 대학생이 부모 이혼 등 관계 단절 예외를 쓰면 부모 혼인관계증명서와 실제 부양관계를 확인할 등·초본이 필요해요.\n• 연금 이력에 현재 근무가 확인되지 않으면 사업자등록·재직·근로계약 등 해당 증빙을 내요.\n• 사회초년생 근무기간에서 재학·병역 기간을 빼려면 졸업·복무·병적 증빙이 필요해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "주거약자용을 신청하면 인정 유형을 증명해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 22쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=22",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "MULTIPLE",
+                "options": [
+                    {
+                        "value": "PARENT",
+                        "label": "부모 관계 단절 예외",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WORK",
+                        "label": "연금 이력에 현재 근무 미표시",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SCHOOL",
+                        "label": "재학 중 근무기간 제외",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "MILITARY",
+                        "label": "병역 근무기간 제외",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "VULNERABLE",
+                        "label": "주거약자용 해당 증빙",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        },
+        {
+            "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+            "questionId": "birth-allowance",
+            "sourceTitle": "자녀가 있으면 한도가 얼마나 올라가나요?",
+            "sourceReason": "2023.3.28 이후 출산한 미성년 자녀(입양·태아 포함)가 있으면1명10%p,2명 이상20%p의 가산을 적용해요. 기준일 이후 자녀가 있으면 이전에 태어난 미성년 자녀도 합쳐 최대2명까지 세요. 대학생·청년은 신청자 등본의 자녀, 신혼·고령자 등은 신청자 또는 배우자와 같은 등본의 자녀를 확인해요. 대학생은 자산1억800만/1억1,900만/1억3,000만 원이고 자동차는 없어야 해요. 청년은2억5,100만/2억7,600만/3억100만 원, 신혼·한부모·고령자는3억4,500만/3억7,900만/4억1,300만 원이에요. 자동차는 기본4,542만/1명4,996만/2명 이상5,451만 원이에요. 소득의1·2인가구·맞벌이 가산과 자녀 가산은 유형별 공고표를 함께 봐요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=8",
+                "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da"
+            },
+            "heading": "자녀가 있으면 한도가 얼마나 올라가나요?",
+            "preview": "2023.3.28 이후 자녀가 있으면1명10%p·2명20%p 가산",
+            "sections": [
+                {
+                    "text": "2023.3.28 이후 출산한 미성년 자녀(입양·태아 포함)가 있어야 해요. 있으면 그 전에 태어난 미성년 자녀도 합쳐 최대2명까지 세요.\n대학생·청년은 신청자 등본, 신혼·고령자 등은 신청자 또는 배우자와 같은 등본의 자녀를 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=6",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=8",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "금액 단위는 원이에요. 대학생은 자동차를 소유할 수 없어요. 소득은1명10%p·2명20%p 가산이며 가구원·맞벌이 기준도 공고표로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 8쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=8",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=10",
+                            "checkedAt": "2026-11-21"
+                        },
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "가산 자녀 수별 자산 한도",
+                        "headers": ["계층", "없음", "1명", "2명 이상"],
+                        "rows": [
+                            ["대학생", "1억800만", "1억1,900만", "1억3,000만"],
+                            ["청년", "2억5,100만", "2억7,600만", "3억100만"],
+                            [
+                                "신혼·한부모·고령자",
+                                "3억4,500만",
+                                "3억7,900만",
+                                "4억1,300만"
+                            ],
+                            [
+                                "자동차(대학생 제외)",
+                                "4,542만",
+                                "4,996만",
+                                "5,451만"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "해당 가산 기준을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "가산을 적용하지 않아요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

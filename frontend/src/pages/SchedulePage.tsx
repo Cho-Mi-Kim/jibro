@@ -9,6 +9,7 @@ import { PreparationGuidance } from '../features/preparation/PreparationNav';
 import { usePreparation } from '../features/preparation/usePreparation';
 import { useLocation } from 'react-router';
 import scheduleClasses from '../features/preparation/Schedule.module.css';
+import { PreparationScopeNotice } from '../features/preparation/PreparationScopeNotice';
 
 const cx = bindClasses(scheduleClasses);
 
@@ -42,6 +43,9 @@ export function SchedulePage() {
                             <PreparationGuidance p={p} />
                         </div>
                         <ScheduleTimeline notice={n.data} preparation={p} />
+                        <div className={scheduleClasses.scopeNotice}>
+                            <PreparationScopeNotice id={p.id} />
+                        </div>
                     </div>
                     <div className={cx('schedule-side-column')}>
                         <ScheduleNextCard notice={n.data} preparation={p} />

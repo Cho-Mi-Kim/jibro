@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-21",
+  "status": "PASS",
+  "api": {
+    "notices": 106,
+    "questions": 1474,
+    "scenarios": 2296,
+    "newCheckUnavailableNotices": 36,
+    "errors": 0,
+    "differences": 0
+  },
+  "ui": {
+    "notices": 106,
+    "widths": [
+      360,
+      390,
+      768
+    ],
+    "fontScale": 1.25,
+    "closedAndExpanded": true,
+    "realFirstCardClick": true,
+    "touchTargetMinimumPx": 40,
+    "failures": 0,
+    "environment": "Playwright Edge desktop browser with emulated viewport; not a physical mobile device"
+  },
+  "pdfs": [
+    {
+      "notice": "정읍상동2·3",
+      "file": "69482893",
+      "page": 40,
+      "httpStatus": 200,
+      "pageRendered": true
+    },
+    {
+      "notice": "정읍수성1",
+      "file": "69517260",
+      "page": 3,
+      "httpStatus": 200,
+      "pageRendered": true
+    }
+  ],
+  "historicalAnswerContracts": {
+    "changedQuestionsChecked": 36,
+    "oldMeaningPreserved": true,
+    "currentContractAccepted": true
+  },
+  "scope": "현재 목록106공고에 대한 브라우저·서버 검사. 실제 휴대폰 검증 아님."
+}

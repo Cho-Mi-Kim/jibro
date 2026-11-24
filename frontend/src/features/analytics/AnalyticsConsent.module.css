@@ -1,0 +1,54 @@
+.panel {
+    position: fixed;
+    z-index: 90;
+    inset-inline: 12px;
+    bottom: calc(var(--mobile-nav-height) + 12px);
+    max-width: 760px;
+    max-height: calc(80dvh - var(--mobile-nav-height));
+    overflow-y: auto;
+    margin-inline: auto;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 6px 32px #0002;
+}
+.panel h2 {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
+}
+.panel p {
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+}
+.panel a {
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+.actions button {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--ink);
+    flex: 1;
+}
+.actions button:last-child {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+}
+@media (min-width: 768px) {
+    .panel {
+        bottom: 20px;
+    }
+}

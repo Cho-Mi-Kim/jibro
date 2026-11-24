@@ -1,4 +1,8 @@
-import { ApiError, sessionExpiredEvent } from './client';
+import {
+    ApiError,
+    sessionExpiredEvent,
+    visitorVerificationRequiredEvent,
+} from './client';
 import { pagesDemo } from './environment';
 const READ_TIMEOUT_MS = 8000;
 let accessToken: string | null = null;
@@ -123,6 +127,8 @@ export async function call<T>(
             message?: string;
             code?: string;
         };
+        if (error.code === 'HUMAN_VERIFICATION_REQUIRED')
+            window.dispatchEvent(new Event(visitorVerificationRequiredEvent));
         throw new ApiError(response.status, error.message, error.code);
     }
     if (response.status === 204) return undefined as T;

@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-21",
+  "scope": "가이드 36개 항목의 원래 38개 고유 출처와 정부24 대체 출처를 Edge headless에서 실제 접속·본문 확인",
+  "browser": "Microsoft Edge headless via Playwright; desktop viewport; actual device testing not performed",
+  "originalUniqueSources": 38,
+  "finalExpectedUniqueSources": 37,
+  "result": {
+    "htmlPagesConfirmed": 35,
+    "pdfResourcesConfirmed": 2,
+    "brokenOrWrongDestinationFound": 0,
+    "removedTransientQueueDestination": "https://m.gov.kr/"
+  },
+  "government24": {
+    "removedReason": "m.gov.kr과 현재 plus.gov.kr 고객지원·이용안내 링크가 접속 대기 경로 /mbuster/Mbuster_T로 이동. 404나 가이드 내용 오류로 판정하지 않음.",
+    "replacement": "https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&HighCtgCD=A01010001&Mcode=10200",
+    "verification": "HTTP 200, 주민등록표 등·초본 발급 페이지 본문과 하단 1588-2188·02-721-0600·평일 09:00~18:00 실제 확인",
+    "suggestedLabel": "정부24 · 발급 서비스·하단 상담 안내"
+  },
+  "kohom": {
+    "url": "https://www.kohom.or.kr/web/mainComm/HM002003.do?mode=list&schBcode=CD004001004",
+    "verification": "HTTP 200. 무주택 판단기준(주택공급에 관한 규칙 제53조) 질문을 실제 클릭해 펼친 본문에서 공유지분·상속·3개월·주택의 범위를 확인. 일반 GET의 417은 브라우저 접속 실패를 의미하지 않았음."
+  },
+  "pdfs": [
+    {
+      "url": "https://apply.lh.or.kr/upload/cntntsFile/apple/doc_b3e410f5-6dfa-4f0d-a31d-105ae40b832c1742799126676.pdf",
+      "verification": "HTTP 200 application/pdf. native PDF viewer의 빈 body는 실패가 아님. practical 담당자가 웹 PDF 본문 1쪽에서 만14세 미만 법정대리인 서명 기준 대조."
+    },
+    {
+      "url": "https://www.lh.or.kr/boardDownload.es?bid=0033&list_no=644985&seq=3",
+      "verification": "실제 다운로드 이벤트 성공. 540067 bytes, %PDF-1.4, 파일명 21년_1차_신혼부부매입임대Ⅰ_공고문.pdf. practical 담당자 웹 PDF 본문 확인: 24쪽 공고 중 실제 23쪽 자산 보유 사실 확인서.",
+      "limitation": "2021년 서식 구조 예시이며 현재 제출 양식은 해당 공고 첨부를 사용해야 함. 다운로드 응답이므로 URL #page=23이 웹상 직접 페이지 이동을 보장하지 않음.",
+      "sha256": "1fbf0ea8c2d7e2c382d288477bd98fc727fa68e0cd0f3ecf3d37a332e8526cfc"
+    }
+  ],
+  "evidenceArtifacts": [
+    "final-link-browser-check.json",
+    "final-link-exceptions.json",
+    "final-link-government24.json",
+    "final-link-gov-support.json",
+    "link-kohom-expanded.png",
+    "link-bokjiro.png",
+    "link-government24-recheck.png"
+  ],
+  "catalogMutation": "원고 및 공유 코드는 이 검증에서 수정하지 않음. 정부24 출처 대체 및 2021 PDF 라벨·예시 범위 명시는 root 담당."
+}

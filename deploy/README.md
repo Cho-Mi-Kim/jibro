@@ -1,6 +1,8 @@
 # 운영 배포 준비
 
-이 패키지는 기존 문서의 **서울 EC2 1대 · Ubuntu 24.04 · Nginx/Java Docker Compose · 비공개 RDS PostgreSQL 17** 구성이다. 실제 AWS 자원, 도메인, 인증서, 외부 키는 아직 없다. 준비된 코드/파일과 실제 운영 적용을 구분한다. Windows 로컬 PostgreSQL 복구와 Nginx 설정 검사는 통과했지만, 임시 HTTPS 서버 실행은 자동 승인 검토의 정책 차단으로 검증하지 못했다. Linux 컨테이너 실행·운영 RDS·실제 HTTPS 통신도 별도 확인이 필요하다.
+추가 운영 경계 보안·요청 제한·읽기 전용 웹 컨테이너·인증서 무중단 갱신·점검 명령은 [운영 보안 계약](../docs/contracts/production-security.md)을 따른다. 새 배포 설정에는 공개 ACME challenge를 둘 절대 경로 `ACME_DIRECTORY`도 필요하다. 비밀 파일을 이 디렉터리에 두지 않는다.
+
+이 패키지는 기존 문서의 **서울 EC2 1대 · Ubuntu 24.04 · Nginx/Java Docker Compose · 비공개 RDS PostgreSQL 17** 구성이다. 2026-11-22 `https://jibro.live`에 최초 수동 배포했으며 Linux 컨테이너·운영 RDS TLS·공개 HTTPS 통신을 확인했다. 실제 적용 범위와 남은 검증은 [배포 기록](../docs/history/entries/2026-11-22-aws-free-deployment.md)을 따른다. 로컬 코드와 운영 산출물은 이후 자동으로 동기화되지 않는다.
 
 ## 빌드와 산출물
 
@@ -36,6 +38,8 @@ Compose **2.30 이상**이 필요하다(raw env_file). 서버는 환경 변수�
 
 ## 외부 기능 연결 확인
 
+사이트 첫 접속 사람 확인은 [Turnstile 연결 계약](../docs/contracts/visitor-verification.md)을 따른다. backend 전용 `runtime.env`의 `TURNSTILE_ENABLED/SITE_KEY/SECRET_KEY`로 연결하며 비밀키는 웹 이미지에 넣지 않는다. 초기값 false이며 실제 키와 hostname을 연결·검증한 뒤 true로 전환한다.
+
 | 기능 | 설정 | 실제 완료 판단 |
 | --- | --- | --- |
 | LH 수집 | `LH_SERVICE_KEY`(Decoding 키) | 관리자 즉시 수집의 성공·페이지·중복, 예약 슬롯 00/06/09~18시 실행과 원본 이력 확인. 키만 있는 상태는 미검증이다. |
@@ -66,9 +70,18 @@ Compose **2.30 이상**이 필요하다(raw env_file). 서버는 환경 변수�
 python scripts/ops/smoke_web.py --origin https://실제도메인
 ```
 
+## 공개 안내·방문 통계
+
+문의 시간·이메일·개인정보처리방침·검색 설명은 `data/site/public-site.json`에서 관리하며 Vite 빌드가 공개 HTML·robots·sitemap을 생성한다. 이 페이지는 로그인·사람 확인 전에도 읽을 수 있다. `frontend/dist/app-routes.conf`는 실제 React 라우트에서 생성한 Nginx 허용 목록이다. 웹 이미지에 함께 넣고, 새 라우트를 별도 Nginx 목록에 중복 작성하지 않는다. 없는 일반 주소는 맞춤 오류 화면과 HTTP404를 반환한다. 실제 공고 ID 존재 여부는 앱/API에서 확인한다.
+
+GA4를 연결하려면 `frontend/.env.production.local`에 공개 측정 ID `VITE_GA_MEASUREMENT_ID`와 신규 등록 화면에서 발급된 컨테이너 ID `VITE_GA_TAG_ID`를 설정한 뒤 빌드한다. 비밀번호·API secret은 프런트 설정에 넣지 않는다. Google의 2026-11-06 신규 설치 안내에 맞춰 발급된 GTM 태그를 로드하고, 동의와 전역 개인정보 설정을 js 초기화보다 먼저 적용한다. 측정 ID 직접 초기화를 별도 경로로 유지하지 않는다. GA 관리 화면에서 향상된 측정·광고 통합을 끄고, 사용자·이벤트 보관 2개월과 활동 시 재설정 끄기를 확인한다. ID가 없거나 로컬·시연 환경이면 분석을 보내지 않는다. 운영에서도 사용자 동의 전 태그를 불러오지 않고, 공개 화면 종류만 보내며 개인 답변·메모·검색어·공고 식별값·인증 URL을 보내지 않는다. 하단 통계 설정에서 철회할 수 있다. 태그 설치와 실제 데이터 수신은 별도로 검증한다.
+
+문의 메일 수신은 무료 ImprovMX의 support 별칭만 기존 운영 Gmail로 전달한다. 기본 전체 주소(*) 전달은 사용하지 않는다. MX 10/20과 단일 SPF 레코드를 확인하고 기존 웹 A·Brevo 소유 TXT·DKIM·DMARC를 보존한다. ImprovMX 계정의 가입 주소와 실제 전달 받을 주소를 혼동하지 않는다. SMTP 수락만으로 완료 처리하지 않고 전달 로그의 Gmail 수신 서버 성공까지 확인한다. DNS 변경은 사이트 배포와 별개이며 유료 플랜 전환은 포함하지 않는다.
+
 ## 백업·복구
 
 - 초기 운영안: 암호화된 RDS 자동 백업 7일 + 적용 전 수동 스냅샷. 이는 운영 기본안이며 법정 보존기간이 아니다. 실제 저장량·비용·삭제 반영 정책 확인 뒤 확정한다.
+- 2026-11-22 최초 계정의 Free 플랜은 7일 설정을 거부하여 실제 적용은 **1일**이다. 플랜을 업그레이드하지 않았다. 별도 장기 백업과 실제 복구 훈련은 후속 작업이며 7일 복구가 가능하다고 안내하지 않는다.
 - 운영 DB 자격과 별도로 백업/복구 담당자의 접속 권한을 사용한다. 애플리케이션 계정에 새 DB 생성/관리자 권한을 주지 않는다.
 - 논리 백업 도구는 PostgreSQL 17 클라이언트와 `PGHOST/PGPORT/PGUSER/PGDATABASE/PGPASSFILE`을 사용한다. 백업 파일은 개인정보를 포함하므로 접근 제한·암호화된 디스크에 두고 Git/릴리스에 넣지 않는다.
 - 원격 백업·복구 검증은 명시적 `PGHOST`, `PGSSLMODE=verify-full`, 실제로 읽을 수 있는 비어 있지 않은 `PGSSLROOTCERT` 파일이 필수다. `PGSSLROOTCERT`는 백업 도구를 실행하는 호스트의 신뢰할 수 있는 RDS CA 파일 경로이며, 컨테이너 내부 JDBC 경로와 다를 수 있다. 암호는 `PGPASSFILE`로 제공한다. `PGSERVICE/PGSERVICEFILE` 및 Unix socket·다중 호스트 설정은 숨은 연결 설정으로 검증을 우회하지 못하도록 거부한다. 검사 실패 시 PostgreSQL 명령을 실행하지 않는다.
@@ -89,3 +102,9 @@ python scripts/ops/database_backup.py restore-check --archive /보호된경로/<
 컨테이너 재시작 정책, healthcheck, JSON 로그 10 MiB × 3개 회전을 적용한다. Nginx는 API/OAuth 접근 로그를 끄고 일반 접근 로그에서도 query string을 제외한다. upstream 오류의 error log에는 원래 요청 주소가 붙을 수 있으므로 두 가상 서버의 요청 오류 로그는 버린다. OAuth code·state 등 query가 로그에 남지 않게 하기 위한 결정이다. 기동·설정 오류와 컨테이너 health, 비밀값을 포함하지 않는 서버 로그로 장애를 확인하며 원문 요청 로그를 다시 켜지 않는다. 컨테이너/DB 상태·예약 수집 실패는 운영자가 확인한다. 외부 장애 알림 수신처와 담당자는 실제 운영 설정 때 정한다. 비밀값 전체를 출력하는 설정 검사나 요청 본문 로깅은 사용하지 않는다.
 
 공식 근거: [Compose 운영](https://docs.docker.com/compose/how-tos/production/), [env_file raw](https://docs.docker.com/reference/compose-file/services/#format), [Nginx 프록시 헤더](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header), [Spring 프록시 처리](https://docs.spring.io/spring-boot/how-to/webserver.html#howto.webserver.use-behind-a-proxy-server), [PostgreSQL 백업](https://www.postgresql.org/docs/17/backup-dump.html).
+
+### 레지스트리 없이 서버에서 빌드하는 경우
+
+검증한 배포 패키지를 서버로 전송해 빌드한 경우 `docker image inspect --format '{{.Id}}' <release-tag>`의 전체 `sha256:...` 이미지 ID도 사용할 수 있다. Compose는 서버에 존재하는 해당 이미지를 사용한다. 이동 가능한 레지스트리 digest와 달리 새 서버에는 같은 이미지를 별도로 전송해야 한다. 변경 가능한 태그나 짧은 ID는 운영 검사에서 계속 거부한다.
+
+백엔드 이미지에는 한국어·영어 Tesseract OCR과 언어 자료가 포함된다. 배포 때 실행 파일과 언어 자료가 실제로 읽히는지 컨테이너에서 확인한다.

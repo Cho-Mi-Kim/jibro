@@ -50,7 +50,7 @@ public class NoticeCorrectionService {
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public Correction link(UUID originalId, UUID correctedId, int originalRevision, int correctedRevision) throws Exception {
         if (originalId == null || correctedId == null || originalId.equals(correctedId)
-            || originalRevision < 1 || correctedRevision < 1)
+                || originalRevision < 1 || correctedRevision < 1)
             throw new IllegalArgumentException("INVALID_CORRECTION_LINK");
         var original = snapshot(originalId, originalRevision, false);
         var corrected = snapshot(correctedId, correctedRevision, true);
@@ -63,14 +63,14 @@ public class NoticeCorrectionService {
             var oldNotice = locked.stream().filter(n -> n.id.equals(originalId)).findFirst().orElseThrow();
             var target = locked.stream().filter(n -> n.id.equals(correctedId)).findFirst().orElseThrow();
             if (startedAt.isBefore(Instant.now().minusSeconds(120)) || links.touches(originalId, correctedId)
-                || !matches(oldNotice, original, false) || !matches(target, corrected, true))
+                    || !matches(oldNotice, original, false) || !matches(target, corrected, true))
                 throw ApiException.conflict();
             var evidence = new HousingModels.Evidence("LH 공식 정정 공고 · 정정사유", corrected.url(),
-                startedAt.atZone(ZoneId.of("Asia/Seoul")).toLocalDate().toString());
+                    startedAt.atZone(ZoneId.of("Asia/Seoul")).toLocalDate().toString());
             links.insert(new NoticeCorrectionRepository.Link(originalId, correctedId, originalRevision, correctedRevision,
-                proof.reason(), new NoticeCorrectionRepository.Evidence(evidence, original.url(), corrected.url(),
-                proof.originalPanId(), proof.correctedPanId(), proof.originalHtmlSha256(), proof.correctedHtmlSha256(),
-                proof.historyHtmlSha256() == null ? null : OfficialCorrectionLink.historyUrl(corrected.url()), proof.historyHtmlSha256()), startedAt));
+                    proof.reason(), new NoticeCorrectionRepository.Evidence(evidence, original.url(), corrected.url(),
+                    proof.originalPanId(), proof.correctedPanId(), proof.originalHtmlSha256(), proof.correctedHtmlSha256(),
+                    proof.historyHtmlSha256() == null ? null : OfficialCorrectionLink.historyUrl(corrected.url()), proof.historyHtmlSha256()), startedAt));
             return new Correction(target.id.toString(), target.title, proof.reason(), evidence, startedAt);
         });
     }
@@ -84,7 +84,7 @@ public class NoticeCorrectionService {
         var original = notices.findById(originalId).orElseThrow(ApiException::notFound);
         var target = notices.findById(value.correctedId()).orElse(null);
         if (original.revision != value.originalRevision() || target == null || target.revision != value.correctedRevision()
-            || !publishable(target, true)) return Optional.empty();
+                || !publishable(target, true)) return Optional.empty();
         return Optional.of(new Correction(target.id.toString(), target.title, value.reason(), value.evidence().source(), value.checkedAt()));
     }
 
@@ -101,19 +101,19 @@ public class NoticeCorrectionService {
         return transaction.execute(status -> {
             links.lockGraph();
             var locked = List.of(original.id(), corrected.id()).stream().sorted()
-                .map(id -> notices.locked(id).orElseThrow(ApiException::notFound)).toList();
+                    .map(id -> notices.locked(id).orElseThrow(ApiException::notFound)).toList();
             var oldNotice = locked.stream().filter(n -> n.id.equals(original.id())).findFirst().orElseThrow();
             var target = locked.stream().filter(n -> n.id.equals(corrected.id())).findFirst().orElseThrow();
             if (startedAt.isBefore(Instant.now().minusSeconds(120))
-                || !links.find(originalId).filter(previous::equals).isPresent()
-                || !matches(oldNotice, original, false) || !matches(target, corrected, true))
+                    || !links.find(originalId).filter(previous::equals).isPresent()
+                    || !matches(oldNotice, original, false) || !matches(target, corrected, true))
                 throw ApiException.conflict();
             var source = new HousingModels.Evidence("LH 공식 정정 공고 · 정정사유", corrected.url(),
-                startedAt.atZone(ZoneId.of("Asia/Seoul")).toLocalDate().toString());
+                    startedAt.atZone(ZoneId.of("Asia/Seoul")).toLocalDate().toString());
             var refreshed = new NoticeCorrectionRepository.Link(original.id(), corrected.id(), originalRevision, correctedRevision,
-                proof.reason(), new NoticeCorrectionRepository.Evidence(source, original.url(), corrected.url(),
-                proof.originalPanId(), proof.correctedPanId(), proof.originalHtmlSha256(), proof.correctedHtmlSha256(),
-                proof.historyHtmlSha256() == null ? null : OfficialCorrectionLink.historyUrl(corrected.url()), proof.historyHtmlSha256()), startedAt);
+                    proof.reason(), new NoticeCorrectionRepository.Evidence(source, original.url(), corrected.url(),
+                    proof.originalPanId(), proof.correctedPanId(), proof.originalHtmlSha256(), proof.correctedHtmlSha256(),
+                    proof.historyHtmlSha256() == null ? null : OfficialCorrectionLink.historyUrl(corrected.url()), proof.historyHtmlSha256()), startedAt);
             if (!links.reverify(previous, refreshed)) throw ApiException.conflict();
             return new Correction(target.id.toString(), target.title, proof.reason(), source, startedAt);
         });
@@ -127,7 +127,7 @@ public class NoticeCorrectionService {
             var id = OfficialCorrectionLink.identity(correctedUrl);
             if (!id.system().equals("02") || !id.category().equals("06") || !id.type().equals("08")) throw unverified;
             return OfficialCorrectionLink.verifyHistory(originalUrl, originalHtml, correctedUrl, correctedHtml,
-                http.html(OfficialCorrectionLink.historyUrl(correctedUrl)));
+                    http.html(OfficialCorrectionLink.historyUrl(correctedUrl)));
         }
     }
 
@@ -145,7 +145,7 @@ public class NoticeCorrectionService {
 
     private boolean publishable(NoticeEntity n, boolean target) {
         return !n.serviceExcluded && n.sourceKey != null && n.sourceKey.startsWith("LH:") && n.basicReview.equals("PASS")
-            && (!target || n.guideReview.equals("PASS") && !n.changeReview && n.lifecycleState.equals("NORMAL"));
+                && (!target || n.guideReview.equals("PASS") && !n.changeReview && n.lifecycleState.equals("NORMAL"));
     }
 
     private String url(NoticeEntity n) {
@@ -155,14 +155,14 @@ public class NoticeCorrectionService {
         // A published guide may cite a PDF as its main evidence. Only the collected source identity
         // can select the HTML detail; neither a title match nor an arbitrary content URL is sufficient.
         var bound = candidates.stream().filter(candidate -> LhNoticeClient.sourceKey(candidate).equals(n.sourceKey))
-            .filter(candidate -> {
-                try {
-                    OfficialCorrectionLink.identity(candidate);
-                    return true;
-                } catch (IllegalArgumentException unsupported) {
-                    return false;
-                }
-            }).toList();
+                .filter(candidate -> {
+                    try {
+                        OfficialCorrectionLink.identity(candidate);
+                        return true;
+                    } catch (IllegalArgumentException unsupported) {
+                        return false;
+                    }
+                }).toList();
         if (bound.size() != 1) throw new IllegalArgumentException("OFFICIAL_CORRECTION_SOURCE_REQUIRED");
         return bound.get(0);
     }

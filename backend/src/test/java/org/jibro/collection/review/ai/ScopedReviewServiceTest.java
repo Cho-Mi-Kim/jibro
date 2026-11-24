@@ -2,9 +2,11 @@ package org.jibro.collection.review.ai;
 
 import java.time.Instant;
 import java.util.*;
+
 import org.jibro.collection.review.local.CompactReviewPacket;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
+
 import static org.jibro.collection.review.ai.GeminiReviewModels.*;
 import static org.jibro.collection.review.ai.ScopedReviewModels.*;
 import static org.jibro.collection.review.local.CompactReviewPacket.*;
@@ -15,7 +17,8 @@ class ScopedReviewServiceTest {
     private static final String URL = "https://apply.lh.or.kr/notice.pdf";
     private final JsonMapper json = JsonMapper.builder().build();
 
-    @Test void reusesTheSameScopedResultAcrossServiceInstancesWithoutAnotherProviderCall() {
+    @Test
+    void reusesTheSameScopedResultAcrossServiceInstancesWithoutAnotherProviderCall() {
         var client = new FakeClient();
         var budget = new MemoryBudget();
         var packet = GeminiReviewClientTest.packet(URL, "예외에 해당하면 별도 기준을 확인합니다.");
@@ -31,7 +34,8 @@ class ScopedReviewServiceTest {
         assertEquals(60, budget.lastInterval);
     }
 
-    @Test void sourceContentHashIssueClosurePolicyAndModelChangesCannotReuseAnOldDecision() {
+    @Test
+    void sourceContentHashIssueClosurePolicyAndModelChangesCannotReuseAnOldDecision() {
         var client = new FakeClient();
         var budget = new MemoryBudget();
         var packet = GeminiReviewClientTest.packet(URL, "공통 기준");
@@ -49,7 +53,8 @@ class ScopedReviewServiceTest {
         assertEquals(6, budget.saved.size());
     }
 
-    @Test void invalidOrDisabledInputConsumesNoReservationAndDoesNotCallTheProvider() {
+    @Test
+    void invalidOrDisabledInputConsumesNoReservationAndDoesNotCallTheProvider() {
         var client = new FakeClient();
         var budget = new MemoryBudget();
         var packet = GeminiReviewClientTest.packet(URL, "공통 기준");
@@ -65,7 +70,8 @@ class ScopedReviewServiceTest {
         assertEquals(0, client.calls);
     }
 
-    @Test void deniedBudgetIsReturnedWithoutRetryingOrOverwritingAnotherAttempt() {
+    @Test
+    void deniedBudgetIsReturnedWithoutRetryingOrOverwritingAnotherAttempt() {
         for (String reason : List.of("RATE_WAIT", "DAILY_LIMIT", "IN_FLIGHT", "INTERRUPTED_REVIEW", "PROVIDER_PAUSED")) {
             var client = new FakeClient();
             var budget = new MemoryBudget();
@@ -79,7 +85,8 @@ class ScopedReviewServiceTest {
         }
     }
 
-    @Test void cachedMalformedOrUnrelatedDecisionsAreRejectedWithoutSpendingMoreQuota() {
+    @Test
+    void cachedMalformedOrUnrelatedDecisionsAreRejectedWithoutSpendingMoreQuota() {
         var invalidDecision = new ScopedResult(Status.CANDIDATE, "GEMINI_SCOPED_CANDIDATE_RECEIVED",
                 List.of(new Decision("different-issue", Disposition.NO_CONFLICT, List.of("c1"))), new Usage(1, 1));
         for (String corrupt : List.of("not JSON", "{\"status\":\"CANDIDATE\",\"candidate\":{\"complete\":true}}",
@@ -96,7 +103,8 @@ class ScopedReviewServiceTest {
         }
     }
 
-    @Test void providerFailureIsSavedOnceAndReusedWithoutSilentRetries() {
+    @Test
+    void providerFailureIsSavedOnceAndReusedWithoutSilentRetries() {
         var client = new FakeClient();
         client.failure = new ScopedResult(Status.RATE_LIMITED, "GEMINI_RATE_LIMITED", List.of(), new Usage(0, 0));
         var budget = new MemoryBudget();
@@ -117,9 +125,20 @@ class ScopedReviewServiceTest {
         int calls;
         boolean available = true;
         ScopedResult failure;
-        FakeClient() { super("test-key", MODEL, new JsonMapper(), request -> { throw new AssertionError("Network must not run"); }); }
-        @Override public boolean configured() { return available; }
-        @Override public ScopedResult reviewPacket(CompactReviewPacket packet) {
+
+        FakeClient() {
+            super("test-key", MODEL, new JsonMapper(), request -> {
+                throw new AssertionError("Network must not run");
+            });
+        }
+
+        @Override
+        public boolean configured() {
+            return available;
+        }
+
+        @Override
+        public ScopedResult reviewPacket(CompactReviewPacket packet) {
             calls++;
             if (failure != null) return failure;
             return new ScopedResult(Status.CANDIDATE, "GEMINI_SCOPED_CANDIDATE_RECEIVED", packet.issues().stream()
@@ -127,13 +146,20 @@ class ScopedReviewServiceTest {
         }
     }
 
-    /** In-memory persistence test double; production quota/locking SQL has separate integration tests. */
+    /**
+     * In-memory persistence test double; production quota/locking SQL has separate integration tests.
+     */
     private static final class MemoryBudget extends GeminiBudgetRepository {
         final Map<String, String> saved = new HashMap<>();
         int reservations, finishes, lastDaily, lastInterval;
         String denied, overrideCache, lastStatus;
-        MemoryBudget() { super(null); }
-        @Override public Reservation reserve(String hash, String model, Instant now, int daily, int interval) {
+
+        MemoryBudget() {
+            super(null);
+        }
+
+        @Override
+        public Reservation reserve(String hash, String model, Instant now, int daily, int interval) {
             reservations++;
             lastDaily = daily;
             lastInterval = interval;
@@ -141,7 +167,9 @@ class ScopedReviewServiceTest {
             if (saved.containsKey(hash)) return new Reservation(false, saved.get(hash), "CACHED");
             return denied == null ? new Reservation(true, null, "RESERVED") : new Reservation(false, null, denied);
         }
-        @Override public void finish(String hash, String status, String result) {
+
+        @Override
+        public void finish(String hash, String status, String result) {
             finishes++;
             lastStatus = status;
             saved.put(hash, result);

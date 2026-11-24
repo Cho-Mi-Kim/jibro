@@ -3,6 +3,7 @@ package org.jibro.notice;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.jibro.collection.attachments.AttachmentFingerprintClient;
 import org.jibro.collection.extraction.BoundedDocumentParser;
@@ -10,11 +11,13 @@ import org.jibro.collection.extraction.EvidenceRelocationStore;
 import org.jibro.collection.extraction.ExtractionModels.Part;
 import org.jibro.global.common.ApiException;
 import org.springframework.web.server.ResponseStatusException;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class OfficialDocumentTextTest {
-    @Test void servesOnlyCheckedBytesAndRejectsChangedFile() throws Exception {
+    @Test
+    void servesOnlyCheckedBytesAndRejectsChangedFile() throws Exception {
         var client = mock(AttachmentFingerprintClient.class);
         var parser = mock(BoundedDocumentParser.class);
         var controller = new OfficialPdfController(client, parser, mock(EvidenceRelocationStore.class));
@@ -30,7 +33,8 @@ class OfficialDocumentTextTest {
         assertThrows(ResponseStatusException.class, () -> controller.text("../x", sha, 0, null));
     }
 
-    @Test void viewerReadsOnlyPreviouslyComputedResultWithoutDownloadingOrParsing() throws Exception {
+    @Test
+    void viewerReadsOnlyPreviouslyComputedResultWithoutDownloadingOrParsing() throws Exception {
         var client = mock(AttachmentFingerprintClient.class);
         var parser = mock(BoundedDocumentParser.class);
         var store = mock(EvidenceRelocationStore.class);

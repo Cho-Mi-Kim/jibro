@@ -1,0 +1,370 @@
+{
+    "entries": [
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "household",
+            "sourceTitle": "공고일 기준 무주택세대구성원에 해당하나요?",
+            "sourceReason": "11월 11일 기준으로 신청자와 심사 대상 가족 모두 집이나 분양권 등이 없어야 해요. 배우자는 주소가 달라도 포함돼요. 부모·자녀 등은 누구의 등본에 올라 있는지에 따라 달라요. 공고문 3쪽에서 가족의 범위와 예외를 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=3",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "배우자는 주소가 달라도 포함해요. 부모·자녀 등은 등본과 가족관계에 따라 확인해요.",
+            "sections": [
+                {
+                    "text": "- 11월 11일 기준으로 신청자와 심사 대상 가족 모두 집이나 분양권 등이 없어야 해요.\n- 배우자는 주소가 달라도 포함돼요.\n- 부모·자녀 등은 누구의 등본에 올라 있는지에 따라 달라요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "공고문 3쪽에서 가족의 범위와 예외를 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "category",
+            "sourceTitle": "신청할 순위의 자격에 해당하나요?",
+            "sourceReason": "1순위 우선은 생계·의료·주거·교육급여 수급자, 차상위계층, 지원대상 한부모가족이에요. 1순위 일반은 등록장애인이면서 세대 소득이 기준의 70% 이하인 경우예요. 지적·정신장애나 중증 뇌병변장애는 배우자도 포함해요. 2순위는 소득 100% 이하예요. 1인 가구는 20%p, 2인 가구는 10%p 높은 기준을 적용해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=4",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "신청할 순위의 자격에 해당하나요?",
+            "preview": "수급·차상위·지원 한부모와 소득 기준을 갖춘 장애인 등 신청 유형을 구분해요.",
+            "sections": [
+                {
+                    "text": "- 1순위 우선은 생계·의료·주거·교육급여 수급자, 차상위계층, 지원대상 한부모가족이에요.\n- 1순위 일반은 등록장애인이면서 세대 소득이 기준의 70% 이하인 경우예요.\n- 지적·정신장애나 중증 뇌병변장애는 배우자도 포함해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 2순위는 소득 100% 이하예요.\n- 1인 가구는 20%p, 2인 가구는 10%p 높은 기준을 적용해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "rank",
+            "sourceTitle": "거주지역 우선·동일 순위 선정 기준을 확인했나요?",
+            "sourceReason": "공급지역 거주 여부와 관계없이 자격을 갖추면 신청할 수 있습니다. 동일 순위는 공급지역 거주·전입일·가구원수·추첨 순서이며, 1순위 유형별 우선순서도 따로 적용됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=5",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "어떤 순서로 선정하나요?",
+            "preview": "급여·자격 유형의 순서를 먼저 보고, 같은 순위에서는 거주지·전입일·가구원 수·추첨 순이에요.",
+            "sections": [
+                {
+                    "text": "- 공급지역에 살지 않아도 자격을 갖추면 신청할 수 있어요.\n- 1순위 우선은 생계급여 → 의료급여 → 주거급여 → 교육급여 → 차상위 → 지원대상 한부모가족 순이고, 이어서 1순위 일반(소득 70% 이하 등록장애인)을 선정해요.\n- 같은 순위 안에서는 공급지역 거주 여부 → 전입일 → 가구원 수 → 추첨 순으로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "공급지역에 살지 않아도 자격을 갖추면 신청할 수 있어요. 1순위 우선은 생계급여 → 의료급여 → 주거급여 → 교육급여 → 차상위 → 지원대상 한부모가족 순이고, 이어서 1순위 일반(소득 70% 이하 등록장애인)을 선정해요. 같은 순위 안에서는 공급지역 거주 여부 → 전입일 → 가구원 수 → 추첨 순으로 확인해요."
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "dates",
+            "sourceTitle": "본인 순위의 접수기간과 현장 접수처를 확인했나요?",
+            "sourceReason": "1순위 우선은 11/23~24, 일반·2순위는 12/14~15 각각 10~16시 방문접수입니다. 그 사이 매일 접수하는 것이 아닙니다. 선순위 조기마감·후순위 공급목록을 확인하고 LH 광주북부권주거복지지사로 신청하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=6",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "본인 순위의 접수기간과 현장 접수처를 확인했나요?",
+            "preview": "1순위 우선은 11/23~24, 일반·2순위는 12/14~15 각각 10~16시 방문접수예요.",
+            "sections": [
+                {
+                    "text": "- 1순위 우선은 11/23~24, 일반·2순위는 12/14~15 각각 10~16시 방문접수예요.\n- 그 사이 매일 접수하는 것이 아니에요.\n- 선순위 조기마감·후순위 공급목록을 확인하고 LH 광주북부권주거복지지사로 신청하세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 6쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=6",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "single",
+            "sourceTitle": "한 세대에서 한 주택만 신청하나요?",
+            "sourceReason": "동·호를 지정하여 1세대 1주택 방문신청합니다. 세대 내 2인 이상 중복신청은 무효이며 신청 후 주택 변경은 불가합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=5",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "한 세대에서 한 주택만 신청하나요?",
+            "preview": "동·호를 지정하여 1세대 1주택 방문신청해요.",
+            "sections": [
+                {
+                    "text": "- 동·호를 지정하여 1세대 1주택 방문신청해요.\n- 세대 내 2인 이상 중복신청은 무효이며 신청 후 주택 변경은 불가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "공고일 이후 주소 또는 세대주 변동이 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "11월 11일 이후 주소·세대주가 바뀌었다면 과거 주소변동을 표시한 초본을 준비해요.",
+            "sections": [
+                {
+                    "text": "주민등록표초본\n11월 11일 이후 주소나 세대주가 바뀐 세대원은 신청자를 포함해 초본을 준비하세요. 신청자의 과거 주소 변동 이력도 표시해요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 7쪽 · 주민등록표초본",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서 제출 대상인가요?",
+            "sourceReason": "배우자를 등본에서 확인할 수 없거나 외국인 배우자 등 추가 확인 대상인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "배우자가 등본에 없거나 외국인이면 상세 가족관계증명서를 준비해요.",
+            "sections": [
+                {
+                    "text": "가족관계증명서\n등본에서 배우자를 확인할 수 없거나(미혼·이혼·사별·세대 분리 등), 배우자가 외국인이거나 관계를 추가 확인해야 하면 가족관계증명서를 준비하세요. 외국인 배우자는 외국인등록증 사본도 첨부해요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 7쪽 · 가족관계증명서",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-spouse",
+            "sourceTitle": "배우자 주민등록표등본 제출 대상인가요?",
+            "sourceReason": "배우자의 주민등록표가 분리되어 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "배우자의 등본도 필요한가요?",
+            "preview": "배우자와 등본이 다르면 배우자의 등본도 전부 표기해 준비해요.",
+            "sections": [
+                {
+                    "text": "배우자 주민등록표등본\n배우자가 별도 세대이면 배우자 등본도 제출해요. 세대주와의 관계, 전입·변동일과 사유, 세대 구성 사유, 전원의 이름과 주민등록번호를 모두 표시하세요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 7쪽 · 배우자 주민등록표등본",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-child",
+            "sourceTitle": "임신진단서·입양관계증명서 제출 대상인가요?",
+            "sourceReason": "태아·입양 자녀를 주택유형 또는 소득기준의 가구원수에 포함하려 하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "임신·입양은 어떤 서류로 확인하나요?",
+            "preview": "태아·입양 자녀를 가족 수에 넣으려면 11월 11일 이후 발급한 증빙을 준비해요.",
+            "sections": [
+                {
+                    "text": "임신진단서·입양관계증명서\n태아나 입양 자녀를 가구원 수에 넣으려면 11월 11일 이후 발급한 서류를 준비하세요. 임신진단서·확인서는 의료기관에서, 입양관계증명서는 행정복지센터에서 발급받아요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 7쪽 · 임신진단서·입양관계증명서",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록증·국내거소신고증 제출 대상인가요?",
+            "sourceReason": "외국인 배우자·직계존비속을 가구원수에 포함하나요? 배우자가 등본에 등재된 경우 생략 기준을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "배우자가 외국인이면 어떤 서류를 내나요?",
+            "preview": "외국인 가족을 가족 수에 넣으려면 등록·거소 서류를 준비해요. 등본에 있는 배우자는 생략 기준이 있어요.",
+            "sections": [
+                {
+                    "text": "외국인등록증·국내거소신고증\n외국인 배우자나 부모·자녀 등을 가구원 수에 포함하려면 외국인등록증 사본 또는 국내거소신고증을 준비하세요. 외국인 배우자가 신청자 등본에 이미 있으면 가구원 수 확인용 서류는 생략할 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 7쪽 · 외국인등록증·국내거소신고증",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-category-proof",
+            "sourceTitle": "신청자격 증명서 제출 대상인가요?",
+            "sourceReason": "수급·차상위·한부모·장애인 자격으로 1순위 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=8",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "신청 유형은 어떤 서류로 확인하나요?",
+            "preview": "수급·차상위·지원 한부모·장애인 중 실제 신청하는 1순위 유형의 증명서를 내요.",
+            "sections": [
+                {
+                    "text": "신청자격 증명서\n1순위 신청자는 해당 자격 서류를 제출해요. 수급자는 수급자 증명서, 차상위계층은 차상위 확인서 등, 지원대상 한부모는 한부모가족 증명서, 등록장애인은 장애인 증명서 또는 등록증 사본을 준비하세요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 8쪽 · 신청자격 증명서",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "applies-proxy",
+            "sourceTitle": "대리신청 구비서류 제출 대상인가요?",
+            "sourceReason": "배우자 또는 기타 대리인이 방문하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=8",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "다른 사람이 대신 신청하면 무엇을 챙기나요?",
+            "preview": "배우자는 신분증·도장·관계 증명, 그 밖의 대리인은 인감 또는 본인서명 방식 위임서류가 필요해요.",
+            "sections": [
+                {
+                    "text": "대리신청 구비서류\n배우자 대리는 두 사람의 신분증, 신청자 도장, 가족관계 증빙이 필요해요. 다른 대리인은 두 사람의 신분증과 위임장을 준비하고, 신청자 본인 발급 인감증명서·인감도장 또는 본인서명사실확인서·자필 서명을 갖춰요. 서명 방식은 수임인란에 대리인 이름을 적어요.",
+                    "evidence": [
+                        {
+                            "label": "공식 공고문 8쪽 · 대리신청 구비서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=8",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "241f14b1-a909-477b-ac7f-a15569bc8dc9",
+            "questionId": "review-adult",
+            "sourceTitle": "몇 살부터 신청할 수 있나요?",
+            "sourceReason": "만 19세 이상이 원칙이에요.\n\n미성년 세대주도 다음 중 하나라면 예외를 확인해요.\n- 같은 등본에 있는 자녀를 부양해요.\n- 부모·조부모 등 윗세대 가족의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 외국인 부모를 둔 한부모가족으로, 미성년 세대주는 한국 국적이에요.\n\n가족관계와 부양 사실을 증명하고 법정대리인의 동의·대리 조건을 확인해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=3",
+                "sha256": "3612dc0756d0c8a884cfa30d8e55810a278cdf13645d57482356f3e208c8f949"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만 19세 이상이 원칙이고, 미성년 세대주 예외가 있어요.",
+            "sections": [
+                {
+                    "text": "- 만 19세 이상이 원칙이에요.\n- 미성년 세대주도 다음 중 하나라면 예외를 확인해요.\n- 같은 등본에 있는 자녀를 부양해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "- 부모·조부모 등 윗세대 가족의 사망·실종·행방불명으로 같은 등본의 형제자매를 부양해요.\n- 외국인 부모를 둔 한부모가족으로, 미성년 세대주는 한국 국적이에요.\n- 가족관계와 부양 사실을 증명하고 법정대리인의 동의·대리 조건을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69296405#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "REVIEW",
+                        "label": "추가 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

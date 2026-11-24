@@ -1,17 +1,21 @@
 package org.jibro.notice;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
 import org.jibro.notice.HousingModels.*;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
 class NoticeGuidanceSummaryVisibilityTest {
     private final JsonMapper json = JsonMapper.builder().build();
-    private final NoticeService service = new NoticeService(null, null, json, null);
+    private final NoticeAuditRepository audit = mock(NoticeAuditRepository.class);
+    private final NoticeService service = new NoticeService(null, null, json, audit);
     private final Instant now = Instant.parse("2030-05-01T09:00:00Z");
     private final Evidence source = new Evidence("공고문 4쪽", "https://apply.lh.or.kr/notice", "2030-05-01");
 
@@ -24,8 +28,8 @@ class NoticeGuidanceSummaryVisibilityTest {
         n.startDate = LocalDate.of(2030, 4, 1);
         n.endDate = LocalDate.of(2030, 5, 31);
         n.content = json.writeValueAsString(new Content("무주택세대구성원이 대상입니다.", source, List.of(),
-            List.of(new Question("rank", "선정 기준", "동일순위에서 남원시 거주자를 우선합니다.", source)),
-            List.of(new DocumentTemplate("family", "가족관계증명서", null, "발급", "정부24", null, source)), List.of()));
+                List.of(new Question("rank", "선정 기준", "동일순위에서 남원시 거주자를 우선합니다.", source)),
+                List.of(new DocumentTemplate("family", "가족관계증명서", null, "발급", "정부24", null, source)), List.of()));
         return n;
     }
 
@@ -37,14 +41,16 @@ class NoticeGuidanceSummaryVisibilityTest {
         assertEquals(stored, n.content);
     }
 
-    @Test void upcomingAndOpenNoticesUseSameSummaryWithoutExtraWrite() {
+    @Test
+    void upcomingAndOpenNoticesUseSameSummaryWithoutExtraWrite() {
         var n = reviewed();
         visible(n, now, true);
         n.startDate = LocalDate.of(2030, 5, 20);
         visible(n, now, true);
     }
 
-    @Test void knownDeadlineExcludesClosedNoticeEvenWhenStartIsMissing() {
+    @Test
+    void knownDeadlineExcludesClosedNoticeEvenWhenStartIsMissing() {
         var n = reviewed();
         n.startDate = null;
         n.endDate = LocalDate.of(2030, 4, 30);
@@ -56,7 +62,76 @@ class NoticeGuidanceSummaryVisibilityTest {
         visible(n, now.plusNanos(1), false);
     }
 
-    @Test void dateOnlyDeadlineClosesAtNextMidnightInSeoul() {
+    @Test
+    void scheduledClosureRetainsTheReviewedGuideWithoutReopeningApplications() {
+        var n = reviewed();
+        n.applicationEndAt = now;
+        n.guideCheckedAt = now.minusSeconds(1);
+        n.sourceClosed = true;
+        visible(n, now, true);
+        var view = service.view(n, false, now);
+        assertEquals("CLOSED", view.status());
+        assertFalse(view.canStart());
+        n.guideCheckedAt = now;
+        visible(n, now, false);
+        n.guideCheckedAt = now.minusSeconds(1);
+        n.changeReview = true;
+        visible(n, now, false);
+    }
+
+    @Test
+    void postDeadlineRecheckUsesEarlierApprovalForTheSameNoticeAndSource() {
+        var n = reviewed();
+        n.applicationEndAt = now.minusSeconds(60);
+        n.guideCheckedAt = now;
+        visible(n, now, false);
+        when(audit.hadPublishedGuidance(n.id, source.url(), n.applicationEndAt)).thenReturn(true);
+        visible(n, now, true);
+        n.changeReview = true;
+        visible(n, now, false);
+    }
+
+    @Test
+    void closureBeforeLastRoundRequiresEvidenceOfIntakeAfterReview() {
+        var n = reviewed();
+        n.applicationEndAt = now.plusSeconds(3600);
+        n.guideCheckedAt = now.minusSeconds(3600);
+        n.sourceClosed = true;
+        visible(n, now, false);
+        when(audit.listedAsAcceptingAfter(source.url(), n.guideCheckedAt, now)).thenReturn(true);
+        visible(n, now, true);
+        assertFalse(service.view(n, false, now).canStart());
+    }
+
+    @Test
+    void recordedClosureUsesTheEarlierBoundaryEvenAfterThePlannedDeadline() {
+        var n = reviewed();
+        n.sourceClosed = true;
+        n.intakeClosedAt = now.minusSeconds(100);
+        n.applicationEndAt = now.minusSeconds(5);
+        n.guideCheckedAt = now.minusSeconds(10);
+        visible(n, now, false);
+        verify(audit).hadPublishedGuidance(n.id, source.url(), n.intakeClosedAt);
+        n.applicationEndAt = now.minusSeconds(200);
+        visible(n, now, false);
+        verify(audit).hadPublishedGuidance(n.id, source.url(), n.applicationEndAt);
+    }
+
+    @Test
+    void earlyClosureOfRollingRecruitmentRetainsApprovedGuidanceUnlessCancelled() {
+        var n = reviewed();
+        n.lifecycleState = "EARLY_CLOSED";
+        n.endDate = null;
+        n.intakeClosedAt = now.minusSeconds(30);
+        n.guideCheckedAt = now.minusSeconds(60);
+        visible(n, now, true);
+        assertFalse(service.view(n, false, now).canStart());
+        n.lifecycleState = "CANCELLED";
+        visible(n, now, false);
+    }
+
+    @Test
+    void dateOnlyDeadlineClosesAtNextMidnightInSeoul() {
         var n = reviewed();
         n.endDate = LocalDate.of(2030, 5, 1);
         Instant midnight = Instant.parse("2030-05-01T15:00:00Z");
@@ -64,7 +139,8 @@ class NoticeGuidanceSummaryVisibilityTest {
         visible(n, midnight, false);
     }
 
-    @Test void officialClosureAndInterruptedLifecycleNeverExposeNewSummaries() {
+    @Test
+    void officialClosureAndInterruptedLifecycleNeverExposeNewSummaries() {
         var n = reviewed();
         for (String state : List.of("EARLY_CLOSED", "CANCELLED")) {
             n.lifecycleState = state;
@@ -73,11 +149,12 @@ class NoticeGuidanceSummaryVisibilityTest {
         n.lifecycleState = "NORMAL";
         var c = json.readValue(n.content, Content.class);
         n.content = json.writeValueAsString(new Content(c.summary(), c.evidence(), c.attachments(), c.questions(),
-            c.documents(), c.schedules(), c.reviewIssues(), new OfficialApplicationClosure("공식 조기 종료", source)));
+                c.documents(), c.schedules(), c.reviewIssues(), new OfficialApplicationClosure("공식 조기 종료", source)));
         visible(n, now, false);
     }
 
-    @Test void changedOrUnreviewedContentIsHiddenUntilReviewedAgain() {
+    @Test
+    void changedOrUnreviewedContentIsHiddenUntilReviewedAgain() {
         var n = reviewed();
         n.changeReview = true;
         visible(n, now, false);
