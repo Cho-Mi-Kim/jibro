@@ -106,9 +106,26 @@ server {
     # Overwrite client-supplied forwarded headers at the only public proxy.
     location ~ ^/(api/|oauth2/|login/oauth2/) {
         limit_req zone=api burst=60 nodelay;
-        limit_req zone=auth burst=10 nodelay;
-        limit_req zone=mail burst=4 nodelay;
-        limit_req zone=visitor burst=4 nodelay;
+
+        # Each matching policy is last so Nginx initializes its first request
+        # directly, even on hosts younger than the slowest refill interval.
+        # Child limit_req directives replace (rather than inherit) the parent.
+        location ~ ^/(api/v1/auth/(login|trial|reset/complete|verify)/?$|oauth2/authorization/) {
+            limit_req zone=api burst=60 nodelay;
+            limit_req zone=auth burst=10 nodelay;
+            proxy_pass http://jibro_api;
+        }
+        location ~ ^/api/v1/(auth/(signup|reset/request)|member/(verify|closure/request|connections/proof))/?$ {
+            limit_req zone=api burst=60 nodelay;
+            limit_req zone=mail burst=4 nodelay;
+            proxy_pass http://jibro_api;
+        }
+        location ~ ^/api/v1/security/visitor/?$ {
+            limit_req zone=api burst=60 nodelay;
+            limit_req zone=visitor burst=4 nodelay;
+            proxy_pass http://jibro_api;
+        }
+
         proxy_pass http://jibro_api;
         proxy_http_version 1.1;
         proxy_set_header Host ${PUBLIC_HOST};

@@ -116,15 +116,34 @@ def verify(frontend, deploy):
             status, headers, _ = request("/api/v1/health", headers={"X-Forwarded-For": "198.51.100.99"})
             assert status == 204 and headers["X-Observed-Peer"] != "198.51.100.99"
             results.append("client-supplied forwarded IP replaced")
-            for endpoint, allowed in (("security/visitor", 5), ("auth/signup", 5), ("auth/login", 11)):
-                statuses = [request("/api/v1/" + endpoint, "POST")[0] for _ in range(allowed)]
-                assert statuses == [204] * allowed, f"{endpoint}: expected {allowed} allowed requests, received {statuses}; host monotonic seconds={time.monotonic():.3f}"
-                status, headers, body = request("/api/v1/" + endpoint, "POST")
-                assert status == 429 and headers.get("Retry-After") == "30", f"{endpoint}: expected rate limit, received {status}"
-                assert json.loads(body)["code"] == "TOO_MANY_REQUESTS", endpoint
-                assert "Content-Security-Policy" in headers
+            # Routes in each policy share one budget, including trailing slashes
+            # and OAuth GET. Every nested proxy must preserve forwarded headers.
+            policies = (
+                ((('POST', '/api/v1/security/visitor'), ('POST', '/api/v1/security/visitor/')), 5),
+                ((('POST', '/api/v1/auth/signup'), ('POST', '/api/v1/auth/reset/request/'),
+                  ('POST', '/api/v1/member/verify'), ('POST', '/api/v1/member/closure/request'),
+                  ('POST', '/api/v1/member/connections/proof')), 5),
+                ((('POST', '/api/v1/auth/login'), ('POST', '/api/v1/auth/trial/'),
+                  ('POST', '/api/v1/auth/reset/complete'), ('POST', '/api/v1/auth/verify'),
+                  ('GET', '/oauth2/authorization/google')), 11),
+            )
+            for endpoints, allowed in policies:
+                statuses = []
+                for index in range(allowed):
+                    method, path = endpoints[index % len(endpoints)]
+                    status, headers, _ = request(path, method, {"X-Forwarded-For": "198.51.100.99"})
+                    statuses.append(status)
+                    if status == 204:
+                        assert headers["X-Observed-Peer"] != "198.51.100.99", path
+                assert statuses == [204] * allowed, f"{endpoints}: expected {allowed} allowed requests, received {statuses}; host monotonic seconds={time.monotonic():.3f}"
+                for method, path in endpoints:
+                    status, headers, body = request(path, method)
+                    assert status == 429 and headers.get("Retry-After") == "30", f"{path}: expected rate limit, received {status}"
+                    assert json.loads(body)["code"] == "TOO_MANY_REQUESTS", path
+                    assert "Content-Security-Policy" in headers
             results.append("visitor, mail and login bursts limited with JSON 429 and Retry-After")
-            assert request("/api/v1/security/visitor")[0] == 204
+            for path in ("/api/v1/security/visitor", "/api/v1/auth/login", "/api/v1/auth/signup", "/login/oauth2/code/google"):
+                assert request(path)[0] == 204, path
             statuses = [request("/api/v1/notices")[0] for _ in range(120)]
             assert 429 in statuses and set(statuses) <= {204, 429}
             assert request("/")[0] == 200
