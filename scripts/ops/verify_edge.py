@@ -118,9 +118,9 @@ def verify(frontend, deploy):
             results.append("client-supplied forwarded IP replaced")
             for endpoint, allowed in (("security/visitor", 5), ("auth/signup", 5), ("auth/login", 11)):
                 statuses = [request("/api/v1/" + endpoint, "POST")[0] for _ in range(allowed)]
-                assert statuses == [204] * allowed, endpoint
+                assert statuses == [204] * allowed, f"{endpoint}: expected {allowed} allowed requests, received {statuses}; host monotonic seconds={time.monotonic():.3f}"
                 status, headers, body = request("/api/v1/" + endpoint, "POST")
-                assert status == 429 and headers.get("Retry-After") == "30", endpoint
+                assert status == 429 and headers.get("Retry-After") == "30", f"{endpoint}: expected rate limit, received {status}"
                 assert json.loads(body)["code"] == "TOO_MANY_REQUESTS", endpoint
                 assert "Content-Security-Policy" in headers
             results.append("visitor, mail and login bursts limited with JSON 429 and Retry-After")
