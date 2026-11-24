@@ -22,7 +22,7 @@ import uuid
 def run(command, **kwargs):
     result = subprocess.run(command, capture_output=True, text=True, timeout=120, **kwargs)
     if result.returncode:
-        raise RuntimeError("Isolated edge command failed: " + command[0])
+        raise RuntimeError("Isolated edge command failed: " + command[0] + "\n" + result.stdout[-4000:] + result.stderr[-4000:])
     return result.stdout.strip()
 
 
@@ -51,6 +51,9 @@ def verify(frontend, deploy):
         tls = root / "tls"
         tls.mkdir()
         run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "2", "-subj", "/CN=edge.test", "-addext", "subjectAltName=DNS:edge.test", "-keyout", str(tls / "privkey.pem"), "-out", str(tls / "fullchain.pem")])
+        # Only this disposable test key is readable across the host/container UID boundary.
+        # The enclosing TemporaryDirectory stays private; production keys are never used.
+        (tls / "privkey.pem").chmod(0o644)
         (root / "acme/.well-known/acme-challenge").mkdir(parents=True)
         (root / "acme/.well-known/acme-challenge/probe").write_text("verified challenge")
         run(["docker", "build", "-f", "deploy/web.Dockerfile", "-t", image, "."], cwd=root)
@@ -84,7 +87,8 @@ def verify(frontend, deploy):
                     connection.close()
                     time.sleep(0.2)
             else:
-                raise RuntimeError("Isolated web did not start")
+                logs = run(compose + ["logs", "--no-color", "--tail", "30", "web"])
+                raise RuntimeError("Isolated web did not start\n" + logs)
             for page in ("/", "/pdf-viewer.html", "/evidence-viewer.html", "/evidence-dynamic.html"):
                 status, headers, body = request(page)
                 assert status == 200, page

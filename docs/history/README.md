@@ -132,6 +132,7 @@ hook이 추가할 수 있는 파일은 새 자동 수집 기록과 이 문서의
 | 확인 필요 | [문의·개인정보 페이지 로고와 공통 하단 정리](entries/2026-11-24-public-page-branding.md) | 확인 필요 |
 | 확인 필요 | [사이트 기본 운영 항목 점검](entries/2026-11-24-site-basics-audit.md) | 확인 필요 |
 | 확인 필요 | [첫 접속 Cloudflare 사람 확인](entries/2026-11-24-visitor-verification.md) | 확인 필요 |
+| 2026-11-24 | [최종 검토본과 운영 사이트 일치 확인](entries/2026-11-24-final-production-verification.md) | 근거 정리·담당자 검토 전 |
 | 2026-11-24 | [Iron Laws 실제 실행과 상위 지적 대조](entries/2026-11-24-iron-laws-audit.md) | 검토 완료 |
 | 2026-11-24 | [PR #31의 지역 약칭·테스트·문서 충돌 정리](entries/2026-11-24-pr31-conflict-resolution.md) | 근거 정리·팀 검토 전 |
 | 2026-11-24 | [리팩토링 지적 14건의 책임 통합과 실패 처리 보완](entries/2026-11-24-refactoring-findings-fixed.md) | 완료 |
