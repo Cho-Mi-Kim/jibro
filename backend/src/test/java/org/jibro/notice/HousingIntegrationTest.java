@@ -117,7 +117,9 @@ class HousingIntegrationTest {
         assertEquals("NOT_APPLICABLE", p.documents.stream().filter(d -> d.id.equals("student-proof")).findFirst().orElseThrow().necessity);
         p = preparations.answers(owner, id, p.revision, Map.of("youth-route", "UNKNOWN", "submission-check", "PENDING"));
         assertEquals(5, p.documents.stream().filter(d -> d.necessity.equals("UNKNOWN")).count());
-        assertEquals(7, p.warnings.size());
+        assertEquals(6, p.warnings.size());
+        var reference = content.questions().stream().filter(q -> q.id().equals("submission-check")).findFirst().orElseThrow();
+        assertFalse(p.warnings.contains(reference.title()), "참고 안내 확인은 신청자 상황의 미확인 조건으로 세지 않아요.");
     }
 
     @Test
@@ -169,7 +171,7 @@ class HousingIntegrationTest {
             var page = notices.search(selection, List.of(), List.of(), "테스트 청년 공고", "active", 0, 20);
             assertEquals(2, page.totalElements());
             assertEquals(Set.of(city.toString(), multiple.toString()),
-                Set.copyOf(page.items().stream().map(NoticeListItem::id).toList()));
+                    Set.copyOf(page.items().stream().map(NoticeListItem::id).toList()));
         }
         assertEquals("대구광역시 외", notices.notice(multiple).region());
     }
@@ -205,6 +207,25 @@ class HousingIntegrationTest {
         assertTrue(notices.notice(second).questions().isEmpty());
         assertFalse(notices.notice(second).canStart());
         assertThrows(ApiException.class, () -> preparations.start(owner, second, 1));
+    }
+
+    @Test
+    void documentRemembersItsLastStateAcrossReadsAndReadyMemoEdits() {
+        var p = preparations.start(owner, notice, 1);
+        UUID id = UUID.fromString(p.id);
+        String documentId = p.documents.get(0).id;
+        for (var prior : List.of(DocumentState.UNCHECKED, DocumentState.NEEDED, DocumentState.IN_PROGRESS, DocumentState.RECHECK)) {
+            p = preparations.document(owner, id, documentId, p.revision, prior, "기존 메모");
+            p = preparations.document(owner, id, documentId, p.revision, DocumentState.READY, "기존 메모");
+            p = preparations.document(owner, id, documentId, p.revision, DocumentState.READY, "수정한 메모");
+            var ready = preparations.get(owner, id).documents.get(0);
+            assertEquals(prior, ready.stateBeforeReady);
+            p = preparations.document(owner, id, documentId, p.revision, ready.stateBeforeReady, ready.note);
+            var restored = p.documents.get(0);
+            assertEquals(prior, restored.state);
+            assertNull(restored.stateBeforeReady);
+            assertEquals("수정한 메모", restored.note);
+        }
     }
 
     @Test
@@ -261,5 +282,21 @@ class HousingIntegrationTest {
         var c = SampleData.content();
         var bad = new Content(c.summary(), new Evidence("위험 링크", "javascript:alert(1)", "2026-10-30"), c.attachments(), c.questions(), c.documents(), c.schedules());
         assertThrows(IllegalArgumentException.class, () -> notices.updateContent(notice, 1, bad));
+    }
+
+    @Test
+    void datedDeadlineKeepsItsTimeAndClosureExplanationWhenGuidanceIsUpdated() {
+        var original = SampleData.content();
+        var closing = new ScheduleTemplate("closing", "신청 접수 마감 (15:00, 조기 마감 가능)",
+                "2026-12-30T15:00:00", original.evidence(), "12월 30일 15:00까지이며, 모집 인원이 차면 일찍 마감할 수 있어요.");
+        var updated = new Content(original.summary(), original.evidence(), original.attachments(),
+                original.questions(), original.documents(), List.of(closing));
+        notices.updateContent(notice, 1, updated);
+        notices.review(notice, owner, 2, "PASS", "PASS", "원문 일정 설명 유지");
+        assertEquals(List.of(closing), notices.notice(notice).schedules());
+        assertEquals(java.time.Instant.parse("2026-12-30T06:00:00Z"), ApplicationPeriod.instant(notices.notice(notice).schedules().get(0)));
+        var invalid = new ScheduleTemplate("closing", "신청 접수 마감", "2026-02-30", original.evidence(), "날짜 확인 중");
+        assertThrows(IllegalArgumentException.class, () -> notices.validateContent(new Content(original.summary(), original.evidence(),
+                original.attachments(), original.questions(), original.documents(), List.of(invalid))));
     }
 }

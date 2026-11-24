@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+
 import jakarta.persistence.EntityManager;
 import org.jibro.auth.AuthService;
 import org.jibro.global.common.ApiException;
@@ -22,12 +23,18 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Transactional
 class ListPayloadIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired PreparationService preparations;
-    @Autowired AuthService auth;
-    @Autowired EntityManager entities;
-    @Autowired JdbcTemplate db;
-    @Autowired ObjectMapper json;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    PreparationService preparations;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    EntityManager entities;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    ObjectMapper json;
 
     @Test
     void catalogAndPreviewKeepAuthoritativeMetadataWithoutGuidancePayloads() {
@@ -36,7 +43,7 @@ class ListPayloadIntegrationTest {
         var c = notices.content(id);
         var issue = new ReviewIssue("held", "CONDITION", "확인 필요", "기관 확인", List.of(), List.of(), List.of(c.evidence()));
         notices.entity(id).content = json.writeValueAsString(new Content("긴 요약 ".repeat(10000), c.evidence(), c.attachments(),
-            c.questions(), c.documents(), c.schedules(), List.of(issue)));
+                c.questions(), c.documents(), c.schedules(), List.of(issue)));
         entities.flush();
         entities.clear();
         var page = notices.search(List.of(), List.of(), List.of(), group, "active", 0, 20);
@@ -62,6 +69,21 @@ class ListPayloadIntegrationTest {
     }
 
     @Test
+    void untilFilledScheduleIsVisibleInTheListAndDetail() {
+        var id = notice("rolling-" + UUID.randomUUID());
+        var c = notices.content(id);
+        var session = new ScheduleTemplate("rolling", ApplicationTiming.UNTIL_FILLED_SESSION, "", c.evidence(), "평일 방문 10:00~16:00");
+        var entity = notices.entity(id);
+        entity.endDate = null;
+        entity.content = json.writeValueAsString(new Content(c.summary(), c.evidence(), c.attachments(),
+                c.questions(), c.documents(), List.of(session), List.of()));
+        entities.flush();
+        entities.clear();
+        assertTrue(notices.notice(id).applicationTiming().untilFilled());
+        assertTrue(notices.listByIds(List.of(id)).get(0).applicationTiming().untilFilled());
+    }
+
+    @Test
     void preparationListContainsOnlyOwnedActiveMetadataWhileSelectedDetailKeepsAnswersAndNotes() {
         String owner = user();
         String other = user();
@@ -81,7 +103,8 @@ class ListPayloadIntegrationTest {
         assertEquals(p.progress, list.get(0).progress());
         var fields = json.readTree(json.writeValueAsString(list.get(0)));
         assertEquals(6, fields.size());
-        for (var key : List.of("questions", "answers", "documents", "schedules", "rules", "warnings")) assertFalse(fields.has(key), key);
+        for (var key : List.of("questions", "answers", "documents", "schedules", "rules", "warnings"))
+            assertFalse(fields.has(key), key);
         var full = preparations.get(owner, id);
         assertEquals("YES", full.answers.get("residence"));
         assertEquals("선택한 준비의 메모", full.documents.get(0).note);
@@ -93,7 +116,7 @@ class ListPayloadIntegrationTest {
         int revision = p.revision;
         assertEquals(409, assertThrows(ApiException.class, () -> preparations.answers(owner, id, revision, Map.of())).status);
         System.out.printf("LIST_PAYLOAD preparation summary=%d detail=%d bytes%n",
-            json.writeValueAsBytes(list.get(0)).length, json.writeValueAsBytes(full).length);
+                json.writeValueAsBytes(list.get(0)).length, json.writeValueAsBytes(full).length);
     }
 
     private String user() {

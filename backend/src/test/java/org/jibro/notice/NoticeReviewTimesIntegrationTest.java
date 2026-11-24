@@ -23,9 +23,12 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class NoticeReviewTimesIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired AuthService auth;
-    @Autowired EntityManager entities;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    EntityManager entities;
     String actor;
 
     @BeforeEach

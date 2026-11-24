@@ -1,6 +1,10 @@
 import { Icon } from './Icon';
 import { cx } from '../styles/classes';
-import { type ButtonHTMLAttributes, type ReactNode } from 'react';
+import {
+    type ButtonHTMLAttributes,
+    type HTMLAttributes,
+    type ReactNode,
+} from 'react';
 import { ActionButton } from '@seed-design/react';
 import { Link } from 'react-router';
 export function Button(
@@ -16,11 +20,13 @@ export function Button(
 export function Heading({
     eyebrow,
     backTo,
+    backState,
     title,
     children,
 }: {
     eyebrow?: string;
     backTo?: string;
+    backState?: unknown;
     title: string;
     children?: ReactNode;
 }) {
@@ -32,6 +38,7 @@ export function Heading({
                     <Link
                         className={cx('mobile-back')}
                         to={backTo}
+                        state={backState}
                         aria-label="이전 화면으로"
                     >
                         <Icon name="back" />
@@ -43,8 +50,18 @@ export function Heading({
         </header>
     );
 }
-export function Card({ children }: { children: ReactNode }) {
-    return <section className={cx('card')}>{children}</section>;
+export function Card({
+    children,
+    onClick,
+}: {
+    children: ReactNode;
+    onClick?: HTMLAttributes<HTMLElement>['onClick'];
+}) {
+    return (
+        <section className={cx('card')} onClick={onClick}>
+            {children}
+        </section>
+    );
 }
 export function State({
     error,

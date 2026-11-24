@@ -1,0 +1,64 @@
+[
+  {
+    "name": "schedule-spacer",
+    "whole": {
+      "label": "[공고문]인천산곡A1블록행복주택(산곡솔마루아파트)예비입주자모집(`26.11.11.).hwpx",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385652",
+      "sha256": "8fed671a8f4913d74f3d039fb228659281c7bb54adc8474b9cf6f5615a3615b3",
+      "status": "EXTRACTED",
+      "message": "Readonly HWPX re-extraction from identical official source bytes",
+      "excerpts": [],
+      "context": [
+        {
+          "location": "HWPX Contents/section0.xml (쪽 번호 확인 필요)",
+          "text": "⟦HWPX:TABLE id=26 rows=3 cols=4⟧\n⟦HWPX:CELL table=26 row=1 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN⟧\n청약신청\n(인터넷 PC/모바일)\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=1 col=2 rowspan=1 colspan=1⟧\n서류제출대상자\n발표\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=1 col=3 rowspan=1 colspan=1⟧\n서류제출대상자\n서류제출\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=1 col=4 rowspan=1 colspan=1 left=DRAWN right=NONE⟧\n예비입주자\n선정 발표\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=2 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN top=DRAWN bottom=NONE⟧\n\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=2 col=2 rowspan=1 colspan=1 top=DRAWN bottom=NONE⟧\n\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=2 col=3 rowspan=1 colspan=1 top=DRAWN bottom=NONE⟧\n\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=2 col=4 rowspan=1 colspan=1 left=DRAWN right=NONE top=DRAWN bottom=NONE⟧\n\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=3 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN top=NONE bottom=DRAWN⟧\n‘26.11.23.(월) 10:00\n~ 11.25.(수) 16:00\n\n 인터넷\n(https://apply.lh.or.kr) \n또는\n모바일(App명칭\n : LH청약플러스) \n신청\n\n ※ 24시간 신청가능\n(단, 시작일과 마감일제외)\n\n ※ 청약 신청내용 변경은 청약 접수기간 중 가능\n(청약 마감이후 변경불가)\n\n\n\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=3 col=2 rowspan=1 colspan=1 top=NONE bottom=DRAWN⟧\n‘26.12.7.(월)\n17:00 이후\n\n(확인방법)\nLH 청약플러스\n(apply.lh.or.kr) \n  → 청약 \n  → 청약결과 확인\n  → ‘서류제출대상자 명단’\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=3 col=3 rowspan=1 colspan=1 top=NONE bottom=DRAWN⟧\n'26.12.8.(화) 10:00\n~ 12.11.(금) 17:00\n\n(서류제출 방법)\n① 인터넷 제출\n(MyMy 서비스 이용)\n\nLH 청약플러스\n(apply.lh.or.kr) \n   → 고객서비스\n   → 온라인신청\n   → 온라인 서류제출 \n \n또는\n\n② 등기우편\n \n※ 등기우편은  ’26.12.11.일자 \n우체국소인분까지 유효\n※ 일반우편 및 택배 \n접수 불가\n\n(등기우편 발송주소)\n인천광역시 남동구 \n논현로 46번길23\nLH인천지역본부  \n4층 주거서비스팀\n인천산곡 A1블록 행복주택 담당자 앞\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=26 row=3 col=4 rowspan=1 colspan=1 left=DRAWN right=NONE top=NONE bottom=DRAWN⟧\n‘27.4.15.(목)\n17:00 이후\n\n(확인방법)\nLH 청약플러스\n(apply.lh.or.kr) \n   → 청약 \n   → 청약결과 확인\n   → ‘당첨/낙찰자 명단‘ 조회\n \n 또는\n ARS(1661-7700)\n⟦HWPX:/CELL⟧\n⟦HWPX:/TABLE⟧"
+        }
+      ]
+    },
+    "fragments": {
+      "label": "[공고문]인천산곡A1블록행복주택(산곡솔마루아파트)예비입주자모집(`26.11.11.).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666",
+      "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf",
+      "status": "EXTRACTED",
+      "message": "Readonly native PDF re-extraction; captured OCR retained for identical source bytes",
+      "excerpts": [],
+      "context": [
+        {
+          "location": "공고문 7쪽",
+          "text": "⟦PDF:TABLE id=5 rows=2 cols=4⟧\n⟦PDF:CELL table=5 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=370.44 y1=370.44⟧\n청약신청\r\n⟦PDF:LINE y0=383.40 y1=383.40⟧\n(인터넷 PC/모바일)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=370.44 y1=370.44⟧\n서류제출대상자\r\n⟦PDF:LINE y0=383.40 y1=383.40⟧\n발표\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=370.44 y1=370.44⟧\n서류제출대상자\r\n⟦PDF:LINE y0=383.40 y1=383.40⟧\n서류제출\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=1 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=370.44 y1=370.44⟧\n예비입주자\r\n⟦PDF:LINE y0=383.40 y1=383.40⟧\n선정 발표\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=404.28 y1=404.28⟧\n‘26.11.23.(월) 10:00\r\n⟦PDF:LINE y0=421.80 y1=421.80⟧\n~ 11.25.(수) 16:00\r\n⟦PDF:LINE y0=446.76 y1=446.76⟧\n 인터넷\r\n⟦PDF:LINE y0=461.16 y1=461.16⟧\n(https://apply.lh.or.kr) \r\n⟦PDF:LINE y0=475.56 y1=475.56⟧\n또는\r\n⟦PDF:LINE y0=489.96 y1=489.96⟧\n모바일 (App명칭\r\n⟦PDF:LINE y0=504.36 y1=504.36⟧\n : LH청약플러스) \r\n⟦PDF:LINE y0=518.76 y1=518.76⟧\n신청\r\n⟦PDF:LINE y0=548.16 y1=548.16⟧\n ※  24시간 신청가능\r\n⟦PDF:LINE y0=562.56 y1=562.56⟧\n(단, 시작일과 마감일제외)\r\n⟦PDF:LINE y0=581.76 y1=581.76⟧\n ※  청약 신청내용 변경은 청약 \r\n⟦PDF:LINE y0=596.16 y1=596.16⟧\n접수기간 중 가능\r\n⟦PDF:LINE y0=610.56 y1=610.56⟧\n(청약 마감이후 변경불가)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=404.28 y1=404.28⟧\n‘26.12.7.(월)\r\n⟦PDF:LINE y0=421.80 y1=421.80⟧\n17:00 이후\r\n⟦PDF:LINE y0=446.76 y1=446.76⟧\n(확인방법)\r\n⟦PDF:LINE y0=461.16 y1=461.16⟧\nLH 청약플러스\r\n⟦PDF:LINE y0=477.36 y1=477.36⟧\n(apply.lh.or.kr) \r\n⟦PDF:LINE y0=493.56 y1=493.56⟧\n  → 청약 \r\n⟦PDF:LINE y0=509.76 y1=509.76⟧\n  → 청약결과 확인\r\n⟦PDF:LINE y0=525.96 y1=525.96⟧\n  → ‘서류제출대상자 명단’\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=404.28 y1=404.28⟧\n'26.12.8.(화) 10:00\r\n⟦PDF:LINE y0=421.80 y1=421.80⟧\n~ 12.11.(금) 17:00\r\n⟦PDF:LINE y0=446.76 y1=446.76⟧\n(서류제출 방법)\r\n⟦PDF:LINE y0=462.00 y1=462.00⟧\n① 인터넷 제출\r\n⟦PDF:LINE y0=477.00 y1=477.00⟧\n(MyMy 서비스 이용)\r\n⟦PDF:LINE y0=494.16 y1=494.16⟧\nLH 청약플러스\r\n⟦PDF:LINE y0=504.00 y1=504.00⟧\n(apply.lh.or.kr) \r\n⟦PDF:LINE y0=517.56 y1=517.56⟧\n   → 고객서비스\r\n⟦PDF:LINE y0=531.12 y1=531.12⟧\n   → 온라인신청\r\n⟦PDF:LINE y0=544.56 y1=544.56⟧\n   → 온라인 서류제출 \r\n \r\n⟦PDF:LINE y0=561.96 y1=561.96⟧\n또는\r\n⟦PDF:LINE y0=579.96 y1=579.96⟧\n② 등기우편\r\n \r\n⟦PDF:LINE y0=597.12 y1=597.12⟧\n※ 등기우편은  ’26.12.11.일자 \r\n⟦PDF:LINE y0=610.68 y1=610.68⟧\n우체국소인분까지 유효\r\n⟦PDF:LINE y0=624.12 y1=624.12⟧\n※ 일반우편 및 택배 \r\n⟦PDF:LINE y0=637.68 y1=637.68⟧\n접수 불가\r\n⟦PDF:LINE y0=657.72 y1=657.72⟧\n(등기우편 발송주소)\r\n⟦PDF:LINE y0=671.28 y1=671.28⟧\n인천광역시 남동구 \r\n⟦PDF:LINE y0=684.72 y1=684.72⟧\n논현로 46번길23\r\n⟦PDF:LINE y0=698.28 y1=698.28⟧\nLH인천지역본부  \r\n⟦PDF:LINE y0=711.84 y1=711.84⟧\n4층 주거서비스팀\r\n⟦PDF:LINE y0=725.28 y1=725.28⟧\n인천산곡 A1블록 행복주택 담당자 \r\n⟦PDF:LINE y0=738.84 y1=738.84⟧\n앞\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=5 row=2 col=4 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=404.28 y1=404.28⟧\n‘27.4.15.(목)\r\n⟦PDF:LINE y0=421.80 y1=421.80⟧\n17:00 이후\r\n⟦PDF:LINE y0=446.76 y1=446.76⟧\n(확인방법)\r\n⟦PDF:LINE y0=461.16 y1=461.16⟧\nLH 청약플러스\r\n⟦PDF:LINE y0=477.36 y1=477.36⟧\n(apply.lh.or.kr) \r\n⟦PDF:LINE y0=493.56 y1=493.56⟧\n   → 청약 \r\n⟦PDF:LINE y0=509.76 y1=509.76⟧\n   → 청약결과 확인\r\n⟦PDF:LINE y0=525.96 y1=525.96⟧\n   → ‘당첨/낙찰자 명단‘ 조회\r\n \r\n⟦PDF:LINE y0=552.96 y1=552.96⟧\n 또는\r\n⟦PDF:LINE y0=572.16 y1=572.16⟧\n ARS(1661-7700)\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧"
+        }
+      ]
+    }
+  },
+  {
+    "name": "facility-missing-dotted-boundaries",
+    "whole": {
+      "label": "[공고문]인천산곡A1블록행복주택(산곡솔마루아파트)예비입주자모집(`26.11.11.).hwpx",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385652",
+      "sha256": "8fed671a8f4913d74f3d039fb228659281c7bb54adc8474b9cf6f5615a3615b3",
+      "status": "EXTRACTED",
+      "message": "Readonly HWPX re-extraction from identical official source bytes",
+      "excerpts": [],
+      "context": [
+        {
+          "location": "HWPX Contents/section0.xml (쪽 번호 확인 필요)",
+          "text": "⟦HWPX:TABLE id=57 rows=13 cols=3⟧\n⟦HWPX:CELL table=57 row=1 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN⟧\n구 분\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=1 col=2 rowspan=1 colspan=1⟧\n설치항목\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=1 col=3 rowspan=1 colspan=1 left=DRAWN right=NONE⟧\n제공대상\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=2 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN⟧\n현관\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=2 col=2 rowspan=1 colspan=1⟧\n 마루귀틀에 경사로 설치\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=2 col=3 rowspan=12 colspan=1 left=DRAWN right=NONE⟧\n주거약자\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=3 col=1 rowspan=3 colspan=1 left=NONE right=DRAWN⟧\n거실\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=3 col=2 rowspan=1 colspan=1⟧\n 바닥면에서 1.2M 내외 높이에 세대단말기(월패드) 설치\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=4 col=2 rowspan=1 colspan=1⟧\n 조명밝기 600～900럭스(lux)\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=5 col=2 rowspan=1 colspan=1⟧\n 세대별 시각경보기\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=6 col=1 rowspan=2 colspan=1 left=NONE right=DRAWN⟧\n부엌\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=6 col=2 rowspan=1 colspan=1⟧\n 좌식 싱크대 설치\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=7 col=2 rowspan=1 colspan=1⟧\n 취사용 가스밸브 바닥면에서 1.2m 높이에 설치\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=8 col=1 rowspan=4 colspan=1 left=NONE right=DRAWN⟧\n욕실\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=8 col=2 rowspan=1 colspan=1⟧\n좌변기 옆 75cm이상 여유공간 확보\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=9 col=2 rowspan=1 colspan=1⟧\n 높낮이가 조절되는 세면기 설치\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=10 col=2 rowspan=1 colspan=1⟧\n 좌식 샤워시설\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=11 col=2 rowspan=1 colspan=1⟧\n 수건걸이 높이조정(바닥면에서 1.2미터 높이 내외로 설치)\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=12 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN⟧\n침실　\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=12 col=2 rowspan=1 colspan=1⟧\n 침실조명 밝기 300～400럭스(lux)\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=13 col=1 rowspan=1 colspan=1 left=NONE right=DRAWN⟧\n기타\n⟦HWPX:/CELL⟧\n⟦HWPX:CELL table=57 row=13 col=2 rowspan=1 colspan=1⟧\n 상가, 관리소, 시각장애인이 거주하는 주거동 출입구에\n 음성유도 신호기 설치\n⟦HWPX:/CELL⟧\n⟦HWPX:/TABLE⟧"
+        }
+      ]
+    },
+    "fragments": {
+      "label": "[공고문]인천산곡A1블록행복주택(산곡솔마루아파트)예비입주자모집(`26.11.11.).pdf",
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666",
+      "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf",
+      "status": "EXTRACTED",
+      "message": "Readonly native PDF re-extraction; captured OCR retained for identical source bytes",
+      "excerpts": [],
+      "context": [
+        {
+          "location": "공고문 26쪽",
+          "text": "⟦PDF:TABLE id=3 rows=8 cols=3⟧\n⟦PDF:CELL table=3 row=1 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=527.28 y1=527.28⟧\n구 분\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=527.28 y1=527.28⟧\n설치항목\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=1 col=3 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=527.28 y1=527.28⟧\n제공대상\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=1 rowspan=1 colspan=1⟧\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=2 rowspan=1 colspan=1⟧\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=2 col=3 rowspan=1 colspan=1⟧\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=3 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=541.56 y1=541.56⟧\n현관\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=3 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=541.56 y1=541.56⟧\n 마루귀틀에 경사로 설치\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=3 col=3 rowspan=6 colspan=1⟧\n⟦PDF:LINE y0=626.64 y1=626.64⟧\n주거약자\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=4 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=571.44 y1=571.44⟧\n거실\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=4 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=557.16 y1=557.16⟧\n 바닥면에서 1.2M 내외 높이에 세대단말기(월패드) 설치\r\n⟦PDF:LINE y0=572.88 y1=572.88⟧\n 조명밝기 600～900럭스(lux)\r\n⟦PDF:LINE y0=587.16 y1=587.16⟧\n 세대별 시각경보기\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=5 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=607.80 y1=607.80⟧\n부엌\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=5 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=601.32 y1=601.32⟧\n 좌식 싱크대 설치\r\n⟦PDF:LINE y0=615.60 y1=615.60⟧\n 취사용 가스밸브 바닥면에서 1.2m 높이에 설치\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=6 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=649.08 y1=649.08⟧\n욕실\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=6 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=629.88 y1=629.88⟧\n좌변기 옆 75cm이상 여유공간 확보\r\n⟦PDF:LINE y0=644.04 y1=644.04⟧\n 높낮이가 조절되는 세면기 설치\r\n⟦PDF:LINE y0=656.88 y1=656.88⟧\n 좌식 샤워시설\r\n⟦PDF:LINE y0=669.72 y1=669.72⟧\n 수건걸이 높이조정(바닥면에서 1.2미터 높이 내외로 설치)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=7 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=686.52 y1=686.52⟧\n침실　\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=7 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=686.52 y1=686.52⟧\n 침실조명 밝기 300～400럭스(lux)\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=8 col=1 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=708.24 y1=708.24⟧\n기타\r\n⟦PDF:/CELL⟧\n⟦PDF:CELL table=3 row=8 col=2 rowspan=1 colspan=1⟧\n⟦PDF:LINE y0=703.20 y1=703.20⟧\n 상가, 관리소, 시각장애인이 거주하는 주거동 출입구에\r\n⟦PDF:LINE y0=713.28 y1=713.28⟧\n 음성유도 신호기 설치\r\n⟦PDF:/CELL⟧\n⟦PDF:/TABLE⟧"
+        }
+      ]
+    }
+  }
+]

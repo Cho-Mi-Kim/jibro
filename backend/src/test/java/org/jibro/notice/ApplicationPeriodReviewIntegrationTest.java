@@ -31,13 +31,14 @@ class ApplicationPeriodReviewIntegrationTest {
     @Autowired
     EntityManager entities;
 
-    @Test void backgroundExtractionSkipsClosedButExplicitReviewCanStillReadIt() {
+    @Test
+    void backgroundExtractionSkipsClosedButExplicitReviewCanStillReadIt() {
         var id = imported();
-        assertTrue(periods.review(extract(id,"신청 기간: 2015-04-01 ~ 2015-04-02")));
+        assertTrue(periods.review(extract(id, "신청 기간: 2015-04-01 ~ 2015-04-02")));
         assertTrue(notices.applicationClosed(id));
-        var queued = extraction.enqueue(id,true);
+        var queued = extraction.enqueue(id, true);
         assertNull(extraction.claim());
-        assertEquals(UUID.fromString(queued.id()),extraction.claim(id).id());
+        assertEquals(UUID.fromString(queued.id()), extraction.claim(id).id());
     }
 
     UUID imported() {
@@ -76,6 +77,30 @@ class ApplicationPeriodReviewIntegrationTest {
     }
 
     @Test
+    void publishesAndReplacesOnlyCurrentSourceExplanations() {
+        var id = imported();
+        String rolling = "신청 기간: 모집 완료 시까지";
+        assertTrue(periods.review(extract(id, rolling)));
+        assertTrue(notices.listByIds(List.of(id)).get(0).applicationTiming().untilFilled());
+        assertFalse(periods.review(extract(id, rolling)));
+        String conflict = "신청기간: 2099.12.01 10:00~2099.12.02 16:00\n신청기간: 2099.11.30 10:00~2099.12.01 16:00";
+        assertTrue(periods.review(extract(id, conflict)));
+        var view = notices.notice(id);
+        assertFalse(view.applicationTiming().untilFilled());
+        assertNull(view.applicationTiming().nextChangeAt());
+        assertEquals(2, view.schedules().size());
+        assertTrue(view.schedules().stream().allMatch(s -> s.date().isEmpty()));
+        assertTrue(periods.review(extract(id, "신청기간: 2099.12.01 10:00~2099.12.02 16:00")));
+        assertTrue(notices.notice(id).schedules().stream().allMatch(s -> !s.date().isEmpty()));
+        var closed = extract(id, rolling);
+        notices.entity(id).sourceClosed = true;
+        entities.flush();
+        assertFalse(periods.pending().contains(closed));
+        assertFalse(periods.review(closed));
+        assertFalse(notices.notice(id).applicationTiming().untilFilled());
+    }
+
+    @Test
     void futurePeriodClosesAtTheStoredBoundary() {
         var id = imported();
         var end = LocalDate.now(ZoneId.of("Asia/Seoul")).plusDays(10);
@@ -92,6 +117,35 @@ class ApplicationPeriodReviewIntegrationTest {
         notices.updateContent(id, notices.entity(id).revision, notices.content(id));
         assertFalse(periods.review(draft));
         assertNull(notices.entity(id).endDate);
+    }
+
+    @Test
+    void persistsSessionsEvenWhenStoredBoundariesAlreadyMatchAndSkipsAfterClosure() {
+        var id = imported();
+        String date = LocalDate.now(ApplicationPeriod.SEOUL).plusDays(2).toString();
+        assertTrue(periods.review(extract(id, "접수 기간: " + date + " 09:00 ~ " + date + " 16:00")));
+        var text = "6. 모집일정\n온라인 접수: " + date + " 09:00~16:00\n현장 접수: " + date + " 10:00~15:00";
+        var draft = extract(id, text);
+        assertTrue(periods.review(draft));
+        assertEquals(4, notices.notice(id).schedules().stream().filter(s -> s.id().startsWith("auto-scoped-")).count());
+        assertFalse(periods.review(draft));
+        var closedDraft = extract(id, text);
+        notices.entity(id).sourceClosed = true;
+        entities.flush();
+        assertFalse(periods.pending().contains(closedDraft));
+        assertFalse(periods.review(closedDraft));
+    }
+
+    @Test
+    void fillsMissingStartTimeWhileKeepingTheAlreadyVerifiedEndClock() {
+        var id = imported();
+        var date = LocalDate.now(ApplicationPeriod.SEOUL).plusDays(3);
+        assertTrue(periods.review(extract(id, "접수 기간: " + date + " ~ " + date + " 18:00")));
+        assertTrue(periods.review(extract(id, "접수 기간: " + date + " 10:00 ~ " + date)));
+        var view = notices.notice(id);
+        assertEquals(date.atTime(10, 0).atZone(ApplicationPeriod.SEOUL).toInstant(), view.applicationTiming().startsAt());
+        assertEquals(date.atTime(18, 0).atZone(ApplicationPeriod.SEOUL).toInstant(), view.applicationTiming().endsAt());
+        assertEquals(2, view.schedules().size());
     }
 
     @Test

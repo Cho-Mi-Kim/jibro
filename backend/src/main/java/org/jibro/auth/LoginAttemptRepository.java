@@ -5,7 +5,9 @@ import java.util.UUID;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-/** Login admission reservations share the limiter's independent transaction. */
+/**
+ * Login admission reservations share the limiter's independent transaction.
+ */
 @Repository
 public class LoginAttemptRepository {
     private final JdbcTemplate db;

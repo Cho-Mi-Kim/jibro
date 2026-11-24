@@ -1,48 +1,95 @@
+import { DocumentStateBadge } from '../features/preparation/DocumentStateBadge';
+import { documentStatePresentation } from '../features/preparation/documentStatePresentation';
+import { AreaReviewIssues } from '../features/housing/ReviewIssues';
 import { bindClasses } from '../shared/styles/classes';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { animateScroll } from '../shared/ui/animateScroll';
+import { prefersReducedMotion } from '../shared/ui/motionPreferences';
 import { Link } from 'react-router';
 import { Card, State } from '../shared/ui/ui';
-import { DocumentIssuanceLinks } from '../features/housing/DocumentIssuanceLinks';
 import { onlineIssuanceLinks } from '../features/housing/onlineIssuance';
 import { Icon } from '../shared/ui/Icon';
 import { PreparationGuidance } from '../features/preparation/PreparationNav';
 import { NoticeContext } from '../features/preparation/PreparationUI';
 import { usePreparation } from '../features/preparation/usePreparation';
 import { documentSummary } from '../features/housing/documentSummary';
-import { DocumentSummaryFacts } from '../features/housing/DocumentSummaryFacts';
+import { DocumentCard } from '../features/housing/DocumentCard';
 import { DocumentEditor } from '../features/preparation/DocumentEditor';
 import { documentNeedsReview } from '../features/housing/reviewIssueSelectors';
 import documentsClasses from '../features/preparation/Documents.module.css';
+import { PreparationScopeNotice } from '../features/preparation/PreparationScopeNotice';
+import { visiblePreparationDocuments } from '../features/housing/preparationApplicability';
+import type { Preparation } from '../features/housing/types';
 
 const cx = bindClasses(documentsClasses);
 
 export function DocumentsPage() {
     const q = usePreparation();
     const p = q.data;
-    const [selected, setSelected] = useState<string | null>(null);
-    const docs =
-        p?.documents.filter(
+    const [active, setSelected] = useState('');
+    const [scrollRequest, requestScroll] = useState(0);
+    const layoutRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (!scrollRequest || active) return;
+        const panel = layoutRef.current?.closest<HTMLElement>(
+            '[data-preparation-panel]',
+        );
+        const target =
+            panel && /auto|scroll/.test(getComputedStyle(panel).overflowY)
+                ? panel
+                : window;
+        return animateScroll(target, 0, prefersReducedMotion());
+    }, [active, scrollRequest]);
+    function openNextDocument(next: Preparation) {
+        const remaining = visiblePreparationDocuments(next).filter(
             (d) =>
-                !documentNeedsReview(d, p?.reviewIssues) &&
-                (d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL'),
-        ) ?? [];
+                d.state !== 'READY' &&
+                !documentNeedsReview(d, next.reviewIssues),
+        );
+        const first =
+            remaining.find((d) => d.necessity === 'REQUIRED') ??
+            remaining.find((d) => d.necessity === 'CONDITIONAL');
+        setSelected(first?.id ?? '');
+        requestScroll((value) => value + 1);
+        return true;
+    }
+    const documents = p ? visiblePreparationDocuments(p) : [];
+    const docs = documents.filter(
+        (d) =>
+            !documentNeedsReview(d, p?.reviewIssues) &&
+            (d.necessity === 'REQUIRED' || d.necessity === 'CONDITIONAL'),
+    );
     const ready = docs.filter((d) => d.state === 'READY').length;
-    const unresolved =
-        p?.documents.filter(
-            (d) =>
-                d.necessity === 'UNKNOWN' &&
-                !documentNeedsReview(d, p.reviewIssues),
-        ) ?? [];
-    const officialReview =
-        p?.documents.filter((d) => documentNeedsReview(d, p.reviewIssues)) ??
-        [];
-    const selectable = [...docs, ...officialReview];
-    const active =
-        selected === ''
-            ? ''
-            : selectable.some((d) => d.id === selected)
-              ? selected
-              : selectable[0]?.id;
+    const unresolved = documents.filter(
+        (d) => !docs.includes(d) && !documentNeedsReview(d, p?.reviewIssues),
+    );
+    const officialReview = documents.filter((d) =>
+        documentNeedsReview(d, p?.reviewIssues),
+    );
+    const groups = [
+        {
+            title: '공통 필수',
+            items: docs.filter(
+                (d) => d.state !== 'READY' && d.necessity === 'REQUIRED',
+            ),
+        },
+        {
+            title: '내 상황에 필요한 서류',
+            items: docs.filter(
+                (d) => d.state !== 'READY' && d.necessity === 'CONDITIONAL',
+            ),
+        },
+        {
+            title: `공식 확인이 필요한 서류 ${officialReview.length}개`,
+            items: officialReview,
+            description:
+                '이 항목은 공식 자료의 적용 기준을 확인해야 해요. 답변을 바꾸어도 준비 완료로 처리되지 않으며, 다른 서류는 계속 준비할 수 있어요.',
+        },
+        {
+            title: documentStatePresentation.READY.label,
+            items: docs.filter((d) => d.state === 'READY'),
+        },
+    ];
     return (
         <>
             <State
@@ -54,11 +101,13 @@ export function DocumentsPage() {
                 <>
                     <NoticeContext p={p} />
                     <PreparationGuidance p={p} />
-                    <div className={cx('documents-layout')}>
+                    <PreparationScopeNotice id={p.id} />
+                    <AreaReviewIssues area="DOCUMENT" issues={p.reviewIssues} />
+                    <div ref={layoutRef} className={cx('documents-layout')}>
                         <div className={cx('document-progress')}>
                             <h2>
-                                서류 {docs.length}개 중 <em>{ready}개</em> 준비
-                                완료
+                                서류 {docs.length}개 중 <em>{ready}개</em>{' '}
+                                {documentStatePresentation.READY.label}
                             </h2>
                             <div className={cx('row')}>
                                 <strong>
@@ -79,8 +128,8 @@ export function DocumentsPage() {
                                 </span>
                             </div>
                             <small>
-                                준비 완료 {ready}개 · 해당 여부 미확인{' '}
-                                {unresolved.length}개
+                                {documentStatePresentation.READY.label} {ready}
+                                개 · 해당 여부 미확인 {unresolved.length}개
                                 {officialReview.length > 0 && (
                                     <>
                                         {' '}
@@ -90,71 +139,50 @@ export function DocumentsPage() {
                                 )}
                             </small>
                         </div>
-                        {(['REQUIRED', 'CONDITIONAL'] as const).map(
-                            (necessity) => {
-                                const group = docs.filter(
-                                    (d) => d.necessity === necessity,
-                                );
-                                if (!group.length) return null;
-                                return (
-                                    <section
-                                        key={necessity}
-                                        className={cx('document-group')}
-                                    >
-                                        <h2>
-                                            {necessity === 'REQUIRED'
-                                                ? '공통 필수'
-                                                : '해당 조건부'}
-                                        </h2>
-                                        {group.map((d) => (
-                                            <DocumentEditor
-                                                key={p.id + ':' + d.id}
-                                                p={p}
-                                                d={d}
-                                                active={active === d.id}
-                                                onSelect={() =>
-                                                    setSelected(
-                                                        active === d.id
-                                                            ? ''
-                                                            : d.id,
-                                                    )
-                                                }
-                                            />
-                                        ))}
-                                    </section>
-                                );
-                            },
-                        )}
+                        <div className={cx('document-group')}>
+                            {groups.flatMap((group) =>
+                                group.items.length > 0
+                                    ? [
+                                          <h2 key={'heading:' + group.title}>
+                                              {group.title}
+                                          </h2>,
+                                          group.description && (
+                                              <p key={'note:' + group.title}>
+                                                  {group.description}
+                                              </p>
+                                          ),
+                                          ...group.items.map((d) => (
+                                              <DocumentEditor
+                                                  key={p.id + ':' + d.id}
+                                                  p={p}
+                                                  d={d}
+                                                  active={active === d.id}
+                                                  onReady={openNextDocument}
+                                                  scrollRequest={
+                                                      active === d.id
+                                                          ? scrollRequest
+                                                          : 0
+                                                  }
+                                                  onSelect={() => {
+                                                      requestScroll(0);
+                                                      setSelected(
+                                                          active === d.id
+                                                              ? ''
+                                                              : d.id,
+                                                      );
+                                                  }}
+                                              />
+                                          )),
+                                      ]
+                                    : [],
+                            )}
+                        </div>
                         {docs.length === 0 && (
                             <Card>
                                 현재 답변으로 확인된 준비 대상 서류가 없습니다.
                             </Card>
                         )}
                     </div>
-                    {officialReview.length > 0 && (
-                        <section className={cx('document-group')}>
-                            <h2>
-                                공식 확인이 필요한 서류 {officialReview.length}
-                                개
-                            </h2>
-                            <p>
-                                이 항목은 공식 자료의 적용 기준을 확인해야 해요.
-                                답변을 바꾸어도 준비 완료로 처리되지 않으며,
-                                다른 서류는 계속 준비할 수 있어요.
-                            </p>
-                            {officialReview.map((d) => (
-                                <DocumentEditor
-                                    key={p.id + ':' + d.id}
-                                    p={p}
-                                    d={d}
-                                    active={active === d.id}
-                                    onSelect={() =>
-                                        setSelected(active === d.id ? '' : d.id)
-                                    }
-                                />
-                            ))}
-                        </section>
-                    )}
                     {unresolved.length > 0 && (
                         <Card>
                             <h2>해당 여부 추가 확인 {unresolved.length}개</h2>
@@ -168,13 +196,14 @@ export function DocumentsPage() {
                                     const summary = documentSummary(d, p);
                                     return (
                                         <li key={d.id}>
-                                            <strong>{d.title}</strong>
-                                            <DocumentSummaryFacts
+                                            <DocumentCard
+                                                title={d.title}
                                                 summary={summary}
-                                            />
-                                            <DocumentIssuanceLinks
-                                                links={summary.links}
-                                            />
+                                            >
+                                                <DocumentStateBadge
+                                                    state={d.state}
+                                                />
+                                            </DocumentCard>
                                         </li>
                                     );
                                 })}

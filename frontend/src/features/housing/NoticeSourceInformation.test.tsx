@@ -106,6 +106,68 @@ function mount(tab: NoticeDetailTab, current = notice, value = information()) {
     );
 }
 
+it('대조한 조건만 조건 탭에 표시하고 근거 쪽을 연결한다', () => {
+    mount(
+        'conditions',
+        notice,
+        information({
+            data: {
+                ...data,
+                sections: [],
+                confirmedItems: [
+                    {
+                        ...data.sections[0],
+                        title: '거주 요건',
+                        evidence: {
+                            ...evidence,
+                            label: '공고문 4쪽',
+                            url: 'https://apply.lh.or.kr/notice.pdf#page=4',
+                        },
+                    },
+                    { ...data.sections[1], title: '가족관계증명서' },
+                ],
+            },
+        }),
+    );
+    expect(
+        screen.getByRole('heading', { name: '원문 대조를 마친 준비 안내' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('거주 요건')).toBeInTheDocument();
+    expect(screen.queryByText('가족관계증명서')).not.toBeInTheDocument();
+    expect(
+        screen
+            .getByText('공고문 4쪽', { exact: false })
+            .closest('a')
+            ?.getAttribute('href'),
+    ).toContain('page=4');
+});
+
+it('대조한 서류의 공식 서식을 원문 근거와 함께 연다', () => {
+    const url =
+        'https://www.myhome.go.kr/hws/com/fms/cvplFileDownload.do?atchFileId=abc&fileSn=1';
+    mount(
+        'documents',
+        notice,
+        information({
+            data: {
+                ...data,
+                confirmedItems: [
+                    {
+                        ...data.sections[0],
+                        area: 'DOCUMENT',
+                        title: '위임장',
+                        form: { ...data.sections[0].evidence, url },
+                    },
+                ],
+            },
+        }),
+    );
+    expect(screen.getByText('공식 서식 열기').closest('a')).toHaveAttribute(
+        'href',
+        url,
+    );
+});
+
 describe('검수 중 원문 확인', () => {
     it.each([
         ['conditions', '신청자격 원문 구간', '제출서류 원문 구간'],
@@ -122,7 +184,7 @@ describe('검수 중 원문 확인', () => {
             expect(
                 screen.getByRole('link', { name: /LH 모집공고 · 3쪽/ }),
             ).toHaveAttribute('href', evidence.url);
-            expect(screen.getByText('자료 확인 · 2026-11-09')).toBeVisible();
+            expect(screen.getByText('확인 2026-11-09')).toBeVisible();
             expect(screen.queryByText(other)).not.toBeInTheDocument();
             expect(
                 screen.queryByText('일정 원문 구간'),
@@ -155,7 +217,7 @@ describe('검수 중 원문 확인', () => {
         );
         expect(screen.getByText('신청자격 원문 구간')).toBeVisible();
         expect(
-            screen.getByText('서류·일정 원문은 확인 중입니다.'),
+            screen.getByText('서류·일정 원문은 확인 중이에요.'),
         ).toBeVisible();
         expect(
             screen.queryByRole('heading', { name: '준비 안내 검수 중' }),
@@ -193,7 +255,8 @@ describe('검수 중 원문 확인', () => {
             screen.queryByText('신청자격 원문 구간'),
         ).not.toBeInTheDocument();
         expect(
-            screen.getByText('접수기간', { selector: 'dt' }).nextElementSibling,
+            screen.getByText('접수 기간', { selector: 'dt' })
+                .nextElementSibling,
         ).toHaveTextContent('확인 필요');
     });
 
@@ -275,7 +338,7 @@ describe('검수 중 원문 확인', () => {
             />,
         );
         await userEvent.click(screen.getByText(title));
-        expect(screen.getByText(/이미지에서 읽은 글자입니다/)).toBeVisible();
+        expect(screen.getByText(/이미지에서 읽은 글자예요/)).toBeVisible();
         expect(screen.getAllByText(text).at(-1)).toBeVisible();
         expect(
             screen.getByRole('link', { name: evidence.label }),

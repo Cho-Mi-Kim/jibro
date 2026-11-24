@@ -1,6 +1,6 @@
 import type { Notice } from './types';
 import { scheduleKind } from './schedules';
-import { statusLabels } from './noticeLabels';
+import { applicationStatuses } from './noticeLabels';
 
 export function applicationInterrupted(
     notice?: Pick<Notice, 'lifecycle' | 'status'>,
@@ -18,7 +18,7 @@ export function effectiveNoticeStatus(
 
 export function lifecycleLabel(notice?: Pick<Notice, 'lifecycle' | 'status'>) {
     return notice && applicationInterrupted(notice)
-        ? statusLabels[effectiveNoticeStatus(notice)]
+        ? applicationStatuses[effectiveNoticeStatus(notice)].label
         : '';
 }
 

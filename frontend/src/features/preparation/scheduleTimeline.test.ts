@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import type { Notice, Preparation, Schedule } from '../housing/types';
 import { buildScheduleTimeline } from './scheduleTimelineModel';
+import { calendarItems } from './calendar';
+import { nextNoticeSchedule } from '../housing/noticeDisplay';
+import {
+    currentPreparationSchedules,
+    currentPreparationScheduleSource,
+} from '../housing/schedules';
 
 const now = new Date('2026-11-06T00:00:00+09:00');
 const evidence = {
@@ -48,6 +54,286 @@ function event(id: string, title: string, date: string): Schedule {
     return { id, title, date, recorded: false, evidence };
 }
 describe('전체 일정 표시 모델', () => {
+    it('세부 일정은 날짜와 시작 시각순으로 정렬하고 같은 시각의 순서와 원래 저장값은 유지한다', () => {
+        const schedules = [
+            event('start', '신청 접수 시작 (14:00)', '2026-11-10'),
+            event('middle', '접수 회차 · 현장 접수 14:00~16:00', '2026-11-24'),
+            {
+                ...event('end', '신청 접수 마감 (16:00)', '2026-12-08'),
+                recorded: true,
+            },
+            event(
+                'first-round',
+                '접수 회차 · 현장 접수 14:00~16:00',
+                '2026-11-10',
+            ),
+            event(
+                'last-round',
+                '접수 회차 · 현장 접수 14:00~16:00',
+                '2026-12-08',
+            ),
+        ];
+        const before = structuredClone(schedules);
+        const { details } = buildScheduleTimeline(
+            { ...notice, schedules },
+            { ...preparation, schedules },
+            now,
+        );
+        expect(details.map((s) => s.id)).toEqual([
+            'start',
+            'first-round',
+            'middle',
+            'last-round',
+            'end',
+        ]);
+        expect(details.find((s) => s.id === 'end')?.recorded).toBe(true);
+        expect(schedules).toEqual(before);
+    });
+
+    it('한국 시각으로 날짜를 비교하고 날짜 미확인 일정은 순서를 유지해 마지막에 둔다', () => {
+        const schedules = [
+            event('unknown', '결과 개별 안내', ''),
+            event('local', '계약 안내', '2026-11-10T09:00:00'),
+            event('utc', '서류 제출 마감', '2026-11-09T15:30:00Z'),
+            event('invalid', '추가 안내', '2026-02-30'),
+        ];
+        expect(
+            buildScheduleTimeline(
+                undefined,
+                { ...preparation, schedules },
+                now,
+            ).details.map((s) => s.id),
+        ).toEqual(['utc', 'local', 'unknown', 'invalid']);
+    });
+
+    it.each([
+        { kind: 'start', label: '시작', dateKey: 'startDate' },
+        { kind: 'end', label: '마감', dateKey: 'endDate' },
+    ] as const)(
+        '같은 $label 날짜의 회차 중 시각 미확인이 있으면 대표 시각을 단정하지 않고 확인된 회차 시각은 유지한다',
+        ({ kind, label, dateKey }) => {
+            const schedules = [
+                event(
+                    'basic',
+                    `신청 접수 ${label} (16:00)`,
+                    '2026-11-19T16:00:00',
+                ),
+                event(
+                    'known',
+                    `접수 회차 · 온라인 접수 ${label} · A단지`,
+                    '2026-11-19T16:00:00',
+                ),
+                event(
+                    'unknown',
+                    `접수 회차 · 온라인 접수 ${label} · B단지`,
+                    '2026-11-19',
+                ),
+            ];
+            const p: Preparation = {
+                ...preparation,
+                schedules,
+                questions: [
+                    {
+                        id: 'method',
+                        title: '어떤 방법으로 신청하나요?',
+                        reason: '공식 방법',
+                        evidence,
+                        options: [
+                            { value: 'ONLINE', label: '온라인 신청' },
+                            { value: 'VISIT', label: '현장 신청' },
+                        ],
+                    },
+                ],
+                answers: { method: 'ONLINE' },
+            };
+            const n: Notice = { ...notice, schedules, [dateKey]: '2026-11-19' };
+            const timeline = buildScheduleTimeline(n, p, now);
+            expect(timeline.rows.find((row) => row.id === kind)).toMatchObject({
+                date: '2026-11-19',
+                time: '',
+            });
+            expect(
+                timeline.details.map(({ id, date }) => ({ id, date })),
+            ).toEqual([
+                { id: 'basic', date: '2026-11-19' },
+                { id: 'unknown', date: '2026-11-19' },
+                { id: 'known', date: '2026-11-19T16:00:00' },
+            ]);
+            expect(
+                calendarItems(n, p).find((item) => item.id === kind)?.date,
+            ).toBe('2026-11-19');
+            expect(
+                calendarItems(n, p).find((item) => item.id === 'schedule-known')
+                    ?.date,
+            ).toBe('2026-11-19T16:00:00');
+            expect(n.schedules?.[0].date).toBe('2026-11-19T16:00:00');
+        },
+    );
+
+    it('선택 방법의 마지막 날을 대표 마감·기본 일정·다음 일정·캘린더에 함께 반영하고 저장 완료는 보존한다', () => {
+        const schedules = [
+            event('end', '신청 접수 마감 (18:00)', '2026-11-20T18:00:00'),
+            event(
+                'online-end',
+                '접수 회차 · 온라인 접수 마감',
+                '2026-11-19T16:00:00',
+            ),
+            event(
+                'visit-end',
+                '접수 회차 · 현장 접수 마감',
+                '2026-11-20T18:00:00',
+            ),
+        ];
+        const p: Preparation = {
+            ...preparation,
+            schedules: schedules.map((s) => ({
+                ...s,
+                recorded: s.id === 'end',
+            })),
+            questions: [
+                {
+                    id: 'method',
+                    title: '어떤 방법으로 신청하나요?',
+                    reason: '공식 방법',
+                    evidence,
+                    options: [
+                        { value: 'ONLINE', label: '온라인 신청' },
+                        { value: 'VISIT', label: '현장 신청' },
+                        { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                    ],
+                },
+            ],
+            answers: { method: 'ONLINE' },
+        };
+        const n: Notice = {
+            ...notice,
+            schedules,
+            endDate: '2026-11-20',
+            applicationTiming: {
+                startsAt: '2026-02-24',
+                endsAt: '2026-11-20T18:00:00',
+                nextChangeAt: null,
+            },
+        };
+        const source = currentPreparationScheduleSource(p, n);
+        const timeline = buildScheduleTimeline(n, p, now);
+        expect(timeline.rows.find((r) => r.id === 'end')).toMatchObject({
+            dateLabel: '11월 19일',
+            time: '16:00',
+        });
+        expect(timeline.details.find((s) => s.id === 'end')).toMatchObject({
+            title: '신청 접수 마감',
+            date: '2026-11-19T16:00:00',
+            recorded: true,
+        });
+        expect(
+            nextNoticeSchedule(source, currentPreparationSchedules(p, n), now)
+                ?.date,
+        ).toBe('2026-11-19T16:00:00');
+        expect(
+            calendarItems(n, p)
+                .filter((s) => s.title.includes('마감'))
+                .map((s) => s.date),
+        ).toEqual(['2026-11-19T16:00:00', '2026-11-19T16:00:00']);
+        expect(n.endDate).toBe('2026-11-20');
+        expect(p.schedules[0]).toMatchObject({
+            date: '2026-11-20T18:00:00',
+            recorded: true,
+        });
+
+        const dateOnly = {
+            ...n,
+            schedules: schedules.map((s) =>
+                s.id === 'online-end' ? { ...s, date: '2026-11-19' } : s,
+            ),
+        };
+        expect(
+            buildScheduleTimeline(dateOnly, p, now).rows.find(
+                (r) => r.id === 'end',
+            ),
+        ).toMatchObject({ date: '2026-11-19', time: '' });
+        expect(
+            currentPreparationScheduleSource(p, dateOnly).schedules?.find(
+                (s) => s.id === 'end',
+            )?.title,
+        ).toBe('신청 접수 마감');
+
+        const missing = {
+            ...n,
+            schedules: schedules.filter((s) => s.id !== 'online-end'),
+        };
+        const incomplete = buildScheduleTimeline(missing, p, now);
+        expect(incomplete.rows.find((r) => r.id === 'end')).toMatchObject({
+            date: null,
+            time: '',
+            status: '확인 필요',
+        });
+        expect(incomplete.details.find((s) => s.id === 'end')).toMatchObject({
+            date: '',
+            recorded: true,
+        });
+        expect(
+            calendarItems(missing, p).some((s) => s.title.includes('마감')),
+        ).toBe(false);
+    });
+
+    it('접수 방법별 세부 일정과 요약 시간을 같은 답변으로 선택하고 기준 변경 시 필터를 해제한다', () => {
+        const schedules = [
+            event('visit', '접수 회차 · 현장 접수 시작', '2026-11-10T09:00:00'),
+            event(
+                'online',
+                '접수 회차 · 온라인 접수 시작',
+                '2026-11-10T10:00:00',
+            ),
+            event('common', '결과 발표', '2026-11-30'),
+            event('contract', '접수 회차 · 현장 동호지정', '2026-12-01'),
+        ];
+        const p: Preparation = {
+            ...preparation,
+            schedules,
+            questions: [
+                {
+                    id: 'method',
+                    title: '어떤 방법으로 신청하나요?',
+                    reason: '접수 방법',
+                    evidence,
+                    options: [
+                        { value: 'ONLINE', label: '온라인 신청' },
+                        { value: 'VISIT', label: '현장 신청' },
+                        { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                    ],
+                },
+            ],
+            answers: { method: 'ONLINE' },
+        };
+        const n = { ...notice, schedules, startDate: '2026-11-10' };
+        const timeline = buildScheduleTimeline(n, p, now);
+        expect(timeline.details.map((s) => s.id)).toEqual([
+            'online',
+            'common',
+            'contract',
+        ]);
+        expect(timeline.rows.find((r) => r.id === 'start')?.time).toBe('10:00');
+        expect(
+            buildScheduleTimeline({ ...n, version: 4 }, p, now).details.map(
+                (s) => s.id,
+            ),
+        ).toEqual(['visit', 'online', 'common', 'contract']);
+        expect(
+            buildScheduleTimeline(
+                n,
+                { ...p, answers: { method: 'UNKNOWN' } },
+                now,
+            ).details.map((s) => s.id),
+        ).toEqual(['visit', 'online', 'common', 'contract']);
+        expect(p.schedules.map((s) => s.id)).toEqual([
+            'visit',
+            'online',
+            'common',
+            'contract',
+        ]);
+    });
+
     it('기본 날짜를 표시하고 알 수 없는 결과·서류 날짜는 다섯 칸 안에 남긴다', () => {
         const { rows } = buildScheduleTimeline(notice, preparation, now);
         expect(rows.map((row) => row.id)).toEqual([
@@ -92,10 +378,17 @@ describe('전체 일정 표시 모델', () => {
             now,
         );
         expect(rows).toHaveLength(5);
-        expect(rows[2]).toMatchObject({ date: '2026-12-31', time: '18:00' });
+        expect(rows[2]).toMatchObject({
+            date: '2026-12-31T18:00:00',
+            time: '18:00',
+        });
         expect(rows[3]).toMatchObject({ dateLabel: '1월 5일', status: '예정' });
         expect(rows[4]).toMatchObject({ dateLabel: '1월 10일', time: '16:30' });
-        expect(details).toEqual(schedules);
+        expect(details).toEqual(
+            schedules.map((s) => ({
+                ...s,
+            })),
+        );
     });
     it.each([
         { ...notice, guideState: 'REVIEWING' as const },
@@ -112,7 +405,11 @@ describe('전체 일정 표시 모델', () => {
             );
             expect(rows[2].date).toBe('2026-12-31');
             expect(rows[3].date).toBe('2027-01-07');
-            expect(details).toEqual(schedules);
+            expect(details).toEqual(
+                schedules.map((s) => ({
+                    ...s,
+                })),
+            );
             expect(oldSchedules[0].date).toBe('2027-01-05');
         },
     );

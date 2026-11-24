@@ -1,0 +1,278 @@
+{
+    "checkedAt": "2026-11-21",
+    "scope": "지원제도 7개·조건과 용어 10개 공식 자료 재검토",
+    "items": [
+        {
+            "id": "guide-rental-or-sale",
+            "title": "공공임대와 공공분양은 어떻게 다른가요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1048&mi=1178",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1026&mi=1223"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-happy-housing",
+            "title": "행복주택은 누가 신청하나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-national-permanent",
+            "title": "국민임대와 영구임대는 무엇이 다른가요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1139&mi=1229"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-purchased-housing",
+            "title": "매입임대는 어떤 지원인가요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1029&mi=1150",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-leased-housing",
+            "title": "전세임대는 내가 살 집을 직접 찾나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201453&mi=1240"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-integrated-rental",
+            "title": "통합공공임대는 어떤 주택인가요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-young-family-type",
+            "title": "청년·신혼부부라면 어떤 유형부터 보나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201251&mi=1150",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201254&mi=1150",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-eligibility-ranking",
+            "title": "신청 자격과 선정 순위는 어떻게 다른가요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-reference-date",
+            "title": "나이·거주지·혼인 여부는 언제 기준으로 보나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-household-scope",
+            "title": "어떤 가족을 함께 심사하나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-home-ownership",
+            "title": "집 지분이나 분양권이 있어도 무주택인가요?",
+            "urls": [
+                "https://www.kohom.or.kr/web/mainComm/HM002003.do?mode=list&schBcode=CD004001004"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-income-assets",
+            "title": "소득과 자산은 내 월급·통장 잔액만 보면 되나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-reserve-tenant",
+            "title": "예비입주자로 선정되면 바로 입주하나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020476&uppAisTpCd=06"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-relaxed-criteria",
+            "title": "자격완화 모집은 조건을 안 봐도 되나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=07&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020656&uppAisTpCd=06"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-priority-supply",
+            "title": "일반공급·우선공급·특별공급은 무엇인가요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-corrected-notice",
+            "title": "정정공고가 나오면 무엇을 다시 확인하나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        },
+        {
+            "id": "guide-subscription-account",
+            "title": "청약통장은 꼭 있어야 하나요?",
+            "urls": [
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+                "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224"
+            ],
+            "review": "확인한 제도 차이와 공고별 판단 범위를 쉬운 해요체로 독립 요약. 고정 금액·배점·처분기한을 보편화하지 않음."
+        }
+    ],
+    "sources": [
+        {
+            "label": "LH · 국민임대 소개",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1021&mi=1142",
+            "checkedAt": "2026-11-21",
+            "finding": "저소득 무주택 가구의 장기 임대, 분양전환하지 않는 유형임을 확인. 금액은 공고별 확인으로 처리."
+        },
+        {
+            "label": "LH · 공공분양 소개",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1048&mi=1178",
+            "checkedAt": "2026-11-21",
+            "finding": "주택 마련을 위한 분양 공급과 임대 공급의 차이를 확인."
+        },
+        {
+            "label": "LH · 분양전환 공공임대 소개",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1026&mi=1223",
+            "checkedAt": "2026-11-21",
+            "finding": "5·6·10년 분양전환 공공임대의 임대 후 분양전환 구조를 확인."
+        },
+        {
+            "label": "LH · 행복주택 소개",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201371&mi=1201662",
+            "checkedAt": "2026-11-21",
+            "finding": "대학생·청년·신혼부부·한부모·고령자·주거급여수급자 등의 공급 대상과 계층별 거주기간 차이를 확인."
+        },
+        {
+            "label": "LH · 영구임대 입주자격",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1114&mi=1230",
+            "checkedAt": "2026-11-21",
+            "finding": "수급자·지원대상 한부모 등 대상 유형과 무주택 심사 세대 정의를 확인."
+        },
+        {
+            "label": "LH · 영구임대 계약·재계약 안내",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1139&mi=1229",
+            "checkedAt": "2026-11-21",
+            "finding": "기본 계약 후 입주자격을 재확인해 갱신하는 구조를 확인."
+        },
+        {
+            "label": "LH · 매입임대 사업안내",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1029&mi=1150",
+            "checkedAt": "2026-11-21",
+            "finding": "LH가 매입한 집을 유형별로 임대하는 구조와 청년·신혼신생아·다자녀·고령자·든든전세 등의 구분을 확인."
+        },
+        {
+            "label": "LH · 기존주택 전세임대 안내",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1037&mi=1240",
+            "checkedAt": "2026-11-21",
+            "finding": "기존주택을 전세계약한 뒤 대상자에게 재임대하는 구조를 확인."
+        },
+        {
+            "label": "LH · 전세임대 주택 물색·계약 절차",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201453&mi=1240",
+            "checkedAt": "2026-11-21",
+            "finding": "입주대상자 선정 후 주택 물색, LH 권리분석, LH·임대인·입주자 계약 순서를 확인. 유형별 지원금액은 인용하지 않음."
+        },
+        {
+            "label": "LH · 통합공공임대 소개",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201331&mi=1201583",
+            "checkedAt": "2026-11-21",
+            "finding": "다양한 소득·연령 계층에 공급하며 소득 기준에 기준 중위소득을 사용함을 확인."
+        },
+        {
+            "label": "LH · 청년 매입임대 안내",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201251&mi=1150",
+            "checkedAt": "2026-11-21",
+            "finding": "대학생·취업준비생·연령별 청년의 신청 유형과 순위별 부모소득 심사 차이를 확인."
+        },
+        {
+            "label": "LH · 신혼·신생아 매입임대Ⅰ 안내",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=201254&mi=1150",
+            "checkedAt": "2026-11-21",
+            "finding": "신혼·예비신혼·한부모·유자녀 혼인가구와 신생아가구 우선순위 구분을 확인."
+        },
+        {
+            "label": "LH · 국민임대 자격·선정 기준",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1023&mi=1144",
+            "checkedAt": "2026-11-21",
+            "finding": "자격, 순위, 동일순위 배점 및 면적별 청약저축 기준을 확인. 본문에 과거 자산 수치가 중복 노출돼 연도별 숫자를 일반 FAQ에 복제하지 않음."
+        },
+        {
+            "label": "LH · 행복주택 유형별 자격·소득·자산",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1201391&mi=1201663",
+            "checkedAt": "2026-11-21",
+            "finding": "신청 계층마다 심사 대상 소득과 자산 범위가 다르고 예금·보험·보증금·인정 부채 등을 조사함을 확인."
+        },
+        {
+            "label": "LH · 일반공급·특별공급 안내",
+            "url": "https://apply.lh.or.kr/lhapply/cm/cntnts/cntntsView.do?cntntsId=1111&mi=1224",
+            "checkedAt": "2026-11-21",
+            "finding": "일반·특별공급의 대상 구분과 경쟁 시 순위·순차·추첨 등 별도 선정 기준을 확인."
+        },
+        {
+            "label": "주택관리공단 · 무주택 판단 안내",
+            "url": "https://www.kohom.or.kr/web/mainComm/HM002003.do?mode=list&schBcode=CD004001004",
+            "checkedAt": "2026-11-21",
+            "finding": "주택 공유지분도 소유로 보는 원칙과 상속 지분 등 요건부 예외를 확인. 계속 거주·재계약 예외를 신규 신청 규칙으로 옮기지 않음."
+        },
+        {
+            "label": "LH · 예비입주자 계약·대기 안내 사례",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020476&uppAisTpCd=06",
+            "checkedAt": "2026-11-21",
+            "finding": "예비순번, 빈집 발생 시 계약, 연락처 변경 신고 및 중복 예비자 규정을 확인. 특정 단지의 날짜·중복 상세기준은 보편화하지 않음."
+        },
+        {
+            "label": "LH · 정정 사유·기준일 안내 사례",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=10&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020537&uppAisTpCd=06",
+            "checkedAt": "2026-11-21",
+            "finding": "모집공고일이 자격·순위·배점 기준일인 것과 공급일정 요일 정정 사유를 확인. 정정 게시일을 새 자격기준일로 간주하지 않음."
+        },
+        {
+            "label": "LH · 자격완화·재계약 안내 사례",
+            "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?aisTpCd=07&ccrCnntSysDsCd=03&mi=1026&panId=2015122300020656&uppAisTpCd=06",
+            "checkedAt": "2026-11-21",
+            "finding": "소득·총자산 배제와 자동차 기준 유지, 재계약 요건 별도 확인을 명시한 실제 공고를 확인. 모든 완화 공고에 동일 면제 규칙을 적용하지 않음."
+        }
+    ],
+    "limitations": [
+        "마이홈 일반 안내 페이지는 브라우징 도구에서 시간초과여서 이 원고의 단독 근거로 사용하지 않음.",
+        "LH 일부 일반 안내에는 과거 연도 수치·오탈자·중복 표가 있어 숫자를 옮기지 않고 해당 공고 확인으로 안내함.",
+        "일반 안내 링크와 사례 공고 링크를 구분해 표시. 사례의 날짜·선정인원·세부 예외를 다른 공고에 적용하지 않음.",
+        "기관의 개인별 자격 판정을 대신하지 않음."
+    ]
+}

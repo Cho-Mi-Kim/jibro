@@ -88,7 +88,7 @@ class NoticeSortIntegrationTest {
             var c = notices.content(id);
             String reason = "공식 상세의 공고상태가 접수마감입니다.";
             notices.entity(id).content = json.writeValueAsString(new Content(reason, c.evidence(), c.attachments(),
-                c.questions(), c.documents(), c.schedules(), c.reviewIssues(), new OfficialApplicationClosure(reason, c.evidence())));
+                    c.questions(), c.documents(), c.schedules(), c.reviewIssues(), new OfficialApplicationClosure(reason, c.evidence())));
         }
         entities.flush();
         entities.clear();
@@ -156,7 +156,7 @@ class NoticeSortIntegrationTest {
         assertTrue(notices.entity(nullIssues).content.contains("\"reviewIssues\":null"));
         entities.flush();
         assertEquals(List.of(absent, nullIssues, empty, partial, changed, unsupported),
-            search("active", 0, 20, now).items().stream().map(NoticeListSource::id).toList());
+                search("active", 0, 20, now).items().stream().map(NoticeListSource::id).toList());
         assertEquals("CHANGE_REVIEW", notices.view(notices.entity(changed), false, now).guideState());
     }
 
@@ -166,9 +166,9 @@ class NoticeSortIntegrationTest {
         if (priority == 1) {
             var c = notices.content(id);
             var issue = new ReviewIssue("schedule-source", "SCHEDULE", "발표일 확인 필요", "공식 자료의 발표일이 다릅니다.",
-                List.of(), List.of(), List.of(c.evidence()));
+                    List.of(), List.of(), List.of(c.evidence()));
             n.content = json.writeValueAsString(new Content(c.summary(), c.evidence(), c.attachments(), c.questions(),
-                c.documents(), c.schedules(), List.of(issue)));
+                    c.documents(), c.schedules(), List.of(issue)));
         }
     }
 

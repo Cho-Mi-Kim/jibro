@@ -1,0 +1,481 @@
+{
+    "entries": [
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "category",
+            "sourceTitle": "신혼부부·예비신혼부부·한부모가족 요건에 해당하나요?",
+            "sourceReason": "2026.11.11. 기준 신혼부부는 혼인 7년 이내 또는 6세 이하 자녀, 예비신혼부부는 입주 전 혼인 증명, 한부모가족은 6세 이하 자녀 요건을 확인하세요. 다른 행복주택의 청년·대학생 자격을 적용하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "신혼·예비신혼·한부모 중 어떤 유형인가요?",
+            "preview": "이번 44A 모집은 신혼부부·예비신혼부부·한부모 유형을 대상으로 해요.",
+            "sections": [
+                {
+                    "text": "2026.11.11. 기준 신혼부부는 혼인 7년 이내 또는 6세 이하 자녀, 예비신혼부부는 입주 전 혼인 증명, 한부모가족은 6세 이하 자녀 요건을 확인해요.\n\n다른 행복주택의 청년·대학생 자격을 적용하지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 · 신혼부부·예비신혼부부·한부모가족 요건에 해당하나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "household",
+            "sourceTitle": "무주택 세대 범위와 중복신청 제한을 확인했나요?",
+            "sourceReason": "분리 배우자와 해당 가족을 포함하고 예비신혼부부는 혼인으로 구성할 세대 전원을 확인합니다. 대표신청자는 변경할 수 없고 부부가 각각 신청하면 중복신청 처리됩니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "무주택 세대 범위와 중복신청 제한을 확인했나요?",
+            "preview": "신청자와 배우자는 주소가 달라도 함께 봐요. 나머지 가족은 등본과 가족관계를 확인해요.",
+            "sections": [
+                {
+                    "text": "분리 배우자와 해당 가족을 포함하고 예비신혼부부는 혼인으로 구성할 세대 전원을 확인해요.\n\n대표신청자는 변경할 수 없고 부부가 각각 신청하면 중복신청 처리돼요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 · 무주택 세대 범위와 중복신청 제한을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "income-assets",
+            "sourceTitle": "가구원·맞벌이·출생자녀별 소득·자산 기준에 해당하나요?",
+            "sourceReason": "기본 소득 100%, 맞벌이 120%에 2인 가구와 출생자녀 가산을 적용합니다. 총자산 3억4,500만원·자동차 4,542만원 기준도 출생자녀 가산과 제외 기준을 함께 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "우리 집 소득·재산 한도는 얼마인가요?",
+            "preview": "소득은 가구원 수·맞벌이에 따라 달라요. 기본 총자산 3억 4,500만 원·자동차 4,542만 원이에요.",
+            "sections": [
+                {
+                    "text": "기본 소득 100%, 맞벌이 120%에 2인 가구와 출생자녀 가산을 적용해요.\n\n총자산 3억4,500만원·자동차 4,542만원 기준도 출생자녀 가산과 제외 기준을 함께 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 · 가구원·맞벌이·출생자녀별 소득·자산 기준에 해당하나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "subscription",
+            "sourceTitle": "입주 전 청약저축 가입 증명이 가능한가요?",
+            "sourceReason": "본인 또는 배우자 중 1인이 입주 전 가입사실을 증명해야 합니다. 한부모가족은 본인 기준입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=6",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "입주 전 청약저축 가입 증명이 가능한가요?",
+            "preview": "본인 또는 배우자 중 1인이 입주 전 가입사실을 증명해야 해요.",
+            "sections": [
+                {
+                    "text": "본인 또는 배우자 중 1인이 입주 전 가입사실을 증명해야 해요.\n\n한부모가족은 본인 기준이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 입주 전 청약저축 가입 증명이 가능한가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "rank",
+            "sourceTitle": "거주지·소득근거지 순위를 확인했나요?",
+            "sourceReason": "인천·서울·부천·시흥·김포는 1순위, 나머지 경기도는 2순위, 그 외는 3순위입니다. 신청자 또는 배우자의 인정 근거와 증빙을 확인하며 같은 순위는 추첨합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=7",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "거주지·소득근거지 순위를 확인했나요?",
+            "preview": "거주지·소득근거지 순위와 추첨을 확인해요. 2세 미만 자녀 우선배정은 따로 적용해요.",
+            "sections": [
+                {
+                    "text": "인천·서울·부천·시흥·김포는 1순위, 나머지 경기도는 2순위, 그 외는 3순위예요.\n\n신청자 또는 배우자의 인정 근거와 증빙을 확인하며 같은 순위는 추첨해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 · 거주지·소득근거지 순위를 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=7",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-marriage",
+            "sourceTitle": "혼인관계증명서(상세) 제출 대상인가요?",
+            "sourceReason": "신혼부부 또는 예비신혼부부로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "혼인관계증명서는 언제 내나요?",
+            "preview": "신혼·예비신혼 신청자가 내요. 예비신혼은 신청 때와 입주 전에 각각 확인해요.",
+            "sections": [
+                {
+                    "text": "신혼부부 또는 예비신혼부부로 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 혼인관계증명서(상세) 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 혼인관계증명서(상세) 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "혼인관계증명서(상세)",
+                                "공고의 해당자 제출 대상과 발급·제출시점을 확인해 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-newlywed",
+            "sourceTitle": "예비신혼부부 신청·세대구성 확인서 제출 대상인가요?",
+            "sourceReason": "예비신혼부부로 신청하나요? 입주 전 혼인 증빙도 필요합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "예비신혼부부는 무엇을 더 내나요?",
+            "preview": "신청·세대구성 확인서와 두 사람의 등본·가족관계증명서를 준비해요.",
+            "sections": [
+                {
+                    "text": "예비신혼부부는 신청확인서·세대구성 확인서와 두 사람의 등본·상세 가족관계증명서를 준비해요. 입주 전에는 실제 혼인관계를 확인하는 서류를 내요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "예비신혼부부 신청·세대구성 확인서",
+                                "예비신혼부부는 신청확인서·세대구성 확인서와 두 사람의 등본·상세 가족관계증명서를 준비해요. 입주 전에는 실제 혼인관계를 확인하는 서류를 내요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "예비신혼부부는 신청확인서·세대구성 확인서와 두 사람의 등본·상세 가족관계증명서를 준비해요. 입주 전에는 실제 혼인관계를 확인하는 서류를 내요."
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-work",
+            "sourceTitle": "소득근거지·근로 증빙 제출 대상인가요?",
+            "sourceReason": "거주지가 아닌 소득근거지로 순위를 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "직장 소재지는 무엇으로 확인하나요?",
+            "preview": "직장 소재지로 순위를 인정받으려면 연금 이력과 사업장 주소 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "소득근거지로 신청 순위를 인정받으려면 국민연금 가입증명서 전체이력과 현재 일하는 곳의 사업자등록증 등 주소 증빙을 내요. 해당 서류로 확인되지 않으면 재직증명서·근로계약서 등을 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "소득근거지·근로 증빙",
+                                "소득근거지로 신청 순위를 인정받으려면 국민연금 가입증명서 전체이력과 현재 일하는 곳의 사업자등록증 등 주소 증빙을 내요. 해당 서류로 확인되지 않으면 재직증명서·근로계약서 등을 추가해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "소득근거지로 신청 순위를 인정받으려면 국민연금 가입증명서 전체이력과 현재 일하는 곳의 사업자등록증 등 주소 증빙을 내요. 해당 서류로 확인되지 않으면 재직증명서·근로계약서 등을 추가해요."
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-subscription",
+            "sourceTitle": "청약통장 사본 제출 대상인가요?",
+            "sourceReason": "공고일 현재 미가입자로 입주 전 가입 증명을 해야 하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "청약통장 증명은 누가 내나요?",
+            "preview": "공고가 정한 신청 유형은 청약통장 가입 증명을 준비해요. 입주 전 제출 기한도 확인해요.",
+            "sections": [
+                {
+                    "text": "공고일 현재 청약통장이 없으면 입주 전까지 본인 또는 배우자가 가입 증명을 내요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 청약통장 사본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 청약통장 사본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "청약통장 사본",
+                                "공고의 해당자 제출 대상과 발급·제출시점을 확인해 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-child",
+            "sourceTitle": "임신진단서·입양관계증명서 제출 대상인가요?",
+            "sourceReason": "태아·입양자녀로 자격이나 가산을 인정받으려 하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "임신·입양은 어떤 서류로 확인하나요?",
+            "preview": "태아·입양 자녀로 공고의 자격이나 가산을 인정받으면 해당 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "태아·입양자녀로 자격이나 가산을 인정받으려면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 14쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 14쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "임신진단서·입양관계증명서",
+                                "공고의 해당자 제출 대상과 발급·제출시점을 확인해 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "배우자가 외국인이면 무엇을 내나요?",
+            "preview": "배우자가 외국인이면 등록·거소 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "배우자가 외국인이면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 14쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 14쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "외국인등록사실증명서",
+                                "공고의 해당자 제출 대상과 발급·제출시점을 확인해 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "applies-proxy",
+            "sourceTitle": "현장·대리신청 구비서류 제출 대상인가요?",
+            "sourceReason": "본인 또는 대리인이 현장 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "방문하거나 대신 신청할 때 무엇을 챙기나요?",
+            "preview": "본인·배우자 대리·그 외 대리에 따라 신분증과 위임서류가 달라요.",
+            "sections": [
+                {
+                    "text": "본인 또는 대리인이 현장 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 현장·대리신청 구비서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 현장·대리신청 구비서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "현장·대리신청 구비서류",
+                                "공고의 해당자 제출 대상과 발급·제출시점을 확인해 준비하세요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+            "questionId": "newborn-priority",
+            "sourceTitle": "어린 자녀가 있으면 먼저 뽑나요?",
+            "sourceReason": "공고일 현재 2세 미만 자녀가 있는 세대는 공급형별 모집호수의 30% 범위에서 먼저 뽑아요. 태아도 포함해요. 우선배정 안에서도 경쟁하면 공고의 선정 순서를 적용해요. 여기서 떨어져도 남은 물량에서 다른 신청자와 다시 경쟁해요. 자녀가 없다는 이유로 신청 자격이 없어지는 것은 아니에요. 소득·자산의 자녀 가산과는 별도예요. 이 공고는 44A 신혼부부·한부모 유형으로, 30%는 현재 빈집 4호가 아니라 공급형별·대상별 모집호수를 기준으로 해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=2",
+                "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+            },
+            "heading": "어린 자녀가 있으면 먼저 뽑나요?",
+            "preview": "2세 미만 자녀·태아가 있으면 모집호수의 30% 범위에서 우선배정해요. 탈락해도 다시 경쟁해요.",
+            "sections": [
+                {
+                    "text": "- 공고일 현재 2세 미만 자녀가 있는 세대는 공급형별 모집호수의 30% 범위에서 먼저 뽑아요.\n- 태아도 포함해요.\n- 우선배정 안에서도 경쟁하면 공고의 선정 순서를 적용해요.\n- 여기서 떨어져도 남은 물량에서 다른 신청자와 다시 경쟁해요.\n- 자녀가 없다는 이유로 신청 자격이 없어지는 것은 아니에요.\n- 소득·자산의 자녀 가산과는 별도예요.\n- 이 공고는 44A 신혼부부·한부모 유형으로, 30%는 현재 빈집 4호가 아니라 공급형별·대상별 모집호수를 기준으로 해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    { "value": "YES", "label": "확인했어요" },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "더 확인할게요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

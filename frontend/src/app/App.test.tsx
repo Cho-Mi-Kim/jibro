@@ -5,8 +5,10 @@ import { MemoryRouter } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App } from './App';
 import { demoRequest, resetDemo, notices } from '../features/housing/demo';
+import { demoNoticeListItem } from '../features/housing/demoNoticeListItem';
 import { api } from '../features/housing/api';
 import { memberApi } from '../features/member/memberApi';
+import * as scrolling from '../shared/ui/animateScroll';
 // Exercise the real demo contract without accumulating artificial presentation delays.
 vi.mock('../features/housing/demoDelay', () => ({
     waitForDemoResponse: async () => {},
@@ -89,8 +91,746 @@ beforeEach(() => {
     );
 });
 describe('사용자 준비 흐름', () => {
+    it('일회성 결과는 해당 조건·서류와 공통 안내만 보이고 수정한 답변의 미확인 항목도 유지한다', async () => {
+        const evidence = notices[0].evidence;
+        notices[0].questions = [
+            {
+                id: 'common',
+                title: '공통 거주 조건',
+                reason: '공고 기준일의 거주지를 확인해요.',
+                evidence,
+                options: [{ value: 'YES', label: '거주 조건을 확인했어요' }],
+            },
+            {
+                id: 'address',
+                title: '주소 변경 서류 제출 대상',
+                reason: '공고일 이후 주소가 바뀌었다면 증빙을 준비해요.',
+                evidence,
+                options: [
+                    { value: 'YES', label: '주소가 바뀌었어요' },
+                    { value: 'NO', label: '주소가 바뀌지 않았어요' },
+                    { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                ],
+            },
+            {
+                id: 'work',
+                title: '산업단지 추가 조건',
+                reason: '산업단지 근로자로 신청할 때 확인해요.',
+                evidence,
+                options: [
+                    { value: 'MEETS', label: '근로자 유형으로 신청해요' },
+                    { value: 'NOT_MY_TYPE', label: '다른 유형으로 신청해요' },
+                    { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                ],
+            },
+            {
+                id: 'guide',
+                title: '공통 계약 준비 안내',
+                reason: '공식 계약 일정을 확인해요.',
+                evidence,
+                options: [
+                    { value: 'ACK', label: '안내를 확인했어요' },
+                    { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                ],
+            },
+        ];
+        notices[0].documentTemplates = [
+            { id: 'common', title: '공통 확인 서류' },
+            {
+                id: 'address',
+                title: '주소 변경 증명서',
+                conditionQuestionId: 'address',
+                conditionAnswerValues: ['YES'],
+            },
+            {
+                id: 'work',
+                title: '근로자 증빙',
+                conditionQuestionId: 'work',
+                conditionAnswerValues: ['MEETS'],
+            },
+        ].map((document) => ({
+            ...document,
+            method: '공식 서류를 준비해요.',
+            issuer: '공식 기관',
+            issueUrl: null,
+            evidence,
+        }));
+        await api.login('demo@example.invalid', 'demo');
+        mount('/notices/1/check/once');
+        await userEvent.click(
+            await screen.findByRole('radio', {
+                name: '거주 조건을 확인했어요',
+            }),
+        );
+        await userEvent.click(
+            screen.getByRole('radio', { name: '주소가 바뀌지 않았어요' }),
+        );
+        await userEvent.click(
+            screen.getByRole('radio', { name: '다른 유형으로 신청해요' }),
+        );
+        await screen.findByRole('heading', { name: '이번 조건 확인 결과' });
+        expect(
+            screen.getByRole('heading', { name: '공통 거주 조건' }),
+        ).toBeVisible();
+        expect(screen.getByText('답변 완료 1개 · 추가 확인 0개')).toBeVisible();
+        expect(screen.queryByText('주소 변경 서류 제출 대상')).toBeNull();
+        expect(screen.queryByText('산업단지 추가 조건')).toBeNull();
+        expect(
+            screen.getByRole('heading', { name: '확인할 서류 1개' }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('heading', { name: '공통 확인 서류' }),
+        ).toBeVisible();
+        expect(screen.queryByText('주소 변경 증명서')).toBeNull();
+        expect(screen.queryByText('근로자 증빙')).toBeNull();
+        await userEvent.click(screen.getByText('공통·맞춤 준비 안내 1개'));
+        expect(
+            screen.getByRole('heading', { name: '공통 계약 준비 안내' }),
+        ).toBeVisible();
+        await userEvent.click(
+            screen.getByRole('button', { name: '답변 수정' }),
+        );
+        await userEvent.click(screen.getByRole('button', { name: '다음' }));
+        await userEvent.click(
+            screen.getByRole('radio', { name: '주소가 바뀌었어요' }),
+        );
+        await userEvent.click(
+            screen.getByRole('radio', { name: '잘 모르겠어요' }),
+        );
+        await screen.findByRole('heading', { name: '이번 조건 확인 결과' });
+        expect(screen.getByText('답변 완료 2개 · 추가 확인 1개')).toBeVisible();
+        expect(
+            screen.getByRole('heading', { name: '주소 변경 서류 제출 대상' }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('heading', { name: '산업단지 추가 조건' }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('heading', { name: '확인할 서류 3개' }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('heading', { name: '주소 변경 증명서' }),
+        ).toBeVisible();
+        expect(
+            screen.getByRole('heading', { name: '근로자 증빙' }),
+        ).toBeVisible();
+        expect(await api.preparations()).toEqual([]);
+        expect(notices[0].questions).toHaveLength(4);
+    });
+    it('내 준비 세 탭은 답변에 맞는 항목과 공통 항목을 보이고 답변을 바꾸면 다시 표시한다', async () => {
+        const evidence = notices[0].evidence;
+        notices[0].questions = [
+            {
+                id: 'method',
+                title: '어떤 방법으로 신청하나요?',
+                reason: '온라인 또는 방문 신청을 선택해요.',
+                evidence,
+                options: [
+                    { value: 'ONLINE', label: '인터넷 신청' },
+                    { value: 'VISIT', label: '현장 방문 신청' },
+                    { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                ],
+            },
+            {
+                id: 'work',
+                title: '산업단지 추가 조건',
+                reason: '산업단지 근로자로 신청할 때 확인해요.',
+                evidence,
+                options: [
+                    { value: 'MEETS', label: '기준에 맞아요' },
+                    { value: 'NOT_MY_TYPE', label: '다른 유형으로 신청해요' },
+                    { value: 'UNKNOWN', label: '잘 모르겠어요' },
+                ],
+            },
+        ];
+        notices[0].documentTemplates = [
+            {
+                id: 'common',
+                title: '공통 확인 서류',
+                method: '공식 서류를 준비해요.',
+                issuer: '공식 기관',
+                issueUrl: null,
+                evidence,
+            },
+            {
+                id: 'visit',
+                title: '방문 신청 확인 서류',
+                method: '방문할 때 준비해요.',
+                issuer: '공식 기관',
+                issueUrl: null,
+                evidence,
+                conditionQuestionId: 'method',
+                conditionAnswerValues: ['VISIT'],
+            },
+        ];
+        notices[0].schedules = [
+            {
+                id: 'online',
+                title: '접수 회차 · 온라인 접수 시작',
+                date: '2026-12-01',
+                evidence,
+            },
+            {
+                id: 'visit',
+                title: '접수 회차 · 현장 접수 시작',
+                date: '2026-12-02',
+                evidence,
+            },
+            { id: 'common', title: '결과 발표', date: '2026-12-20', evidence },
+        ];
+        await api.login('demo@example.invalid', 'demo');
+        let p = await api.start('1', 1);
+        p = await api.answers(p.id, p.revision, {
+            method: 'ONLINE',
+            work: 'NOT_MY_TYPE',
+        });
+        let view = mount('/preparations/' + p.id + '/conditions');
+        await screen.findByText('내 답변에 맞춘 안내');
+        expect(
+            screen.queryByText('산업단지 추가 조건'),
+        ).not.toBeInTheDocument();
+        await userEvent.click(screen.getByRole('link', { name: '서류' }));
+        expect(
+            await screen.findByRole('button', {
+                name: '공통 확인 서류',
+            }),
+        ).toBeVisible();
+        expect(
+            screen.queryByRole('button', { name: '방문 신청 확인 서류' }),
+        ).not.toBeInTheDocument();
+        await userEvent.click(screen.getByRole('link', { name: '일정' }));
+        await screen.findByRole('heading', { name: '전체 일정' });
+        await userEvent.click(screen.getByLabelText('일정 근거와 안내 펼치기'));
+        expect(
+            await within(document.getElementById('timeline')!).findByText(
+                '접수 회차 · 온라인 접수 시작',
+            ),
+        ).toBeVisible();
+        expect(
+            screen.queryByText('접수 회차 · 현장 접수 시작'),
+        ).not.toBeInTheDocument();
+        expect(
+            within(document.getElementById('timeline')!).getByText('결과 발표'),
+        ).toBeVisible();
+        view.unmount();
+        p = await api.answers(p.id, p.revision, {
+            method: 'VISIT',
+            work: 'UNKNOWN',
+        });
+        view = mount('/preparations/' + p.id + '/documents');
+        expect(
+            await screen.findByRole('button', {
+                name: '방문 신청 확인 서류',
+            }),
+        ).toBeVisible();
+        await userEvent.click(screen.getByRole('link', { name: '조건' }));
+        expect(await screen.findByText('산업단지 추가 조건')).toBeVisible();
+        await userEvent.click(screen.getByRole('link', { name: '일정' }));
+        await screen.findByRole('heading', { name: '전체 일정' });
+        await userEvent.click(screen.getByLabelText('일정 근거와 안내 펼치기'));
+        expect(
+            await within(document.getElementById('timeline')!).findByText(
+                '접수 회차 · 현장 접수 시작',
+            ),
+        ).toBeVisible();
+        expect(
+            screen.queryByText('접수 회차 · 온라인 접수 시작'),
+        ).not.toBeInTheDocument();
+        expect((await api.preparation(p.id)).schedules).toHaveLength(3);
+        view.unmount();
+    });
+    it('새로 수집된 공고의 원본 지역을 목록과 상세에서 같은 약칭으로 표시한다', async () => {
+        const notice = {
+            ...notices[0],
+            id: 'newly-collected-notice',
+            title: '[광주광역시] 입주자 모집',
+            region: '광주광역시·전라남도',
+        };
+        const page = { page: 0, size: 20, totalElements: 1, totalPages: 1 };
+        const list = vi
+            .spyOn(api, 'notices')
+            .mockResolvedValueOnce({
+                ...page,
+                items: [],
+                totalElements: 0,
+                totalPages: 0,
+            })
+            .mockResolvedValue({
+                ...page,
+                items: [demoNoticeListItem(notice)],
+            });
+        const detail = vi.spyOn(api, 'notice').mockResolvedValue(notice);
+        try {
+            mount('/notices');
+            await screen.findByRole('heading', {
+                name: '조건에 맞는 공고가 없어요',
+            });
+            await userEvent.click(
+                screen.getByRole('button', { name: '공고 새로고침' }),
+            );
+            const title = await screen.findByRole('button', {
+                name: notice.title,
+            });
+            expect(title).toHaveTextContent('[전남광주]');
+            expect(screen.getByText('전남광주 · ' + notice.type)).toBeVisible();
+            await userEvent.click(title);
+            await userEvent.click(
+                screen.getByRole('link', { name: '공고 자세히 보기' }),
+            );
+            const overview = await screen.findByRole('region', {
+                name: '[전남광주]',
+            });
+            expect(within(overview).getByText('전남광주')).toBeVisible();
+            await userEvent.click(
+                within(overview).getByText('준비 안내 확인 현황'),
+            );
+            await waitFor(() =>
+                expect(overview).toHaveAccessibleName(notice.title),
+            );
+            expect(within(overview).getByText('전남광주')).toBeVisible();
+        } finally {
+            list.mockRestore();
+            detail.mockRestore();
+        }
+    });
+    it.each(['/?notice=1', '/', '/preparations'])(
+        '%s의 공고 카드에는 접수 상태 배지만 표시한다',
+        async (path) => {
+            if (path !== '/?notice=1') {
+                await api.login('demo@example.invalid', 'demo');
+                await api.start('1', 1);
+            }
+            mount(path);
+            expect(await screen.findByText('접수 중')).toBeVisible();
+            expect(
+                screen.queryByRole('button', { name: /^준비 안내/ }),
+            ).not.toBeInTheDocument();
+        },
+    );
+    it('관심 공고 카드에서 검수 상태를 펼치고 바깥을 눌러 접는다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const notice = notices.find((item) => item.guideState === 'REVIEWING')!;
+        await memberApi.save(notice.id, true);
+        mount('/saved');
+        const button = await screen.findByRole('button', {
+            name: '준비 안내 검수 중',
+        });
+        expect(button).toHaveAttribute('data-direction', 'left');
+        expect(button).toHaveAttribute('data-tone', 'gray');
+        expect(button.closest('a')).toBeNull();
+        await userEvent.click(button);
+        expect(button).toHaveAttribute('aria-expanded', 'true');
+        await userEvent.click(
+            screen.getByRole('heading', { name: '관심 공고' }),
+        );
+        expect(button).toHaveAttribute('aria-expanded', 'false');
+        expect(
+            screen.getByRole('button', { name: '관심 공고 해제' }),
+        ).toHaveAttribute('aria-pressed', 'true');
+    });
+    it('관심 목록의 두 공고를 비교하고 저장된 공고 안에서 선택을 변경한다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const [first, second] = notices;
+        await memberApi.save(first.id, true);
+        await memberApi.save(second.id, true);
+        const catalog = vi.spyOn(api, 'notices');
+        const position = vi
+            .spyOn(window, 'scrollY', 'get')
+            .mockReturnValue(147);
+        try {
+            mount('/saved');
+            await userEvent.click(
+                await screen.findByRole('button', { name: first.title }),
+            );
+            await userEvent.click(
+                screen.getByRole('link', { name: '공고 비교' }),
+            );
+            const picker = within(
+                await screen.findByRole('region', { name: '2번 공고 검색' }),
+            );
+            expect(picker.queryByTitle(first.title)).toBeNull();
+            expect(picker.getAllByRole('listitem')).toHaveLength(1);
+            await userEvent.type(picker.getByRole('textbox'), '없는공고XYZ');
+            expect(
+                picker.getByText('검색어와 일치하는 관심 공고가 없습니다.'),
+            ).toBeVisible();
+            await userEvent.clear(picker.getByRole('textbox'));
+            await userEvent.click(picker.getByTitle(second.title));
+            await screen.findByRole('region', { name: '공식 일정' });
+            expect(
+                await within(
+                    screen.getByRole('region', { name: '2번 비교 공고' }),
+                ).findByTitle(second.title),
+            ).toBeVisible();
+            await userEvent.click(
+                screen.getByRole('button', { name: '1번 공고 선택 해제' }),
+            );
+            const firstPicker = within(
+                screen.getByRole('region', { name: '1번 공고 검색' }),
+            );
+            expect(firstPicker.getAllByRole('listitem')).toHaveLength(1);
+            await userEvent.click(firstPicker.getByTitle(first.title));
+            expect(catalog).not.toHaveBeenCalled();
+            position.mockReturnValue(0);
+            await userEvent.click(
+                screen.getByRole('link', { name: '이전 화면으로' }),
+            );
+            expect(
+                await screen.findByRole('heading', { name: '관심 공고' }),
+            ).toBeVisible();
+            expect(
+                screen.getByRole('button', { name: first.title }),
+            ).toHaveAttribute('aria-expanded', 'true');
+            expect(window.scrollTo).toHaveBeenLastCalledWith({
+                top: 147,
+                behavior: 'instant',
+            });
+        } finally {
+            position.mockRestore();
+            catalog.mockRestore();
+        }
+    });
+    it('관심 공고는 하나씩 미리보고 상세에서 같은 카드로 돌아온다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const [first, second] = notices;
+        for (const notice of [first, second])
+            await memberApi.save(notice.id, true);
+        const detail = vi.spyOn(api, 'notice');
+        const position = vi
+            .spyOn(window, 'scrollY', 'get')
+            .mockReturnValue(284);
+        try {
+            mount('/saved');
+            const firstCard = await screen.findByRole('button', {
+                name: first.title,
+            });
+            const secondCard = screen.getByRole('button', {
+                name: second.title,
+            });
+            await userEvent.click(firstCard);
+            expect(firstCard).toHaveAttribute('aria-expanded', 'true');
+            await userEvent.click(secondCard);
+            expect(firstCard).toHaveAttribute('aria-expanded', 'false');
+            expect(secondCard).toHaveAttribute('aria-expanded', 'true');
+            await userEvent.click(secondCard);
+            expect(
+                screen.queryByRole('region', { name: '공고 미리보기' }),
+            ).toBeNull();
+            await userEvent.click(secondCard);
+            expect(detail).not.toHaveBeenCalled();
+            const link = screen.getByRole('link', { name: '공고 자세히 보기' });
+            expect(link).toHaveAttribute('href', '/notices/' + second.id);
+            await userEvent.click(link);
+            await screen.findByRole('tab', { name: '핵심 요약' });
+            await userEvent.click(screen.getByRole('tab', { name: '일정' }));
+            position.mockReturnValue(0);
+            await userEvent.click(
+                screen.getByRole('link', { name: '관심 공고로 돌아가기' }),
+            );
+            expect(
+                await screen.findByRole('button', { name: second.title }),
+            ).toHaveAttribute('aria-expanded', 'true');
+            expect(window.scrollTo).toHaveBeenLastCalledWith({
+                top: 284,
+                behavior: 'instant',
+            });
+        } finally {
+            position.mockRestore();
+            detail.mockRestore();
+        }
+    });
+    it.each(['/compare', '/saved/compare'])(
+        '%s 상세에서 돌아오면 같은 두 공고와 비교 위치를 복원한다',
+        async (path) => {
+            const [first, second] = notices;
+            if (path === '/saved/compare') {
+                await api.login('demo@example.invalid', 'demo');
+                for (const n of [first, second])
+                    await memberApi.save(n.id, true);
+            }
+            const comparison =
+                path + '?' + new URLSearchParams({ a: first.id, b: second.id });
+            const y = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(368);
+            try {
+                mount(comparison);
+                const slot = (index: number) =>
+                    within(
+                        screen.getByRole('region', {
+                            name: index + '번 비교 공고',
+                        }),
+                    );
+                await screen.findByRole('region', { name: '2번 비교 공고' });
+                await userEvent.click(
+                    await slot(2).findByRole('link', {
+                        name: '공고 상세 보기',
+                    }),
+                );
+                await userEvent.click(
+                    await screen.findByRole('tab', { name: '일정' }),
+                );
+                y.mockReturnValue(0);
+                const back = screen.getByRole('link', {
+                    name: '공고 비교로 돌아가기',
+                });
+                expect(back).toHaveAttribute('href', comparison);
+                await userEvent.click(back);
+                await screen.findByRole('region', { name: '공식 일정' });
+                expect(await slot(1).findByTitle(first.title)).toBeVisible();
+                expect(await slot(2).findByTitle(second.title)).toBeVisible();
+                expect(window.scrollTo).toHaveBeenLastCalledWith({
+                    top: 368,
+                    behavior: 'instant',
+                });
+            } finally {
+                y.mockRestore();
+            }
+        },
+    );
+    it.each(['이전 화면으로', '현재 공식 근거 보기'])(
+        '수정 전후 비교의 %s 링크는 상세 탭과 스크롤 위치를 복원한다',
+        async (name) => {
+            const notice = notices[0];
+            const editions = vi.spyOn(memberApi, 'editions').mockResolvedValue(
+                [3, 2, 1].map((version) => ({
+                    version,
+                    revision: 1,
+                    facts: { title: notice.title },
+                })),
+            );
+            const y = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(419);
+            try {
+                const detailPath = '/notices/' + notice.id + '?tab=schedule';
+                mount(detailPath);
+                await userEvent.click(
+                    await screen.findByText('공고 자료와 비교'),
+                );
+                await userEvent.click(
+                    screen.getByRole('link', { name: '수정 전후 비교' }),
+                );
+                await userEvent.selectOptions(
+                    await screen.findByRole('combobox', {
+                        name: '이전 공개본',
+                    }),
+                    '1.1',
+                );
+                y.mockReturnValue(0);
+                const back = screen.getByRole('link', { name });
+                expect(back).toHaveAttribute('href', detailPath);
+                await userEvent.click(back);
+                expect(
+                    await screen.findByRole('tab', {
+                        name: '일정',
+                        selected: true,
+                    }),
+                ).toBeVisible();
+                expect(
+                    screen.getByText('공고 자료와 비교').closest('details'),
+                ).toHaveAttribute('open');
+                expect(window.scrollTo).toHaveBeenLastCalledWith({
+                    top: 419,
+                    behavior: 'instant',
+                });
+            } finally {
+                y.mockRestore();
+                editions.mockRestore();
+            }
+        },
+    );
+    it.each(['공고 확인', '공고 상세로 돌아가기'])(
+        '준비 이어하기 후 %s에서 같은 상세 탭과 위치를 복원한다',
+        async (name) => {
+            await api.login('demo@example.invalid', 'demo');
+            await api.start('1', 1);
+            const y = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(317);
+            try {
+                const path = '/notices/1?tab=documents';
+                mount(path);
+                await userEvent.click(
+                    await screen.findByText('공고 자료와 비교'),
+                );
+                await userEvent.click(
+                    await screen.findByRole('button', {
+                        name: '준비 이어하기',
+                    }),
+                );
+                if (name === '공고 상세로 돌아가기') {
+                    const nav = await screen.findByRole('navigation', {
+                        name: '개인 준비',
+                    });
+                    await userEvent.click(
+                        within(nav).getByRole('link', { name: '조건' }),
+                    );
+                }
+                y.mockReturnValue(0);
+                const back = await screen.findByRole('link', { name });
+                expect(back).toHaveAttribute('href', path);
+                await userEvent.click(back);
+                expect(
+                    await screen.findByRole('tab', {
+                        name: '제출서류',
+                        selected: true,
+                    }),
+                ).toBeVisible();
+                expect(
+                    screen.getByText('공고 자료와 비교').closest('details'),
+                ).toHaveAttribute('open');
+                expect(window.scrollTo).toHaveBeenLastCalledWith({
+                    top: 317,
+                    behavior: 'instant',
+                });
+            } finally {
+                y.mockRestore();
+            }
+        },
+    );
+    it.each(['직접', '방법 선택'])(
+        '이번만 확인에 %s 진입한 뒤 상세 탭과 스크롤을 복원한다',
+        async (entry) => {
+            const y = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(294);
+            try {
+                const detailPath = '/notices/1?tab=documents';
+                mount(detailPath);
+                await screen.findByRole('tab', {
+                    name: '제출서류',
+                    selected: true,
+                });
+                if (entry === '직접') {
+                    await userEvent.click(screen.getByText('공고 자료와 비교'));
+                    await userEvent.click(
+                        screen.getByRole('link', {
+                            name: '저장하지 않고 이번만 확인',
+                        }),
+                    );
+                } else {
+                    await userEvent.click(
+                        screen.getByRole('button', {
+                            name: '내 조건 확인하기',
+                        }),
+                    );
+                    await userEvent.click(
+                        await screen.findByRole('button', {
+                            name: '저장하지 않고 이번만 확인',
+                        }),
+                    );
+                }
+                await userEvent.click(
+                    await screen.findByRole('radio', { name: '확인했어요' }),
+                );
+                if (entry === '직접') {
+                    await userEvent.click(
+                        screen.getByRole('radio', { name: '해당하지 않아요' }),
+                    );
+                    await screen.findByRole('heading', {
+                        name: '이번 조건 확인 결과',
+                    });
+                }
+                y.mockReturnValue(0);
+                const back = screen.getByRole('link', {
+                    name: '이전 화면으로',
+                });
+                expect(back).toHaveAttribute('href', detailPath);
+                await userEvent.click(back);
+                expect(
+                    await screen.findByRole('tab', {
+                        name: '제출서류',
+                        selected: true,
+                    }),
+                ).toBeVisible();
+                expect(
+                    screen.getByText('공고 자료와 비교').closest('details')
+                        ?.open,
+                ).toBe(entry === '직접');
+                expect(window.scrollTo).toHaveBeenLastCalledWith({
+                    top: 294,
+                    behavior: 'instant',
+                });
+            } finally {
+                y.mockRestore();
+            }
+        },
+    );
+    it('상세에서 비교 대상을 변경해도 복귀 시 원래 공고의 탭과 자료 위치를 복원한다', async () => {
+        const [original, other] = notices;
+        const y = vi.spyOn(window, 'scrollY', 'get').mockReturnValue(384);
+        try {
+            mount('/notices/' + original.id);
+            await userEvent.click(
+                await screen.findByRole('tab', { name: '제출서류' }),
+            );
+            await userEvent.click(screen.getByText('공고 자료와 비교'));
+            await userEvent.click(
+                screen.getByRole('link', { name: '공고 비교' }),
+            );
+            await userEvent.click(
+                screen.getByRole('button', { name: '1번 공고 변경' }),
+            );
+            const search = within(
+                screen.getByRole('region', { name: '1번 공고 검색' }),
+            );
+            await userEvent.click(await search.findByTitle(other.title));
+            y.mockReturnValue(0);
+            const back = screen.getByRole('link', { name: '이전 화면으로' });
+            expect(back).toHaveAttribute(
+                'href',
+                '/notices/' + original.id + '?tab=documents',
+            );
+            await userEvent.click(back);
+            expect(
+                await screen.findByRole('tab', { name: '제출서류' }),
+            ).toHaveAttribute('aria-selected', 'true');
+            expect(
+                screen.getByText('공고 자료와 비교').closest('details'),
+            ).toHaveAttribute('open');
+            expect(window.scrollTo).toHaveBeenLastCalledWith({
+                top: 384,
+                behavior: 'instant',
+            });
+        } finally {
+            y.mockRestore();
+        }
+    });
+    it('공고 비교에서 선택을 바꿔도 돌아오면 원래 목록과 미리보기 위치를 복원한다', async () => {
+        const position = vi
+            .spyOn(window, 'scrollY', 'get')
+            .mockReturnValue(513);
+        try {
+            mount('/notices?sort=deadline&page=0');
+            const title = notices[0].title;
+            await userEvent.click(
+                await screen.findByRole('button', { name: title }),
+            );
+            await userEvent.click(
+                screen.getByRole('link', { name: '공고 비교' }),
+            );
+            const picker = () =>
+                within(screen.getByRole('region', { name: '1번 공고 검색' }));
+            await userEvent.click(await picker().findByTitle(notices[1].title));
+            await userEvent.click(
+                screen.getByRole('button', { name: '1번 공고 선택 해제' }),
+            );
+            position.mockReturnValue(0);
+            const back = screen.getByRole('link', { name: '이전 화면으로' });
+            expect(back).toHaveAttribute(
+                'href',
+                '/notices?sort=deadline&page=0',
+            );
+            await userEvent.click(back);
+            expect(
+                await screen.findByRole('button', { name: title }),
+            ).toHaveAttribute('aria-expanded', 'true');
+            expect(window.scrollTo).toHaveBeenLastCalledWith({
+                top: 513,
+                behavior: 'instant',
+            });
+        } finally {
+            position.mockRestore();
+        }
+    });
     it('공고 미리보기는 목록 데이터로 열고 상세 화면에 들어갈 때만 전체 자료를 요청한다', async () => {
         const detail = vi.spyOn(api, 'notice');
+        const position = vi
+            .spyOn(window, 'scrollY', 'get')
+            .mockReturnValue(419);
         try {
             mount('/notices');
             await userEvent.click(
@@ -103,7 +843,20 @@ describe('사용자 준비 흐름', () => {
             await userEvent.click(link);
             await screen.findByRole('tab', { name: '핵심 요약' });
             expect(detail).toHaveBeenCalledTimes(1);
+            await userEvent.click(screen.getByRole('tab', { name: '조건' }));
+            position.mockReturnValue(0);
+            await userEvent.click(
+                screen.getByRole('link', { name: '공고 목록 보기' }),
+            );
+            expect(
+                await screen.findByRole('button', { name: notices[0].title }),
+            ).toHaveAttribute('aria-expanded', 'true');
+            expect(window.scrollTo).toHaveBeenLastCalledWith({
+                top: 419,
+                behavior: 'instant',
+            });
         } finally {
+            position.mockRestore();
             detail.mockRestore();
         }
     });
@@ -397,10 +1150,15 @@ describe('사용자 준비 흐름', () => {
             }),
         ).toBeVisible();
         await userEvent.click(screen.getByText('답변 완료 1개 보기'));
+        const residence = screen.getByRole('heading', {
+            name: '공고 기준일의 거주 조건',
+        });
+        expect(residence).toBeVisible();
         expect(
-            screen.getByRole('heading', { name: '공고 기준일의 거주 조건' }),
+            within(residence.parentElement!).getByText(
+                '실제 공고의 기준일과 주민등록상 거주지를 확인해야 해요',
+            ),
         ).toBeVisible();
-        expect(screen.getByText(p.questions[0].reason)).toBeVisible();
         expect(screen.getByText('확인했어요')).toBeVisible();
         await userEvent.click(source);
         expect(detail).toHaveAttribute('open');
@@ -410,14 +1168,57 @@ describe('사용자 준비 흐름', () => {
         await userEvent.click(resume);
         expect(
             await screen.findByRole('group', {
-                name: p.questions[1].title,
+                name: '본인에게 적용되는 무주택 기준을 확인했나요?',
             }),
         ).toBeVisible();
     });
+    it.each([false, true])(
+        '내 준비 조건의 쉬운 제목과 펼친 설명 (답변 완료 %s)',
+        async (answered) => {
+            await api.login('demo@example.invalid', 'demo');
+            const p = await api.start('1', 1);
+            const question = {
+                ...p.questions[0],
+                title: '세대 전체의 자동차 기준을 확인했나요?',
+                reason: '자동차 기준은 완화하지 않습니다. 비영업용 승용자동차별 가액 중 최고 가액이 5,451만원 이하인지 확인합니다. 배우자 등 다른 세대원의 차량도 포함합니다.',
+            };
+            const read = vi.spyOn(api, 'preparation').mockResolvedValue({
+                ...p,
+                questions: [question],
+                answers: answered ? { [question.id]: 'YES' } : {},
+            });
+            try {
+                mount('/preparations/' + p.id + '/conditions');
+                if (answered)
+                    await userEvent.click(
+                        await screen.findByText('답변 완료 1개 보기'),
+                    );
+                expect(
+                    await screen.findByRole('heading', {
+                        name: '우리 집 자동차 기준은 얼마인가요?',
+                    }),
+                ).toBeVisible();
+                expect(
+                    screen.getByText(
+                        '영업용이 아닌 승용차 중 가장 비싼 차가 5,451만 원 이하',
+                    ),
+                ).toBeVisible();
+                const detail = screen.getByText(
+                    /배우자 등 다른 세대원의 차도 함께 봐요/,
+                );
+                expect(detail).not.toBeVisible();
+                await userEvent.click(
+                    screen.getByLabelText(/자동차 기준.*공식 근거 보기/),
+                );
+                expect(detail).toBeVisible();
+            } finally {
+                read.mockRestore();
+            }
+        },
+    );
     it('결과 카드에서 선택한 추가 확인 질문의 선택지를 바로 보여준다', async () => {
         await api.login('demo@example.invalid', 'demo');
         const preparation = await api.start('1', 1);
-        const target = preparation.questions[1];
         mount('/preparations/' + preparation.id + '/conditions/result');
         const card = (
             await screen.findByRole('heading', {
@@ -429,7 +1230,9 @@ describe('사용자 준비 흐름', () => {
             within(card!).getByRole('link', { name: '답변 이어서 작성' }),
         );
         expect(
-            await screen.findByRole('group', { name: target.title }),
+            await screen.findByRole('group', {
+                name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+            }),
         ).toBeVisible();
     });
     it.each([
@@ -541,15 +1344,17 @@ describe('사용자 준비 흐름', () => {
             );
             expect(
                 await screen.findByRole('group', {
-                    name: p.questions[1].title,
+                    name: '본인에게 적용되는 무주택 기준을 확인했나요?',
                 }),
             ).toBeVisible();
             const previous = screen.getByRole('button', { name: '이전' });
             if (answer === 'UNKNOWN') {
                 await userEvent.click(previous);
-                expect(screen.getByRole('group')).toHaveAccessibleName(
-                    p.questions[0].title,
-                );
+                expect(
+                    screen.getByRole('group', {
+                        name: '공고 기준일의 거주 조건을 확인했나요?',
+                    }),
+                ).toHaveAccessibleName('공고 기준일의 거주 조건을 확인했나요?');
                 expect(
                     screen.getByRole('radio', { name: '잘 모르겠어요' }),
                 ).toBeChecked();
@@ -578,50 +1383,252 @@ describe('사용자 준비 흐름', () => {
             await screen.findByRole('link', { name: /^지금 할 일/ }),
         );
         expect(
-            await screen.findByRole('group', { name: p.questions[1].title }),
+            await screen.findByRole('group', {
+                name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+            }),
         ).toBeVisible();
         expect(
             screen.getByRole('radio', { name: '잘 모르겠어요' }),
         ).toBeChecked();
     });
+    it.each(['저장', '이번만'] as const)(
+        '%s 확인에서 단순 안내는 건너뛰고 개인 상황의 답변을 필요한 서류로 연결한다',
+        async (mode) => {
+            notices[0].questions[0] = {
+                ...notices[0].questions[0],
+                title: '재계약 안내를 확인했나요?',
+                options: [
+                    { value: 'ACK', label: '안내를 확인했어요' },
+                    {
+                        value: 'UNKNOWN',
+                        label: '잘 모르겠어요',
+                        requiresFollowUp: true,
+                    },
+                ],
+            };
+            notices[0].questions[1] = {
+                ...notices[0].questions[1],
+                title: '어떤 방법으로 신청하나요?',
+                reason: '현장에서 직접 신청하면 조건별 확인 서류를 준비해요.',
+                options: [
+                    { value: 'YES', label: '현장에서 직접 신청해요' },
+                    { value: 'NO', label: '인터넷으로 신청해요' },
+                    {
+                        value: 'UNKNOWN',
+                        label: '잘 모르겠어요',
+                        requiresFollowUp: true,
+                    },
+                ],
+            };
+            notices[0].documentTemplates = [
+                {
+                    id: '1',
+                    title: '조건별 확인 서류',
+                    conditionQuestionId: 'house',
+                    conditionAnswerValues: ['YES'],
+                    method: '공고에서 발급 기준을 확인하세요.',
+                    issuer: '공고에서 확인',
+                    issueUrl: null,
+                    evidence: notices[0].evidence,
+                },
+            ];
+            await api.login('demo@example.invalid', 'demo');
+            let preparationId: string | undefined;
+            if (mode === '저장') {
+                const p = await api.start('1', 1);
+                preparationId = p.id;
+                mount(`/preparations/${p.id}/conditions/edit`);
+            } else {
+                mount('/notices/1/check/once');
+            }
+            await screen.findByRole('group', {
+                name: '어떤 방법으로 신청하나요?',
+            });
+            expect(
+                screen.queryByRole('radio', { name: '안내를 확인했어요' }),
+            ).toBeNull();
+            expect(
+                screen.getByLabelText('전체 1개 중 1번째 질문'),
+            ).toBeVisible();
+            await userEvent.click(
+                screen.getByRole('radio', { name: '현장에서 직접 신청해요' }),
+            );
+            await screen.findByRole('heading', {
+                name:
+                    mode === '저장'
+                        ? '내 조건 확인 결과'
+                        : '이번 조건 확인 결과',
+            });
+            const guide = within(
+                screen.getByRole('region', {
+                    name: '내 답변에 맞춘 준비 안내',
+                }),
+            );
+            expect(
+                guide.getByRole('heading', { name: '신청 방법' }),
+            ).toBeVisible();
+            expect(guide.getByText('현장에서 직접 신청해요')).toBeVisible();
+            expect(
+                guide.getByText('준비할 서류: 조건별 확인 서류'),
+            ).toBeVisible();
+            if (preparationId) {
+                const reference = guide
+                    .getByRole('heading', { level: 4 })
+                    .closest('li')!;
+                const scroll = vi.spyOn(scrolling, 'animateScroll');
+                const bounds = vi
+                    .spyOn(reference, 'getBoundingClientRect')
+                    .mockReturnValue(new DOMRect(0, 240, 320, 120));
+                try {
+                    await userEvent.click(
+                        within(reference).getByRole('heading'),
+                    );
+                    expect(reference.querySelector('details')).toHaveAttribute(
+                        'open',
+                    );
+                    await waitFor(() => expect(scroll).toHaveBeenCalled());
+                    const [target, position] = scroll.mock.lastCall!;
+                    expect(target).toBe(window);
+                    expect(
+                        typeof position === 'function' ? position() : position,
+                    ).toBe(228);
+                } finally {
+                    scroll.mockRestore();
+                    bounds.mockRestore();
+                }
+                const saved = await api.preparation(preparationId);
+                expect(saved.answers).toEqual({ house: 'YES' });
+                expect(
+                    saved.documents.find((document) => document.id === '1')
+                        ?.necessity,
+                ).toBe('CONDITIONAL');
+                expect(saved.warnings).toEqual([]);
+                await userEvent.click(
+                    screen.getByRole('link', { name: '내 준비 목록 보기' }),
+                );
+                expect(
+                    await screen.findByRole('button', {
+                        name: /조건별 확인 서류/,
+                    }),
+                ).toBeVisible();
+            } else {
+                expect(
+                    screen.getByRole('heading', { name: '확인할 서류 1개' }),
+                ).toBeVisible();
+                expect(
+                    screen.getByRole('heading', { name: '조건별 확인 서류' }),
+                ).toBeVisible();
+                expect(await api.preparations()).toEqual([]);
+            }
+        },
+    );
     it('질문별 선택지를 자동 저장하고 다음 질문과 결과로 이동한다', async () => {
-        const reason =
-            '주민등록상 거주 기간은 2년 이상입니다. 공고일 기준입니다. 예외는 공고문에서 확인합니다.';
-        notices[0].questions[0].reason = reason;
+        notices[0].questions[0].title =
+            '신청자의 성년 또는 미성년 예외를 확인했나요?';
+        notices[0].questions[0].reason =
+            '원칙은 만19세 이상입니다. 미성년 예외는 같은 등본의 자녀가 있는 세대주, 직계존속 사망·실종 등으로 같은 등본의 형제자매를 부양하는 세대주, 외국인 부모와 내국인 미성년 세대주인 한부모가족입니다.';
         notices[0].questions[0].options = [
-            { value: 'SEOUL', label: '서울특별시에 거주해요' },
-            { value: 'GYEONGGI', label: '경기도에 거주해요' },
-            { value: 'UNKNOWN', label: '기준일의 거주지를 모르겠어요' },
+            { value: 'ADULT', label: '만 19세 이상이에요' },
+            { value: 'EXCEPTION', label: '미성년 예외에 해당해요' },
+            { value: 'UNKNOWN', label: '잘 모르겠어요' },
         ];
         await api.login('demo@example.invalid', 'demo');
         const p = await api.start('1', 1);
         mount('/preparations/' + p.id + '/conditions/edit');
         const first = within(
-            await screen.findByRole('group', { name: p.questions[0].title }),
+            await screen.findByRole('group', {
+                name: '신청자의 성년 또는 미성년 예외를 확인했나요?',
+            }),
         );
         expect(
-            first.getByText('주민등록상 거주 기간은 2년 이상'),
+            first.getByText('만 19세부터 신청 · 미성년자는 일부 예외'),
         ).toBeVisible();
-        expect(first.getByText(reason)).not.toBeVisible();
-        await userEvent.click(first.getByText('전체 조건 보기'));
-        expect(first.getByText(reason)).toBeVisible();
+        const exception = /같은 등본의 형제자매를 돌봐요/;
+        expect(first.getByText(exception)).not.toBeVisible();
         await userEvent.click(
-            await screen.findByRole('radio', { name: '경기도에 거주해요' }),
+            first
+                .getByText('만 19세부터 신청 · 미성년자는 일부 예외')
+                .closest('section')!,
+        );
+        expect(first.getByText(exception)).toBeVisible();
+        await userEvent.click(first.getByText(exception));
+        expect(first.getByText(exception)).not.toBeVisible();
+        await userEvent.click(first.getByText('답변을 고를 때 참고해요'));
+        expect(first.getByText(exception)).toBeVisible();
+        await userEvent.click(
+            await screen.findByRole('radio', {
+                name: '미성년 예외에 해당해요',
+            }),
         );
         const second = within(
-            await screen.findByRole('group', { name: p.questions[1].title }),
+            await screen.findByRole('group', {
+                name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+            }),
         );
-        expect(second.getByText(p.questions[1].reason)).toBeVisible();
-        expect(second.queryByText(reason)).not.toBeInTheDocument();
+        expect(
+            second.getByText('가구원 범위와 예외는 공고마다 달라요'),
+        ).toBeVisible();
+        expect(second.queryByText(exception)).not.toBeInTheDocument();
         await userEvent.click(
             await screen.findByRole('radio', { name: '해당하지 않아요' }),
         );
         await screen.findByRole('heading', { name: '내 조건 확인 결과' });
         await userEvent.click(screen.getByText('답변 완료 2개 보기'));
-        expect(screen.getByText('경기도에 거주해요')).toBeVisible();
+        expect(screen.getByText('미성년 예외에 해당해요')).toBeVisible();
         expect((await api.preparation(p.id)).answers.residence).toBe(
-            'GYEONGGI',
+            'EXCEPTION',
         );
+    });
+    it('서로 다른 답변은 자동 진행을 멈추고 저장 후에도 필요 서류와 재확인 경로를 유지한다', async () => {
+        const message =
+            '앞에서 선택한 신청 유형에는 이 서류가 필요해요. 두 답변을 다시 확인해 주세요.';
+        notices[0].questions[1].answerDependencies = [
+            {
+                questionId: 'residence',
+                answerValues: ['YES'],
+                conflictingValues: ['NO'],
+                requiredDocumentIds: ['1'],
+                message,
+            },
+        ];
+        await api.login('demo@example.invalid', 'demo');
+        const p = await api.start('1', 1);
+        mount('/preparations/' + p.id + '/conditions/edit');
+        await userEvent.click(
+            await screen.findByRole('radio', { name: '확인했어요' }),
+        );
+        await screen.findByRole('group', {
+            name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+        });
+        await userEvent.click(
+            screen.getByRole('radio', { name: '해당하지 않아요' }),
+        );
+        expect(screen.getByText(message)).toBeVisible();
+        expect((await api.preparation(p.id)).answers.house).toBeUndefined();
+        await userEvent.click(screen.getByRole('button', { name: '다음' }));
+        await screen.findByRole('heading', { name: '내 조건 확인 결과' });
+        const conflicting = await api.preparation(p.id);
+        expect(conflicting.answers.house).toBe('NO');
+        expect(
+            conflicting.documents.find((document) => document.id === '1')
+                ?.necessity,
+        ).toBe('CONDITIONAL');
+        expect(conflicting.warnings).toContain(message);
+        expect(screen.getByText(message)).toBeVisible();
+        await userEvent.click(
+            screen.getByRole('link', { name: '답변 이어서 작성' }),
+        );
+        await userEvent.click(
+            await screen.findByRole('radio', { name: '확인했어요' }),
+        );
+        await screen.findByRole('heading', { name: '내 조건 확인 결과' });
+        expect(screen.queryByText(message)).toBeNull();
+        const fixed = await api.preparation(p.id);
+        expect(fixed.answers.house).toBe('YES');
+        expect(
+            fixed.documents.find((document) => document.id === '1')?.necessity,
+        ).toBe('CONDITIONAL');
+        expect(fixed.warnings).not.toContain(message);
     });
     it('자동 저장 실패 시 답변을 유지하고 다음 버튼으로 재시도한다', async () => {
         await api.login('demo@example.invalid', 'demo');
@@ -637,16 +1644,22 @@ describe('사용자 준비 흐름', () => {
             expect(await screen.findByRole('alert')).toHaveTextContent(
                 '저장 실패 테스트',
             );
-            expect(screen.getByRole('group')).toHaveAccessibleName(
-                p.questions[0].title,
-            );
+            expect(
+                screen.getByRole('group', {
+                    name: '공고 기준일의 거주 조건을 확인했나요?',
+                }),
+            ).toHaveAccessibleName('공고 기준일의 거주 조건을 확인했나요?');
             expect(
                 screen.getByRole('radio', { name: '잘 모르겠어요' }),
             ).toBeChecked();
             await userEvent.click(screen.getByRole('button', { name: '다음' }));
             await waitFor(() =>
-                expect(screen.getByRole('group')).toHaveAccessibleName(
-                    p.questions[1].title,
+                expect(
+                    screen.getByRole('group', {
+                        name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+                    }),
+                ).toHaveAccessibleName(
+                    '본인에게 적용되는 무주택 기준을 확인했나요?',
                 ),
             );
             expect(write).toHaveBeenCalledTimes(2);
@@ -654,15 +1667,21 @@ describe('사용자 준비 흐름', () => {
                 (await api.preparation(p.id)).answers[p.questions[0].id],
             ).toBe('UNKNOWN');
             await userEvent.click(screen.getByRole('button', { name: '이전' }));
-            expect(screen.getByRole('group')).toHaveAccessibleName(
-                p.questions[0].title,
-            );
+            expect(
+                screen.getByRole('group', {
+                    name: '공고 기준일의 거주 조건을 확인했나요?',
+                }),
+            ).toHaveAccessibleName('공고 기준일의 거주 조건을 확인했나요?');
             await userEvent.click(
                 screen.getByRole('radio', { name: '잘 모르겠어요' }),
             );
             await waitFor(() =>
-                expect(screen.getByRole('group')).toHaveAccessibleName(
-                    p.questions[1].title,
+                expect(
+                    screen.getByRole('group', {
+                        name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+                    }),
+                ).toHaveAccessibleName(
+                    '본인에게 적용되는 무주택 기준을 확인했나요?',
                 ),
             );
             expect(write).toHaveBeenCalledTimes(3);
@@ -689,9 +1708,11 @@ describe('사용자 준비 흐름', () => {
         const p = await api.start('1', 1);
         mount('/preparations/' + p.id + '/documents');
         await screen.findByRole('button', { name: /거주 확인 서류/ });
-        expect(
-            screen.queryByRole('button', { name: /조건별 확인 서류/ }),
-        ).not.toBeInTheDocument();
+        const disclosure = screen
+            .getByText('조건별 확인 서류')
+            .closest('summary')!;
+        expect(disclosure.closest('details')).not.toHaveAttribute('open');
+        await userEvent.click(disclosure);
         expect(
             screen.getByText(/해당 여부 추가 확인 · .*무주택 기준/),
         ).toBeVisible();
@@ -707,7 +1728,9 @@ describe('사용자 준비 흐름', () => {
         const p = await api.start('1', 1);
         await api.answers(p.id, p.revision, { residence: 'YES', house: 'YES' });
         mount('/preparations/' + p.id + '/documents');
-        await screen.findByRole('button', { name: /거주 확인 서류/ });
+        await userEvent.click(
+            await screen.findByRole('button', { name: /거주 확인 서류/ }),
+        );
         await userEvent.click(screen.getAllByText('상태·메모 수정')[0]);
         await userEvent.type(screen.getByRole('textbox'), '첫 번째 저장 메모');
         await userEvent.click(
@@ -892,7 +1915,7 @@ describe('사용자 준비 흐름', () => {
                 screen.getByRole('heading', { name: records[0].title }),
             ).toBeVisible();
             expect(
-                await screen.findByRole('link', { name: /안내 v1/ }),
+                await screen.findByRole('link', { name: /가상 운영기관/ }),
             ).toHaveAttribute('href', '/notices/' + records[0].noticeId);
             expect(
                 screen.getByRole('link', { name: /질문 응답/ }),
@@ -970,6 +1993,11 @@ describe('사용자 준비 흐름', () => {
             .mockReturnValue(true);
         try {
             mount('/preparations/' + first.id + '/documents');
+            await userEvent.click(
+                await screen.findByRole('button', {
+                    name: first.documents[0].title,
+                }),
+            );
             await userEvent.click(await screen.findByText('상태·메모 수정'));
             await userEvent.type(screen.getByRole('textbox'), '작성 중');
             await userEvent.click(
@@ -1218,7 +2246,11 @@ describe('사용자 준비 흐름', () => {
             })
             .catch(() => null);
         await waitFor(() =>
-            expect(screen.getByRole('group')).toHaveAccessibleName(
+            expect(
+                screen.getByRole('group', {
+                    name: '본인에게 적용되는 무주택 기준을 확인했나요?',
+                }),
+            ).toHaveAccessibleName(
                 '본인에게 적용되는 무주택 기준을 확인했나요?',
             ),
         );
@@ -1232,7 +2264,9 @@ describe('사용자 준비 흐름', () => {
         await userEvent.click(
             screen.getByRole('link', { name: '내 준비 목록 보기' }),
         );
-        await screen.findByRole('button', { name: /거주 확인 서류/ });
+        await userEvent.click(
+            await screen.findByRole('button', { name: /거주 확인 서류/ }),
+        );
         await userEvent.click(screen.getAllByText('상태·메모 수정')[0]);
         await userEvent.selectOptions(
             screen.getByRole('combobox', { name: '준비 상태' }),
@@ -1359,18 +2393,28 @@ describe('사용자 준비 흐름', () => {
         const toggle = await screen.findByRole('button', {
             name: new RegExp(title),
         });
+        expect(toggle).toHaveAttribute('aria-expanded', 'false');
+        expect(toggle).toHaveAccessibleName(title);
+        await userEvent.click(screen.getByText(title, { selector: 'strong' }));
         expect(toggle).toHaveAttribute('aria-expanded', 'true');
         await userEvent.click(screen.getByText(title, { selector: 'strong' }));
         expect(toggle).toHaveAttribute('aria-expanded', 'false');
-        await userEvent.click(screen.getByText(title, { selector: 'strong' }));
-        expect(toggle).toHaveAttribute('aria-expanded', 'true');
     });
-    it('서류 완료를 먼저 표시하고 접힌 메뉴에서 상태를 다시 변경할 수 있다', async () => {
+    it('준비 완료와 변경사항 저장이 성공하면 서류 카드와 편집 영역이 함께 접힌다', async () => {
         await api.login('demo@example.invalid', 'demo');
-        const p = await api.start('1', 1);
+        const started = await api.start('1', 1);
+        const p = await api.answers(started.id, started.revision, {
+            house: 'YES',
+        });
         mount('/preparations/' + p.id + '/documents');
-        const ready = await screen.findByRole('button', { name: '준비 완료' });
-        const options = screen.getByText('상태·메모 수정').closest('details')!;
+        const cardToggle = await screen.findByRole('button', {
+            name: p.documents[0].title,
+        });
+        await userEvent.click(cardToggle);
+        const ready = screen.getByRole('button', { name: '준비 완료' });
+        const options = within(cardToggle.parentElement!)
+            .getByText('상태·메모 수정')
+            .closest('details')!;
         expect(options).not.toHaveAttribute('open');
         expect(
             ready.compareDocumentPosition(options) &
@@ -1380,26 +2424,137 @@ describe('사용자 준비 흐름', () => {
         expect(
             await screen.findByText('이 서류의 준비 기록을 저장했어요.'),
         ).toBeInTheDocument();
+        expect(cardToggle).toHaveAttribute('aria-expanded', 'false');
+        expect(cardToggle).toHaveAccessibleName(p.documents[0].title);
+        expect(cardToggle).toHaveAccessibleDescription('준비 완료');
+        const nextDocument = document.querySelector('[data-active] > button');
+        expect(nextDocument).not.toBe(cardToggle);
+        expect(nextDocument).toHaveAttribute('aria-expanded', 'true');
         expect(
-            screen.getByRole('button', { name: '준비 완료' }),
-        ).toBeDisabled();
+            document
+                .querySelectorAll('[data-active] > button')
+                .item(
+                    document.querySelectorAll('[data-active] > button').length -
+                        1,
+                ),
+        ).toBe(cardToggle);
+        await userEvent.click(cardToggle);
+        expect(
+            screen.getByRole('button', { name: '준비 완료 취소' }),
+        ).toBeEnabled();
         expect((await api.preparation(p.id)).documents[0].state).toBe('READY');
         expect(options).not.toHaveAttribute('open');
-        await userEvent.click(screen.getByText('상태·메모 수정'));
+        await userEvent.click(
+            within(cardToggle.parentElement!).getByText('상태·메모 수정'),
+        );
         await userEvent.selectOptions(
             screen.getByRole('combobox', { name: '준비 상태' }),
-            'IN_PROGRESS',
+            'NEEDED',
         );
+        await userEvent.type(within(options).getByRole('textbox'), '발급 예정');
+        vi.spyOn(api, 'document').mockRejectedValueOnce(new Error('저장 실패'));
+        await userEvent.click(
+            within(options).getByRole('button', { name: '변경사항 저장' }),
+        );
+        expect(await screen.findByRole('alert')).toHaveTextContent('저장 실패');
+        expect(cardToggle).toHaveAttribute('aria-expanded', 'true');
+        expect(options.open).toBe(true);
+        expect(within(options).getByRole('textbox')).toHaveValue('발급 예정');
+        expect(within(options).getByRole('combobox')).toHaveValue('NEEDED');
         await userEvent.click(
             screen.getByRole('button', { name: '변경사항 저장' }),
         );
+        await waitFor(() => expect(options.open).toBe(false));
+        expect(cardToggle).toHaveAttribute('aria-expanded', 'false');
+        expect(cardToggle).toHaveAccessibleName(p.documents[0].title);
+        expect((await api.preparation(p.id)).documents[0].note).toBe(
+            '발급 예정',
+        );
         await waitFor(async () =>
             expect((await api.preparation(p.id)).documents[0].state).toBe(
-                'IN_PROGRESS',
+                'NEEDED',
             ),
         );
+        await userEvent.click(cardToggle);
         expect(screen.getByRole('button', { name: '준비 완료' })).toBeEnabled();
+        await userEvent.click(within(options).getByText('상태·메모 수정'));
+        await userEvent.type(
+            within(options).getByRole('textbox'),
+            ' · 발급 완료',
+        );
+        vi.mocked(api.document).mockRejectedValueOnce(new Error('저장 실패'));
+        await userEvent.click(ready);
+        expect(await screen.findByRole('alert')).toHaveTextContent('저장 실패');
+        expect(cardToggle).toHaveAttribute('aria-expanded', 'true');
+        expect(options.open).toBe(true);
+        expect(within(options).getByRole('textbox')).toHaveValue(
+            '발급 예정 · 발급 완료',
+        );
+        await userEvent.click(ready);
+        await waitFor(() => expect(options.open).toBe(false));
+        expect(cardToggle).toHaveAttribute('aria-expanded', 'false');
+        expect((await api.preparation(p.id)).documents[0]).toMatchObject({
+            state: 'READY',
+            note: '발급 예정 · 발급 완료',
+        });
+        await userEvent.click(cardToggle);
+        const undo = screen.getByRole('button', { name: '준비 완료 취소' });
+        vi.mocked(api.document).mockRejectedValueOnce(
+            new Error('취소 저장 실패'),
+        );
+        await userEvent.click(undo);
+        expect(await screen.findByRole('alert')).toHaveTextContent(
+            '취소 저장 실패',
+        );
+        expect(cardToggle).toHaveAttribute('aria-expanded', 'true');
+        expect(cardToggle).toHaveTextContent('준비 완료');
+        expect(options.open).toBe(false);
+        await userEvent.click(undo);
+        await waitFor(() =>
+            expect(cardToggle).toHaveAttribute('aria-expanded', 'false'),
+        );
+        expect(cardToggle).toHaveAccessibleName(p.documents[0].title);
+        expect((await api.preparation(p.id)).documents[0]).toMatchObject({
+            state: 'NEEDED',
+            note: '발급 예정 · 발급 완료',
+        });
+        expect(cardToggle).toHaveAccessibleDescription('발급 필요');
+        expect(document.querySelector('[data-active] > button')).toBe(
+            cardToggle,
+        );
+        await userEvent.click(cardToggle);
+        await userEvent.click(
+            screen.getByRole('button', { name: '준비 완료' }),
+        );
+        await waitFor(() =>
+            expect(cardToggle).toHaveAttribute('aria-expanded', 'false'),
+        );
+        await userEvent.click(
+            screen.getByRole('button', { name: '준비 완료' }),
+        );
+        await waitFor(() =>
+            expect(document.querySelector('[data-active="true"]')).toBeNull(),
+        );
+        await waitFor(() =>
+            expect(window.scrollTo).toHaveBeenLastCalledWith({
+                top: 0,
+                behavior: 'instant',
+            }),
+        );
     });
+    it('공고 상세에서 해당 공고에 저장한 신청 완료 상태를 표시한다', async () => {
+        await api.login('demo@example.invalid', 'demo');
+        const preparation = await api.start('1', 1);
+        await api.schedule(
+            preparation.id,
+            preparation.schedules[0].id,
+            preparation.revision,
+            true,
+        );
+        mount('/notices/1');
+        expect(await screen.findByText('신청 완료로 기록함')).toBeVisible();
+    });
+
     it('일정 탭에서 신청 기록 카드를 표시하지 않는다', async () => {
         await api.login('demo@example.invalid', 'demo');
         const p = await api.start('1', 1);
@@ -1410,6 +2565,50 @@ describe('사용자 준비 흐름', () => {
         ).not.toBeInTheDocument();
         expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
     });
+    it.each([false, true])(
+        '일정은 펼쳐도 완료 버튼과 상태 배지가 없고 기존 기록을 유지한다 (%s)',
+        async (recorded) => {
+            await api.login('demo@example.invalid', 'demo');
+            let p = await api.start('1', 1);
+            if (recorded)
+                p = await api.schedule(
+                    p.id,
+                    p.schedules[0].id,
+                    p.revision,
+                    true,
+                );
+            const before = structuredClone(p.schedules);
+            mount('/preparations/' + p.id + '/schedule');
+            await userEvent.click(
+                await screen.findByLabelText('일정 근거와 안내 펼치기'),
+            );
+            for (const event of p.schedules) {
+                const summary = screen.getByText(event.title, {
+                    selector: 'summary h3',
+                });
+                await userEvent.click(summary);
+                const card = summary.closest('details')!;
+                expect(card.open).toBe(true);
+                expect(
+                    within(card).queryByRole('button'),
+                ).not.toBeInTheDocument();
+                expect(
+                    within(card).queryByText(/완료.*기록/),
+                ).not.toBeInTheDocument();
+            }
+            expect((await api.preparation(p.id)).schedules).toEqual(before);
+            await userEvent.click(
+                within(
+                    screen.getByRole('navigation', { name: '개인 준비' }),
+                ).getByRole('link', { name: '개요' }),
+            );
+            expect(
+                await screen.findByRole('button', {
+                    name: recorded ? '신청 완료' : '신청 여부 기록',
+                }),
+            ).toBeVisible();
+        },
+    );
     it('마이에서 로그아웃한 뒤 내 준비 접근은 로그인을 요구한다', async () => {
         await api.login('demo@example.invalid', 'demo');
         mount('/my');

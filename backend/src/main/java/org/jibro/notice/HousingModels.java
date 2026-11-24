@@ -25,11 +25,33 @@ public final class HousingModels {
                                    String maxDate, Integer maxSelections, String unit) {
     }
 
+    public record AnswerDependency(String questionId, List<String> answerValues, List<String> conflictingValues,
+                                   List<String> requiredDocumentIds, String message) {
+    }
+
+    public record QuestionApplicability(String questionId, List<String> answerValues) {
+    }
+
     public record Question(String id, String title, String reason, Evidence evidence, List<AnswerOption> options,
-                           String inputKind, InputConstraints constraints, Boolean reviewRequired) {
+                           String inputKind, InputConstraints constraints, Boolean reviewRequired,
+                           @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
+                           List<AnswerDependency> answerDependencies,
+                           @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+                           QuestionApplicability applicability) {
         public Question {
             inputKind = inputKind == null ? "SINGLE" : inputKind;
             reviewRequired = Boolean.TRUE.equals(reviewRequired);
+            answerDependencies = answerDependencies == null ? List.of() : Collections.unmodifiableList(new ArrayList<>(answerDependencies));
+        }
+
+        public Question(String id, String title, String reason, Evidence evidence, List<AnswerOption> options,
+                        String inputKind, InputConstraints constraints, Boolean reviewRequired, List<AnswerDependency> answerDependencies) {
+            this(id, title, reason, evidence, options, inputKind, constraints, reviewRequired, answerDependencies, null);
+        }
+
+        public Question(String id, String title, String reason, Evidence evidence, List<AnswerOption> options,
+                        String inputKind, InputConstraints constraints, Boolean reviewRequired) {
+            this(id, title, reason, evidence, options, inputKind, constraints, reviewRequired, List.of());
         }
 
         public Question(String id, String title, String reason, Evidence evidence, List<AnswerOption> options,
@@ -49,11 +71,15 @@ public final class HousingModels {
             if (inputKind.equals("NUMBER") || inputKind.equals("DATE"))
                 return List.of(new AnswerOption("UNKNOWN", "잘 모르겠어요"));
             return options == null ? List.of(new AnswerOption("YES", "확인했어요"),
-                new AnswerOption("NO", "해당하지 않아요"), new AnswerOption("UNKNOWN", "잘 모르겠어요")) : options;
+                    new AnswerOption("NO", "해당하지 않아요"), new AnswerOption("UNKNOWN", "잘 모르겠어요")) : options;
         }
 
         public boolean needsFollowUp(Object answer) {
             return QuestionAnswers.needsFollowUp(this, answer);
+        }
+
+        public boolean needsFollowUp(Object answer, Map<String, ?> answers, List<Question> questions) {
+            return QuestionAnswers.needsFollowUp(this, answer, answers, questions);
         }
     }
 
@@ -82,20 +108,26 @@ public final class HousingModels {
                               List<String> documentIds, List<Evidence> evidence) {
     }
 
-    /** An observed official closure, independent of an unknown historical closing date. */
+    /**
+     * An observed official closure, independent of an unknown historical closing date.
+     */
     public record OfficialApplicationClosure(String reason, Evidence evidence) {
     }
 
     public record Content(String summary, Evidence evidence, List<Evidence> attachments, List<Question> questions,
-                          List<DocumentTemplate> documents, List<ScheduleTemplate> schedules, List<ReviewIssue> reviewIssues,
+                          List<DocumentTemplate> documents, List<ScheduleTemplate> schedules,
+                          List<ReviewIssue> reviewIssues,
                           OfficialApplicationClosure applicationClosure) {
+        public static final int MAX_QUESTIONS = 100;
+
         public Content {
             reviewIssues = reviewIssues == null ? List.of() : Collections.unmodifiableList(new ArrayList<>(reviewIssues));
-            if (documents != null) reviewIssues = GuidanceIssues.withDependentDocuments(reviewIssues, documents);
+            if (documents != null)
+                reviewIssues = GuidanceIssues.withDependentDocuments(reviewIssues, documents, questions);
             if (questions != null && !reviewIssues.isEmpty()) {
                 var affected = GuidanceIssues.questionIds(reviewIssues);
                 questions = questions.stream().map(q -> q == null ? null : new Question(q.id(), q.title(), q.reason(),
-                    q.evidence(), q.options(), q.inputKind(), q.constraints(), q.reviewRequired() || affected.contains(q.id()))).toList();
+                        q.evidence(), q.options(), q.inputKind(), q.constraints(), q.reviewRequired() || affected.contains(q.id()), q.answerDependencies(), q.applicability())).toList();
             }
         }
 
@@ -118,7 +150,11 @@ public final class HousingModels {
     }
 
     public record ApplicationTiming(java.time.Instant startsAt, java.time.Instant endsAt,
-                                    java.time.Instant nextChangeAt) {
+                                    java.time.Instant nextChangeAt, boolean untilFilled) {
+        public static final String UNTIL_FILLED_SESSION = "접수 회차 · 모집 완료 시 마감";
+        public static final String VISIT_NOTE = "접수 회차 · 방문 접수 안내";
+        public static final String VISIT_CONTACT = "접수 회차 · 방문 접수 사전 연락 안내";
+        public static final String UNDATED_HOURS_SESSION = "접수 회차 · 접수일 확인 필요";
     }
 
     public record Notice(String id, String title, String agency, String region, String type, String status,
@@ -144,17 +180,18 @@ public final class HousingModels {
                       java.time.Instant basicCheckedAt, java.time.Instant guideCheckedAt, java.time.Instant collectedAt,
                       NoticeLifecycle lifecycle, ApplicationTiming applicationTiming) {
             this(id, title, agency, region, type, status, startDate, endDate, publishedDate, attachments, summary,
-                version, guideVersion, guideState, canStart, evidence, questions, documents, schedules,
-                basicCheckedAt, guideCheckedAt, collectedAt, lifecycle, applicationTiming, List.of(), List.of(), null, null);
+                    version, guideVersion, guideState, canStart, evidence, questions, documents, schedules,
+                    basicCheckedAt, guideCheckedAt, collectedAt, lifecycle, applicationTiming, List.of(), List.of(), null, null);
         }
+
         public Notice(String id, String title, String agency, String region, String type, String status,
                       LocalDate startDate, LocalDate endDate, LocalDate publishedDate, List<Evidence> attachments,
                       String summary, int version, Integer guideVersion, String guideState, boolean canStart,
                       Evidence evidence, List<Question> questions, List<String> documents, List<ScheduleTemplate> schedules,
                       java.time.Instant basicCheckedAt, java.time.Instant guideCheckedAt, java.time.Instant collectedAt, NoticeLifecycle lifecycle) {
             this(id, title, agency, region, type, status, startDate, endDate, publishedDate, attachments, summary,
-                version, guideVersion, guideState, canStart, evidence, questions, documents, schedules,
-                basicCheckedAt, guideCheckedAt, collectedAt, lifecycle, null);
+                    version, guideVersion, guideState, canStart, evidence, questions, documents, schedules,
+                    basicCheckedAt, guideCheckedAt, collectedAt, lifecycle, null);
         }
     }
 
@@ -164,7 +201,25 @@ public final class HousingModels {
     public record Review(String id, Notice notice, String basic, String guide, String reason, int revision) {
     }
 
-    public record Guide(String id, String category, String title, String body, Evidence evidence) {
+    public record Guide(String id, String category, String title, String body, Evidence evidence,
+                        String scope, List<Evidence> additionalEvidence,
+                        @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+                        GuideFreshness freshness) {
+        public Guide {
+            additionalEvidence = additionalEvidence == null ? List.of() : List.copyOf(additionalEvidence);
+        }
+
+        public Guide(String id, String category, String title, String body, Evidence evidence) {
+            this(id, category, title, body, evidence, null, List.of(), null);
+        }
+
+        public Guide(String id, String category, String title, String body, Evidence evidence,
+                     String scope, List<Evidence> additionalEvidence) {
+            this(id, category, title, body, evidence, scope, additionalEvidence, null);
+        }
+    }
+
+    public record GuideFreshness(String status, String checkedAt, String lastAttemptAt, String message) {
     }
 
     public record Collection(String id, String status, String startedAt, String message) {
@@ -178,6 +233,15 @@ public final class HousingModels {
         public String issueLabel;
         public boolean reviewRequired;
         public DocumentState state = DocumentState.UNCHECKED;
+        @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+        public DocumentState stateBeforeReady;
+
+        public void changeState(DocumentState next) {
+            if (next == state) return;
+            stateBeforeReady = next == DocumentState.READY ? state : null;
+            state = next;
+        }
+
         public Evidence evidence;
         // Internal rule is persisted separately in Preparation.rules, never supplied by the client.
     }
@@ -189,7 +253,28 @@ public final class HousingModels {
         public Evidence evidence;
     }
 
-    public record NextAction(String label, String reason, String path) {
+    public record NextAction(String label, String reason, String path,
+                             @com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT)
+                             Boolean completed) {
+        public NextAction {
+            completed = Boolean.TRUE.equals(completed);
+        }
+
+        public NextAction(String label, String reason, String path) {
+            this(label, reason, path, false);
+        }
+    }
+
+    public enum FollowUpResult {WAITING, SELECTED, WAITLIST, NOT_SELECTED}
+
+    public record FollowUp(FollowUpResult result, Integer waitlistNumber, Boolean documentsSubmitted,
+                           Boolean contractCompleted, Boolean movedIn) {
+        public FollowUp {
+            result = result == null ? FollowUpResult.WAITING : result;
+            documentsSubmitted = Boolean.TRUE.equals(documentsSubmitted);
+            contractCompleted = Boolean.TRUE.equals(contractCompleted);
+            movedIn = Boolean.TRUE.equals(movedIn);
+        }
     }
 
     public static class Preparation {
@@ -204,6 +289,7 @@ public final class HousingModels {
         public List<String> warnings = new ArrayList<>();
         public List<ReviewIssue> reviewIssues = new ArrayList<>();
         public NextAction nextAction;
+        public FollowUp followUp;
     }
 
     public record Snapshot(

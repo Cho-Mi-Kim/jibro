@@ -3,15 +3,24 @@ package org.jibro.preparation;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 import org.jibro.notice.HousingModels.Snapshot;
+import org.jibro.notice.HousingModels.Preparation;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import tools.jackson.databind.ObjectMapper;
 
-/** Snapshot storage and row locks; preparation decisions stay in the service transaction. */
+/**
+ * Snapshot storage and row locks; preparation decisions stay in the service transaction.
+ */
 @Repository
 public class PreparationRepository {
-    public record Existing(UUID id, boolean archived) {}
+    public record Existing(UUID id, boolean archived) {
+    }
+
+    public record ActiveEntry(String id, String noticeId, String title, int version, int revision,
+                              Preparation progressInput) {
+    }
 
     private final JdbcTemplate db;
     private final ObjectMapper json;
@@ -21,16 +30,38 @@ public class PreparationRepository {
         this.json = json;
     }
 
-    public List<PreparationListItem> findActive(UUID owner) {
+    public List<ActiveEntry> findActive(UUID owner) {
         return db.query("""
                 SELECT p.id, p.notice_id, p.snapshot #>> '{preparation,title}' AS title,
-                    p.notice_version, p.revision, (p.snapshot #>> '{preparation,progress}')::int AS progress
+                    p.notice_version, p.revision,
+                    jsonb_build_object(
+                        'guideState', CASE WHEN n.version=p.notice_version AND n.basic_review='PASS'
+                            AND NOT n.service_excluded AND NOT n.change_review AND n.guide_review='PASS'
+                            THEN 'AVAILABLE' ELSE 'CHANGE_REVIEW' END,
+                        'questions', (SELECT coalesce(jsonb_agg(jsonb_build_object(
+                            'id', q->'id', 'title', q->'title', 'inputKind', q->'inputKind', 'options', q->'options',
+                            'constraints', q->'constraints', 'reviewRequired', q->'reviewRequired',
+                            'answerDependencies', q->'answerDependencies', 'applicability', q->'applicability')), '[]'::jsonb)
+                            FROM jsonb_array_elements(p.snapshot #> '{preparation,questions}') q),
+                        'answers', p.snapshot #> '{preparation,answers}',
+                        'documentConditions', coalesce(nullif(p.snapshot->'rules', 'null'::jsonb), '{}'::jsonb),
+                        'documents', (SELECT coalesce(jsonb_agg(jsonb_build_object(
+                            'id', d->'id', 'title', d->'title', 'necessity', d->'necessity', 'state', d->'state',
+                            'reviewRequired', d->'reviewRequired')), '[]'::jsonb)
+                            FROM jsonb_array_elements(p.snapshot #> '{preparation,documents}') d),
+                        'schedules', (SELECT coalesce(jsonb_agg(jsonb_build_object(
+                              'id', s->'id', 'title', s->'title', 'date', s->'date', 'recorded', s->'recorded')), '[]'::jsonb)
+                            FROM jsonb_array_elements(p.snapshot #> '{preparation,schedules}') s),
+                        'reviewIssues', (SELECT coalesce(jsonb_agg(jsonb_build_object('id', i->'id', 'area', i->'area',
+                            'questionIds', i->'questionIds', 'documentIds', i->'documentIds')), '[]'::jsonb)
+                            FROM jsonb_array_elements(nullif(p.snapshot #> '{preparation,reviewIssues}', 'null'::jsonb)) i)
+                    )::text AS progress_input
                 FROM preparation p JOIN notice n ON n.id=p.notice_id
                 WHERE p.user_id=? AND p.archived_at IS NULL
                     AND (n.source_key IS NULL OR n.source_key NOT LIKE 'local-sample-%')
                 ORDER BY p.updated_at DESC,p.id
-                """, (rs, row) -> new PreparationListItem(rs.getString("id"), rs.getString("notice_id"), rs.getString("title"),
-                    rs.getInt("notice_version"), rs.getInt("revision"), rs.getInt("progress")), owner);
+                """, (rs, row) -> new ActiveEntry(rs.getString("id"), rs.getString("notice_id"), rs.getString("title"),
+                rs.getInt("notice_version"), rs.getInt("revision"), json.readValue(rs.getString("progress_input"), Preparation.class)), owner);
     }
 
     public boolean lockOwner(UUID owner) {
@@ -39,7 +70,7 @@ public class PreparationRepository {
 
     public Optional<Existing> findByNotice(UUID owner, UUID notice) {
         return db.query("SELECT id,archived_at FROM preparation WHERE user_id=? AND notice_id=?",
-                (rs, row) -> new Existing(rs.getObject("id", UUID.class), rs.getObject("archived_at") != null), owner, notice)
+                        (rs, row) -> new Existing(rs.getObject("id", UUID.class), rs.getObject("archived_at") != null), owner, notice)
                 .stream().findFirst();
     }
 

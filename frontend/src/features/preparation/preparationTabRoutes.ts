@@ -5,6 +5,7 @@ export const preparationTabs = [
     ['conditions', '조건'],
     ['documents', '서류'],
     ['schedule', '일정'],
+    ['follow-up', '신청 후'],
 ] as const;
 type Section = (typeof preparationTabs)[number][0];
 

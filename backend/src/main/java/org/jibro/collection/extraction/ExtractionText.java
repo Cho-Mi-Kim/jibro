@@ -4,17 +4,22 @@ import java.util.List;
 
 import org.jibro.collection.extraction.ExtractionModels.Part;
 
-/** Rejects text JSONB cannot represent; no source character is silently removed or replaced. */
+/**
+ * Rejects text JSONB cannot represent; no source character is silently removed or replaced.
+ */
 final class ExtractionText {
     static final String FAILURE_MESSAGE = "원문 텍스트에 지원하지 않는 문자가 있어 발췌하지 못했습니다. 원문을 직접 확인해 주세요.";
     private static final int MAX_HTML = 2 * 1024 * 1024;
     private static final int MAX_PARTS = 1000;
     private static final int MAX_CHARS = 1_000_000;
 
-    private ExtractionText() {}
+    private ExtractionText() {
+    }
 
     static final class Invalid extends IllegalArgumentException {
-        Invalid(String reason) { super(reason); }
+        Invalid(String reason) {
+            super(reason);
+        }
     }
 
     static void html(String text) {

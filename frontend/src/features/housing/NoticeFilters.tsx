@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Icon, type IconName } from '../../shared/ui/Icon';
 import { Button } from '../../shared/ui/ui';
-import { statusLabels } from './noticeLabels';
+import { applicationStatuses } from './noticeLabels';
 import styles from './NoticeFilters.module.css';
 
 type FilterKey = 'region' | 'type' | 'status';
@@ -36,7 +36,8 @@ function choices(
                 }
             />
             {group.key === 'status'
-                ? statusLabels[value as keyof typeof statusLabels]
+                ? applicationStatuses[value as keyof typeof applicationStatuses]
+                      ?.label
                 : value}
         </label>
     ));
@@ -118,7 +119,7 @@ export function NoticeFilters({ regions, types, params, onApply }: Props) {
             key: 'status',
             label: '상태',
             icon: 'clock',
-            options: Object.keys(statusLabels),
+            options: Object.keys(applicationStatuses),
         },
     ];
     const group = groups.find((item) => item.key === open);
@@ -168,9 +169,9 @@ export function NoticeFilters({ regions, types, params, onApply }: Props) {
                             <button
                                 key={item.key + ':' + value}
                                 aria-label={
-                                    (statusLabels[
-                                        value as keyof typeof statusLabels
-                                    ] ?? value) + ' 필터 해제'
+                                    (applicationStatuses[
+                                        value as keyof typeof applicationStatuses
+                                    ]?.label ?? value) + ' 필터 해제'
                                 }
                                 onClick={() =>
                                     apply(
@@ -181,9 +182,9 @@ export function NoticeFilters({ regions, types, params, onApply }: Props) {
                                     )
                                 }
                             >
-                                {statusLabels[
-                                    value as keyof typeof statusLabels
-                                ] ?? value}{' '}
+                                {applicationStatuses[
+                                    value as keyof typeof applicationStatuses
+                                ]?.label ?? value}{' '}
                                 ×
                             </button>
                         )),

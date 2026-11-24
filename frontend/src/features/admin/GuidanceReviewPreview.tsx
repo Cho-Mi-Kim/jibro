@@ -1,3 +1,4 @@
+import { SourceCards } from '../housing/NoticeSourceInformation';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '../../shared/ui/ui';
 import { safeUrl } from '../../shared/ui/helpers';
@@ -22,6 +23,8 @@ function EvidenceLink({ evidence }: { evidence: Evidence | null }) {
 }
 
 const issueLabels: Record<string, string> = {
+    FOLLOWUP_REVIEW_PENDING:
+        '공식 후속 자료와 항목 대조가 아직 완료되지 않았습니다.',
     DOCUMENT_VARIANT_CONTEXT_UNVERIFIED:
         '같은 공고의 문서 형식별 내용이 일치하는지 확인해야 합니다.',
     AUTHORITATIVE_SOURCE_INCOMPLETE: '공식 문서의 내용을 모두 읽지 못했습니다.',
@@ -81,13 +84,24 @@ export function GuidanceReviewPreview({
                 <div className={styles.result}>
                     <p role="status" className={styles.status}>
                         <strong>
-                            {preview.ready
-                                ? '자동 검수 조건 충족'
-                                : '공개 보류'}
+                            {preview.state === 'PENDING'
+                                ? '후속 검수 대기 중'
+                                : preview.state === 'ITEMS'
+                                  ? '확인된 항목만 공개 중'
+                                  : preview.state === 'INTAKE'
+                                    ? '확인된 접수 일정 공개 중'
+                                    : preview.state === 'PARTIAL'
+                                      ? '일부 확인 필요 · 나머지 안내 공개 중'
+                                      : preview.state === 'PASS'
+                                        ? '준비 안내 공개 중'
+                                        : preview.ready
+                                          ? '자동 검수 조건 충족'
+                                          : '공개 보류'}
                         </strong>
                         <span>
-                            검토용 초안입니다. 이 화면에서 공개 원고나 개인 준비
-                            기록을 변경하지 않습니다.
+                            {preview.profile === 'completed-official-review'
+                                ? '마지막으로 완료된 검수의 실제 공개 결과입니다.'
+                                : '검토용 초안입니다. 후속 검수가 남아 있으면 공개 결과와 다를 수 있습니다.'}
                         </span>
                     </p>
                     {preview.findings.length > 0 && (
@@ -122,6 +136,15 @@ export function GuidanceReviewPreview({
                                 ))}
                             </ul>
                         </details>
+                    )}
+                    {!!preview.confirmedItems?.length && (
+                        <section aria-label="원문 대조를 마친 항목">
+                            <h4>원문 대조를 마친 항목</h4>
+                            <SourceCards
+                                sections={preview.confirmedItems}
+                                confirmed
+                            />
+                        </section>
                     )}
                     {candidate ? (
                         <>

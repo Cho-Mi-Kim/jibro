@@ -151,11 +151,13 @@ GitHub Actions는 PR마다 양쪽 작업을 모두 실행하도록 작성했습�
 
 `JWT_SECRET`은 필수이며 로컬 초기화가 생성합니다. `AUTH_SECURE_COOKIE=false`는 로컬 HTTP 전용입니다. `FRONTEND_URL`은 OAuth 복귀 주소이며 기본 http://127.0.0.1:5173 입니다. Google·카카오·LH 키는 `.env.example`을 참고합니다. 키가 없으면 해당 외부 연결을 성공으로 표시하지 않습니다.
 
+Google·카카오 앱 발급, 정확한 리디렉션 URI와 이메일 동의 설정, 실제 로그인 검증 순서는 [소셜 로그인 연결](social-login-setup.md)을 따릅니다.
+
 `LH_SERVICE_KEY`에는 공공데이터포털의 **Decoding 인증키**를 입력합니다. Encoding 키의 `%2B`, `%2F`, `%3D` 등을 그대로 넣으면 서버가 다시 인코딩하여 HTTP 403·`SERVICE_KEY_IS_NOT_REGISTERED_ERROR`가 발생할 수 있습니다. `.env` 변경 후 백엔드를 재시작합니다. 실제 키는 로그·문서·Git에 남기지 않습니다.
 
 카카오 로그인에서 토큰 교환 이후 `invalid_user_info_response`, `providerCode=-401`, `reason=ip_restricted`가 기록되면 REST API 키의 호출 허용 IP를 확인합니다. 카카오 Developers의 앱 → 플랫폼 키에서 사용하는 키의 호출 허용 IP에 **백엔드의 외부 공인 IP**를 등록합니다. 로컬 접속 주소인 `127.0.0.1`과는 다릅니다. 네트워크·VPN·배포 서버가 달라지면 외부 IP도 달라질 수 있습니다. 접근 제한을 없애거나 키를 재발급하는 대신 필요한 서버 IP를 등록하는 것을 우선합니다. [카카오 공식 설정 안내](https://developers.kakao.com/docs/ko/app-setting/app).
 
-기존 `scripts/verify-api.mjs`는 예전 공개 샘플 API와 고정 질문·서류 ID를 가정하므로 현재 실행 절차에서 사용하지 않습니다. 현재 `/meta.sampleData`는 false이며 `includeSamples=true`로도 샘플을 볼 수 없어 첫 안전 검사에서 회원가입 전에 종료됩니다. 이 검사를 통과시키려고 보호 조건을 제거하거나 실제 공고를 샘플 대신 지정하지 않습니다. 합성 계정과 준비 기록이 실제 개발 DB에 남을 수 있습니다.
+퇴역한 공개 샘플 HTTP 검사 스크립트는 제거했습니다. 실제 개발 DB에 합성 계정·준비 기록을 만들지 않고 별도 `jibro_test`의 통합 검사를 사용합니다.
 
 인증·준비 저장·샘플 제외 회귀는 별도 `jibro_test`를 사용하는 `backend`의 `.\gradlew.bat test integrationTest`로 검증합니다. HTTP 스크립트를 다시 사용할 때는 실행 대상 DB를 구분하고 fixture 생성·정리를 갖춘 별도 환경으로 재설계해야 합니다. 이 검증과 실제 LH 수집·외부 OAuth 왕복 검증은 구분합니다.
 

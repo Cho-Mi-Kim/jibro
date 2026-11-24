@@ -1,7 +1,9 @@
 .card {
+    --agency-width: 2.625rem;
+    --column-gap: 0.625rem;
     display: grid;
-    grid-template-columns: 2.625rem minmax(0, 1fr);
-    column-gap: 0.625rem;
+    grid-template-columns: var(--agency-width) minmax(0, 1fr);
+    column-gap: var(--column-gap);
     min-width: 0;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -17,14 +19,17 @@
     overflow-wrap: anywhere;
 }
 .badges,
-.main {
+.main,
+.card > dl {
     grid-column: 2;
     min-width: 0;
 }
-.card > :is(dl, section) {
+.card > section {
     grid-column: 1 / -1;
 }
 .badges {
+    --badge-padding-y: 0.25rem;
+    --guide-size: calc(1.3125rem + 2 * var(--badge-padding-y));
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,7 +38,7 @@
     margin-bottom: 0.375rem;
 }
 .badges > span {
-    padding: 0.25rem 0.625rem;
+    padding: var(--badge-padding-y) 0.625rem;
     font-size: 0.875rem;
     min-height: 1.75rem;
     line-height: 1.5;
@@ -100,18 +105,11 @@
 }
 .metadata {
     grid-column: 1;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.25rem 0.375rem;
+    overflow-wrap: anywhere;
     margin: 0;
     color: var(--muted);
     font-size: 0.875rem;
     line-height: 1.4;
-}
-.metadata > span + span::before {
-    content: '•';
-    margin-right: 0.375rem;
 }
 .controls {
     grid-column: 2;
@@ -168,8 +166,11 @@
     .card {
         padding: calc(0.75rem - 1.5px) 0.75rem;
     }
+    .badges {
+        --badge-padding-y: 0.125rem;
+    }
     .badges > span {
-        padding: 0.125rem 0.5rem;
+        padding-inline: 0.5rem;
         min-height: 1.5rem;
     }
 }
@@ -242,7 +243,11 @@
 }
 
 .previewMotion {
+    --deadline-inset: calc(var(--agency-width) + var(--column-gap));
     grid-column: 1 / -1;
     position: relative;
     z-index: 1;
+}
+.card[data-restored] .previewMotion {
+    transition: none;
 }

@@ -21,12 +21,12 @@ def package(destination):
     shutil.copytree(frontend, destination / "frontend")
     (destination / "backend").mkdir()
     shutil.copy2(jars[0], destination / "backend/app.jar")
-    for relative in ("backend.Dockerfile", "web.Dockerfile", "compose.production.yaml", ".env.example", "runtime.env.example", "nginx/default.conf.template", "README.md"):
+    for relative in ("backend.Dockerfile", "web.Dockerfile", "compose.production.yaml", ".env.example", "runtime.env.example", "nginx/default.conf.template", "certbot-install-certificate.sh", "README.md"):
         source = ROOT / "deploy" / relative
         target = destination / "deploy" / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
-    for name in ("check_configuration.py", "database_backup.py", "smoke_web.py"):
+    for name in ("check_configuration.py", "database_backup.py", "smoke_web.py", "production_doctor.py"):
         target = destination / "scripts/ops" / name
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / "scripts/ops" / name, target)

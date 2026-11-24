@@ -27,6 +27,7 @@ public class BoundedDocumentParser {
     BoundedDocumentParser(Duration timeout, Path tempRoot, WorkerCommand worker) {
         this(timeout, tempRoot, worker, false);
     }
+
     BoundedDocumentParser(Duration timeout, Path tempRoot, WorkerCommand worker, boolean opticalFallback) {
         this.timeout = timeout;
         this.tempRoot = tempRoot.toAbsolutePath();
@@ -39,10 +40,17 @@ public class BoundedDocumentParser {
         List<String> create(Path directory, Path input, String mediaType) throws IOException;
     }
 
-    public List<Part> parse(byte[] bytes, String mediaType) throws Exception {
+    /**
+     * Native text only for small periodic source checks; no long OCR fallback is started.
+     */
+    public List<Part> parseNative(byte[] bytes, String mediaType) throws Exception {
         if (bytes.length > ParserProtocol.MAX_INPUT || !TYPES.contains(mediaType))
             throw new IOException("PARSER_INPUT_INVALID");
-        List<Part> nativeParts = parseIsolated(bytes, mediaType, timeout, worker);
+        return parseIsolated(bytes, mediaType, timeout, worker);
+    }
+
+    public List<Part> parse(byte[] bytes, String mediaType) throws Exception {
+        List<Part> nativeParts = parseNative(bytes, mediaType);
         if (!opticalFallback || !OcrDocumentParser.needsFallback(nativeParts, mediaType)) return nativeParts;
         boolean acquired = false;
         try {
@@ -51,7 +59,7 @@ public class BoundedDocumentParser {
             acquired = OCR_SLOTS.tryAcquire();
             if (!acquired) return incomplete(nativeParts, "OCR 처리 대기·일부 미판독");
             return parseIsolated(bytes, mediaType, OcrDocumentParser.DOCUMENT_TIMEOUT,
-                (directory, input, type) -> ocrWorkerCommand(directory, input, type, configuration));
+                    (directory, input, type) -> ocrWorkerCommand(directory, input, type, configuration));
         } catch (InterruptedException cancellation) {
             throw cancellation;
         } catch (Exception failure) {
@@ -68,6 +76,21 @@ public class BoundedDocumentParser {
     }
 
     private List<Part> parseIsolated(byte[] bytes, String mediaType, Duration timeout, WorkerCommand worker) throws Exception {
+        return ParserProtocol.read(runIsolated(bytes, mediaType, timeout, worker, ParserProtocol.MAX_OUTPUT));
+    }
+
+    public byte[] renderPdfPage(byte[] bytes, int page) throws Exception {
+        if (bytes.length > ParserProtocol.MAX_INPUT || page < 1 || page > 1000)
+            throw new IOException("PARSER_INPUT_INVALID");
+        byte[] output = runIsolated(bytes, "application/pdf", timeout, (directory, input, type) -> {
+            var command = new ArrayList<>(worker.create(directory, input, type));
+            command.addAll(List.of("pdf-page", Integer.toString(page)));
+            return command;
+        }, PdfPageRenderer.MAX_OUTPUT);
+        return PdfPageRenderer.image(output);
+    }
+
+    private byte[] runIsolated(byte[] bytes, String mediaType, Duration timeout, WorkerCommand worker, int maxOutput) throws Exception {
         if (!SLOTS.tryAcquire()) throw new RejectedExecutionException("PARSER_BUSY");
         Path directory = null;
         Process process = null;
@@ -87,7 +110,7 @@ public class BoundedDocumentParser {
                 thread.setDaemon(true);
                 return thread;
             });
-            Future<byte[]> output = reader.submit(() -> boundedOutput(running));
+            Future<byte[]> output = reader.submit(() -> boundedOutput(running, maxOutput));
             long deadline = System.nanoTime() + timeout.toNanos();
             try {
                 byte[] result = output.get(timeout.toMillis(), TimeUnit.MILLISECONDS);
@@ -95,7 +118,7 @@ public class BoundedDocumentParser {
                 if (remaining <= 0 || !process.waitFor(remaining, TimeUnit.NANOSECONDS))
                     throw new TimeoutException("PARSER_TIMEOUT");
                 if (process.exitValue() != 0) throw new IOException("PARSER_WORKER_FAILED");
-                return ParserProtocol.read(result);
+                return result;
             } catch (ExecutionException failed) {
                 throw new IOException("PARSER_OUTPUT_FAILED");
             }
@@ -114,8 +137,8 @@ public class BoundedDocumentParser {
     static List<String> javaCommand(Path directory) {
         String executable = System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("win") ? "java.exe" : "java";
         return new ArrayList<>(List.of(Path.of(System.getProperty("java.home"), "bin", executable).toString(),
-            "-Xms16m", "-Xmx128m", "-XX:MaxMetaspaceSize=64m", "-XX:MaxDirectMemorySize=16m", "-XX:ActiveProcessorCount=2", "-XX:+ExitOnOutOfMemoryError",
-            "-Dfile.encoding=UTF-8", "-Djava.awt.headless=true", "-Djava.io.tmpdir=" + directory, "-Duser.home=" + directory));
+                "-Xms16m", "-Xmx128m", "-XX:MaxMetaspaceSize=64m", "-XX:MaxDirectMemorySize=16m", "-XX:ActiveProcessorCount=2", "-XX:+ExitOnOutOfMemoryError",
+                "-Dfile.encoding=UTF-8", "-Djava.awt.headless=true", "-Djava.io.tmpdir=" + directory, "-Duser.home=" + directory));
     }
 
     private static List<String> workerCommand(Path directory, Path input, String mediaType) throws IOException {
@@ -140,12 +163,12 @@ public class BoundedDocumentParser {
         return command;
     }
 
-    private static byte[] boundedOutput(Process process) throws IOException {
+    private static byte[] boundedOutput(Process process, int maxOutput) throws IOException {
         try (var input = process.getInputStream(); var bytes = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[8192];
             int length;
             while ((length = input.read(buffer)) != -1) {
-                if (length > ParserProtocol.MAX_OUTPUT - bytes.size()) {
+                if (length > maxOutput - bytes.size()) {
                     process.destroyForcibly();
                     throw new IOException("PARSER_OUTPUT_LIMIT");
                 }
@@ -177,7 +200,7 @@ public class BoundedDocumentParser {
                         // Windows may briefly retain the terminated worker's current-directory
                         // handle. Retry only cleanup, with one shared budget; never extend execution.
                         if (locked instanceof AccessDeniedException || !System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("win")
-                            || System.nanoTime() >= deadline) throw locked;
+                                || System.nanoTime() >= deadline) throw locked;
                         try {
                             TimeUnit.MILLISECONDS.sleep(10);
                         } catch (InterruptedException cancellation) {

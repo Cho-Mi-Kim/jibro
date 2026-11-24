@@ -3,6 +3,7 @@ package org.jibro.notice;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.*;
+
 import jakarta.persistence.EntityManager;
 import org.jibro.auth.AuthService;
 import org.jibro.collection.LhNoticeClient;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+
 import static org.jibro.collection.extraction.ExtractionModels.*;
 import static org.jibro.notice.HousingModels.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,17 +26,41 @@ import static org.mockito.Mockito.*;
 @ActiveProfiles("test")
 @Transactional
 class AutoReviewRaceIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired AutomaticPublicationService publication;
-    @Autowired AutomaticReviewRepository repository;
-    @Autowired AutomaticReviewService review;
-    @Autowired ExtractionStore extraction;
-    @Autowired JdbcTemplate db;
-    @Autowired EntityManager entities;
-    @Autowired AuthService auth;
-    @Autowired PreparationService preparations;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    AutomaticPublicationService publication;
+    @Autowired
+    AutomaticReviewRepository repository;
+    @Autowired
+    AutomaticReviewService review;
+    @Autowired
+    ExtractionStore extraction;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    EntityManager entities;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    PreparationService preparations;
 
-    @Test void changedFileInSameExtractionCanBeReviewedAgainAfterHold() {
+    @Test
+    void aPriorExecutionFailureIsRecheckedUnderTheNewPolicyWithoutLosingItsAudit() {
+        UUID id = imported();
+        UUID draft = ready(id, true);
+        var snapshot = repository.snapshot(draft);
+        assertFalse(publication.guidance(id, snapshot.draft().revision(), draft, snapshot.fingerprint(),
+                null, null, null, List.of("COMPILATION_FAILED")));
+        db.update("UPDATE automatic_notice_review SET policy='official-rules-v11' WHERE extraction_id=?", draft);
+        assertTrue(repository.pendingGuidance().contains(draft));
+        assertTrue(review.review(draft));
+        assertEquals("AVAILABLE", notices.notice(id).guideState());
+        assertEquals(1, db.queryForObject("SELECT count(*) FROM automatic_notice_review WHERE extraction_id=? AND policy='official-rules-v11' AND decision='HOLD'", Integer.class, draft));
+    }
+
+    @Test
+    void changedFileInSameExtractionCanBeReviewedAgainAfterHold() {
         UUID id = imported();
         UUID draft = ready(id, false);
         assertFalse(review.review(draft));
@@ -46,7 +72,8 @@ class AutoReviewRaceIntegrationTest {
         assertEquals(2, db.queryForObject("SELECT count(*) FROM automatic_notice_review WHERE extraction_id=?", Integer.class, draft));
     }
 
-    @Test void changedEvidenceAndNewerExtractionRejectAnOldCompiledDecision() {
+    @Test
+    void changedEvidenceAndNewerExtractionRejectAnOldCompiledDecision() {
         UUID id = imported();
         UUID draft = ready(id, false);
         var old = repository.snapshot(draft);
@@ -61,7 +88,8 @@ class AutoReviewRaceIntegrationTest {
         assertEquals("HOLD", notices.entity(id).guideReview);
     }
 
-    @Test void invalidCompiledStructureIsRecordedAsHoldInsteadOfRetryingForever() {
+    @Test
+    void invalidCompiledStructureIsRecordedAsHoldInsteadOfRetryingForever() {
         UUID id = imported();
         UUID draft = ready(id, true);
         var snapshot = repository.snapshot(draft);
@@ -75,7 +103,8 @@ class AutoReviewRaceIntegrationTest {
         assertEquals("HOLD", notices.entity(id).guideReview);
     }
 
-    @Test void changedOfficialSourceWithdrawsStalePublicGuidanceButKeepsPrivateSnapshot() {
+    @Test
+    void changedOfficialSourceWithdrawsStalePublicGuidanceButKeepsPrivateSnapshot() {
         UUID id = imported();
         assertTrue(review.review(ready(id, true)));
         String email = UUID.randomUUID() + "@example.invalid";
@@ -101,7 +130,8 @@ class AutoReviewRaceIntegrationTest {
         assertEquals(previous, db.queryForObject("SELECT snapshot::text FROM preparation WHERE id=?", String.class, UUID.fromString(preparation.id)));
     }
 
-    @Test void cancelledSourcesCannotOccupyPendingWorkSlots() {
+    @Test
+    void cancelledSourcesCannotOccupyPendingWorkSlots() {
         var cancelled = new ArrayList<UUID>();
         for (int i = 0; i < 10; i++) {
             UUID id = imported();
@@ -120,12 +150,14 @@ class AutoReviewRaceIntegrationTest {
         assertFalse(repository.pendingGuidance().contains(draft));
     }
 
-    @Test void nullableManualSourceIsSafelySkipped() {
+    @Test
+    void nullableManualSourceIsSafelySkipped() {
         UUID id = notices.insert(null, "수동 원고", "LH", "서울", "임대", null, null, LocalDate.now(), SampleData.content());
         assertFalse(publication.basic(id));
     }
 
-    @Test void oneUnavailableNoticeDoesNotPreventNextQueuedNotice() {
+    @Test
+    void oneUnavailableNoticeDoesNotPreventNextQueuedNotice() {
         var queue = mock(AutomaticReviewRepository.class);
         var publisher = mock(AutomaticPublicationService.class);
         var store = mock(ExtractionStore.class);
@@ -135,7 +167,7 @@ class AutoReviewRaceIntegrationTest {
         when(queue.pendingGuidance()).thenReturn(List.of());
         when(publisher.basic(first)).thenThrow(new IllegalStateException());
         when(publisher.basic(next)).thenReturn(true);
-        new AutomaticReviewService(queue, publisher, store, notices, mock(org.jibro.collection.review.local.LocalAnalysisService.class), true).tick();
+        new AutomaticReviewService(queue, publisher, store, notices, mock(org.jibro.collection.review.local.LocalAnalysisService.class), true, null, null, false).tick();
         verify(store).enqueue(next, false);
     }
 

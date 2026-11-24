@@ -40,6 +40,18 @@ public class PreparationController {
     public record ScheduleUpdate(@Min(1) int revision, @NotNull Boolean recorded) {
     }
 
+    public record FollowUpUpdate(@Min(1) int revision, @NotNull FollowUpResult result,
+                                 @Min(1) @Max(999999) Integer waitlistNumber,
+                                 @NotNull Boolean documentsSubmitted, @NotNull Boolean contractCompleted,
+                                 @NotNull Boolean movedIn) {
+    }
+
+    @PutMapping("/{id}/follow-up")
+    Preparation followUp(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @Valid @RequestBody FollowUpUpdate body) {
+        return service.followUp(jwt.getSubject(), id, body.revision(),
+                new FollowUp(body.result(), body.waitlistNumber(), body.documentsSubmitted(), body.contractCompleted(), body.movedIn()));
+    }
+
     @GetMapping
     List<PreparationListItem> list(@AuthenticationPrincipal Jwt jwt) {
         return service.list(jwt.getSubject());

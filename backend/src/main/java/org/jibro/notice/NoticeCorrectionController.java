@@ -1,6 +1,7 @@
 package org.jibro.notice;
 
 import java.util.UUID;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class NoticeCorrectionController {
     @GetMapping("/{id}/correction")
     public ResponseEntity<NoticeCorrectionService.Correction> correction(@PathVariable UUID id) {
         return service.correction(id).map(value -> ResponseEntity.ok().cacheControl(
-            org.springframework.http.CacheControl.noStore()).body(value))
-            .orElseGet(() -> ResponseEntity.noContent().cacheControl(org.springframework.http.CacheControl.noStore()).build());
+                        org.springframework.http.CacheControl.noStore()).body(value))
+                .orElseGet(() -> ResponseEntity.noContent().cacheControl(org.springframework.http.CacheControl.noStore()).build());
     }
 }

@@ -1,17 +1,31 @@
 import { Link, useLocation } from 'react-router';
 import type { Preparation } from '../housing/types';
-import { needsFollowUp, answerLabel } from '../housing/questions';
+import {
+    needsFollowUp,
+    answerLabel,
+    applicantQuestions,
+} from '../housing/questions';
 import { bindClasses } from '../../shared/styles/classes';
 import { Icon } from '../../shared/ui/Icon';
 import { Card, InlineExplanation } from '../../shared/ui/ui';
 import { ConditionSummary } from '../housing/ConditionSummary';
 import { Disc } from '../../shared/ui/Disc';
-import { Status } from '../../shared/ui/Status';
-import { PartialGuidanceNotice, ReviewIssues } from '../housing/ReviewIssues';
+import { ConditionAnswerStatus } from './ConditionAnswerStatus';
+import {
+    conditionAnswerPresentation,
+    pendingAnswersLabel,
+} from './conditionAnswerPresentation';
+import { AreaReviewIssues } from '../housing/ReviewIssues';
 import { questionReviewIssues } from '../housing/reviewIssueSelectors';
 import { NoticeContext } from './PreparationUI';
 import questionsClasses from './Conditions.module.css';
 import { PreparationScrollSection } from './PreparationScrollSection';
+import { PersonalizedPreparationGuide } from './PersonalizedPreparationGuide';
+import {
+    visiblePreparationDocuments,
+    visiblePreparationQuestions,
+} from '../housing/preparationApplicability';
+import { PreparationScopeNotice } from './PreparationScopeNotice';
 
 const cx = bindClasses(questionsClasses);
 
@@ -23,32 +37,44 @@ export function ConditionResult({
     inTab: boolean;
 }) {
     const { state } = useLocation();
-    const uncertain = p.questions.filter((x) =>
-        needsFollowUp(x, p.answers[x.id]),
+    const documents = visiblePreparationDocuments(p);
+    const questions = applicantQuestions(
+        visiblePreparationQuestions(p),
+        Object.values(p.documentConditions ?? {}),
     );
-    const confirmed = p.questions.filter(
-        (x) => !needsFollowUp(x, p.answers[x.id]),
+    const uncertain = questions.filter((x) =>
+        needsFollowUp(x, p.answers[x.id], p.answers, p.questions),
+    );
+    const confirmed = questions.filter(
+        (x) => !needsFollowUp(x, p.answers[x.id], p.answers, p.questions),
     );
     return (
         <div className={cx('result-grid')}>
             <div className={cx('result-context')}>
                 <NoticeContext p={p} />
+                <PreparationScopeNotice id={p.id} />
             </div>
             <PreparationScrollSection
                 className={cx('panel result-counts explanation-card')}
             >
                 <div className={cx('row')}>
                     <div>
-                        <Disc name="check" tone="green" />
+                        <Disc
+                            name={conditionAnswerPresentation.complete.icon}
+                            tone={conditionAnswerPresentation.complete.tone}
+                        />
                         <span>
-                            답변 완료
+                            {conditionAnswerPresentation.complete.label}
                             <strong>{confirmed.length}개</strong>
                         </span>
                     </div>
                     <div>
-                        <Disc name="warning" tone="amber" />
+                        <Disc
+                            name={conditionAnswerPresentation.followUp.icon}
+                            tone={conditionAnswerPresentation.followUp.tone}
+                        />
                         <span>
-                            추가 확인
+                            {pendingAnswersLabel}
                             <strong>{uncertain.length}개</strong>
                         </span>
                     </div>
@@ -60,15 +86,19 @@ export function ConditionResult({
                     </p>
                 </InlineExplanation>
             </PreparationScrollSection>
-            <section className={cx('result-questions')}>
-                <PartialGuidanceNotice issues={p.reviewIssues} />
-                <ReviewIssues
-                    issues={(p.reviewIssues ?? []).filter(
-                        (issue) =>
-                            issue.area === 'CONDITION' &&
-                            !issue.questionIds.length,
-                    )}
+            <div className={questionsClasses.personalizedGuide}>
+                <PersonalizedPreparationGuide
+                    guideState={p.guideState}
+                    questions={p.questions}
+                    answers={p.answers}
+                    documents={p.documents}
+                    reviewIssues={p.reviewIssues}
+                    documentConditions={p.documentConditions}
+                    documentConditionValues={p.documentConditionValues}
                 />
+            </div>
+            <section className={cx('result-questions')}>
+                <AreaReviewIssues area="CONDITION" issues={p.reviewIssues} />
                 <h2>추가로 확인할 조건</h2>
                 {uncertain.length === 0 && (
                     <Card>추가 확인으로 남긴 조건이 없습니다.</Card>
@@ -79,20 +109,17 @@ export function ConditionResult({
                         className={cx('panel result-question')}
                         key={x.id}
                     >
-                        <div className={cx('row')}>
-                            <Disc name="warning" tone="amber" />
-                            <Status tone="amber">
-                                {x.reviewRequired
-                                    ? '공식 확인 필요'
-                                    : '추가 확인 필요'}
-                            </Status>
-                        </div>
                         <ConditionSummary
                             question={x}
                             issues={questionReviewIssues(p.reviewIssues, x.id)}
                         >
-                            {(!x.reviewRequired ||
-                                p.answers[x.id] !== undefined) && (
+                            <ConditionAnswerStatus
+                                question={x}
+                                answer={p.answers[x.id]}
+                                answers={p.answers}
+                                questions={p.questions}
+                            />
+                            {p.answers[x.id] !== undefined && (
                                 <p>
                                     내 답변: {answerLabel(x, p.answers[x.id])}
                                 </p>
@@ -121,9 +148,16 @@ export function ConditionResult({
                     </PreparationScrollSection>
                 ))}
                 <PreparationScrollSection as="details" className={cx('card')}>
-                    <summary>답변 완료 {confirmed.length}개 보기</summary>
+                    <summary>
+                        {conditionAnswerPresentation.complete.label}{' '}
+                        {confirmed.length}개 보기
+                    </summary>
                     {confirmed.map((x) => (
-                        <div className={cx('confirmed-condition')} key={x.id}>
+                        <PreparationScrollSection
+                            as="div"
+                            className={cx('confirmed-condition')}
+                            key={x.id}
+                        >
                             <ConditionSummary
                                 question={x}
                                 issues={questionReviewIssues(
@@ -132,9 +166,15 @@ export function ConditionResult({
                                 )}
                                 heading="h3"
                             >
+                                <ConditionAnswerStatus
+                                    question={x}
+                                    answer={p.answers[x.id]}
+                                    answers={p.answers}
+                                    questions={p.questions}
+                                />
                                 <p>{answerLabel(x, p.answers[x.id])}</p>
                             </ConditionSummary>
-                        </div>
+                        </PreparationScrollSection>
                     ))}
                 </PreparationScrollSection>
             </section>
@@ -148,7 +188,7 @@ export function ConditionResult({
                 <p>
                     필요 서류{' '}
                     {
-                        p.documents.filter(
+                        documents.filter(
                             (d) =>
                                 d.necessity === 'REQUIRED' ||
                                 d.necessity === 'CONDITIONAL',
@@ -158,10 +198,7 @@ export function ConditionResult({
                 </p>
                 <p className={cx('muted')}>
                     해당 여부 추가 확인{' '}
-                    {
-                        p.documents.filter((d) => d.necessity === 'UNKNOWN')
-                            .length
-                    }
+                    {documents.filter((d) => d.necessity === 'UNKNOWN').length}
                     개
                 </p>
                 <Link

@@ -59,7 +59,7 @@ class ApplicationTimingIntegrationTest {
         assertEquals(Instant.parse("2026-12-31T09:00:00Z"), entity.applicationEndAt);
         var draft = notices.draft(id);
         notices.updateDraft(id, entity.revision, new NoticeService.Draft(draft.title(), draft.agency(), draft.region(), draft.type(),
-            draft.startDate(), day.plusDays(1), draft.publishedDate(), draft.content()));
+                draft.startDate(), day.plusDays(1), draft.publishedDate(), draft.content()));
         assertNull(entity.applicationEndAt, "old schedule must not supply a time for the new basic deadline");
         assertEquals("HOLD", entity.basicReview);
     }
@@ -70,7 +70,7 @@ class ApplicationTimingIntegrationTest {
 
     private UUID create(String title, LocalDate day, String closingDate) {
         UUID id = notices.insert(UUID.randomUUID().toString(), title, "LH", "전국", "청년 전세임대",
-            day.minusDays(1), day, day.minusDays(2), content(closingDate));
+                day.minusDays(1), day, day.minusDays(2), content(closingDate));
         notices.samplePublish(id, "PASS");
         return id;
     }
@@ -78,6 +78,6 @@ class ApplicationTimingIntegrationTest {
     private Content content(String closingDate) {
         var evidence = new Evidence("검증용 원문", "https://apply.lh.or.kr/", "2026-01-01");
         return new Content("마감 시각 검증", evidence, List.of(), List.of(), List.of(),
-            List.of(new ScheduleTemplate("close", "신청 접수 마감", closingDate, evidence)));
+                List.of(new ScheduleTemplate("close", "신청 접수 마감", closingDate, evidence)));
     }
 }

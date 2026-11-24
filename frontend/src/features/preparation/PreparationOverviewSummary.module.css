@@ -19,11 +19,6 @@
     grid-row: 2;
     min-width: 0;
 }
-.status > span {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    padding: 4px 10px;
-}
 .identity .title h2 {
     font-size: 1.125rem;
     line-height: 1.5;

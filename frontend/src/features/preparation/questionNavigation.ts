@@ -4,6 +4,7 @@ import type { Preparation } from '../housing/types';
 export function getQuestionStep(
     { questions, answers }: Pick<Preparation, 'questions' | 'answers'>,
     requestedId?: string | null,
+    dependencyQuestions = questions,
 ) {
     const requested = questions.findIndex(
         (question) => question.id === requestedId,
@@ -18,7 +19,12 @@ export function getQuestionStep(
     return Math.max(
         0,
         questions.findIndex((question) =>
-            needsFollowUp(question, answers[question.id]),
+            needsFollowUp(
+                question,
+                answers[question.id],
+                answers,
+                dependencyQuestions,
+            ),
         ),
     );
 }

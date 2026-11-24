@@ -6,6 +6,39 @@ afterEach(() => {
     vi.unstubAllGlobals();
 });
 describe('실제 서버 API 전송', () => {
+    it('사람 확인 만료는 재로그인·자동 저장 재전송 없이 별도 신호를 보낸다', async () => {
+        const required = vi.fn();
+        const expired = vi.fn();
+        window.addEventListener(
+            'jibro.visitor-verification-required',
+            required,
+        );
+        window.addEventListener('jibro.session-expired', expired);
+        try {
+            const fetch = vi
+                .fn()
+                .mockResolvedValue(
+                    Response.json(
+                        { code: 'HUMAN_VERIFICATION_REQUIRED' },
+                        { status: 403 },
+                    ),
+                );
+            vi.stubGlobal('fetch', fetch);
+            await expect(call('/notices')).rejects.toMatchObject({
+                status: 403,
+                code: 'HUMAN_VERIFICATION_REQUIRED',
+            });
+            expect(required).toHaveBeenCalledTimes(1);
+            expect(expired).not.toHaveBeenCalled();
+            expect(fetch).toHaveBeenCalledTimes(1);
+        } finally {
+            window.removeEventListener(
+                'jibro.visitor-verification-required',
+                required,
+            );
+            window.removeEventListener('jibro.session-expired', expired);
+        }
+    });
     it('401 이후 한 번 재발급하고 같은 요청을 새 토큰으로 재시도', async () => {
         const fetch = vi
             .fn()

@@ -1,3 +1,5 @@
+import { cx } from '../../../shared/styles/classes';
+import { House } from '../PreparationProgress';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useSearchParams } from 'react-router';
 import { useSession } from '../../auth/useSession';
@@ -41,6 +43,7 @@ export function PreparationHistoryPage() {
         queryFn: () => preparationHistoryApi.get(preparationId, entry!.version),
         enabled: Boolean(user && entry),
     });
+    const title = detail.data?.preparation.title || history.data?.title || '';
     const backTo = history.data?.archived
         ? '/archive'
         : `/preparations/${preparationId}`;
@@ -56,11 +59,8 @@ export function PreparationHistoryPage() {
             {history.data && (
                 <>
                     <section className={styles.card}>
-                        <h2
-                            aria-label={history.data.title}
-                            title={history.data.title}
-                        >
-                            {noticeListTitle(history.data.title)}
+                        <h2 aria-label={title} title={title}>
+                            {noticeListTitle(title)}
                         </h2>
                         <p className={styles.description}>
                             새 안내로 갱신하기 전에 저장한 개인 준비 기록입니다.
@@ -84,7 +84,7 @@ export function PreparationHistoryPage() {
                     ) : (
                         <>
                             <nav
-                                aria-label="저장된 안내 버전"
+                                aria-label="이전 준비 기록 선택"
                                 className={styles.versions}
                             >
                                 {history.data.entries.map((item) => (
@@ -102,7 +102,6 @@ export function PreparationHistoryPage() {
                                             })
                                         }
                                     >
-                                        <strong>안내 v{item.version}</strong>
                                         <span>
                                             저장 {savedDate(item.savedAt)}
                                         </span>
@@ -111,8 +110,8 @@ export function PreparationHistoryPage() {
                             </nav>
                             {!entry ? (
                                 <p className={styles.card} role="alert">
-                                    선택한 버전의 기록이 없습니다. 저장된 안내
-                                    버전을 선택해 주세요.
+                                    선택한 준비 기록이 없습니다. 목록에서 다른
+                                    기록을 선택해 주세요.
                                 </p>
                             ) : (
                                 <>
@@ -123,15 +122,12 @@ export function PreparationHistoryPage() {
                                     />
                                     {detail.data && (
                                         <article
-                                            aria-label={`안내 v${detail.data.version} 저장 기록`}
+                                            aria-label={`${savedDate(detail.data.savedAt)} 저장 기록`}
                                         >
                                             <header
-                                                className={styles.recordHeading}
+                                                className={`${styles.recordHeading} ${cx('explanation-card')}`}
                                             >
-                                                <h2>
-                                                    안내 v{detail.data.version}{' '}
-                                                    · 과거 기록
-                                                </h2>
+                                                <h2>이전 준비 기록</h2>
                                                 <p>
                                                     저장{' '}
                                                     {savedDate(
@@ -139,17 +135,20 @@ export function PreparationHistoryPage() {
                                                     )}{' '}
                                                     (한국 시각)
                                                 </p>
-                                                <p>
-                                                    당시 준비도{' '}
-                                                    {
+                                                <House
+                                                    historical
+                                                    progress={
                                                         detail.data.preparation
                                                             .progress
                                                     }
-                                                    % · 기록한 준비 작업의
-                                                    진행률
-                                                </p>
+                                                    stage={
+                                                        detail.data.preparation
+                                                            .houseStage
+                                                    }
+                                                />
                                             </header>
                                             <HistorySnapshot
+                                                key={detail.data.version}
                                                 preparation={
                                                     detail.data.preparation
                                                 }

@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import jakarta.persistence.EntityManager;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
 import org.jibro.collection.LhNoticeClient;
 import org.jibro.notice.HousingModels.Content;
 import org.jibro.notice.HousingModels.DocumentTemplate;
@@ -25,17 +27,22 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Transactional
 class OfficialFileCollectionIntegrationTest {
-    @Autowired OfficialFileRepository inventory;
-    @Autowired NoticeService notices;
-    @Autowired JdbcTemplate db;
-    @Autowired EntityManager em;
-    @Autowired ObjectMapper json;
+    @Autowired
+    OfficialFileRepository inventory;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    EntityManager em;
+    @Autowired
+    ObjectMapper json;
 
     @Test
     void collectedNoticeBecomesEligibleAfterDateReviewAndLinksARealMemberNameAcrossViews() throws Exception {
         String url = "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=876543210&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=07";
         var item = new LhNoticeClient.Item(LhNoticeClient.sourceKey(url), "서류 양식 검증", "전국", "임대",
-            url, LocalDate.now(), "8".repeat(64));
+                url, LocalDate.now(), "8".repeat(64));
         UUID id = notices.importSource(item);
         em.flush();
         var http = mock(AttachmentFingerprintClient.class);
@@ -48,18 +55,18 @@ class OfficialFileCollectionIntegrationTest {
         var doc = new DocumentTemplate("file", "자산 보유 사실확인서", null, "작성", "LH", null, sample.evidence());
         var content = new Content(sample.summary(), sample.evidence(), List.of(), List.of(), List.of(doc), List.of());
         db.update("""
-            UPDATE notice SET basic_review='PASS',guide_review='PASS',start_date=current_date+1,end_date=current_date+3,
-                content=cast(? as jsonb) WHERE id=?
-            """, json.writeValueAsString(content), id);
+                UPDATE notice SET basic_review='PASS',guide_review='PASS',start_date=current_date+1,end_date=current_date+3,
+                    content=cast(? as jsonb) WHERE id=?
+                """, json.writeValueAsString(content), id);
         em.clear();
         var job = inventory.claim().orElseThrow();
         assertEquals(id, job.id());
         String file = "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=32";
         String member = "붙임/[양식3]자산보유사실확인서.hwp";
         when(http.html(url)).thenReturn("""
-            <form id="wrtancViewForm"><input name="panId" value="876543210"></form>
-            <a href="javascript:fileDownLoad('32')">제출서류.zip</a>
-            """);
+                <form id="wrtancViewForm"><input name="panId" value="876543210"></form>
+                <a href="javascript:fileDownLoad('32')">제출서류.zip</a>
+                """);
         when(http.zipMembers(file)).thenReturn(List.of(member));
         collector.refresh(job);
         var notice = notices.notice(id);

@@ -28,19 +28,55 @@ export function evidenceHref(url: string | null | undefined, label?: string) {
     ) {
         return '/evidence-viewer.html?file=2015122300020927&at=16';
     }
-    const page = parsed.hash.match(/^#page=([1-9][0-9]*)(?:&sha256=([0-9a-f]{64}))?$/);
+    const page = parsed.hash.match(
+        /^#page=([1-9][0-9]*)(?:&sha256=([0-9a-f]{64}))?$/,
+    );
     const id = parsed.searchParams.get('fileid');
-    const stableDocumentLocation = parsed.hash.match(/^#doc2=([0-9a-f]{64})\.([A-Za-z0-9_-]{1,600})\.([A-Za-z0-9_-]{1,600})$/);
-    if (stableDocumentLocation && parsed.hostname === 'apply.lh.or.kr' && parsed.pathname === '/lhapply/lhFile.do' && id && /^[0-9]{1,20}$/.test(id)) {
+    const stableDocumentLocation = parsed.hash.match(
+        /^#doc2=([0-9a-f]{64})\.([A-Za-z0-9_-]{1,600})\.([A-Za-z0-9_-]{1,600})$/,
+    );
+    if (
+        stableDocumentLocation &&
+        parsed.hostname === 'apply.lh.or.kr' &&
+        parsed.pathname === '/lhapply/lhFile.do' &&
+        id &&
+        /^[0-9]{1,20}$/.test(id)
+    ) {
         return `/evidence-dynamic.html?file=${id}&sha=${stableDocumentLocation[1]}&location=${stableDocumentLocation[2]}&anchor=${stableDocumentLocation[3]}`;
     }
-    const documentLocation = parsed.hash.match(/^#doc=([0-9a-f]{64})\.([0-9]{1,4})\.([A-Za-z0-9_-]+)$/);
-    if (documentLocation && parsed.hostname === 'apply.lh.or.kr' && parsed.pathname === '/lhapply/lhFile.do' && id && /^[0-9]{1,20}$/.test(id)) {
+    const documentLocation = parsed.hash.match(
+        /^#doc=([0-9a-f]{64})\.([0-9]{1,4})\.([A-Za-z0-9_-]+)$/,
+    );
+    if (
+        documentLocation &&
+        parsed.hostname === 'apply.lh.or.kr' &&
+        parsed.pathname === '/lhapply/lhFile.do' &&
+        id &&
+        /^[0-9]{1,20}$/.test(id)
+    ) {
         return `/evidence-dynamic.html?file=${id}&sha=${documentLocation[1]}&part=${documentLocation[2]}&anchor=${documentLocation[3]}`;
     }
 
-    const verifiedDynamic = id && label ? (verifiedEvidenceDynamic as Record<string, Record<string, {sha: string; location: string; anchor: string}>>)[id]?.[label] : undefined;
-    if (!parsed.hash && verifiedDynamic && parsed.hostname === 'apply.lh.or.kr' && parsed.pathname === '/lhapply/lhFile.do' && id && /^[0-9]{1,20}$/.test(id)) {
+    const verifiedDynamic =
+        id && label
+            ? (
+                  verifiedEvidenceDynamic as Record<
+                      string,
+                      Record<
+                          string,
+                          { sha: string; location: string; anchor: string }
+                      >
+                  >
+              )[id]?.[label]
+            : undefined;
+    if (
+        !parsed.hash &&
+        verifiedDynamic &&
+        parsed.hostname === 'apply.lh.or.kr' &&
+        parsed.pathname === '/lhapply/lhFile.do' &&
+        id &&
+        /^[0-9]{1,20}$/.test(id)
+    ) {
         return `/evidence-dynamic.html?file=${id}&sha=${verifiedDynamic.sha}&location=${verifiedDynamic.location}&anchor=${verifiedDynamic.anchor}`;
     }
     const verifiedPage =
@@ -76,9 +112,12 @@ export function evidenceHref(url: string | null | undefined, label?: string) {
         /^[0-9]{1,20}$/.test(id) &&
         (page || verifiedPage)
     ) {
-        const verifiedHash = !page && verifiedPage ? (verifiedEvidencePageHashes as Record<string, string>)[id] : undefined;
+        const verifiedHash =
+            !page && verifiedPage
+                ? (verifiedEvidencePageHashes as Record<string, string>)[id]
+                : undefined;
         const sha = page?.[2] ?? verifiedHash;
-        return `/pdf-viewer.html?file=${id}&page=${page?.[1] ?? verifiedPage}${sha ? `&sha=${sha}` : ""}`;
+        return `/pdf-viewer.html?file=${id}&page=${page?.[1] ?? verifiedPage}${sha ? `&sha=${sha}` : ''}`;
     }
     return url;
 }

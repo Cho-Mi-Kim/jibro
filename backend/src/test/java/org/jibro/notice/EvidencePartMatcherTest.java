@@ -1,10 +1,15 @@
 package org.jibro.notice;
+
 import java.util.List;
+
 import org.jibro.collection.extraction.ExtractionModels.Part;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 class EvidencePartMatcherTest {
-    @Test void findsMovedUnchangedPartAndRejectsChangedOrDuplicatedParts() {
+    @Test
+    void findsMovedUnchangedPartAndRejectsChangedOrDuplicatedParts() {
         var original = new Part("공고문 3쪽", "신청 내용과 조건을 함께 확인합니다.");
         String hash = EvidencePartMatcher.digest(original.text());
         var moved = new Part("공고문 4쪽", original.text());

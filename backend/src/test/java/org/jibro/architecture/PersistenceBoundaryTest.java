@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.asm.ClassReader;
 import org.springframework.asm.ClassVisitor;
@@ -20,7 +21,9 @@ import org.springframework.core.type.filter.RegexPatternTypeFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
-/** Checks compiled application roles without starting Spring or requiring a database. */
+/**
+ * Checks compiled application roles without starting Spring or requiring a database.
+ */
 class PersistenceBoundaryTest {
     private static final List<String> DATABASE_TYPES = List.of(
             "org/springframework/jdbc/", "com/querydsl/", "jakarta/persistence/EntityManager",

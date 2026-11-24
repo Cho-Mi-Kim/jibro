@@ -70,7 +70,7 @@ function mount(afterDeleteTo?: string) {
 async function open() {
     const user = userEvent.setup();
     await user.click(screen.getByRole('button', { name: '준비 기록 삭제' }));
-    await screen.findByText('내 준비 공고');
+    await screen.findByText('내 준비');
     return user;
 }
 describe('preparation deletion confirmation', () => {

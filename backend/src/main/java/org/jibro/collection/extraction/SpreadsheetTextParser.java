@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.zip.CRC32;
 import java.util.zip.ZipFile;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.openxml4j.opc.PackageAccess;
@@ -23,9 +24,12 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import static org.jibro.collection.extraction.ExtractionModels.Part;
 
-/** Reads stored workbook values and their positions. No formula evaluation, macros or external links are run. */
+/**
+ * Reads stored workbook values and their positions. No formula evaluation, macros or external links are run.
+ */
 final class SpreadsheetTextParser {
     static final int MAX_ROWS = 10_000;
     static final int MAX_COLUMNS = 256;
@@ -33,7 +37,8 @@ final class SpreadsheetTextParser {
     static final int MAX_MERGES = 2000;
     private static final int MAX_EXPANDED = 24 * 1024 * 1024;
 
-    private SpreadsheetTextParser() {}
+    private SpreadsheetTextParser() {
+    }
 
     static List<Part> xls(POIFSFileSystem file, int maxParts, int maxText) throws IOException {
         try (var workbook = new HSSFWorkbook(file)) {
@@ -62,7 +67,9 @@ final class SpreadsheetTextParser {
         }
     }
 
-    /** Verify the complete archive, including ignored images/objects, without extracting anything to disk. */
+    /**
+     * Verify the complete archive, including ignored images/objects, without extracting anything to disk.
+     */
     private static boolean verifyPackage(Path temporary, int[] budget, Charset entryCharset) throws IOException {
         try (var zip = new ZipFile(temporary.toFile(), entryCharset)) {
             if (zip.getEntry("[Content_Types].xml") == null || zip.getEntry("xl/workbook.xml") == null) return false;
@@ -76,7 +83,7 @@ final class SpreadsheetTextParser {
                 var entry = entries.nextElement();
                 String name = entry.getName();
                 if (!names.add(name) || name.startsWith("/") || name.contains("\\")
-                    || List.of(name.split("/")).contains("..")) throw new IOException("스프레드시트 압축 경로 확인 필요");
+                        || List.of(name.split("/")).contains("..")) throw new IOException("스프레드시트 압축 경로 확인 필요");
                 if (entry.isDirectory()) continue;
                 if (entry.getSize() < 0 || entry.getSize() > budget[0]) throw new IOException("문서 압축 해제 크기 제한 초과");
                 var crc = new CRC32();
@@ -154,7 +161,7 @@ final class SpreadsheetTextParser {
         if (cell instanceof XSSFCell xssf && xssf.getRawValue() == null)
             return "[수식 미계산: " + formula + "]";
         if (!java.util.Set.of(CellType.NUMERIC, CellType.STRING, CellType.BOOLEAN, CellType.ERROR)
-            .contains(cell.getCachedFormulaResultType())) return "[수식 저장값 확인 필요: " + formula + "]";
+                .contains(cell.getCachedFormulaResultType())) return "[수식 저장값 확인 필요: " + formula + "]";
         return "[저장된 계산값(재계산 안 함): " + formatter.formatCellValue(cell) + "; 수식: " + formula + "]";
     }
 

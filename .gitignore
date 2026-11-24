@@ -20,3 +20,5 @@ Thumbs.db
 deploy/runtime.env
 deploy/*.pem
 deploy/*.key
+**/__pycache__/
+*.py[cod]

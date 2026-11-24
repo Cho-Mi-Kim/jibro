@@ -55,7 +55,7 @@ public class AuthService {
         if (name.trim().length() < 2 || password.length() < 10 || password.getBytes(StandardCharsets.UTF_8).length > 72)
             throw new ApiException(400, "INVALID_INPUT", "이름은 2자 이상, 비밀번호는 10자 이상·UTF-8 72바이트 이하여야 합니다.");
         repository.insertPasswordAccount(
-            UUID.randomUUID(), name.trim(), email.trim().toLowerCase(Locale.ROOT), passwords.encode(password));
+                UUID.randomUUID(), name.trim(), email.trim().toLowerCase(Locale.ROOT), passwords.encode(password));
     }
 
     public Tokens login(String email, String password) {
@@ -63,7 +63,7 @@ public class AuthService {
     }
 
     public Tokens login(String email, String password, String remoteAddress) {
-        UUID attempt = attempts.begin(email, remoteAddress);
+        UUID attempt = attempts.begin(email, remoteAddress, LoginAttemptLimiter.Purpose.LOGIN);
         boolean successful = false;
         try {
             var tokens = loginTransaction.execute(status -> {
@@ -172,7 +172,7 @@ public class AuthService {
         else sessions.renew(owner, session);
         Instant now = Instant.now();
         var claims = JwtClaimsSet.builder().issuer("jibro").audience(List.of("jibro-web"))
-            .subject(id).issuedAt(now).expiresAt(now.plus(15, ChronoUnit.MINUTES)).claim("sid", session.toString()).claim("role", user.trial() ? "TRIAL" : user.role()).claim("sv", repository.securityVersion(owner)).build();
+                .subject(id).issuedAt(now).expiresAt(now.plus(15, ChronoUnit.MINUTES)).claim("sid", session.toString()).claim("role", user.trial() ? "TRIAL" : user.role()).claim("sv", repository.securityVersion(owner)).build();
         String access = encoder.encode(JwtEncoderParameters.from(JwsHeader.with(MacAlgorithm.HS256).build(), claims)).getTokenValue();
         byte[] bytes = new byte[32];
         new SecureRandom().nextBytes(bytes);

@@ -1,12 +1,14 @@
 package org.jibro.collection.extraction;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.io.*;
 import java.nio.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.zip.*;
+
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.font.*;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
@@ -15,7 +17,8 @@ import org.junit.jupiter.api.Test;
 class DocumentTextParserTest {
     final DocumentTextParser parser = new DocumentTextParser();
 
-    @Test void pdfKeepsPagePositionsAndRejectsTooManyPages() throws Exception {
+    @Test
+    void pdfKeepsPagePositionsAndRejectsTooManyPages() throws Exception {
         var parts = parser.parse(pdf("First page", "Second page"), "application/pdf");
         assertEquals(2, parts.size());
         assertEquals("공고문 1쪽", parts.get(0).location());
@@ -29,7 +32,46 @@ class DocumentTextParserTest {
         }
     }
 
-    @Test void compressedHwpReadsUtf16ParagraphRecordAndDoesNotInventPageNumber() throws Exception {
+    @Test
+    void archivedPdfTableReachesTheSharedStructureAndExplanationReaders() throws Exception {
+        byte[] bytes;
+        try (var document = new PDDocument(); var output = new ByteArrayOutputStream()) {
+            var page = new PDPage();
+            document.addPage(page);
+            try (var draw = new PDPageContentStream(document, page)) {
+                draw.addRect(40, 600, 300, 100);
+                draw.moveTo(190, 600);
+                draw.lineTo(190, 700);
+                draw.moveTo(40, 650);
+                draw.lineTo(340, 650);
+                draw.stroke();
+                String[] values = {"Subject", "Value", "Applicant", "100%"};
+                for (int i = 0; i < values.length; i++) {
+                    draw.beginText();
+                    draw.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
+                    draw.newLineAtOffset(50 + i % 2 * 150, 680 - i / 2 * 50);
+                    draw.showText(values[i]);
+                    draw.endText();
+                }
+            }
+            document.save(output);
+            bytes = output.toByteArray();
+        }
+        var parts = parser.parse(zip(Map.of("notice.pdf", bytes)), "application/zip");
+        var source = new ExtractionModels.Source("서류.zip", "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=1", "a".repeat(64), "EXTRACTED", "", List.of(), parts);
+        var reading = org.jibro.collection.review.local.DocumentContextReader.read(source, parts.get(0));
+        assertTrue(reading.valid());
+        assertEquals(1, reading.tables().size());
+        assertNotNull(reading.tables().get(0).grid());
+        var explanation = org.jibro.collection.review.local.GuidanceTableProjection.explanation(source, parts.get(0), headers -> false);
+        assertTrue(explanation.complete());
+        assertTrue(explanation.text().contains("Applicant"));
+        assertTrue(explanation.text().contains("100%"));
+        assertFalse(explanation.text().contains("⟦"));
+    }
+
+    @Test
+    void compressedHwpReadsUtf16ParagraphRecordAndDoesNotInventPageNumber() throws Exception {
         String text = "신청 자격은 원문을 확인하세요.\r제출 서류: 증명서";
         var parts = parser.parse(hwp(text, 1), "application/x-ole-storage");
         assertEquals(1, parts.size());
@@ -40,7 +82,8 @@ class DocumentTextParserTest {
         assertThrows(IOException.class, () -> parser.parse(hwp(text, 4), "application/x-ole-storage"));
     }
 
-    @Test void hwpxExtractsTextWithoutEntitiesAndZipDocumentsRetainSourceLocations() throws Exception {
+    @Test
+    void hwpxExtractsTextWithoutEntitiesAndZipDocumentsRetainSourceLocations() throws Exception {
         byte[] xml = "<root xmlns:hp='urn:test'><hp:p><hp:t>소득 기준 확인</hp:t></hp:p></root>".getBytes(StandardCharsets.UTF_8);
         var parts = parser.parse(zip(Map.of("Contents/section0.xml", xml)), "application/zip");
         assertEquals("소득 기준 확인\n", parts.get(0).text());
@@ -52,7 +95,8 @@ class DocumentTextParserTest {
         assertThrows(Exception.class, () -> parser.parse(zip(Map.of("Contents/section0.xml", dtd)), "application/zip"));
     }
 
-    @Test void archiveLimitsBoundEntriesExpandedBytesAndText() throws Exception {
+    @Test
+    void archiveLimitsBoundEntriesExpandedBytesAndText() throws Exception {
         Map<String, byte[]> entries = new LinkedHashMap<>();
         for (int i = 0; i < 301; i++) entries.put("entry-" + i, new byte[0]);
         assertThrows(IOException.class, () -> parser.parse(zip(entries), "application/zip"));
@@ -61,7 +105,8 @@ class DocumentTextParserTest {
         assertThrows(IOException.class, () -> parser.parse(zip(Map.of("Contents/section0.xml", xml)), "application/zip"));
     }
 
-    @Test void zipCanContainHwpxWithoutLosingItsLocationOrSharedExpansionBudget() throws Exception {
+    @Test
+    void zipCanContainHwpxWithoutLosingItsLocationOrSharedExpansionBudget() throws Exception {
         byte[] xml = "<root><p><t>압축 첨부 속 제출 서류 안내</t></p></root>".getBytes(StandardCharsets.UTF_8);
         byte[] hwpx = zip(Map.of("Contents/section0.xml", xml));
         var parts = parser.parse(zip(Map.of("notice.hwpx", hwpx)), "application/zip");
@@ -75,29 +120,34 @@ class DocumentTextParserTest {
         assertThrows(IOException.class, () -> parser.parse(zip(Map.of("many.hwpx", zip(nestedEntries))), "application/zip"));
     }
 
-    @Test void legacyKoreanZipNamesPreserveDocumentLocationsAndLimits() throws Exception {
+    @Test
+    void legacyKoreanZipNamesPreserveDocumentLocationsAndLimits() throws Exception {
         var cp949 = Charset.forName("MS949");
         byte[] archive = zip(Map.of("[양식1]확인서.hwp", hwp("공식 제출 서식 본문", 1),
-            "[양식2]공고문.pdf", pdf("Official document")), cp949);
+                "[양식2]공고문.pdf", pdf("Official document")), cp949);
         var parts = parser.parse(archive, "application/zip");
         assertTrue(parts.stream().anyMatch(p -> p.location().startsWith("[양식1]확인서.hwp · HWP")
-            && p.text().contains("공식 제출 서식 본문")));
+                && p.text().contains("공식 제출 서식 본문")));
         assertTrue(parts.stream().anyMatch(p -> p.location().equals("[양식2]공고문.pdf · 공고문 1쪽")));
         assertThrows(IOException.class, () -> parser.parse(zip(Map.of("대용량.bin",
-            new byte[24 * 1024 * 1024 + 1]), cp949), "application/zip"));
+                new byte[24 * 1024 * 1024 + 1]), cp949), "application/zip"));
         var entries = new LinkedHashMap<String, byte[]>();
         for (int i = 0; i < 301; i++) entries.put("서류" + i, new byte[0]);
         assertThrows(IOException.class, () -> parser.parse(zip(entries, cp949), "application/zip"));
     }
 
-    @Test void legacyOuterZipKeepsUtf8NestedHwpxAndXlsxContainers() throws Exception {
+    @Test
+    void legacyOuterZipKeepsUtf8NestedHwpxAndXlsxContainers() throws Exception {
         byte[] xml = "<root><p><t>한글 구역 본문</t></p></root>".getBytes(StandardCharsets.UTF_8);
         byte[] hwpx = zip(Map.of("mimetype", "application/hwp+zip".getBytes(StandardCharsets.US_ASCII),
-            "Contents/content.hpf", new byte[0], "Contents/section0.xml", xml));
+                "Contents/content.hpf", ("<package><manifest><item id='section0' href='Contents/section0.xml'/>"
+                        + "</manifest><spine><itemref idref='section0'/></spine></package>").getBytes(StandardCharsets.UTF_8),
+                "Contents/section0.xml", xml));
         byte[] xlsx;
         try (var workbook = new org.apache.poi.xssf.usermodel.XSSFWorkbook(); var output = new ByteArrayOutputStream()) {
             workbook.createSheet("공급 주택").createRow(0).createCell(0).setCellValue("공식 목록");
-            workbook.write(output); xlsx = output.toByteArray();
+            workbook.write(output);
+            xlsx = output.toByteArray();
         }
         var parts = parser.parse(zip(Map.of("공고.hwpx", hwpx, "공급목록.xlsx", xlsx), Charset.forName("MS949")), "application/zip");
         assertTrue(parts.stream().anyMatch(p -> p.location().startsWith("공고.hwpx") && p.text().contains("한글 구역 본문")));
@@ -106,7 +156,8 @@ class DocumentTextParserTest {
         assertTrue(utf8Parts.get(0).location().startsWith("서식😀.hwp"));
     }
 
-    @Test void explicitlyUtf8NamesAreNeverReinterpretedAsLegacyKorean() throws Exception {
+    @Test
+    void explicitlyUtf8NamesAreNeverReinterpretedAsLegacyKorean() throws Exception {
         byte[] archive = zip(Map.of("양식.hwp", hwp("검토 문서", 1)), Charset.forName("MS949"));
         // An invalid archive claiming its CP949 bytes are UTF-8 must remain invalid.
         var buffer = ByteBuffer.wrap(archive).order(ByteOrder.LITTLE_ENDIAN);
@@ -114,7 +165,7 @@ class DocumentTextParserTest {
             int signature = buffer.getInt(i);
             if (signature == 0x04034b50 || signature == 0x02014b50) {
                 int flagOffset = i + (signature == 0x04034b50 ? 6 : 8);
-                buffer.putShort(flagOffset, (short)(buffer.getShort(flagOffset) | 0x800));
+                buffer.putShort(flagOffset, (short) (buffer.getShort(flagOffset) | 0x800));
             }
         }
         assertThrows(IOException.class, () -> parser.parse(archive, "application/zip"));
@@ -123,13 +174,18 @@ class DocumentTextParserTest {
     static byte[] pdf(String... texts) throws IOException {
         try (var doc = new PDDocument(); var output = new ByteArrayOutputStream()) {
             for (String text : texts) {
-                var page = new PDPage(); doc.addPage(page);
+                var page = new PDPage();
+                doc.addPage(page);
                 try (var stream = new PDPageContentStream(doc, page)) {
-                    stream.beginText(); stream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
-                    stream.newLineAtOffset(20, 700); stream.showText(text); stream.endText();
+                    stream.beginText();
+                    stream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
+                    stream.newLineAtOffset(20, 700);
+                    stream.showText(text);
+                    stream.endText();
                 }
             }
-            doc.save(output); return output.toByteArray();
+            doc.save(output);
+            return output.toByteArray();
         }
     }
 
@@ -139,9 +195,13 @@ class DocumentTextParserTest {
         records.putInt(67 | (paragraph.length << 20)).put(paragraph);
         byte[] body = records.array();
         if ((flags & 1) != 0) {
-            var output = new ByteArrayOutputStream(); var deflater = new Deflater(Deflater.DEFAULT_COMPRESSION, true);
-            try (var stream = new DeflaterOutputStream(output, deflater)) { stream.write(body); }
-            finally { deflater.end(); }
+            var output = new ByteArrayOutputStream();
+            var deflater = new Deflater(Deflater.DEFAULT_COMPRESSION, true);
+            try (var stream = new DeflaterOutputStream(output, deflater)) {
+                stream.write(body);
+            } finally {
+                deflater.end();
+            }
             body = output.toByteArray();
         }
         byte[] header = new byte[256];
@@ -150,7 +210,8 @@ class DocumentTextParserTest {
         try (var fs = new POIFSFileSystem(); var output = new ByteArrayOutputStream()) {
             fs.createDocument(new ByteArrayInputStream(header), "FileHeader");
             fs.getRoot().createDirectory("BodyText").createDocument("Section0", new ByteArrayInputStream(body));
-            fs.writeFilesystem(output); return output.toByteArray();
+            fs.writeFilesystem(output);
+            return output.toByteArray();
         }
     }
 
@@ -162,7 +223,9 @@ class DocumentTextParserTest {
         var output = new ByteArrayOutputStream();
         try (var zip = new ZipOutputStream(output, entryCharset)) {
             for (var entry : entries.entrySet()) {
-                zip.putNextEntry(new ZipEntry(entry.getKey())); zip.write(entry.getValue()); zip.closeEntry();
+                zip.putNextEntry(new ZipEntry(entry.getKey()));
+                zip.write(entry.getValue());
+                zip.closeEntry();
             }
         }
         return output.toByteArray();

@@ -101,7 +101,7 @@ public class AutomaticCorrectionLinkService {
         } else try {
             historyHtml = http.html(OfficialCorrectionLink.historyUrl(target.url()));
             predecessors = OfficialCorrectionHistory.read(target.url(), historyHtml).stream().skip(1)
-                .map(OfficialCorrectionHistory.Entry::url).toList();
+                    .map(OfficialCorrectionHistory.Entry::url).toList();
         } catch (java.io.IOException | IllegalArgumentException unavailable) {
             historyHtml = null;
             if (latestNavigation.originalUrl() == null) throw unavailable;
@@ -134,11 +134,11 @@ public class AutomaticCorrectionLinkService {
                 continue;
             }
             var proof = attachmentReview != null
-                ? ReviewedLegacyCorrection.verify(attachmentReview, old.url(), html, target.url(), latestHtml, http)
-                : requestedLegacyRoot != null
-                ? OfficialCorrectionLink.verifyLegacyRootHistory(old.url(), html, target.url(), latestHtml, historyHtml)
-                : historyHtml == null ? OfficialCorrectionLink.verify(old.url(), html, target.url(), latestHtml)
-                : OfficialCorrectionLink.verifyFamilyHistory(old.url(), html, target.url(), latestHtml, historyHtml);
+                    ? ReviewedLegacyCorrection.verify(attachmentReview, old.url(), html, target.url(), latestHtml, http)
+                    : requestedLegacyRoot != null
+                    ? OfficialCorrectionLink.verifyLegacyRootHistory(old.url(), html, target.url(), latestHtml, historyHtml)
+                    : historyHtml == null ? OfficialCorrectionLink.verify(old.url(), html, target.url(), latestHtml)
+                    : OfficialCorrectionLink.verifyFamilyHistory(old.url(), html, target.url(), latestHtml, historyHtml);
             snapshots.put(old.id(), old);
             verified.add(new Verified(old, proof));
         }
@@ -151,12 +151,12 @@ public class AutomaticCorrectionLinkService {
             for (var n : locked) {
                 var before = snapshots.get(n.id);
                 if (closed(n) && !n.id.equals(requestedLegacyRoot)
-                    || n.revision != before.revision() || !Objects.equals(n.sourceFingerprint, before.fingerprint())
-                    || !LhNoticeClient.sourceKey(before.url()).equals(n.sourceKey)) throw ApiException.conflict();
+                        || n.revision != before.revision() || !Objects.equals(n.sourceFingerprint, before.fingerprint())
+                        || !LhNoticeClient.sourceKey(before.url()).equals(n.sourceKey)) throw ApiException.conflict();
             }
             var currentTarget = locked.stream().filter(n -> n.id.equals(target.id())).findFirst().orElseThrow();
             if (!"PASS".equals(currentTarget.basicReview) || !"NORMAL".equals(currentTarget.lifecycleState)
-                || closed(currentTarget) || relations.find(target.id()).isPresent()) throw ApiException.conflict();
+                    || closed(currentTarget) || relations.find(target.id()).isPresent()) throw ApiException.conflict();
             var family = new HashSet<UUID>();
             family.add(target.id());
             verified.forEach(v -> family.add(v.original().id()));
@@ -168,11 +168,11 @@ public class AutomaticCorrectionLinkService {
             for (var v : verified) {
                 var proof = v.proof();
                 var source = new HousingModels.Evidence("LH 공식 정정 공고 · 정정사유", target.url(),
-                    started.atZone(ZoneId.of("Asia/Seoul")).toLocalDate().toString());
+                        started.atZone(ZoneId.of("Asia/Seoul")).toLocalDate().toString());
                 relations.replaceLatest(new NoticeCorrectionRepository.Link(v.original().id(), target.id(), v.original().revision(),
-                    target.revision(), proof.reason(), new NoticeCorrectionRepository.Evidence(source, v.original().url(), target.url(),
-                    proof.originalPanId(), proof.correctedPanId(), proof.originalHtmlSha256(), proof.correctedHtmlSha256(),
-                    proof.historyHtmlSha256() == null ? null : OfficialCorrectionLink.historyUrl(target.url()), proof.historyHtmlSha256(), attachmentReview), started));
+                        target.revision(), proof.reason(), new NoticeCorrectionRepository.Evidence(source, v.original().url(), target.url(),
+                        proof.originalPanId(), proof.correctedPanId(), proof.originalHtmlSha256(), proof.correctedHtmlSha256(),
+                        proof.historyHtmlSha256() == null ? null : OfficialCorrectionLink.historyUrl(target.url()), proof.historyHtmlSha256(), attachmentReview), started));
             }
             return awaitingCollection ? "WAITING_FOR_COLLECTION" : "LINKED";
         });

@@ -1,14 +1,20 @@
 package org.jibro.preparation;
 
 import static org.jibro.notice.HousingModels.*;
+
 import java.util.*;
+
 import org.jibro.notice.QuestionAnswers;
 import org.jibro.notice.GuidanceIssues;
 import org.jibro.notice.ReviewedNoticeFiles;
+import org.jibro.notice.AnswerDependencies;
 
-/** Pure snapshot construction and answer evaluation shared by saved and one-time checks. */
+/**
+ * Pure snapshot construction and answer evaluation shared by saved and one-time checks.
+ */
 public final class PreparationSnapshots {
-    private PreparationSnapshots() {}
+    private PreparationSnapshots() {
+    }
 
     public static Snapshot fresh(Notice notice, Content content) {
         Preparation p = new Preparation();
@@ -26,9 +32,6 @@ public final class PreparationSnapshots {
             var d = new Document();
             d.id = template.id();
             d.title = template.title();
-            d.reviewRequired = GuidanceIssues.documentRequiresReview(p.reviewIssues, template.id(), template.conditionQuestionId());
-            d.necessity = d.reviewRequired ? "UNKNOWN" : PreparationRules.necessity(template.conditionQuestionId(),
-                template.conditionAnswerValues() == null ? List.of("YES") : template.conditionAnswerValues(), p.answers);
             d.method = template.method();
             d.issuer = template.issuer();
             d.issueUrl = template.issueUrl();
@@ -47,8 +50,10 @@ public final class PreparationSnapshots {
             s.evidence = template.evidence();
             p.schedules.add(s);
         }
+        var snapshot = new Snapshot(p, rules, ruleValues);
+        recalculateDocuments(snapshot);
         assess(p);
-        return new Snapshot(p, rules, ruleValues);
+        return snapshot;
     }
 
     public static void applyAnswers(Snapshot snap, Map<String, ?> answers) {
@@ -62,15 +67,21 @@ public final class PreparationSnapshots {
             Object answer = answers.get(question.id());
             // Full-answer saves may carry an unchanged legacy answer while editing another question.
             normalized.put(question.id(), Objects.equals(answer, p.answers.get(question.id()))
-                ? QuestionAnswers.normalize(question, answer) : QuestionAnswers.normalizeSubmission(question, answer));
+                    ? QuestionAnswers.normalize(question, answer) : QuestionAnswers.normalizeSubmission(question, answer));
         }
         p.answers = normalized;
+        recalculateDocuments(snap);
+    }
+
+    public static void recalculateDocuments(Snapshot snap) {
+        Preparation p = snap.preparation();
         for (var d : p.documents) {
             String question = snap.rules().get(d.id);
             d.reviewRequired = GuidanceIssues.documentRequiresReview(p.reviewIssues, d.id, question);
-            String next = d.reviewRequired ? "UNKNOWN" : PreparationRules.necessity(question, snap.valuesFor(d.id), p.answers);
+            String base = PreparationRules.necessity(question, snap.valuesFor(d.id), p.answers, p.questions);
+            String next = d.reviewRequired ? "UNKNOWN" : AnswerDependencies.documentNecessity(base, d.id, p.questions, p.answers);
             if (!next.equals(d.necessity)) {
-                d.state = d.state == DocumentState.READY ? DocumentState.RECHECK : DocumentState.UNCHECKED;
+                d.changeState(d.state == DocumentState.READY ? DocumentState.RECHECK : DocumentState.UNCHECKED);
                 d.necessity = next;
             }
         }

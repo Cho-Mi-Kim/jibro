@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import org.jibro.auth.AuthService;
 import org.jibro.global.common.ApiException;
 import org.jibro.notice.NoticeSchedules;
@@ -24,17 +25,25 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Transactional
 class ScopedGuidanceIntegrationTest {
-    @Autowired NoticeService notices;
-    @Autowired PreparationService saved;
-    @Autowired PreparationHistoryService history;
-    @Autowired OneTimeCheckService once;
-    @Autowired AuthService auth;
-    @Autowired JdbcTemplate db;
-    @Autowired ObjectMapper json;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    PreparationService saved;
+    @Autowired
+    PreparationHistoryService history;
+    @Autowired
+    OneTimeCheckService once;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    ObjectMapper json;
     private String owner;
     private final Evidence source = new Evidence("공식 원문 비교", "https://apply.lh.or.kr/", "2026-11-01");
 
-    @BeforeEach void setup() {
+    @BeforeEach
+    void setup() {
         String email = UUID.randomUUID() + "@example.invalid";
         auth.signup("부분 안내 검증", email, "test-password-123");
         owner = auth.login(email, "test-password-123").user().id();
@@ -42,26 +51,26 @@ class ScopedGuidanceIntegrationTest {
 
     private Content content(boolean partial) {
         var issues = partial ? List.of(
-            new ReviewIssue("income-conflict", "CONDITION", "소득 예외 확인", "공고와 첨부의 소득 예외가 달라 기관 확인이 필요합니다.",
-                List.of("income"), List.of(), List.of(source)),
-            new ReviewIssue("direct-document", "DOCUMENT", "제출 대상 확인", "제출 대상의 공식 확인이 필요합니다.",
-                List.of(), List.of("disputed"), List.of(source)),
-            new ReviewIssue("result-date", "SCHEDULE", "발표 일정 확인", "발표일이 서로 달라 확정 일정에서 제외했습니다.",
-                List.of(), List.of(), List.of(source))) : List.<ReviewIssue>of();
+                new ReviewIssue("income-conflict", "CONDITION", "소득 예외 확인", "공고와 첨부의 소득 예외가 달라 기관 확인이 필요합니다.",
+                        List.of("income"), List.of(), List.of(source)),
+                new ReviewIssue("direct-document", "DOCUMENT", "제출 대상 확인", "제출 대상의 공식 확인이 필요합니다.",
+                        List.of(), List.of("disputed"), List.of(source)),
+                new ReviewIssue("result-date", "SCHEDULE", "발표 일정 확인", "발표일이 서로 달라 확정 일정에서 제외했습니다.",
+                        List.of(), List.of(), List.of(source))) : List.<ReviewIssue>of();
         return new Content("확인된 내용부터 준비합니다.", source, List.of(),
-            List.of(new Question("age", "연령 확인", "확인된 기준", source),
-                new Question("income", "소득 확인", "공식 기준 확인", source)),
-            List.of(new DocumentTemplate("common", "공통 서류", null, "발급 방법", "기관", null, source),
-                new DocumentTemplate("conditional", "연령 관련 서류", "age", "발급 방법", "기관", null, source),
-                new DocumentTemplate("income-doc", "소득 서류", "income", "기관 확인", "기관", null, source),
-                new DocumentTemplate("disputed", "제출 대상 확인 서류", null, "기관 확인", "기관", null, source)),
-            List.of(new ScheduleTemplate("apply", "신청 접수 마감", LocalDate.now().plusDays(30).toString(), source)), issues);
+                List.of(new Question("age", "연령 확인", "확인된 기준", source),
+                        new Question("income", "소득 확인", "공식 기준 확인", source)),
+                List.of(new DocumentTemplate("common", "공통 서류", null, "발급 방법", "기관", null, source),
+                        new DocumentTemplate("conditional", "연령 관련 서류", "age", "발급 방법", "기관", null, source),
+                        new DocumentTemplate("income-doc", "소득 서류", "income", "기관 확인", "기관", null, source),
+                        new DocumentTemplate("disputed", "제출 대상 확인 서류", null, "기관 확인", "기관", null, source)),
+                List.of(new ScheduleTemplate("apply", "신청 접수 마감", LocalDate.now().plusDays(30).toString(), source)), issues);
     }
 
     private UUID publish(Content content) {
         notices.validateContent(content);
         UUID id = notices.insert(UUID.randomUUID().toString(), "항목별 확인 공고", "LH", "서울", "청년 임대",
-            LocalDate.now().minusDays(1), LocalDate.now().plusDays(30), LocalDate.now(), content);
+                LocalDate.now().minusDays(1), LocalDate.now().plusDays(30), LocalDate.now(), content);
         notices.samplePublish(id, "PASS");
         return id;
     }
@@ -70,7 +79,8 @@ class ScopedGuidanceIntegrationTest {
         return preparation.documents.stream().filter(d -> d.id.equals(id)).findFirst().orElseThrow();
     }
 
-    @Test void partialPublicGuidanceAllowsSafeAnswersAndDocumentsWithoutResolvingOfficialConflicts() {
+    @Test
+    void partialPublicGuidanceAllowsSafeAnswersAndDocumentsWithoutResolvingOfficialConflicts() {
         UUID notice = publish(content(true));
         var publicNotice = notices.notice(notice);
         assertEquals("AVAILABLE", publicNotice.guideState());
@@ -93,7 +103,7 @@ class ScopedGuidanceIntegrationTest {
             assertTrue(document(preparation, blocked).reviewRequired);
             int revision = preparation.revision;
             var failure = assertThrows(ApiException.class,
-                () -> saved.document(owner, id, blocked, revision, DocumentState.READY, ""));
+                    () -> saved.document(owner, id, blocked, revision, DocumentState.READY, ""));
             assertEquals("CONDITION_REQUIRED", failure.code);
         }
         assertTrue(preparation.questions.get(1).needsFollowUp(preparation.answers.get("income")));
@@ -105,7 +115,8 @@ class ScopedGuidanceIntegrationTest {
         assertEquals(DocumentState.READY, document(preparation, "conditional").state);
     }
 
-    @Test void oneTimeCheckPermitsOmittedReadOnlyQuestionsAndDoesNotCreatePersonalRecords() {
+    @Test
+    void oneTimeCheckPermitsOmittedReadOnlyQuestionsAndDoesNotCreatePersonalRecords() {
         UUID notice = publish(content(true));
         long before = db.queryForObject("SELECT count(*) FROM preparation", Long.class);
         var result = once.evaluate(notice, 1, Map.of("age", "YES"));
@@ -117,7 +128,8 @@ class ScopedGuidanceIntegrationTest {
         assertEquals(before, db.queryForObject("SELECT count(*) FROM preparation", Long.class));
     }
 
-    @Test void refreshingIntoPartialGuidancePreservesHistoricalAnswersAndReadyDocuments() {
+    @Test
+    void refreshingIntoPartialGuidancePreservesHistoricalAnswersAndReadyDocuments() {
         UUID notice = publish(content(false));
         var preparation = saved.start(owner, notice, 1);
         UUID id = UUID.fromString(preparation.id);
@@ -142,7 +154,8 @@ class ScopedGuidanceIntegrationTest {
         assertFalse(document(historical, "income-doc").reviewRequired);
     }
 
-    @Test void unconfirmedScheduleIsNotAnEventOrReminderAndHeldGuidanceDoesNotLeakItems() {
+    @Test
+    void unconfirmedScheduleIsNotAnEventOrReminderAndHeldGuidanceDoesNotLeakItems() {
         UUID notice = publish(content(true));
         assertEquals(List.of("apply"), notices.notice(notice).schedules().stream().map(ScheduleTemplate::id).toList());
         assertTrue(NoticeSchedules.reminders(notices.notice(notice)).stream().noneMatch(due -> due.title().contains("발표")));

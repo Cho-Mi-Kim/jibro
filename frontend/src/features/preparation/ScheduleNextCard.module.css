@@ -11,38 +11,6 @@
     font-size: 0.875rem;
     font-weight: 500;
 }
-.summary {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 12px;
-}
-.summary h4 {
-    margin: 0;
-    font-size: 1.125rem;
-    line-height: 1.45;
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-}
-.countdown {
-    padding: 0;
-    background: transparent;
-    color: var(--ink);
-    font-size: 1.75rem;
-    line-height: 1.25;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-}
-.note {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 0.625rem 0 0;
-    color: var(--muted);
-    font-size: 0.875rem;
-    word-break: keep-all;
-}
 .actions {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

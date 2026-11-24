@@ -35,7 +35,7 @@ class AuthIntegrationTest {
         mvc.perform(post("/api/v1/auth/signup").contentType("application/json").content(body)).andExpect(status().isForbidden());
         mvc.perform(post("/api/v1/auth/signup").with(csrf()).contentType("application/json").content(body)).andExpect(status().isCreated());
         var login = mvc.perform(post("/api/v1/auth/login").with(csrf()).contentType("application/json").content(body))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.user.role").value("USER")).andReturn();
+                .andExpect(status().isOk()).andExpect(jsonPath("$.user.role").value("USER")).andReturn();
         String access = json.readTree(login.getResponse().getContentAsString()).get("accessToken").asText();
         Cookie original = login.getResponse().getCookie("jibro_refresh");
         assertNotNull(original);
@@ -54,6 +54,6 @@ class AuthIntegrationTest {
         var response = mvc.perform(get("/api/v1/auth/csrf")).andExpect(status().isOk()).andReturn().getResponse();
         String token = json.readTree(response.getContentAsString()).get("token").asText();
         mvc.perform(post("/api/v1/auth/logout").cookie(response.getCookie("XSRF-TOKEN")).header("X-CSRF-TOKEN", token))
-            .andExpect(status().isNoContent());
+                .andExpect(status().isNoContent());
     }
 }

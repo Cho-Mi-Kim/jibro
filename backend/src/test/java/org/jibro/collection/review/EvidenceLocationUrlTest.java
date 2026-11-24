@@ -1,14 +1,19 @@
 package org.jibro.collection.review;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import org.jibro.collection.extraction.ExtractionModels.Source;
 import org.jibro.collection.extraction.ExtractionModels.Part;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EvidenceLocationUrlTest {
-    @Test void addsOnlyVerifiedTopLevelPdfPage() {
+    @Test
+    void addsOnlyVerifiedTopLevelPdfPage() {
         String url = "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=123";
         assertEquals(url + "#page=4", EvidenceLocationUrl.forPart("공고.pdf", url, "공고문 4쪽"));
         assertEquals(url, EvidenceLocationUrl.forPart("첨부.hwpx", url, "공고문 4쪽"));
@@ -17,7 +22,9 @@ class EvidenceLocationUrlTest {
         String unsafe = "https://example.com/lhapply/lhFile.do?fileid=123";
         assertEquals(unsafe, EvidenceLocationUrl.forPart("공고.pdf", unsafe, "공고문 4쪽"));
     }
-    @Test void connectsUniqueDocumentTextOnlyToTheCheckedSource() {
+
+    @Test
+    void connectsUniqueDocumentTextOnlyToTheCheckedSource() {
         String url = "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=123";
         String sha = "a".repeat(64);
         String text = "첫 항목입니다.\n입주 신청 자격은 공고 기준을 따릅니다.\n다른 항목입니다.";

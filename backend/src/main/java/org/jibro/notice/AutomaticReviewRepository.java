@@ -2,6 +2,7 @@ package org.jibro.notice;
 
 import java.util.List;
 import java.util.UUID;
+
 import org.jibro.collection.extraction.ExtractionModels;
 import org.jibro.global.common.ApiException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,32 +11,41 @@ import tools.jackson.databind.ObjectMapper;
 
 @Repository
 public class AutomaticReviewRepository {
-    public static final String POLICY = "official-rules-v10";
+    public static final String POLICY = "official-rules-v12";
     private static final String EVIDENCE_TOKEN = "encode(sha256(convert_to(jsonb_build_object('sources',e.sources,'status',e.status,'checkedAt',extract(epoch FROM e.finished_at))::text,'UTF8')),'hex')";
     private final JdbcTemplate db;
     private final ObjectMapper json;
-    public AutomaticReviewRepository(JdbcTemplate db, ObjectMapper json) { this.db = db; this.json = json; }
 
-    public record ExtractionSnapshot(ExtractionModels.Draft draft, String fingerprint) {}
+    public AutomaticReviewRepository(JdbcTemplate db, ObjectMapper json) {
+        this.db = db;
+        this.json = json;
+    }
 
-    /** Read the exact evidence and its identity together, before compilation starts. */
+    public record ExtractionSnapshot(ExtractionModels.Draft draft, String fingerprint) {
+    }
+
+    /**
+     * Read the exact evidence and its identity together, before compilation starts.
+     */
     public ExtractionSnapshot snapshot(UUID id) {
         return db.query("SELECT e.*, " + EVIDENCE_TOKEN + " AS evidence_token FROM notice_extraction e WHERE e.id=?", (rs, row) -> {
             var finished = rs.getTimestamp("finished_at");
             var draft = new ExtractionModels.Draft(rs.getString("id"), rs.getString("notice_id"), rs.getInt("source_revision"),
-                    rs.getString("status"), finished == null ? null : finished.toInstant(), rs.getString("message"),
-                    List.of(json.readValue(rs.getString("sources"), ExtractionModels.Source[].class)));
+                rs.getString("status"), finished == null ? null : finished.toInstant(), rs.getString("message"),
+                List.of(json.readValue(rs.getString("sources"), ExtractionModels.Source[].class)));
             return new ExtractionSnapshot(draft, rs.getString("evidence_token"));
         }, id).stream().findFirst().orElseThrow(ApiException::notFound);
     }
 
-    /** Caller holds the notice lock also used by extraction replacement and per-file retries. */
+    /**
+     * Caller holds the notice lock also used by extraction replacement and per-file retries.
+     */
     public boolean matchesCurrentEvidence(UUID notice, int revision, UUID extraction, String fingerprint) {
         if (fingerprint == null) return false;
         return Boolean.TRUE.equals(db.queryForObject("SELECT EXISTS(SELECT 1 FROM notice_extraction e WHERE e.id=? AND e.notice_id=? AND e.source_revision=?"
                 + " AND e.status IN ('READY','PARTIAL','FAILED') AND e.finished_at IS NOT NULL AND " + EVIDENCE_TOKEN + "=?"
                 + " AND e.id=(SELECT x.id FROM notice_extraction x WHERE x.notice_id=e.notice_id AND x.source_revision=e.source_revision ORDER BY x.created_at DESC,x.id DESC LIMIT 1))",
-                Boolean.class, extraction, notice, revision, fingerprint));
+            Boolean.class, extraction, notice, revision, fingerprint));
     }
 
     public boolean manual(UUID id) {
@@ -56,7 +66,9 @@ public class AutomaticReviewRepository {
         record(n, before, extraction, evidenceFingerprint, phase, pass ? "PASS" : "HOLD", reason, List.of());
     }
 
-    /** Preserve the exact unresolved scope even after a later notice version replaces the public content. */
+    /**
+     * Preserve the exact unresolved scope even after a later notice version replaces the public content.
+     */
     public void record(NoticeEntity n, int before, UUID extraction, String evidenceFingerprint, String phase,
                        String decision, String reason, List<HousingModels.ReviewIssue> reviewIssues) {
         if (!List.of("PASS", "PARTIAL", "HOLD").contains(decision)
@@ -95,6 +107,14 @@ public class AutomaticReviewRepository {
                 AND a.applied_revision=n.revision AND a.phase='BASIC' AND a.policy=?)
             ORDER BY n.collected_at DESC LIMIT 10
             """.formatted(AutomaticReviewEligibility.NOT_CLOSED_SQL), UUID.class, POLICY);
+    }
+
+    public boolean requiresFollowupComparison(UUID noticeId) {
+        return Boolean.TRUE.equals(db.queryForObject("""
+            SELECT EXISTS(SELECT 1 FROM notice_correction WHERE corrected_notice_id=?)
+                OR EXISTS(SELECT 1 FROM notice n JOIN published_notice_version v ON v.notice_id=n.id
+                    WHERE n.id=? AND n.change_review AND v.preparation IS NOT NULL)
+            """, Boolean.class, noticeId, noticeId));
     }
 
     public List<UUID> pendingGuidance() {

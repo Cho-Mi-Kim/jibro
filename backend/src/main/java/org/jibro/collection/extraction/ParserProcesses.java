@@ -4,9 +4,12 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/** Minimum process environment and bounded process-tree cleanup, shared by both isolated workers. */
+/**
+ * Minimum process environment and bounded process-tree cleanup, shared by both isolated workers.
+ */
 final class ParserProcesses {
-    private ParserProcesses() {}
+    private ParserProcesses() {
+    }
 
     static void isolate(ProcessBuilder builder, Path directory) {
         String systemRoot = System.getenv("SystemRoot"), windows = System.getenv("WINDIR");
@@ -29,7 +32,8 @@ final class ParserProcesses {
             boolean parentStopped = !process.isAlive();
             while (System.nanoTime() < deadline) {
                 try {
-                    if (!parentStopped) parentStopped = process.waitFor(Math.max(1, deadline - System.nanoTime()), TimeUnit.NANOSECONDS);
+                    if (!parentStopped)
+                        parentStopped = process.waitFor(Math.max(1, deadline - System.nanoTime()), TimeUnit.NANOSECONDS);
                     if (parentStopped && children.stream().noneMatch(ProcessHandle::isAlive)) return true;
                     children.stream().filter(ProcessHandle::isAlive).forEach(ProcessHandle::destroyForcibly);
                     TimeUnit.MILLISECONDS.sleep(10);
@@ -51,8 +55,11 @@ final class ParserProcesses {
             children.forEach(ProcessHandle::destroyForcibly);
             while (children.stream().anyMatch(ProcessHandle::isAlive) && System.nanoTime() < deadline) {
                 children.stream().filter(ProcessHandle::isAlive).forEach(ProcessHandle::destroyForcibly);
-                try { TimeUnit.MILLISECONDS.sleep(10); }
-                catch (InterruptedException cancellation) { interrupted = true; }
+                try {
+                    TimeUnit.MILLISECONDS.sleep(10);
+                } catch (InterruptedException cancellation) {
+                    interrupted = true;
+                }
             }
             return children.stream().noneMatch(ProcessHandle::isAlive);
         } finally {

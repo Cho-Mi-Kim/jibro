@@ -16,50 +16,50 @@ public final class OfficialCorrectionLink {
     // Older official notices use zero-padded 30-digit IDs. Preserve the literal identity.
     private static final String LITERAL = "['\"]([0-9]{0,30})['\"]";
     private static final Pattern CURRENT = Pattern.compile(
-        "(?m)^\\s*var\\s+panId\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+currPanId\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+panKdCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+currPanKdCd\\s*=\\s*" + LITERAL + "\\s*;");
+            "(?m)^\\s*var\\s+panId\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+currPanId\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+panKdCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+currPanKdCd\\s*=\\s*" + LITERAL + "\\s*;");
     private static final Pattern NAVIGATION = Pattern.compile(
-        "(?m)^\\s*function\\s+GoCrc\\s*\\(\\s*param\\s*\\)\\s*\\{\\s*"
-            + "var\\s+ccrCnntSysDsCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+panKdCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+panId\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+sOtxtPanId\\s*=\\s*" + LITERAL + "\\s*;");
+            "(?m)^\\s*function\\s+GoCrc\\s*\\(\\s*param\\s*\\)\\s*\\{\\s*"
+                    + "var\\s+ccrCnntSysDsCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+panKdCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+panId\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+sOtxtPanId\\s*=\\s*" + LITERAL + "\\s*;");
     private static final Pattern BRANCH_NAVIGATION = Pattern.compile(
-        "(?m)^\\s*function\\s+GoCrc\\s*\\(\\s*param\\s*\\)\\s*\\{\\s*"
-            + "var\\s+ccrCnntSysDsCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+panKdCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
-            + "var\\s+panId\\s*=\\s*(?:''|\"\")\\s*;\\s*"
-            + "if\\s*\\(\\s*param\\s*==\\s*['\"]curr['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*" + LITERAL + "\\s*;\\s*\\}\\s*"
-            + "else\\s+if\\s*\\(\\s*param\\s*==\\s*['\"]otxt['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*" + LITERAL + "\\s*;\\s*\\}");
+            "(?m)^\\s*function\\s+GoCrc\\s*\\(\\s*param\\s*\\)\\s*\\{\\s*"
+                    + "var\\s+ccrCnntSysDsCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+panKdCd\\s*=\\s*" + LITERAL + "\\s*;\\s*"
+                    + "var\\s+panId\\s*=\\s*(?:''|\"\")\\s*;\\s*"
+                    + "if\\s*\\(\\s*param\\s*==\\s*['\"]curr['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*" + LITERAL + "\\s*;\\s*\\}\\s*"
+                    + "else\\s+if\\s*\\(\\s*param\\s*==\\s*['\"]otxt['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*" + LITERAL + "\\s*;\\s*\\}");
     private static final Pattern SCRIPT_TOKEN = Pattern.compile(
-        "(?s)'(?:\\\\.|[^'\\\\])*+'|\"(?:\\\\.|[^\"\\\\])*+\"|`(?:\\\\.|[^`\\\\])*+`|/\\*.*?\\*/|//[^\\r\\n]*");
+            "(?s)'(?:\\\\.|[^'\\\\])*+'|\"(?:\\\\.|[^\"\\\\])*+\"|`(?:\\\\.|[^`\\\\])*+`|/\\*.*?\\*/|//[^\\r\\n]*");
     private static final Pattern NAVIGATION_DEFINITION = Pattern.compile("\\bfunction\\s+GoCrc\\s*\\(");
     private static final Pattern NAVIGATION_REPLACEMENT = Pattern.compile("\\bGoCrc\\s*=(?!=)");
     private static final String NAVIGATION_VARIABLE = "(?:panId|sOtxtPanId|ccrCnntSysDsCd|panKdCd)";
     private static final Pattern NAVIGATION_MUTATION = Pattern.compile(
-        "\\b" + NAVIGATION_VARIABLE + "\\s*(?:=(?!=)|[+*/%&|^?-]+=|\\+\\+|--)"
-            + "|(?:\\+\\+|--)\\s*\\b" + NAVIGATION_VARIABLE + "\\b");
+            "\\b" + NAVIGATION_VARIABLE + "\\s*(?:=(?!=)|[+*/%&|^?-]+=|\\+\\+|--)"
+                    + "|(?:\\+\\+|--)\\s*\\b" + NAVIGATION_VARIABLE + "\\b");
     // A verified LH template has a default original-ID fallback, followed by empty
     // alternate routes. Recognize the entire static block, not arbitrary assignments.
     private static final Pattern DEFAULT_NAVIGATION = Pattern.compile(
-        "\\s*if\\s*\\(\\s*isEmpty\\s*\\(\\s*param\\s*\\)\\s*\\)\\s*\\{\\s*"
-            + "if\\s*\\(\\s*sOtxtPanId\\s*==\\s*null\\s*\\|\\|\\s*sOtxtPanId\\s*==\\s*(?:''|\"\")\\s*\\)\\s*\\{\\s*"
-            + "sOtxtPanId\\s*=\\s*" + LITERAL + "\\s*;\\s*\\}\\s*"
-            + formValue("ccrCnntSysDsCd", "ccrCnntSysDsCd") + formValue("panKdCd", "panKdCd")
-            + formValue("panId", "panId") + formValue("otxtPanId", "sOtxtPanId")
-            + "\\}\\s*else\\s*\\{\\s*"
-            + "if\\s*\\(\\s*param\\s*==\\s*['\"]curr['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*(?:''|\"\")\\s*;\\s*\\}\\s*"
-            + "else\\s+if\\s*\\(\\s*param\\s*==\\s*['\"]otxt['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*(?:''|\"\")\\s*;\\s*\\}\\s*"
-            + formValue("ccrCnntSysDsCd", "ccrCnntSysDsCd") + formValue("panKdCd", "panKdCd")
-            + formValue("panId", "panId") + "\\}\\s*");
+            "\\s*if\\s*\\(\\s*isEmpty\\s*\\(\\s*param\\s*\\)\\s*\\)\\s*\\{\\s*"
+                    + "if\\s*\\(\\s*sOtxtPanId\\s*==\\s*null\\s*\\|\\|\\s*sOtxtPanId\\s*==\\s*(?:''|\"\")\\s*\\)\\s*\\{\\s*"
+                    + "sOtxtPanId\\s*=\\s*" + LITERAL + "\\s*;\\s*\\}\\s*"
+                    + formValue("ccrCnntSysDsCd", "ccrCnntSysDsCd") + formValue("panKdCd", "panKdCd")
+                    + formValue("panId", "panId") + formValue("otxtPanId", "sOtxtPanId")
+                    + "\\}\\s*else\\s*\\{\\s*"
+                    + "if\\s*\\(\\s*param\\s*==\\s*['\"]curr['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*(?:''|\"\")\\s*;\\s*\\}\\s*"
+                    + "else\\s+if\\s*\\(\\s*param\\s*==\\s*['\"]otxt['\"]\\s*\\)\\s*\\{\\s*panId\\s*=\\s*(?:''|\"\")\\s*;\\s*\\}\\s*"
+                    + formValue("ccrCnntSysDsCd", "ccrCnntSysDsCd") + formValue("panKdCd", "panKdCd")
+                    + formValue("panId", "panId") + "\\}\\s*");
     private static final Pattern DEFAULT_SUBMISSION = Pattern.compile(
-        "\\s*var\\s+chkOs\\s*=\\s*getCookie\\s*\\(\\s*['\"]d['\"]\\s*\\)\\s*;\\s*"
-            + "if\\s*\\(\\s*['\"]ios['\"]\\s*==\\s*chkOs\\s*\\)\\s*\\{\\s*"
-            + "\\$\\s*\\(\\s*['\"]#wrtancViewForm['\"]\\s*\\)\\s*\\.attr\\s*\\(\\s*['\"]method['\"]\\s*,\\s*['\"]get['\"]\\s*\\)\\s*;\\s*\\}\\s*"
-            + "\\$\\s*\\(\\s*['\"]#wrtancViewForm['\"]\\s*\\)\\s*\\.attr\\s*\\(\\s*['\"]action['\"]\\s*,\\s*['\"]"
-            + "/lhapply/apply/wt/wrtanc/selectWrtancInfo\\.do['\"]\\s*\\)\\s*\\.submit\\s*\\(\\s*\\)\\s*;\\s*");
+            "\\s*var\\s+chkOs\\s*=\\s*getCookie\\s*\\(\\s*['\"]d['\"]\\s*\\)\\s*;\\s*"
+                    + "if\\s*\\(\\s*['\"]ios['\"]\\s*==\\s*chkOs\\s*\\)\\s*\\{\\s*"
+                    + "\\$\\s*\\(\\s*['\"]#wrtancViewForm['\"]\\s*\\)\\s*\\.attr\\s*\\(\\s*['\"]method['\"]\\s*,\\s*['\"]get['\"]\\s*\\)\\s*;\\s*\\}\\s*"
+                    + "\\$\\s*\\(\\s*['\"]#wrtancViewForm['\"]\\s*\\)\\s*\\.attr\\s*\\(\\s*['\"]action['\"]\\s*,\\s*['\"]"
+                    + "/lhapply/apply/wt/wrtanc/selectWrtancInfo\\.do['\"]\\s*\\)\\s*\\.submit\\s*\\(\\s*\\)\\s*;\\s*");
 
     public record Identity(String panId, String system, String category, String type) {
     }
@@ -74,12 +74,12 @@ public final class OfficialCorrectionLink {
         var ids = doc.select("form#wrtancViewForm input[name=panId]");
         if (ids.size() != 1 || !id.panId().equals(ids.first().val())) throw invalid();
         var statuses = doc.select(".bbs_ViewA .bbsV_data li").stream()
-            .filter(li -> li.select("strong").text().equals("공고상태"))
-            .map(li -> {
-                var copy = li.clone();
-                copy.select("strong").remove();
-                return copy.text().strip();
-            }).toList();
+                .filter(li -> li.select("strong").text().equals("공고상태"))
+                .map(li -> {
+                    var copy = li.clone();
+                    copy.select("strong").remove();
+                    return copy.text().strip();
+                }).toList();
         if (statuses.size() > 1) throw invalid();
         return statuses.size() == 1 && Set.of("접수마감", "접수종료", "공고종료", "공고취소").contains(statuses.get(0));
     }
@@ -91,7 +91,7 @@ public final class OfficialCorrectionLink {
         identity(url);
         if (!panId.matches("[0-9]{1,30}")) throw invalid();
         return Pattern.compile("([?&]panId=)[0-9]{1,30}(?=&|$)").matcher(url)
-            .replaceFirst(match -> java.util.regex.Matcher.quoteReplacement(match.group(1) + panId));
+                .replaceFirst(match -> java.util.regex.Matcher.quoteReplacement(match.group(1) + panId));
     }
 
     /**
@@ -103,10 +103,10 @@ public final class OfficialCorrectionLink {
         if (!p.current()[0].equals(id.panId())) throw invalid();
         if (!p.current()[3].equals("02")) return Optional.empty();
         if (!Set.of("01", "02").contains(p.current()[2]) || p.current()[1].isEmpty()
-            || !p.navigation()[0].equals(id.system()) || !p.navigation()[1].equals("02")
-            || !p.navigation()[2].equals(p.current()[1])) throw invalid();
+                || !p.navigation()[0].equals(id.system()) || !p.navigation()[1].equals("02")
+                || !p.navigation()[2].equals(p.current()[1])) throw invalid();
         return Optional.of(new Navigation(withPanId(url, p.current()[1]),
-            p.navigation()[3].isEmpty() ? null : withPanId(url, p.navigation()[3]), p.current()[2]));
+                p.navigation()[3].isEmpty() ? null : withPanId(url, p.navigation()[3]), p.current()[2]));
     }
 
     /**
@@ -117,24 +117,25 @@ public final class OfficialCorrectionLink {
         var old = identity(originalUrl);
         var next = identity(latestUrl);
         if (!old.system().equals(next.system()) || !old.category().equals(next.category())
-            || !old.type().equals(next.type()) || old.panId().equals(next.panId())) throw invalid();
+                || !old.type().equals(next.type()) || old.panId().equals(next.panId())) throw invalid();
         var entries = OfficialCorrectionHistory.read(latestUrl, historyHtml);
         var row = entries.stream().skip(1).filter(e -> identity(e.url()).equals(old)).findFirst().orElseThrow(OfficialCorrectionLink::invalid);
         var a = page(originalHtml, old.panId());
         var b = page(latestHtml, next.panId());
         boolean legacyRoot = legacyRoot(old, row, a);
         if (!(pointsToLatest(a, old, next, row.kind()) || legacyRoot)
-            || !pointsToLatest(b, next, next, "02")
-            || !row.title().equals(Jsoup.parse(originalHtml).select(".bbs_ViewA h3").text())
-            || !entries.get(0).title().equals(Jsoup.parse(latestHtml).select(".bbs_ViewA h3").text())) throw invalid();
+                || !pointsToLatest(b, next, next, "02")
+                || !row.title().equals(Jsoup.parse(originalHtml).select(".bbs_ViewA h3").text())
+                || !entries.get(0).title().equals(Jsoup.parse(latestHtml).select(".bbs_ViewA h3").text()))
+            throw invalid();
         String reason = familyReason(latestHtml, legacyPublicRental(old));
         return new Proof(old.panId(), next.panId(), hash(originalHtml), hash(latestHtml), reason, hash(historyHtml));
     }
 
     private static boolean pointsToLatest(Page page, Identity current, Identity latest, String kind) {
         return Arrays.equals(page.current(), new String[]{current.panId(), latest.panId(), kind, "02"})
-            && page.navigation()[0].equals(current.system()) && page.navigation()[1].equals("02")
-            && page.navigation()[2].equals(latest.panId());
+                && page.navigation()[0].equals(current.system()) && page.navigation()[1].equals("02")
+                && page.navigation()[2].equals(latest.panId());
     }
 
     /**
@@ -142,9 +143,9 @@ public final class OfficialCorrectionLink {
      */
     private static boolean legacyRoot(Identity old, OfficialCorrectionHistory.Entry row, Page page) {
         return legacyPublicRental(old)
-            && row.kind().equals("01")
-            && Arrays.equals(page.current(), new String[]{old.panId(), old.panId(), "01", "01"})
-            && Arrays.equals(page.navigation(), new String[]{"02", "01", old.panId(), ""});
+                && row.kind().equals("01")
+                && Arrays.equals(page.current(), new String[]{old.panId(), old.panId(), "01", "01"})
+                && Arrays.equals(page.navigation(), new String[]{"02", "01", old.panId(), ""});
     }
 
     private static boolean legacyPublicRental(Identity id) {
@@ -158,7 +159,7 @@ public final class OfficialCorrectionLink {
                                                 String latestHtml, String historyHtml) {
         var old = identity(originalUrl);
         var row = OfficialCorrectionHistory.read(latestUrl, historyHtml).stream().skip(1)
-            .filter(e -> identity(e.url()).equals(old)).findFirst().orElseThrow(OfficialCorrectionLink::invalid);
+                .filter(e -> identity(e.url()).equals(old)).findFirst().orElseThrow(OfficialCorrectionLink::invalid);
         if (!legacyRoot(old, row, page(originalHtml, old.panId()))) throw invalid();
         return verifyFamilyHistory(originalUrl, originalHtml, latestUrl, latestHtml, historyHtml);
     }
@@ -166,18 +167,18 @@ public final class OfficialCorrectionLink {
     private static String familyReason(String html, boolean legacyRoot) {
         var doc = Jsoup.parse(html);
         var reasons = doc.select("dt").stream().filter(e -> e.text().equals("정정사유"))
-            .map(e -> e.nextElementSibling()).filter(e -> e != null && e.tagName().equals("dd"))
-            .map(e -> e.text().strip()).toList();
+                .map(e -> e.nextElementSibling()).filter(e -> e != null && e.tagName().equals("dd"))
+                .map(e -> e.text().strip()).toList();
         if (reasons.isEmpty()) {
             var bodies = doc.select(".bbsV_cont dt").stream()
-                .filter(e -> e.text().equals("내용")).map(e -> e.nextElementSibling())
-                .filter(e -> e != null && e.tagName().equals("dd")).flatMap(e -> e.select("pre").stream())
-                .map(e -> e.wholeText().strip()).toList();
+                    .filter(e -> e.text().equals("내용")).map(e -> e.nextElementSibling())
+                    .filter(e -> e != null && e.tagName().equals("dd")).flatMap(e -> e.select("pre").stream())
+                    .map(e -> e.wholeText().strip()).toList();
             // '수정정보' contains the substring '정정'; it is a field label, not a complete reason.
             if (legacyRoot && bodies.stream().anyMatch(s -> s.startsWith("수정정보")))
                 reasons = bodies.stream().filter(s -> s.matches("(?s)^수정정보\\s*[:：]\\s*\\S.*")).toList();
             else reasons = bodies.stream().map(s -> s.split("\\R", 2)[0].strip())
-                .filter(s -> !s.startsWith("수정정보") && s.contains("정정")).toList();
+                    .filter(s -> !s.startsWith("수정정보") && s.contains("정정")).toList();
         }
         if (reasons.size() != 1 || reasons.get(0).isBlank() || reasons.get(0).length() > 2000) throw invalid();
         return reasons.get(0);
@@ -193,9 +194,9 @@ public final class OfficialCorrectionLink {
         var a = page(originalHtml, old.panId());
         var b = page(latestHtml, next.panId());
         if (!Arrays.equals(a.current(), new String[]{old.panId(), old.panId(), "01", "01"})
-            || !Arrays.equals(a.navigation(), new String[]{"02", "01", old.panId(), ""})
-            || !Arrays.equals(b.current(), new String[]{next.panId(), next.panId(), "02", "02"})
-            || !Arrays.equals(b.navigation(), new String[]{"02", "02", next.panId(), ""})) throw invalid();
+                || !Arrays.equals(a.navigation(), new String[]{"02", "01", old.panId(), ""})
+                || !Arrays.equals(b.current(), new String[]{next.panId(), next.panId(), "02", "02"})
+                || !Arrays.equals(b.navigation(), new String[]{"02", "02", next.panId(), ""})) throw invalid();
         return new Proof(old.panId(), next.panId(), hash(originalHtml), hash(latestHtml), familyReason(latestHtml, true));
     }
 
@@ -210,7 +211,7 @@ public final class OfficialCorrectionLink {
     public static String historyUrl(String correctedUrl) {
         var id = identity(correctedUrl);
         return "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancHistoryInfoPopUp.do?panId=" + id.panId()
-            + "&ccrCnntSysDsCd=" + id.system() + "&uppAisTpCd=" + id.category() + "&aisTpCd=" + id.type() + "&mi=1026";
+                + "&ccrCnntSysDsCd=" + id.system() + "&uppAisTpCd=" + id.category() + "&aisTpCd=" + id.type() + "&mi=1026";
     }
 
     /**
@@ -221,25 +222,25 @@ public final class OfficialCorrectionLink {
         var old = identity(originalUrl);
         var next = identity(correctedUrl);
         if (!old.system().equals("02") || !old.category().equals("06") || !old.type().equals("08")
-            || !old.system().equals(next.system()) || !old.category().equals(next.category())
-            || !old.type().equals(next.type()) || old.panId().equals(next.panId())) throw invalid();
+                || !old.system().equals(next.system()) || !old.category().equals(next.category())
+                || !old.type().equals(next.type()) || old.panId().equals(next.panId())) throw invalid();
         var a = page(originalHtml, old.panId());
         var b = page(correctedHtml, next.panId());
         if (!Arrays.equals(a.current(), new String[]{old.panId(), next.panId(), "01", "02"})
-            || !Arrays.equals(b.current(), new String[]{next.panId(), next.panId(), "02", "02"})
-            || !Arrays.equals(a.navigation(), new String[]{"02", "02", next.panId(), ""})
-            || !Arrays.equals(b.navigation(), new String[]{"02", "02", next.panId(), ""})) throw invalid();
+                || !Arrays.equals(b.current(), new String[]{next.panId(), next.panId(), "02", "02"})
+                || !Arrays.equals(a.navigation(), new String[]{"02", "02", next.panId(), ""})
+                || !Arrays.equals(b.navigation(), new String[]{"02", "02", next.panId(), ""})) throw invalid();
         if (historyHtml == null || historyHtml.length() > 2 * 1024 * 1024) throw invalid();
         var rows = Jsoup.parse(historyHtml).select("table:has(caption) tbody tr");
         if (rows.size() != 2 || !rows.get(0).select("th").text().equals("정정공고")
-            || !rows.get(1).select("th").text().equals("일반공고")) throw invalid();
+                || !rows.get(1).select("th").text().equals("일반공고")) throw invalid();
         var currentCells = rows.get(0).select("td");
         var oldCells = rows.get(1).select("td");
         if (currentCells.size() != 3 || oldCells.size() != 3
-            || !currentCells.get(1).text().equals(Jsoup.parse(correctedHtml).select(".bbs_ViewA h3").text())
-            || !oldCells.get(1).text().equals(Jsoup.parse(originalHtml).select(".bbs_ViewA h3").text())
-            || !rows.get(0).select("a").isEmpty() || rows.get(1).select("a").size() != 1
-            || !rows.get(1).select("a").attr("href").equals("javascript:goUrl('" + old.panId() + "','02')"))
+                || !currentCells.get(1).text().equals(Jsoup.parse(correctedHtml).select(".bbs_ViewA h3").text())
+                || !oldCells.get(1).text().equals(Jsoup.parse(originalHtml).select(".bbs_ViewA h3").text())
+                || !rows.get(0).select("a").isEmpty() || rows.get(1).select("a").size() != 1
+                || !rows.get(1).select("a").attr("href").equals("javascript:goUrl('" + old.panId() + "','02')"))
             throw invalid();
         try {
             if (java.time.LocalDate.parse(currentCells.get(0).text()).isBefore(java.time.LocalDate.parse(oldCells.get(0).text())))
@@ -248,10 +249,10 @@ public final class OfficialCorrectionLink {
             throw invalid();
         }
         var reasons = Jsoup.parse(correctedHtml).select(".bbsV_cont dt").stream()
-            .filter(e -> e.text().equals("내용")).map(e -> e.nextElementSibling())
-            .filter(e -> e != null && e.tagName().equals("dd"))
-            .flatMap(e -> e.select("pre").stream()).map(e -> e.wholeText().strip().split("\\R", 2)[0].strip())
-            .filter(s -> s.contains("정정") && !s.isBlank() && s.length() <= 2000).toList();
+                .filter(e -> e.text().equals("내용")).map(e -> e.nextElementSibling())
+                .filter(e -> e != null && e.tagName().equals("dd"))
+                .flatMap(e -> e.select("pre").stream()).map(e -> e.wholeText().strip().split("\\R", 2)[0].strip())
+                .filter(s -> s.contains("정정") && !s.isBlank() && s.length() <= 2000).toList();
         if (reasons.size() != 1) throw invalid();
         return new Proof(old.panId(), next.panId(), hash(originalHtml), hash(correctedHtml), reasons.get(0), hash(historyHtml));
     }
@@ -263,9 +264,9 @@ public final class OfficialCorrectionLink {
         try {
             var uri = URI.create(value);
             if (!"https".equals(uri.getScheme()) || !"apply.lh.or.kr".equals(uri.getHost())
-                || uri.getUserInfo() != null || uri.getFragment() != null
-                || uri.getPort() != -1 && uri.getPort() != 443
-                || !"/lhapply/apply/wt/wrtanc/selectWrtancInfo.do".equals(uri.getPath())) throw invalid();
+                    || uri.getUserInfo() != null || uri.getFragment() != null
+                    || uri.getPort() != -1 && uri.getPort() != 443
+                    || !"/lhapply/apply/wt/wrtanc/selectWrtancInfo.do".equals(uri.getPath())) throw invalid();
             Map<String, String> query = new HashMap<>();
             for (var field : Objects.requireNonNull(uri.getRawQuery()).split("&")) {
                 var pair = field.split("=", 2);
@@ -274,9 +275,9 @@ public final class OfficialCorrectionLink {
                 if (query.putIfAbsent(key, content) != null) throw invalid();
             }
             String pan = query.get("panId"), system = query.get("ccrCnntSysDsCd"),
-                category = query.get("uppAisTpCd"), type = query.get("aisTpCd");
+                    category = query.get("uppAisTpCd"), type = query.get("aisTpCd");
             if (pan == null || !pan.matches("[0-9]{1,30}") || system == null || !system.matches("[0-9]{2}")
-                || category == null || !category.matches("[0-9]{2}") || type == null || !type.matches("[0-9]{2}"))
+                    || category == null || !category.matches("[0-9]{2}") || type == null || !type.matches("[0-9]{2}"))
                 throw invalid();
             return new Identity(pan, system, category, type);
         } catch (RuntimeException ex) {
@@ -288,24 +289,24 @@ public final class OfficialCorrectionLink {
         var original = identity(originalUrl);
         var corrected = identity(correctedUrl);
         if (original.panId().equals(corrected.panId()) || !original.system().equals(corrected.system())
-            || !original.category().equals(corrected.category()) || !original.type().equals(corrected.type()))
+                || !original.category().equals(corrected.category()) || !original.type().equals(corrected.type()))
             throw invalid();
         var oldPage = page(originalHtml, original.panId());
         var newPage = page(correctedHtml, corrected.panId());
         if (!oldPage.current()[0].equals(original.panId()) || !oldPage.current()[1].equals(corrected.panId())
-            || !oldPage.current()[2].equals("01") || !oldPage.current()[3].equals("02")
-            || !newPage.current()[0].equals(corrected.panId()) || !newPage.current()[1].equals(corrected.panId())
-            || !newPage.current()[2].equals("02") || !newPage.current()[3].equals("02")
-            || !oldPage.navigation()[0].equals(original.system()) || !oldPage.navigation()[1].equals("02")
-            || !oldPage.navigation()[2].equals(corrected.panId())
-            || !newPage.navigation()[0].equals(corrected.system()) || !newPage.navigation()[1].equals("02")
-            || !newPage.navigation()[2].equals(corrected.panId()) || !newPage.navigation()[3].equals(original.panId()))
+                || !oldPage.current()[2].equals("01") || !oldPage.current()[3].equals("02")
+                || !newPage.current()[0].equals(corrected.panId()) || !newPage.current()[1].equals(corrected.panId())
+                || !newPage.current()[2].equals("02") || !newPage.current()[3].equals("02")
+                || !oldPage.navigation()[0].equals(original.system()) || !oldPage.navigation()[1].equals("02")
+                || !oldPage.navigation()[2].equals(corrected.panId())
+                || !newPage.navigation()[0].equals(corrected.system()) || !newPage.navigation()[1].equals("02")
+                || !newPage.navigation()[2].equals(corrected.panId()) || !newPage.navigation()[3].equals(original.panId()))
             throw invalid();
         var reasons = Jsoup.parse(correctedHtml).select("dt").stream()
-            .filter(e -> e.text().strip().equals("정정사유"))
-            .map(e -> e.nextElementSibling())
-            .filter(e -> e != null && e.tagName().equals("dd"))
-            .map(e -> e.text().strip()).toList();
+                .filter(e -> e.text().strip().equals("정정사유"))
+                .map(e -> e.nextElementSibling())
+                .filter(e -> e != null && e.tagName().equals("dd"))
+                .map(e -> e.text().strip()).toList();
         if (reasons.size() != 1 || reasons.get(0).isBlank() || reasons.get(0).length() > 2000) throw invalid();
         return new Proof(original.panId(), corrected.panId(), hash(originalHtml), hash(correctedHtml), reasons.get(0));
     }
@@ -393,7 +394,7 @@ public final class OfficialCorrectionLink {
 
     private static String formValue(String field, String variable) {
         return "\\$\\s*\\(\\s*['\"]#" + field + "['\"]\\s*\\)\\s*\\.\\s*val\\s*\\(\\s*"
-            + variable + "\\s*\\)\\s*;\\s*";
+                + variable + "\\s*\\)\\s*;\\s*";
     }
 
     private static IllegalArgumentException invalid() {

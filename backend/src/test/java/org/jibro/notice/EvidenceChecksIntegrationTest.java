@@ -52,7 +52,7 @@ class EvidenceChecksIntegrationTest {
         var document = new DocumentTemplate("form", "신청서", null, "서명 후 제출", "LH 공고 첨부", null, evidence);
         var content = new Content("원문 대조 필요", evidence, List.of(), List.of(), List.of(document), List.of());
         id = notices.insert("evidence-check-" + UUID.randomUUID(), "공고", "LH", "서울", "임대",
-            LocalDate.now(), LocalDate.now().plusDays(1), LocalDate.now(), content);
+                LocalDate.now(), LocalDate.now().plusDays(1), LocalDate.now(), content);
         when(transport.probe(anyString())).thenReturn(200);
     }
 
@@ -78,30 +78,30 @@ class EvidenceChecksIntegrationTest {
     void endpointRequiresAdminCsrfAndCurrentRevision() throws Exception {
         String path = "/api/v1/admin/reviews/" + id + "/evidence-checks";
         mvc.perform(post(path).with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
-            .andExpect(status().isUnauthorized());
+                .andExpect(status().isUnauthorized());
         mvc.perform(post(path).with(csrf()).with(jwt().authorities(new SimpleGrantedAuthority("ROLE_USER")))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
-            .andExpect(status().isForbidden());
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
+                .andExpect(status().isForbidden());
         // jwt() intentionally skips CSRF in Spring Security Test; use authentication() to exercise the filter.
         var admin = new JwtAuthenticationToken(Jwt.withTokenValue("test")
-            .header("alg", "none").subject(UUID.randomUUID().toString()).build(),
-            List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
+                .header("alg", "none").subject(UUID.randomUUID().toString()).build(),
+                List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
         mvc.perform(post(path).with(authentication(admin))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
-            .andExpect(status().isForbidden());
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
+                .andExpect(status().isForbidden());
         mvc.perform(post(path).with(authentication(admin)).with(csrf().useInvalidToken())
-                .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
-            .andExpect(status().isForbidden());
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
+                .andExpect(status().isForbidden());
         mvc.perform(post(path).with(csrf()).with(authentication(admin))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":0}"))
-            .andExpect(status().isBadRequest());
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":0}"))
+                .andExpect(status().isBadRequest());
         mvc.perform(post(path).with(csrf()).with(authentication(admin))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":2}"))
-            .andExpect(status().isConflict());
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":2}"))
+                .andExpect(status().isConflict());
         verifyNoInteractions(transport);
         mvc.perform(post(path).with(csrf()).with(authentication(admin))
-                .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
-            .andExpect(status().isOk());
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"revision\":1}"))
+                .andExpect(status().isOk());
         verify(transport).probe("https://apply.lh.or.kr/example");
     }
 
@@ -110,7 +110,7 @@ class EvidenceChecksIntegrationTest {
         var existing = notices.content(id);
         var future = new Evidence("공고문 4쪽", existing.evidence().url(), LocalDate.now().plusDays(2).toString());
         var changed = new Content(existing.summary(), future, existing.attachments(), existing.questions(),
-            existing.documents(), existing.schedules());
+                existing.documents(), existing.schedules());
         String original = notices.entity(id).content;
         assertThrows(IllegalArgumentException.class, () -> notices.updateContent(id, 1, changed));
         assertEquals(original, notices.entity(id).content);

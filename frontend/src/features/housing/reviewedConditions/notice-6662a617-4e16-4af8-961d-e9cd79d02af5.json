@@ -1,0 +1,1274 @@
+{
+    "entries": [
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "adult",
+            "sourceTitle": "성년 신청 원칙 또는 미성년 예외에 해당하나요?",
+            "sourceReason": "원칙은 민법상 만 19세 이상입니다. 미성년자라도 같은 등본에 등재된 자녀를 부양하는 세대주, 직계존속의 사망·실종선고·행방불명 등으로 같은 등본의 형제자매를 부양하는 세대주, 또는 외국인 부모를 둔 내국인 미성년 세대주인 한부모가족은 예외가 있습니다. 마지막 경우 외국인 부모가 대리 신청하며 계약에는 법정대리인의 동의 또는 대리가 필요합니다. 연령 예외는 다른 모집자격을 면제하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "몇 살부터 신청할 수 있나요?",
+            "preview": "만19세 이상 원칙 · 미성년 세대주 일부 예외",
+            "sections": [
+                {
+                    "text": "• 원칙은 민법상 만 19세 이상이에요.\n• 미성년자라도 같은 등본에 등재된 자녀를 부양하는 세대주, 부모·조부모 등 윗세대 가족의 사망·실종선고·행방불명 등으로 같은 등본의 형제자매를 부양하는 세대주, 또는 외국인 부모를 둔 내국인 미성년 세대주인 한부모가족은 예외가 있어요.\n• 마지막 경우 외국인 부모가 대리 신청하며 계약에는 법정대리인의 동의 또는 대리가 필요해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "연령 예외는 다른 모집자격을 면제하지 않습니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "ADULT",
+                    "label": "만 19세 이상",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "MINOR_CHILD",
+                    "label": "자녀를 부양하는 미성년 세대주",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "MINOR_SIBLING",
+                    "label": "형제자매를 부양하는 미성년 세대주",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "MINOR_FOREIGN_PARENT",
+                    "label": "외국인 부모가 대리 신청하는 내국인 미성년 세대주",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "NO",
+                    "label": "해당하지 않아요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "ADULT": "만 19세 이상",
+                "MINOR_CHILD": "자녀를 부양하는 미성년 세대주",
+                "MINOR_SIBLING": "형제자매를 부양하는 미성년 세대주",
+                "MINOR_FOREIGN_PARENT": "외국인 부모가 대리 신청하는 내국인 미성년 세대주",
+                "NO": "해당하지 않아요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "ADULT",
+                        "label": "만 19세 이상",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "MINOR_CHILD",
+                        "label": "자녀를 부양하는 미성년 세대주",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "MINOR_SIBLING",
+                        "label": "형제자매를 부양하는 미성년 세대주",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "MINOR_FOREIGN_PARENT",
+                        "label": "외국인 부모가 대리 신청하는 내국인 미성년 세대주",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NO",
+                        "label": "해당하지 않아요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "residence",
+            "sourceTitle": "공고일 현재 창원시에 주민등록이 있나요?",
+            "sourceReason": "2026.10.28. 현재 사업대상지역인 창원시에 주민등록이 등재된 무주택세대구성원이어야 합니다. 주민등록지 행정복지센터에서 신청하며 공고 후 전입을 공고일 거주로 간주하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "어디에 살고 있어야 하나요?",
+            "preview": "2026.10.28 기준 창원시 주민등록",
+            "sections": [
+                {
+                    "text": "• 2026.10.28.\n• 현재 사업대상지역인 창원시에 주민등록이 등재된 무주택세대구성원이어야 해요.\n• 주민등록지 행정복지센터에서 신청하며 공고 후 전입을 공고일 거주로 간주하지 않습니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "공고일에 창원시 주민등록이 있었어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "공고일에 다른 지역이었어요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "공고일에 창원시 주민등록이 있었어요",
+                "NO": "공고일에 다른 지역이었어요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "공고일에 창원시 주민등록이 있었어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "공고일에 다른 지역이었어요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "household",
+            "sourceTitle": "세대 범위와 추가 가족서류를 확인해 주세요.",
+            "sourceReason": "신청자와 배우자(주소가 달라도 포함), 신청자 또는 분리배우자와 같은 등본의 직계존속·직계비속 및 그 배우자, 신청자와 같은 등본의 배우자 직계비속 및 그 배우자가 세대 범위입니다. 가족관계등록부·외국인등록/거소신고와 주소 요건을 갖춘 외국인 가족, 태아도 포함합니다. 국내 미거주 재외국민 배우자 또는 미등록 외국인 배우자가 있으면 신청할 수 없다고 공고되어 있습니다. 실종 절차 진행, 행정기관 신고 후 1개월이 지난 가출·행방불명 또는 기관이 확인한 생계·주거 분리 가족을 제외하려면 입증서류와 기관 확인이 필요합니다. 공고일 뒤 세대주·주소 변경, 배우자 미표시(미혼·이혼·사별 포함), 외국인 가족, 임신·입양에 따른 추가서류를 함께 점검하세요. 해당 없음은 다른 항목과 함께 선택하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "주소가 다른 배우자 포함 · 가족별 등본·등록 조건 확인",
+            "sections": [
+                {
+                    "text": "• 신청자와 배우자(주소가 달라도 포함), 신청자 또는 주소가 다른 배우자와 같은 등본의 부모·조부모 등 윗세대 가족·자녀·손자녀 등 아랫세대 가족 및 그 배우자, 신청자와 같은 등본의 배우자 자녀·손자녀 등 아랫세대 가족 및 그 배우자가 세대 범위이에요.\n• 가족관계등록부·외국인등록/거소신고와 주소 요건을 갖춘 외국인 가족, 태아도 포함해요.\n• 국내 미거주 재외국민 배우자 또는 미등록 외국인 배우자가 있으면 신청할 수 없다고 공고되어 있어요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 실종 절차 진행, 행정기관 신고 후 1개월이 지난 가출·행방불명 또는 기관이 확인한 생계·주거 분리 가족을 제외하려면 입증서류와 기관 확인이 필요해요.\n• 공고일 뒤 세대주·주소 변경, 배우자 미표시(미혼·이혼·사별 포함), 외국인 가족, 임신·입양에 따른 추가서류를 함께 점검하세요.\n• 해당 없음은 다른 항목과 함께 선택하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "FAMILY_CERT",
+                    "label": "배우자가 등본에 없거나 가족관계 상세 확인이 필요함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SEPARATE_SPOUSE",
+                    "label": "배우자 등본이 분리되어 있음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "FOREIGN_FAMILY",
+                    "label": "외국인 배우자·직계존비속이 있음",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "PREGNANT",
+                    "label": "태아를 세대원으로 인정받으려 함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "ADOPTED",
+                    "label": "입양자녀를 포함함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "RECENT_CHANGE",
+                    "label": "공고 후 주소·세대주·등본이 변경됨",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "EXCLUDED_MEMBER",
+                    "label": "실종·행방불명·생계주거 분리 등 제외 확인이 필요함",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "NONE",
+                    "label": "해당 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "FAMILY_CERT": "배우자가 등본에 없거나 가족관계 상세 확인이 필요함",
+                "SEPARATE_SPOUSE": "배우자 등본이 분리되어 있음",
+                "FOREIGN_FAMILY": "외국인 배우자·직계존비속이 있음",
+                "PREGNANT": "태아를 세대원으로 인정받으려 함",
+                "ADOPTED": "입양자녀를 포함함",
+                "RECENT_CHANGE": "공고 후 주소·세대주·등본이 변경됨",
+                "EXCLUDED_MEMBER": "실종·행방불명·생계주거 분리 등 제외 확인이 필요함",
+                "NONE": "해당 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "FAMILY_CERT",
+                        "label": "배우자가 등본에 없거나 가족관계 상세 확인이 필요함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SEPARATE_SPOUSE",
+                        "label": "배우자 등본이 분리되어 있음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "FOREIGN_FAMILY",
+                        "label": "외국인 배우자·직계존비속이 있음",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "PREGNANT",
+                        "label": "태아를 세대원으로 인정받으려 함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "ADOPTED",
+                        "label": "입양자녀를 포함함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "RECENT_CHANGE",
+                        "label": "공고 후 주소·세대주·등본이 변경됨",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "EXCLUDED_MEMBER",
+                        "label": "실종·행방불명·생계주거 분리 등 제외 확인이 필요함",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "housing",
+            "sourceTitle": "세대원 전체의 주택·분양권 소유 여부를 확인했나요?",
+            "sourceReason": "세대구성원 전원이 주택·공유지분·주택용도가 포함된 복합건물과 분양권·입주권(공유지분 포함)을 소유하지 않는지가 원칙입니다. 주택은 등기접수일과 건축물대장 처리일 중 빠른 날, 분양권등은 공급계약·매매완납·상속증여 명의변경일 등 원문 기준으로 확인합니다. 무주택 인정 예외에는 상속 공유지분의 부적격 통보 후 3개월 내 처분, 비수도권 비도시·면 지역의 20년 경과/85㎡ 이하/본적지 상속 단독주택 소유자의 이주, 개인주택사업자의 분양완료 또는 통보 후 3개월 내 처분, 근로자 숙소용 주택, 20㎡ 이하 주택·분양권 1호만 소유, 폐가·멸실·타용도 건물의 통보 후 3개월 내 공부정리, 건축 당시 적법성을 입증한 무허가건물, 선착순으로 직접 공급받은 분양권(매수자는 제외), 상속·증여 분양권, 2018.12.11 전 승인신청 등 지정 사업의 분양권이 있습니다. 또한 2024년 중 생애최초로 취득한 종전 임차주택은 지정 주택종류·전용60㎡ 이하·취득가2억원 이하(수도권3억원)·취득 전날까지 1년 이상 거주를 모두 확인해야 합니다. 예외는 기관 소명 대상이며 자동으로 무주택 판정하지 않습니다. 무주택으로 인정되어도 부동산 자산가액에 포함될 수 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=13",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "누구의 주택을 확인하나요?",
+            "preview": "집·분양권·입주권 확인 · 상속 등 무주택 인정 예외 별도",
+            "sections": [
+                {
+                    "text": "• 세대구성원 전원이 주택·공유지분·주택용도가 포함된 복합건물과 분양권·입주권(공유지분 포함)을 소유하지 않는지가 원칙이에요.\n• 주택은 등기접수일과 건축물대장 처리일 중 빠른 날, 분양권등은 공급계약·매매완납·상속증여 명의변경일 등 원문 기준으로 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "예외·별도 기준\n• 상속 공유지분의 부적격 통보 후 3개월 내 처분\n• 비수도권 비도시·면 지역의 20년 경과/85㎡ 이하/본적지 상속 단독주택 소유자의 이주\n• 개인주택사업자의 분양완료 또는 통보 후 3개월 내 처분\n• 근로자 숙소용 주택\n• 20㎡ 이하 주택·분양권 1호만 소유\n• 폐가·멸실·타용도 건물의 통보 후 3개월 내 공부정리\n• 건축 당시 적법성을 입증한 무허가건물\n• 선착순으로 직접 공급받은 분양권(매수자는 제외)\n• 상속·증여 분양권\n• 2018.12.11 전 승인신청 등 지정 사업의 분양권이 있어요",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "• 또한 2024년 중 생애최초로 취득한 종전 임차주택은 지정 주택종류·전용60㎡ 이하·취득가2억원 이하(수도권3억원)·취득 전날까지 1년 이상 거주를 모두 확인해야 해요.\n• 예외는 기관 소명 대상이며 자동으로 무주택 판정하지 않습니다.\n• 무주택으로 인정되어도 부동산 자산가액에 포함될 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "NONE",
+                    "label": "주택·분양권·입주권을 소유한 세대원이 없어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "EXCEPTION",
+                    "label": "소유 이력이 있어 법정 예외·처분 소명이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "OWNED",
+                    "label": "소유한 세대원이 있어요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "NONE": "주택·분양권·입주권을 소유한 세대원이 없어요",
+                "EXCEPTION": "소유 이력이 있어 법정 예외·처분 소명이 필요해요",
+                "OWNED": "소유한 세대원이 있어요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "NONE",
+                        "label": "주택·분양권·입주권을 소유한 세대원이 없어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "EXCEPTION",
+                        "label": "소유 이력이 있어 법정 예외·처분 소명이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "OWNED",
+                        "label": "소유한 세대원이 있어요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "one-application",
+            "sourceTitle": "기존 입주와 중복신청 제한을 확인했나요?",
+            "sourceReason": "일반(기존주택) 매입임대 기입주자는 신청 불가입니다. 무주택세대구성원 전원 기준1세대1주택만 신청하며 중복 신청은 전부 무효입니다. 다른 공공임대주택으로 옮기는 경우 기존 주택 명도 조건 등 별도 원문 규정을 확인해야 하며 이 공고의 기입주 제한을 자동 면제하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "한 세대에서 몇 주택을 신청하나요?",
+            "preview": "기존 일반 매입임대 입주자는 신청 불가 · 세대당1주택",
+            "sections": [
+                {
+                    "text": "• 일반(기존주택) 매입임대 기입주자는 신청 불가이에요.\n• 무주택세대구성원 전원 기준1세대1주택만 신청하며 중복 신청은 전부 무효이에요.\n• 다른 공공임대주택으로 옮기는 경우 기존 주택 명도 조건 등 별도 원문 규정을 확인해야 하며 이 공고의 기입주 제한을 자동 면제하지 않습니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "priority",
+            "sourceTitle": "신청할 1·2순위 자격 유형을 확인했나요?",
+            "sourceReason": "1순위는①생계·의료급여 수급자②지원대상 한부모③수급권자/차상위 중 최저주거 미달 확인서 또는 소득대비임차료30% 이상인 주거지원 시급가구④수급권자/차상위 중65세 이상 저소득 고령자⑤등록장애인 중 세대소득70% 이하와 영구임대 자산기준 충족입니다. 2순위는 세대소득50% 이하와 자산기준 충족, 또는 등록장애인 중 세대소득100% 이하와 자산기준 충족입니다. 지적·정신·중증 뇌병변장애는 해당 배우자의 장애도 인정합니다. 일반 서식에3순위·우선 항목이 있어도 이번 모집은1·2순위만입니다. 배점은 동순위 경쟁 기준이며 자격과 구분합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=3",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "어떤 순위로 신청하나요?",
+            "preview": "1·2순위만 모집 · 복지자격·소득 경로 구분",
+            "sections": [
+                {
+                    "text": "1순위는",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "항목별 기준",
+                        "headers": ["구분", "기준"],
+                        "rows": [
+                            ["1", "생계·의료급여 수급자"],
+                            ["2", "지원대상 한부모"],
+                            [
+                                "3",
+                                "수급권자/차상위 중 최저주거 미달 확인서 또는 소득대비임차료30% 이상인 주거지원 시급가구"
+                            ],
+                            ["4", "수급권자/차상위 중65세 이상 저소득 고령자"],
+                            [
+                                "5",
+                                "등록장애인 중 세대소득70% 이하와 영구임대 자산기준 충족이에요. 2순위는 세대소득50% 이하와 자산기준 충족, 또는 등록장애인 중 세대소득100% 이하와 자산기준 충족이에요. 지적·정신·중증 뇌병변장애는 해당 배우자의 장애도 인정해요. 일반 서식에3순위·우선 항목이 있어도 이번 모집은1·2순위만이에요. 배점은 동순위 경쟁 기준이며 자격과 구분해요."
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "BENEFIT",
+                    "label": "1순위 · 생계/의료급여 수급자",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SINGLE",
+                    "label": "1순위 · 지원대상 한부모",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "VULNERABLE",
+                    "label": "1순위 · 주거지원 시급가구",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "OLDER",
+                    "label": "1순위 · 저소득 고령자",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "DIS70",
+                    "label": "1순위 · 소득70% 이하 등록장애인",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "INCOME50",
+                    "label": "2순위 · 소득50% 이하",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "DIS100",
+                    "label": "2순위 · 소득100% 이하 등록장애인",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NONE",
+                    "label": "해당 유형이 없음",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "BENEFIT": "1순위 · 생계/의료급여 수급자",
+                "SINGLE": "1순위 · 지원대상 한부모",
+                "VULNERABLE": "1순위 · 주거지원 시급가구",
+                "OLDER": "1순위 · 저소득 고령자",
+                "DIS70": "1순위 · 소득70% 이하 등록장애인",
+                "INCOME50": "2순위 · 소득50% 이하",
+                "DIS100": "2순위 · 소득100% 이하 등록장애인",
+                "NONE": "해당 유형이 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "BENEFIT",
+                        "label": "1순위 · 생계/의료급여 수급자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SINGLE",
+                        "label": "1순위 · 지원대상 한부모",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "VULNERABLE",
+                        "label": "1순위 · 주거지원 시급가구",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "OLDER",
+                        "label": "1순위 · 저소득 고령자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "DIS70",
+                        "label": "1순위 · 소득70% 이하 등록장애인",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "INCOME50",
+                        "label": "2순위 · 소득50% 이하",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "DIS100",
+                        "label": "2순위 · 소득100% 이하 등록장애인",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "해당 유형이 없음",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "income",
+            "sourceTitle": "내 자격 유형·가구원수의 소득 기준을 확인했나요?",
+            "sourceReason": "소득표 적용 유형은 장애인70%, 장애인100%, 2순위50%입니다. 1~7인가구 순서로50%는2,669,354/3,519,762/4,084,215/4,401,101/4,663,493/4,953,132/5,242,771원,70%는3,432,027/4,693,016/5,717,900/6,161,541/6,528,890/6,934,384/7,339,879원,100%는4,576,036/6,452,897/8,168,429/8,802,202/9,326,985/9,906,263/10,485,541원입니다. 1인20%p·2인10%p 가산이 이미 표에 반영되어 있어 다시 더하지 않습니다. 기타1순위는 해당 복지자격 증명 기준을 확인합니다. 소득은 세대원 전원의 세전 근로(상시·일용·자활·공공일자리), 사업(농업·임업·어업·기타), 재산(임대·이자·연금), 기타 공적이전소득을 합산합니다. 공적연금·실업급여 등도 포함하며 일시금은 재산으로 산정합니다. 국가유공자·보훈보상대상자 간호수당, 강제동원 피해 의료지원금 등 원문 제외항목은 별도 확인합니다. 사회보장정보시스템의 공적자료와 조사시점을 따르므로 단순 월급 입력만으로 최종 자격을 판단하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=3",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "소득은 얼마 이하여야 하나요?",
+            "preview": "2순위50% · 장애1순위70%·2순위100% · 가구원 가산",
+            "sections": [
+                {
+                    "text": "1인20%p·2인10%p 가산이 이미 반영된 금액이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "월소득 한도",
+                        "headers": [
+                            "가구원",
+                            "일반2순위50%",
+                            "장애인1순위70%",
+                            "장애인2순위100%"
+                        ],
+                        "rows": [
+                            [
+                                "1인",
+                                "2,669,354원",
+                                "3,432,027원",
+                                "4,576,036원"
+                            ],
+                            [
+                                "2인",
+                                "3,519,762원",
+                                "4,693,016원",
+                                "6,452,897원"
+                            ],
+                            [
+                                "3인",
+                                "4,084,215원",
+                                "5,717,900원",
+                                "8,168,429원"
+                            ],
+                            [
+                                "4인",
+                                "4,401,101원",
+                                "6,161,541원",
+                                "8,802,202원"
+                            ],
+                            [
+                                "5인",
+                                "4,663,493원",
+                                "6,528,890원",
+                                "9,326,985원"
+                            ],
+                            [
+                                "6인",
+                                "4,953,132원",
+                                "6,934,384원",
+                                "9,906,263원"
+                            ],
+                            [
+                                "7인",
+                                "5,242,771원",
+                                "7,339,879원",
+                                "10,485,541원"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "text": "• 기타1순위는 해당 복지자격 증명 기준을 확인해요.\n• 소득은 세대원 전원의 세전 근로(상시·일용·자활·공공일자리), 사업(농업·임업·어업·기타), 재산(임대·이자·연금), 기타 공적이전소득을 합산해요.\n• 공적연금·실업급여 등도 포함하며 일시금은 재산으로 계산해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 국가유공자·보훈보상대상자 간호수당, 강제동원 피해 의료지원금 등 원문 제외항목은 별도 확인해요.\n• 사회보장정보시스템의 공적자료와 조사시점을 따르므로 단순 월급 입력만으로 최종 자격을 판단하지 않습니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=3",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "CHECKED",
+                    "label": "해당 소득구간의 합산범위·표를 확인함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "WELFARE",
+                    "label": "소득표 대상 외 1순위의 자격증명 확인",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "EXCEPTION",
+                    "label": "가구원·소득 예외 또는 표 밖 인원 확인 필요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "CHECKED": "해당 소득구간의 합산범위·표를 확인함",
+                "WELFARE": "소득표 대상 외 1순위의 자격증명 확인",
+                "EXCEPTION": "가구원·소득 예외 또는 표 밖 인원 확인 필요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "CHECKED",
+                        "label": "해당 소득구간의 합산범위·표를 확인함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WELFARE",
+                        "label": "소득표 대상 외 1순위의 자격증명 확인",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "EXCEPTION",
+                        "label": "가구원·소득 예외 또는 표 밖 인원 확인 필요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "assets",
+            "sourceTitle": "해당 유형의 자산·자동차 기준을 확인했나요?",
+            "sourceReason": "장애인70/100% 및 소득50% 유형은 총자산245,000,000원 이하·자동차45,420,000원 이하가 원칙입니다. 출산 가산 표는1인270,000,000원/49,960,000원,2인 이상294,000,000원/54,510,000원입니다. 2023.3.28. 이후 출산자녀(공고일 태아·입양 포함)가 있으면 이전 출생 미성년 자녀도 최대2인까지 인정하되 신청자 또는 배우자와 같은 등본이어야 합니다. 가산 대상·표금액을 기관과 확인하고 다른1순위에 숫자기준을 임의 확대하지 않습니다. 총자산은 세대원 전원의 부동산·자동차·금융·기타자산 합계에서 인정 부채를 뺍니다. 토지·건물은 공시가격 등, 요구불예금은 최근3개월 평균잔액, 저축은 잔액/납입액, 주식은 시세, 보험·연금은 해약환급금/지급액 등 원문 산식을 확인합니다. 임차보증금·분양권 납부액·입목·회원권 등도 포함합니다. 금융기관·공공기관·법정공제회 대출, 법원 확인 사채, 해당 부동산가액 한도 임대보증금 등만 인정 부채로 확인합니다. 농업인 등재 농지·허가 축산 초지·공공용지·처분제한 종중/문화재 토지 등 부동산 제외는 입증이 필요합니다. 총자산에는 자동차 합계가 포함되고 별도 자동차 기준은 비영업용 승용차 중 최고가액입니다. 장애인사용/상이등급1~7급 보철용 자동차 제외 및 저공해차 보조금 차감은 원문 요건을 확인합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=4",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "자산·자동차는 얼마 이하여야 하나요?",
+            "preview": "총자산 2억4,500만 원 · 자동차 4,542만 원 · 해당 자녀 가산",
+            "sections": [
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "출생자녀 가산에 따른 총자산",
+                        "headers": ["가산 자녀", "총자산 한도"],
+                        "rows": [
+                            ["없음", "2억4,500만 원"],
+                            ["1명", "2억7,000만 원"],
+                            ["2명 이상", "2억9,400만 원"]
+                        ]
+                    }
+                },
+                {
+                    "text": "• 장애인70/100% 및 소득50% 유형은 총자산245,000,000원 이하·자동차45,420,000원 이하가 원칙이에요.\n• 출산 가산 표는1인270,000,000원/49,960,000원,2인 이상294,000,000원/54,510,000원이에요. 2023.3.28.\n• 이후 출산자녀(공고일 태아·입양 포함)가 있으면 이전 출생 미성년 자녀도 최대2인까지 인정하되 신청자 또는 배우자와 같은 등본이어야 해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 가산 대상·표금액을 기관과 확인하고 다른1순위에 숫자기준을 임의 확대하지 않습니다.\n• 총자산은 세대원 전원의 부동산·자동차·금융·기타자산 합계에서 인정 부채를 뺍니다.\n• 토지·건물은 공시가격 등, 요구불예금은 최근3개월 평균잔액, 저축은 잔액/납입액, 주식은 시세, 보험·연금은 해약환급금/지급액 등 원문 산식을 확인해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 임차보증금·분양권 납부액·입목·회원권 등도 포함해요.\n• 금융기관·공공기관·법정공제회 대출, 법원 확인 사채, 해당 부동산가액 한도 임대보증금 등만 인정 부채로 확인해요.\n• 농업인 등재 농지·허가 축산 초지·공공용지·처분제한 종중/문화재 토지 등 부동산 제외는 입증이 필요해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 총자산에는 자동차 합계가 포함되고 별도 자동차 기준은 비영업용 승용차 중 최고가액이에요.\n• 장애인사용/상이등급1~7급 보철용 자동차 제외 및 저공해차 보조금 차감은 원문 요건을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 4쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=4",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "BASE",
+                    "label": "해당 유형의 기본 자산기준을 확인함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "WELFARE",
+                    "label": "기본 자산검증 유형 외 복지자격을 확인함",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "CHILD_BONUS",
+                    "label": "출산 가산 적용을 추가 확인해야 함",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "EXCEPTION",
+                    "label": "제외자산·차량·부채 확인이 필요함",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "BASE": "해당 유형의 기본 자산기준을 확인함",
+                "WELFARE": "기본 자산검증 유형 외 복지자격을 확인함",
+                "CHILD_BONUS": "출산 가산 적용을 추가 확인해야 함",
+                "EXCEPTION": "제외자산·차량·부채 확인이 필요함",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "BASE",
+                        "label": "해당 유형의 기본 자산기준을 확인함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "WELFARE",
+                        "label": "기본 자산검증 유형 외 복지자격을 확인함",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "CHILD_BONUS",
+                        "label": "출산 가산 적용을 추가 확인해야 함",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "EXCEPTION",
+                        "label": "제외자산·차량·부채 확인이 필요함",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "unit",
+            "sourceTitle": "가구원수에 맞는 공급유형을 확인했나요?",
+            "sourceReason": "공고일 무주택세대구성원 전체를 기준으로2인 이하1형(50㎡ 이하),3~4인2형(50㎡ 초과85㎡ 이하),5인 이상3형(85㎡ 초과)입니다. 신청자가 원하면 더 작은 유형을 신청할 수 있다고 예시되어 있습니다. 신청 이후 주택형 변경은 불가능하므로 접수 전에 확인하세요. 주택내역·동호는 계약 때 별도 안내하며 기관·긴급/취약지원 우선공급 및 공가·추가매입으로 실제 공급은 달라질 수 있습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=1",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "어떤 주택형을 고르나요?",
+            "preview": "2인 이하1형 · 3~4인2형 · 5인 이상3형",
+            "sections": [
+                {
+                    "text": "• 공고일 무주택세대구성원 전체를 기준으로2인 이하1형(50㎡ 이하),3~4인2형(50㎡ 초과85㎡ 이하),5인 이상3형(85㎡ 초과)이에요.\n• 신청자가 원하면 더 작은 유형을 신청할 수 있다고 예시되어 있어요.\n• 신청 이후 주택형 변경은 불가능하므로 접수 전에 확인해 주세요.",
+                    "evidence": []
+                },
+                {
+                    "text": "주택내역·동호는 계약 때 별도 안내하며 기관·긴급/취약지원 우선공급 및 공가·추가매입으로 실제 공급은 달라질 수 있어요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=1",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                { "value": "TYPE1", "label": "1형", "requiresFollowUp": false },
+                { "value": "TYPE2", "label": "2형", "requiresFollowUp": false },
+                { "value": "TYPE3", "label": "3형", "requiresFollowUp": false },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "TYPE1": "1형",
+                "TYPE2": "2형",
+                "TYPE3": "3형",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "TYPE1",
+                        "label": "1형",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "TYPE2",
+                        "label": "2형",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "TYPE3",
+                        "label": "3형",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "supply-scale",
+            "sourceTitle": "주택형별로 예비입주자를 몇 세대 모집하나요?",
+            "sourceReason": "예비입주자 총 401세대를 모집해요. 1형(2인 이하)은 250세대, 2형(3~4인)은 150세대, 3형(5인 이상)은 1세대예요. 빈집이 생기면 대기 순서에 따라 계약을 안내해요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300020944&ccrCnntSysDsCd=03&uppAisTpCd=13&aisTpCd=26&mi=1026"
+            },
+            "heading": "몇 세대를 모집하나요?",
+            "preview": "1형250·2형150·3형1세대 · 총401세대",
+            "sections": [
+                {
+                    "text": "• 예비입주자 총 401세대를 모집해요. 1형(2인 이하)은 250세대, 2형(3~4인)은 150세대, 3형(5인 이상)은 1세대예요.\n• 빈집이 생기면 대기 순서에 따라 계약을 안내해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 2쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=2",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "YES",
+                    "label": "원문 기준과 내 상황을 확인했어요",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NO",
+                    "label": "아직 확인이 필요해요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "YES": "원문 기준과 내 상황을 확인했어요",
+                "NO": "아직 확인이 필요해요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "원문 기준과 내 상황을 확인했어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "아직 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "score-evidence",
+            "sourceTitle": "동일 순위 배점에 필요한 추가 증빙이 있나요?",
+            "sourceReason": "연속거주5년 이상3점·3~5년2점·3년 미만1점; 부양가족3인 이상3점·2인2점·1인1점; 미성년자녀3인 이상3점·2인2점·1인1점; 등본상65세 이상직계존속(배우자부모 포함)1점; 중증장애(신청자 포함)1점; 청약 인정24회 이상3점·12~24회2점·6~12회1점; 주거취약확인서2점; 임차료비율80% 이상5점·65~80%4점·50~65%3점·30~50%2점입니다. 부양가족은 신청자 제외 세대원/태아 및 같은 등본의 미성년 또는60세 이상 형제자매를 포함합니다. 임차료는 직전6개월 평균에 보증금 연4%를 합산하고 주거급여액은 차감, 부양의무자와의 계약은 제외합니다. 동점은 취약확인서+임차료 배점합, 다시 동점이면 지역전입일이 빠른 순입니다. 청약 전환은 공고전일까지, 관리번호2026980217입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=5",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "내 가점과 증빙은 무엇인가요?",
+            "preview": "지역·부양·자녀·청약·취약·임차료 가점 · 동점 순서 별도",
+            "sections": [
+                {
+                    "text": "• 연속거주5년 이상3점·3~5년2점·3년 미만1점; 부양가족3인 이상3점·2인2점·1인1점; 미성년자녀3인 이상3점·2인2점·1인1점; 등본상65세 이상부모·조부모 등 윗세대 가족(배우자부모 포함)1점; 중증장애(신청자 포함)1점; 청약 인정24회 이상3점·12~24회2점·6~12회1점; 주거취약확인서2점; 임차료비율80% 이상5점·65~80%4점·50~65%3점·30~50%2점이에요.\n• 부양가족은 신청자 제외 세대원/태아 및 같은 등본의 미성년 또는60세 이상 형제자매를 포함해요.\n• 임차료는 직전6개월 평균에 보증금 연4%를 합산하고 주거급여액은 차감, 부양의무자와의 계약은 제외해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 동점은 취약확인서+임차료 배점합, 다시 동점이면 지역전입일이 빠른 순이에요.\n• 청약 전환은 공고전일까지, 관리번호2026980217이에요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "SEVERE_DISABILITY",
+                    "label": "중증장애 가점",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SAVINGS",
+                    "label": "청약저축 납입인정회차",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "VULNERABLE",
+                    "label": "주거취약계층 확인서",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "RENT_RATIO",
+                    "label": "소득대비임차료 비율",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "NONE",
+                    "label": "추가 배점증빙 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "SEVERE_DISABILITY": "중증장애 가점",
+                "SAVINGS": "청약저축 납입인정회차",
+                "VULNERABLE": "주거취약계층 확인서",
+                "RENT_RATIO": "소득대비임차료 비율",
+                "NONE": "추가 배점증빙 없음",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "SEVERE_DISABILITY",
+                        "label": "중증장애 가점",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SAVINGS",
+                        "label": "청약저축 납입인정회차",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "VULNERABLE",
+                        "label": "주거취약계층 확인서",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "RENT_RATIO",
+                        "label": "소득대비임차료 비율",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NONE",
+                        "label": "추가 배점증빙 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "visit",
+            "sourceTitle": "누가 행정복지센터에 방문 신청하나요?",
+            "sourceReason": "1·2순위 모두2026.11.9~11.13 주민등록지 행정복지센터 방문접수(토·일·법정공휴일 제외)입니다. 구체적인 시각은 원문에 없어 관할센터에 확인해야 합니다. 본인은 신분증과 도장(서명 대체 가능), 배우자 대리는 신청자/배우자 신분증·신청자 도장·관계증명, 기타대리는 둘의 신분증 및 본인발급 인감증명+인감도장+위임장 또는 본인서명사실확인+자필위임장이 필요합니다. 허용 신분증은 주민등록증·운전면허증·여권입니다. 결과선정은 지자체에 문의하고 LH 인터넷청약을 방문접수의 대체로 안내하지 않습니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=7",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "언제, 어디에 방문하나요?",
+            "preview": "11/9~13 주민센터 방문 · 구체적인 시각은 접수처 확인",
+            "sections": [
+                {
+                    "text": "• 1·2순위 모두2026.11.9~11.13 주민등록지 행정복지센터 방문접수(토·일·법정공휴일 제외)이에요.\n• 구체적인 시각은 원문에 없어 관할센터에 확인해야 해요.\n• 본인은 신분증과 도장(서명 대체 가능), 배우자 대리는 신청자/배우자 신분증·신청자 도장·관계증명, 기타대리는 둘의 신분증 및 본인발급 인감증명+인감도장+위임장 또는 본인서명사실확인+자필위임장이 필요해요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 허용 신분증은 주민등록증·운전면허증·여권이에요.\n• 결과선정은 지자체에 문의하고 LH 인터넷청약을 방문접수의 대체로 안내하지 않습니다.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "SELF",
+                    "label": "본인 방문",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "SPOUSE",
+                    "label": "배우자 대리",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "OTHER",
+                    "label": "그 밖의 대리인",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "SELF": "본인 방문",
+                "SPOUSE": "배우자 대리",
+                "OTHER": "그 밖의 대리인",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "SELF",
+                        "label": "본인 방문",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SPOUSE",
+                        "label": "배우자 대리",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "OTHER",
+                        "label": "그 밖의 대리인",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6662a617-4e16-4af8-961d-e9cd79d02af5",
+            "questionId": "contract",
+            "sourceTitle": "예비선정 이후 자격 유지·개별통보를 확인했나요?",
+            "sourceReason": "지자체가 입주대상자를 선정하고 예비자 선정은 개별 통보합니다. 결과발표일·별도 서류마감일·확정 계약일은 공고에 없어 일정으로 만들지 않습니다. 연락처 변경은 LH에 알리고 계약 때까지 자격을 유지하세요. 예비지위는 명단 소진 전까지 유지되며 올해 잔여대기자는 다음해로 이월되어 이후 모집자보다 우선합니다. 공가 확보 후 순번대로 계약, 주택은 계약 당일 정하며 계약포기/불참은 지위 상실 사유입니다. 기존 기금대출은 입주 전 상환·증빙이 원칙이고 은행의 목적물 변경승인은 예외입니다. 임대2년·재계약14회(최장30년), 재계약 당시1순위 또는65세 이상은 횟수제한 예외이며 재계약의 자격·임대료와 신규자격을 구분합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=10",
+                "sha256": "d7b086c4ff4257214cf777bef2b5344f915eaefc07765dce9911647266a9afcd"
+            },
+            "heading": "선정 뒤 무엇을 준비하나요?",
+            "preview": "지자체 선정 후 개별 안내 · 빈집·순번에 따라 계약",
+            "sections": [
+                {
+                    "text": "• 지자체가 입주대상자를 선정하고 예비자 선정은 개별 통보해요.\n• 결과발표일·별도 서류마감일·확정 계약일은 공고에 없어 일정으로 만들지 않습니다.\n• 연락처 변경은 LH에 알리고 계약 때까지 자격을 유지하세요.",
+                    "evidence": []
+                },
+                {
+                    "text": "• 예비지위는 명단 소진 전까지 유지되며 올해 잔여대기자는 다음해로 이월되어 이후 모집자보다 우선해요.\n• 공가 확보 후 순번대로 계약, 주택은 계약 당일 정하며 계약포기/불참은 지위 상실 사유이에요.\n• 기존 기금대출은 입주 전 상환·증빙이 원칙이고 은행의 목적물 변경승인은 예외이에요.",
+                    "evidence": []
+                },
+                {
+                    "text": "임대2년·재계약14회(최장30년), 재계약 당시1순위 또는65세 이상은 횟수제한 예외이며 재계약의 자격·임대료와 신규자격을 구분해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69107173#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "sourceOptions": [
+                {
+                    "value": "CHECKED",
+                    "label": "후속 절차 확인 · 기존 기금대출 없음",
+                    "requiresFollowUp": false
+                },
+                {
+                    "value": "FUND_LOAN",
+                    "label": "기금대출 상환/목적물 변경 확인 필요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "MORE",
+                    "label": "소명·연락·계약 조건 확인 필요",
+                    "requiresFollowUp": true
+                },
+                {
+                    "value": "UNKNOWN",
+                    "label": "잘 모르겠어요 · 추가 확인",
+                    "requiresFollowUp": true
+                }
+            ],
+            "optionLabels": {
+                "CHECKED": "후속 절차 확인 · 기존 기금대출 없음",
+                "FUND_LOAN": "기금대출 상환/목적물 변경 확인 필요",
+                "MORE": "소명·연락·계약 조건 확인 필요",
+                "UNKNOWN": "잘 모르겠어요"
+            },
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "CHECKED",
+                        "label": "후속 절차 확인 · 기존 기금대출 없음",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "FUND_LOAN",
+                        "label": "기금대출 상환/목적물 변경 확인 필요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "MORE",
+                        "label": "소명·연락·계약 조건 확인 필요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요 · 추가 확인",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        }
+    ]
+}

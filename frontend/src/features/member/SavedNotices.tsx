@@ -1,19 +1,11 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useLocation, useNavigate } from 'react-router';
 import { useSession } from '../auth/useSession';
-import { noticeListTitle } from '../housing/noticeDisplay';
 import { Icon } from '../../shared/ui/Icon';
-import { Heading, State } from '../../shared/ui/ui';
 import { memberApi } from './memberApi';
+import { useSavedNotices } from './useSavedNotices';
 import styles from './Controls.module.css';
-function useSavedNotices() {
-    const { user } = useSession();
-    return useQuery({
-        queryKey: ['saved-notices', user?.id],
-        queryFn: memberApi.saved,
-        enabled: !!user,
-    });
-}
+
 export function Bookmark({ id }: { id: string }) {
     const { user } = useSession(),
         saved = useSavedNotices(),
@@ -63,52 +55,5 @@ export function Bookmark({ id }: { id: string }) {
                 </small>
             )}
         </div>
-    );
-}
-export function SavedPage() {
-    const saved = useSavedNotices();
-    return (
-        <>
-            <Heading title="관심 공고" backTo="/my" />
-            <State
-                loading={saved.isPending}
-                error={saved.error}
-                retry={() => void saved.refetch()}
-            />
-            {saved.isSuccess && (
-                <section className={styles.savedPage} aria-label="저장한 공고">
-                    {!saved.data.length && (
-                        <p className={styles.savedEmpty}>
-                            저장한 공고가 없습니다.
-                        </p>
-                    )}
-                    <ul className={styles.savedList}>
-                        {saved.data.map((n) => (
-                            <li key={n.id} className={styles.savedCard}>
-                                <Link
-                                    className={styles.savedNoticeLink}
-                                    to={'/notices/' + n.id}
-                                >
-                                    <h2 aria-label={n.title} title={n.title}>
-                                        {noticeListTitle(n.title)}
-                                    </h2>
-                                    <p>
-                                        {n.agency} · {n.region}
-                                    </p>
-                                </Link>
-                                <Bookmark id={n.id} />
-                            </li>
-                        ))}
-                    </ul>
-                    <Link
-                        className={`${styles.link} ${styles.savedBrowse}`}
-                        to="/notices"
-                    >
-                        <Icon name="search" />
-                        공고 찾기
-                    </Link>
-                </section>
-            )}
-        </>
     );
 }

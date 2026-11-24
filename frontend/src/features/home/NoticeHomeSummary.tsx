@@ -1,15 +1,14 @@
+import { ApplicationBadge } from '../housing/NoticeStatusBadges';
+import { AgencyHousingSummary } from '../housing/AgencyMark';
 import { NoticeLifecycleNotice } from '../housing/NoticeLifecycleNotice';
-import { effectiveNoticeStatus } from '../housing/noticeLifecycle';
 import { Link, useNavigate } from 'react-router';
 import type { ReactNode } from 'react';
 import type { Notice } from '../housing/types';
-import { statusLabels } from '../housing/noticeLabels';
 import { preparationChoicePath } from '../preparation/oneTimeCheckApi';
 import { Button, Card } from '../../shared/ui/ui';
-import { GuideBadge, NoticeDates } from '../housing/NoticeFacts';
-import { Status } from '../../shared/ui/Status';
+import { NoticeDates } from '../housing/NoticeFacts';
 import { cx } from '../../shared/styles/classes';
-import { HomeNoticeTitle } from '../home/HomeNoticeTitle';
+import { NoticeTitle } from '../housing/NoticeTitle';
 import { useNoticeEntryState } from '../../shared/navigation/useNoticeEntryState';
 
 export function NoticeHomeSummary({
@@ -24,23 +23,11 @@ export function NoticeHomeSummary({
     return (
         <Card>
             <div className={cx('row')}>
-                <Status
-                    tone={
-                        effectiveNoticeStatus(notice) === 'OPEN'
-                            ? 'green'
-                            : 'gray'
-                    }
-                >
-                    {statusLabels[effectiveNoticeStatus(notice)]}
-                </Status>
-                <GuideBadge
-                    state={notice.guideState}
-                    partial={!!notice.reviewIssues?.length}
-                />
+                <ApplicationBadge notice={notice} />
             </div>
-            <HomeNoticeTitle title={notice.title} />
+            <NoticeTitle title={notice.title} />
             <p>
-                {notice.agency} · {notice.region} · {notice.type}
+                <AgencyHousingSummary notice={notice} />
             </p>
             <NoticeLifecycleNotice notice={notice} />
             <NoticeDates notice={notice} />

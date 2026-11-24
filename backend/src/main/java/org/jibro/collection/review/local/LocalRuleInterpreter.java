@@ -6,9 +6,12 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import org.jibro.collection.extraction.ExtractionModels.*;
+
 import static org.jibro.collection.review.local.LocalRuleBook.*;
 
-/** Reads scoped literal facts locally and retains the original spans needed to review the remainder. */
+/**
+ * Reads scoped literal facts locally and retains the original spans needed to review the remainder.
+ */
 public final class LocalRuleInterpreter {
     public static final String POLICY = "local-rules-v2-hwpx-context";
     private static final int MAX_BLOCK = 2400;
@@ -25,16 +28,22 @@ public final class LocalRuleInterpreter {
     private static final Pattern SCOPE = Pattern.compile("(?:[0-9]+\\s*(?:㎡|제곱미터)\\s*(?:미만|이상|이하|초과))|(?:[0-9]+\\s*인\\s*(?:가구|인 경우))|세대구성원\\s*전원|개별\\s*자동차|비영업용\\s*승용차|(?:거주지역|순위|배점).{0,30}(?:관계없이|무관)");
     private static final Map<Topic, Pattern> TOPICS = topics();
 
-    private LocalRuleInterpreter() {}
+    private LocalRuleInterpreter() {
+    }
 
-    private record Span(int start, int end) {}
-    private record Pending(Clause clause, boolean heading, boolean continuation, HwpxContextReader.Context context) {}
+    private record Span(int start, int end) {
+    }
+
+    private record Pending(Clause clause, boolean heading, boolean continuation,
+                           DocumentContextReader.Context context) {
+    }
 
     public static LocalRuleBook interpret(List<Source> sources) {
         var pending = new ArrayList<Pending>();
         var issues = new ArrayList<Unresolved>();
         int characters = 0;
-        if (sources == null || sources.isEmpty()) return new LocalRuleBook(POLICY, List.of(), List.of(), List.of(new Unresolved("SOURCE_MISSING", List.of())), 0);
+        if (sources == null || sources.isEmpty())
+            return new LocalRuleBook(POLICY, List.of(), List.of(), List.of(new Unresolved("SOURCE_MISSING", List.of())), 0);
         for (Source source : sources) {
             if (org.jibro.collection.extraction.OcrProvenance.contains(source)) {
                 issues.add(new Unresolved(org.jibro.collection.extraction.OcrProvenance.REVIEW_REQUIRED, List.of()));
@@ -56,12 +65,13 @@ public final class LocalRuleInterpreter {
                     continue;
                 }
                 characters += part.text().length();
-                var reading = HwpxContextReader.read(source, part);
+                var reading = DocumentContextReader.read(source, part);
                 if (!reading.valid()) {
-                    issues.add(new Unresolved("HWPX_STRUCTURE_INCOMPLETE", List.of()));
+                    issues.add(new Unresolved("DOCUMENT_STRUCTURE_INCOMPLETE", List.of()));
                     continue;
                 }
                 for (var segment : reading.segments()) {
+                    if (segment.context() != null && segment.context().regions().contains("MEMO")) continue;
                     int lastEnd = -1;
                     for (Span relative : spans(part.text().substring(segment.start(), segment.end()))) {
                         Span span = new Span(segment.start() + relative.start(), segment.start() + relative.end());
@@ -75,12 +85,12 @@ public final class LocalRuleInterpreter {
                             if (!inherited.equals(List.of(Topic.OTHER))) classified = inherited;
                         }
                         boolean continuation = lastEnd >= 0 && !BOUNDARY.matcher(firstLine).find()
-                            && !part.text().substring(lastEnd, span.start()).contains("\n\n");
+                                && !part.text().substring(lastEnd, span.start()).contains("\n\n");
                         String id = id("clause", source.url() + "\n" + source.sha256() + "\n" + part.location() + "\n" + span.start() + ":" + span.end() + "\n" + quote);
                         String contextHeading = segment.context() == null ? "" : segment.context().description();
                         String annotatedHeading = contextHeading.isBlank() ? heading : heading.isBlank() ? contextHeading : heading + " · " + contextHeading;
                         pending.add(new Pending(new Clause(id, source.url(), source.sha256(), part.location(), span.start(), span.end(), quote, annotatedHeading,
-                            classified, matches(SUBJECT, quote), matches(SCOPE, quote), markers(quote), quantities(quote, span.start()), references(quote), List.of()), isHeading, continuation, segment.context()));
+                                classified, matches(SUBJECT, quote), matches(SCOPE, quote), markers(quote), quantities(quote, span.start()), references(quote), List.of()), isHeading, continuation, segment.context()));
                         lastEnd = span.end();
                     }
                 }
@@ -95,8 +105,8 @@ public final class LocalRuleInterpreter {
             // A recognized operand cannot certify the remainder of a paragraph containing it.
             if (relevant(clause) && !fullyRecognized(clause)) {
                 String code = factClauses.contains(clause.id()) ? "RULE_COMPLETENESS_REVIEW"
-                    : clause.markers().contains(Marker.EXCEPTION) ? "EXCEPTION_SCOPE_UNRESOLVED"
-                    : !clause.quantities().isEmpty() ? "NUMERIC_SCOPE_UNRESOLVED" : "LOCAL_SCOPE_UNRESOLVED";
+                        : clause.markers().contains(Marker.EXCEPTION) ? "EXCEPTION_SCOPE_UNRESOLVED"
+                        : !clause.quantities().isEmpty() ? "NUMERIC_SCOPE_UNRESOLVED" : "LOCAL_SCOPE_UNRESOLVED";
                 issues.add(new Unresolved(code, List.of(clause.id())));
             }
             if (clause.markers().contains(Marker.EXCEPTION) && clause.relatedClauseIds().isEmpty())
@@ -114,11 +124,13 @@ public final class LocalRuleInterpreter {
             String value = line.group();
             if (value.isBlank()) {
                 if (start >= 0) result.add(new Span(start, end));
-                start = -1; end = -1;
+                start = -1;
+                end = -1;
                 continue;
             }
             if (start >= 0 && (BOUNDARY.matcher(value).find() || line.end() - start > MAX_BLOCK)) {
-                result.add(new Span(start, end)); start = -1;
+                result.add(new Span(start, end));
+                start = -1;
             }
             if (start < 0) start = line.start();
             end = line.end();
@@ -138,22 +150,28 @@ public final class LocalRuleInterpreter {
         var sectionIndex = new HashMap<String, List<String>>();
         String previousUrl = null, parentHeading = null, precedingRule = null;
         Clause previous = null;
-        HwpxContextReader.Context previousContext = null;
+        DocumentContextReader.Context previousContext = null;
         for (Pending item : pending) {
             Clause c = item.clause();
             String sourceKey = c.sourceUrl() + "\n" + c.sourceSha256();
-            if (!Objects.equals(previousUrl, sourceKey) || !HwpxContextReader.sameFlow(previousContext, item.context())
-                || item.context() != null && previous != null && !previous.location().equals(c.location())) {
-                parentHeading = null; precedingRule = null; previous = null;
+            if (!Objects.equals(previousUrl, sourceKey) || !DocumentContextReader.sameFlow(previousContext, item.context())
+                    || item.context() != null && previous != null && !previous.location().equals(c.location())) {
+                parentHeading = null;
+                precedingRule = null;
+                previous = null;
             }
             var page = PAGE.matcher(c.location());
-            if (page.find()) pageIndex.computeIfAbsent(sourceKey + ":page:" + page.group(1), ignored -> new ArrayList<>()).add(c.id());
+            if (page.find())
+                pageIndex.computeIfAbsent(sourceKey + ":page:" + page.group(1), ignored -> new ArrayList<>()).add(c.id());
             var section = SECTION.matcher(c.heading());
-            if (section.matches()) sectionIndex.computeIfAbsent(sourceKey + ":section:" + section.group(1), ignored -> new ArrayList<>()).add(c.id());
-            if (item.heading()) { parentHeading = c.id(); precedingRule = c.id(); }
-            else if (parentHeading != null && relevant(c)) related.get(c.id()).add(parentHeading);
+            if (section.matches())
+                sectionIndex.computeIfAbsent(sourceKey + ":section:" + section.group(1), ignored -> new ArrayList<>()).add(c.id());
+            if (item.heading()) {
+                parentHeading = c.id();
+                precedingRule = c.id();
+            } else if (parentHeading != null && relevant(c)) related.get(c.id()).add(parentHeading);
             if (previous != null && (item.continuation() || c.markers().contains(Marker.EXCEPTION)
-                || previous.markers().contains(Marker.ANY_OF) && c.quote().strip().startsWith("-"))) {
+                    || previous.markers().contains(Marker.ANY_OF) && c.quote().strip().startsWith("-"))) {
                 related.get(c.id()).add(previous.id());
                 related.get(previous.id()).add(c.id());
             }
@@ -161,27 +179,30 @@ public final class LocalRuleInterpreter {
                 related.get(c.id()).add(precedingRule);
                 related.get(precedingRule).add(c.id());
             } else if (relevant(c) && !c.markers().contains(Marker.EXCEPTION)) precedingRule = c.id();
-            previousUrl = sourceKey; previous = c; previousContext = item.context();
+            previousUrl = sourceKey;
+            previous = c;
+            previousContext = item.context();
         }
-        var structural = HwpxContextReader.relate(pending.stream().map(item -> {
+        var structural = DocumentContextReader.relate(pending.stream().map(item -> {
             Clause clause = item.clause();
-            return new HwpxContextReader.Occurrence(clause.id(), clause.sourceUrl() + "\n" + clause.sourceSha256() + "\n" + clause.location(), item.context());
+            return new DocumentContextReader.Occurrence(clause.id(), clause.sourceUrl() + "\n" + clause.sourceSha256() + "\n" + clause.location(), item.context());
         }).toList());
         structural.related().forEach((id, links) -> related.get(id).addAll(links));
-        structural.incomplete().forEach(id -> issues.add(new Unresolved("HWPX_TABLE_CONTEXT_INCOMPLETE", List.of(id))));
+        structural.incomplete().forEach(id -> issues.add(new Unresolved("DOCUMENT_TABLE_CONTEXT_INCOMPLETE", List.of(id))));
         for (Pending item : pending) {
             var c = item.clause();
             for (String ref : c.references()) {
                 String key = c.sourceUrl() + "\n" + c.sourceSha256() + ":" + ref;
                 List<String> targets = ref.startsWith("page:") ? pageIndex.get(key) : sectionIndex.get(key);
-                if (targets == null || targets.isEmpty()) issues.add(new Unresolved("REFERENCE_TARGET_MISSING", List.of(c.id())));
+                if (targets == null || targets.isEmpty())
+                    issues.add(new Unresolved("REFERENCE_TARGET_MISSING", List.of(c.id())));
                 else for (String target : targets) if (!target.equals(c.id())) related.get(c.id()).add(target);
             }
         }
         return pending.stream().map(p -> {
             var c = p.clause();
             return new Clause(c.id(), c.sourceUrl(), c.sourceSha256(), c.location(), c.start(), c.end(), c.quote(), c.heading(), c.topics(), c.subjects(),
-                c.scopes(), c.markers(), c.quantities(), c.references(), List.copyOf(related.get(c.id())));
+                    c.scopes(), c.markers(), c.quantities(), c.references(), List.copyOf(related.get(c.id())));
         }).toList();
     }
 
@@ -200,22 +221,23 @@ public final class LocalRuleInterpreter {
         if (Pattern.compile("비영업용승용(?:자동차|차)에한하여산출|시행규칙.{0,30}정한비영업용승용(?:자동차|차)").matcher(t).find())
             add(facts, c, "VEHICLE_CLASS_SCOPE", Topic.VEHICLE, subject(c), Map.of("vehicleClass", "nonCommercialPassenger"));
         if (inSentence(t, s -> s.contains("자동차")
-            && Pattern.compile("2대이상.{0,180}(?:높은|최고)|(?:높은|최고).{0,180}2대이상").matcher(s).find()
-            && assertedPredicate(s, "(?:적용|산정|반영|산출)")))
+                && Pattern.compile("2대이상.{0,180}(?:높은|최고)|(?:높은|최고).{0,180}2대이상").matcher(s).find()
+                && assertedPredicate(s, "(?:적용|산정|반영|산출)")))
             add(facts, c, "VEHICLE_MAXIMUM_VALUATION", Topic.VEHICLE, subject(c), Map.of("aggregation", "maximum", "minimumCount", "2"));
         if (inSentence(t, s -> s.contains("저공해") && s.contains("보조금")
-            && (assertedPredicate(s, "(?:제외|공제|차감)") || Pattern.compile("(?:제외|공제|차감)한금액").matcher(s).find())))
+                && (assertedPredicate(s, "(?:제외|공제|차감)") || Pattern.compile("(?:제외|공제|차감)한금액").matcher(s).find())))
             add(facts, c, "VEHICLE_SUBSIDY_DEDUCTION", Topic.VEHICLE, subject(c), Map.of("deduction", "governmentSubsidy", "appliesTo", "lowEmissionVehicle"));
         if (inSentence(t, s -> s.contains("자동차") && s.contains("장애인")
-            && (assertedPredicate(s, "(?:제외|미포함)") || Pattern.compile("포함하지않(?:습니다|는다|음)(?=$|[.,;:)])").matcher(s).find())))
+                && (assertedPredicate(s, "(?:제외|미포함)") || Pattern.compile("포함하지않(?:습니다|는다|음)(?=$|[.,;:)])").matcher(s).find())))
             add(facts, c, "VEHICLE_DISABILITY_EXCLUSION", Topic.VEHICLE, subject(c), Map.of("effect", "exclusion", "definition", "sourceDefinedVehicleOnly"));
 
         var age = Pattern.compile("미성년자[（(]?(?:만)?([0-9]{1,3})세미만[）)]?.{0,40}(?:신청할수없|신청불가)").matcher(t);
         if (age.find()) {
-            var support = new LinkedHashSet<String>(); support.add(c.id());
+            var support = new LinkedHashSet<String>();
+            support.add(c.id());
             c.relatedClauseIds().stream().filter(id -> all.stream().anyMatch(other -> other.id().equals(id) && (other.markers().contains(Marker.EXCEPTION) || other.quote().contains("미성년")))).forEach(support::add);
             facts.add(new Fact(id("fact", c.id() + "ADULT_WITH_EXCEPTIONS"), "ADULT_AGE_RESTRICTION", Topic.APPLICANT, "신청자",
-                Map.of("minimumAge", age.group(1), "unit", "세", "exceptions", "sourceDefinedMinorExceptions", "finalDecision", "notEvaluated"), List.copyOf(support)));
+                    Map.of("minimumAge", age.group(1), "unit", "세", "exceptions", "sourceDefinedMinorExceptions", "finalDecision", "notEvaluated"), List.copyOf(support)));
         }
         var range = Pattern.compile("(?:만)?([0-9]{1,3})세이상([0-9]{1,3})세이하").matcher(t);
         if (range.find() && Integer.parseInt(range.group(1)) <= Integer.parseInt(range.group(2)))
@@ -223,7 +245,7 @@ public final class LocalRuleInterpreter {
         var transfer = Pattern.compile("불법양도[·ㆍ/]?전대.{0,80}?([0-9]+)년이경과되지.{0,100}?(?:선정불가|신청불가)").matcher(t);
         if (transfer.find() && (t.contains("세대구성원") || c.subjects().contains("신청자")))
             add(facts, c, "UNLAWFUL_TRANSFER_RESTRICTION", Topic.APPLICANT, t.contains("세대구성원") ? "신청자의 세대구성원" : "신청자",
-                Map.of("years", transfer.group(1), "comparison", "notElapsed", "effect", "selectionExcluded"));
+                    Map.of("years", transfer.group(1), "comparison", "notElapsed", "effect", "selectionExcluded"));
         if (assertedPredicate(t, "혼인중이아닐것") || assertedPredicate(t, "신청자는미혼이어야"))
             add(facts, c, "UNMARRIED_REQUIREMENT", Topic.APPLICANT, subject(c), Map.of("maritalStatus", "unmarried"));
         if (inSentence(t, s -> s.contains("수료") && s.contains("졸업") && assertedPredicate(s, "재학생으로간주")))
@@ -232,7 +254,7 @@ public final class LocalRuleInterpreter {
         if (t.contains("취업준비생") && education.find())
             add(facts, c, "JOBSEEKER_EDUCATION_WINDOW", Topic.APPLICANT, "취업준비생", Map.of("years", education.group(1), "events", "graduationOrWithdrawal", "comparison", "within"));
         if ((t.contains("선착순") || t.contains("신청접수순번대로")) && Pattern.compile("(?:선정하[되며고]|선정합니다|접수합니다)").matcher(t).find()
-            && Pattern.compile("(?:순위|배점).{0,60}(?:관계없이|상관없이|무관)|(?:관계없이|상관없이|무관).{0,60}(?:순위|배점)").matcher(t).find())
+                && Pattern.compile("(?:순위|배점).{0,60}(?:관계없이|상관없이|무관)|(?:관계없이|상관없이|무관).{0,60}(?:순위|배점)").matcher(t).find())
             add(facts, c, "SELECTION_FIRST_COME_WITHOUT_RANK", Topic.RANK, "해당 조항 적용 대상", Map.of("selection", "firstCome", "rankAndScore", "notUsed", "eligibility", "separatelyRequired"));
         else if (Pattern.compile("선착순(?:현장접수로만진행|으로.{0,40}접수(?:합니다|할예정|를진행)|접수로.{0,20}진행)").matcher(t).find())
             add(facts, c, "FIRST_COME_PROCEDURE", Topic.RANK, subject(c), Map.of("procedure", "firstCome", "selectionPriority", "notInferred"));
@@ -247,11 +269,13 @@ public final class LocalRuleInterpreter {
             add(facts, c, "INCOME_PERCENT_OF_REFERENCE", Topic.INCOME, subject(c), Map.of("percent", amount.group(1), "comparison", "LTE", "base", "sourceDefinedReference", "householdAdjustments", "separateEvidenceRequired"));
     }
 
-    private static void add(List<Fact> result, Clause c, String type, Topic topic, String subject, Map<String,String> values) {
+    private static void add(List<Fact> result, Clause c, String type, Topic topic, String subject, Map<String, String> values) {
         result.add(new Fact(id("fact", c.id() + type), type, topic, subject, values, List.of(c.id())));
     }
 
-    /** Match an asserted local predicate, not the same verb inside a negated or hypothetical phrase. */
+    /**
+     * Match an asserted local predicate, not the same verb inside a negated or hypothetical phrase.
+     */
     private static boolean assertedPredicate(String text, String stem) {
         return Pattern.compile(stem + "(?:합니다|한다|함|됩니다|된다|됨)?(?=$|[.,;:)]|다만|단,)").matcher(text).find();
     }
@@ -260,20 +284,28 @@ public final class LocalRuleInterpreter {
         return Arrays.stream(text.split("[.!?;。]")).anyMatch(predicate);
     }
 
-    private static String subject(Clause c) { return c.subjects().isEmpty() ? "원문 적용 대상 확인 필요" : String.join(" · ", c.subjects()); }
-    private static boolean relevant(Clause c) { return c.topics().stream().anyMatch(t -> t != Topic.OTHER && t != Topic.SCHEDULE); }
+    private static String subject(Clause c) {
+        return c.subjects().isEmpty() ? "원문 적용 대상 확인 필요" : String.join(" · ", c.subjects());
+    }
+
+    private static boolean relevant(Clause c) {
+        return c.topics().stream().anyMatch(t -> t != Topic.OTHER && t != Topic.SCHEDULE);
+    }
+
     private static boolean fullyRecognized(Clause c) {
         String t = compact(c.quote()).replaceFirst("^[▪■□◆●*①-⑳-]+", "");
         return t.matches("(?:소득요건)?소득요건(?:은)?배제[.!]?")
-            || t.matches("(?:총자산요건)?총자산요건(?:은)?배제[.!]?")
-            || t.matches("혼인중이아닐것[.!]?")
-            || t.matches("신청자는미혼이어야합니다[.!]")
-            || t.matches("모든학기수료를완료하였으나아직졸업을하지않은경우재학생으로간주[.!]?");
+                || t.matches("(?:총자산요건)?총자산요건(?:은)?배제[.!]?")
+                || t.matches("혼인중이아닐것[.!]?")
+                || t.matches("신청자는미혼이어야합니다[.!]")
+                || t.matches("모든학기수료를완료하였으나아직졸업을하지않은경우재학생으로간주[.!]?");
     }
 
     private static List<Topic> classify(String value) {
         var topics = new ArrayList<Topic>();
-        TOPICS.forEach((topic, pattern) -> { if (pattern.matcher(value).find()) topics.add(topic); });
+        TOPICS.forEach((topic, pattern) -> {
+            if (pattern.matcher(value).find()) topics.add(topic);
+        });
         return topics.isEmpty() ? List.of(Topic.OTHER) : List.copyOf(topics);
     }
 
@@ -299,7 +331,8 @@ public final class LocalRuleInterpreter {
         if (Pattern.compile("예외|다만|단,|제외|간주|대신|미적용").matcher(quote).find()) result.add(Marker.EXCEPTION);
         if (Pattern.compile("요건\\s*배제|완화").matcher(quote).find()) result.add(Marker.WAIVER);
         if (Pattern.compile("불가|않|없|아니|미적용|미포함|제외").matcher(quote).find()) result.add(Marker.NEGATION);
-        if (Pattern.compile("참조|확인|[0-9]\\s*쪽|[0-9]\\s*[Pp](?![A-Za-z])|별지|별표").matcher(quote).find()) result.add(Marker.REFERENCE);
+        if (Pattern.compile("참조|확인|[0-9]\\s*쪽|[0-9]\\s*[Pp](?![A-Za-z])|별지|별표").matcher(quote).find())
+            result.add(Marker.REFERENCE);
         return List.copyOf(result);
     }
 
@@ -319,8 +352,9 @@ public final class LocalRuleInterpreter {
     private static List<Quantity> quantities(String text, int offset) {
         var result = new ArrayList<Quantity>();
         var matcher = NUMBER.matcher(text);
-        while (matcher.find()) result.add(new Quantity(matcher.group(), matcher.group(1).replace(",", ""), compact(matcher.group(2)),
-            matcher.group(3) == null ? "UNSPECIFIED" : matcher.group(3), offset + matcher.start(), offset + matcher.end()));
+        while (matcher.find())
+            result.add(new Quantity(matcher.group(), matcher.group(1).replace(",", ""), compact(matcher.group(2)),
+                    matcher.group(3) == null ? "UNSPECIFIED" : matcher.group(3), offset + matcher.start(), offset + matcher.end()));
         return List.copyOf(result);
     }
 
@@ -331,11 +365,19 @@ public final class LocalRuleInterpreter {
         return List.copyOf(result);
     }
 
-    private static String compact(String value) { return value.replaceAll("[\\s\\p{Zs}]+", ""); }
-    private static List<Unresolved> distinct(List<Unresolved> issues) { return issues.stream().distinct().toList(); }
+    private static String compact(String value) {
+        return value.replaceAll("[\\s\\p{Zs}]+", "");
+    }
+
+    private static List<Unresolved> distinct(List<Unresolved> issues) {
+        return issues.stream().distinct().toList();
+    }
+
     private static String id(String prefix, String value) {
         try {
             return prefix + "-" + HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(value.getBytes(StandardCharsets.UTF_8))).substring(0, 24);
-        } catch (java.security.NoSuchAlgorithmException impossible) { throw new IllegalStateException(impossible); }
+        } catch (java.security.NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException(impossible);
+        }
     }
 }

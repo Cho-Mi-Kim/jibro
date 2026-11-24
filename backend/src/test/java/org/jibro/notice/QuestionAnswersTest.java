@@ -5,21 +5,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.ObjectMapper;
 
 class QuestionAnswersTest {
     private final Evidence evidence = new Evidence("입력 계약 테스트", null, "2026-11-06");
+
     private Question question(String kind, InputConstraints constraints) {
         return new Question("input", "테스트 질문", "입력 계약 검증용", evidence, null, kind, constraints);
     }
 
-    @Test void oldJsonSnapshotsKeepSingleChoiceStringsAndDefaultRules() {
+    @Test
+    void oldJsonSnapshotsKeepSingleChoiceStringsAndDefaultRules() {
         var json = new ObjectMapper();
         var snapshot = json.readValue("""
-            {"preparation":{"questions":[{"id":"input","title":"질문","reason":"이유",
-            "evidence":{"label":"근거","checkedAt":"2026-11-06"}}],"answers":{"input":"YES"}},"rules":{"doc":"input"}}
-            """, Snapshot.class);
+                {"preparation":{"questions":[{"id":"input","title":"질문","reason":"이유",
+                "evidence":{"label":"근거","checkedAt":"2026-11-06"}}],"answers":{"input":"YES"}},"rules":{"doc":"input"}}
+                """, Snapshot.class);
         var q = snapshot.preparation().questions.get(0);
         assertEquals("SINGLE", q.inputKind());
         assertEquals("YES", QuestionAnswers.normalize(q, snapshot.preparation().answers.get("input")));
@@ -28,7 +31,8 @@ class QuestionAnswersTest {
         assertTrue(q.needsFollowUp("UNKNOWN"));
     }
 
-    @Test void numericBoundsStepPrecisionAndZeroAreInputValidationOnly() {
+    @Test
+    void numericBoundsStepPrecisionAndZeroAreInputValidationOnly() {
         var q = question("NUMBER", new InputConstraints(BigDecimal.ZERO, BigDecimal.TEN,
                 new BigDecimal("0.25"), null, null, null, "개"));
         QuestionAnswers.validateQuestion(q);
@@ -42,7 +46,8 @@ class QuestionAnswersTest {
         assertTrue(q.needsFollowUp("UNKNOWN"));
     }
 
-    @Test void datesRejectImpossibleDatesAndOutOfRangeWithoutCoercion() {
+    @Test
+    void datesRejectImpossibleDatesAndOutOfRangeWithoutCoercion() {
         var q = question("DATE", new InputConstraints(null, null, null, "2024-01-01", "2024-12-31", null, null));
         QuestionAnswers.validateQuestion(q);
         assertEquals("2024-02-29", QuestionAnswers.normalize(q, "2024-02-29"));
@@ -51,7 +56,8 @@ class QuestionAnswersTest {
         assertEquals("UNKNOWN", QuestionAnswers.normalize(q, "UNKNOWN"));
     }
 
-    @Test void multipleAnswersAreUniqueKnownCodesCanonicalizedInQuestionOrder() {
+    @Test
+    void multipleAnswersAreUniqueKnownCodesCanonicalizedInQuestionOrder() {
         var q = new Question("input", "테스트 질문", "이유", evidence,
                 List.of(new AnswerOption("A", "첫째"), new AnswerOption("B", "둘째", true),
                         new AnswerOption("C", "셋째"), new AnswerOption("UNKNOWN", "모름")),
@@ -66,7 +72,8 @@ class QuestionAnswersTest {
         assertFalse(q.needsFollowUp(List.of("A")));
     }
 
-    @Test void invalidQuestionContractsAreRejectedBeforePublication() {
+    @Test
+    void invalidQuestionContractsAreRejectedBeforePublication() {
         assertThrows(IllegalArgumentException.class, () -> QuestionAnswers.validateQuestion(question("TEXT", null)));
         assertThrows(IllegalArgumentException.class, () -> QuestionAnswers.validateQuestion(question("NUMBER",
                 new InputConstraints(BigDecimal.TEN, BigDecimal.ZERO, null, null, null, null, null))));
@@ -80,10 +87,11 @@ class QuestionAnswersTest {
                 List.of(new AnswerOption("A", "첫째"), new AnswerOption("B", "둘째")), "MULTIPLE", null)));
     }
 
-    @Test void noneIsExclusiveForNewSubmissionsWithoutReinterpretingSavedAnswers() {
+    @Test
+    void noneIsExclusiveForNewSubmissionsWithoutReinterpretingSavedAnswers() {
         var q = new Question("input", "해당 항목", "다중 선택", evidence,
-            List.of(new AnswerOption("A", "첫째"), new AnswerOption("NONE", "해당 없음"),
-                new AnswerOption("UNKNOWN", "모름")), "MULTIPLE", null);
+                List.of(new AnswerOption("A", "첫째"), new AnswerOption("NONE", "해당 없음"),
+                        new AnswerOption("UNKNOWN", "모름")), "MULTIPLE", null);
         assertEquals(List.of("NONE"), QuestionAnswers.normalizeSubmission(q, List.of("NONE")));
         assertEquals(List.of("A"), QuestionAnswers.normalizeSubmission(q, List.of("A")));
         assertEquals("UNKNOWN", QuestionAnswers.normalizeSubmission(q, "UNKNOWN"));

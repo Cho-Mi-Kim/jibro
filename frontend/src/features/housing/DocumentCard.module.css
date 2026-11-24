@@ -1,0 +1,45 @@
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    min-height: var(--target, 44px);
+    padding: 0.5rem 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    text-align: start;
+    font: inherit;
+    list-style: none;
+    cursor: pointer;
+}
+.trigger::-webkit-details-marker {
+    display: none;
+}
+.name {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+.trigger > svg {
+    flex: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: var(--brand);
+}
+.status {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+.trigger > svg:last-child {
+    transition: transform var(--motion-duration, 750ms) ease;
+}
+details[open] > .trigger > svg:last-child,
+.trigger[aria-expanded='true'] > svg:last-child {
+    transform: rotate(180deg);
+}

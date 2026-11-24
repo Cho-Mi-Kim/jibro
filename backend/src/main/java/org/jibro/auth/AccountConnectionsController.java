@@ -43,7 +43,7 @@ public class AccountConnectionsController {
         if (!config.providers().contains(provider))
             throw new ApiException(503, "PROVIDER_UNAVAILABLE", "이 환경에서는 해당 소셜 로그인이 설정되지 않았습니다.");
         String binding = AccountConnections.random();
-        var intent = connections.begin(UUID.fromString(jwt.getSubject()), provider, binding, body.proof());
+        var intent = connections.begin(UUID.fromString(jwt.getSubject()), provider, binding, body.proof(), request.getRemoteAddr());
         var session = request.getSession(true);
         request.changeSessionId();
         session.setAttribute(ConnectionOAuthFlow.BINDING, binding);
@@ -53,7 +53,7 @@ public class AccountConnectionsController {
 
     @PostMapping("/{provider}/disconnect")
     void disconnect(@AuthenticationPrincipal Jwt jwt, @PathVariable String provider, @Valid @RequestBody Reauthenticate body, HttpServletRequest request) {
-        connections.disconnect(UUID.fromString(jwt.getSubject()), provider, body.proof());
+        connections.disconnect(UUID.fromString(jwt.getSubject()), provider, body.proof(), request.getRemoteAddr());
         var session = request.getSession(false);
         if (session != null) session.invalidate();
     }

@@ -163,7 +163,8 @@ export function onlineIssuanceLinks(document: DocumentSource): IssuanceLink[] {
     if (safeUrl(document.issueUrl)) {
         return [
             {
-                label: document.issueLabel || document.issuer || '공식 발급 경로',
+                label:
+                    document.issueLabel || document.issuer || '공식 발급 경로',
                 url: document.issueUrl,
             },
         ];

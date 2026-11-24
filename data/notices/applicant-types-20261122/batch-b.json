@@ -1,0 +1,1103 @@
+[
+  {
+    "noticeId": "ef03d490-e2d2-4247-9df9-65d53d10f043",
+    "baselineVersion": 7,
+    "questionPatches": [
+      {
+        "id": "application-type",
+        "title": "어떤 유형으로 신청하나요?",
+        "reason": "2026년 10월 19일 기준으로 신청할 유형 하나를 골라요. 대학생·취업준비생과 청년·사회초년생은 혼인 중이 아니어야 해요. 사회초년생은 소득이 있는 일을 한 기간이 총 7년 이내여야 하며, 학교 재학 중 근로·병역의무 이행 근로의 제외 범위는 공고에서 확인해요. 여러 유형에 해당해도 이번에 신청할 한 유형을 선택해요. 신혼부부·예비신혼부부는 이번 모집 대상에 포함되지 않아요.",
+        "evidence": {
+          "label": "공고문 2쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=2",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "STUDENT",
+            "label": "대학생 · 재학 중"
+          },
+          {
+            "value": "ADMISSION",
+            "label": "대학생 · 다음 학기 입학 예정"
+          },
+          {
+            "value": "RETURN",
+            "label": "대학생 · 다음 학기 복학 예정"
+          },
+          {
+            "value": "JOBSEEKER",
+            "label": "취업준비생 · 졸업·중퇴 후 2년 이내"
+          },
+          {
+            "value": "YOUTH",
+            "label": "청년 · 19~39세"
+          },
+          {
+            "value": "WORKER",
+            "label": "사회초년생 · 소득이 있는 일을 하고 있어요"
+          },
+          {
+            "value": "RETIRED",
+            "label": "사회초년생 · 퇴직 1년 이내이며 구직급여 자격이 있어요"
+          },
+          {
+            "value": "ARTIST",
+            "label": "사회초년생 · 예술활동증명을 받은 예술인이에요"
+          },
+          {
+            "value": "ELDER",
+            "label": "고령자 · 65세 이상"
+          },
+          {
+            "value": "BENEFIT",
+            "label": "주거급여 수급자"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "household-individual",
+        "title": "본인의 주택 기준에 맞나요?",
+        "reason": "신청자 본인의 주택만 확인해요. 함께 사는 가족이 집을 갖고 있어도 이 항목만으로 신청이 제한되지는 않아요.\n\n완주군과 인접한 전주·익산·김제·정읍·임실·진안·논산·금산 밖의 주택은 허용해요. 이 지역 안에서도 공고의 소형·저가주택은 허용해요. 아파트는 전용 60㎡ 이하이면서 가격 1억원 이하, 아파트 외 주택은 전용 85㎡ 이하이면서 가격 3억원 이하예요. 가격은 공고에서 정한 산정 기준으로 확인해요.",
+        "evidence": {
+          "label": "공고문 8쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=8",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "STUDENT",
+            "ADMISSION",
+            "RETURN",
+            "JOBSEEKER",
+            "YOUTH",
+            "WORKER",
+            "RETIRED",
+            "ARTIST"
+          ]
+        }
+      },
+      {
+        "id": "household-family",
+        "title": "함께 심사하는 가족의 주택 기준에 맞나요?",
+        "reason": "신청자와 심사에 포함되는 가족 모두의 주택을 확인해요.\n\n신청자와 배우자는 주소가 달라도 함께 봐요. 신청자 또는 배우자와 같은 등본의 부모·조부모, 신청자의 자녀·손주와 그 배우자를 포함해요. 배우자의 자녀·손주와 그 배우자는 신청자와 같은 등본인 경우 포함해요. 외국인 가족, 실종·행방불명 등 제외 사유는 공고의 세대 범위와 증빙으로 확인해요.\n\n완주군과 인접한 전주·익산·김제·정읍·임실·진안·논산·금산 밖의 주택은 허용해요. 이 지역 안에서도 공고의 소형·저가주택은 허용해요. 아파트는 전용 60㎡ 이하이면서 가격 1억원 이하, 아파트 외 주택은 전용 85㎡ 이하이면서 가격 3억원 이하예요. 가격은 공고에서 정한 산정 기준으로 확인해요.",
+        "evidence": {
+          "label": "공고문 12쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=12",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "ELDER",
+            "BENEFIT"
+          ]
+        }
+      },
+      {
+        "id": "unmarried-student-youth",
+        "title": "현재 혼인 중인가요?",
+        "reason": "2026년 10월 19일 기준으로 혼인 중이 아니어야 해요. 나이·재학·근로 요건에 맞아도 혼인 중이라면 이 계층의 기준에 맞지 않아요.",
+        "evidence": {
+          "label": "공고문 8쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=8",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "혼인 중이 아니에요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "혼인 중이에요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "STUDENT",
+            "ADMISSION",
+            "RETURN",
+            "JOBSEEKER",
+            "YOUTH",
+            "WORKER",
+            "RETIRED",
+            "ARTIST"
+          ]
+        }
+      },
+      {
+        "id": "vehicle-student",
+        "title": "본인의 자동차 기준에 맞나요?",
+        "reason": "신청자 본인이 자동차가액 산출대상 자동차를 소유하지 않아야 해요. 소득·총자산 요건이 완화돼도 자동차 미소유 기준은 남아요.\n\n장애인사용 자동차와 상이 1~7급 국가유공자의 보철용 차량 등 산정 제외 대상은 공고문 26쪽 기준으로 확인해요. 정부·지자체 보조를 받은 저공해자동차는 해당 보조금을 뺀 가액을 확인해요.",
+        "evidence": {
+          "label": "공고문 8쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=8",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "없거나, 공고에서 산정 제외하는 차량만 있어요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "산정대상 자동차가 있어요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "STUDENT",
+            "ADMISSION",
+            "RETURN",
+            "JOBSEEKER"
+          ]
+        }
+      },
+      {
+        "id": "vehicle-youth",
+        "title": "본인·심사 가족의 자동차 기준에 맞나요?",
+        "reason": "자동차가액은 4,542만원 이하여야 해요. 세대원이 있는 세대주라면 본인과 같은 등본의 부모·조부모, 자녀·손주 및 그 배우자를 함께 봐요. 세대원이거나 단독세대주라면 본인만 봐요.\n\n장애인사용 자동차와 상이 1~7급 국가유공자의 보철용 차량 등 산정 제외 대상은 공고문 26쪽 기준으로 확인해요. 정부·지자체 보조를 받은 저공해자동차는 해당 보조금을 뺀 가액을 확인해요.\n\n산정대상 비영업용 승용차가 여러 대면 가액이 가장 높은 차를 기준으로 확인해요.",
+        "evidence": {
+          "label": "공고문 10쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=10",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "YOUTH",
+            "WORKER",
+            "RETIRED",
+            "ARTIST"
+          ]
+        }
+      },
+      {
+        "id": "vehicle-family",
+        "title": "함께 심사하는 가족의 자동차 기준에 맞나요?",
+        "reason": "공고문 1쪽의 차량 기준은 4,542만원 이하예요. 신청자와 심사에 포함되는 가족을 기준으로 확인해요.\n\n신청자와 배우자는 주소가 달라도 함께 봐요. 신청자 또는 배우자와 같은 등본의 부모·조부모, 신청자의 자녀·손주와 그 배우자를 포함해요. 배우자의 자녀·손주와 그 배우자는 신청자와 같은 등본인 경우 포함해요. 외국인 가족, 실종·행방불명 등 제외 사유는 공고의 세대 범위와 증빙으로 확인해요.\n\n장애인사용 자동차와 상이 1~7급 국가유공자의 보철용 차량 등 산정 제외 대상은 공고문 26쪽 기준으로 확인해요. 정부·지자체 보조를 받은 저공해자동차는 해당 보조금을 뺀 가액을 확인해요.\n\n산정대상 비영업용 승용차가 여러 대면 가액이 가장 높은 차를 기준으로 확인해요.",
+        "evidence": {
+          "label": "공고문 1쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=1",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "ELDER",
+            "BENEFIT"
+          ]
+        }
+      },
+      {
+        "id": "relaxed-income-assets",
+        "title": "이번 모집은 소득·총자산 요건을 적용하지 않아요",
+        "reason": "이번 모집에서는 소득과 총자산 요건을 적용하지 않아요. 자동차·주택·혼인 등 유형별 나머지 기준과 재계약 때의 일반 기준은 별도로 확인해요.",
+        "evidence": {
+          "label": "공고문 1쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=1",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "확인했어요"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "더 확인할게요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "student-parent-proof",
+        "title": "부모와 등본이 다르거나 가족관계가 단절됐나요?",
+        "reason": "부모와 등본이 다르면 부모 각각의 등본을 내요. 부모의 이혼 등으로 가족관계가 단절됐다면 부 또는 모의 상세 혼인관계증명서와 본인·해당 부모의 등본·초본으로 실제 부양관계를 확인해요. 가족관계가 단절됐다는 이유만으로 임의로 부모를 심사에서 빼지는 않아요.",
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "SAME",
+            "label": "부모와 등본이 같고 가족관계 단절 사유가 없어요"
+          },
+          {
+            "value": "SEPARATE",
+            "label": "부모와 등본이 달라요"
+          },
+          {
+            "value": "BROKEN",
+            "label": "부모의 이혼 등으로 가족관계가 단절됐어요"
+          },
+          {
+            "value": "BOTH",
+            "label": "등본이 다르고 가족관계도 단절됐어요"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "STUDENT",
+            "ADMISSION",
+            "RETURN",
+            "JOBSEEKER"
+          ]
+        }
+      },
+      {
+        "id": "youth-work-proof",
+        "title": "근무지나 소득활동을 추가 증명해야 하나요?",
+        "reason": "거주지 대신 일하는 곳으로 순위를 인정받거나, 현재 일하지만 국민연금에 납부예외·임의가입·미가입·지역가입으로 나와 근로를 확인하기 어려우면 추가 증빙을 내요. 사업자등록증·법인등기부·재직증명서·근로계약서 등 본인 상황에 맞는 서류를 준비해요.",
+        "evidence": {
+          "label": "공고문 22쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=22",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "해당해요"
+          },
+          {
+            "value": "NO",
+            "label": "해당하지 않아요"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "YOUTH",
+            "WORKER",
+            "RETIRED",
+            "ARTIST"
+          ]
+        }
+      },
+      {
+        "id": "work-period-exclusion",
+        "title": "소득활동 기간에서 재학·군복무 기간을 빼야 하나요?",
+        "reason": "소득활동 기간이 총 7년을 넘지만 고등학교·대학 재학 중 근로나 공고가 정한 병역의무 이행 근로기간을 제외해 신청하려면 증빙이 필요해요. 학교 졸업증명서나 복무확인서·병적증명서로 해당 기간을 확인해요.",
+        "evidence": {
+          "label": "공고문 22쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=22",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "해당해요"
+          },
+          {
+            "value": "NO",
+            "label": "해당하지 않아요"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "WORKER",
+            "RETIRED",
+            "ARTIST"
+          ]
+        }
+      }
+    ],
+    "documentPatches": [
+      {
+        "id": "student",
+        "title": "재학·입복학·졸업 관련 증빙",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "STUDENT",
+          "ADMISSION",
+          "RETURN",
+          "JOBSEEKER"
+        ],
+        "method": "대학생은 재학증명서, 입학 예정자는 입학증명서 또는 등록금납부확인서, 복학 예정자는 휴학증명서와 공고 각서를 내요. 복학 후 1개월 안에는 재학증명서를 추가로 내요. 취업준비생은 대학·고등학교 졸업증명서 또는 제적증명서를 내요. 본인이 선택한 유형의 증빙만 준비해요.",
+        "issuer": "해당 학교",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "youth",
+        "title": "국민연금·건강보험 전체이력",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "YOUTH",
+          "WORKER",
+          "RETIRED",
+          "ARTIST"
+        ],
+        "method": "청년·사회초년생은 국민연금 가입증명서를 전체이력으로, 건강보험자격득실확인서를 가입일부터 현재까지 전체내역으로 내요. 소득이 없는 청년도 두 서류를 내요. 국민연금 미가입자도 발급할 수 있고, 다른 공적연금 가입자는 해당 연금 가입증명을 추가해요.",
+        "issuer": "국민연금공단·국민건강보험공단 등",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "subscription",
+        "title": "청약통장 사본",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "YOUTH",
+          "WORKER",
+          "RETIRED",
+          "ARTIST"
+        ],
+        "method": "청년·사회초년생 신청자 본인의 주택청약종합저축 또는 청약저축 통장 사본을 입주 전까지 내요. 미제출하면 입주할 수 없고 당첨·계약이 취소될 수 있어요.",
+        "issuer": "청약통장 가입 은행",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "benefit",
+        "title": "주거급여 수급자증명서",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "BENEFIT"
+        ],
+        "method": "주거급여 수급자로 신청하면 본인의 수급자증명서를 내요.",
+        "issuer": "행정복지센터",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 23쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=23",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "retired-benefit",
+        "title": "구직급여 수급자격 증빙",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "RETIRED"
+        ],
+        "method": "퇴직 후 공고일 이전 1년 이내의 고용보험 수급자격증 또는 수급자격 인정명세서를 내요. 공통 연금·건강보험 전체이력도 함께 준비해요.",
+        "issuer": "고용센터",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "artist-proof",
+        "title": "예술활동증명서",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "ARTIST"
+        ],
+        "method": "예술인으로 신청하면 한국예술인복지재단의 예술활동증명서를 내요. 공통 연금·건강보험 전체이력도 함께 준비해요.",
+        "issuer": "한국예술인복지재단",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 22쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=22",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "student-parent-register",
+        "title": "부모 주민등록표등본",
+        "conditionQuestionId": "student-parent-proof",
+        "conditionAnswerValues": [
+          "SEPARATE",
+          "BOTH"
+        ],
+        "method": "신청자와 부모의 등본이 다르면 부모 각각의 주민등록표등본을 내요.",
+        "issuer": "행정복지센터",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "student-parent-relationship",
+        "title": "부모 관계·실제 부양 증빙",
+        "conditionQuestionId": "student-parent-proof",
+        "conditionAnswerValues": [
+          "BROKEN",
+          "BOTH"
+        ],
+        "method": "부모의 이혼 등으로 가족관계가 단절됐다면 해당 부모의 상세 혼인관계증명서와 신청자·부모의 등본·초본을 내요. 실제 부양관계와 이전 거주지를 확인할 수 있게 준비해요.",
+        "issuer": "가족관계등록 관서·행정복지센터",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 21쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=21",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "youth-work",
+        "title": "근무지·소득활동 추가 증빙",
+        "conditionQuestionId": "youth-work-proof",
+        "conditionAnswerValues": [
+          "YES"
+        ],
+        "method": "사업자등록증·법인등기부 등으로 근무지를 확인해요. 확인이 어려우면 재직증명서·근로계약서·위촉증명서 등을 추가해요. 현재 소득활동이 국민연금 이력에 드러나지 않으면 사업자등록증명 또는 재직·근로·소득 자료를 내요.",
+        "issuer": "해당 직장·국세청",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 22쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=22",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "work-period-proof",
+        "title": "재학·병역 근로기간 제외 증빙",
+        "conditionQuestionId": "work-period-exclusion",
+        "conditionAnswerValues": [
+          "YES"
+        ],
+        "method": "재학 중 근로기간을 빼려면 해당 학교 졸업증명서를, 병역의무 이행 근로기간을 빼려면 복무 중에는 복무확인서, 복무를 마쳤다면 병적증명서를 내요.",
+        "issuer": "해당 학교·병무청",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 22쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510#page=22",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "removedQuestionIds": [
+      "category",
+      "household",
+      "vehicle",
+      "applies-student",
+      "applies-youth",
+      "applies-subscription",
+      "applies-benefit",
+      "applies-mydata"
+    ],
+    "removedDocumentIds": [
+      "mydata"
+    ],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68998510",
+        "sha256": "f8c62f3c12da21d2364142ae9a429303bdf30e369b1b1bcdc006d82aa303396e"
+      }
+    ],
+    "notes": [
+      "2026-11-22 현재 LH 상세페이지에 연결된 후속 정정은 없고 최신 공식 PDF를 다시 내려받아 기존 검수 파일과 내용이 같음을 확인했어요. 신청 상태 CLOSED는 바꾸지 않아요.",
+      "실제 모집은 대학생·청년·고령자·주거급여수급자 계층이에요. 공통 서류표에 남아 있는 신혼부부·예비신혼부부 양식을 새 모집 유형으로 오해하지 않아요.",
+      "확인 여부만 묻던 category와 범위가 섞인 household·vehicle를 제거하고 새 ID의 신청 유형과 고정 범위 질문으로 대체해요. 이전 YES를 새 유형이나 새 기준 충족으로 변환하지 않아요.",
+      "유형만으로 정해지는 서류는 application-type에 직접 연결해 같은 사실을 반복 질문하지 않아요. 기존 student·youth·subscription·benefit ID를 유지하고 특수 근로 증빙은 실제 제출 조건으로 나눠요.",
+      "본인 행정정보 제공요구서는 선택 제출이고 사용자 요청으로 MyMy 문구를 제거한 취지에 맞춰 해당 질문·서류를 제외해요. 개인정보 동의서·금융정보 동의서 등 필수 공통 서류는 보존해요.",
+      "차량 4,542만원은 1쪽 전체 요약과 10·12쪽 세부 기준을 대조했어요. 13쪽 수급자 세부 표에 반복되지 않는다는 이유만으로 요약의 차량 기준을 삭제하거나 다른 공고 기준으로 대체하지 않아요."
+    ]
+  },
+  {
+    "noticeId": "441a718d-cb0c-4770-9bdd-f10ed57a462c",
+    "baselineVersion": 6,
+    "questionPatches": [
+      {
+        "id": "application-type",
+        "title": "어떤 유형으로 신청하나요?",
+        "reason": "2026년 11월 11일 기준으로 한 유형을 골라요. 신혼부부는 혼인 7년 이내이거나 6세 이하 자녀(태아 포함)가 있는 부부예요. 전 배우자와 재혼했다면 이전 혼인기간도 합쳐요. 예비신혼부부는 입주 전 혼인을 증명해야 하고, 한부모가족은 6세 이하 자녀(태아 포함)가 있어야 해요. 이 공고에는 대학생·청년 유형이 없어요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "NEWLYWED",
+            "label": "신혼부부 · 혼인 7년 이내 또는 6세 이하 자녀가 있어요"
+          },
+          {
+            "value": "PREMARITAL",
+            "label": "예비신혼부부 · 입주 전 결혼할 예정이에요"
+          },
+          {
+            "value": "SINGLE_PARENT",
+            "label": "한부모가족 · 6세 이하 자녀가 있어요"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "household-current",
+        "title": "신청자와 심사 가족의 주택 기준에 맞나요?",
+        "reason": "신청자와 심사 대상 가족 모두 자기 명의의 집이 없어야 해요.\n\n신청자와 배우자는 주소가 달라도 함께 봐요. 신청자 또는 배우자와 같은 등본의 부모·조부모, 신청자의 자녀·손주와 그 배우자를 포함해요. 배우자의 자녀·손주와 그 배우자는 신청자와 같은 등본인 경우 포함해요. 외국인 가족, 실종·행방불명 등 제외 사유는 공고의 세대 범위와 증빙으로 확인해요.\n\n한부모가족은 신청자와 자녀가 같은 등본에 있어야 해요. 분양권·입주권과 공고의 주택 판정 예외도 함께 확인해요. 공고일부터 임대차계약이 끝날 때까지 무주택 기준을 유지해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "NEWLYWED",
+            "SINGLE_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "household-future",
+        "title": "결혼 후 함께 살 가족의 주택 기준에 맞나요?",
+        "reason": "신청자·예비배우자와 결혼 후 같은 등본에 올릴 세대원 모두 자기 명의의 집이 없어야 해요. 분양권·입주권과 공고의 주택 판정 예외도 함께 확인해요.\n\n대표신청자는 한 명만 정하며 신청 후 바꿀 수 없어요. 두 사람이 각각 신청하면 중복 신청으로 부적격 처리돼요. 입주 전에는 신청할 때 적은 예비배우자와의 혼인 및 세대 구성을 증명해요.",
+        "evidence": {
+          "label": "공고문 6쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=6",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "PREMARITAL"
+          ]
+        }
+      },
+      {
+        "id": "income-assets-married",
+        "title": "현재 심사 세대의 소득·자산 기준에 맞나요?",
+        "reason": "현재 심사 세대의 월평균소득이 도시근로자 기준의 100% 이하여야 해요. 맞벌이 부부는 120%, 2인 가구는 110%, 맞벌이 2인 가구는 130%예요. 주소가 다른 배우자도 함께 심사해요.\n\n가산이 없으면 총자산은 3억4,500만원, 자동차는 4,542만원 이하여야 해요. 장애인사용 자동차·국가유공자 보철용 차량 등 산정 제외는 공고문 18~19쪽 기준을 확인해요.\n\n2023년 3월 28일 이후 출생한 자녀가 있으면 소득·자산 한도를 높여요. 입양 자녀와 태아도 포함하고, 신청자 또는 배우자와 같은 등본의 자녀를 봐요. 해당 자녀가 있으면 그 전에 태어난 미성년 자녀도 합쳐 최대 2명까지 세요. 1명은 소득 기준 10%p를 더하고 총자산 3억7,900만원·자동차 4,996만원, 2명 이상은 20%p를 더하고 총자산 4억1,300만원·자동차 5,451만원까지예요. 가구원 수에 맞는 공고문 5~6쪽 표를 함께 확인해요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "NEWLYWED"
+          ]
+        }
+      },
+      {
+        "id": "income-assets-premarital",
+        "title": "결혼 후 세대의 소득·자산 기준에 맞나요?",
+        "reason": "결혼 후 함께 살 세대의 월평균소득이 도시근로자 기준의 100% 이하여야 해요. 두 사람 모두 근로·사업소득이 있으면 120%, 2인 가구는 110%, 두 사람 모두 소득이 있는 2인 가구는 130%예요.\n\n가산이 없으면 총자산은 3억4,500만원, 자동차는 4,542만원 이하여야 해요. 장애인사용 자동차·국가유공자 보철용 차량 등 산정 제외는 공고문 18~19쪽 기준을 확인해요.\n\n2023년 3월 28일 이후 출생한 자녀가 있으면 소득·자산 한도를 높여요. 입양 자녀와 태아도 포함하고, 신청자 또는 배우자와 같은 등본의 자녀를 봐요. 해당 자녀가 있으면 그 전에 태어난 미성년 자녀도 합쳐 최대 2명까지 세요. 1명은 소득 기준 10%p를 더하고 총자산 3억7,900만원·자동차 4,996만원, 2명 이상은 20%p를 더하고 총자산 4억1,300만원·자동차 5,451만원까지예요. 가구원 수에 맞는 공고문 5~6쪽 표를 함께 확인해요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "PREMARITAL"
+          ]
+        }
+      },
+      {
+        "id": "income-assets-single-parent",
+        "title": "한부모가족 소득·자산 기준에 맞나요?",
+        "reason": "신청자와 심사 가족의 월평균소득이 도시근로자 기준의 100% 이하여야 해요. 2인 가구는 110%예요. 맞벌이 부부의 120%·130% 기준은 적용하지 않아요.\n\n가산이 없으면 총자산은 3억4,500만원, 자동차는 4,542만원 이하여야 해요. 장애인사용 자동차·국가유공자 보철용 차량 등 산정 제외는 공고문 18~19쪽 기준을 확인해요.\n\n2023년 3월 28일 이후 출생한 자녀가 있으면 소득·자산 한도를 높여요. 입양 자녀와 태아도 포함하고, 신청자 또는 배우자와 같은 등본의 자녀를 봐요. 해당 자녀가 있으면 그 전에 태어난 미성년 자녀도 합쳐 최대 2명까지 세요. 1명은 소득 기준 10%p를 더하고 총자산 3억7,900만원·자동차 4,996만원, 2명 이상은 20%p를 더하고 총자산 4억1,300만원·자동차 5,451만원까지예요. 가구원 수에 맞는 공고문 5~6쪽 표를 함께 확인해요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "SINGLE_PARENT"
+          ]
+        }
+      },
+      {
+        "id": "subscription-couple",
+        "title": "두 사람 중 한 명이 청약통장에 가입하나요?",
+        "reason": "본인 또는 배우자·예비배우자 중 한 명이 입주 전까지 주택청약종합저축 또는 청약저축 가입을 증명해야 해요. 공고일 현재 미가입이라면 입주 전까지 가입한 뒤 통장 사본을 내요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "NEWLYWED",
+            "PREMARITAL"
+          ]
+        }
+      },
+      {
+        "id": "subscription-single-parent",
+        "title": "신청자 본인이 청약통장에 가입하나요?",
+        "reason": "신청자 본인이 입주 전까지 주택청약종합저축 또는 청약저축 가입을 증명해야 해요. 다른 가족의 통장으로 대신할 수 없어요. 공고일 현재 미가입이라면 입주 전까지 가입한 뒤 통장 사본을 내요.",
+        "evidence": {
+          "label": "공고문 5쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=5",
+          "checkedAt": "2026-11-22"
+        },
+        "options": [
+          {
+            "value": "MEETS",
+            "label": "기준에 맞아요"
+          },
+          {
+            "value": "DOES_NOT_MEET",
+            "label": "기준에 맞지 않아요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false,
+        "applicability": {
+          "questionId": "application-type",
+          "answerValues": [
+            "SINGLE_PARENT"
+          ]
+        }
+      }
+    ],
+    "documentPatches": [
+      {
+        "id": "marriage",
+        "title": "혼인관계증명서(상세)",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "NEWLYWED",
+          "PREMARITAL"
+        ],
+        "method": "신혼부부와 예비신혼부부 모두 신청자의 상세 혼인관계증명서를 신청 때 내요. 예비신혼부부는 입주 전에도 신청 당시 예비배우자와 혼인한 사실을 상세 혼인관계증명서로 다시 확인해요. 예비신혼부부는 총 2회 제출해요.",
+        "issuer": "가족관계등록 관서",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 15쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "newlywed",
+        "title": "예비신혼부부 신청·세대구성 확인서",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "PREMARITAL"
+        ],
+        "method": "예비신혼부부는 LH 신청확인서(2-1)와 세대구성 확인서(2-2)를 내요. 신청 당시 예비배우자와 혼인한 사실 및 실제 세대 구성을 입주 전까지 증명해야 해요. 입주 전에는 상세 혼인관계증명서와 등본을 추가하고 두 사람의 등본이 다르면 각각 내요.",
+        "issuer": "LH 공식 첨부 양식",
+        "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385812",
+        "evidence": {
+          "label": "공고문 15쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "모든 신청자가 내요. 심사 세대원 전원이 공고 양식에 서명해요. 예비신혼부부는 결혼 후 세대가 대상이며 14세 미만은 법정대리인이 서명해요.",
+        "issuer": "LH 공식 첨부 양식",
+        "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385802",
+        "evidence": {
+          "label": "공고문 13쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=13",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "finance",
+        "title": "금융정보 등 제공 동의서",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "모든 신청자가 내요. 심사 세대원 전원이 공고 양식에 서명해요. 예비신혼부부는 결혼 후 세대가 대상이며 14세 미만은 법정대리인이 서명해요.",
+        "issuer": "LH 공식 첨부 양식",
+        "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385802",
+        "evidence": {
+          "label": "공고문 13쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=13",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "assets",
+        "title": "자산 보유 사실확인서",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "모든 신청자가 내요. 심사 세대원 전원(예비신혼은 결혼 후 세대)의 자산을 적고 공적 자료로 확인하기 어려운 임차보증금·분양권 등의 증빙을 붙여요. LH 임대주택 임차보증금은 계약서 사본을 내지 않아도 돼요. 비상장주식·출자금·장기카드대출 등 공고에 열거된 항목도 빠짐없이 확인해요.",
+        "issuer": "LH 공식 첨부 양식",
+        "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385802",
+        "evidence": {
+          "label": "공고문 13쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=13",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "duplicate",
+        "title": "예비입주자 중복선정 불가사항 확인서",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "모든 신청자가 내용을 확인하고 서명하거나 도장을 찍어요. 예비신혼부부는 대표신청자가 작성해요.",
+        "issuer": "LH 공식 첨부 양식",
+        "issueUrl": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385802",
+        "evidence": {
+          "label": "공고문 13쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=13",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "resident",
+        "title": "주민등록표등본(전부표기)",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "모든 신청자가 공고일 이후 발급한 전부표기 등본을 내요. 배우자와 등본이 다르면 배우자의 등본도 내요. 예비신혼부부는 두 사람 각각의 등본을 내요. 세대 구성사유·일자, 세대주와 관계, 주민등록번호, 전입·변동일을 모두 표시해요.",
+        "issuer": "행정복지센터",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 14쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "history",
+        "title": "주민등록표초본(전부표기)",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "모든 신청자가 공고일 이후 발급한 전부표기 초본을 내요. 예비신혼부부는 대표신청자의 초본을 내요. 주소 변동 이력과 세대주 이름·관계를 모두 표시해요.",
+        "issuer": "행정복지센터",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 14쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "family",
+        "title": "가족관계증명서(상세)",
+        "conditionQuestionId": null,
+        "conditionAnswerValues": null,
+        "method": "배우자가 없어도 모든 신청자가 본인의 상세 가족관계증명서를 내요. 예비신혼부부는 두 사람 각각의 상세 증명서를 내요. 두 사람 외 가족을 결혼 후 세대에 포함하면 그 관계를 확인할 증명서도 준비해요.",
+        "issuer": "가족관계등록 관서",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 14쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=14",
+          "checkedAt": "2026-11-22"
+        }
+      },
+      {
+        "id": "subscription",
+        "title": "청약통장 가입 증빙",
+        "conditionQuestionId": "application-type",
+        "conditionAnswerValues": [
+          "NEWLYWED",
+          "PREMARITAL",
+          "SINGLE_PARENT"
+        ],
+        "method": "입주 전까지 주택청약종합저축 또는 청약저축 가입사실을 증명해요. 신혼·예비신혼부부는 둘 중 한 명, 한부모가족은 신청자 본인이 가입해야 해요. 공고일 현재 미가입자는 입주 전까지 가입한 뒤 통장 사본을 내요.",
+        "issuer": "청약통장 가입 은행",
+        "issueUrl": null,
+        "evidence": {
+          "label": "공고문 15쪽 보기",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666#page=15",
+          "checkedAt": "2026-11-22"
+        }
+      }
+    ],
+    "removedQuestionIds": [
+      "category",
+      "household",
+      "income-assets",
+      "subscription",
+      "applies-marriage",
+      "applies-newlywed",
+      "applies-subscription"
+    ],
+    "verifiedSources": [
+      {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69385666",
+        "sha256": "345cef3bff20185a9eeccd025e144d3d302b4f6683ecce743b37bbd2924dcebf"
+      }
+    ],
+    "notes": [
+      "2026-11-22 현재 LH 상세페이지에 연결된 후속 정정은 없고 최신 공식 PDF를 다시 내려받아 기존 검수 파일과 같음을 확인했어요.",
+      "신혼부부·예비신혼부부·한부모가족의 실제 선택값으로 질문을 대체해요. 이전 YES를 특정 유형으로 추측하지 않아요.",
+      "현재 세대와 결혼 후 세대, 부부와 한부모 소득 기준, 두 사람 중 한 명과 신청자 본인의 청약통장 기준을 새 고정 ID로 구분해요. 명시 applicability가 전역 신혼→예비신혼의 보수적 제목 겹침보다 우선하도록 연결해요.",
+      "혼인증명서와 예비신혼 확인서는 실제 유형에 직접 연결하여 제출대상을 반복 질문하지 않아요. 혼인증명서는 예비신혼 신청 시에도 필수이며 입주 전에 다시 내는 점을 보존해요.",
+      "공통 필수 7개 서류는 어떤 유형에서도 유지해요. 특히 상세 가족관계증명서는 배우자가 없어도 필수이고 예비신혼은 두 사람 각각 내요.",
+      "근로지 순위·임신입양·외국인·대리신청은 유형만으로 단정할 수 없어 기존 사실 질문과 서류 연결을 유지해요.",
+      "새 원고에 MyMy 관련 별도 선택 질문이나 안내는 추가하지 않아요. 기존 서류 ID와 저장 메모·완료 이력은 데이터 적용 경계에서 보존해요.",
+      "청약통장 가입 증빙도 세 유형 모두 필요하므로 유형에 직접 연결하고 중복 제출대상 질문을 제거해요. 공고일 미가입자의 입주 전 사본 제출 조건은 설명에 보존하며 이미 가입한 신청자에게 새 사본 제출 의무가 있다고 단정하지 않아요."
+    ]
+  }
+]

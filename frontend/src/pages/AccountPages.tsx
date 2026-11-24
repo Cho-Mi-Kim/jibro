@@ -1,8 +1,8 @@
 import { TrialEntry } from '../features/auth/TrialEntry';
 import { useSessionEntry } from '../features/auth/useSessionEntry';
+import { socialLogin } from '../features/auth/socialLogin';
 import { SocialLogo } from '../shared/ui/SocialLogo';
 import { bindClasses } from '../shared/styles/classes';
-import { safeReturn } from '../shared/api/returnPath';
 import { useEffect, useState, type FormEvent } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
@@ -23,7 +23,7 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
     });
     const [params] = useSearchParams();
     const [error, setError] = useState('');
-    const returnTo = safeReturn(params.get('returnTo') ?? '/my');
+    const returnTo = socialLogin.returnTo(params);
     const mutation = useSessionEntry(returnTo, signup);
     function submit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -41,10 +41,6 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
             return;
         }
         mutation.mutate({ name, email, password });
-    }
-    function social(provider: string) {
-        sessionStorage.setItem('jibro.returnTo', returnTo);
-        window.location.assign('/oauth2/authorization/' + provider);
     }
     return (
         <div className={cx('auth-page')}>
@@ -137,7 +133,9 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                                     disabled={
                                         !providers.data?.includes('google')
                                     }
-                                    onClick={() => social('google')}
+                                    onClick={() =>
+                                        socialLogin.start('google', returnTo)
+                                    }
                                 >
                                     <SocialLogo provider="google" />
                                     <span>Google로 계속하기</span>
@@ -148,7 +146,9 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
                                     disabled={
                                         !providers.data?.includes('kakao')
                                     }
-                                    onClick={() => social('kakao')}
+                                    onClick={() =>
+                                        socialLogin.start('kakao', returnTo)
+                                    }
                                 >
                                     <SocialLogo provider="kakao" />
                                     <span>카카오로 계속하기</span>
@@ -223,13 +223,13 @@ export function LoginPage({ signup = false }: { signup?: boolean }) {
 export function CallbackPage() {
     const { user, loading, error } = useSession();
     const navigate = useNavigate();
+    const [returnTo] = useState(socialLogin.savedReturnTo);
     useEffect(() => {
         if (user) {
-            const target = safeReturn(sessionStorage.getItem('jibro.returnTo'));
-            sessionStorage.removeItem('jibro.returnTo');
-            navigate(target, { replace: true });
+            socialLogin.clearReturnTo();
+            navigate(returnTo, { replace: true });
         }
-    }, [user, navigate]);
+    }, [user, navigate, returnTo]);
     return (
         <>
             <Heading title="로그인 확인" />
@@ -237,7 +237,11 @@ export function CallbackPage() {
             {!loading && !user && (
                 <Card>
                     <p>로그인을 완료하지 못했습니다. 다시 시도해 주세요.</p>
-                    <Link to="/login">로그인으로 돌아가기</Link>
+                    <Link
+                        to={'/login?returnTo=' + encodeURIComponent(returnTo)}
+                    >
+                        로그인으로 돌아가기
+                    </Link>
                 </Card>
             )}
         </>

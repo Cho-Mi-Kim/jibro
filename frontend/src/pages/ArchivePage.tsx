@@ -1,3 +1,7 @@
+import { ApplicationCompletionBadge } from '../features/preparation/ApplicationCompletionBadge';
+import { applicationRecordSchedule } from '../features/housing/schedules';
+import { House } from '../features/preparation/PreparationProgress';
+import { cx } from '../shared/styles/classes';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -11,6 +15,7 @@ import { Button, Heading, State } from '../shared/ui/ui';
 import { Icon } from '../shared/ui/Icon';
 import s from '../features/member/Controls.module.css';
 import styles from './ArchivePage.module.css';
+import { FollowUpSummary } from '../features/preparation/FollowUpSummary';
 
 type ArchiveCommand =
     | { kind: 'archive'; id: string; revision: number; note: string }
@@ -163,13 +168,27 @@ export function ArchivePage() {
                     <ul className={styles.records}>
                         {list.data?.map((x) => (
                             <li key={x.id}>
-                                <h3 aria-label={x.title} title={x.title}>
-                                    {noticeListTitle(x.title)}
-                                </h3>
-                                <p className={styles.metadata}>
-                                    안내 v{x.version} · 기록한 준비도{' '}
-                                    {x.progress}%
-                                </p>
+                                <header className={cx('explanation-card')}>
+                                    <h3 aria-label={x.title} title={x.title}>
+                                        {noticeListTitle(x.title)}
+                                    </h3>
+                                    <House
+                                        historical
+                                        progress={x.progress}
+                                        stage={x.houseStage}
+                                    />
+                                </header>
+                                <ApplicationCompletionBadge
+                                    recorded={
+                                        applicationRecordSchedule(
+                                            x.schedules ?? [],
+                                        )?.recorded ?? undefined
+                                    }
+                                />
+                                <FollowUpSummary
+                                    record={x.followUp}
+                                    historical
+                                />
                                 <p className={styles.note}>
                                     {x.note || '남긴 경험 메모가 없습니다.'}
                                 </p>
@@ -238,7 +257,9 @@ export function ExperienceNotes({ id }: { id: string }) {
                     <h2>이전 여정에서 가져온 메모</h2>
                     {q.data.map((x) => (
                         <p key={x.id}>
-                            <strong>{x.title}</strong>
+                            <strong title={x.title}>
+                                {noticeListTitle(x.title)}
+                            </strong>
                             <br />
                             {x.note}
                         </p>

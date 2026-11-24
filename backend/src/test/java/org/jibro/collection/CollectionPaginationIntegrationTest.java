@@ -21,11 +21,16 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class CollectionPaginationIntegrationTest {
-    @Autowired CollectionService collections;
-    @Autowired CollectionRunStore runs;
-    @Autowired AuthService auth;
-    @Autowired JdbcTemplate db;
-    @MockitoBean LhNoticeClient lh;
+    @Autowired
+    CollectionService collections;
+    @Autowired
+    CollectionRunStore runs;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    JdbcTemplate db;
+    @MockitoBean
+    LhNoticeClient lh;
     String actor;
     String prefix;
 

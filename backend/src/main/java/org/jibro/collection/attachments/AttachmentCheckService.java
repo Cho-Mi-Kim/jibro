@@ -11,15 +11,19 @@ import org.springframework.stereotype.Service;
 public class AttachmentCheckService {
     private final AttachmentCheckStore store;
     private final AttachmentFingerprintClient client;
+
     public AttachmentCheckService(AttachmentCheckStore store, AttachmentFingerprintClient client) {
         this.store = store;
         this.client = client;
     }
 
-    /** Shared cap across a collection run; a single administrator check gets the same bounded budget. */
+    /**
+     * Shared cap across a collection run; a single administrator check gets the same bounded budget.
+     */
     public static final class Budget {
         private final long started = System.nanoTime();
         private int requests;
+
         boolean take() {
             if (requests >= 10 || System.nanoTime() - started >= Duration.ofSeconds(45).toNanos()) return false;
             requests++;
@@ -39,8 +43,9 @@ public class AttachmentCheckService {
                 downloads.add(new AttachmentCheckStore.Download(target, null, "DEFERRED"));
                 continue;
             }
-            try { downloads.add(new AttachmentCheckStore.Download(target, client.fetch(target.url()), null)); }
-            catch (Exception ex) {
+            try {
+                downloads.add(new AttachmentCheckStore.Download(target, client.fetch(target.url()), null));
+            } catch (Exception ex) {
                 if (ex instanceof InterruptedException) Thread.currentThread().interrupt();
                 downloads.add(new AttachmentCheckStore.Download(target, null, failure(ex)));
             }
@@ -53,7 +58,8 @@ public class AttachmentCheckService {
             if (cause instanceof TimeoutException || cause instanceof HttpTimeoutException) return "TIMEOUT";
             String code = cause.getMessage();
             if (code != null && Set.of("ATTACHMENT_URL_REJECTED", "ATTACHMENT_ADDRESS_REJECTED", "ATTACHMENT_HTTP_STATUS",
-                    "ATTACHMENT_ENCODING_REJECTED", "ATTACHMENT_CONTENT_REJECTED", "ATTACHMENT_SIZE_REJECTED").contains(code)) return code;
+                    "ATTACHMENT_ENCODING_REJECTED", "ATTACHMENT_CONTENT_REJECTED", "ATTACHMENT_SIZE_REJECTED").contains(code))
+                return code;
         }
         return "FAILED";
     }

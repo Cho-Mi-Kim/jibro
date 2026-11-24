@@ -123,16 +123,13 @@
     border-top: 1px solid var(--line);
 }
 .records h3 {
+    padding-inline-end: var(--explanation-toggle-width);
     margin: 0;
     font-size: 1.125rem;
     line-height: 1.5;
     overflow-wrap: anywhere;
 }
-.metadata {
-    margin: 6px 0 12px;
-    font-size: 0.875rem;
-    color: var(--muted);
-}
+
 .note {
     margin: 0 0 16px;
     padding-left: 12px;

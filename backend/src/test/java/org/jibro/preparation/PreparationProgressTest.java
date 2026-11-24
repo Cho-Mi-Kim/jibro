@@ -17,6 +17,7 @@ class PreparationProgressTest {
         p.questions.add(new Question("known", "조건", "근거", null));
         p.answers.put("known", "YES");
         var document = new Document();
+        document.id = "document";
         document.necessity = "REQUIRED";
         document.state = DocumentState.READY;
         p.documents.add(document);
@@ -24,7 +25,7 @@ class PreparationProgressTest {
         schedule.recorded = true;
         p.schedules.add(schedule);
         p.reviewIssues.add(new ReviewIssue("date", "SCHEDULE", "결과 발표일 확인 필요", "공식 자료 간 날짜가 다릅니다.",
-            List.of(), List.of(), List.of(new Evidence("일정 원문", null, "2026-11-01"))));
+                List.of(), List.of(), List.of(new Evidence("일정 원문", null, "2026-11-01"))));
 
         var result = PreparationRules.assess(p);
         assertEquals(99, result.progress());
@@ -44,6 +45,7 @@ class PreparationProgressTest {
             p.answers.put("q" + i, i == 99 ? "UNKNOWN" : "YES");
         }
         Document document = new Document();
+        document.id = "document";
         document.necessity = "REQUIRED";
         document.state = DocumentState.READY;
         p.documents.add(document);

@@ -118,12 +118,14 @@ describe('질문별 입력 계약', () => {
             demoDocumentNecessity(
                 { questionId: 'test', answerValues: ['B'] },
                 { test: ['A', 'B'] },
+                [multiple],
             ),
         ).toBe('CONDITIONAL');
         expect(
             demoDocumentNecessity(
                 { questionId: 'test', answerValues: ['B'] },
                 { test: 'UNKNOWN' },
+                [multiple],
             ),
         ).toBe('UNKNOWN');
     });

@@ -10,6 +10,7 @@ import {
     useNavigate,
 } from 'react-router';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { NoticeListLayout } from '../features/housing/NoticeListLayout';
 import { OneTimeCheckPage } from './OneTimeCheckPage';
 import { demoRequest, resetDemo } from '../features/housing/demo';
 import { api } from '../features/housing/api';
@@ -40,14 +41,16 @@ function mount(path = '/notices/1/check?version=1') {
         <QueryClientProvider client={cache}>
             <MemoryRouter initialEntries={[path]}>
                 <Routes>
-                    <Route
-                        path="/notices/:noticeId/check"
-                        element={<OneTimeCheckPage mode="choice" />}
-                    />
-                    <Route
-                        path="/notices/:noticeId/check/once"
-                        element={<OneTimeCheckPage mode="once" />}
-                    />
+                    <Route element={<NoticeListLayout />}>
+                        <Route
+                            path="/notices/:noticeId/check"
+                            element={<OneTimeCheckPage mode="choice" />}
+                        />
+                        <Route
+                            path="/notices/:noticeId/check/once"
+                            element={<OneTimeCheckPage mode="once" />}
+                        />
+                    </Route>
                     <Route
                         path="/notices/:noticeId/start"
                         element={<p>저장 경로</p>}

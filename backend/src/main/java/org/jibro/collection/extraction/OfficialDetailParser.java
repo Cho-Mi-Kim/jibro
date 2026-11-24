@@ -3,14 +3,20 @@ package org.jibro.collection.extraction;
 import java.net.URI;
 import java.util.*;
 import java.util.regex.Pattern;
+
 import org.jsoup.Jsoup;
+
 import static org.jibro.collection.extraction.ExtractionModels.*;
 
 public final class OfficialDetailParser {
-    public record Detail(List<Part> parts, List<Link> attachments) {}
+    public record Detail(List<Part> parts, List<Link> attachments) {
+    }
+
     private static final Pattern FILE_ID = Pattern.compile("(?:lhFileDown|fnFileDown|fileDownLoad|fileDown|downloadFile)\\s*\\(\\s*['\"]?(\\d{1,20})['\"]?", Pattern.CASE_INSENSITIVE);
     private static final Pattern NOTICE_SECTION = Pattern.compile("공급\\s*일정|모집\\s*일정|신청\\s*(?:자격|방법)|기타\\s*사항|공고\\s*내용|제출\\s*서류|접수처\\s*정보");
-    private OfficialDetailParser() {}
+
+    private OfficialDetailParser() {
+    }
 
     public static Detail parse(String html, String url) {
         var document = Jsoup.parse(html, url);
@@ -31,7 +37,8 @@ public final class OfficialDetailParser {
             for (var section : document.select("section")) {
                 var heading = section.selectFirst("h2,h3,h4");
                 if (heading == null || !NOTICE_SECTION.matcher(heading.text()).find()
-                    || selected.stream().anyMatch(parent -> parent == section || section.parents().contains(parent))) continue;
+                        || selected.stream().anyMatch(parent -> parent == section || section.parents().contains(parent)))
+                    continue;
                 body.appendChild(section.clone());
             }
         } else {
@@ -45,7 +52,7 @@ public final class OfficialDetailParser {
         for (var element : body.select("tr,p,li,dd,pre")) {
             // A row owns its cells, and a list item owns its paragraph/pre children. Extract once.
             if (element.parents().stream().anyMatch(parent -> parent != contextBody
-                && Set.of("tr", "p", "li", "dd", "pre").contains(parent.tagName()))) continue;
+                    && Set.of("tr", "p", "li", "dd", "pre").contains(parent.tagName()))) continue;
             String text = element.tagName().equals("tr") ? tableRow(element) : element.wholeText().strip();
             text = text.replaceAll("[\\p{Zs}\\t]+", " ").replaceAll("\\n[ ]+", "\n");
             if (text.isBlank()) continue;
@@ -56,7 +63,9 @@ public final class OfficialDetailParser {
         return new Detail(parts, links);
     }
 
-    /** Read attachments even when a large notice's body cannot be extracted. */
+    /**
+     * Read attachments even when a large notice's body cannot be extracted.
+     */
     public static List<Link> attachments(String html, String url) {
         var document = Jsoup.parse(html, url);
         document.select("header,footer,nav").remove();
@@ -71,12 +80,14 @@ public final class OfficialDetailParser {
             var matcher = FILE_ID.matcher(a.attr("onclick") + " " + a.attr("href"));
             try {
                 href = matcher.find() ? "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=" + matcher.group(1)
-                    : URI.create(url).resolve(a.attr("href")).toString();
+                        : URI.create(url).resolve(a.attr("href")).toString();
                 URI uri = URI.create(href);
-                if (!"https".equals(uri.getScheme()) || !"apply.lh.or.kr".equals(uri.getHost()) || uri.getUserInfo() != null || (uri.getPort() != -1 && uri.getPort() != 443)) continue;
+                if (!"https".equals(uri.getScheme()) || !"apply.lh.or.kr".equals(uri.getHost()) || uri.getUserInfo() != null || (uri.getPort() != -1 && uri.getPort() != 443))
+                    continue;
                 String path = uri.getPath().toLowerCase(Locale.ROOT);
                 if (!(path.endsWith("/lhfile.do") || path.matches(".*\\.(pdf|hwp|hwpx|zip|xls|xlsx)$"))) continue;
-                if (href.length() <= 2000) links.putIfAbsent(href, new Link(label.isBlank() ? "공식 첨부" : label.substring(0, Math.min(200, label.length())), href));
+                if (href.length() <= 2000)
+                    links.putIfAbsent(href, new Link(label.isBlank() ? "공식 첨부" : label.substring(0, Math.min(200, label.length())), href));
             } catch (IllegalArgumentException ignored) { /* Not a supported official attachment link. */ }
             if (links.size() > limit) throw new IllegalArgumentException("OFFICIAL_ATTACHMENTS_LIMIT");
         }

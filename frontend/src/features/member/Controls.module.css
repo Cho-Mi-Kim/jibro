@@ -199,57 +199,14 @@
     display: grid;
     gap: 12px;
     list-style: none;
-    padding: 0;
+    padding: 0 0 var(--notice-scroll-space, 0px);
     margin: 0;
 }
 .savedList:empty {
     display: none;
 }
-.savedCard {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--target);
-    align-items: start;
-    gap: 8px;
-    padding: 16px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
-    background: var(--surface);
-}
-.savedNoticeLink {
-    display: block;
-    min-width: 0;
-    min-height: var(--target);
-    color: var(--ink);
-    text-decoration: none;
-    overflow-wrap: anywhere;
-}
-.savedNoticeLink:hover {
-    text-decoration: none;
-}
-.savedNoticeLink h2 {
-    margin: 0;
-    font-size: 1.125rem;
-    font-weight: 700;
-    line-height: 1.5;
-    word-break: keep-all;
-}
-.savedNoticeLink p {
-    margin: 8px 0 0;
-    color: var(--muted);
-    font-size: 0.875rem;
-    line-height: 1.5;
-}
-.savedCard .bookmark {
-    width: var(--target);
-    padding: 0;
-    border: 0;
-    background: transparent;
-}
-.savedCard .bookmark span {
-    display: none;
-}
-.savedCard small {
-    overflow-wrap: anywhere;
+.savedCompare {
+    justify-self: end;
 }
 .savedBrowse {
     width: 100%;

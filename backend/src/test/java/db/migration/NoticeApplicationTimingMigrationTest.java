@@ -19,42 +19,42 @@ class NoticeApplicationTimingMigrationTest {
     @Test
     void readsOnlyStableScheduleFieldsWithoutRequiringCurrentApplicationDtos() throws Exception {
         verifyBackfill("""
-            {"unrelatedLegacyField":true,"schedules":[
-                {"title":"신청 접수 시작 (오전 9시)","date":"2026-12-31"},
-                {"title":"신청 접수 마감 (오후 6시)","date":"2026-12-31"}]}
-            """, "2026-12-31T00:00:00Z", "2026-12-31T09:00:00Z");
+                {"unrelatedLegacyField":true,"schedules":[
+                    {"title":"신청 접수 시작 (오전 9시)","date":"2026-12-31"},
+                    {"title":"신청 접수 마감 (오후 6시)","date":"2026-12-31"}]}
+                """, "2026-12-31T00:00:00Z", "2026-12-31T09:00:00Z");
     }
 
     @Test
     void interpretsMidnightNoonAndExplicitOffsetsInSeoul() throws Exception {
         verifyBackfill("""
-            {"schedules":[
-                {"title":"접수 시작 (오전 12시)","date":"2026-12-31"},
-                {"title":"접수 마감 (오후 12시)","date":"2026-12-31"}]}
-            """, "2026-12-30T15:00:00Z", "2026-12-31T03:00:00Z");
+                {"schedules":[
+                    {"title":"접수 시작 (오전 12시)","date":"2026-12-31"},
+                    {"title":"접수 마감 (오후 12시)","date":"2026-12-31"}]}
+                """, "2026-12-30T15:00:00Z", "2026-12-31T03:00:00Z");
         verifyBackfill("""
-            {"schedules":[
-                {"title":"접수 시작","date":"2026-12-30T15:00:00Z"},
-                {"title":"접수 마감","date":"2026-12-31T18:00:00+09:00"}]}
-            """, "2026-12-30T15:00:00Z", "2026-12-31T09:00:00Z");
+                {"schedules":[
+                    {"title":"접수 시작","date":"2026-12-30T15:00:00Z"},
+                    {"title":"접수 마감","date":"2026-12-31T18:00:00+09:00"}]}
+                """, "2026-12-30T15:00:00Z", "2026-12-31T09:00:00Z");
     }
 
     @Test
     void conflictingOrUnknownTimesStayNullAndUnrelatedEventsAreNotInferred() throws Exception {
         verifyBackfill("""
-            {"schedules":[
-                {"title":"접수 시작","date":"2026-12-31"},
-                {"title":"접수 마감 (17:00)","date":"2026-12-31"},
-                {"title":"접수 마감 (18시)","date":"2026-12-31"}]}
-            """, null, null);
+                {"schedules":[
+                    {"title":"접수 시작","date":"2026-12-31"},
+                    {"title":"접수 마감 (17:00)","date":"2026-12-31"},
+                    {"title":"접수 마감 (18시)","date":"2026-12-31"}]}
+                """, null, null);
         verifyBackfill("""
-            {"schedules":[
-                {"title":"접수 마감 (09:00~18:00)","date":"2026-12-31"},
-                {"title":"서류 제출 마감","date":"2026-12-31T18:00:00"},
-                {"title":"서울 지역 접수 마감","date":"2026-12-31T18:00:00"},
-                {"title":"접수 마감","date":"2026-12-30T18:00:00"},
-                {"title":"접수 마감","date":"2026-02-30"}]}
-            """, null, null);
+                {"schedules":[
+                    {"title":"접수 마감 (09:00~18:00)","date":"2026-12-31"},
+                    {"title":"서류 제출 마감","date":"2026-12-31T18:00:00"},
+                    {"title":"서울 지역 접수 마감","date":"2026-12-31T18:00:00"},
+                    {"title":"접수 마감","date":"2026-12-30T18:00:00"},
+                    {"title":"접수 마감","date":"2026-02-30"}]}
+                """, null, null);
         verifyBackfill("{}", null, null);
     }
 

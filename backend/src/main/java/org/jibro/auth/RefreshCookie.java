@@ -26,8 +26,8 @@ public class RefreshCookie {
 
     private void set(HttpServletResponse response, String value, long age) {
         response.addHeader("Set-Cookie", ResponseCookie.from("jibro_refresh", value)
-            .httpOnly(true).secure(secure).sameSite("Lax").path("/api/v1/auth")
-            .maxAge(age).build().toString());
+                .httpOnly(true).secure(secure).sameSite("Lax").path("/api/v1/auth")
+                .maxAge(age).build().toString());
         response.setHeader("Cache-Control", "no-store");
     }
 }

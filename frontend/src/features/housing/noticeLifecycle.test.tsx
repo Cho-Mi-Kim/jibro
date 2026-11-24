@@ -90,6 +90,35 @@ const withState = (state: NoticeLifecycleState): Notice => ({
 });
 
 describe('공식 조기 마감·취소', () => {
+    it('마감 당일과 마감 시각 이후의 카드에 같은 날짜와 현재 기한을 표시한다', () => {
+        vi.useFakeTimers();
+        try {
+            const item = {
+                ...notice,
+                partialGuidance: false,
+                applicationTiming: {
+                    startsAt: null,
+                    endsAt: '2099-12-31T09:00:00Z',
+                    nextChangeAt: null,
+                },
+            };
+            vi.setSystemTime(new Date('2099-12-31T08:59:59Z'));
+            const view = render(
+                <NoticeCardDeadline notice={item} includeDate />,
+            );
+            expect(screen.getByText('D-Day')).toBeVisible();
+            expect(
+                screen.getByText('신청 마감일').nextElementSibling,
+            ).toHaveTextContent('2099.12.31');
+            vi.setSystemTime(new Date('2099-12-31T09:00:00Z'));
+            view.rerender(<NoticeCardDeadline notice={item} includeDate />);
+            expect(screen.getByText('신청 마감')).toBeVisible();
+            expect(screen.queryByText('D-Day')).toBeNull();
+            expect(screen.getByText('2099.12.31')).toBeVisible();
+        } finally {
+            vi.useRealTimers();
+        }
+    });
     it('신청 완료·여부 확인도 중지하되 서류·결과 발표·공고 게시를 오인하지 않는다', () => {
         const titles = [
             '신청 접수 시작',

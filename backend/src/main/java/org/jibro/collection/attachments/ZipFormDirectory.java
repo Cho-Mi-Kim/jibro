@@ -8,9 +8,12 @@ import java.util.*;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
-/** Read the central directory only. Form files do not need extractable text. */
+/**
+ * Read the central directory only. Form files do not need extractable text.
+ */
 final class ZipFormDirectory {
-    private ZipFormDirectory() {}
+    private ZipFormDirectory() {
+    }
 
     static List<String> read(Path path) throws IOException {
         try {
@@ -29,8 +32,9 @@ final class ZipFormDirectory {
                 var entry = entries.nextElement();
                 String name = entry.getName().replace('\\', '/');
                 if (entry.isDirectory() || name.length() > 512 || name.contains(":")
-                    || name.codePoints().anyMatch(Character::isISOControl)
-                    || Arrays.stream(name.split("/", -1)).anyMatch(s -> s.isBlank() || s.startsWith(".") || s.equals("__MACOSX"))) continue;
+                        || name.codePoints().anyMatch(Character::isISOControl)
+                        || Arrays.stream(name.split("/", -1)).anyMatch(s -> s.isBlank() || s.startsWith(".") || s.equals("__MACOSX")))
+                    continue;
                 names.add(name);
             }
             return List.copyOf(names);

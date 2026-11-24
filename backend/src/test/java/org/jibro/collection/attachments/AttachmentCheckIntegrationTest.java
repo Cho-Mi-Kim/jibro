@@ -35,19 +35,32 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class AttachmentCheckIntegrationTest {
-    @Autowired AttachmentCheckService checks;
-    @Autowired AttachmentCheckStore store;
-    @Autowired org.jibro.collection.extraction.ExtractionStore extraction;
-    @Autowired org.jibro.collection.extraction.NoticeExtractionService extractionWorker;
-    @Autowired NoticeService notices;
-    @Autowired PreparationService preparations;
-    @Autowired AuthService auth;
-    @Autowired CollectionService collections;
-    @Autowired JdbcTemplate db;
-    @Autowired MockMvc mvc;
-    @MockitoBean AttachmentFingerprintClient client;
-    @MockitoBean LhNoticeClient lh;
-    @MockitoBean org.jibro.collection.extraction.BoundedDocumentParser parser;
+    @Autowired
+    AttachmentCheckService checks;
+    @Autowired
+    AttachmentCheckStore store;
+    @Autowired
+    org.jibro.collection.extraction.ExtractionStore extraction;
+    @Autowired
+    org.jibro.collection.extraction.NoticeExtractionService extractionWorker;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    PreparationService preparations;
+    @Autowired
+    AuthService auth;
+    @Autowired
+    CollectionService collections;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    MockMvc mvc;
+    @MockitoBean
+    AttachmentFingerprintClient client;
+    @MockitoBean
+    LhNoticeClient lh;
+    @MockitoBean
+    org.jibro.collection.extraction.BoundedDocumentParser parser;
     String actor;
     UUID notice;
     final String url = "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=100";
@@ -64,14 +77,16 @@ class AttachmentCheckIntegrationTest {
     UUID insert(List<Evidence> attachments) {
         var c = SampleData.content();
         return notices.insert("attachment-test-" + UUID.randomUUID(), "검사 공고", "LH", "서울", "임대", LocalDate.now().minusDays(1),
-                LocalDate.now().plusDays(30), LocalDate.now(), new Content(c.summary(), c.evidence(), attachments, c.questions(), c.documents(), c.schedules()));
+                LocalDate.now().plusDays(30), LocalDate.now(), new Content(c.summary(), attachments.get(0), attachments, c.questions(), c.documents(), c.schedules()));
     }
 
     AttachmentFingerprintClient.Fingerprint file(String hex) {
         return new AttachmentFingerprintClient.Fingerprint(hex.repeat(64), 100L, "application/pdf");
     }
 
-    Review review() { return notices.reviews().stream().filter(r -> r.id().equals(notice.toString())).findFirst().orElseThrow(); }
+    Review review() {
+        return notices.reviews().stream().filter(r -> r.id().equals(notice.toString())).findFirst().orElseThrow();
+    }
 
     @Test
     void firstCheckIsBaselineAndRepeatedIdenticalBytesDoNotChangeVersions() {
@@ -140,17 +155,17 @@ class AttachmentCheckIntegrationTest {
         when(client.fetch(official)).thenReturn(file("b"));
         assertEquals("CHANGED", checks.check(notice, actor).results().get(0).status());
         assertEquals("PENDING", db.queryForObject("SELECT state FROM evidence_location_resolution WHERE file_id='123'", String.class));
-        when(client.html(anyString())).thenReturn("<main><p>공식 안내 문서</p></main>");
         when(client.download(official)).thenReturn(new AttachmentFingerprintClient.Download(file("b"), new byte[]{1}));
         when(parser.parse(any(), anyString())).thenReturn(List.of(new org.jibro.collection.extraction.ExtractionModels.Part(
-            "새 위치", "verified unchanged source text with sufficient context")));
+                "새 위치", "verified unchanged source text with sufficient context")));
         extractionWorker.runNext(notice);
+        verify(client, never()).html(anyString());
         assertEquals("MATCH", db.queryForObject("SELECT state FROM evidence_location_resolution WHERE file_id='123'", String.class));
         assertEquals("새 위치", db.queryForObject("SELECT current_location FROM evidence_location_resolution WHERE file_id='123'", String.class));
         String digest = org.jibro.notice.EvidencePartMatcher.digest("verified unchanged source text with sufficient context");
         mvc.perform(get("/api/v1/notices/official-pdf/123/relocate").param("baselineSha", "a".repeat(64)).param("partDigest", digest))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.location").value("새 위치"))
-            .andExpect(jsonPath("$.sha256").value("b".repeat(64)));
+                .andExpect(status().isOk()).andExpect(jsonPath("$.location").value("새 위치"))
+                .andExpect(jsonPath("$.sha256").value("b".repeat(64)));
     }
 
     @Test
@@ -160,7 +175,7 @@ class AttachmentCheckIntegrationTest {
         notices.samplePublish(notice, "PASS");
         notices.attachmentSnapshot(notice);
         db.update("INSERT INTO attachment_fingerprint(notice_id,url_key,url,sha256,byte_size,media_type,checked_at) VALUES(?,?,?,?,?,?,now())",
-            notice, AttachmentCheckStore.key(official), official, "b".repeat(64), 100, "application/pdf");
+                notice, AttachmentCheckStore.key(official), official, "b".repeat(64), 100, "application/pdf");
         when(client.fetch(official)).thenReturn(file("b"));
         assertEquals("CHANGED", checks.check(notice, actor).results().get(0).status());
         assertEquals("PENDING", db.queryForObject("SELECT state FROM evidence_location_resolution WHERE file_id='123'", String.class));

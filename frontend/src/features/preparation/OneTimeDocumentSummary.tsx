@@ -1,9 +1,9 @@
 import type { DocumentItem, DocumentTemplate } from '../housing/types';
-import { ReviewIssues } from '../housing/ReviewIssues';
-import { DocumentIssuanceLinks } from '../housing/DocumentIssuanceLinks';
 import { EvidenceLink } from '../housing/EvidenceLink';
-import { DocumentSummaryFacts } from '../housing/DocumentSummaryFacts';
+import { DocumentCard } from '../housing/DocumentCard';
+import { ConditionDetailText } from '../housing/ConditionDetailText';
 import { documentSummary } from '../housing/documentSummary';
+import { handleDisclosureCardClick } from '../../shared/ui/handleDisclosureCardClick';
 import type { OneTimeCheckResult } from './oneTimeCheckApi';
 import styles from './OneTimeCheck.module.css';
 
@@ -17,31 +17,20 @@ export function OneTimeDocumentSummary({
     result: OneTimeCheckResult;
 }) {
     const summary = documentSummary(document, result, { template });
-    const { criteria, issues, links, issuer, question } = summary;
+    const { question } = summary;
     return (
-        <section className={styles.document}>
-            <h3>{document.title}</h3>
-            <DocumentSummaryFacts summary={summary} />
-            <ReviewIssues issues={issues} />
-            <details>
-                <summary
-                    aria-label={`${document.title} 상세 안내·공식 근거 보기`}
-                >
-                    상세 안내·공식 근거 보기
-                </summary>
-                {criteria.length > 2 && (
-                    <ul>
-                        {criteria.map((criterion, i) => (
-                            <li key={i}>{criterion}</li>
-                        ))}
-                    </ul>
+        <section
+            data-result-card
+            className={styles.document}
+            onClick={handleDisclosureCardClick}
+        >
+            <DocumentCard title={document.title} heading="h3" summary={summary}>
+                {question && <ConditionDetailText text={question.reason} />}
+                {!summary.fullMethodShown && document.method && (
+                    <ConditionDetailText text={document.method} />
                 )}
-                {question && <p>{question.reason}</p>}
-                {issuer && <p>발급처 · {issuer}</p>}
-                {document.method && <p>{document.method}</p>}
-                <DocumentIssuanceLinks links={links} />
                 <EvidenceLink evidence={document.evidence} />
-            </details>
+            </DocumentCard>
         </section>
     );
 }

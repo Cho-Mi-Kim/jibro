@@ -1,6 +1,7 @@
 package org.jibro.notice;
 
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import static org.jibro.notice.HousingModels.*;

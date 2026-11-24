@@ -1,0 +1,818 @@
+{
+    "entries": [
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "category",
+            "sourceTitle": "공고일 기준 공급계층 요건에 해당하나요?",
+            "sourceReason": "2026.10.28. 기준 대학생·취업준비생, 청년·사회초년생, 신혼·예비신혼·한부모, 65세 이상 고령자, 주거급여수급자 중 해당 계층을 확인하세요. 청년 19~39세, 사회초년생 근로 5년, 신혼 혼인 7년 또는 자녀 6세 이하 등 계층별 요건이 다릅니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=1",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "어떤 유형으로 신청하나요?",
+            "preview": "대학생·청년·신혼·한부모·고령자·수급자 중 내 신청 유형을 확인해요.",
+            "sections": [
+                {
+                    "text": "- 2026.10.28. 기준 대학생·취업준비생, 청년·사회초년생, 신혼·예비신혼·한부모, 65세 이상 고령자, 주거급여수급자 중 해당 계층을 확인해요.\n- 청년 19~39세, 사회초년생 근로 5년, 신혼 혼인 7년 또는 자녀 6세 이하 등 계층별 요건이 달라요.\n- 신청 유형을 고르면 그 유형의 필수 서류도 함께 확인해요.\n- 다른 서류 질문에서 해당 없음을 골라도 필수 서류는 빠지지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 1쪽 · 공고일 기준 공급계층 요건에 해당하나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=1",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "2026.10.28. 기준 대학생·취업준비생, 청년·사회초년생, 신혼·예비신혼·한부모, 65세 이상 고령자, 주거급여수급자 중 해당 계층을 확인하세요. 청년 19~39세, 사회초년생 근로 5년, 신혼 혼인 7년 또는 자녀 6세 이하 등 계층별 요건이 다릅니다.\n신청 유형을 고르면 그 유형의 필수 서류도 함께 확인해요. 다른 서류 질문에서 해당 없음을 골라도 필수 서류는 빠지지 않아요."
+            ],
+            "acceptedTitles": ["어떤 유형으로 신청하나요?"],
+            "answerContract": {
+                "options": [
+                    { "value": "STUDENT", "label": "대학생" },
+                    { "value": "JOB_SEEKER", "label": "취업준비생" },
+                    { "value": "YOUTH", "label": "청년" },
+                    { "value": "EARLY_CAREER", "label": "사회초년생" },
+                    { "value": "NEWLYWED", "label": "신혼부부" },
+                    { "value": "PREMARITAL", "label": "예비신혼부부" },
+                    { "value": "SINGLE_PARENT", "label": "한부모가족" },
+                    { "value": "ELDER", "label": "고령자" },
+                    { "value": "BENEFIT", "label": "주거급여수급자" },
+                    {
+                        "value": "NONE",
+                        "label": "해당 없음",
+                        "requiresFollowUp": true
+                    },
+                    { "value": "UNKNOWN", "label": "잘 모르겠어요" }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "student-income",
+            "sourceTitle": "대학생·청년의 본인·부모·세대별 검증 범위를 확인했나요?",
+            "sourceReason": "대학생은 본인과 부모 소득·본인 자산 및 자동차 미소유, 청년은 세대주 여부에 따른 소득·자산 범위를 적용합니다. 다른 계층의 기준을 일괄 적용하지 마세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=7",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "대학생·청년은 누구의 소득을 보나요?",
+            "preview": "대학생은 부모 소득도 확인해요. 청년은 세대주 여부에 따라 심사 범위가 달라져요.",
+            "sections": [
+                {
+                    "text": "대학생은 본인과 부모 소득·본인 자산 및 자동차 미소유, 청년은 세대주 여부에 따른 소득·자산 범위를 적용해요.\n\n다른 계층의 기준을 일괄 적용하지 마세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 7쪽 · 대학생·청년의 본인·부모·세대별 검증 범위를 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=7",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "household",
+            "sourceTitle": "세대별 무주택·소득·자산 요건을 확인했나요?",
+            "sourceReason": "신혼부부·고령자 등은 해당 세대 기준이며 예비신혼부부는 혼인으로 구성할 세대 전원을 확인합니다. 가구원수·맞벌이·출생자녀 가산 및 자동차 기준은 계층별 표를 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=12",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "어떤 가족의 집·소득·재산을 보나요?",
+            "preview": "신혼·고령자 등은 심사 대상 세대를 봐요. 예비신혼부부는 결혼 후 함께 살 세대를 확인해요.",
+            "sections": [
+                {
+                    "text": "신혼부부·고령자 등은 해당 세대 기준이며 예비신혼부부는 혼인으로 구성할 세대 전원을 확인해요.\n\n가구원수·맞벌이·출생자녀 가산 및 자동차 기준은 계층별 표를 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 12쪽 · 세대별 무주택·소득·자산 요건을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=12",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "rank",
+            "sourceTitle": "일반공급 순위와 우선공급 자격을 구분했나요?",
+            "sourceReason": "일반공급의 거주지·학교·소득근거지 순위와 우선공급의 과천시 요건은 다릅니다. 우선공급 자격 미충족자는 일반공급으로 전환되지 않습니다. 계층별 배점, 2세 미만 자녀 우선 및 주거약자용 예외도 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=14",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "일반공급과 우선공급은 어떻게 다른가요?",
+            "preview": "일반공급과 과천 우선공급은 별도예요. 우선공급 자격이 안 되면 일반공급으로 넘어가지 않아요.",
+            "sections": [
+                {
+                    "text": "- 일반공급의 거주지·학교·소득근거지 순위와 우선공급의 과천시 요건은 달라요.\n- 우선공급 자격 미충족자는 일반공급으로 전환되지 않아요.\n- 계층별 배점, 2세 미만 자녀 우선 및 주거약자용 예외도 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 14쪽 · 일반공급 순위와 우선공급 자격을 구분했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=14",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "subscription",
+            "sourceTitle": "청약저축·주거약자용 및 중복신청 기준을 확인했나요?",
+            "sourceReason": "청년·신혼부부 등은 입주 전 청약저축 가입 증명이 필요합니다. 주거약자용 공급대상, 한 세대 중복신청, 예비입주자 지위 변경 기준을 함께 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=16",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "청약통장과 중복 신청을 확인했나요?",
+            "preview": "청년·신혼부부 등은 입주 전 청약저축 가입 증명이 필요해요.",
+            "sections": [
+                {
+                    "text": "청년·신혼부부 등은 입주 전 청약저축 가입 증명이 필요해요.\n\n주거약자용 공급대상, 한 세대 중복신청, 예비입주자 지위 변경 기준을 함께 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 16쪽 · 청약저축·주거약자용 및 중복신청 기준을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=16",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-finance",
+            "sourceTitle": "금융정보 등 제공 동의서 제출 대상인가요?",
+            "sourceReason": "주거급여수급자 이외 계층으로 신청하나요? 수급자는 작성 제외입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "금융정보 동의서는 누가 내나요?",
+            "preview": "주거급여수급자를 제외한 신청 유형은 금융정보 동의서를 내요.",
+            "sections": [
+                {
+                    "text": "주거급여수급자는 내지 않아요. 다른 유형은 조회 대상 전원이 공고 동의서에 서명해요. 대학생은 본인·부모, 예비신혼부부는 결혼 후 함께 살 세대를 기준으로 해요. 14세 미만은 법정대리인이 서명해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 24쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "주거급여수급자는 내지 않아요. 다른 유형은 조회 대상 전원이 공고 동의서에 서명해요. 대학생은 본인·부모, 예비신혼부부는 결혼 후 함께 살 세대를 기준으로 해요. 14세 미만은 법정대리인이 서명해요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": [
+                            "STUDENT",
+                            "JOB_SEEKER",
+                            "YOUTH",
+                            "EARLY_CAREER",
+                            "NEWLYWED",
+                            "PREMARITAL",
+                            "SINGLE_PARENT",
+                            "ELDER"
+                        ],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["finance"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-assets",
+            "sourceTitle": "자산 보유 사실확인서 제출 대상인가요?",
+            "sourceReason": "주거급여수급자 이외 계층으로 신청하나요? 수급자는 작성 제외입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "자산 확인서는 누가 내나요?",
+            "preview": "주거급여수급자를 제외한 신청 유형은 자산 확인서를 내요.",
+            "sections": [
+                {
+                    "text": "주거급여수급자는 내지 않아요. 다른 유형은 보증금·분양권·비상장주식·출자금·장기카드대출 등 공적 조회가 어려운 항목을 공고 양식에 쓰고 증빙을 붙여요. LH 임대주택 보증금은 LH 거주로 적고 임대차계약서 사본은 내지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 24쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "주거급여수급자는 내지 않아요. 다른 유형은 보증금·분양권·비상장주식·출자금·장기카드대출 등 공적 조회가 어려운 항목을 공고 양식에 쓰고 증빙을 붙여요. LH 임대주택 보증금은 LH 거주로 적고 임대차계약서 사본은 내지 않아요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": [
+                            "STUDENT",
+                            "JOB_SEEKER",
+                            "YOUTH",
+                            "EARLY_CAREER",
+                            "NEWLYWED",
+                            "PREMARITAL",
+                            "SINGLE_PARENT",
+                            "ELDER"
+                        ],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["assets"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "주소·세대주 변동 또는 우선공급 거주 배점 등 제출 대상인가요? 대학생 부모 초본 기준도 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "공고 후 주소·세대주가 바뀌었거나 공고의 거주기간 증명이 필요하면 초본을 내요.",
+            "sections": [
+                {
+                    "text": "주소·세대주 변동 또는 우선공급 거주 배점 등 제출 대상이면 준비해요. 대학생 부모 초본 기준도 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 · 주민등록표초본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 · 주민등록표초본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "주민등록표초본",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서(상세) 제출 대상인가요?",
+            "sourceReason": "대학생·청년·한부모·배우자 미확인·예비신혼 등 공고의 제출 대상인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본에서 배우자·가족관계를 확인할 수 없거나 공고의 필수 대상이면 가족관계증명서를 내요.",
+            "sections": [
+                {
+                    "text": "신청자 기준 상세 가족관계증명서를 내요. 예비신혼부부는 두 사람 각각 준비하고, 다른 가족을 함께 살 세대에 넣으면 그 관계가 보이는 증명서도 내요. 배우자가 외국인이면 등록·거소 증빙을 추가해요. 대학생·청년·한부모 신청자는 필수예요. 배우자가 없거나 등본에서 확인되지 않을 때도 내요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "가족관계증명서(상세)",
+                                "신청자 기준 상세 가족관계증명서를 내요. 예비신혼부부는 두 사람 각각 준비하고, 다른 가족을 함께 살 세대에 넣으면 그 관계가 보이는 증명서도 내요. 배우자가 외국인이면 등록·거소 증빙을 추가해요. 대학생·청년·한부모 신청자는 필수예요. 배우자가 없거나 등본에서 확인되지 않을 때도 내요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "acceptedReasons": [
+                "신청자 기준 상세 가족관계증명서를 내요. 예비신혼부부는 두 사람 각각 준비하고, 다른 가족을 함께 살 세대에 넣으면 그 관계가 보이는 증명서도 내요. 배우자가 외국인이면 등록·거소 증빙을 추가해요. 대학생·청년·한부모 신청자는 필수예요. 배우자가 없거나 등본에서 확인되지 않을 때도 내요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": [
+                            "STUDENT",
+                            "JOB_SEEKER",
+                            "YOUTH",
+                            "EARLY_CAREER",
+                            "SINGLE_PARENT",
+                            "PREMARITAL"
+                        ],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["family"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-child",
+            "sourceTitle": "임신진단서·입양관계증명서 제출 대상인가요?",
+            "sourceReason": "태아·입양자녀로 자격이나 가산을 인정받나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "임신·입양은 어떤 서류로 확인하나요?",
+            "preview": "태아·입양 자녀로 공고의 자격이나 가산을 인정받으면 해당 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "태아·입양자녀로 자격이나 가산을 인정받으면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "임신진단서·입양관계증명서",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "배우자가 외국인이면 무엇을 내나요?",
+            "preview": "배우자가 외국인이면 등록·거소 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "배우자가 외국인이면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 25쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=25",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "외국인등록사실증명서",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-student",
+            "sourceTitle": "재학·입복학·졸업 증빙 제출 대상인가요?",
+            "sourceReason": "대학생·취업준비생으로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "대학생·취업준비생은 무엇을 내나요?",
+            "preview": "대학생·취업준비생은 재학·입학·복학 또는 졸업·제적 상태를 증명해요.",
+            "sections": [
+                {
+                    "text": "대학생·취업준비생으로 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 26쪽 · 재학·입복학·졸업 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 26쪽 · 재학·입복학·졸업 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "재학·입복학·졸업 증빙",
+                                "재학생은 재학증명서, 입학예정자는 입학증명서 또는 등록금납부확인서를 내요. 복학예정자는 휴학증명서와 공고 각서를 내고 복학 후 1개월 안에 재학증명서를 추가해요. 취업준비생은 졸업·제적 증명서를 내요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": ["STUDENT", "JOB_SEEKER"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["student"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-youth",
+            "sourceTitle": "국민연금 가입·건강보험 자격득실 등 청년 증빙 제출 대상인가요?",
+            "sourceReason": "청년·사회초년생으로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "청년·사회초년생은 무엇을 내나요?",
+            "preview": "청년·사회초년생은 연금·건강보험과 근로 유형에 맞는 증빙을 준비해요.",
+            "sections": [
+                {
+                    "text": "청년·사회초년생으로 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 26쪽 · 국민연금 가입·건강보험 자격득실 등 청년 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 26쪽 · 국민연금 가입·건강보험 자격득실 등 청년 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=26",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "국민연금 가입·건강보험 자격득실 등 청년 증빙",
+                                "국민연금 가입증명서는 전체이력, 건강보험자격득실확인서는 가입일부터 현재까지 전체내역으로 발급받아요. 미가입자·소득 없는 청년도 필요한 서류를 내요. 공무원·군인·사학연금 가입자는 해당 연금 증명을 추가해요. 사회초년생은 근로·퇴직 구직급여·예술활동 유형에 맞는 증빙도 준비해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": ["YOUTH", "EARLY_CAREER"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["youth"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-marriage",
+            "sourceTitle": "혼인관계·예비신혼부부 신청 및 세대구성 증빙 제출 대상인가요?",
+            "sourceReason": "신혼부부·예비신혼부부로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "신혼·예비신혼부부는 어떤 서류를 내나요?",
+            "preview": "신혼·예비신혼 유형은 혼인관계와 함께 살 가족을 공고 양식·증명서로 확인해요.",
+            "sections": [
+                {
+                    "text": "신혼부부·예비신혼부부로 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 27쪽 · 혼인관계·예비신혼부부 신청 및 세대구성 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 27쪽 · 혼인관계·예비신혼부부 신청 및 세대구성 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "혼인관계·예비신혼부부 신청 및 세대구성 증빙",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": ["NEWLYWED", "PREMARITAL"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["marriage"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-subscription",
+            "sourceTitle": "청약통장 사본 제출 대상인가요?",
+            "sourceReason": "청년·신혼부부 등 입주 전 가입 증명이 필요한 계층인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "청약통장 증명은 누가 내나요?",
+            "preview": "공고가 정한 신청 유형은 청약통장 가입 증명을 준비해요. 입주 전 제출 기한도 확인해요.",
+            "sections": [
+                {
+                    "text": "청년·신혼부부 등 입주 전 가입 증명이 필요한 계층이면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 27쪽 · 청약통장 사본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 27쪽 · 청약통장 사본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=27",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "청약통장 사본",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": [
+                            "YOUTH",
+                            "EARLY_CAREER",
+                            "NEWLYWED",
+                            "PREMARITAL",
+                            "SINGLE_PARENT"
+                        ],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["subscription"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-rank-proof",
+            "sourceTitle": "소득근거지·우선공급 배점 증빙 제출 대상인가요?",
+            "sourceReason": "소득근거지 순위 또는 장애·유공자 등의 배점을 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "순위·가점은 어떤 서류로 확인하나요?",
+            "preview": "소득근거지·청약 납입·가점·감점 제외 중 신청한 기준의 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "소득근거지 순위 또는 장애·유공자 등의 배점을 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 28쪽 · 소득근거지·우선공급 배점 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 28쪽 · 소득근거지·우선공급 배점 증빙 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "소득근거지·우선공급 배점 증빙",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-benefit",
+            "sourceTitle": "주거급여 수급자증명서 제출 대상인가요?",
+            "sourceReason": "주거급여수급자로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "수급자격은 어떤 서류로 확인하나요?",
+            "preview": "주거급여수급자로 신청하면 수급자증명서를 내요.",
+            "sections": [
+                {
+                    "text": "주거급여수급자로 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 28쪽 · 주거급여 수급자증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 28쪽 · 주거급여 수급자증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=28",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "주거급여 수급자증명서",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "category",
+                        "answerValues": ["BENEFIT"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["benefit"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 서류 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "6eebfb76-d9bf-46b9-a427-f0726a7e67b5",
+            "questionId": "applies-proxy",
+            "sourceTitle": "현장·대리신청 확인서류 제출 대상인가요?",
+            "sourceReason": "정보취약계층으로 현장 신청하거나 대리인이 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                "sha256": "b15afec480f5a0d766d328ba79be0a7428650e24fdbba4657a9b8ffa2ef2bae4"
+            },
+            "heading": "방문하거나 대신 신청할 때 무엇을 챙기나요?",
+            "preview": "본인·배우자 대리·그 외 대리에 따라 신분증과 위임서류가 달라요.",
+            "sections": [
+                {
+                    "text": "정보취약계층으로 현장 신청하거나 대리인이 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 24쪽 · 현장·대리신청 확인서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 24쪽 · 현장·대리신청 확인서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69178684#page=24",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "현장·대리신청 확인서류",
+                                "공고의 해당자별 증빙과 MyMy 지원 여부를 확인해요. 미지원 자료는 직접 제출해야 해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

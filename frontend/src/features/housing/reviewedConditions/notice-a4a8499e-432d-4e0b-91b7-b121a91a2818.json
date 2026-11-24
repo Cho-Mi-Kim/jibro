@@ -1,0 +1,545 @@
+{
+    "entries": [
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "category",
+            "sourceTitle": "직업과 신분 요건을 모두 확인했나요?",
+            "sourceReason": "사업·근로소득이 있고 청년·신혼 및 예비신혼·6세 이하 자녀 한부모·장기종사자 중 공고 기준에 해당해야 합니다. 주거약자용도 직업·신분 요건을 갖추고 주거약자 요건을 추가로 충족해야 합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=9",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "어떤 일을 하고 어떤 유형으로 신청하나요?",
+            "preview": "사업·근로소득이 있고 청년·신혼·한부모·장기종사자 중 한 유형에 해당해야 해요.",
+            "sections": [
+                {
+                    "text": "사업소득이나 근로소득이 있으면서 아래 유형 중 하나여야 해요.\n- 청년: 만 19~39세이고 혼인 중이 아니에요.\n- 신혼: 혼인 7년 이내 또는 6세 이하 자녀(태아 포함)가 있는 부부예요. 같은 전 배우자와 재혼하면 이전 혼인기간도 더해요.\n- 예비신혼: 입주 전 혼인을 증명해요.\n- 한부모: 6세 이하 자녀가 있어요.\n- 장기종사자: 미성년 자녀 1명 이상을 포함한 3명 이상 세대이고, 중소기업 합산 5년·같은 중소기업 3년·같은 기업 5년·같은 지역 같은 업종 사업 5년 중 공고의 경로에 해당해요.\n주거약자용도 직업·신분 기준에 더해 주거약자 자격을 갖춰야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 9쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=9",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "사업소득이나 근로소득이 있으면서 아래 유형 중 하나여야 해요.\n- 청년: 만 19~39세이고 혼인 중이 아니에요.\n- 신혼: 혼인 7년 이내 또는 6세 이하 자녀(태아 포함)가 있는 부부예요. 같은 전 배우자와 재혼하면 이전 혼인기간도 더해요.\n- 예비신혼: 입주 전 혼인을 증명해요.\n- 한부모: 6세 이하 자녀가 있어요.\n- 장기종사자: 미성년 자녀 1명 이상을 포함한 3명 이상 세대이고, 중소기업 합산 5년·같은 중소기업 3년·같은 기업 5년·같은 지역 같은 업종 사업 5년 중 공고의 경로에 해당해요.\n주거약자용도 직업·신분 기준에 더해 주거약자 자격을 갖춰야 해요."
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "household",
+            "sourceTitle": "성년·무주택 및 검증 대상 범위를 확인했나요?",
+            "sourceReason": "기준일은 2026.10.29.입니다. 청년의 주택소유는 본인, 예비신혼은 구성될 세대 기준이며 미성년 세대주 예외와 분리 배우자 등 세대 범위를 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=7",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "어떤 가족을 함께 심사하나요?",
+            "preview": "청년은 본인 무주택, 그 밖에는 심사 대상 가족의 무주택을 확인해요. 예비신혼은 결혼 후 세대 기준이에요.",
+            "sections": [
+                {
+                    "text": "- 기준일은 2026.10.29.이에요.\n- 청년의 주택소유는 본인, 예비신혼은 구성될 세대 기준이며 미성년 세대주 예외와 주소가 다른 배우자 등 세대 범위를 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 7쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=7",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "income",
+            "sourceTitle": "소득·총자산·자동차 기준을 확인했나요?",
+            "sourceReason": "기준 중위소득 150%를 기본으로 가구원수·출산자녀·해당 신혼 맞벌이 가산을 적용합니다. 청년의 세대주 여부에 따른 검증 범위와 총자산·자동차 기준은 공고 10쪽을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=10",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "소득과 자산은 얼마까지 가능한가요?",
+            "preview": "중위소득 150%가 기본이에요. 가구원·자녀·맞벌이 가산과 총자산·자동차 한도를 확인해요.",
+            "sections": [
+                {
+                    "text": "기준 중위소득 비율로 비교해요. 맞벌이 (예비)신혼은 아래 비율에 30%p를 더해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "소득 비율",
+                        "headers": [
+                            "가구원 수",
+                            "가산 자녀 없음",
+                            "가산 자녀 1명 / 2명 이상"
+                        ],
+                        "rows": [
+                            ["1인", "170%", "해당 없음"],
+                            ["2인", "160%", "170% / 해당 없음"],
+                            ["3인 이상", "150%", "160% / 170%"]
+                        ]
+                    }
+                },
+                {
+                    "text": "2023년 3월 28일 이후 태어난 미성년 자녀(입양 자녀·태아 포함)가 있어야 해요. 이 자녀가 있으면 그 전에 태어난 미성년 자녀도 함께 세되 2명까지만 가산해요. 자녀는 신청자 또는 배우자와 같은 등본에 있어야 해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ],
+                    "table": {
+                        "title": "자산 한도",
+                        "headers": ["가산 자녀", "총자산", "자동차"],
+                        "rows": [
+                            ["없음", "3억 4,500만 원", "4,542만 원"],
+                            ["1명", "3억 7,900만 원", "4,996만 원"],
+                            ["2명 이상", "4억 1,300만 원", "5,451만 원"]
+                        ]
+                    }
+                },
+                {
+                    "text": "소득·자산을 확인할 가족\n- 청년이 세대원이면 신청자 본인만 확인해요.\n- 다른 세대원이 있는 세대주 청년이면 해당 가족까지 확인해요.\n- 예비신혼부부는 결혼 후 함께 살 세대 전체를 확인해요.\n기본 150%에 1인 가구는 20%p, 2인 가구는 10%p를 더하고 출생자녀 1명은 10%p·2명 이상은 20%p를 더한 값이 위 표예요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 10쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=10",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "도시근로자 소득표가 아니라 기준 중위소득을 사용해요. 기본 150%에 1인 20%p·2인 10%p, 출생자녀 1명 10%p·2명 이상 20%p를 더해요. 신청자와 배우자가 모두 사업·근로소득이 있는 (예비)신혼은 30%p를 추가해요. 청년이 세대원이면 본인, 세대원이 있는 세대주면 해당 가족까지 소득·자산을 확인해요. 예비신혼은 결혼 후 세대 기준이에요. 자산은 기본 총자산 3억 4,500만 원·자동차 4,542만 원, 출생자녀 1명은 3억 7,900만 원·4,996만 원, 2명 이상은 4억 1,300만 원·5,451만 원이에요. 2023년 3월 28일 이후 태어난 미성년 자녀(입양 자녀·태아 포함)가 있어야 해요. 이 자녀가 있으면 그 전에 태어난 미성년 자녀도 함께 세되 2명까지만 가산해요. 자녀는 신청자 또는 배우자와 같은 등본에 있어야 해요."
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "rank",
+            "sourceTitle": "일반형과 주거약자용의 선정 기준을 구분했나요?",
+            "sourceReason": "일반형은 담양군 소재·입주예정 사업장 종사자를 우선하고 같은 순위는 추첨합니다. 주거약자용은 부양가족·거주기간·장애·취약계층 배점과 과거계약 감점을 적용합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=17",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "일반형과 주거약자용의 선정 기준을 구분했나요?",
+            "preview": "일반형은 담양 소재·입주예정 사업장 종사자가 우선이고, 주거약자용은 별도 배점을 써요.",
+            "sections": [
+                {
+                    "text": "- 일반형은 담양군 소재·입주예정 사업장 종사자를 우선하고 같은 순위는 추첨해요.\n- 주거약자용은 부양가족·거주기간·장애·취약계층 배점과 과거계약 감점을 적용해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 17쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=17",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "method",
+            "sourceTitle": "신청 방법과 서류 제출 시기를 확인했나요?",
+            "sourceReason": "온라인 신청은 11/13 10시~11/17 16시, 현장은 11/17 10~16시(점심 제외)입니다. 온라인 서류대상자는 등기우편으로 11/20~25에 제출하며 11/25 소인까지 유효합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=5",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "신청 방법과 서류 제출 시기를 확인했나요?",
+            "preview": "온라인 신청은 11/13 10시~11/17 16시, 현장은 11/17 10~16시(점심 제외)이에요.",
+            "sections": [
+                {
+                    "text": "- 온라인 신청은 11/13 10시~11/17 16시, 현장은 11/17 10~16시(점심 제외)이에요.\n- 온라인 서류대상자는 등기우편으로 11/20~25에 제출하며 11/25 소인까지 유효해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 5쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=5",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-history",
+            "sourceTitle": "주민등록표초본 제출 대상인가요?",
+            "sourceReason": "주소·세대주 변동 또는 주거약자용 거주기간 증명이 필요한가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "주민등록초본은 누가 내나요?",
+            "preview": "주소·세대주가 바뀌었거나 주거약자 거주기간을 증명하려면 초본을 준비해요.",
+            "sections": [
+                {
+                    "text": "주민등록표초본\n과거 주소변동과 관계를 전부 표기하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서(상세) 제출 대상인가요?",
+            "sourceReason": "등본에서 배우자·세대관계 확인이 안 되거나 청년으로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "청년은 필수예요. 그 밖에도 등본에서 배우자·가족관계가 확인되지 않으면 준비해요.",
+            "sections": [
+                {
+                    "text": "청년 신청자는 상세 가족관계증명서를 반드시 준비해요. 그 밖에도 등본에서 배우자가 확인되지 않거나 세대 범위 확인이 필요하면 내요. 예비신혼은 두 사람 외에 함께 살 가족을 포함할 때 관계가 나오는 신청자 또는 예비배우자 증명서를 내요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "청년 신청자는 상세 가족관계증명서를 반드시 준비해요. 그 밖에도 등본에서 배우자가 확인되지 않거나 세대 범위 확인이 필요하면 내요. 예비신혼은 두 사람 외에 함께 살 가족을 포함할 때 관계가 나오는 신청자 또는 예비배우자 증명서를 내요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "review-applicant-type",
+                        "answerValues": ["YOUTH"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["family"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 제출 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-spouse",
+            "sourceTitle": "분리 배우자·예비배우자·종전 세대주 등본 제출 대상인가요?",
+            "sourceReason": "배우자 등이 분리되어 추가 등본 제출 대상인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "배우자·예비배우자의 등본도 필요한가요?",
+            "preview": "따로 사는 배우자·예비배우자, 공고일 이후 분리된 종전 세대주의 등본을 확인해요.",
+            "sections": [
+                {
+                    "text": "따로 사는 배우자의 등본을 추가해요. 예비신혼은 예비배우자의 등본도 내요. 공고일 이후 당시 세대주와 등본이 갈라졌다면 당시 세대주의 등본도 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 13쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "따로 사는 배우자의 등본을 추가해요. 예비신혼은 예비배우자의 등본도 내요. 공고일 이후 당시 세대주와 등본이 갈라졌다면 당시 세대주의 등본도 추가해요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "review-applicant-type",
+                        "answerValues": ["PREMARITAL"],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["spouse"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 제출 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "배우자가 외국인이면 어떤 서류를 내나요?",
+            "preview": "배우자가 외국인이면 외국인등록·거소 사실을 확인할 서류를 준비해요.",
+            "sections": [
+                {
+                    "text": "외국인등록사실증명서\n공고의 해당 증명서를 준비하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-children",
+            "sourceTitle": "임신·입양·자녀 증빙 제출 대상인가요?",
+            "sourceReason": "태아 또는 입양자녀를 인정받으려 하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "임신·입양은 어떤 서류로 확인하나요?",
+            "preview": "태아·입양 자녀를 인정받으려면 임신진단서·입양관계증명서 등 해당 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "임신·입양·자녀 증빙\n임신진단서·입양관계증명서 등 해당 증빙을 확인하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-work",
+            "sourceTitle": "사업·근로·장기종사 증빙 제출 대상인가요?",
+            "sourceReason": "사업·근로·장기종사자 요건으로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "일하고 있다는 사실은 어떤 서류로 확인하나요?",
+            "preview": "사업·근로소득 증빙은 모든 신청자에게 필요해요. 장기종사자는 근무·사업기간도 증명해요.",
+            "sections": [
+                {
+                    "text": "모든 신청자는 일자리 자격을 증명해요.\n- 사업자: 사업자등록증 사본과 소득금액증명원\n- 근로자: 재직증명서와 근로소득원천징수명세표\n- 장기종사자: 위 서류에 전체 이력의 건강보험·국민연금 등 근무·사업기간 증빙을 추가해요.\n담양으로 입주 예정인 사업장이라면 이전 예정 증빙도 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 14쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "모든 신청자는 사업·근로소득을 증명해야 해요. 사업자등록·소득금액증명 또는 재직·근로소득 증빙을 준비하고, 장기종사자 유형이면 근무·사업기간 증빙을 추가해요."
+            ],
+            "answerContract": {
+                "options": [
+                    {
+                        "value": "YES",
+                        "label": "일자리 증빙을 준비할 수 있어요",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NO",
+                        "label": "증빙 준비에 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-marriage",
+            "sourceTitle": "신혼·예비신혼·한부모 증빙 제출 대상인가요?",
+            "sourceReason": "신혼부부·예비신혼·한부모 자격으로 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "신혼·예비신혼·한부모는 무엇을 내나요?",
+            "preview": "혼인·자녀·예비신혼 확인 서류 중 실제 신청 유형에 맞는 것만 준비해요.",
+            "sections": [
+                {
+                    "text": "혼인 7년 이내 신혼은 상세 혼인관계증명서, 6세 이하 자녀로 신청하는 부부는 자녀 기본증명서를 내요. 예비신혼은 신청확인서·세대구성확인서·각자의 상세 혼인관계증명서·예비배우자 신분증 사본을 내고 입주 전에 혼인 증빙을 다시 내요. 한부모는 혼인관계증명서·자녀 기본증명서를 내요. 해당하면 임신·입양 증빙을 추가해요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 14쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "acceptedReasons": [
+                "혼인 7년 이내 신혼은 상세 혼인관계증명서, 6세 이하 자녀로 신청하는 부부는 자녀 기본증명서를 내요. 예비신혼은 신청확인서·세대구성확인서·각자의 상세 혼인관계증명서·예비배우자 신분증 사본을 내고 입주 전에 혼인 증빙을 다시 내요. 한부모는 혼인관계증명서·자녀 기본증명서를 내요. 해당하면 임신·입양 증빙을 추가해요."
+            ],
+            "answerContract": {
+                "answerDependencies": [
+                    {
+                        "questionId": "review-applicant-type",
+                        "answerValues": [
+                            "NEWLYWED",
+                            "PREMARITAL",
+                            "SINGLE_PARENT"
+                        ],
+                        "conflictingValues": ["NO"],
+                        "requiredDocumentIds": ["marriage"],
+                        "message": "선택한 신청 유형에 필요한 서류예요. 신청 유형과 제출 대상 답변을 다시 확인해 주세요."
+                    }
+                ]
+            }
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-vulnerable",
+            "sourceTitle": "주거약자·가점·임대조건 상한 증빙 제출 대상인가요?",
+            "sourceReason": "주거약자용 또는 가점·임대조건 상한을 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=15",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "주거약자·가점 자격은 어떻게 증명하나요?",
+            "preview": "주거약자·가점·임대조건 상한을 신청하면 해당 장애·보훈·수급 자격을 증명해요.",
+            "sections": [
+                {
+                    "text": "주거약자·가점·임대조건 상한 증빙\n고령자 별도 증빙 없음과 장애·유공자·수급자 등 해당 증명서 목록을 구분하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 15쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=15",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-special",
+            "sourceTitle": "감점 제외·병역 재청약 증빙 제출 대상인가요?",
+            "sourceReason": "과거계약 감점 제외 또는 병역이행 후 재청약 대상인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "감점 제외나 병역 재청약을 신청하나요?",
+            "preview": "감점 제외는 세대원 변동, 병역 재청약은 병역·종전 계약 기간을 증명해요.",
+            "sections": [
+                {
+                    "text": "감점 제외·병역 재청약 증빙\n세대원수 변동 증빙 또는 병적증명서와 종전 계약기간 자료를 준비하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 13쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=13",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "applies-proxy",
+            "sourceTitle": "본인·대리신청 확인서류 제출 대상인가요?",
+            "sourceReason": "본인 또는 대리인이 현장 접수하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=16",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "직접 가거나 대신 신청할 때 무엇을 챙기나요?",
+            "preview": "현장 신청은 본인·배우자·다른 대리인에 맞는 신분증·위임 서류를 챙겨요.",
+            "sections": [
+                {
+                    "text": "본인·대리신청 확인서류\n신분증·도장·관계증빙·위임장 등 공고의 신청 방식별 서류를 준비하세요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 16쪽 · 제출서류",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=16",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "a4a8499e-432d-4e0b-91b7-b121a91a2818",
+            "questionId": "review-applicant-type",
+            "sourceTitle": "이번에는 어떤 유형으로 신청하나요?",
+            "sourceReason": "일자리 요건에 더해 실제로 신청할 유형 하나를 골라요. 청년은 상세 가족관계증명서, 신혼·예비신혼·한부모는 해당 혼인·자녀 서류가 필요해요. 아래 서류 질문에서 해당 없음을 고르더라도 필수 서류는 빠지지 않아요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+                "sha256": "67190f888a6339820907634d26537d86f11d65a55f1ca386f985cfabd9efe984"
+            },
+            "heading": "이번에는 어떤 유형으로 신청하나요?",
+            "preview": "청년·신혼·예비신혼·한부모·장기종사자 중 실제 신청 유형에 맞는 서류를 준비해요.",
+            "sections": [
+                {
+                    "text": "- 일자리 요건에 더해 실제로 신청할 유형 하나를 골라요.\n- 청년은 상세 가족관계증명서, 신혼·예비신혼·한부모는 해당 혼인·자녀 서류가 필요해요.\n- 아래 서류 질문에서 해당 없음을 고르더라도 필수 서류는 빠지지 않아요.",
+                    "evidence": [
+                        {
+                            "label": "PDF 14쪽 보기",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69197711#page=14",
+                            "checkedAt": "2026-11-21"
+                        }
+                    ]
+                }
+            ],
+            "answerContract": {
+                "inputKind": "SINGLE",
+                "options": [
+                    {
+                        "value": "YOUTH",
+                        "label": "19~39세 미혼 청년",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "NEWLYWED",
+                        "label": "혼인 7년 이내 또는 6세 이하 자녀가 있는 신혼",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "PREMARITAL",
+                        "label": "입주 전 혼인할 예비신혼",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "SINGLE_PARENT",
+                        "label": "6세 이하 자녀를 둔 한부모",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "LONG_TERM",
+                        "label": "공고의 가구원·근무기간을 갖춘 장기종사자",
+                        "requiresFollowUp": false
+                    },
+                    {
+                        "value": "OTHER",
+                        "label": "해당 유형이 없어 확인이 필요해요",
+                        "requiresFollowUp": true
+                    },
+                    {
+                        "value": "UNKNOWN",
+                        "label": "잘 모르겠어요",
+                        "requiresFollowUp": true
+                    }
+                ],
+                "constraints": null
+            }
+        }
+    ]
+}

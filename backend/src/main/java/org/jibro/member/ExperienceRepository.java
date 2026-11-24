@@ -4,29 +4,55 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import tools.jackson.databind.ObjectMapper;
+import org.jibro.notice.HousingModels.FollowUp;
 
 @Repository
 public class ExperienceRepository {
-    public record Entry(UUID id, String title, int version, int progress, String note, Instant archivedAt) {}
-    public record LinkTarget(UUID id, boolean archived) {}
-    public record ArchiveState(int revision, boolean archived) {}
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record ArchivedSchedule(String title, String date, Boolean recorded) {
+    }
 
-    private static final String ENTRY = "SELECT p.id,p.snapshot->'preparation'->>'title',p.notice_version,(p.snapshot->'preparation'->>'progress')::int,p.takeaway,p.archived_at FROM preparation p ";
+    public record Entry(UUID id, String title, int version, int progress, int houseStage, String note,
+                        Instant archivedAt, List<ArchivedSchedule> schedules, FollowUp followUp) {
+    }
+
+    public record LinkTarget(UUID id, boolean archived) {
+    }
+
+    public record ArchiveState(int revision, boolean archived) {
+    }
+
+    private static final String ENTRY = """
+            SELECT p.id, p.snapshot->'preparation'->>'title' AS title, p.notice_version,
+                   (p.snapshot->'preparation'->>'progress')::int AS progress,
+                   (p.snapshot->'preparation'->>'houseStage')::int AS house_stage,
+                   p.takeaway, p.archived_at, COALESCE(p.snapshot->'preparation'->>'schedules', '[]') AS schedules,
+                   p.snapshot->'preparation'->>'followUp' AS follow_up
+            FROM preparation p
+            """;
     private final JdbcTemplate db;
+    private final ObjectMapper json;
     private static final String ADVANCE_REVISION = """
             revision=revision+1,
             snapshot=jsonb_set(snapshot,'{preparation,revision}',to_jsonb(revision+1)),
             updated_at=now()
             """;
 
-    public ExperienceRepository(JdbcTemplate db) {
+    public ExperienceRepository(JdbcTemplate db, ObjectMapper json) {
         this.db = db;
+        this.json = json;
     }
 
     private List<Entry> entries(String query, Object... parameters) {
-        return db.query(ENTRY + query, (r, i) -> new Entry(r.getObject(1, UUID.class), r.getString(2), r.getInt(3), r.getInt(4), r.getString(5), r.getTimestamp(6).toInstant()), parameters);
+        return db.query(ENTRY + query, (r, i) -> new Entry(r.getObject("id", UUID.class), r.getString("title"),
+                r.getInt("notice_version"), r.getInt("progress"), r.getInt("house_stage"), r.getString("takeaway"),
+                r.getTimestamp("archived_at").toInstant(), List.of(json.readValue(r.getString("schedules"), ArchivedSchedule[].class)),
+                r.getString("follow_up") == null ? null : json.readValue(r.getString("follow_up"), FollowUp.class)), parameters);
     }
 
     public List<Entry> findArchived(UUID user) {

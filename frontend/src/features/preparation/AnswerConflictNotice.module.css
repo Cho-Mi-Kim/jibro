@@ -1,0 +1,22 @@
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    margin-block: 0.5rem;
+    color: var(--warning);
+    background: var(--warning-soft);
+    border-radius: 0.75rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.notice > svg {
+    flex: 0 0 auto;
+    margin-block-start: 0.15em;
+}
+.notice p {
+    margin: 0;
+}
+.notice p + p {
+    margin-block-start: 0.5rem;
+}

@@ -3,6 +3,8 @@ package org.jibro.member;
 import java.util.List;
 import java.util.UUID;
 
+import org.jibro.notice.NoticeListItem;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,7 +29,7 @@ public class MemberController {
     }
 
     @GetMapping("/saved")
-    List<SavedNoticeService.Saved> saved(@AuthenticationPrincipal Jwt jwt) {
+    List<NoticeListItem> saved(@AuthenticationPrincipal Jwt jwt) {
         return saved.list(owner(jwt));
     }
 

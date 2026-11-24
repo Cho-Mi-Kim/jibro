@@ -1,15 +1,18 @@
 package org.jibro.collection.review.ai;
 
 import java.util.*;
+
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
+
 import static org.jibro.collection.review.ai.ScopedReviewModels.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ScopedReviewSchemaTest {
     private final JsonMapper json = JsonMapper.builder().build();
 
-    @Test void readsAdvisoryDecisionsWithoutGeneratingRulesOrNoticeApproval() {
+    @Test
+    void readsAdvisoryDecisionsWithoutGeneratingRulesOrNoticeApproval() {
         var decisions = ScopedReviewSchema.parse(json.readTree("""
                 {"decisions":[
                   {"issueId":"issue-income","disposition":"CONFIRMED_CONFLICT","evidenceClauseIds":["pdf-income","hwp-income"]},
@@ -24,7 +27,8 @@ class ScopedReviewSchemaTest {
         assertEquals(Disposition.NO_CONFLICT, decisions.get(2).disposition());
     }
 
-    @Test void rejectsPublicationFieldsUnknownDispositionsAndMissingEvidence() {
+    @Test
+    void rejectsPublicationFieldsUnknownDispositionsAndMissingEvidence() {
         for (String value : List.of(
                 "{\"decisions\":[],\"complete\":true}",
                 "{\"decisions\":[]}",
@@ -40,13 +44,15 @@ class ScopedReviewSchemaTest {
         }
     }
 
-    @Test void rejectsRepeatedIssuesAndRepeatedEvidenceInsteadOfCountingThemTwice() {
+    @Test
+    void rejectsRepeatedIssuesAndRepeatedEvidenceInsteadOfCountingThemTwice() {
         var same = decision("i", List.of("c"));
         assertThrows(IllegalArgumentException.class, () -> parse(List.of(same, same)));
         assertThrows(IllegalArgumentException.class, () -> parse(List.of(decision("i", List.of("c", "c")))));
     }
 
-    @Test void boundsResponseAndRejectsWhitespaceOrOversizedIdentifiers() {
+    @Test
+    void boundsResponseAndRejectsWhitespaceOrOversizedIdentifiers() {
         for (String id : List.of("", " ", "issue id", "\ti", "i\n", "i".repeat(161))) {
             assertThrows(IllegalArgumentException.class, () -> parse(List.of(decision(id, List.of("c")))));
             assertThrows(IllegalArgumentException.class, () -> parse(List.of(decision("i", List.of(id)))));
@@ -60,7 +66,8 @@ class ScopedReviewSchemaTest {
         assertEquals(1, parse(List.of(decision("i".repeat(160), evidence.subList(0, 64)))).size());
     }
 
-    @Test void keepsProviderSchemaSimpleWhileLocalParserEnforcesBounds() {
+    @Test
+    void keepsProviderSchemaSimpleWhileLocalParserEnforcesBounds() {
         var schema = json.valueToTree(ScopedReviewSchema.schema());
         assertFalse(schema.path("additionalProperties").asBoolean());
         var decisions = schema.path("properties").path("decisions");

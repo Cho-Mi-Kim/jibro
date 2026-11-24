@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -164,11 +165,16 @@ class SpreadsheetTextParserTest {
             assertTrue(parts.get(0).text().contains("A1: 제출서류 및 임대조건 확인"));
         }
         assertTrue(worker.parse(DocumentTextParserTest.hwp("HWP 본문 확인", 1), "application/x-ole-storage")
-            .get(0).text().contains("HWP 본문 확인"));
+                .get(0).text().contains("HWP 본문 확인"));
     }
 
-    private static Workbook workbook(boolean xlsx) { return xlsx ? new XSSFWorkbook() : new HSSFWorkbook(); }
-    private static String media(boolean xlsx) { return xlsx ? "application/zip" : "application/x-ole-storage"; }
+    private static Workbook workbook(boolean xlsx) {
+        return xlsx ? new XSSFWorkbook() : new HSSFWorkbook();
+    }
+
+    private static String media(boolean xlsx) {
+        return xlsx ? "application/zip" : "application/x-ole-storage";
+    }
 
     private static byte[] simpleWorkbook(boolean xlsx) throws IOException {
         try (Workbook workbook = workbook(xlsx)) {

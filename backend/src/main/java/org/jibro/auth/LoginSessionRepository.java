@@ -35,7 +35,7 @@ public class LoginSessionRepository {
     public boolean isAccessSessionValid(String user, int version, String session) {
         // Keep textual UUID comparisons: malformed signed claims must be rejected, not cast in SQL.
         return Boolean.TRUE.equals(db.queryForObject(
-            "SELECT EXISTS(SELECT 1 FROM app_user u JOIN auth_session s ON s.user_id=u.id WHERE u.id::text=? AND NOT u.disabled AND (u.trial_expires_at IS NULL OR u.trial_expires_at>now()) AND u.security_version=? AND s.id::text=? AND NOT s.revoked AND s.expires_at>now())",
-            Boolean.class, user, version, session));
+                "SELECT EXISTS(SELECT 1 FROM app_user u JOIN auth_session s ON s.user_id=u.id WHERE u.id::text=? AND NOT u.disabled AND (u.trial_expires_at IS NULL OR u.trial_expires_at>now()) AND u.security_version=? AND s.id::text=? AND NOT s.revoked AND s.expires_at>now())",
+                Boolean.class, user, version, session));
     }
 }

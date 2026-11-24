@@ -54,28 +54,48 @@ public class ApplicationPeriodReviewService {
         String decision = "HOLD";
         if (result.ready()) {
             var timing = ApplicationPeriod.resolve(result.start(), result.end(), result.schedules());
+            boolean disputed = result.schedules().stream().anyMatch(s -> s.title().equals(ApplicationTiming.UNDATED_HOURS_SESSION));
+            boolean rolling = result.schedules().stream().anyMatch(s -> s.title().equals(ApplicationTiming.UNTIL_FILLED_SESSION));
+            boolean noStart = disputed || rolling && result.start() == null;
+            var start = noStart ? null : result.start() == null ? n.startDate : result.start();
+            var end = disputed || rolling ? null : result.end() == null ? n.endDate : result.end();
+            boolean replaceStart = noStart || result.start() != null && (timing.startsAt() != null || n.applicationStartAt == null);
+            boolean replaceEnd = disputed || rolling || result.end() != null && (timing.endsAt() != null || n.applicationEndAt == null);
+            var startsAt = replaceStart ? timing.startsAt() : n.applicationStartAt;
+            var endsAt = replaceEnd ? timing.endsAt() : n.applicationEndAt;
+            var curated = before.schedules().stream().filter(s -> s.title().startsWith("접수 회차 · ") && !ApplicationPeriodCompiler.session(s)).toList();
+            var intake = result.schedules().stream().filter(s -> ApplicationPeriodCompiler.explanation(s)
+                    ? curated.stream().noneMatch(c -> c.title().equals(s.title()))
+                    : curated.isEmpty() || !ApplicationPeriodCompiler.session(s))
+                .filter(s -> replaceStart || !ApplicationPeriod.basicTitle(s.title(), false))
+                .filter(s -> replaceEnd || !ApplicationPeriod.basicTitle(s.title(), true)).toList();
             // A date-only value cannot replace an already verified clock or disagree with a reviewed date.
-            boolean conflict = n.startDate != null && !n.startDate.equals(result.start())
-                || n.endDate != null && !n.endDate.equals(result.end())
-                || n.applicationStartAt != null && !n.applicationStartAt.equals(timing.startsAt())
-                || n.applicationEndAt != null && !n.applicationEndAt.equals(timing.endsAt());
+            boolean conflict = !noStart && n.startDate != null && !n.startDate.equals(start)
+                || !disputed && !rolling && n.endDate != null && !n.endDate.equals(end)
+                || !noStart && n.applicationStartAt != null && !n.applicationStartAt.equals(startsAt)
+                || !disputed && !rolling && n.applicationEndAt != null && !n.applicationEndAt.equals(endsAt)
+                || start != null && end != null && start.isAfter(end)
+                || startsAt != null && endsAt != null && startsAt.isAfter(endsAt);
             if (conflict)
                 result = new ApplicationPeriodCompiler.Result(null, null, List.of(), List.of("EXISTING_APPLICATION_PERIOD_CONFLICT"));
-            else if (Objects.equals(n.startDate, result.start()) && Objects.equals(n.endDate, result.end())
-                && Objects.equals(n.applicationStartAt, timing.startsAt()) && Objects.equals(n.applicationEndAt, timing.endsAt()))
+            else if (Objects.equals(n.startDate, start) && Objects.equals(n.endDate, end)
+                && Objects.equals(n.applicationStartAt, startsAt) && Objects.equals(n.applicationEndAt, endsAt)
+                && before.schedules().stream().filter(ApplicationPeriodCompiler::session).toList()
+                .equals(intake.stream().filter(ApplicationPeriodCompiler::session).toList()))
                 decision = "UNCHANGED";
             else {
-                var schedules = new ArrayList<>(before.schedules().stream().filter(s -> !ApplicationPeriod.basicTitle(s.title(), false)
-                    && !ApplicationPeriod.basicTitle(s.title(), true)).toList());
-                schedules.addAll(result.schedules());
+                var schedules = new ArrayList<>(before.schedules().stream().filter(s -> !(replaceStart && ApplicationPeriod.basicTitle(s.title(), false))
+                    && !(replaceEnd && ApplicationPeriod.basicTitle(s.title(), true)) && !ApplicationPeriodCompiler.session(s)).toList());
+                schedules.addAll(intake);
                 var updated = new Content(before.summary(), before.evidence(), before.attachments(), before.questions(),
                     before.documents(), List.copyOf(schedules), before.reviewIssues(), before.applicationClosure());
                 validation.validateContent(updated);
+                if (AutomaticReviewEligibility.closed(n, before, Instant.now())) return false;
                 n.content = json.writeValueAsString(updated);
-                n.startDate = result.start();
-                n.endDate = result.end();
-                n.applicationStartAt = timing.startsAt();
-                n.applicationEndAt = timing.endsAt();
+                n.startDate = start;
+                n.endDate = end;
+                n.applicationStartAt = startsAt;
+                n.applicationEndAt = endsAt;
                 n.revision++;
                 n.version++;
                 notices.saveAndFlush(n);

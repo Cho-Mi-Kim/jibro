@@ -22,7 +22,7 @@ final class DefaultNoticeScope {
         var ongoingOrUnknown = officiallyClosed.not().and(dated.not().or(notEnded));
         // A verification timestamp is not a closing date. Unknown/early closure dates are never invented.
         var recentClosed = n.endDate.goe(today.minusDays(28)).and(n.endDate.loe(today))
-            .and(officiallyClosed.or(dated.and(ended)));
+                .and(officiallyClosed.or(dated.and(ended)));
         return n.lifecycleState.eq("NORMAL").and(ongoingOrUnknown.or(recentClosed));
     }
 }

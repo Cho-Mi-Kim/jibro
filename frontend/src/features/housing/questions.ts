@@ -1,16 +1,15 @@
 import type { Answer, Question } from './types';
-
-export const questionKind = (question: Question) =>
-    question.inputKind ?? 'SINGLE';
-
-export const answerOptions = (question: Question) =>
-    questionKind(question) === 'NUMBER' || questionKind(question) === 'DATE'
-        ? [{ value: 'UNKNOWN', label: '잘 모르겠어요' }]
-        : (question.options ?? [
-              { value: 'YES', label: '확인했어요' },
-              { value: 'NO', label: '해당하지 않아요' },
-              { value: 'UNKNOWN', label: '잘 모르겠어요' },
-          ]);
+import { answerConflictMessages } from './answerDependencies';
+import {
+    questionKind,
+    answerOptions,
+    validAnswer,
+} from './questionAnswerInput';
+export {
+    questionKind,
+    answerOptions,
+    validAnswer,
+} from './questionAnswerInput';
 
 export function inputDescription(question: Question) {
     const c = question.constraints;
@@ -62,71 +61,6 @@ export function answerLabel(question: Question, value?: Answer) {
     );
 }
 
-export function validAnswer(
-    question: Question,
-    value: unknown,
-): value is Answer {
-    if (value === 'UNKNOWN') return true;
-    const constraints = question.constraints;
-    const kind = questionKind(question);
-    if (kind === 'NUMBER') {
-        if (
-            typeof value !== 'number' ||
-            !Number.isFinite(value) ||
-            Math.abs(value) > Number.MAX_SAFE_INTEGER
-        )
-            return false;
-        if (
-            (constraints?.min != null && value < constraints.min) ||
-            (constraints?.max != null && value > constraints.max)
-        )
-            return false;
-        const units = decimalUnits(value);
-        const origin = decimalUnits(constraints?.min ?? 0);
-        const step = decimalUnits(constraints?.step ?? 1);
-        return (
-            units !== null &&
-            origin !== null &&
-            step !== null &&
-            step > 0n &&
-            (units - origin) % step === 0n
-        );
-    }
-    if (kind === 'DATE') {
-        if (
-            typeof value !== 'string' ||
-            !/^\d{4}-\d{2}-\d{2}$/.test(value) ||
-            value.startsWith('0000')
-        )
-            return false;
-        const parsed = new Date(value + 'T00:00:00Z');
-        return (
-            !Number.isNaN(parsed.valueOf()) &&
-            parsed.toISOString().slice(0, 10) === value &&
-            !(constraints?.minDate && value < constraints.minDate) &&
-            !(constraints?.maxDate && value > constraints.maxDate)
-        );
-    }
-    const options = answerOptions(question);
-    if (kind === 'MULTIPLE')
-        return (
-            Array.isArray(value) &&
-            value.length > 0 &&
-            value.length <= (constraints?.maxSelections ?? 19) &&
-            new Set(value).size === value.length &&
-            value.every(
-                (item) =>
-                    typeof item === 'string' &&
-                    item !== 'UNKNOWN' &&
-                    options.some((option) => option.value === item),
-            )
-        );
-    return (
-        typeof value === 'string' &&
-        options.some((option) => option.value === value)
-    );
-}
-
 /** Submission rule only; saved-answer labels and assessments retain their existing interpretation. */
 export function validSubmittedAnswer(
     question: Question,
@@ -153,31 +87,109 @@ export function sameAnswer(
         : left === right;
 }
 
-// Validate the same JSON decimal as the server, without floating-point modulo.
-function decimalUnits(value: number): bigint | null {
-    const [mantissa, exponent = '0'] = value.toString().split('e');
-    const [whole, fraction = ''] = mantissa.split('.');
-    const scale = 6 + Number(exponent) - fraction.length;
-    if (scale < 0) return null;
-    return BigInt(whole + fraction) * 10n ** BigInt(scale);
-}
-
-export function needsFollowUp(question: Question, value?: Answer) {
-    if (question.reviewRequired) return true;
-    if (value === 'UNKNOWN' || !validAnswer(question, value)) return true;
+export function conditionAnswerState(
+    question: Question,
+    value?: Answer,
+    answers?: Readonly<Record<string, Answer>>,
+    questions?: readonly Question[],
+) {
+    if (question.reviewRequired) return 'official';
+    if (value === undefined) return 'unanswered';
+    if (value === 'UNKNOWN' || !validAnswer(question, value)) return 'followUp';
+    if (answerConflictMessages(question, value, answers, questions).length)
+        return 'followUp';
     if (
         questionKind(question) === 'NUMBER' ||
         questionKind(question) === 'DATE'
     )
-        return false;
+        return 'complete';
     const values = Array.isArray(value) ? value : [value];
-    return values.some((item) =>
-        answerOptions(question).some(
-            (option) => option.value === item && option.requiresFollowUp,
-        ),
+    const followUp = answerOptions(question).some(
+        (option) =>
+            option.requiresFollowUp &&
+            values.some((item) => item === option.value),
+    );
+    return followUp ? 'followUp' : 'complete';
+}
+
+export function needsFollowUp(
+    question: Question,
+    value?: Answer,
+    answers?: Readonly<Record<string, Answer>>,
+    questions?: readonly Question[],
+) {
+    return (
+        conditionAnswerState(question, value, answers, questions) !== 'complete'
     );
 }
 
-export function answerableQuestions(questions: Question[]) {
-    return questions.filter((question) => !question.reviewRequired);
+const acknowledgementLabels = new Set([
+    '확인했어요',
+    '안내를 확인했어요',
+    '안내 내용을 확인했어요',
+    '안내 내용을 모두 확인했어요',
+    '기준과 예외를 함께 확인했어요',
+    '안내를 읽었어요',
+]);
+const pendingAcknowledgementLabels = new Set([
+    '추가 확인이 필요해요',
+    '아직 확인할 내용이 남아 있어요',
+    '확인 전',
+    '아직 확인 전이에요',
+    '아직 확인하지 않았어요',
+]);
+
+/** Classify the stored answer contract, never a rewritten title or option label. */
+export function isAcknowledgementQuestion(question: Question) {
+    const options = question.options;
+    if (questionKind(question) !== 'SINGLE' || !options || options.length < 2)
+        return false;
+    const acknowledged = (option: (typeof options)[number]) =>
+        ['ACK', 'YES', 'CHECKED', 'CONFIRMED'].includes(option.value) &&
+        acknowledgementLabels.has(option.label.trim()) &&
+        !option.requiresFollowUp;
+    return (
+        options.some(acknowledged) &&
+        options.some((option) => option.value === 'UNKNOWN') &&
+        options.every(
+            (option) =>
+                acknowledged(option) ||
+                option.value === 'UNKNOWN' ||
+                (['NO', 'REVIEW', 'PENDING', 'NOT_YET'].includes(
+                    option.value,
+                ) &&
+                    pendingAcknowledgementLabels.has(option.label.trim())),
+        )
+    );
+}
+
+/** Keep every answer that controls a document or another answer, including old snapshots. */
+export function applicantQuestions(
+    questions: Question[],
+    documentQuestionIds: readonly string[] = [],
+) {
+    const linked = new Set(documentQuestionIds);
+    for (const question of questions) {
+        if (question.applicability)
+            linked.add(question.applicability.questionId);
+        for (const dependency of question.answerDependencies ?? []) {
+            linked.add(question.id);
+            linked.add(dependency.questionId);
+        }
+    }
+    return questions.filter(
+        (question) =>
+            question.reviewRequired ||
+            linked.has(question.id) ||
+            !isAcknowledgementQuestion(question),
+    );
+}
+
+export function answerableQuestions(
+    questions: Question[],
+    documentQuestionIds: readonly string[] = [],
+) {
+    return applicantQuestions(questions, documentQuestionIds).filter(
+        (question) => !question.reviewRequired,
+    );
 }

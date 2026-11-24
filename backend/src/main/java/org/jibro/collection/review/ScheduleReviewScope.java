@@ -11,11 +11,14 @@ import java.util.Set;
 import org.jibro.notice.HousingModels.Evidence;
 import org.jibro.notice.HousingModels.ReviewIssue;
 
-/** Quarantines optional events without deciding which conflicting official source is correct. */
+/**
+ * Quarantines optional events without deciding which conflicting official source is correct.
+ */
 final class ScheduleReviewScope {
     private static final List<Kind> OPTIONAL = List.of(Kind.SELECTION, Kind.RESULT, Kind.DOCUMENTS);
 
-    private ScheduleReviewScope() {}
+    private ScheduleReviewScope() {
+    }
 
     static List<ReviewIssue> isolate(Map<Kind, List<Candidate>> candidates, Map<Kind, Candidate> resolved,
                                      Map<Kind, List<Unresolved>> unresolved, Set<String> blockers) {
@@ -36,14 +39,15 @@ final class ScheduleReviewScope {
                 continue;
             }
             issues.add(new ReviewIssue("auto-schedule-review-" + kind.name().toLowerCase(Locale.ROOT), "SCHEDULE",
-                kind.title + " 확인 필요", detail, List.of(), List.of(), evidence));
+                    kind.title + " 확인 필요", detail, List.of(), List.of(), evidence));
             resolved.remove(kind);
             blockers.remove("SCHEDULE_CONFLICT:" + kind);
             blockers.remove("SCHEDULE_UNRESOLVED:" + kind);
             blockers.remove("SCHEDULE_EVENT_SCOPE_UNRESOLVED:" + kind);
         }
         if (!before(resolved.get(Kind.SELECTION), resolved.get(Kind.END))
-            && !before(resolved.get(Kind.RESULT), resolved.get(Kind.END))) blockers.remove("SCHEDULE_ORDER_CONFLICT");
+                && !before(resolved.get(Kind.RESULT), resolved.get(Kind.END)))
+            blockers.remove("SCHEDULE_ORDER_CONFLICT");
         return List.copyOf(issues);
     }
 
@@ -60,14 +64,14 @@ final class ScheduleReviewScope {
         if (conflict) reasons.add("공식 자료에 기재된 날짜 또는 시각이 서로 다릅니다.");
         if (uncertain) reasons.add("공식 자료에 미정·변경 가능 등 확정되지 않은 안내가 있습니다.");
         if (order) reasons.add(blockers.contains("SCHEDULE_EVENT_SCOPE_UNRESOLVED:" + kind)
-            ? "발표가 전체 접수 마감보다 이르며, 적용 순위·접수 방식 또는 조기 마감과의 관계가 확인되지 않았습니다."
-            : "발표가 신청 접수 마감보다 이르게 기재되어 있어 일정 간 관계를 확인해야 합니다.");
+                ? "발표가 전체 접수 마감보다 이르며, 적용 순위·접수 방식 또는 조기 마감과의 관계가 확인되지 않았습니다."
+                : "발표가 신청 접수 마감보다 이르게 기재되어 있어 일정 간 관계를 확인해야 합니다.");
         reasons.add("이 항목의 날짜는 확정 일정에서 제외했습니다. 공식 원문 또는 운영기관에서 확인해 주세요.");
         dated.stream().map(candidate -> candidate.evidence().label() + ": " + candidate.day()
-            + (candidate.time() == null ? "" : " " + candidate.time())
-            + (candidate.early() ? " (조기 중단 가능)" : "")).distinct().forEach(reasons::add);
+                + (candidate.time() == null ? "" : " " + candidate.time())
+                + (candidate.early() ? " (조기 중단 가능)" : "")).distinct().forEach(reasons::add);
         undated.stream().map(candidate -> candidate.evidence().label() + ": " + candidate.text())
-            .distinct().forEach(reasons::add);
+                .distinct().forEach(reasons::add);
         return String.join("\n", reasons);
     }
 }

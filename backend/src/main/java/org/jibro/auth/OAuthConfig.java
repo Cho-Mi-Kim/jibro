@@ -27,16 +27,16 @@ public class OAuthConfig {
             if (id.isBlank() || secret.isBlank())
                 throw new IllegalStateException("OAuth provider requires both client ID and client secret: " + provider);
             var builder = ClientRegistration.withRegistrationId(provider).clientId(id).clientSecret(secret)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .redirectUri(endpoints.callbackBase() + "/login/oauth2/code/{registrationId}").clientName(provider);
+                    .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                    .redirectUri(endpoints.callbackBase() + "/login/oauth2/code/{registrationId}").clientName(provider);
             if (provider.equals("google"))
                 builder.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                    .scope("openid", "profile", "email").authorizationUri("https://accounts.google.com/o/oauth2/v2/auth")
-                    .tokenUri("https://oauth2.googleapis.com/token").userInfoUri("https://openidconnect.googleapis.com/v1/userinfo")
-                    .jwkSetUri("https://www.googleapis.com/oauth2/v3/certs").issuerUri("https://accounts.google.com").userNameAttributeName("sub");
+                        .scope("openid", "profile", "email").authorizationUri("https://accounts.google.com/o/oauth2/v2/auth")
+                        .tokenUri("https://oauth2.googleapis.com/token").userInfoUri("https://openidconnect.googleapis.com/v1/userinfo")
+                        .jwkSetUri("https://www.googleapis.com/oauth2/v3/certs").issuerUri("https://accounts.google.com").userNameAttributeName("sub");
             else builder.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST)
-                .scope("profile_nickname", "account_email").authorizationUri("https://kauth.kakao.com/oauth/authorize")
-                .tokenUri("https://kauth.kakao.com/oauth/token").userInfoUri("https://kapi.kakao.com/v2/user/me").userNameAttributeName("id");
+                    .scope("profile_nickname", "account_email").authorizationUri("https://kauth.kakao.com/oauth/authorize")
+                    .tokenUri("https://kauth.kakao.com/oauth/token").userInfoUri("https://kapi.kakao.com/v2/user/me").userNameAttributeName("id");
             registrations.add(builder.build());
         }
     }
@@ -54,8 +54,8 @@ public class OAuthConfig {
             var flow = new ConnectionOAuthFlow(clients, connections);
             var completion = new OAuthCompletionHandler(auth, refreshCookie, connections, frontend);
             http.oauth2Login(o -> o.clientRegistrationRepository(clients)
-                .authorizationEndpoint(a -> a.authorizationRequestResolver(flow).authorizationRequestRepository(flow))
-                .successHandler(completion).failureHandler(completion));
+                    .authorizationEndpoint(a -> a.authorizationRequestResolver(flow).authorizationRequestRepository(flow))
+                    .successHandler(completion).failureHandler(completion));
         }
         http.exceptionHandling(e -> e.authenticationEntryPoint((req, res, ex) -> SecurityConfig.error(res, 503, "PROVIDER_UNAVAILABLE", "소셜 로그인 설정을 확인해 주세요.")));
         return http.build();

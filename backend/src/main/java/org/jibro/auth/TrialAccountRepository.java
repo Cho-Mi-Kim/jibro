@@ -16,7 +16,7 @@ public class TrialAccountRepository {
 
     void insert(UUID id) {
         db.update("INSERT INTO app_user(id,name,email,trial_expires_at) VALUES (?,?,?,now()+interval '24 hours')",
-            id, "체험 사용자", "trial:" + id);
+                id, "체험 사용자", "trial:" + id);
     }
 
     boolean lockTrial(UUID id) {

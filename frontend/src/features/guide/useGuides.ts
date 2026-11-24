@@ -18,7 +18,12 @@ export function useGuides(category: string, keyword: string, page: number) {
         queryKey: ['guides', category, search, page],
         queryFn: () => api.guides(params.toString()),
         enabled: !waiting,
+        staleTime: 60_000,
         gcTime: 60_000,
+        refetchOnWindowFocus: true,
+        refetchOnReconnect: true,
+        refetchInterval: 5 * 60_000,
+        refetchIntervalInBackground: false,
     });
     return { ...query, waiting };
 }

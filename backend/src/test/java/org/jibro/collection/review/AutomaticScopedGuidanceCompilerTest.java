@@ -32,9 +32,10 @@ class AutomaticScopedGuidanceCompilerTest {
     private final Content original = new Content("공식 공고", new Evidence("원문", URL, "2026-01-01"),
             List.of(), List.of(), List.of(), List.of());
 
-    @Test void consistentOfficialSourcesProduceNormalGuidanceWithoutDuplicateQuestionsOrDocuments() {
+    @Test
+    void consistentOfficialSourcesProduceNormalGuidanceWithoutDuplicateQuestionsOrDocuments() {
         var draft = draft(List.of(source(URL, VALID), source(ATTACHMENT_URL, VALID)));
-        var result = AutomaticGuidanceCompiler.compileScoped(draft, original);
+        var result = AutomaticGuidanceCompiler.compile(draft, original);
         assertTrue(result.ready(), result.issues().toString());
         assertTrue(result.issues().isEmpty());
         var content = result.content();
@@ -57,10 +58,11 @@ class AutomaticScopedGuidanceCompilerTest {
         assertEquals("공고문 · 1쪽", student.evidence().label());
     }
 
-    @Test void conflictingIncomeRequiresReviewOnlyForIncomeAndPreservesOtherGuidanceAndBothSources() {
+    @Test
+    void conflictingIncomeRequiresReviewOnlyForIncomeAndPreservesOtherGuidanceAndBothSources() {
         var draft = draft(List.of(source(URL, VALID),
                 source(ATTACHMENT_URL, VALID.replace("3,000,000원", "4,000,000원"))));
-        var result = AutomaticGuidanceCompiler.compileScoped(draft, original);
+        var result = AutomaticGuidanceCompiler.compile(draft, original);
         assertTrue(result.ready(), result.issues().toString());
         assertTrue(result.issues().isEmpty());
         var content = result.content();
@@ -84,19 +86,18 @@ class AutomaticScopedGuidanceCompilerTest {
         assertFalse(age.reviewRequired());
         assertFalse(age.needsFollowUp("YES"));
         assertEquals("만 19세 이상 39세 이하인가요?", age.title());
-        assertEquals("신청자는 만 19세 이상 39세 이하이어야 합니다.", age.reason());
+        assertEquals("신청할 수 있는 나이는 만 19세 이상, 만 39세 이하예요.", age.reason());
         assertEquals(3, content.documents().size());
         assertTrue(content.documents().stream().noneMatch(d -> requiresReview(content, d)));
         assertDoesNotThrow(() -> GuidanceIssues.validate(content));
 
-        var strict = AutomaticGuidanceCompiler.compile(draft, original);
-        assertHeld(strict, "CONFLICTING_RULE");
     }
 
-    @Test void differingDocumentListsKeepTheirIntersectionUsableAndMarkOnlyTheirDifferencesForReview() {
+    @Test
+    void differingDocumentListsKeepTheirIntersectionUsableAndMarkOnlyTheirDifferencesForReview() {
         var draft = draft(List.of(source(URL, VALID), source(ATTACHMENT_URL,
                 VALID.replace("공통 제출서류: 주민등록등본, 가족관계증명서", "공통 제출서류: 주민등록등본, 주민등록초본"))));
-        var result = AutomaticGuidanceCompiler.compileScoped(draft, original);
+        var result = AutomaticGuidanceCompiler.compile(draft, original);
         assertTrue(result.ready(), result.issues().toString());
         var content = result.content();
         assertEquals(Set.of("주민등록등본", "주민등록초본", "가족관계증명서", "재학증명서"),
@@ -118,12 +119,12 @@ class AutomaticScopedGuidanceCompilerTest {
         assertEquals(Set.of(document(content, "가족관계증명서").id(), document(content, "주민등록초본").id()),
                 content.reviewIssues().stream().flatMap(i -> i.documentIds().stream()).collect(Collectors.toSet()));
         assertDoesNotThrow(() -> GuidanceIssues.validate(content));
-        assertHeld(AutomaticGuidanceCompiler.compile(draft, original), "CONFLICTING_RULE");
     }
 
-    @Test void conflictingCommonAndConditionalApplicabilityDoesNotPoisonOtherDocuments() {
+    @Test
+    void conflictingCommonAndConditionalApplicabilityDoesNotPoisonOtherDocuments() {
         var draft = draft(List.of(source(URL, VALID.replace("대학생 제출서류: 재학증명서", "대학생 제출서류: 주민등록등본"))));
-        var result = AutomaticGuidanceCompiler.compileScoped(draft, original);
+        var result = AutomaticGuidanceCompiler.compile(draft, original);
         assertTrue(result.ready(), result.issues().toString());
         var content = result.content();
         assertEquals(2, content.documents().size());
@@ -133,39 +134,42 @@ class AutomaticScopedGuidanceCompilerTest {
         assertEquals(List.of(document(content, "주민등록등본").id()), content.reviewIssues().get(0).documentIds());
         assertTrue(content.questions().stream().noneMatch(Question::reviewRequired));
         assertDoesNotThrow(() -> GuidanceIssues.validate(content));
-        assertHeld(AutomaticGuidanceCompiler.compile(draft, original), "DOCUMENT_APPLICABILITY_CONFLICT");
     }
 
-    @Test void unknownExceptionsRemainHeldInsteadOfPublishingOnlyRecognizedRules() {
-        var result = AutomaticGuidanceCompiler.compileScoped(draft(List.of(source(URL,
+    @Test
+    void unknownExceptionsRemainHeldInsteadOfPublishingOnlyRecognizedRules() {
+        var result = AutomaticGuidanceCompiler.compile(draft(List.of(source(URL,
                 VALID + "다만, 별표 2의 경우에는 위 기준을 적용하지 않습니다."))), original);
         assertHeld(result, "UNSUPPORTED_CLAUSE");
     }
 
-    @Test void failedOrUnreadSourcesRemainHeldEvenWithAnotherFullyReadSource() {
+    @Test
+    void failedOrUnreadSourcesRemainHeldEvenWithAnotherFullyReadSource() {
         for (var incomplete : List.of(
                 new Source("첨부", ATTACHMENT_URL, null, "FAILED", "추출 실패", List.of()),
                 new Source("첨부", ATTACHMENT_URL, "b".repeat(64), "EXTRACTED", "발췌만 확인됨",
                         List.of(new Excerpt("CONDITION", "무주택", "1쪽", ATTACHMENT_URL))),
                 new Source("첨부", ATTACHMENT_URL, "b".repeat(64), "EXTRACTED", "완료", List.of(),
                         List.of(new Part("1쪽", VALID), new Part("2쪽", "\n\t \u00a0\u3000"))))) {
-            var result = AutomaticGuidanceCompiler.compileScoped(draft(List.of(source(URL, VALID), incomplete)), original);
+            var result = AutomaticGuidanceCompiler.compile(draft(List.of(source(URL, VALID), incomplete)), original);
             assertHeld(result, "SOURCE_CONTEXT_INCOMPLETE");
         }
     }
 
-    @Test void registeredButUnfetchedAttachmentPreventsScopedPublication() {
+    @Test
+    void registeredButUnfetchedAttachmentPreventsScopedPublication() {
         var content = new Content(original.summary(), original.evidence(),
                 List.of(new Evidence("첨부", ATTACHMENT_URL, "2026-01-01")), List.of(), List.of(), List.of());
-        var result = AutomaticGuidanceCompiler.compileScoped(draft(List.of(source(URL, VALID))), content);
+        var result = AutomaticGuidanceCompiler.compile(draft(List.of(source(URL, VALID))), content);
         assertHeld(result, "SOURCE_COVERAGE_INCOMPLETE");
     }
 
-    @Test void conflictEvidenceBeyondSupportedBoundsIsHeldRatherThanTruncated() {
+    @Test
+    void conflictEvidenceBeyondSupportedBoundsIsHeldRatherThanTruncated() {
         var sources = IntStream.range(0, 11).mapToObj(index -> source(index == 0 ? URL :
                         "https://apply.lh.or.kr/attachment-" + index + ".pdf",
                 VALID.replace("3,000,000원", (index + 1) + ",000,000원"))).toList();
-        assertHeld(AutomaticGuidanceCompiler.compileScoped(draft(sources), original), "SCOPED_CONFLICT_LIMIT");
+        assertHeld(AutomaticGuidanceCompiler.compile(draft(sources), original), "SCOPED_CONFLICT_LIMIT");
     }
 
     private static Question question(Content content, String id) {

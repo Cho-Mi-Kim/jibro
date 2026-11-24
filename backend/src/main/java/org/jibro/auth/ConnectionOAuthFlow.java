@@ -51,7 +51,7 @@ final class ConnectionOAuthFlow implements OAuth2AuthorizationRequestResolver, A
             if (link == null || !link.provider.equals(provider)) throw AccountConnections.invalidIntent();
             connections.authorize(link.intent, provider, binding(request), authorization.getState());
             return OAuth2AuthorizationRequest.from(authorization).attributes(a -> a.put(CALLBACK, link))
-                .additionalParameters(p -> p.put("prompt", "select_account")).build();
+                    .additionalParameters(p -> p.put("prompt", "select_account")).build();
         } catch (RuntimeException ex) {
             cancel(request);
             throw new OAuth2AuthenticationException(new OAuth2Error("invalid_connection"));

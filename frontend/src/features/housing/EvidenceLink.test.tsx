@@ -4,13 +4,54 @@ import { EvidenceLink } from './EvidenceLink';
 import { evidenceHref } from '../../shared/ui/helpers';
 
 describe('공식 근거 위치', () => {
+    it('표시 문구를 바꿔도 원래 근거 위치와 확인일을 사용한다', () => {
+        render(
+            <EvidenceLink
+                label="제출서류 원문"
+                evidence={{
+                    url: 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325',
+                    label: '공고문 10–11쪽 · 제출서류',
+                    checkedAt: '2026-10-01',
+                }}
+            />,
+        );
+        expect(
+            screen.getByRole('link', { name: '제출서류 원문' }),
+        ).toHaveAttribute(
+            'href',
+            expect.stringMatching(
+                /^\/pdf-viewer\.html\?file=69306325&page=10&sha=/,
+            ),
+        );
+        expect(screen.getByText('확인 2026-10-01')).toBeVisible();
+    });
+    it.each([null, 'javascript:alert(1)'])(
+        '열 수 없는 주소 %s는 출처와 확인일을 표시한다',
+        (url) => {
+            render(
+                <EvidenceLink
+                    evidence={{
+                        url,
+                        label: '당시 공식 원문',
+                        checkedAt: '2026-10-01',
+                    }}
+                />,
+            );
+            expect(screen.queryByRole('link')).not.toBeInTheDocument();
+            expect(screen.getByText('당시 공식 원문')).toBeVisible();
+            expect(screen.getByText('확인 2026-10-01')).toBeVisible();
+            expect(screen.getByText('원문 경로 확인 필요')).toBeVisible();
+        },
+    );
     it('확인된 PDF 쪽과 HWPX·엑셀 위치로 연결한다', () => {
         expect(
             evidenceHref(
                 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69306325',
                 '공고문 10–11쪽 · 제출서류',
             ),
-        ).toMatch(/^\/pdf-viewer\.html\?file=69306325&page=10&sha=[0-9a-f]{64}$/);
+        ).toMatch(
+            /^\/pdf-viewer\.html\?file=69306325&page=10&sha=[0-9a-f]{64}$/,
+        );
         expect(
             evidenceHref(
                 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69080506',
@@ -33,15 +74,36 @@ describe('공식 근거 위치', () => {
     it('새 위치 링크와 PDF의 원문 해시를 유지한다', () => {
         const sha = 'a'.repeat(64);
         const url = 'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=123';
-        expect(evidenceHref(`${url}#doc2=${sha}.c2VjdGlvbg.YW5jaG9y`)).toBe(`/evidence-dynamic.html?file=123&sha=${sha}&location=c2VjdGlvbg&anchor=YW5jaG9y`);
-        expect(evidenceHref(`${url}#page=4&sha256=${sha}`)).toBe(`/pdf-viewer.html?file=123&page=4&sha=${sha}`);
+        expect(evidenceHref(`${url}#doc2=${sha}.c2VjdGlvbg.YW5jaG9y`)).toBe(
+            `/evidence-dynamic.html?file=123&sha=${sha}&location=c2VjdGlvbg&anchor=YW5jaG9y`,
+        );
+        expect(evidenceHref(`${url}#page=4&sha256=${sha}`)).toBe(
+            `/pdf-viewer.html?file=123&page=4&sha=${sha}`,
+        );
     });
     it('기존 ZIP 첨부 위임장과 HWPX 별지 위치를 연결한다', () => {
-        const zip = evidenceHref('https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775', '현재 공식 첨부 ZIP · 위임장.hwp');
-        const hwpx = evidenceHref('https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062', 'HWPX · 본문·별지7');
-        expect(zip).toMatch(/^\/evidence-dynamic\.html\?file=65499775&sha=[0-9a-f]{64}&location=/);
-        expect(hwpx).toMatch(/^\/evidence-dynamic\.html\?file=69191062&sha=[0-9a-f]{64}&location=/);
-        expect(evidenceHref('https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305', '공고문 12쪽 · 대상자 발표')).toMatch(/^\/pdf-viewer\.html\?file=69278305&page=12&sha=[0-9a-f]{64}$/);
+        const zip = evidenceHref(
+            'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=65499775',
+            '현재 공식 첨부 ZIP · 위임장.hwp',
+        );
+        const hwpx = evidenceHref(
+            'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69191062',
+            'HWPX · 본문·별지7',
+        );
+        expect(zip).toMatch(
+            /^\/evidence-dynamic\.html\?file=65499775&sha=[0-9a-f]{64}&location=/,
+        );
+        expect(hwpx).toMatch(
+            /^\/evidence-dynamic\.html\?file=69191062&sha=[0-9a-f]{64}&location=/,
+        );
+        expect(
+            evidenceHref(
+                'https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69278305',
+                '공고문 12쪽 · 대상자 발표',
+            ),
+        ).toMatch(
+            /^\/pdf-viewer\.html\?file=69278305&page=12&sha=[0-9a-f]{64}$/,
+        );
     });
     it('관련 Q&A 번호를 원문에 맞게 표시한다', () => {
         render(
@@ -55,6 +117,11 @@ describe('공식 근거 위치', () => {
         );
         expect(
             screen.getByRole('link', { name: /신청 관련 15번/ }),
-        ).toHaveAttribute('href', expect.stringMatching(/^\/pdf-viewer\.html\?file=69044666&page=5&sha=[0-9a-f]{64}$/));
+        ).toHaveAttribute(
+            'href',
+            expect.stringMatching(
+                /^\/pdf-viewer\.html\?file=69044666&page=5&sha=[0-9a-f]{64}$/,
+            ),
+        );
     });
 });

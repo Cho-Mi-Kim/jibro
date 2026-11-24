@@ -2,6 +2,7 @@ package org.jibro.collection.review.local;
 
 import java.time.Instant;
 import java.util.*;
+
 import org.jibro.collection.extraction.ExtractionModels.*;
 import org.jibro.collection.review.ai.GeminiReviewService;
 import org.jibro.notice.AutomaticReviewRepository;
@@ -11,6 +12,7 @@ import org.jibro.notice.NoticeService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import tools.jackson.databind.ObjectMapper;
+
 import static org.jibro.collection.review.ai.GeminiReviewModels.*;
 import static org.jibro.collection.review.ai.ScopedReviewModels.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,7 +30,8 @@ class LocalAnalysisServiceTest {
     private final LocalAnalysisService service = new LocalAnalysisService(repository, reviews, notices, gemini, true);
     private final ObjectMapper json = new ObjectMapper();
 
-    @Test void prepareReusesTheExactFingerprintWithoutReadingSourcesOrCallingProvider() {
+    @Test
+    void prepareReusesTheExactFingerprintWithoutReadingSourcesOrCallingProvider() {
         var snapshot = snapshot();
         var cached = entry(List.of(), "{}");
         when(repository.find(extractionId, "fingerprint", LocalAnalysisService.POLICY)).thenReturn(Optional.of(cached));
@@ -40,13 +43,14 @@ class LocalAnalysisServiceTest {
         verifyNoInteractions(reviews, notices, gemini);
     }
 
-    @Test void readableRulesAreStoredEvenWhenOtherRequiredEvidenceIsMissing() {
+    @Test
+    void readableRulesAreStoredEvenWhenOtherRequiredEvidenceIsMissing() {
         var snapshot = snapshot();
         var stored = entry(List.of(), "{}");
         when(repository.find(extractionId, "fingerprint", LocalAnalysisService.POLICY))
-            .thenReturn(Optional.empty(), Optional.of(stored));
+                .thenReturn(Optional.empty(), Optional.of(stored));
         when(notices.content(noticeId)).thenReturn(new Content("공식 공고", new Evidence("모집공고", URL, "2026-11-07"),
-            List.of(new Evidence("추가 공고문", "https://apply.lh.or.kr/missing.pdf", "2026-11-07")), List.of(), List.of(), List.of()));
+                List.of(new Evidence("추가 공고문", "https://apply.lh.or.kr/missing.pdf", "2026-11-07")), List.of(), List.of(), List.of()));
 
         assertSame(stored, service.prepare(snapshot));
 
@@ -59,7 +63,8 @@ class LocalAnalysisServiceTest {
         verifyNoInteractions(gemini, reviews);
     }
 
-    @Test void staleExtractionNeverConsumesAnApiRequestOrStoresAResult() {
+    @Test
+    void staleExtractionNeverConsumesAnApiRequestOrStoresAResult() {
         var entry = entry(List.of(packet("p1")), "{}");
         when(repository.pending(LocalAnalysisService.POLICY)).thenReturn(List.of(entry));
         when(repository.current(entry)).thenReturn(false);
@@ -71,11 +76,12 @@ class LocalAnalysisServiceTest {
         verifyNoInteractions(gemini, reviews, notices);
     }
 
-    @Test void candidateIsStoredOnlyAsAdvisoryResultAndOnlyOnePacketRunsPerTick() {
+    @Test
+    void candidateIsStoredOnlyAsAdvisoryResultAndOnlyOnePacketRunsPerTick() {
         var first = packet("p1");
         var entry = entry(List.of(first, packet("p2")), "{}");
         var result = new ScopedResult(Status.CANDIDATE, "SCOPED_REVIEWED",
-            List.of(new Decision("issue1", Disposition.NO_CONFLICT, List.of("clause1"))), new Usage(123, 32));
+                List.of(new Decision("issue1", Disposition.NO_CONFLICT, List.of("clause1"))), new Usage(123, 32));
         when(repository.pending(LocalAnalysisService.POLICY)).thenReturn(List.of(entry));
         when(repository.current(entry)).thenReturn(true);
         when(gemini.reviewPacket(first)).thenReturn(result);
@@ -89,7 +95,8 @@ class LocalAnalysisServiceTest {
         verifyNoInteractions(reviews, notices);
     }
 
-    @Test void temporaryQuotaWaitDoesNotPoisonTheCacheAndCanRetryNextTick() {
+    @Test
+    void temporaryQuotaWaitDoesNotPoisonTheCacheAndCanRetryNextTick() {
         var packet = packet("p1");
         var entry = entry(List.of(packet), "{}");
         var wait = new ScopedResult(Status.RATE_LIMITED, "RATE_WAIT", List.of(), new Usage(0, 0));
@@ -107,7 +114,8 @@ class LocalAnalysisServiceTest {
         verify(repository, never()).result(entry, "p1", wait);
     }
 
-    @Test void providerDisabledAndAlreadyReviewedPacketsDoNotProduceAnotherSavedResult() {
+    @Test
+    void providerDisabledAndAlreadyReviewedPacketsDoNotProduceAnotherSavedResult() {
         var reviewed = packet("p1");
         var pending = packet("p2");
         var entry = entry(List.of(reviewed, pending), "{\"p1\":{\"code\":\"SCOPED_REVIEWED\"}}");
@@ -122,16 +130,17 @@ class LocalAnalysisServiceTest {
         verify(repository, never()).result(any(), anyString(), any());
     }
 
-    @Test void disabledSchedulerDoesNoWork() {
+    @Test
+    void disabledSchedulerDoesNoWork() {
         new LocalAnalysisService(repository, reviews, notices, gemini, false).tick();
         verifyNoInteractions(repository, reviews, notices, gemini);
     }
 
     private ExtractionSnapshot snapshot() {
         var source = new Source("모집공고.pdf", URL, "a".repeat(64), "EXTRACTED", "", List.of(),
-            List.of(new Part("공고문 1쪽", "▪ 소득 요건 소득요건 배제\n")));
+                List.of(new Part("공고문 1쪽", "▪ 소득 요건 소득요건 배제\n")));
         return new ExtractionSnapshot(new Draft(extractionId.toString(), noticeId.toString(), 7, "READY",
-            Instant.parse("2026-11-07T00:00:00Z"), "", List.of(source)), "fingerprint");
+                Instant.parse("2026-11-07T00:00:00Z"), "", List.of(source)), "fingerprint");
     }
 
     private CompactReviewPacket packet(String id) {
@@ -142,6 +151,6 @@ class LocalAnalysisServiceTest {
         var book = new LocalRuleBook(LocalRuleInterpreter.POLICY, List.of(), List.of(), List.of(), 0);
         var metrics = new CompactReviewPlanner.Metrics(0, 0, 0, packets.size(), packets.size(), 0, 0, 0, 0);
         return new LocalAnalysisRepository.Entry(extractionId, "fingerprint", LocalAnalysisService.POLICY, noticeId, 7,
-            book, new CompactReviewPlanner.Plan(packets, List.of(), List.of(), metrics), List.of(), json.readTree(results));
+                book, new CompactReviewPlanner.Plan(packets, List.of(), List.of(), metrics), List.of(), json.readTree(results));
     }
 }

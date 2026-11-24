@@ -1,6 +1,5 @@
-@value document-group, documents-layout, document-progress, document-item, document-issue-note, document-select, necessity-label, document-editor, document-facts, document-options from "./DocumentsClassNames.module.css";
-@value row, icon-disc, status-badge from "../../shared/styles/PrimitivesClassNames.module.css";
-@value evidence from "../housing/NoticeFactsClassNames.module.css";
+@value document-group, documents-layout, document-progress, document-item, document-issue-note, necessity-label, document-editor, document-facts, document-options from "./DocumentsClassNames.module.css";
+@value row, status-badge from "../../shared/styles/PrimitivesClassNames.module.css";
 .document-group {
     min-width: 0;
 }
@@ -59,36 +58,9 @@
     margin: 12px 0 20px;
     color: var(--theme-muted, #657084);
 }
-.document-select {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    min-height: 68px;
-    background: var(--theme-surface, white);
-    border: 1px solid var(--theme-line, #e3e4e8);
-    border-radius: 10px;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 8px;
-}
-.document-select strong {
-    flex: 1;
-    min-width: 0;
-}
-.document-select .icon-disc {
-    width: 44px;
-    height: 44px;
-}
-.document-select .icon-disc svg {
-    width: 24px;
-}
-.document-select .status-badge,
 .necessity-label {
     font-size: 0.75rem;
     padding: 4px 10px;
-}
-.necessity-label {
     background: var(--theme-surface-muted, #f5f3f1);
     color: var(--theme-muted, #5a6372);
     border-radius: 99px;
@@ -139,10 +111,6 @@
     height: 1em;
     flex-shrink: 0;
 }
-.document-facts .evidence {
-    padding: 0;
-    margin: 0;
-}
 .document-options {
     margin: 8px 0 0;
 }
@@ -170,11 +138,8 @@
     .necessity-label {
         display: none;
     }
-    .document-select .status-badge {
+    .document-item > button .status-badge {
         padding: 4px 6px;
-    }
-    .document-select {
-        gap: 8px;
     }
 }
 @media (max-width: 1023px) {
@@ -189,6 +154,9 @@
     .document-item {
         width: 100%;
         padding: 0;
+    }
+    .document-item > button {
+        padding-inline: 0.75rem;
     }
     .document-progress {
         padding: 18px;
@@ -209,23 +177,10 @@
         border-radius: 10px;
         margin-bottom: 8px;
     }
-    .document-select {
-        border: 0;
-        margin: 0;
-        font-size: 0.875rem;
-        gap: 8px;
-    }
-    .document-select > .icon-disc {
-        width: 32px;
-        height: 32px;
-    }
-    .document-select > svg {
-        width: 16px;
-    }
     .necessity-label {
         display: none;
     }
-    .document-select .status-badge {
+    .document-item > button .status-badge {
         font-size: 0.6875rem;
         padding: 4px 8px;
     }
@@ -246,31 +201,6 @@
     }
 }
 
-.summaryCard {
-    position: relative;
-    margin-bottom: 8px;
-    padding-bottom: 12px;
-    border: 1px solid var(--theme-line, #e3e4e8);
-    border-radius: 10px;
-    background: var(--theme-surface, white);
-}
-.summaryCard .document-select {
-    margin: 0;
-    border: 0;
-}
-.summaryCard .document-select::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 10px;
-}
-.summaryCard > dl {
-    margin: 0 12px;
-    font-size: 0.875rem;
-}
-@media (max-width: 1023px) {
-    .summaryCard {
-        border: 0;
-        margin: 0;
-    }
+.document-editor > dl + .document-facts {
+    margin-top: 1rem;
 }

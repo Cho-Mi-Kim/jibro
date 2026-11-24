@@ -1,4 +1,6 @@
 import { call, clearToken, setToken } from '../../shared/api/transport';
+import { noticeRegionQuery } from './noticeRegions';
+import { withReviewedConditions } from './reviewedConditionPresentation';
 import type {
     Answer,
     Collection,
@@ -20,10 +22,14 @@ export const api = {
             trialNoticeId?: string;
         }>('/meta'),
     providers: () => call<string[]>('/auth/providers'),
-    notices: (query: string) => call<Page<NoticeListItem>>('/notices?' + query),
+    notices: (query: string) =>
+        call<Page<NoticeListItem>>('/notices?' + noticeRegionQuery(query)),
     filters: () =>
         call<{ regions: string[]; types: string[] }>('/notices/filters'),
-    notice: (id: string) => call<Notice>('/notices/' + encodeURIComponent(id)),
+    notice: (id: string) =>
+        call<Notice>('/notices/' + encodeURIComponent(id)).then(
+            withReviewedConditions,
+        ),
     me: () => call<User>('/users/me'),
     startTrial: async () => {
         const result = await call<{ accessToken: string; user: User }>(
@@ -50,7 +56,9 @@ export const api = {
     },
     preparations: () => call<PreparationListItem[]>('/preparations'),
     preparation: (id: string) =>
-        call<Preparation>('/preparations/' + encodeURIComponent(id)),
+        call<Preparation>('/preparations/' + encodeURIComponent(id)).then(
+            withReviewedConditions,
+        ),
     start: (noticeId: string, version: number) =>
         call<Preparation>('/preparations', 'POST', { noticeId, version }),
     refreshPreparation: (id: string, revision: number, version: number) =>
@@ -75,6 +83,15 @@ export const api = {
             'PATCH',
             { revision, state, note },
         ),
+    followUp: (
+        id: string,
+        revision: number,
+        record: import('./types').FollowUpRecord,
+    ) =>
+        call<Preparation>('/preparations/' + id + '/follow-up', 'PUT', {
+            revision,
+            ...record,
+        }),
     schedule: (
         id: string,
         scheduleId: string,

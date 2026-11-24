@@ -1,5 +1,9 @@
 log_format safe '$remote_addr $request_method $uri $status $body_bytes_sent';
 server_tokens off;
+client_header_timeout 10s;
+client_body_timeout 15s;
+send_timeout 30s;
+reset_timedout_connection on;
 resolver 127.0.0.11 valid=10s ipv6=off;
 upstream jibro_api {
     zone jibro_api 64k;
@@ -10,18 +14,66 @@ map $uri $cache_policy {
     ~^/assets/ 'public, max-age=31536000, immutable';
     ~^/(api/|oauth2/|login/oauth2/) 'no-store';
 }
+map "$request_method:$uri" $auth_limit_key {
+    default '';
+    ~^POST:/api/v1/auth/(login|trial|reset/complete|verify)/?$ $binary_remote_addr;
+    ~^GET:/oauth2/authorization/ $binary_remote_addr;
+}
+map "$request_method:$uri" $mail_limit_key {
+    default '';
+    ~^POST:/api/v1/(auth/(signup|reset/request)|member/(verify|closure/request|connections/proof))/?$ $binary_remote_addr;
+}
+map "$request_method:$uri" $visitor_limit_key {
+    default '';
+    ~^POST:/api/v1/security/visitor/?$ $binary_remote_addr;
+}
+map $status $retry_after {
+    default '';
+    429 30;
+}
+# These keys use the socket peer, never client-supplied X-Forwarded-For.
+limit_req_zone $binary_remote_addr zone=api:4m rate=30r/s;
+limit_req_zone $auth_limit_key zone=auth:1m rate=20r/m;
+limit_req_zone $mail_limit_key zone=mail:1m rate=2r/m;
+limit_req_zone $visitor_limit_key zone=visitor:1m rate=6r/m;
+limit_conn_zone $binary_remote_addr zone=connections:1m;
 
 server {
     listen 80 default_server;
+    server_name _;
+    error_log /dev/null;
+    access_log off;
+    return 421;
+}
+server {
+    listen 443 ssl default_server;
+    server_name _;
+    ssl_reject_handshake on;
+    error_log /dev/null;
+    access_log off;
+    return 421;
+}
+
+server {
+    listen 80;
+    keepalive_timeout 30s;
     # Request-context error messages can include the original query string.
     error_log /dev/null;
     access_log /var/log/nginx/access.log safe;
     server_name ${PUBLIC_HOST};
-    return 308 https://${PUBLIC_HOST}$request_uri;
+    # Certbot writes public challenges here without stopping the web server.
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/acme;
+        default_type text/plain;
+        try_files $uri =404;
+        limit_except GET { deny all; }
+    }
+    location / { return 308 https://${PUBLIC_HOST}$request_uri; }
 }
 
 server {
-    listen 443 ssl default_server;
+    listen 443 ssl;
+    keepalive_timeout 30s;
     error_log /dev/null;
     server_name ${PUBLIC_HOST};
     ssl_certificate /etc/nginx/tls/fullchain.pem;
@@ -37,12 +89,26 @@ server {
     add_header X-Frame-Options DENY always;
     add_header Strict-Transport-Security 'max-age=86400' always;
     add_header Cache-Control $cache_policy always;
+    add_header Retry-After $retry_after always;
+    include /etc/nginx/snippets/security-headers.conf;
 
     client_max_body_size 1m;
     client_body_buffer_size 1m;
+    limit_conn connections 64;
+    limit_conn_status 429;
+    limit_req_status 429;
+    error_page 429 = @request_limited;
+    location @request_limited {
+        default_type application/json;
+        return 429 '{"code":"TOO_MANY_REQUESTS","message":"요청이 많아요. 잠시 후 다시 시도해 주세요.","fieldErrors":[]}';
+    }
 
     # Overwrite client-supplied forwarded headers at the only public proxy.
     location ~ ^/(api/|oauth2/|login/oauth2/) {
+        limit_req zone=api burst=60 nodelay;
+        limit_req zone=auth burst=10 nodelay;
+        limit_req zone=mail burst=4 nodelay;
+        limit_req zone=visitor burst=4 nodelay;
         proxy_pass http://jibro_api;
         proxy_http_version 1.1;
         proxy_set_header Host ${PUBLIC_HOST};
@@ -66,7 +132,25 @@ server {
     location = /reminder-worker.js {
         try_files $uri =404;
     }
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+    location = /privacy { try_files /privacy.html =404; }
+    location = /contact { try_files /contact.html =404; }
+    location = /robots.txt { default_type text/plain; try_files $uri =404; }
+    location = /sitemap.xml { default_type application/xml; try_files $uri =404; }
+    # robots.txt is not an access control. Deny internal files at the server.
+    location ~ (^|/)\. { return 404; }
+    location ~* \.(?:env|pem|key|sql|dump|bak|conf)$ { return 404; }
+    location ~ ^/(?:development/?|review-[^/]+\.html|jibro-code-model\.html)$ { return 404; }
+    error_page 404 /404.html;
+    location = /404.html { internal; }
+    include /etc/nginx/snippets/app-routes.conf;
+    location / { try_files $uri $uri/ =404; }
+}
+
+# Container-only liveness probe, not published on the host or app network.
+server {
+    listen 127.0.0.1:8081;
+    access_log off;
+    error_log /dev/null;
+    location = /healthz { return 200 'ok'; }
+    location / { return 404; }
 }

@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
 import jakarta.persistence.EntityManager;
 import org.jibro.notice.NoticeService;
 import org.jibro.notice.SampleData;
@@ -20,12 +21,17 @@ import org.springframework.transaction.annotation.Transactional;
 @ActiveProfiles("test")
 @Transactional
 class ExtractionQueueIntegrationTest {
-    @Autowired ExtractionStore store;
-    @Autowired NoticeService notices;
-    @Autowired JdbcTemplate db;
-    @Autowired EntityManager entities;
+    @Autowired
+    ExtractionStore store;
+    @Autowired
+    NoticeService notices;
+    @Autowired
+    JdbcTemplate db;
+    @Autowired
+    EntityManager entities;
 
-    @Test void unchangedRecollectionReusesOldCompletedEvidenceUntilExplicitRetry() {
+    @Test
+    void unchangedRecollectionReusesOldCompletedEvidenceUntilExplicitRetry() {
         UUID notice = notice();
         fingerprint(notice, "a");
         var initial = store.enqueue(notice, false);
@@ -43,7 +49,8 @@ class ExtractionQueueIntegrationTest {
         assertNotEquals(initial.id(), store.enqueue(notice, true).id());
     }
 
-    @Test void completedManualNoticeWithNoFingerprintAlsoRemainsReusable() {
+    @Test
+    void completedManualNoticeWithNoFingerprintAlsoRemainsReusable() {
         UUID notice = notice();
         var initial = store.enqueue(notice, false);
         var job = store.claim();
@@ -54,7 +61,8 @@ class ExtractionQueueIntegrationTest {
         assertEquals(1, count(notice));
     }
 
-    @Test void recollectionDoesNotRestartExhaustedFailureOrPartialRetryBudget() {
+    @Test
+    void recollectionDoesNotRestartExhaustedFailureOrPartialRetryBudget() {
         for (String terminal : List.of("FAILED", "PARTIAL")) {
             UUID notice = notice();
             var draft = store.enqueue(notice, false);
@@ -74,7 +82,8 @@ class ExtractionQueueIntegrationTest {
         }
     }
 
-    @Test void attachmentRevisionAndSourceFingerprintEachInvalidateCompletedEvidence() {
+    @Test
+    void attachmentRevisionAndSourceFingerprintEachInvalidateCompletedEvidence() {
         UUID notice = notice();
         fingerprint(notice, "a");
         var first = store.enqueue(notice, false);
@@ -91,7 +100,8 @@ class ExtractionQueueIntegrationTest {
         assertEquals(3, count(notice));
     }
 
-    @Test void oldQueuedRevisionsAreRetiredTogetherBeforeClaimingCurrentWork() {
+    @Test
+    void oldQueuedRevisionsAreRetiredTogetherBeforeClaimingCurrentWork() {
         UUID revisionNotice = notice();
         UUID fingerprintNotice = notice();
         UUID currentNotice = notice();
@@ -111,7 +121,8 @@ class ExtractionQueueIntegrationTest {
         assertNull(db.queryForObject("SELECT started_at FROM notice_extraction WHERE id=?", java.sql.Timestamp.class, UUID.fromString(oldRevision.id())));
     }
 
-    @Test void changedSourceCanReplaceActiveJobAndOldWorkerCannotWriteIntoNewAttempt() {
+    @Test
+    void changedSourceCanReplaceActiveJobAndOldWorkerCannotWriteIntoNewAttempt() {
         UUID notice = notice();
         fingerprint(notice, "a");
         store.enqueue(notice, false);
@@ -128,7 +139,8 @@ class ExtractionQueueIntegrationTest {
         assertEquals(fresh.id(), store.claim().id().toString());
     }
 
-    @Test void publicCurrentWorkPrecedesOlderHeldBacklogWithoutPublishingEitherNotice() {
+    @Test
+    void publicCurrentWorkPrecedesOlderHeldBacklogWithoutPublishingEitherNotice() {
         UUID held = notice();
         UUID visible = notice();
         db.update("UPDATE notice SET basic_review='PASS' WHERE id=?", visible);
@@ -145,7 +157,8 @@ class ExtractionQueueIntegrationTest {
         assertEquals("HOLD", db.queryForObject("SELECT guide_review FROM notice WHERE id=?", String.class, visible));
     }
 
-    @Test void priorityDoesNotBypassRetryDelayOrDiscardEligibleHeldWork() {
+    @Test
+    void priorityDoesNotBypassRetryDelayOrDiscardEligibleHeldWork() {
         UUID held = notice();
         UUID visible = notice();
         db.update("UPDATE notice SET basic_review='PASS' WHERE id=?", visible);

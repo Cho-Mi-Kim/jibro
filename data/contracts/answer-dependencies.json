@@ -1,0 +1,510 @@
+{
+  "questions": [
+    {
+      "id": "category",
+      "title": "어떤 유형으로 신청하나요?",
+      "reason": "청년·사회초년생, 신혼·예비신혼·한부모, 고령자, 산업단지근로자 또는 통합공공임대 일반공급대상자 중 신청할 유형 하나를 골라요. 청년은 만 19~39세 미혼, 사회초년생은 소득이 있는 일을 한 기간이 총 7년 이내인 미혼자예요. 신혼부부는 혼인 10년 이내 또는 9세 이하 자녀가 있는 경우 등 유형별 기준을 확인해요.",
+      "options": [
+        {
+          "value": "YOUTH",
+          "label": "청년 · 만 19~39세, 미혼",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "EARLY_CAREER",
+          "label": "사회초년생 · 소득 활동 총 7년 이내, 미혼",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "NEWLYWED",
+          "label": "신혼부부 · 혼인 10년 이내 또는 9세 이하 자녀",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "PREMARITAL",
+          "label": "예비신혼부부 · 입주 전까지 혼인 예정",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "SINGLE_PARENT",
+          "label": "한부모가족 · 9세 이하 자녀",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "ELDER",
+          "label": "고령자 · 만 65세 이상",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "INDUSTRIAL",
+          "label": "산업단지 근로자",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "INTEGRATED",
+          "label": "통합공공임대 일반공급",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "NONE",
+          "label": "해당하는 유형이 없어요",
+          "requiresFollowUp": true
+        },
+        {
+          "value": "UNKNOWN",
+          "label": "잘 모르겠어요",
+          "requiresFollowUp": true
+        }
+      ],
+      "evidence": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143584#page=3",
+        "label": "공고문 3쪽 · 어떤 유형으로 신청하나요?",
+        "checkedAt": "2026-11-21"
+      },
+      "inputKind": "SINGLE",
+      "constraints": null,
+      "reviewRequired": false
+    },
+    {
+      "id": "applies-family",
+      "title": "가족관계증명서는 누가 내나요?",
+      "reason": "청년·사회초년생·한부모·예비신혼부부는 가족관계증명서를 내요. 배우자가 없거나 등본에서 배우자를 확인할 수 없을 때도 필요해요. 앞에서 청년·사회초년생·한부모·예비신혼부부를 골랐다면 첫 번째 선택지를 골라요. 그 유형은 해당 없음에 포함되지 않아요.",
+      "options": [
+        {
+          "value": "REQUIRED_TYPE",
+          "label": "청년·사회초년생·한부모·예비신혼부부로 신청해요",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "NO_SPOUSE",
+          "label": "배우자가 없어요 · 미혼·이혼·사별 등",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "SEPARATE_SPOUSE",
+          "label": "등본에서 배우자를 확인할 수 없어요",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "FOREIGN_SPOUSE",
+          "label": "배우자가 외국인이에요",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "NONE",
+          "label": "위 상황에 해당하지 않아요",
+          "requiresFollowUp": false
+        },
+        {
+          "value": "UNKNOWN",
+          "label": "잘 모르겠어요",
+          "requiresFollowUp": true
+        }
+      ],
+      "evidence": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143584#page=16",
+        "label": "공고문 16쪽 · 가족관계증명서는 누가 내나요?",
+        "checkedAt": "2026-11-21"
+      },
+      "inputKind": "SINGLE",
+      "constraints": null,
+      "reviewRequired": false,
+      "answerDependencies": [
+        {
+          "questionId": "category",
+          "answerValues": [
+            "YOUTH",
+            "EARLY_CAREER",
+            "SINGLE_PARENT",
+            "PREMARITAL"
+          ],
+          "conflictingValues": [
+            "NONE"
+          ],
+          "requiredDocumentIds": [
+            "family"
+          ],
+          "message": "선택한 신청 유형은 가족관계증명서가 필요해요. 신청 유형과 가족관계 답변을 다시 확인해 주세요."
+        },
+        {
+          "questionId": "category",
+          "answerValues": [
+            "NEWLYWED",
+            "ELDER",
+            "INDUSTRIAL",
+            "INTEGRATED",
+            "NONE"
+          ],
+          "conflictingValues": [
+            "REQUIRED_TYPE"
+          ],
+          "requiredDocumentIds": [],
+          "message": "선택한 신청 유형과 가족관계 답변의 신청 유형이 달라요. 두 답변을 다시 확인해 주세요."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "family",
+      "title": "가족관계증명서",
+      "issuer": "가족관계등록 관서",
+      "method": "청년·사회초년생·한부모·예비신혼부부, 배우자가 없거나 등본에서 배우자를 확인할 수 없는 신청자가 내요. 신청자 기준으로 발급하고, 예비신혼부부는 두 사람의 증명서를 각각 내요. 외국인 배우자가 있으면 외국인등록·거소 사실증명서도 추가해요.",
+      "evidence": {
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69143584#page=16",
+        "label": "공고문 16쪽 · 제출서류",
+        "checkedAt": "2026-11-21"
+      },
+      "issueUrl": null,
+      "conditionQuestionId": "applies-family",
+      "conditionAnswerValues": [
+        "REQUIRED_TYPE",
+        "NO_SPOUSE",
+        "SEPARATE_SPOUSE",
+        "FOREIGN_SPOUSE"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "youth-cannot-exclude-family",
+      "answers": {
+        "category": "YOUTH",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "youth-confirmed-family",
+      "answers": {
+        "category": "YOUTH",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "early_career-cannot-exclude-family",
+      "answers": {
+        "category": "EARLY_CAREER",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "early_career-confirmed-family",
+      "answers": {
+        "category": "EARLY_CAREER",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "single_parent-cannot-exclude-family",
+      "answers": {
+        "category": "SINGLE_PARENT",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "single_parent-confirmed-family",
+      "answers": {
+        "category": "SINGLE_PARENT",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "premarital-cannot-exclude-family",
+      "answers": {
+        "category": "PREMARITAL",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "premarital-confirmed-family",
+      "answers": {
+        "category": "PREMARITAL",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "required-category-unknown-family",
+      "answers": {
+        "category": "YOUTH",
+        "applies-family": "UNKNOWN"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "required-category-unanswered-family",
+      "answers": {
+        "category": "YOUTH"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "unknown-category-excluded-family",
+      "answers": {
+        "category": "UNKNOWN",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "category"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "UNKNOWN"
+      }
+    },
+    {
+      "name": "unanswered-category-excluded-family",
+      "answers": {
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "category"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "UNKNOWN"
+      }
+    },
+    {
+      "name": "unknown-category-known-family",
+      "answers": {
+        "category": "UNKNOWN",
+        "applies-family": "NO_SPOUSE"
+      },
+      "followUpQuestionIds": [
+        "category"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "both-unknown",
+      "answers": {
+        "category": "UNKNOWN",
+        "applies-family": "UNKNOWN"
+      },
+      "followUpQuestionIds": [
+        "category",
+        "applies-family"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "UNKNOWN"
+      }
+    },
+    {
+      "name": "both-unanswered",
+      "answers": {},
+      "followUpQuestionIds": [
+        "category",
+        "applies-family"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "UNKNOWN"
+      }
+    },
+    {
+      "name": "non-required-category-no-family",
+      "answers": {
+        "category": "ELDER",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "name": "non-required-category-spouse-missing",
+      "answers": {
+        "category": "ELDER",
+        "applies-family": "NO_SPOUSE"
+      },
+      "followUpQuestionIds": [],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "non-required-category-unknown-family",
+      "answers": {
+        "category": "ELDER",
+        "applies-family": "UNKNOWN"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "UNKNOWN"
+      }
+    },
+    {
+      "name": "newlywed-conflicting-family-type",
+      "answers": {
+        "category": "NEWLYWED",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "elder-conflicting-family-type",
+      "answers": {
+        "category": "ELDER",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "industrial-conflicting-family-type",
+      "answers": {
+        "category": "INDUSTRIAL",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "integrated-conflicting-family-type",
+      "answers": {
+        "category": "INTEGRATED",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "no-category-conflicting-family-type",
+      "answers": {
+        "category": "NONE",
+        "applies-family": "REQUIRED_TYPE"
+      },
+      "followUpQuestionIds": [
+        "category",
+        "applies-family"
+      ],
+      "conflictQuestionIds": [
+        "applies-family"
+      ],
+      "necessity": {
+        "family": "CONDITIONAL"
+      }
+    },
+    {
+      "name": "no-category-no-family",
+      "answers": {
+        "category": "NONE",
+        "applies-family": "NONE"
+      },
+      "followUpQuestionIds": [
+        "category"
+      ],
+      "conflictQuestionIds": [],
+      "necessity": {
+        "family": "NOT_APPLICABLE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+    "entries": [
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "household",
+            "sourceTitle": "신청접수일 기준 성년·무주택 세대 요건에 해당하나요?",
+            "sourceReason": "공고일이 아닌 신청접수일 기준입니다. 분리 배우자·분양권·외국인 가족·미성년 세대주 예외를 확인하며 입주 시까지 무주택 요건을 유지해야 합니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=3",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "신청접수일 기준 성년·무주택 세대 요건에 해당하나요?",
+            "preview": "공고일이 아니라 신청하는 날의 나이·무주택 가족을 확인해요.",
+            "sections": [
+                {
+                    "text": "공고일이 아닌 신청접수일 기준이에요.\n\n분리 배우자·분양권·외국인 가족·미성년 세대주 예외를 확인하며 입주 시까지 무주택 요건을 유지해야 해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 · 신청접수일 기준 성년·무주택 세대 요건에 해당하나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=3",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "income-assets",
+            "sourceTitle": "가구별 소득·총자산·자동차 기준을 확인했나요?",
+            "sourceReason": "도시근로자 월평균소득 70%에 1·2인 가구와 출생자녀 가산을 적용합니다. 총자산 3억4,500만원·자동차 4,542만원 기준의 가산·제외도 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=3",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "우리 집 소득·재산 한도는 얼마인가요?",
+            "preview": "소득은 기본 70%에 가구원·자녀 가산을 적용해요. 총자산 3억 4,500만 원·자동차 4,542만 원이 기본이에요.",
+            "sections": [
+                {
+                    "text": "도시근로자 월평균소득 70%에 1·2인 가구와 출생자녀 가산을 적용해요.\n\n총자산 3억4,500만원·자동차 4,542만원 기준의 가산·제외도 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 · 가구별 소득·총자산·자동차 기준을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=3",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "restriction",
+            "sourceTitle": "중복신청·중복입주·불법전대 제한을 확인했나요?",
+            "sourceReason": "세대당 한 단지·한 유형만 신청하며 기존 예비자 지위 변경 및 불법양도·전대 후 4년 제한 등을 확인하세요.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=3",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "중복신청·중복입주·불법전대 제한을 확인했나요?",
+            "preview": "세대당 한 단지·한 유형만 신청하며 기존 예비자 지위 변경 및 불법양도·전대 후 4년 제한 등을 확인해요.",
+            "sections": [
+                {
+                    "text": "세대당 한 단지·한 유형만 신청하며 기존 예비자 지위 변경 및 불법양도·전대 후 4년 제한 등을 확인해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 3쪽 · 중복신청·중복입주·불법전대 제한을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=3",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "selection",
+            "sourceTitle": "현장 접수순서와 예비자 대기 방식을 확인했나요?",
+            "sourceReason": "현장 접수만 가능하며 자격검증 후 기존 예비자의 후순위로 등록됩니다. 계약은 개별 안내하고 순번 도래 시 동호 추첨을 합니다. 현 접수는 평일 10~15시, 점심 12~13시 제외입니다.",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=5",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "현장 접수순서와 예비자 대기 방식을 확인했나요?",
+            "preview": "방문 접수 후 자격을 확인하고 기존 예비자의 뒤 순번으로 등록해요.",
+            "sections": [
+                {
+                    "text": "- 현장 접수만 가능하며 자격검증 후 기존 예비자의 후순위로 등록돼요.\n- 계약은 개별 안내하고 순번 도래 시 동호 추첨을 해요.\n- 현 접수는 평일 10~15시, 점심 12~13시 제외예요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 5쪽 · 현장 접수순서와 예비자 대기 방식을 확인했나요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=5",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "applies-family",
+            "sourceTitle": "가족관계증명서(상세) 제출 대상인가요?",
+            "sourceReason": "등본에서 배우자 확인이 안 되거나 외국인 배우자·예비신혼부부 세대관계 증빙이 필요한가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "가족관계증명서는 누가 내나요?",
+            "preview": "등본에서 배우자·가족관계를 확인할 수 없거나 공고의 필수 대상이면 가족관계증명서를 내요.",
+            "sections": [
+                {
+                    "text": "등본에서 배우자 확인이 안 되거나 외국인 배우자·예비신혼부부 세대관계 증빙이 필요하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 가족관계증명서(상세) 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 가족관계증명서(상세) 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "가족관계증명서(상세)",
+                                "공고의 해당자 제출 기준과 발급시점을 확인해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "applies-spouse",
+            "sourceTitle": "배우자 주민등록표등본 제출 대상인가요?",
+            "sourceReason": "배우자가 세대 분리되어 있나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "배우자 등본도 따로 내야 하나요?",
+            "preview": "배우자와 등본이 다르면 배우자의 등본을 추가해요.",
+            "sections": [
+                {
+                    "text": "배우자가 세대 분리되어 있으면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 배우자 주민등록표등본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 배우자 주민등록표등본 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "배우자 주민등록표등본",
+                                "공고의 해당자 제출 기준과 발급시점을 확인해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "applies-child",
+            "sourceTitle": "임신진단서·입양관계증명서 제출 대상인가요?",
+            "sourceReason": "태아·입양 자녀로 가구원수 또는 가산을 인정받나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "임신·입양은 어떤 서류로 확인하나요?",
+            "preview": "태아·입양 자녀로 공고의 자격이나 가산을 인정받으면 해당 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "태아·입양 자녀로 가구원수 또는 가산을 인정받으면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 임신진단서·입양관계증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "임신진단서·입양관계증명서",
+                                "공고의 해당자 제출 기준과 발급시점을 확인해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "applies-foreign",
+            "sourceTitle": "외국인등록사실증명서 제출 대상인가요?",
+            "sourceReason": "배우자가 외국인인가요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "배우자가 외국인이면 무엇을 내나요?",
+            "preview": "배우자가 외국인이면 등록·거소 증빙을 내요.",
+            "sections": [
+                {
+                    "text": "배우자가 외국인이면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 외국인등록사실증명서 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "외국인등록사실증명서",
+                                "공고의 해당자 제출 기준과 발급시점을 확인해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "noticeId": "65d673cf-5528-43fb-9f4e-82ca5357879b",
+            "questionId": "applies-proxy",
+            "sourceTitle": "위임장·대리신청 확인서류 제출 대상인가요?",
+            "sourceReason": "대리인이 신청하나요?",
+            "sourceEvidence": {
+                "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                "sha256": "bacba5b1dfc31d3383c858350371e42fd7ddb5dcb9c31592f3258b2adb598157"
+            },
+            "heading": "방문하거나 대신 신청할 때 무엇을 챙기나요?",
+            "preview": "본인·배우자 대리·그 외 대리에 따라 신분증과 위임서류가 달라요.",
+            "sections": [
+                {
+                    "text": "대리인이 신청하면 준비해요.",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 위임장·대리신청 확인서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ]
+                },
+                {
+                    "text": "",
+                    "evidence": [
+                        {
+                            "label": "공고문 6쪽 · 위임장·대리신청 확인서류 제출 대상인가요?",
+                            "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=67181881#page=6",
+                            "checkedAt": "2026-11-12"
+                        }
+                    ],
+                    "table": {
+                        "title": "해당할 때 준비할 서류",
+                        "headers": ["서류", "준비 방법", "발급처"],
+                        "rows": [
+                            [
+                                "위임장·대리신청 확인서류",
+                                "공고의 해당자 제출 기준과 발급시점을 확인해요.",
+                                "공고문 기재 발급처"
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

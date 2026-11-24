@@ -1,6 +1,9 @@
+import { DocumentStateBadge } from './DocumentStateBadge';
+import { documentStatePresentation } from './documentStatePresentation';
 import { bindClasses } from '../../shared/styles/classes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useUnsavedChanges } from '../../shared/ui/useUnsavedChanges';
+import { useScrollToCard } from '../../shared/ui/useScrollToCard';
 import { useMutation } from '@tanstack/react-query';
 import { api } from '../housing/api';
 import type {
@@ -10,40 +13,56 @@ import type {
 } from '../housing/types';
 import { Button } from '../../shared/ui/ui';
 import { EvidenceLink } from '../housing/EvidenceLink';
-import { ReviewIssues } from '../housing/ReviewIssues';
-import { documentNeedsReview } from '../housing/reviewIssueSelectors';
+import {
+    documentNeedsReview,
+    officialReviewLabel,
+} from '../housing/reviewIssueSelectors';
 import { Disc } from '../../shared/ui/Disc';
-import { DocumentIssuanceLinks } from '../housing/DocumentIssuanceLinks';
 import { Status } from '../../shared/ui/Status';
 import { Icon } from '../../shared/ui/Icon';
 import { useSaved } from './usePreparation';
 import { usePreparationCardSelection } from './usePreparationCardSelection';
 import { documentSummary } from '../housing/documentSummary';
-import { DocumentSummaryFacts } from '../housing/DocumentSummaryFacts';
+import { DocumentCard } from '../housing/DocumentCard';
 import documentsClasses from './Documents.module.css';
 
 const cx = bindClasses(documentsClasses);
 
-const stateNames: Record<DocumentState, string> = {
-    UNCHECKED: '미확인',
-    NEEDED: '발급 필요',
-    IN_PROGRESS: '준비 중',
-    READY: '준비 완료',
-    RECHECK: '재확인',
-};
+function documentScrollTarget(card: HTMLDivElement) {
+    const detail = card.querySelector<HTMLElement>(
+        ':scope > section:not([hidden])',
+    );
+    // The desktop detail sits beside the list; mobile details stay in the card.
+    return detail && getComputedStyle(detail).position === 'absolute'
+        ? detail
+        : card;
+}
+
 export function DocumentEditor({
     p,
     d,
     active,
     onSelect,
+    onReady,
+    scrollRequest = 0,
 }: {
     p: Preparation;
     d: DocumentItem;
     active: boolean;
     onSelect: () => void;
+    onReady?: (next: Preparation) => boolean;
+    scrollRequest?: number;
 }) {
     const { cardRef, onClick, scrollToCard } =
-        usePreparationCardSelection<HTMLDivElement>();
+        usePreparationCardSelection<HTMLDivElement>(
+            onSelect,
+            documentScrollTarget,
+        );
+    const { cardRef: optionsRef, scrollToCard: scrollToOptions } =
+        useScrollToCard<HTMLDetailsElement>('[data-preparation-panel]');
+    useEffect(() => {
+        if (scrollRequest > 0) scrollToCard();
+    }, [scrollRequest, scrollToCard]);
     const [draftState, setState] = useState<DocumentState | null>(null);
     const [draftNote, setNote] = useState<string | null>(null);
     const state = draftState ?? d.state;
@@ -51,24 +70,34 @@ export function DocumentEditor({
     useUnsavedChanges(state !== d.state || note !== d.note);
     const saved = useSaved();
     const mutation = useMutation({
-        mutationFn: (ready: boolean) =>
-            api.document(p.id, d.id, p.revision, ready ? 'READY' : state, note),
-        onSuccess: (next) => {
+        mutationFn: (nextState: DocumentState) =>
+            api.document(p.id, d.id, p.revision, nextState, note),
+        onSuccess: (next, nextState) => {
             saved(next);
             setState(null);
             setNote(null);
+            const options = optionsRef.current;
+            if (options?.open) {
+                options.open = false;
+            }
+            if (nextState === 'READY' && d.state !== 'READY' && onReady?.(next))
+                return;
+            if (cardRef.current?.dataset.active === 'true') {
+                onSelect();
+                scrollToCard();
+            }
         },
     });
     const reviewRequired = documentNeedsReview(d, p.reviewIssues);
+    const quickState = d.state === 'READY' ? d.stateBeforeReady : 'READY';
     const unavailable =
         reviewRequired ||
         p.guideState !== 'AVAILABLE' ||
         d.necessity === 'UNKNOWN' ||
         d.necessity === 'NOT_APPLICABLE';
     const summary = documentSummary(d, p);
-    const onlineIssuance = summary.links;
     const necessity = reviewRequired
-        ? '공식 확인 필요'
+        ? officialReviewLabel
         : {
               REQUIRED: '공통 필수',
               CONDITIONAL: '해당 조건부',
@@ -82,70 +111,48 @@ export function DocumentEditor({
             className={cx('document-item')}
             data-active={active}
         >
-            <div className={documentsClasses.summaryCard}>
-                <button
-                    type="button"
-                    className={cx('document-select')}
-                    aria-expanded={active}
-                    aria-controls={'document-' + d.id}
-                    onClick={() => {
+            <DocumentCard
+                title={d.title}
+                summary={summary}
+                editor={{
+                    open: active,
+                    toggle: () => {
                         onSelect();
                         scrollToCard();
-                    }}
-                >
-                    <Disc
-                        name="file"
-                        tone={d.state === 'READY' ? 'green' : 'amber'}
-                    />
-                    <strong>{d.title}</strong>
-                    <span className={cx('necessity-label')}>{necessity}</span>
-                    <Status
-                        tone={
-                            d.state === 'READY'
-                                ? 'green'
-                                : d.state === 'NEEDED'
-                                  ? 'red'
-                                  : 'gray'
-                        }
-                    >
-                        {stateNames[d.state]}
-                    </Status>
-                    <Icon name="arrow" />
-                </button>
-                <DocumentSummaryFacts summary={summary} />
-            </div>
-            <section
-                id={'document-' + d.id}
-                className={cx('document-editor')}
-                hidden={!active}
-            >
-                <header>
-                    <Disc name="file" tone="amber" />
-                    <div>
-                        <h2>{d.title}</h2>
-                        <Status tone="amber">{necessity}</Status>{' '}
-                        <Status>{stateNames[d.state]}</Status>
-                    </div>
-                </header>
-                {summary.criteria.length > 2 && (
-                    <p>제출 대상 · {summary.criteria.join(' 또는 ')}</p>
-                )}
-                <dl className={cx('document-facts')}>
-                    <dt>발급처</dt>
-                    <dd>{d.issuer}</dd>
-                    {onlineIssuance.length > 0 && (
+                    },
+                    className: cx('document-editor'),
+                    status: (
                         <>
-                            <dt>발급 안내</dt>
-                            <dd>
-                                <DocumentIssuanceLinks links={onlineIssuance} />
-                            </dd>
+                            {active && (
+                                <span className={cx('necessity-label')}>
+                                    {necessity}
+                                </span>
+                            )}
+                            <DocumentStateBadge state={d.state} />
                         </>
-                    )}
-                    <dt>발급 기준</dt>
-                    <dd>{d.method}</dd>
-                </dl>
+                    ),
+                    header: (
+                        <header>
+                            <Disc name="file" tone="amber" />
+                            <div>
+                                <h2>{d.title}</h2>
+                                <Status tone="amber">{necessity}</Status>{' '}
+                                <DocumentStateBadge state={d.state} />
+                            </div>
+                        </header>
+                    ),
+                }}
+            >
+                {!summary.fullMethodShown && (
+                    <dl className={cx('document-facts')}>
+                        <dt>발급처</dt>
+                        <dd>{d.issuer}</dd>
+                        <dt>발급 기준</dt>
+                        <dd>{d.method}</dd>
+                    </dl>
+                )}
                 <EvidenceLink evidence={d.evidence} />
-                <ReviewIssues issues={summary.issues} />
+
                 {reviewRequired && (
                     <p>
                         공식 확인 전에는 이 서류를 준비 완료로 기록할 수 없어요.
@@ -154,22 +161,46 @@ export function DocumentEditor({
                 )}
                 <Button
                     className="wide"
-                    disabled={
-                        mutation.isPending || unavailable || d.state === 'READY'
-                    }
-                    onClick={() => mutation.mutate(true)}
+                    disabled={mutation.isPending || unavailable}
+                    onClick={() => {
+                        if (quickState) {
+                            mutation.mutate(quickState);
+                        } else if (optionsRef.current) {
+                            optionsRef.current.open = true;
+                            optionsRef.current
+                                .querySelector('select')
+                                ?.focus({ preventScroll: true });
+                        }
+                    }}
                 >
-                    {d.state === 'READY' && <Icon name="check" />}
-                    {mutation.isPending ? '저장 중…' : '준비 완료'}
+                    {mutation.isPending
+                        ? '저장 중…'
+                        : d.state === 'READY'
+                          ? documentStatePresentation.READY.label + ' 취소'
+                          : documentStatePresentation.READY.label}
                 </Button>
                 {mutation.error && <p role="alert">{mutation.error.message}</p>}
                 {mutation.isSuccess && (
                     <p role="status">이 서류의 준비 기록을 저장했어요.</p>
                 )}
-                <details className={cx('document-options')}>
-                    <summary>
+                <details
+                    ref={optionsRef}
+                    className={cx('document-options')}
+                    onToggle={({ currentTarget }) => {
+                        if (!active) return;
+                        if (currentTarget.open) scrollToOptions(currentTarget);
+                        else scrollToCard(currentTarget);
+                    }}
+                >
+                    <summary onClick={(event) => event.stopPropagation()}>
                         상태·메모 수정 <Icon name="down" />
                     </summary>
+                    {!quickState && (
+                        <p>
+                            완료 전 상태 기록이 없어요. 돌아갈 상태를 선택하고
+                            저장해 주세요.
+                        </p>
+                    )}
                     <label>
                         준비 상태
                         <select
@@ -179,11 +210,13 @@ export function DocumentEditor({
                                 setState(e.target.value as DocumentState)
                             }
                         >
-                            {Object.entries(stateNames).map(([key, label]) => (
-                                <option key={key} value={key}>
-                                    {label}
-                                </option>
-                            ))}
+                            {Object.entries(documentStatePresentation).map(
+                                ([key, { label }]) => (
+                                    <option key={key} value={key}>
+                                        {label}
+                                    </option>
+                                ),
+                            )}
                         </select>
                     </label>
                     <label>
@@ -198,12 +231,12 @@ export function DocumentEditor({
                     <Button
                         className="secondary wide"
                         disabled={mutation.isPending || unavailable}
-                        onClick={() => mutation.mutate(false)}
+                        onClick={() => mutation.mutate(state)}
                     >
                         변경사항 저장
                     </Button>
                 </details>
-            </section>
+            </DocumentCard>
         </div>
     );
 }

@@ -1,0 +1,332 @@
+{
+  "packageId": "active-easy-20261115-d766f8da-4856-46ab-b22f-055191f22646",
+  "noticeId": "d766f8da-4856-46ab-b22f-055191f22646",
+  "revision": 3,
+  "extractionId": "9d1d0d0c-834a-4494-92e9-4d1d68e12dea",
+  "disposition": "PASS",
+  "reviewNotes": "2026-11-15 공식 상세의 정정 연결과 공식 PDF 대조. 기준일·유형별 차이·예외 및 준비할 핵심 서류를 구분.",
+  "unresolvedFindings": [],
+  "sourceReviews": [
+    {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021049&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "sha256": "28d02abef491c354dce7536f525100f3cf73f748023e902ed0ea0349217696da",
+      "label": "공식 상세 본문",
+      "role": "OFFICIAL_LISTING",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384291",
+      "sha256": "ccd697bd3aa07c9e3e24b971e8d7264387963fca1e5cea8d16679220b721ce11",
+      "label": "(261112)춘천시철원군지역행복주택예비입주자모집공고.hwpx",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297",
+      "sha256": "cb11a3f7d22f7c16fb4dd610711494a93d8008244cc98de979e45eb4193d56da",
+      "label": "(261112)춘천시철원군지역행복주택예비입주자모집공고.pdf",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    },
+    {
+      "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69381974",
+      "sha256": "de1045207155be073f8dbbb86a533634dc7ec239716b8fef8fad3f216c2a0f05",
+      "label": "서류제출양식.zip",
+      "role": "OFFICIAL_ATTACHMENT",
+      "reviewNotes": "공식 상세 게시본과 첨부 연결 대조. 자격·일정은 모집공고 PDF의 해당 쪽을 기준으로 확인."
+    }
+  ],
+  "content": {
+    "summary": "지원 대상: 대학생·청년·신혼부부·한부모·고령자·주거급여수급자 중 신청 단지의 유형과 자격을 갖춘 사람이 대상이에요. 지원 내용: 춘천거두2·철원갈말·철원철원 행복주택 예비입주자로 선정되면 빈집이 생길 때 순번대로 계약해요.",
+    "evidence": {
+      "url": "https://apply.lh.or.kr/lhapply/apply/wt/wrtanc/selectWrtancInfo.do?panId=2015122300021049&ccrCnntSysDsCd=03&uppAisTpCd=06&aisTpCd=10&mi=1026",
+      "label": "LH 공식 공고 원문",
+      "checkedAt": "2026-11-12"
+    },
+    "documents": [
+      {
+        "id": "register",
+        "title": "주민등록표등본",
+        "method": "세대관계를 확인하는 등본을 준비해요. 배우자와 등본이 다르면 배우자 등본도 준비하세요.",
+        "issuer": "행정복지센터·정부24",
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "evidence": {
+          "label": "LH 모집공고 PDF 21쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=21",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "privacy",
+        "title": "개인정보 수집·이용 및 제3자 제공 동의서",
+        "method": "공고 첨부 서식에서 신청 유형에 해당하는 세대원의 서명을 확인하세요.",
+        "issuer": "공고 첨부 서식",
+        "issueUrl": null,
+        "conditionQuestionId": null,
+        "evidence": {
+          "label": "LH 모집공고 PDF 21쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=21",
+          "checkedAt": "2026-11-15"
+        }
+      }
+    ],
+    "questions": [
+      {
+        "id": "site",
+        "title": "신청할 단지에 내 유형이 있나요?",
+        "reason": "대학생은 춘천거두2, 청년은 세 단지 모두, 신혼·한부모는 춘천거두2와 철원철원에 신청할 수 있어요. 고령자는 철원갈말·철원철원, 주거급여수급자는 철원갈말이에요. 고령자 기준은 65세 이상이에요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 1쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "student",
+        "title": "대학생·취업준비생 기준을 확인했나요?",
+        "reason": "혼인 중이 아닌 무주택자로 대학 재학·다음 학기 입학 또는 복학 예정이거나 대학·고등학교 졸업 또는 중퇴 후 2년 이내여야 해요. 본인과 부모의 소득 기준은 기본 100%, 1인 120%, 2인 110% 이하예요. 기본 본인 자산 한도는 1억 800만 원이고 자동차가액 산출 대상 자동차를 소유하면 안 돼요. 출생 자녀 가산은 같은 쪽 표를 확인하세요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 6쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=6",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "youth",
+        "title": "청년·사회초년생 기준을 확인했나요?",
+        "reason": "혼인 중이 아닌 무주택자로 청년은 19~39세예요. 사회초년생은 소득이 있는 일을 한 기간이 총 5년 이내이며 근무 중이거나, 퇴직 후 1년 이내 구직급여 자격을 인정받았거나, 예술인이어야 해요. 기본 총자산은 2억 5,100만 원, 자동차는 4,542만 원 이하이고 자녀 가산은 별도로 확인해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 8쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=8",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "family",
+        "title": "신혼·한부모 신청 유형을 확인했나요?",
+        "reason": "신혼부부는 혼인 7년 이내이거나 6세 이하 자녀가 있는 경우예요. 같은 사람과 재혼했다면 이전 혼인기간도 합쳐요. 예비신혼부부는 입주 전 혼인 증명이 가능해야 하고, 한부모가족은 6세 이하 자녀가 있어야 해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 1쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=1",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "priority",
+        "title": "우선 공급 대상과 단지별 순서를 확인했나요?",
+        "reason": "공고일에 같은 세대에 2세 미만 자녀(태아 포함)가 있으면 주택형·대상별 모집 물량의 30% 안에서 먼저 선정해요. 여기서 떨어져도 남은 물량을 두고 다시 경쟁해요. 철원철원 36A는 신혼부부 계층을 먼저 뽑고 남은 물량을 청년에게 공급해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 3쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=3",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      },
+      {
+        "id": "apply",
+        "title": "신청 방식과 서류 제출 경로를 확인했나요?",
+        "reason": "인터넷 청약이 기본이에요. 철원군 고령자 유형은 11월 25일 10:30~16:00(점심 12~13시 제외)에 현장 신청도 가능해요. 온라인 신청 후 서류 제출 대상자로 뽑히면 인터넷 또는 등기우편으로 제출해요.",
+        "evidence": {
+          "label": "LH 모집공고 PDF 15쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+          "checkedAt": "2026-11-15"
+        },
+        "options": [
+          {
+            "value": "YES",
+            "label": "기준을 확인했어요",
+            "requiresFollowUp": false
+          },
+          {
+            "value": "NO",
+            "label": "추가 확인이 필요해요",
+            "requiresFollowUp": true
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "잘 모르겠어요",
+            "requiresFollowUp": true
+          }
+        ],
+        "inputKind": "SINGLE",
+        "constraints": null,
+        "reviewRequired": false
+      }
+    ],
+    "schedules": [
+      {
+        "id": "auto-application-start",
+        "date": "2026-11-25T10:00",
+        "title": "신청 접수 시작",
+        "evidence": {
+          "label": "LH 모집공고 PDF 15쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      },
+      {
+        "id": "auto-application-end",
+        "date": "2026-11-27T16:00",
+        "title": "신청 접수 마감",
+        "evidence": {
+          "label": "LH 모집공고 PDF 15쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+          "checkedAt": "2026-11-15"
+        },
+        "timingDescription": null
+      },
+      {
+        "id": "doc-result",
+        "title": "서류 제출 대상자 발표",
+        "date": "2026-12-10T14:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 15쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "doc-end",
+        "title": "서류 제출 마감",
+        "date": "2026-12-15T16:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 15쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+          "checkedAt": "2026-11-15"
+        }
+      },
+      {
+        "id": "result-review",
+        "title": "예비입주자 발표",
+        "date": "2027-04-06T14:00",
+        "evidence": {
+          "label": "LH 모집공고 PDF 15쪽",
+          "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297#page=15",
+          "checkedAt": "2026-11-15"
+        }
+      }
+    ],
+    "attachments": [
+      {
+        "label": "(261112)춘천시철원군지역행복주택예비입주자모집공고.hwpx",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384291",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "(261112)춘천시철원군지역행복주택예비입주자모집공고.pdf",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69384297",
+        "checkedAt": "2026-11-15"
+      },
+      {
+        "label": "서류제출양식.zip",
+        "url": "https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69381974",
+        "checkedAt": "2026-11-15"
+      }
+    ],
+    "reviewIssues": [],
+    "applicationClosure": null
+  },
+  "startDate": "2026-11-25",
+  "endDate": "2026-11-27"
+}

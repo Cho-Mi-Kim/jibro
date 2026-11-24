@@ -7,23 +7,30 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
+
 import org.jibro.collection.attachments.AttachmentFingerprintClient;
 import org.jibro.collection.extraction.OfficialDetailParser;
 import org.jsoup.Jsoup;
 import org.springframework.stereotype.Component;
+
 import static org.jibro.notice.SourceReviewModels.*;
 
-/** Additional official evidence for explicit editorial review only; never changes the primary snapshot. */
+/**
+ * Additional official evidence for explicit editorial review only; never changes the primary snapshot.
+ */
 @Component
 public final class SupplementalSourceVerifier {
     private static final String LH = "apply.lh.or.kr";
     private static final String LAW = "www.law.go.kr";
+    private static final String MANAGEMENT = "www.kohom.or.kr";
     private static final String ANNOUNCEMENT = "/lhapply/apply/noti/an/view.do";
     private static final String DETAIL = "/lhapply/apply/wt/wrtanc/selectWrtancInfo.do";
     private final AttachmentFingerprintClient lh;
     private final AttachmentFingerprintClient historicalLaw;
+    private final AttachmentFingerprintClient management;
 
-    public record Parsed(String title, String text, List<String> attachmentUrls, String sha256) {}
+    public record Parsed(String title, String text, List<String> attachmentUrls, String sha256) {
+    }
 
     @org.springframework.beans.factory.annotation.Autowired
     public SupplementalSourceVerifier(AttachmentFingerprintClient lh) {
@@ -32,15 +39,21 @@ public final class SupplementalSourceVerifier {
     }
 
     SupplementalSourceVerifier(AttachmentFingerprintClient lh, AttachmentFingerprintClient historicalLaw) {
+        this(lh, historicalLaw, new AttachmentFingerprintClient(MANAGEMENT));
+    }
+
+    SupplementalSourceVerifier(AttachmentFingerprintClient lh, AttachmentFingerprintClient historicalLaw, AttachmentFingerprintClient management) {
         this.lh = lh;
         this.historicalLaw = historicalLaw;
+        this.management = management;
     }
 
     Map<String, String> verify(List<SupplementalReference> references, Map<String, SourceReview> reviewed) throws Exception {
         Map<String, String> digests = new LinkedHashMap<>();
         for (var reference : references) {
             validate(reference);
-            var client = URI.create(reference.url()).getHost().equals(LAW) ? historicalLaw : lh;
+            String host = URI.create(reference.url()).getHost();
+            var client = host.equals(LAW) ? historicalLaw : host.equals(MANAGEMENT) ? management : lh;
             var page = parse(reference.url(), client.html(reference.url()));
             if (!page.title().equals(reference.title()) || !page.sha256().equals(reference.sha256()))
                 throw new IllegalArgumentException("SUPPLEMENTAL_PAGE_CHANGED");
@@ -76,18 +89,22 @@ public final class SupplementalSourceVerifier {
 
     public static void validate(SupplementalReference reference) {
         if (reference == null || reference.title() == null || reference.title().isBlank() || reference.title().length() > 500
-            || reference.sha256() == null || !reference.sha256().matches("[0-9a-f]{64}")
-            || reference.relation() == null || reference.relation().isBlank() || reference.relation().length() > 2000
-            || reference.attachmentUrls().size() > 50
-            || new HashSet<>(reference.attachmentUrls()).size() != reference.attachmentUrls().size())
+                || reference.sha256() == null || !reference.sha256().matches("[0-9a-f]{64}")
+                || reference.relation() == null || reference.relation().isBlank() || reference.relation().length() > 2000
+                || reference.attachmentUrls().size() > 50
+                || new HashSet<>(reference.attachmentUrls()).size() != reference.attachmentUrls().size())
             throw new IllegalArgumentException("INVALID_SUPPLEMENTAL_REFERENCE");
         var uri = pageUri(reference.url());
         if (uri.getHost().equals(LAW) && !reference.attachmentUrls().isEmpty())
             throw new IllegalArgumentException("HISTORICAL_LAW_BODY_ONLY");
+        if (uri.getHost().equals(MANAGEMENT) && !reference.attachmentUrls().isEmpty())
+            throw new IllegalArgumentException("MANAGEMENT_NOTICE_BODY_ONLY");
         reference.attachmentUrls().forEach(SupplementalSourceVerifier::attachmentUri);
     }
 
-    /** Stable review digest excludes page chrome and visit counts but includes every official child link. */
+    /**
+     * Stable review digest excludes page chrome and visit counts but includes every official child link.
+     */
     public static Parsed parse(String url, String html) {
         var uri = pageUri(url);
         if (html == null || html.isBlank() || html.length() > 2 * 1024 * 1024)
@@ -95,7 +112,27 @@ public final class SupplementalSourceVerifier {
         var doc = Jsoup.parse(html, url);
         String title, text;
         List<String> files;
-        if (uri.getHost().equals(LAW)) {
+        if (uri.getHost().equals(MANAGEMENT)) {
+            var body = doc.selectFirst("#content .txt_frm");
+            if (body == null) throw new IllegalArgumentException("SUPPLEMENTAL_BODY_INVALID");
+            body = body.clone();
+            body.select(".prev_next,.board_btn,.custom_check,script,style,noscript,tr:has(th:matchesOwn(조회\\s*수?)),.hit,.views").remove();
+            title = body.select("tr:has(th:matchesOwn(^제목$)) td").text();
+            title = normalize(title);
+            if (body.select("tr:has(th:matchesOwn(^작성일$)) td").text().isBlank()
+                    || body.select("tr:has(th:matchesOwn(^모집공고일$)) td").text().isBlank())
+                throw new IllegalArgumentException("SUPPLEMENTAL_BODY_INVALID");
+            text = normalize(body.text()) + "\n" + body.select("a[href]").stream().map(a -> {
+                String link = a.absUrl("href");
+                // This body-only proof does not claim to verify management files. Their download tokens
+                // change on every request; keep the displayed filename instead of the temporary token.
+                if (link.matches("https://www\\.kohom\\.or\\.kr/common/download\\.do(?:;jsessionid=[A-Za-z0-9]+)?\\?.*"))
+                    return "management attachment: " + normalize(a.text());
+                return link;
+            }).sorted().reduce((a, b) -> a + "\n" + b).orElse("");
+            // Management attachments require their own reviewed path; this scope only verifies the official body.
+            files = List.of();
+        } else if (uri.getHost().equals(LAW)) {
             var query = query(uri);
             for (var name : List.of("lsiSeq", "lsId", "efYd")) {
                 var field = doc.selectFirst("input#" + name);
@@ -111,7 +148,7 @@ public final class SupplementalSourceVerifier {
             body.select("script,style,noscript").remove();
             title = normalize(lawTitle.val());
             var effective = Pattern.compile("^\\[시행\\s+(\\d{4})\\.\\s*(\\d{1,2})\\.\\s*(\\d{1,2})\\.\\]")
-                .matcher(normalize(metadata.text()));
+                    .matcher(normalize(metadata.text()));
             if (!title.equals(normalize(heading.text())) || !effective.find())
                 throw new IllegalArgumentException("HISTORICAL_LAW_VERSION_MISMATCH");
             try {
@@ -122,7 +159,7 @@ public final class SupplementalSourceVerifier {
                 throw new IllegalArgumentException("HISTORICAL_LAW_VERSION_MISMATCH");
             }
             text = "법령 " + query.get("lsId") + " · 연혁 " + query.get("lsiSeq") + " · 시행 " + query.get("efYd")
-                + "\n" + normalize(metadata.text()) + "\n" + normalize(body.text());
+                    + "\n" + normalize(metadata.text()) + "\n" + normalize(body.text());
             if (!body.text().matches("(?s).*제\\s*\\d+\\s*조.*"))
                 throw new IllegalArgumentException("HISTORICAL_LAW_BODY_MISSING");
             files = List.of();
@@ -146,7 +183,8 @@ public final class SupplementalSourceVerifier {
             files = List.copyOf(linked);
             if (uri.getPath().equals(ANNOUNCEMENT)) {
                 var body = box.selectFirst(".bbsV_cont");
-                if (body == null || body.text().isBlank()) throw new IllegalArgumentException("SUPPLEMENTAL_BODY_INVALID");
+                if (body == null || body.text().isBlank())
+                    throw new IllegalArgumentException("SUPPLEMENTAL_BODY_INVALID");
                 var metadata = box.selectFirst(".bbsV_data");
                 text = (metadata == null ? "" : normalize(metadata.text()) + "\n") + normalize(body.text());
             } else {
@@ -156,7 +194,7 @@ public final class SupplementalSourceVerifier {
         if (title.isBlank() || title.length() > 500 || text.isBlank() || text.length() > 500_000)
             throw new IllegalArgumentException("SUPPLEMENTAL_BODY_INVALID");
         String canonical = "supplemental-source-v1\n" + frame(title) + frame(text)
-            + files.stream().map(SupplementalSourceVerifier::frame).reduce("", String::concat);
+                + files.stream().map(SupplementalSourceVerifier::frame).reduce("", String::concat);
         return new Parsed(title, text, files, SourceReviewVerifier.hash(canonical));
     }
 
@@ -164,21 +202,29 @@ public final class SupplementalSourceVerifier {
         URI uri = safeUri(url);
         var query = query(uri);
         if (uri.getHost().equals(LH) && uri.getPath().equals(ANNOUNCEMENT)) {
-            requireKeys(query, Set.of("bbsSn", "ccrCnntSysDsCd", "slBbsKdCd", "mi"));
+            requireKeys(query, query.containsKey("slBbsKdCd")
+                    ? Set.of("bbsSn", "ccrCnntSysDsCd", "slBbsKdCd", "mi") : Set.of("bbsSn", "ccrCnntSysDsCd", "mi"));
             if (!digits(query.get("bbsSn"), 20) || !digits(query.get("ccrCnntSysDsCd"), 2)
-                || !"03".equals(query.get("slBbsKdCd")) || !"1079".equals(query.get("mi"))) reject();
+                    || query.containsKey("slBbsKdCd") && !"03".equals(query.get("slBbsKdCd")) || !"1079".equals(query.get("mi")))
+                reject();
         } else if (uri.getHost().equals(LH) && uri.getPath().equals(DETAIL)) {
             requireKeys(query, Set.of("panId", "ccrCnntSysDsCd", "uppAisTpCd", "aisTpCd", "mi"));
             if (!digits(query.get("panId"), 40) || !digits(query.get("ccrCnntSysDsCd"), 2)
-                || !digits(query.get("uppAisTpCd"), 2) || !digits(query.get("aisTpCd"), 2)
-                || !"1026".equals(query.get("mi"))) reject();
+                    || !digits(query.get("uppAisTpCd"), 2) || !digits(query.get("aisTpCd"), 2)
+                    || !"1026".equals(query.get("mi"))) reject();
+        } else if (uri.getHost().equals(MANAGEMENT) && uri.getPath().equals("/web/mainComm/HM001002002.do")) {
+            requireKeys(query, Set.of("mode", "p_idx"));
+            if (!"view".equals(query.get("mode")) || !digits(query.get("p_idx"), 20)) reject();
         } else if (uri.getHost().equals(LAW) && uri.getPath().equals("/LSW/lsInfoR.do")) {
             requireKeys(query, Set.of("lsiSeq", "lsId", "chrClsCd", "efYd"));
             if (!digits(query.get("lsiSeq"), 12) || !digits(query.get("lsId"), 12)
-                || !"010202".equals(query.get("chrClsCd")) || !query.get("efYd").matches("\\d{8}")) reject();
+                    || !"010202".equals(query.get("chrClsCd")) || !query.get("efYd").matches("\\d{8}")) reject();
             try {
-                if (LocalDate.parse(query.get("efYd"), DateTimeFormatter.BASIC_ISO_DATE).isAfter(LocalDate.now())) reject();
-            } catch (java.time.DateTimeException ex) { reject(); }
+                if (LocalDate.parse(query.get("efYd"), DateTimeFormatter.BASIC_ISO_DATE).isAfter(LocalDate.now()))
+                    reject();
+            } catch (java.time.DateTimeException ex) {
+                reject();
+            }
         } else reject();
         return uri;
     }
@@ -187,16 +233,16 @@ public final class SupplementalSourceVerifier {
         var uri = safeUri(url);
         var query = query(uri);
         if (!uri.getHost().equals(LH) || !uri.getPath().equals("/lhapply/lhFile.do")
-            || !query.keySet().equals(Set.of("fileid")) || !digits(query.get("fileid"), 20)) reject();
+                || !query.keySet().equals(Set.of("fileid")) || !digits(query.get("fileid"), 20)) reject();
     }
 
     private static URI safeUri(String url) {
         try {
             if (url == null || url.length() > 2000) throw new IllegalArgumentException();
             var uri = URI.create(url);
-            if (!"https".equals(uri.getScheme()) || !Set.of(LH, LAW).contains(uri.getHost())
-                || uri.getRawUserInfo() != null || uri.getRawFragment() != null
-                || (uri.getPort() != -1 && uri.getPort() != 443)) throw new IllegalArgumentException();
+            if (!"https".equals(uri.getScheme()) || !Set.of(LH, LAW, MANAGEMENT).contains(uri.getHost())
+                    || uri.getRawUserInfo() != null || uri.getRawFragment() != null
+                    || (uri.getPort() != -1 && uri.getPort() != 443)) throw new IllegalArgumentException();
             return uri;
         } catch (IllegalArgumentException | NullPointerException ex) {
             throw new IllegalArgumentException("SUPPLEMENTAL_URL_REJECTED");
@@ -215,9 +261,24 @@ public final class SupplementalSourceVerifier {
         }
         return result;
     }
-    private static boolean digits(String value, int max) { return value != null && value.matches("[0-9]{1," + max + "}"); }
-    private static void requireKeys(Map<String, String> query, Set<String> keys) { if (!query.keySet().equals(keys)) reject(); }
-    private static void reject() { throw new IllegalArgumentException("SUPPLEMENTAL_URL_REJECTED"); }
-    private static String normalize(String text) { return text.replaceAll("[\\s\\p{Zs}]+", " ").strip(); }
-    private static String frame(String text) { return text.length() + ":" + text + "\n"; }
+
+    private static boolean digits(String value, int max) {
+        return value != null && value.matches("[0-9]{1," + max + "}");
+    }
+
+    private static void requireKeys(Map<String, String> query, Set<String> keys) {
+        if (!query.keySet().equals(keys)) reject();
+    }
+
+    private static void reject() {
+        throw new IllegalArgumentException("SUPPLEMENTAL_URL_REJECTED");
+    }
+
+    private static String normalize(String text) {
+        return text.replaceAll("[\\s\\p{Zs}]+", " ").strip();
+    }
+
+    private static String frame(String text) {
+        return text.length() + ":" + text + "\n";
+    }
 }

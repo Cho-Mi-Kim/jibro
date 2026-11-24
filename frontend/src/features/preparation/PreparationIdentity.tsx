@@ -1,3 +1,4 @@
+import { useNoticeDetailReturn } from '../housing/NoticeListVisit';
 import {
     applicationInterrupted,
     lifecycleLabel,
@@ -9,11 +10,16 @@ import type { Notice, Preparation } from '../housing/types';
 import {
     applicationDate,
     currentPreparationSchedules,
+    currentPreparationScheduleSource,
 } from '../housing/schedules';
+import { ApplicationBadge } from '../housing/NoticeStatusBadges';
+import { AgencyHousingSummary } from '../housing/AgencyMark';
 import { Deadline } from '../housing/NoticeFacts';
-import { Status } from '../../shared/ui/Status';
 import { Icon } from '../../shared/ui/Icon';
-import { preparationDeadlineLabel } from '../housing/noticeDisplay';
+import {
+    noticeListTitle,
+    preparationDeadlineLabel,
+} from '../housing/noticeDisplay';
 import styles from './PreparationOverviewSummary.module.css';
 export function PreparationIdentity({
     preparation: p,
@@ -25,18 +31,15 @@ export function PreparationIdentity({
     titleContent?: ReactNode;
 }) {
     const entryState = useNoticeEntryState();
+    const detailReturn = useNoticeDetailReturn(p.noticeId);
+    const source = currentPreparationScheduleSource(p, notice);
     return (
         <div className={styles.identity}>
-            <div className={styles.status}>
-                <Status
-                    tone={applicationInterrupted(notice) ? 'gray' : 'green'}
-                >
-                    {lifecycleLabel(notice) ||
-                        (p.progress === 100
-                            ? '준비 기록 완료'
-                            : '신청 준비 중')}
-                </Status>
-            </div>
+            {notice && (
+                <div className={styles.status}>
+                    <ApplicationBadge notice={notice} />
+                </div>
+            )}
             <div
                 className={styles.title}
                 data-title-disclosure={!!titleContent}
@@ -44,16 +47,19 @@ export function PreparationIdentity({
                 {titleContent}
                 <Link
                     className={styles.identityLink}
-                    to={'/notices/' + p.noticeId}
-                    state={entryState}
+                    to={detailReturn?.to ?? '/notices/' + p.noticeId}
+                    state={detailReturn?.state ?? entryState}
                 >
-                    {!titleContent && <h2>{p.title}</h2>}
+                    {!titleContent && (
+                        <h2 title={p.title}>{noticeListTitle(p.title)}</h2>
+                    )}
                     <span className={styles.noticeLink}>
                         <span>
-                            {notice
-                                ? notice.agency + ' · ' + notice.region
-                                : '공고 정보 확인 중'}
-                            {' · 안내 v' + p.version}
+                            {notice ? (
+                                <AgencyHousingSummary notice={notice} />
+                            ) : (
+                                '공고 정보 확인 중'
+                            )}
                         </span>
                         <Icon name="arrow" />
                     </span>
@@ -68,12 +74,12 @@ export function PreparationIdentity({
                         lifecycleLabel(notice) ||
                         (notice?.status === 'CLOSED' ? '신청 마감' : undefined)
                     }
-                    date={notice ? applicationDate(notice, 'end') : undefined}
+                    date={source ? applicationDate(source, 'end') : undefined}
                     dateLabel={preparationDeadlineLabel(
-                        notice ? applicationDate(notice, 'end') : undefined,
-                        notice?.applicationTiming
+                        source ? applicationDate(source, 'end') : undefined,
+                        source?.applicationTiming
                             ? []
-                            : currentPreparationSchedules(p, notice),
+                            : currentPreparationSchedules(p, source),
                     )}
                 />
             </div>

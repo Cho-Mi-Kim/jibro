@@ -1,0 +1,64 @@
+.answer {
+    min-width: 0;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+.recheck {
+    margin-bottom: 1rem;
+    padding: 0.875rem;
+    border-radius: 0.5rem;
+    background: var(--warning-soft);
+    color: var(--warning);
+    font-size: 0.875rem;
+}
+.recheck strong {
+    display: block;
+}
+.recheck p {
+    margin: 0.375rem 0 0;
+}
+.recheckDates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+}
+.body p {
+    margin: 0;
+    white-space: pre-line;
+}
+.body > * + * {
+    margin-top: 0.75rem;
+}
+.body ul,
+.body ol {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+}
+.body li + li {
+    margin-top: 0.375rem;
+}
+.body li,
+.scope {
+    white-space: pre-line;
+}
+.scope {
+    margin: 1rem 0 0;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: var(--theme-accent-soft, #fbefea);
+    font-size: 0.875rem;
+}
+.scope strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.sources {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--theme-line, #e1e3e8);
+}
+.sources > strong {
+    font-size: 0.875rem;
+}

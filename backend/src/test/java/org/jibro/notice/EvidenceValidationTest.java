@@ -15,7 +15,7 @@ class EvidenceValidationTest {
     void preservesMissingAddressAndOriginalDateWithoutInventingVerification() {
         assertDoesNotThrow(() -> EvidenceValidation.validate(new Evidence("공고문 4쪽", null, "2026-11-01"), today));
         assertDoesNotThrow(() -> EvidenceValidation.validate(new Evidence("공고문 4쪽",
-            "https://apply.lh.or.kr/file?id=1#page=4", "2026-11-07"), today));
+                "https://apply.lh.or.kr/file?id=1#page=4", "2026-11-07"), today));
     }
 
     @Test
@@ -28,7 +28,7 @@ class EvidenceValidationTest {
     @Test
     void onlyAcceptsHttpsWithoutCredentialsOrAlternatePorts() {
         for (String url : List.of("http://apply.lh.or.kr/", "https://user@apply.lh.or.kr/",
-            "https://apply.lh.or.kr:8443/", "javascript:alert(1)", "file:///tmp/a"))
+                "https://apply.lh.or.kr:8443/", "javascript:alert(1)", "file:///tmp/a"))
             assertThrows(IllegalArgumentException.class, () -> EvidenceValidation.validateUrl(url));
     }
 }

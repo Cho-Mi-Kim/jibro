@@ -1,6 +1,7 @@
 import { cx } from '../../shared/styles/classes';
 import { Link } from 'react-router';
 import type { PreparationListItem } from '../housing/types';
+import { noticeListTitle } from '../housing/noticeDisplay';
 import { Disc } from '../../shared/ui/Disc';
 import { Icon } from '../../shared/ui/Icon';
 import styles from './PreparationHeader.module.css';
@@ -39,13 +40,15 @@ export function PreparationHeader({
                             onChange={(event) => onSelect(event.target.value)}
                         >
                             {preparations.map((p) => (
-                                <option key={p.id} value={p.id}>
-                                    {p.title}
+                                <option key={p.id} value={p.id} title={p.title}>
+                                    {noticeListTitle(p.title)}
                                 </option>
                             ))}
                         </select>
                         <Link to="/archive">
-                            완료 여정 보관함 <Icon name="arrow" />
+                            <Icon name="bookmark" />
+                            <span>완료 여정 보관함</span>
+                            <Icon name="arrow" />
                         </Link>
                     </div>
                 </details>

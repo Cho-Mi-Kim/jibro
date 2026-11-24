@@ -1,4 +1,4 @@
-@value notice-source, evidence, meta-dates, deadline, date-value, notice-context from "./NoticeFactsClassNames.module.css";
+@value notice-source, meta-dates, deadline, date-value, notice-context from "./NoticeFactsClassNames.module.css";
 @value row, explanation-card from "../../shared/styles/PrimitivesClassNames.module.css";
 .notice-source {
     margin-top: 14px;
@@ -8,82 +8,6 @@
 }
 .notice-source a {
     color: var(--brand);
-}
-.evidence {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    font-size: 0.8125rem;
-    color: var(--theme-muted, #667084);
-    padding: 16px 0 0;
-    margin: 14px 0;
-}
-.evidence a {
-    color: var(--brand);
-    font-weight: 650;
-}
-.meta-dates {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr 1fr 1.2fr;
-    margin: 24px 0 0;
-    gap: 18px;
-}
-.meta-dates > div {
-    border-left: 1px solid var(--theme-line, #e4e5ea);
-    padding-left: 18px;
-    min-width: 0;
-}
-.meta-dates > div:first-child {
-    padding-left: 0;
-    border: 0;
-}
-.meta-dates dt {
-    color: var(--theme-muted, #667084);
-    font-size: 0.8125rem;
-    margin-bottom: 6px;
-}
-.meta-dates dd {
-    margin: 0;
-    font-size: 0.9375rem;
-    overflow-wrap: anywhere;
-}
-.deadline strong {
-    color: var(--ink);
-    display: block;
-    font-size: 2.25rem;
-    margin: 12px 0 4px;
-}
-.deadline[data-today='true'] strong {
-    color: var(--warning);
-}
-.deadline h3 {
-    color: var(--ink);
-    margin-bottom: 6px;
-}
-.deadline p {
-    color: var(--theme-muted, #697286);
-    font-size: 1.25rem;
-}
-@media (max-width: 1023px) {
-    .meta-dates {
-        gap: 8px;
-    }
-    .meta-dates > div {
-        padding-left: 8px;
-    }
-    .meta-dates dt {
-        font-size: 0.6875rem;
-    }
-    .meta-dates dd {
-        font-size: 0.75rem;
-    }
-}
-@media (max-width: 400px) {
-    .meta-dates {
-        grid-template-columns: 1fr 1.5fr;
-        row-gap: 14px;
-    }
 }
 .date-value {
     overflow-wrap: anywhere;
@@ -131,15 +55,21 @@
     }
 }
 
+.statusRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+}
 .guide-indicator {
     position: relative;
     z-index: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    flex: 0 0 24px;
+    width: var(--guide-size, 24px);
+    height: var(--guide-size, 24px);
+    flex: 0 0 var(--guide-size, 24px);
     border-radius: 50%;
     color: #fff;
 }
@@ -156,6 +86,7 @@
 .guide-indicator svg {
     width: 16px;
     height: 16px;
+    stroke-width: 2.5;
 }
 
 .guide-toggle {
@@ -165,8 +96,8 @@
     justify-content: flex-end;
     gap: 6px;
     padding: 4px;
-    width: 32px;
-    flex: 0 0 32px;
+    width: calc(var(--guide-size, 24px) + 8px);
+    flex: 0 0 auto;
     min-height: 32px;
     border: 0;
     border-radius: 18px;
@@ -196,8 +127,8 @@
     transform: translateY(-50%);
     z-index: 0;
     width: max-content;
-    max-width: min(260px, calc(100vw - 100px));
-    min-height: 32px;
+    max-width: min(260px, calc(100vw - 100px), var(--guide-label-limit, 100vw));
+    min-height: var(--guide-size, 32px);
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -218,6 +149,9 @@
     opacity: 1;
     clip-path: inset(0 0 0 0 round 18px);
     pointer-events: auto;
+}
+.guide-toggle[aria-expanded='true'] {
+    z-index: 2;
 }
 @media (prefers-reduced-motion: reduce) {
     .guide-label {

@@ -1,20 +1,47 @@
 import type {
     DocumentItem,
     DocumentTemplate,
+    Notice,
     Question,
     Preparation,
 } from './types';
 import { conditionOverview } from './conditionOverview';
 import { answerOptions } from './questions';
-import { summarySentences } from './supportSummaryRows';
-import { documentReviewIssues } from './reviewIssueSelectors';
+import { documentInstructions } from './documentInstructions';
+import {
+    documentReviewIssues,
+    officialReviewLabel,
+} from './reviewIssueSelectors';
 import { safeUrl } from '../../shared/ui/helpers';
 import { onlineIssuanceLinks } from './onlineIssuance';
+import { noticeSummaryText } from './summaryTone';
 
 type DocumentRule = Pick<
     DocumentTemplate,
     'conditionQuestionId' | 'conditionAnswerValues'
 >;
+type DocumentListing = Pick<DocumentTemplate, 'id' | 'title'> & {
+    group: 'common' | 'conditional' | 'unspecified';
+};
+const listedNecessity = {
+    common: 'REQUIRED',
+    conditional: 'CONDITIONAL',
+    unspecified: undefined,
+} as const;
+
+// Older notices can have names without templates. Only use a group if its
+// published summary identifies this name unambiguously within the same notice.
+export function listedDocument(title: string, notice: Notice): DocumentListing {
+    const groups = ['common', 'conditional'] as const;
+    const matches = groups.flatMap((group) =>
+        (notice.documentSummary?.[group].items ?? [])
+            .filter((item) => item.title === title)
+            .map((item) => ({ id: item.id, title, group })),
+    );
+    return matches.length === 1
+        ? matches[0]
+        : { id: title, title, group: 'unspecified' };
+}
 type DocumentContext = Pick<
     Preparation,
     | 'questions'
@@ -49,35 +76,24 @@ function audienceConditions(question: Question, template: DocumentRule) {
     });
 }
 
-function issuanceInstruction(method: string) {
-    const sentences = summarySentences(method).flatMap((sentence) =>
-        sentence.split(/(?<=(?:발급|제외|서명|제출|날인)\.)\s+/u),
-    );
-    const specific = sentences.filter(
-        (sentence) =>
-            sentence !== '공고일 이후 발급 기준을 확인하세요.' &&
-            sentence !== '공고의 해당자 제출 기준을 확인하세요.',
-    );
-    if (!specific.length)
-        return sentences.find(
-            (sentence) => sentence === '공고일 이후 발급 기준을 확인하세요.',
-        );
-    const [first, next] = specific;
-    return next &&
-        /미만|제외|생략|열람용/.test(next) &&
-        first.length + next.length < 85
-        ? first + ' ' + next
-        : first;
-}
-
 export function documentSummary(
-    document: DocumentItem | DocumentTemplate,
+    input: DocumentItem | DocumentTemplate | DocumentListing,
     context: DocumentContext,
     {
         template,
         historical = false,
     }: { template?: DocumentRule; historical?: boolean } = {},
 ) {
+    const document =
+        'group' in input
+            ? {
+                  ...input,
+                  necessity: listedNecessity[input.group],
+                  issuer: '',
+                  method: '',
+                  issueUrl: null,
+              }
+            : input;
     const rule =
         template ??
         ('necessity' in document
@@ -116,15 +132,17 @@ export function documentSummary(
         criteria.slice(0, 2).join(' 또는 ') +
         (criteria.length > 2 ? ` 외 ${criteria.length - 2}개 유형` : '');
     const audience = needsReview
-        ? '공식 확인 필요'
-        : necessity === 'REQUIRED'
-          ? '모든 신청자'
-          : necessity === 'UNKNOWN'
-            ? ['해당 여부 추가 확인', who].filter(Boolean).join(' · ')
-            : who ||
-              (necessity === 'NOT_APPLICABLE'
-                  ? '당시 해당 없음'
-                  : '공고의 해당자 제출 기준을 충족하는 신청자');
+        ? officialReviewLabel
+        : !necessity
+          ? '공식 공고에서 제출 대상 확인'
+          : necessity === 'REQUIRED'
+            ? '모든 신청자'
+            : necessity === 'UNKNOWN'
+              ? ['해당 여부 추가 확인', who].filter(Boolean).join(' · ')
+              : who ||
+                (necessity === 'NOT_APPLICABLE'
+                    ? '당시 해당 없음'
+                    : '공고의 해당자 제출 기준을 충족하는 신청자');
 
     // Archived records can use only the issuance route stored with that version.
     const links =
@@ -134,18 +152,59 @@ export function documentSummary(
     const issuer = document.issuer?.trim();
     const channel =
         issuer && issuer !== '공고문 기재 발급처' ? issuer : links[0]?.label;
-    const instruction = issuanceInstruction(document.method ?? '');
+    const {
+        instruction,
+        details,
+        audience: describedAudience,
+    } = documentInstructions(document.method ?? '');
     const how =
         [channel, instruction].filter(Boolean).join(' · ') ||
         (historical
             ? '당시 발급 방법 기록 없음'
             : '공식 공고의 발급 안내 확인');
     return {
-        audience,
-        method: methodNeedsReview ? '공식 근거에서 발급 기준 확인' : how,
+        audience: noticeSummaryText(
+            !needsReview &&
+                (describedAudience.length || criteria.length > 2) &&
+                necessity === 'UNKNOWN'
+                ? '해당 여부 추가 확인'
+                : !needsReview &&
+                    (describedAudience.length || criteria.length > 2) &&
+                    necessity === 'NOT_APPLICABLE'
+                  ? '당시 해당 없음'
+                  : !needsReview && describedAudience.length
+                    ? '공고에 명시된 제출 대상'
+                    : !needsReview && criteria.length > 2
+                      ? '다음 중 하나에 해당하는 신청자'
+                      : audience,
+            context,
+        ),
+        method: noticeSummaryText(
+            methodNeedsReview ? '공식 근거에서 발급 기준 확인' : how,
+            context,
+        ),
+        methodDetails: methodNeedsReview
+            ? []
+            : details.map((text) => noticeSummaryText(text, context)),
+        fullMethodShown:
+            !methodNeedsReview && (!describedAudience.length || !needsReview),
+        audienceDetails: needsReview
+            ? []
+            : [
+                  ...new Set([
+                      ...(criteria.length > 2 ? criteria : []),
+                      ...describedAudience,
+                  ]),
+              ].map((text) => noticeSummaryText(text, context)),
         criteria,
+        needsReview: !!needsReview,
+        historical,
         issues,
-        links,
+        links: links.map((link) =>
+            link.note
+                ? { ...link, note: noticeSummaryText(link.note, context) }
+                : link,
+        ),
         issuer,
         question,
     };
